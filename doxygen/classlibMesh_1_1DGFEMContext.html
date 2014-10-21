@@ -8,6 +8,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="../styles.css" rel="stylesheet" type="text/css" />
 <link href="doxygen_stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -505,8 +506,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ab9b47e88ff95d5cf8ca5375ef1bcc611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6b7d5b924851c14c06706b6aaccf495"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classlibMesh_1_1FEAbstract.html">FEAbstract</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMContext.html#af6b7d5b924851c14c06706b6aaccf495">_edge_fe_var</a></td></tr>
 <tr class="separator:af6b7d5b924851c14c06706b6aaccf495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3c63ca5dab95571e20ccbfec348ac88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMContext.html#ae3c63ca5dab95571e20ccbfec348ac88">_boundary_info</a></td></tr>
-<tr class="separator:ae3c63ca5dab95571e20ccbfec348ac88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad70b754ced93c56e254d101ae5ee3989"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMContext.html#ad70b754ced93c56e254d101ae5ee3989">_boundary_info</a></td></tr>
+<tr class="separator:ad70b754ced93c56e254d101ae5ee3989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c091a92af7281bf8875c90480182e09"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">elem</a></td></tr>
 <tr class="separator:a4c091a92af7281bf8875c90480182e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f3b4c6fec7a890efe1ceebcec8ad2e9"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMContext.html#a0f3b4c6fec7a890efe1ceebcec8ad2e9">dim</a></td></tr>
@@ -5050,9 +5051,9 @@ template&lt;typename OutputShape &gt; </div>
 
 <p>References <a class="el" href="fem__context_8h_source.html#l00712">libMesh::FEMContext::_boundary_info</a>, <a class="el" href="fem__context_8h_source.html#l00717">libMesh::FEMContext::elem</a>, <a class="el" href="boundary__info_8C_source.html#l00794">libMesh::BoundaryInfo::has_boundary_id()</a>, and <a class="el" href="fem__context_8h_source.html#l00677">libMesh::FEMContext::side</a>.</p>
 <div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMContext.html#ae3c63ca5dab95571e20ccbfec348ac88">_boundary_info</a>-&gt;<a class="code" href="classlibMesh_1_1BoundaryInfo.html#ac06d51bb490b5b84ff92b46ed489b980">has_boundary_id</a>(<a class="code" href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">elem</a>, <a class="code" href="classlibMesh_1_1FEMContext.html#a59d031054af8f000ebe3874b0a944410">side</a>, <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMContext.html#ad70b754ced93c56e254d101ae5ee3989">_boundary_info</a>.<a class="code" href="classlibMesh_1_1BoundaryInfo.html#ac06d51bb490b5b84ff92b46ed489b980">has_boundary_id</a>(<a class="code" href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">elem</a>, <a class="code" href="classlibMesh_1_1FEMContext.html#a59d031054af8f000ebe3874b0a944410">side</a>, <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1FEMContext_html_ae3c63ca5dab95571e20ccbfec348ac88"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#ae3c63ca5dab95571e20ccbfec348ac88">libMesh::FEMContext::_boundary_info</a></div><div class="ttdeci">BoundaryInfo * _boundary_info</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00712">fem_context.h:712</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMContext_html_ad70b754ced93c56e254d101ae5ee3989"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#ad70b754ced93c56e254d101ae5ee3989">libMesh::FEMContext::_boundary_info</a></div><div class="ttdeci">const BoundaryInfo &amp; _boundary_info</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00712">fem_context.h:712</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEMContext_html_a59d031054af8f000ebe3874b0a944410"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#a59d031054af8f000ebe3874b0a944410">libMesh::FEMContext::side</a></div><div class="ttdeci">unsigned char side</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00677">fem_context.h:677</a></div></div>
 <div class="ttc" id="classlibMesh_1_1BoundaryInfo_html_ac06d51bb490b5b84ff92b46ed489b980"><div class="ttname"><a href="classlibMesh_1_1BoundaryInfo.html#ac06d51bb490b5b84ff92b46ed489b980">libMesh::BoundaryInfo::has_boundary_id</a></div><div class="ttdeci">bool has_boundary_id(const Node *const node, const boundary_id_type id) const </div><div class="ttdef"><b>Definition:</b> <a href="boundary__info_8C_source.html#l00794">boundary_info.C:794</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEMContext_html_a4c091a92af7281bf8875c90480182e09"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">libMesh::FEMContext::elem</a></div><div class="ttdeci">const Elem * elem</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00717">fem_context.h:717</a></div></div>
@@ -7056,10 +7057,10 @@ template&lt;typename OutputType &gt; </div>
 
 <p>References <a class="el" href="fem__context_8h_source.html#l00712">libMesh::FEMContext::_boundary_info</a>, <a class="el" href="boundary__info_8C_source.html#l00811">libMesh::BoundaryInfo::boundary_ids()</a>, <a class="el" href="fem__context_8h_source.html#l00717">libMesh::FEMContext::elem</a>, and <a class="el" href="fem__context_8h_source.html#l00677">libMesh::FEMContext::side</a>.</p>
 <div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;{</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMContext.html#ae3c63ca5dab95571e20ccbfec348ac88">_boundary_info</a>-&gt;<a class="code" href="classlibMesh_1_1BoundaryInfo.html#a2fde3472f5d76e93884211ccb1263856">boundary_ids</a>(<a class="code" href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">elem</a>, <a class="code" href="classlibMesh_1_1FEMContext.html#a59d031054af8f000ebe3874b0a944410">side</a>);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMContext.html#ad70b754ced93c56e254d101ae5ee3989">_boundary_info</a>.<a class="code" href="classlibMesh_1_1BoundaryInfo.html#a2fde3472f5d76e93884211ccb1263856">boundary_ids</a>(<a class="code" href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">elem</a>, <a class="code" href="classlibMesh_1_1FEMContext.html#a59d031054af8f000ebe3874b0a944410">side</a>);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1BoundaryInfo_html_a2fde3472f5d76e93884211ccb1263856"><div class="ttname"><a href="classlibMesh_1_1BoundaryInfo.html#a2fde3472f5d76e93884211ccb1263856">libMesh::BoundaryInfo::boundary_ids</a></div><div class="ttdeci">std::vector&lt; boundary_id_type &gt; boundary_ids(const Node *node) const </div><div class="ttdef"><b>Definition:</b> <a href="boundary__info_8C_source.html#l00811">boundary_info.C:811</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEMContext_html_ae3c63ca5dab95571e20ccbfec348ac88"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#ae3c63ca5dab95571e20ccbfec348ac88">libMesh::FEMContext::_boundary_info</a></div><div class="ttdeci">BoundaryInfo * _boundary_info</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00712">fem_context.h:712</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMContext_html_ad70b754ced93c56e254d101ae5ee3989"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#ad70b754ced93c56e254d101ae5ee3989">libMesh::FEMContext::_boundary_info</a></div><div class="ttdeci">const BoundaryInfo &amp; _boundary_info</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00712">fem_context.h:712</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEMContext_html_a59d031054af8f000ebe3874b0a944410"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#a59d031054af8f000ebe3874b0a944410">libMesh::FEMContext::side</a></div><div class="ttdeci">unsigned char side</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00677">fem_context.h:677</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEMContext_html_a4c091a92af7281bf8875c90480182e09"><div class="ttname"><a href="classlibMesh_1_1FEMContext.html#a4c091a92af7281bf8875c90480182e09">libMesh::FEMContext::elem</a></div><div class="ttdeci">const Elem * elem</div><div class="ttdef"><b>Definition:</b> <a href="fem__context_8h_source.html#l00717">fem_context.h:717</a></div></div>
 </div><!-- fragment -->
@@ -7744,7 +7745,7 @@ template&lt;typename OutputType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ae3c63ca5dab95571e20ccbfec348ac88"></a>
+<a class="anchor" id="ad70b754ced93c56e254d101ae5ee3989"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -7752,7 +7753,7 @@ template&lt;typename OutputType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a>* libMesh::FEMContext::_boundary_info</td>
+          <td class="memname">const <a class="el" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a>&amp; libMesh::FEMContext::_boundary_info</td>
         </tr>
       </table>
   </td>
@@ -7761,7 +7762,7 @@ template&lt;typename OutputType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Saved pointer to <a class="el" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a> on the mesh for this <a class="el" href="classlibMesh_1_1System.html">System</a>. Used to answer boundary id requests. </p>
+<p>Saved reference to <a class="el" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a> on the mesh for this <a class="el" href="classlibMesh_1_1System.html">System</a>. Used to answer boundary id requests. </p>
 
 <p>Definition at line <a class="el" href="fem__context_8h_source.html#l00712">712</a> of file <a class="el" href="fem__context_8h_source.html">fem_context.h</a>.</p>
 
