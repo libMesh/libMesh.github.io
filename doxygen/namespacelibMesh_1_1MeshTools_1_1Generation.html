@@ -1597,114 +1597,114 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Meshes a rectangular (2D) region (with or without holes) with a Delaunay triangulation. This function internally calls the triangle library written by J.R. Shewchuk. </p>
 
-<p>Definition at line <a class="el" href="mesh__generation_8C_source.html#l02200">2200</a> of file <a class="el" href="mesh__generation_8C_source.html">mesh_generation.C</a>.</p>
+<p>Definition at line <a class="el" href="mesh__generation_8C_source.html#l02201">2201</a> of file <a class="el" href="mesh__generation_8C_source.html">mesh_generation.C</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">libMesh::MeshBase::add_point()</a>, <a class="el" href="boundary__info_8C_source.html#l00697">libMesh::BoundaryInfo::add_side()</a>, <a class="el" href="mesh__triangle__interface_8h_source.html#l00154">libMesh::TriangleInterface::attach_hole_list()</a>, <a class="el" href="xdr__io_8C_source.html#l00051">bc_id</a>, <a class="el" href="classlibMesh_1_1Elem.html#adf633f222ddcbe450345c98c68050fda">libMesh::Elem::build_side()</a>, <a class="el" href="mesh__base_8C_source.html#l00190">libMesh::MeshBase::clear()</a>, <a class="el" href="mesh__triangle__interface_8h_source.html#l00121">libMesh::TriangleInterface::desired_area()</a>, <a class="el" href="mesh__triangle__interface_8h_source.html#l00115">libMesh::TriangleInterface::elem_type()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#ac266e1f5eb6ac9566ccbd7e6add6c239">libMesh::MeshBase::elements_begin()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#ae94f1bce0dc50c489c6bae9ba64d06e8">libMesh::MeshBase::elements_end()</a>, <a class="el" href="mesh__base_8h_source.html#l00113">libMesh::MeshBase::get_boundary_info()</a>, <a class="el" href="dof__object_8h_source.html#l00618">libMesh::DofObject::id()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a5b76b109bc6bd087c981774897aa6167">libMesh::MeshBase::n_nodes()</a>, <a class="el" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides()</a>, <a class="el" href="elem_8h_source.html#l01424">libMesh::Elem::neighbor()</a>, <a class="el" href="mesh__triangle__interface_8h_source.html#l00089">libMesh::TriangleInterface::PSLG</a>, <a class="el" href="libmesh__common_8h_source.html#l00119">libMesh::Real</a>, <a class="el" href="mesh__base_8h_source.html#l00164">libMesh::MeshBase::set_mesh_dimension()</a>, <a class="el" href="xdr__io_8C_source.html#l00050">side</a>, <a class="el" href="libmesh__common_8h_source.html#l00127">libMesh::TOLERANCE</a>, <a class="el" href="mesh__triangle__interface_8C_source.html#l00059">libMesh::TriangleInterface::triangulate()</a>, and <a class="el" href="mesh__triangle__interface_8h_source.html#l00137">libMesh::TriangleInterface::triangulation_type()</a>.</p>
-<div class="fragment"><div class="line"><a name="l02207"></a><span class="lineno"> 2207</span>&#160;{</div>
-<div class="line"><a name="l02208"></a><span class="lineno"> 2208</span>&#160;  <span class="comment">// Check for reasonable size</span></div>
-<div class="line"><a name="l02209"></a><span class="lineno"> 2209</span>&#160;  libmesh_assert_greater_equal (nx, 1); <span class="comment">// need at least 1 element in x-direction</span></div>
-<div class="line"><a name="l02210"></a><span class="lineno"> 2210</span>&#160;  libmesh_assert_greater_equal (ny, 1); <span class="comment">// need at least 1 element in y-direction</span></div>
-<div class="line"><a name="l02211"></a><span class="lineno"> 2211</span>&#160;  libmesh_assert_less (xmin, xmax);</div>
-<div class="line"><a name="l02212"></a><span class="lineno"> 2212</span>&#160;  libmesh_assert_less (ymin, ymax);</div>
-<div class="line"><a name="l02213"></a><span class="lineno"> 2213</span>&#160;</div>
-<div class="line"><a name="l02214"></a><span class="lineno"> 2214</span>&#160;  <span class="comment">// Clear out any data which may have been in the Mesh</span></div>
-<div class="line"><a name="l02215"></a><span class="lineno"> 2215</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.clear();</div>
-<div class="line"><a name="l02216"></a><span class="lineno"> 2216</span>&#160;</div>
-<div class="line"><a name="l02217"></a><span class="lineno"> 2217</span>&#160;  BoundaryInfo&amp; boundary_info = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.get_boundary_info();</div>
-<div class="line"><a name="l02218"></a><span class="lineno"> 2218</span>&#160;</div>
-<div class="line"><a name="l02219"></a><span class="lineno"> 2219</span>&#160;  <span class="comment">// Make sure the new Mesh will be 2D</span></div>
-<div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.set_mesh_dimension(2);</div>
-<div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160;</div>
-<div class="line"><a name="l02222"></a><span class="lineno"> 2222</span>&#160;  <span class="comment">// The x and y spacing between boundary points</span></div>
-<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> delta_x = (xmax-xmin) / static_cast&lt;Real&gt;(nx);</div>
-<div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> delta_y = (ymax-ymin) / static_cast&lt;Real&gt;(ny);</div>
-<div class="line"><a name="l02225"></a><span class="lineno"> 2225</span>&#160;</div>
-<div class="line"><a name="l02226"></a><span class="lineno"> 2226</span>&#160;  <span class="comment">// Bottom</span></div>
-<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;=nx; ++p)</div>
-<div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmin + p*delta_x, ymin));</div>
-<div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;</div>
-<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;  <span class="comment">// Right side</span></div>
-<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=1; p&lt;ny; ++p)</div>
-<div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmax, ymin + p*delta_y));</div>
-<div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160;</div>
-<div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;  <span class="comment">// Top</span></div>
-<div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;=nx; ++p)</div>
-<div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmax - p*delta_x, ymax));</div>
-<div class="line"><a name="l02237"></a><span class="lineno"> 2237</span>&#160;</div>
-<div class="line"><a name="l02238"></a><span class="lineno"> 2238</span>&#160;  <span class="comment">// Left side</span></div>
-<div class="line"><a name="l02239"></a><span class="lineno"> 2239</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=1; p&lt;ny; ++p)</div>
-<div class="line"><a name="l02240"></a><span class="lineno"> 2240</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmin,  ymax - p*delta_y));</div>
-<div class="line"><a name="l02241"></a><span class="lineno"> 2241</span>&#160;</div>
-<div class="line"><a name="l02242"></a><span class="lineno"> 2242</span>&#160;  <span class="comment">// Be sure we added as many points as we thought we did</span></div>
-<div class="line"><a name="l02243"></a><span class="lineno"> 2243</span>&#160;  libmesh_assert_equal_to (<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.n_nodes(), 2*(nx+ny));</div>
-<div class="line"><a name="l02244"></a><span class="lineno"> 2244</span>&#160;</div>
-<div class="line"><a name="l02245"></a><span class="lineno"> 2245</span>&#160;  <span class="comment">// Construct the Triangle Interface object</span></div>
-<div class="line"><a name="l02246"></a><span class="lineno"> 2246</span>&#160;  TriangleInterface t(<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>);</div>
-<div class="line"><a name="l02247"></a><span class="lineno"> 2247</span>&#160;</div>
-<div class="line"><a name="l02248"></a><span class="lineno"> 2248</span>&#160;  <span class="comment">// Set custom variables for the triangulation</span></div>
-<div class="line"><a name="l02249"></a><span class="lineno"> 2249</span>&#160;  t.desired_area()       = 0.5 * (xmax-xmin)*(ymax-ymin) / <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(nx*ny);</div>
-<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160;  t.triangulation_type() = TriangleInterface::PSLG;</div>
-<div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160;  t.elem_type()          = type;</div>
-<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;</div>
-<div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160;  <span class="keywordflow">if</span> (holes != NULL)</div>
-<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160;    t.attach_hole_list(holes);</div>
-<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160;</div>
-<div class="line"><a name="l02256"></a><span class="lineno"> 2256</span>&#160;  <span class="comment">// Triangulate!</span></div>
-<div class="line"><a name="l02257"></a><span class="lineno"> 2257</span>&#160;  t.triangulate();</div>
-<div class="line"><a name="l02258"></a><span class="lineno"> 2258</span>&#160;</div>
-<div class="line"><a name="l02259"></a><span class="lineno"> 2259</span>&#160;  <span class="comment">// The mesh is now generated, but we still need to mark the boundaries</span></div>
-<div class="line"><a name="l02260"></a><span class="lineno"> 2260</span>&#160;  <span class="comment">// to be consistent with the other build_square routines.  Note that all</span></div>
-<div class="line"><a name="l02261"></a><span class="lineno"> 2261</span>&#160;  <span class="comment">// hole boundary elements get the same ID, 4.</span></div>
-<div class="line"><a name="l02262"></a><span class="lineno"> 2262</span>&#160;  MeshBase::element_iterator       el     = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.elements_begin();</div>
-<div class="line"><a name="l02263"></a><span class="lineno"> 2263</span>&#160;  <span class="keyword">const</span> MeshBase::element_iterator end_el = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.elements_end();</div>
-<div class="line"><a name="l02264"></a><span class="lineno"> 2264</span>&#160;  <span class="keywordflow">for</span> ( ; el != end_el; ++el)</div>
-<div class="line"><a name="l02265"></a><span class="lineno"> 2265</span>&#160;    {</div>
-<div class="line"><a name="l02266"></a><span class="lineno"> 2266</span>&#160;      <span class="keyword">const</span> Elem* elem = *el;</div>
-<div class="line"><a name="l02267"></a><span class="lineno"> 2267</span>&#160;</div>
-<div class="line"><a name="l02268"></a><span class="lineno"> 2268</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;n_sides(); s++)</div>
-<div class="line"><a name="l02269"></a><span class="lineno"> 2269</span>&#160;        <span class="keywordflow">if</span> (elem-&gt;neighbor(s) == NULL)</div>
-<div class="line"><a name="l02270"></a><span class="lineno"> 2270</span>&#160;          {</div>
-<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;            AutoPtr&lt;Elem&gt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a> (elem-&gt;build_side(s));</div>
-<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160;</div>
-<div class="line"><a name="l02273"></a><span class="lineno"> 2273</span>&#160;            <span class="comment">// Check the location of the side&#39;s midpoint.  Since</span></div>
-<div class="line"><a name="l02274"></a><span class="lineno"> 2274</span>&#160;            <span class="comment">// the square has straight sides, the midpoint is not</span></div>
-<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;            <span class="comment">// on the corner and thus it is uniquely on one of the</span></div>
-<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160;            <span class="comment">// sides.</span></div>
-<div class="line"><a name="l02277"></a><span class="lineno"> 2277</span>&#160;            Point side_midpoint= 0.5f*( (*<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;get_node(0)) + (*<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;get_node(1)) );</div>
-<div class="line"><a name="l02278"></a><span class="lineno"> 2278</span>&#160;</div>
-<div class="line"><a name="l02279"></a><span class="lineno"> 2279</span>&#160;            <span class="comment">// The boundary ids are set following the same convention as Quad4 sides</span></div>
-<div class="line"><a name="l02280"></a><span class="lineno"> 2280</span>&#160;            <span class="comment">// bottom = 0</span></div>
-<div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;            <span class="comment">// right  = 1</span></div>
-<div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160;            <span class="comment">// top = 2</span></div>
-<div class="line"><a name="l02283"></a><span class="lineno"> 2283</span>&#160;            <span class="comment">// left = 3</span></div>
-<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160;            <span class="comment">// hole = 4</span></div>
-<div class="line"><a name="l02285"></a><span class="lineno"> 2285</span>&#160;            <a class="code" href="namespacelibMesh.html#a3f4d8a52b5ef6ff6156ca209e12b5564">boundary_id_type</a> <a class="code" href="xdr__io_8C.html#a7b966a996f9a3159d0be57a9c2e55df3">bc_id</a>=4;</div>
-<div class="line"><a name="l02286"></a><span class="lineno"> 2286</span>&#160;</div>
-<div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160;            <span class="comment">// bottom</span></div>
-<div class="line"><a name="l02288"></a><span class="lineno"> 2288</span>&#160;            <span class="keywordflow">if</span>      (std::fabs(side_midpoint(1) - ymin) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
-<div class="line"><a name="l02289"></a><span class="lineno"> 2289</span>&#160;              bc_id=0;</div>
-<div class="line"><a name="l02290"></a><span class="lineno"> 2290</span>&#160;</div>
-<div class="line"><a name="l02291"></a><span class="lineno"> 2291</span>&#160;            <span class="comment">// right</span></div>
-<div class="line"><a name="l02292"></a><span class="lineno"> 2292</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (std::fabs(side_midpoint(0) - xmax) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
-<div class="line"><a name="l02293"></a><span class="lineno"> 2293</span>&#160;              bc_id=1;</div>
-<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;</div>
-<div class="line"><a name="l02295"></a><span class="lineno"> 2295</span>&#160;            <span class="comment">// top</span></div>
-<div class="line"><a name="l02296"></a><span class="lineno"> 2296</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (std::fabs(side_midpoint(1) - ymax) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
-<div class="line"><a name="l02297"></a><span class="lineno"> 2297</span>&#160;              bc_id=2;</div>
-<div class="line"><a name="l02298"></a><span class="lineno"> 2298</span>&#160;</div>
-<div class="line"><a name="l02299"></a><span class="lineno"> 2299</span>&#160;            <span class="comment">// left</span></div>
-<div class="line"><a name="l02300"></a><span class="lineno"> 2300</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (std::fabs(side_midpoint(0) - xmin) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
-<div class="line"><a name="l02301"></a><span class="lineno"> 2301</span>&#160;              bc_id=3;</div>
-<div class="line"><a name="l02302"></a><span class="lineno"> 2302</span>&#160;</div>
-<div class="line"><a name="l02303"></a><span class="lineno"> 2303</span>&#160;            <span class="comment">// If the point is not on any of the external boundaries, it</span></div>
-<div class="line"><a name="l02304"></a><span class="lineno"> 2304</span>&#160;            <span class="comment">// is on one of the holes....</span></div>
-<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;</div>
-<div class="line"><a name="l02306"></a><span class="lineno"> 2306</span>&#160;            <span class="comment">// Finally, add this element&#39;s information to the boundary info object.</span></div>
-<div class="line"><a name="l02307"></a><span class="lineno"> 2307</span>&#160;            boundary_info.add_side(elem-&gt;id(), s, <a class="code" href="xdr__io_8C.html#a7b966a996f9a3159d0be57a9c2e55df3">bc_id</a>);</div>
-<div class="line"><a name="l02308"></a><span class="lineno"> 2308</span>&#160;          }</div>
-<div class="line"><a name="l02309"></a><span class="lineno"> 2309</span>&#160;    }</div>
-<div class="line"><a name="l02310"></a><span class="lineno"> 2310</span>&#160;</div>
-<div class="line"><a name="l02311"></a><span class="lineno"> 2311</span>&#160;} <span class="comment">// end build_delaunay_square</span></div>
+<div class="fragment"><div class="line"><a name="l02208"></a><span class="lineno"> 2208</span>&#160;{</div>
+<div class="line"><a name="l02209"></a><span class="lineno"> 2209</span>&#160;  <span class="comment">// Check for reasonable size</span></div>
+<div class="line"><a name="l02210"></a><span class="lineno"> 2210</span>&#160;  libmesh_assert_greater_equal (nx, 1); <span class="comment">// need at least 1 element in x-direction</span></div>
+<div class="line"><a name="l02211"></a><span class="lineno"> 2211</span>&#160;  libmesh_assert_greater_equal (ny, 1); <span class="comment">// need at least 1 element in y-direction</span></div>
+<div class="line"><a name="l02212"></a><span class="lineno"> 2212</span>&#160;  libmesh_assert_less (xmin, xmax);</div>
+<div class="line"><a name="l02213"></a><span class="lineno"> 2213</span>&#160;  libmesh_assert_less (ymin, ymax);</div>
+<div class="line"><a name="l02214"></a><span class="lineno"> 2214</span>&#160;</div>
+<div class="line"><a name="l02215"></a><span class="lineno"> 2215</span>&#160;  <span class="comment">// Clear out any data which may have been in the Mesh</span></div>
+<div class="line"><a name="l02216"></a><span class="lineno"> 2216</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.clear();</div>
+<div class="line"><a name="l02217"></a><span class="lineno"> 2217</span>&#160;</div>
+<div class="line"><a name="l02218"></a><span class="lineno"> 2218</span>&#160;  BoundaryInfo&amp; boundary_info = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.get_boundary_info();</div>
+<div class="line"><a name="l02219"></a><span class="lineno"> 2219</span>&#160;</div>
+<div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160;  <span class="comment">// Make sure the new Mesh will be 2D</span></div>
+<div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.set_mesh_dimension(2);</div>
+<div class="line"><a name="l02222"></a><span class="lineno"> 2222</span>&#160;</div>
+<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160;  <span class="comment">// The x and y spacing between boundary points</span></div>
+<div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> delta_x = (xmax-xmin) / static_cast&lt;Real&gt;(nx);</div>
+<div class="line"><a name="l02225"></a><span class="lineno"> 2225</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> delta_y = (ymax-ymin) / static_cast&lt;Real&gt;(ny);</div>
+<div class="line"><a name="l02226"></a><span class="lineno"> 2226</span>&#160;</div>
+<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160;  <span class="comment">// Bottom</span></div>
+<div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;=nx; ++p)</div>
+<div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmin + p*delta_x, ymin));</div>
+<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;</div>
+<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;  <span class="comment">// Right side</span></div>
+<div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=1; p&lt;ny; ++p)</div>
+<div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmax, ymin + p*delta_y));</div>
+<div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;</div>
+<div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;  <span class="comment">// Top</span></div>
+<div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;=nx; ++p)</div>
+<div class="line"><a name="l02237"></a><span class="lineno"> 2237</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmax - p*delta_x, ymax));</div>
+<div class="line"><a name="l02238"></a><span class="lineno"> 2238</span>&#160;</div>
+<div class="line"><a name="l02239"></a><span class="lineno"> 2239</span>&#160;  <span class="comment">// Left side</span></div>
+<div class="line"><a name="l02240"></a><span class="lineno"> 2240</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=1; p&lt;ny; ++p)</div>
+<div class="line"><a name="l02241"></a><span class="lineno"> 2241</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(Point(xmin,  ymax - p*delta_y));</div>
+<div class="line"><a name="l02242"></a><span class="lineno"> 2242</span>&#160;</div>
+<div class="line"><a name="l02243"></a><span class="lineno"> 2243</span>&#160;  <span class="comment">// Be sure we added as many points as we thought we did</span></div>
+<div class="line"><a name="l02244"></a><span class="lineno"> 2244</span>&#160;  libmesh_assert_equal_to (<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.n_nodes(), 2*(nx+ny));</div>
+<div class="line"><a name="l02245"></a><span class="lineno"> 2245</span>&#160;</div>
+<div class="line"><a name="l02246"></a><span class="lineno"> 2246</span>&#160;  <span class="comment">// Construct the Triangle Interface object</span></div>
+<div class="line"><a name="l02247"></a><span class="lineno"> 2247</span>&#160;  TriangleInterface t(<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>);</div>
+<div class="line"><a name="l02248"></a><span class="lineno"> 2248</span>&#160;</div>
+<div class="line"><a name="l02249"></a><span class="lineno"> 2249</span>&#160;  <span class="comment">// Set custom variables for the triangulation</span></div>
+<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160;  t.desired_area()       = 0.5 * (xmax-xmin)*(ymax-ymin) / <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(nx*ny);</div>
+<div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160;  t.triangulation_type() = TriangleInterface::PSLG;</div>
+<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;  t.elem_type()          = type;</div>
+<div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160;</div>
+<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160;  <span class="keywordflow">if</span> (holes != NULL)</div>
+<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160;    t.attach_hole_list(holes);</div>
+<div class="line"><a name="l02256"></a><span class="lineno"> 2256</span>&#160;</div>
+<div class="line"><a name="l02257"></a><span class="lineno"> 2257</span>&#160;  <span class="comment">// Triangulate!</span></div>
+<div class="line"><a name="l02258"></a><span class="lineno"> 2258</span>&#160;  t.triangulate();</div>
+<div class="line"><a name="l02259"></a><span class="lineno"> 2259</span>&#160;</div>
+<div class="line"><a name="l02260"></a><span class="lineno"> 2260</span>&#160;  <span class="comment">// The mesh is now generated, but we still need to mark the boundaries</span></div>
+<div class="line"><a name="l02261"></a><span class="lineno"> 2261</span>&#160;  <span class="comment">// to be consistent with the other build_square routines.  Note that all</span></div>
+<div class="line"><a name="l02262"></a><span class="lineno"> 2262</span>&#160;  <span class="comment">// hole boundary elements get the same ID, 4.</span></div>
+<div class="line"><a name="l02263"></a><span class="lineno"> 2263</span>&#160;  MeshBase::element_iterator       el     = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.elements_begin();</div>
+<div class="line"><a name="l02264"></a><span class="lineno"> 2264</span>&#160;  <span class="keyword">const</span> MeshBase::element_iterator end_el = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.elements_end();</div>
+<div class="line"><a name="l02265"></a><span class="lineno"> 2265</span>&#160;  <span class="keywordflow">for</span> ( ; el != end_el; ++el)</div>
+<div class="line"><a name="l02266"></a><span class="lineno"> 2266</span>&#160;    {</div>
+<div class="line"><a name="l02267"></a><span class="lineno"> 2267</span>&#160;      <span class="keyword">const</span> Elem* elem = *el;</div>
+<div class="line"><a name="l02268"></a><span class="lineno"> 2268</span>&#160;</div>
+<div class="line"><a name="l02269"></a><span class="lineno"> 2269</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;n_sides(); s++)</div>
+<div class="line"><a name="l02270"></a><span class="lineno"> 2270</span>&#160;        <span class="keywordflow">if</span> (elem-&gt;neighbor(s) == NULL)</div>
+<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;          {</div>
+<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160;            AutoPtr&lt;Elem&gt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a> (elem-&gt;build_side(s));</div>
+<div class="line"><a name="l02273"></a><span class="lineno"> 2273</span>&#160;</div>
+<div class="line"><a name="l02274"></a><span class="lineno"> 2274</span>&#160;            <span class="comment">// Check the location of the side&#39;s midpoint.  Since</span></div>
+<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;            <span class="comment">// the square has straight sides, the midpoint is not</span></div>
+<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160;            <span class="comment">// on the corner and thus it is uniquely on one of the</span></div>
+<div class="line"><a name="l02277"></a><span class="lineno"> 2277</span>&#160;            <span class="comment">// sides.</span></div>
+<div class="line"><a name="l02278"></a><span class="lineno"> 2278</span>&#160;            Point side_midpoint= 0.5f*( (*<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;get_node(0)) + (*<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;get_node(1)) );</div>
+<div class="line"><a name="l02279"></a><span class="lineno"> 2279</span>&#160;</div>
+<div class="line"><a name="l02280"></a><span class="lineno"> 2280</span>&#160;            <span class="comment">// The boundary ids are set following the same convention as Quad4 sides</span></div>
+<div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;            <span class="comment">// bottom = 0</span></div>
+<div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160;            <span class="comment">// right  = 1</span></div>
+<div class="line"><a name="l02283"></a><span class="lineno"> 2283</span>&#160;            <span class="comment">// top = 2</span></div>
+<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160;            <span class="comment">// left = 3</span></div>
+<div class="line"><a name="l02285"></a><span class="lineno"> 2285</span>&#160;            <span class="comment">// hole = 4</span></div>
+<div class="line"><a name="l02286"></a><span class="lineno"> 2286</span>&#160;            <a class="code" href="namespacelibMesh.html#a3f4d8a52b5ef6ff6156ca209e12b5564">boundary_id_type</a> <a class="code" href="xdr__io_8C.html#a7b966a996f9a3159d0be57a9c2e55df3">bc_id</a>=4;</div>
+<div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160;</div>
+<div class="line"><a name="l02288"></a><span class="lineno"> 2288</span>&#160;            <span class="comment">// bottom</span></div>
+<div class="line"><a name="l02289"></a><span class="lineno"> 2289</span>&#160;            <span class="keywordflow">if</span>      (std::fabs(side_midpoint(1) - ymin) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
+<div class="line"><a name="l02290"></a><span class="lineno"> 2290</span>&#160;              bc_id=0;</div>
+<div class="line"><a name="l02291"></a><span class="lineno"> 2291</span>&#160;</div>
+<div class="line"><a name="l02292"></a><span class="lineno"> 2292</span>&#160;            <span class="comment">// right</span></div>
+<div class="line"><a name="l02293"></a><span class="lineno"> 2293</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (std::fabs(side_midpoint(0) - xmax) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
+<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;              bc_id=1;</div>
+<div class="line"><a name="l02295"></a><span class="lineno"> 2295</span>&#160;</div>
+<div class="line"><a name="l02296"></a><span class="lineno"> 2296</span>&#160;            <span class="comment">// top</span></div>
+<div class="line"><a name="l02297"></a><span class="lineno"> 2297</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (std::fabs(side_midpoint(1) - ymax) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
+<div class="line"><a name="l02298"></a><span class="lineno"> 2298</span>&#160;              bc_id=2;</div>
+<div class="line"><a name="l02299"></a><span class="lineno"> 2299</span>&#160;</div>
+<div class="line"><a name="l02300"></a><span class="lineno"> 2300</span>&#160;            <span class="comment">// left</span></div>
+<div class="line"><a name="l02301"></a><span class="lineno"> 2301</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (std::fabs(side_midpoint(0) - xmin) &lt; <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
+<div class="line"><a name="l02302"></a><span class="lineno"> 2302</span>&#160;              bc_id=3;</div>
+<div class="line"><a name="l02303"></a><span class="lineno"> 2303</span>&#160;</div>
+<div class="line"><a name="l02304"></a><span class="lineno"> 2304</span>&#160;            <span class="comment">// If the point is not on any of the external boundaries, it</span></div>
+<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;            <span class="comment">// is on one of the holes....</span></div>
+<div class="line"><a name="l02306"></a><span class="lineno"> 2306</span>&#160;</div>
+<div class="line"><a name="l02307"></a><span class="lineno"> 2307</span>&#160;            <span class="comment">// Finally, add this element&#39;s information to the boundary info object.</span></div>
+<div class="line"><a name="l02308"></a><span class="lineno"> 2308</span>&#160;            boundary_info.add_side(elem-&gt;id(), s, <a class="code" href="xdr__io_8C.html#a7b966a996f9a3159d0be57a9c2e55df3">bc_id</a>);</div>
+<div class="line"><a name="l02309"></a><span class="lineno"> 2309</span>&#160;          }</div>
+<div class="line"><a name="l02310"></a><span class="lineno"> 2310</span>&#160;    }</div>
+<div class="line"><a name="l02311"></a><span class="lineno"> 2311</span>&#160;</div>
+<div class="line"><a name="l02312"></a><span class="lineno"> 2312</span>&#160;} <span class="comment">// end build_delaunay_square</span></div>
 <div class="ttc" id="xdr__io_8C_html_a538c9c249908c84b07be8ce1400b82c9"><div class="ttname"><a href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a></div><div class="ttdeci">unsigned short int side</div><div class="ttdef"><b>Definition:</b> <a href="xdr__io_8C_source.html#l00050">xdr_io.C:50</a></div></div>
 <div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l00824">mesh_communication.C:824</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac935f799caf032c4008c5aa8facebaae"><div class="ttname"><a href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00127">libmesh_common.h:127</a></div></div>
@@ -1753,7 +1753,7 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__generation_8C_source.html#l01954">1954</a> of file <a class="el" href="mesh__generation_8C_source.html">mesh_generation.C</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1MeshBase.html#a5ab834283fa6bc335ad623d2b737ec5e">libMesh::MeshBase::add_elem()</a>, <a class="el" href="boundary__info_8C_source.html#l00530">libMesh::BoundaryInfo::add_node()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">libMesh::MeshBase::add_point()</a>, <a class="el" href="boundary__info_8C_source.html#l00697">libMesh::BoundaryInfo::add_side()</a>, <a class="el" href="mesh__base_8h_source.html#l00863">libMesh::MeshBase::boundary_info</a>, <a class="el" href="mesh__base_8h_source.html#l00150">libMesh::MeshBase::delete_remote_elements()</a>, <a class="el" href="classlibMesh_1_1Elem.html#aa50d97d65dc379f64667da53c427b36f">libMesh::Elem::dim()</a>, <a class="el" href="enum__elem__type_8h_source.html#l00030">libMesh::EDGE2</a>, <a class="el" href="enum__elem__type_8h_source.html#l00031">libMesh::EDGE3</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#ac266e1f5eb6ac9566ccbd7e6add6c239">libMesh::MeshBase::elements_begin()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#ae94f1bce0dc50c489c6bae9ba64d06e8">libMesh::MeshBase::elements_end()</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00324">end</a>, <a class="el" href="mesh__base_8h_source.html#l00113">libMesh::MeshBase::get_boundary_info()</a>, <a class="el" href="elem_8h_source.html#l01375">libMesh::Elem::get_node()</a>, <a class="el" href="dof__object_8h_source.html#l00618">libMesh::DofObject::id()</a>, <a class="el" href="mesh__base_8h_source.html#l00136">libMesh::MeshBase::is_serial()</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a190e556d3be87f5ccd8d4fc98d1779d3">libMesh::MeshBase::n_elem()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a5b76b109bc6bd087c981774897aa6167">libMesh::MeshBase::n_nodes()</a>, <a class="el" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">libMesh::MeshBase::node_ptr()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a3ab1d28a6ea1e8028ce0c06e11cfb68d">libMesh::MeshBase::nodes_begin()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a47575077b6ad40d4f05292634f7615f8">libMesh::MeshBase::nodes_end()</a>, <a class="el" href="elem_8h_source.html#l01654">libMesh::Elem::parent()</a>, <a class="el" href="mesh__base_8C_source.html#l00120">libMesh::MeshBase::prepare_for_use()</a>, <a class="el" href="dof__object_8h_source.html#l00680">libMesh::DofObject::processor_id()</a>, <a class="el" href="enum__elem__type_8h_source.html#l00037">libMesh::QUAD4</a>, <a class="el" href="enum__elem__type_8h_source.html#l00039">libMesh::QUAD9</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#acc945388be9593a670191ff567b0b39e">libMesh::MeshBase::reserve_elem()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#af6956e13809f1e5694b77f3c4e14b084">libMesh::MeshBase::reserve_nodes()</a>, <a class="el" href="enum__order_8h_source.html#l00034">libMesh::SECOND</a>, <a class="el" href="dof__object_8h_source.html#l00627">libMesh::DofObject::set_id()</a>, <a class="el" href="elem_8h_source.html#l01398">libMesh::Elem::set_node()</a>, <a class="el" href="namespacelibMesh.html#a7548a5faa85e5027223ef5c57d792445">libMesh::START_LOG()</a>, <a class="el" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">libMesh::STOP_LOG()</a>, <a class="el" href="elem_8h_source.html#l01408">libMesh::Elem::subdomain_id()</a>, <a class="el" href="enum__elem__type_8h_source.html#l00034">libMesh::TRI3</a>, <a class="el" href="enum__elem__type_8h_source.html#l00035">libMesh::TRI6</a>, and <a class="el" href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">libMesh::Elem::type()</a>.</p>
+<p>References <a class="el" href="classlibMesh_1_1MeshBase.html#a5ab834283fa6bc335ad623d2b737ec5e">libMesh::MeshBase::add_elem()</a>, <a class="el" href="boundary__info_8C_source.html#l00530">libMesh::BoundaryInfo::add_node()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">libMesh::MeshBase::add_point()</a>, <a class="el" href="boundary__info_8C_source.html#l00697">libMesh::BoundaryInfo::add_side()</a>, <a class="el" href="boundary__info_8C_source.html#l00811">libMesh::BoundaryInfo::boundary_ids()</a>, <a class="el" href="mesh__base_8h_source.html#l00150">libMesh::MeshBase::delete_remote_elements()</a>, <a class="el" href="classlibMesh_1_1Elem.html#aa50d97d65dc379f64667da53c427b36f">libMesh::Elem::dim()</a>, <a class="el" href="enum__elem__type_8h_source.html#l00030">libMesh::EDGE2</a>, <a class="el" href="enum__elem__type_8h_source.html#l00031">libMesh::EDGE3</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#ac266e1f5eb6ac9566ccbd7e6add6c239">libMesh::MeshBase::elements_begin()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#ae94f1bce0dc50c489c6bae9ba64d06e8">libMesh::MeshBase::elements_end()</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00324">end</a>, <a class="el" href="mesh__base_8h_source.html#l00113">libMesh::MeshBase::get_boundary_info()</a>, <a class="el" href="elem_8h_source.html#l01375">libMesh::Elem::get_node()</a>, <a class="el" href="boundary__info_8h_source.html#l00419">libMesh::BoundaryInfo::get_side_boundary_ids()</a>, <a class="el" href="dof__object_8h_source.html#l00618">libMesh::DofObject::id()</a>, <a class="el" href="mesh__base_8h_source.html#l00136">libMesh::MeshBase::is_serial()</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a190e556d3be87f5ccd8d4fc98d1779d3">libMesh::MeshBase::n_elem()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a5b76b109bc6bd087c981774897aa6167">libMesh::MeshBase::n_nodes()</a>, <a class="el" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">libMesh::MeshBase::node_ptr()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a3ab1d28a6ea1e8028ce0c06e11cfb68d">libMesh::MeshBase::nodes_begin()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#a47575077b6ad40d4f05292634f7615f8">libMesh::MeshBase::nodes_end()</a>, <a class="el" href="elem_8h_source.html#l01654">libMesh::Elem::parent()</a>, <a class="el" href="mesh__base_8C_source.html#l00120">libMesh::MeshBase::prepare_for_use()</a>, <a class="el" href="dof__object_8h_source.html#l00680">libMesh::DofObject::processor_id()</a>, <a class="el" href="enum__elem__type_8h_source.html#l00037">libMesh::QUAD4</a>, <a class="el" href="enum__elem__type_8h_source.html#l00039">libMesh::QUAD9</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#acc945388be9593a670191ff567b0b39e">libMesh::MeshBase::reserve_elem()</a>, <a class="el" href="classlibMesh_1_1MeshBase.html#af6956e13809f1e5694b77f3c4e14b084">libMesh::MeshBase::reserve_nodes()</a>, <a class="el" href="enum__order_8h_source.html#l00034">libMesh::SECOND</a>, <a class="el" href="dof__object_8h_source.html#l00627">libMesh::DofObject::set_id()</a>, <a class="el" href="elem_8h_source.html#l01398">libMesh::Elem::set_node()</a>, <a class="el" href="namespacelibMesh.html#a7548a5faa85e5027223ef5c57d792445">libMesh::START_LOG()</a>, <a class="el" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">libMesh::STOP_LOG()</a>, <a class="el" href="elem_8h_source.html#l01408">libMesh::Elem::subdomain_id()</a>, <a class="el" href="enum__elem__type_8h_source.html#l00034">libMesh::TRI3</a>, <a class="el" href="enum__elem__type_8h_source.html#l00035">libMesh::TRI6</a>, and <a class="el" href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">libMesh::Elem::type()</a>.</p>
 <div class="fragment"><div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;{</div>
 <div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;  <span class="keywordflow">if</span> (!cross_section.n_elem())</div>
 <div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;    <span class="keywordflow">return</span>;</div>
@@ -1766,229 +1766,230 @@ Functions</h2></td></tr>
 <div class="line"><a name="l01967"></a><span class="lineno"> 1967</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> order = 1;</div>
 <div class="line"><a name="l01968"></a><span class="lineno"> 1968</span>&#160;</div>
 <div class="line"><a name="l01969"></a><span class="lineno"> 1969</span>&#160;  BoundaryInfo&amp; boundary_info = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.get_boundary_info();</div>
-<div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;</div>
-<div class="line"><a name="l01971"></a><span class="lineno"> 1971</span>&#160;  <span class="comment">// If cross_section is distributed, so is its extrusion</span></div>
-<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;  <span class="keywordflow">if</span> (!cross_section.is_serial())</div>
-<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.delete_remote_elements();</div>
-<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;</div>
-<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;  <span class="comment">// We know a priori how many elements we&#39;ll need</span></div>
-<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.reserve_elem(nz*orig_elem);</div>
-<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;</div>
-<div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160;  <span class="comment">// For straightforward meshes we need one or two additional layers per</span></div>
-<div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;  <span class="comment">// element.</span></div>
-<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;  <span class="keywordflow">if</span> ((*cross_section.elements_begin())-&gt;default_order() == <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634aeb83a6d8d35afd605729a0b8827e7102">SECOND</a>)</div>
-<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;    order = 2;</div>
-<div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;</div>
-<div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.reserve_nodes((order*nz+1)*orig_nodes);</div>
-<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;</div>
-<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;  MeshBase::const_node_iterator       nd  = cross_section.nodes_begin();</div>
-<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;  <span class="keyword">const</span> MeshBase::const_node_iterator nend = cross_section.nodes_end();</div>
-<div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160;  <span class="keywordflow">for</span> (; nd!=nend; ++nd)</div>
-<div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160;    {</div>
-<div class="line"><a name="l01989"></a><span class="lineno"> 1989</span>&#160;      <span class="keyword">const</span> Node* node = *nd;</div>
-<div class="line"><a name="l01990"></a><span class="lineno"> 1990</span>&#160;</div>
-<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k=0; k != order*nz+1; ++k)</div>
-<div class="line"><a name="l01992"></a><span class="lineno"> 1992</span>&#160;        {</div>
-<div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;          Node *new_node =</div>
-<div class="line"><a name="l01994"></a><span class="lineno"> 1994</span>&#160;            <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(*node +</div>
-<div class="line"><a name="l01995"></a><span class="lineno"> 1995</span>&#160;                           (extrusion_vector * k / nz / order),</div>
-<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;                           node-&gt;id() + (k * orig_nodes),</div>
-<div class="line"><a name="l01997"></a><span class="lineno"> 1997</span>&#160;                           node-&gt;processor_id());</div>
-<div class="line"><a name="l01998"></a><span class="lineno"> 1998</span>&#160;</div>
-<div class="line"><a name="l01999"></a><span class="lineno"> 1999</span>&#160;          <span class="keyword">const</span> std::vector&lt;boundary_id_type&gt; ids_to_copy =</div>
-<div class="line"><a name="l02000"></a><span class="lineno"> 2000</span>&#160;            cross_section.boundary_info-&gt;boundary_ids(node);</div>
-<div class="line"><a name="l02001"></a><span class="lineno"> 2001</span>&#160;</div>
-<div class="line"><a name="l02002"></a><span class="lineno"> 2002</span>&#160;          boundary_info.add_node(new_node, ids_to_copy);</div>
-<div class="line"><a name="l02003"></a><span class="lineno"> 2003</span>&#160;        }</div>
-<div class="line"><a name="l02004"></a><span class="lineno"> 2004</span>&#160;    }</div>
-<div class="line"><a name="l02005"></a><span class="lineno"> 2005</span>&#160;</div>
-<div class="line"><a name="l02006"></a><span class="lineno"> 2006</span>&#160;  <span class="keyword">const</span> std::set&lt;boundary_id_type&gt; &amp;side_ids =</div>
-<div class="line"><a name="l02007"></a><span class="lineno"> 2007</span>&#160;    cross_section.boundary_info-&gt;get_side_boundary_ids();</div>
-<div class="line"><a name="l02008"></a><span class="lineno"> 2008</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a3f4d8a52b5ef6ff6156ca209e12b5564">boundary_id_type</a> next_side_id = side_ids.empty() ?</div>
-<div class="line"><a name="l02009"></a><span class="lineno"> 2009</span>&#160;    0 : cast_int&lt;boundary_id_type&gt;(*side_ids.rbegin() + 1);</div>
-<div class="line"><a name="l02010"></a><span class="lineno"> 2010</span>&#160;</div>
-<div class="line"><a name="l02011"></a><span class="lineno"> 2011</span>&#160;  MeshBase::const_element_iterator       el  = cross_section.elements_begin();</div>
-<div class="line"><a name="l02012"></a><span class="lineno"> 2012</span>&#160;  <span class="keyword">const</span> MeshBase::const_element_iterator <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> = cross_section.elements_end();</div>
-<div class="line"><a name="l02013"></a><span class="lineno"> 2013</span>&#160;  <span class="keywordflow">for</span> (; el!=<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>; ++el)</div>
-<div class="line"><a name="l02014"></a><span class="lineno"> 2014</span>&#160;    {</div>
-<div class="line"><a name="l02015"></a><span class="lineno"> 2015</span>&#160;      <span class="keyword">const</span> Elem* elem = *el;</div>
-<div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> etype = elem-&gt;type();</div>
-<div class="line"><a name="l02017"></a><span class="lineno"> 2017</span>&#160;</div>
-<div class="line"><a name="l02018"></a><span class="lineno"> 2018</span>&#160;      <span class="comment">// build_extrusion currently only works on coarse meshes</span></div>
-<div class="line"><a name="l02019"></a><span class="lineno"> 2019</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (!elem-&gt;parent());</div>
-<div class="line"><a name="l02020"></a><span class="lineno"> 2020</span>&#160;</div>
-<div class="line"><a name="l02021"></a><span class="lineno"> 2021</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k=0; k != nz; ++k)</div>
-<div class="line"><a name="l02022"></a><span class="lineno"> 2022</span>&#160;        {</div>
-<div class="line"><a name="l02023"></a><span class="lineno"> 2023</span>&#160;          Elem *new_elem;</div>
-<div class="line"><a name="l02024"></a><span class="lineno"> 2024</span>&#160;          <span class="keywordflow">switch</span> (etype)</div>
-<div class="line"><a name="l02025"></a><span class="lineno"> 2025</span>&#160;            {</div>
-<div class="line"><a name="l02026"></a><span class="lineno"> 2026</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">EDGE2</a>:</div>
-<div class="line"><a name="l02027"></a><span class="lineno"> 2027</span>&#160;              {</div>
-<div class="line"><a name="l02028"></a><span class="lineno"> 2028</span>&#160;                new_elem = <span class="keyword">new</span> Quad4;</div>
-<div class="line"><a name="l02029"></a><span class="lineno"> 2029</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02030"></a><span class="lineno"> 2030</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02031"></a><span class="lineno"> 2031</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02032"></a><span class="lineno"> 2032</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02033"></a><span class="lineno"> 2033</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02034"></a><span class="lineno"> 2034</span>&#160;              }</div>
-<div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59">EDGE3</a>:</div>
-<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;              {</div>
-<div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;                new_elem = <span class="keyword">new</span> Quad9;</div>
-<div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02040"></a><span class="lineno"> 2040</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02041"></a><span class="lineno"> 2041</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02042"></a><span class="lineno"> 2042</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02043"></a><span class="lineno"> 2043</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02045"></a><span class="lineno"> 2045</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02046"></a><span class="lineno"> 2046</span>&#160;                new_elem-&gt;set_node(8) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02047"></a><span class="lineno"> 2047</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02048"></a><span class="lineno"> 2048</span>&#160;              }</div>
-<div class="line"><a name="l02049"></a><span class="lineno"> 2049</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">TRI3</a>:</div>
-<div class="line"><a name="l02050"></a><span class="lineno"> 2050</span>&#160;              {</div>
-<div class="line"><a name="l02051"></a><span class="lineno"> 2051</span>&#160;                new_elem = <span class="keyword">new</span> Prism6;</div>
-<div class="line"><a name="l02052"></a><span class="lineno"> 2052</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02053"></a><span class="lineno"> 2053</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02054"></a><span class="lineno"> 2054</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02055"></a><span class="lineno"> 2055</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02056"></a><span class="lineno"> 2056</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02057"></a><span class="lineno"> 2057</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02058"></a><span class="lineno"> 2058</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02059"></a><span class="lineno"> 2059</span>&#160;              }</div>
-<div class="line"><a name="l02060"></a><span class="lineno"> 2060</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>:</div>
-<div class="line"><a name="l02061"></a><span class="lineno"> 2061</span>&#160;              {</div>
-<div class="line"><a name="l02062"></a><span class="lineno"> 2062</span>&#160;                new_elem = <span class="keyword">new</span> Prism18;</div>
-<div class="line"><a name="l02063"></a><span class="lineno"> 2063</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02064"></a><span class="lineno"> 2064</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02065"></a><span class="lineno"> 2065</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02066"></a><span class="lineno"> 2066</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02067"></a><span class="lineno"> 2067</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02068"></a><span class="lineno"> 2068</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02069"></a><span class="lineno"> 2069</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02070"></a><span class="lineno"> 2070</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02071"></a><span class="lineno"> 2071</span>&#160;                new_elem-&gt;set_node(8) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02072"></a><span class="lineno"> 2072</span>&#160;                new_elem-&gt;set_node(9) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02073"></a><span class="lineno"> 2073</span>&#160;                new_elem-&gt;set_node(10) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02074"></a><span class="lineno"> 2074</span>&#160;                new_elem-&gt;set_node(11) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;                new_elem-&gt;set_node(12) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160;                new_elem-&gt;set_node(13) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02077"></a><span class="lineno"> 2077</span>&#160;                new_elem-&gt;set_node(14) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02078"></a><span class="lineno"> 2078</span>&#160;                new_elem-&gt;set_node(15) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02079"></a><span class="lineno"> 2079</span>&#160;                new_elem-&gt;set_node(16) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02080"></a><span class="lineno"> 2080</span>&#160;                new_elem-&gt;set_node(17) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02081"></a><span class="lineno"> 2081</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160;              }</div>
-<div class="line"><a name="l02083"></a><span class="lineno"> 2083</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1">QUAD4</a>:</div>
-<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;              {</div>
-<div class="line"><a name="l02085"></a><span class="lineno"> 2085</span>&#160;                new_elem = <span class="keyword">new</span> Hex8;</div>
-<div class="line"><a name="l02086"></a><span class="lineno"> 2086</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02087"></a><span class="lineno"> 2087</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02088"></a><span class="lineno"> 2088</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + (k * orig_nodes));</div>
-<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02092"></a><span class="lineno"> 2092</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02093"></a><span class="lineno"> 2093</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((k+1) * orig_nodes));</div>
-<div class="line"><a name="l02094"></a><span class="lineno"> 2094</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160;              }</div>
-<div class="line"><a name="l02096"></a><span class="lineno"> 2096</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">QUAD9</a>:</div>
-<div class="line"><a name="l02097"></a><span class="lineno"> 2097</span>&#160;              {</div>
-<div class="line"><a name="l02098"></a><span class="lineno"> 2098</span>&#160;                new_elem = <span class="keyword">new</span> Hex27;</div>
-<div class="line"><a name="l02099"></a><span class="lineno"> 2099</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02101"></a><span class="lineno"> 2101</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02102"></a><span class="lineno"> 2102</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02103"></a><span class="lineno"> 2103</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02104"></a><span class="lineno"> 2104</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02105"></a><span class="lineno"> 2105</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02106"></a><span class="lineno"> 2106</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02107"></a><span class="lineno"> 2107</span>&#160;                new_elem-&gt;set_node(8) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02108"></a><span class="lineno"> 2108</span>&#160;                new_elem-&gt;set_node(9) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02109"></a><span class="lineno"> 2109</span>&#160;                new_elem-&gt;set_node(10) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(6)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02110"></a><span class="lineno"> 2110</span>&#160;                new_elem-&gt;set_node(11) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(7)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02111"></a><span class="lineno"> 2111</span>&#160;                new_elem-&gt;set_node(12) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02112"></a><span class="lineno"> 2112</span>&#160;                new_elem-&gt;set_node(13) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02113"></a><span class="lineno"> 2113</span>&#160;                new_elem-&gt;set_node(14) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02114"></a><span class="lineno"> 2114</span>&#160;                new_elem-&gt;set_node(15) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02115"></a><span class="lineno"> 2115</span>&#160;                new_elem-&gt;set_node(16) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02116"></a><span class="lineno"> 2116</span>&#160;                new_elem-&gt;set_node(17) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02117"></a><span class="lineno"> 2117</span>&#160;                new_elem-&gt;set_node(18) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(6)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02118"></a><span class="lineno"> 2118</span>&#160;                new_elem-&gt;set_node(19) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(7)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02119"></a><span class="lineno"> 2119</span>&#160;                new_elem-&gt;set_node(20) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(8)-&gt;id() + (2*k * orig_nodes));</div>
-<div class="line"><a name="l02120"></a><span class="lineno"> 2120</span>&#160;                new_elem-&gt;set_node(21) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02121"></a><span class="lineno"> 2121</span>&#160;                new_elem-&gt;set_node(22) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02122"></a><span class="lineno"> 2122</span>&#160;                new_elem-&gt;set_node(23) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(6)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02123"></a><span class="lineno"> 2123</span>&#160;                new_elem-&gt;set_node(24) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(7)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02124"></a><span class="lineno"> 2124</span>&#160;                new_elem-&gt;set_node(25) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(8)-&gt;id() + ((2*k+2) * orig_nodes));</div>
-<div class="line"><a name="l02125"></a><span class="lineno"> 2125</span>&#160;                new_elem-&gt;set_node(26) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(8)-&gt;id() + ((2*k+1) * orig_nodes));</div>
-<div class="line"><a name="l02126"></a><span class="lineno"> 2126</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02127"></a><span class="lineno"> 2127</span>&#160;              }</div>
-<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160;              {</div>
-<div class="line"><a name="l02130"></a><span class="lineno"> 2130</span>&#160;                libmesh_not_implemented();</div>
-<div class="line"><a name="l02131"></a><span class="lineno"> 2131</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l02132"></a><span class="lineno"> 2132</span>&#160;              }</div>
-<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160;            }</div>
-<div class="line"><a name="l02134"></a><span class="lineno"> 2134</span>&#160;</div>
-<div class="line"><a name="l02135"></a><span class="lineno"> 2135</span>&#160;          new_elem-&gt;set_id(elem-&gt;id() + (k * orig_elem));</div>
-<div class="line"><a name="l02136"></a><span class="lineno"> 2136</span>&#160;          new_elem-&gt;processor_id() = elem-&gt;processor_id();</div>
-<div class="line"><a name="l02137"></a><span class="lineno"> 2137</span>&#160;</div>
-<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;          <span class="comment">// maintain the subdomain_id</span></div>
-<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160;          new_elem-&gt;subdomain_id() = elem-&gt;subdomain_id();</div>
-<div class="line"><a name="l02140"></a><span class="lineno"> 2140</span>&#160;</div>
-<div class="line"><a name="l02141"></a><span class="lineno"> 2141</span>&#160;          new_elem = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_elem(new_elem);</div>
-<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;</div>
-<div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160;          <span class="comment">// Copy any old boundary ids on all sides</span></div>
-<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> s = 0; s != elem-&gt;n_sides(); ++s)</div>
-<div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;            {</div>
-<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;              <span class="keyword">const</span> std::vector&lt;boundary_id_type&gt; ids_to_copy =</div>
-<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;                cross_section.boundary_info-&gt;boundary_ids(elem, s);</div>
-<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160;</div>
-<div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160;              <span class="keywordflow">if</span> (new_elem-&gt;dim() == 3)</div>
-<div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160;                {</div>
-<div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;                  <span class="comment">// For 2D-&gt;3D extrusion, we give the boundary IDs</span></div>
-<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;                  <span class="comment">// for side s on the old element to side s+1 on the</span></div>
-<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;                  <span class="comment">// new element.  This is just a happy coincidence as</span></div>
-<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;                  <span class="comment">// far as I can tell...</span></div>
-<div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;                  boundary_info.add_side</div>
-<div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;                    (new_elem, cast_int&lt;unsigned short&gt;(s+1),</div>
-<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;                     ids_to_copy);</div>
-<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;                }</div>
-<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;              <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;                {</div>
-<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;                  <span class="comment">// For 1D-&gt;2D extrusion, the boundary IDs map as:</span></div>
-<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;                  <span class="comment">// Old elem -&gt; New elem</span></div>
-<div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;                  <span class="comment">// 0        -&gt; 3</span></div>
-<div class="line"><a name="l02164"></a><span class="lineno"> 2164</span>&#160;                  <span class="comment">// 1        -&gt; 1</span></div>
-<div class="line"><a name="l02165"></a><span class="lineno"> 2165</span>&#160;                  libmesh_assert_less(s, 2);</div>
-<div class="line"><a name="l02166"></a><span class="lineno"> 2166</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> sidemap[2] = {3, 1};</div>
-<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;                  boundary_info.add_side(new_elem, sidemap[s], ids_to_copy);</div>
-<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160;                }</div>
-<div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160;            }</div>
-<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;</div>
-<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;          <span class="comment">// Give new boundary ids to bottom and top</span></div>
-<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;          <span class="keywordflow">if</span> (k == 0)</div>
-<div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;            boundary_info.add_side(new_elem, 0, next_side_id);</div>
-<div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;          <span class="keywordflow">if</span> (k == nz-1)</div>
-<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;            {</div>
-<div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160;              <span class="comment">// For 2D-&gt;3D extrusion, the &quot;top&quot; ID is 1+the original</span></div>
-<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;              <span class="comment">// element&#39;s number of sides.  For 1D-&gt;2D extrusion, the</span></div>
-<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160;              <span class="comment">// &quot;top&quot; ID is side 2.</span></div>
-<div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160;              <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> top_id = new_elem-&gt;dim() == 3 ?</div>
-<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;                cast_int&lt;unsigned short&gt;(elem-&gt;n_sides()+1) : 2;</div>
-<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160;              boundary_info.add_side</div>
-<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;                (new_elem, top_id,</div>
-<div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160;                 cast_int&lt;boundary_id_type&gt;(next_side_id+1));</div>
-<div class="line"><a name="l02184"></a><span class="lineno"> 2184</span>&#160;            }</div>
-<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160;        }</div>
-<div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;    }</div>
-<div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160;</div>
-<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;  <a class="code" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">STOP_LOG</a>(<span class="stringliteral">&quot;build_extrusion()&quot;</span>, <span class="stringliteral">&quot;MeshTools::Generation&quot;</span>);</div>
-<div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;</div>
-<div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160;  <span class="comment">// Done building the mesh.  Now prepare it for use.</span></div>
-<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.prepare_for_use(<span class="comment">/*skip_renumber =*/</span> <span class="keyword">false</span>);</div>
-<div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;}</div>
+<div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;  <span class="keyword">const</span> BoundaryInfo&amp; cross_section_boundary_info = cross_section.get_boundary_info();</div>
+<div class="line"><a name="l01971"></a><span class="lineno"> 1971</span>&#160;</div>
+<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;  <span class="comment">// If cross_section is distributed, so is its extrusion</span></div>
+<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160;  <span class="keywordflow">if</span> (!cross_section.is_serial())</div>
+<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;    <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.delete_remote_elements();</div>
+<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;</div>
+<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;  <span class="comment">// We know a priori how many elements we&#39;ll need</span></div>
+<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.reserve_elem(nz*orig_elem);</div>
+<div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160;</div>
+<div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;  <span class="comment">// For straightforward meshes we need one or two additional layers per</span></div>
+<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;  <span class="comment">// element.</span></div>
+<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;  <span class="keywordflow">if</span> ((*cross_section.elements_begin())-&gt;default_order() == <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634aeb83a6d8d35afd605729a0b8827e7102">SECOND</a>)</div>
+<div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;    order = 2;</div>
+<div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;</div>
+<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.reserve_nodes((order*nz+1)*orig_nodes);</div>
+<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;</div>
+<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;  MeshBase::const_node_iterator       nd  = cross_section.nodes_begin();</div>
+<div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160;  <span class="keyword">const</span> MeshBase::const_node_iterator nend = cross_section.nodes_end();</div>
+<div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160;  <span class="keywordflow">for</span> (; nd!=nend; ++nd)</div>
+<div class="line"><a name="l01989"></a><span class="lineno"> 1989</span>&#160;    {</div>
+<div class="line"><a name="l01990"></a><span class="lineno"> 1990</span>&#160;      <span class="keyword">const</span> Node* node = *nd;</div>
+<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;</div>
+<div class="line"><a name="l01992"></a><span class="lineno"> 1992</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k=0; k != order*nz+1; ++k)</div>
+<div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;        {</div>
+<div class="line"><a name="l01994"></a><span class="lineno"> 1994</span>&#160;          Node *new_node =</div>
+<div class="line"><a name="l01995"></a><span class="lineno"> 1995</span>&#160;            <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_point(*node +</div>
+<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;                           (extrusion_vector * k / nz / order),</div>
+<div class="line"><a name="l01997"></a><span class="lineno"> 1997</span>&#160;                           node-&gt;id() + (k * orig_nodes),</div>
+<div class="line"><a name="l01998"></a><span class="lineno"> 1998</span>&#160;                           node-&gt;processor_id());</div>
+<div class="line"><a name="l01999"></a><span class="lineno"> 1999</span>&#160;</div>
+<div class="line"><a name="l02000"></a><span class="lineno"> 2000</span>&#160;          <span class="keyword">const</span> std::vector&lt;boundary_id_type&gt; ids_to_copy =</div>
+<div class="line"><a name="l02001"></a><span class="lineno"> 2001</span>&#160;            cross_section_boundary_info.boundary_ids(node);</div>
+<div class="line"><a name="l02002"></a><span class="lineno"> 2002</span>&#160;</div>
+<div class="line"><a name="l02003"></a><span class="lineno"> 2003</span>&#160;          boundary_info.add_node(new_node, ids_to_copy);</div>
+<div class="line"><a name="l02004"></a><span class="lineno"> 2004</span>&#160;        }</div>
+<div class="line"><a name="l02005"></a><span class="lineno"> 2005</span>&#160;    }</div>
+<div class="line"><a name="l02006"></a><span class="lineno"> 2006</span>&#160;</div>
+<div class="line"><a name="l02007"></a><span class="lineno"> 2007</span>&#160;  <span class="keyword">const</span> std::set&lt;boundary_id_type&gt; &amp;side_ids =</div>
+<div class="line"><a name="l02008"></a><span class="lineno"> 2008</span>&#160;    cross_section_boundary_info.get_side_boundary_ids();</div>
+<div class="line"><a name="l02009"></a><span class="lineno"> 2009</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a3f4d8a52b5ef6ff6156ca209e12b5564">boundary_id_type</a> next_side_id = side_ids.empty() ?</div>
+<div class="line"><a name="l02010"></a><span class="lineno"> 2010</span>&#160;    0 : cast_int&lt;boundary_id_type&gt;(*side_ids.rbegin() + 1);</div>
+<div class="line"><a name="l02011"></a><span class="lineno"> 2011</span>&#160;</div>
+<div class="line"><a name="l02012"></a><span class="lineno"> 2012</span>&#160;  MeshBase::const_element_iterator       el  = cross_section.elements_begin();</div>
+<div class="line"><a name="l02013"></a><span class="lineno"> 2013</span>&#160;  <span class="keyword">const</span> MeshBase::const_element_iterator <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> = cross_section.elements_end();</div>
+<div class="line"><a name="l02014"></a><span class="lineno"> 2014</span>&#160;  <span class="keywordflow">for</span> (; el!=<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>; ++el)</div>
+<div class="line"><a name="l02015"></a><span class="lineno"> 2015</span>&#160;    {</div>
+<div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160;      <span class="keyword">const</span> Elem* elem = *el;</div>
+<div class="line"><a name="l02017"></a><span class="lineno"> 2017</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> etype = elem-&gt;type();</div>
+<div class="line"><a name="l02018"></a><span class="lineno"> 2018</span>&#160;</div>
+<div class="line"><a name="l02019"></a><span class="lineno"> 2019</span>&#160;      <span class="comment">// build_extrusion currently only works on coarse meshes</span></div>
+<div class="line"><a name="l02020"></a><span class="lineno"> 2020</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (!elem-&gt;parent());</div>
+<div class="line"><a name="l02021"></a><span class="lineno"> 2021</span>&#160;</div>
+<div class="line"><a name="l02022"></a><span class="lineno"> 2022</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> k=0; k != nz; ++k)</div>
+<div class="line"><a name="l02023"></a><span class="lineno"> 2023</span>&#160;        {</div>
+<div class="line"><a name="l02024"></a><span class="lineno"> 2024</span>&#160;          Elem *new_elem;</div>
+<div class="line"><a name="l02025"></a><span class="lineno"> 2025</span>&#160;          <span class="keywordflow">switch</span> (etype)</div>
+<div class="line"><a name="l02026"></a><span class="lineno"> 2026</span>&#160;            {</div>
+<div class="line"><a name="l02027"></a><span class="lineno"> 2027</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">EDGE2</a>:</div>
+<div class="line"><a name="l02028"></a><span class="lineno"> 2028</span>&#160;              {</div>
+<div class="line"><a name="l02029"></a><span class="lineno"> 2029</span>&#160;                new_elem = <span class="keyword">new</span> Quad4;</div>
+<div class="line"><a name="l02030"></a><span class="lineno"> 2030</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02031"></a><span class="lineno"> 2031</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02032"></a><span class="lineno"> 2032</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02033"></a><span class="lineno"> 2033</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02034"></a><span class="lineno"> 2034</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;              }</div>
+<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59">EDGE3</a>:</div>
+<div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;              {</div>
+<div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;                new_elem = <span class="keyword">new</span> Quad9;</div>
+<div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02040"></a><span class="lineno"> 2040</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02041"></a><span class="lineno"> 2041</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02042"></a><span class="lineno"> 2042</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02043"></a><span class="lineno"> 2043</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02045"></a><span class="lineno"> 2045</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02046"></a><span class="lineno"> 2046</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02047"></a><span class="lineno"> 2047</span>&#160;                new_elem-&gt;set_node(8) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02048"></a><span class="lineno"> 2048</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02049"></a><span class="lineno"> 2049</span>&#160;              }</div>
+<div class="line"><a name="l02050"></a><span class="lineno"> 2050</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">TRI3</a>:</div>
+<div class="line"><a name="l02051"></a><span class="lineno"> 2051</span>&#160;              {</div>
+<div class="line"><a name="l02052"></a><span class="lineno"> 2052</span>&#160;                new_elem = <span class="keyword">new</span> Prism6;</div>
+<div class="line"><a name="l02053"></a><span class="lineno"> 2053</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02054"></a><span class="lineno"> 2054</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02055"></a><span class="lineno"> 2055</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02056"></a><span class="lineno"> 2056</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02057"></a><span class="lineno"> 2057</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02058"></a><span class="lineno"> 2058</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02059"></a><span class="lineno"> 2059</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02060"></a><span class="lineno"> 2060</span>&#160;              }</div>
+<div class="line"><a name="l02061"></a><span class="lineno"> 2061</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>:</div>
+<div class="line"><a name="l02062"></a><span class="lineno"> 2062</span>&#160;              {</div>
+<div class="line"><a name="l02063"></a><span class="lineno"> 2063</span>&#160;                new_elem = <span class="keyword">new</span> Prism18;</div>
+<div class="line"><a name="l02064"></a><span class="lineno"> 2064</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02065"></a><span class="lineno"> 2065</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02066"></a><span class="lineno"> 2066</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02067"></a><span class="lineno"> 2067</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02068"></a><span class="lineno"> 2068</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02069"></a><span class="lineno"> 2069</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02070"></a><span class="lineno"> 2070</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02071"></a><span class="lineno"> 2071</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02072"></a><span class="lineno"> 2072</span>&#160;                new_elem-&gt;set_node(8) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02073"></a><span class="lineno"> 2073</span>&#160;                new_elem-&gt;set_node(9) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02074"></a><span class="lineno"> 2074</span>&#160;                new_elem-&gt;set_node(10) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;                new_elem-&gt;set_node(11) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160;                new_elem-&gt;set_node(12) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02077"></a><span class="lineno"> 2077</span>&#160;                new_elem-&gt;set_node(13) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02078"></a><span class="lineno"> 2078</span>&#160;                new_elem-&gt;set_node(14) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02079"></a><span class="lineno"> 2079</span>&#160;                new_elem-&gt;set_node(15) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02080"></a><span class="lineno"> 2080</span>&#160;                new_elem-&gt;set_node(16) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02081"></a><span class="lineno"> 2081</span>&#160;                new_elem-&gt;set_node(17) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02083"></a><span class="lineno"> 2083</span>&#160;              }</div>
+<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1">QUAD4</a>:</div>
+<div class="line"><a name="l02085"></a><span class="lineno"> 2085</span>&#160;              {</div>
+<div class="line"><a name="l02086"></a><span class="lineno"> 2086</span>&#160;                new_elem = <span class="keyword">new</span> Hex8;</div>
+<div class="line"><a name="l02087"></a><span class="lineno"> 2087</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02088"></a><span class="lineno"> 2088</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + (k * orig_nodes));</div>
+<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02092"></a><span class="lineno"> 2092</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02093"></a><span class="lineno"> 2093</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02094"></a><span class="lineno"> 2094</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((k+1) * orig_nodes));</div>
+<div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02096"></a><span class="lineno"> 2096</span>&#160;              }</div>
+<div class="line"><a name="l02097"></a><span class="lineno"> 2097</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">QUAD9</a>:</div>
+<div class="line"><a name="l02098"></a><span class="lineno"> 2098</span>&#160;              {</div>
+<div class="line"><a name="l02099"></a><span class="lineno"> 2099</span>&#160;                new_elem = <span class="keyword">new</span> Hex27;</div>
+<div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;                new_elem-&gt;set_node(0) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02101"></a><span class="lineno"> 2101</span>&#160;                new_elem-&gt;set_node(1) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02102"></a><span class="lineno"> 2102</span>&#160;                new_elem-&gt;set_node(2) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02103"></a><span class="lineno"> 2103</span>&#160;                new_elem-&gt;set_node(3) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02104"></a><span class="lineno"> 2104</span>&#160;                new_elem-&gt;set_node(4) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02105"></a><span class="lineno"> 2105</span>&#160;                new_elem-&gt;set_node(5) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02106"></a><span class="lineno"> 2106</span>&#160;                new_elem-&gt;set_node(6) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02107"></a><span class="lineno"> 2107</span>&#160;                new_elem-&gt;set_node(7) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02108"></a><span class="lineno"> 2108</span>&#160;                new_elem-&gt;set_node(8) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02109"></a><span class="lineno"> 2109</span>&#160;                new_elem-&gt;set_node(9) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02110"></a><span class="lineno"> 2110</span>&#160;                new_elem-&gt;set_node(10) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(6)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02111"></a><span class="lineno"> 2111</span>&#160;                new_elem-&gt;set_node(11) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(7)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02112"></a><span class="lineno"> 2112</span>&#160;                new_elem-&gt;set_node(12) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(0)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02113"></a><span class="lineno"> 2113</span>&#160;                new_elem-&gt;set_node(13) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(1)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02114"></a><span class="lineno"> 2114</span>&#160;                new_elem-&gt;set_node(14) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(2)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02115"></a><span class="lineno"> 2115</span>&#160;                new_elem-&gt;set_node(15) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(3)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02116"></a><span class="lineno"> 2116</span>&#160;                new_elem-&gt;set_node(16) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02117"></a><span class="lineno"> 2117</span>&#160;                new_elem-&gt;set_node(17) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02118"></a><span class="lineno"> 2118</span>&#160;                new_elem-&gt;set_node(18) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(6)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02119"></a><span class="lineno"> 2119</span>&#160;                new_elem-&gt;set_node(19) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(7)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02120"></a><span class="lineno"> 2120</span>&#160;                new_elem-&gt;set_node(20) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(8)-&gt;id() + (2*k * orig_nodes));</div>
+<div class="line"><a name="l02121"></a><span class="lineno"> 2121</span>&#160;                new_elem-&gt;set_node(21) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(4)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02122"></a><span class="lineno"> 2122</span>&#160;                new_elem-&gt;set_node(22) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(5)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02123"></a><span class="lineno"> 2123</span>&#160;                new_elem-&gt;set_node(23) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(6)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02124"></a><span class="lineno"> 2124</span>&#160;                new_elem-&gt;set_node(24) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(7)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02125"></a><span class="lineno"> 2125</span>&#160;                new_elem-&gt;set_node(25) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(8)-&gt;id() + ((2*k+2) * orig_nodes));</div>
+<div class="line"><a name="l02126"></a><span class="lineno"> 2126</span>&#160;                new_elem-&gt;set_node(26) = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.node_ptr(elem-&gt;get_node(8)-&gt;id() + ((2*k+1) * orig_nodes));</div>
+<div class="line"><a name="l02127"></a><span class="lineno"> 2127</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;              }</div>
+<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l02130"></a><span class="lineno"> 2130</span>&#160;              {</div>
+<div class="line"><a name="l02131"></a><span class="lineno"> 2131</span>&#160;                libmesh_not_implemented();</div>
+<div class="line"><a name="l02132"></a><span class="lineno"> 2132</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160;              }</div>
+<div class="line"><a name="l02134"></a><span class="lineno"> 2134</span>&#160;            }</div>
+<div class="line"><a name="l02135"></a><span class="lineno"> 2135</span>&#160;</div>
+<div class="line"><a name="l02136"></a><span class="lineno"> 2136</span>&#160;          new_elem-&gt;set_id(elem-&gt;id() + (k * orig_elem));</div>
+<div class="line"><a name="l02137"></a><span class="lineno"> 2137</span>&#160;          new_elem-&gt;processor_id() = elem-&gt;processor_id();</div>
+<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;</div>
+<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160;          <span class="comment">// maintain the subdomain_id</span></div>
+<div class="line"><a name="l02140"></a><span class="lineno"> 2140</span>&#160;          new_elem-&gt;subdomain_id() = elem-&gt;subdomain_id();</div>
+<div class="line"><a name="l02141"></a><span class="lineno"> 2141</span>&#160;</div>
+<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;          new_elem = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.add_elem(new_elem);</div>
+<div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160;</div>
+<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;          <span class="comment">// Copy any old boundary ids on all sides</span></div>
+<div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> s = 0; s != elem-&gt;n_sides(); ++s)</div>
+<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;            {</div>
+<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;              <span class="keyword">const</span> std::vector&lt;boundary_id_type&gt; ids_to_copy =</div>
+<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160;                cross_section_boundary_info.boundary_ids(elem, s);</div>
+<div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160;</div>
+<div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160;              <span class="keywordflow">if</span> (new_elem-&gt;dim() == 3)</div>
+<div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;                {</div>
+<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;                  <span class="comment">// For 2D-&gt;3D extrusion, we give the boundary IDs</span></div>
+<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;                  <span class="comment">// for side s on the old element to side s+1 on the</span></div>
+<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;                  <span class="comment">// new element.  This is just a happy coincidence as</span></div>
+<div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;                  <span class="comment">// far as I can tell...</span></div>
+<div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;                  boundary_info.add_side</div>
+<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;                    (new_elem, cast_int&lt;unsigned short&gt;(s+1),</div>
+<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;                     ids_to_copy);</div>
+<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;                }</div>
+<div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;              <span class="keywordflow">else</span></div>
+<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;                {</div>
+<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;                  <span class="comment">// For 1D-&gt;2D extrusion, the boundary IDs map as:</span></div>
+<div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;                  <span class="comment">// Old elem -&gt; New elem</span></div>
+<div class="line"><a name="l02164"></a><span class="lineno"> 2164</span>&#160;                  <span class="comment">// 0        -&gt; 3</span></div>
+<div class="line"><a name="l02165"></a><span class="lineno"> 2165</span>&#160;                  <span class="comment">// 1        -&gt; 1</span></div>
+<div class="line"><a name="l02166"></a><span class="lineno"> 2166</span>&#160;                  libmesh_assert_less(s, 2);</div>
+<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> sidemap[2] = {3, 1};</div>
+<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160;                  boundary_info.add_side(new_elem, sidemap[s], ids_to_copy);</div>
+<div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160;                }</div>
+<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;            }</div>
+<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;</div>
+<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;          <span class="comment">// Give new boundary ids to bottom and top</span></div>
+<div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;          <span class="keywordflow">if</span> (k == 0)</div>
+<div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;            boundary_info.add_side(new_elem, 0, next_side_id);</div>
+<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;          <span class="keywordflow">if</span> (k == nz-1)</div>
+<div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160;            {</div>
+<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;              <span class="comment">// For 2D-&gt;3D extrusion, the &quot;top&quot; ID is 1+the original</span></div>
+<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160;              <span class="comment">// element&#39;s number of sides.  For 1D-&gt;2D extrusion, the</span></div>
+<div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160;              <span class="comment">// &quot;top&quot; ID is side 2.</span></div>
+<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;              <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> top_id = new_elem-&gt;dim() == 3 ?</div>
+<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160;                cast_int&lt;unsigned short&gt;(elem-&gt;n_sides()+1) : 2;</div>
+<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;              boundary_info.add_side</div>
+<div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160;                (new_elem, top_id,</div>
+<div class="line"><a name="l02184"></a><span class="lineno"> 2184</span>&#160;                 cast_int&lt;boundary_id_type&gt;(next_side_id+1));</div>
+<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160;            }</div>
+<div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;        }</div>
+<div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160;    }</div>
+<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;</div>
+<div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;  <a class="code" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">STOP_LOG</a>(<span class="stringliteral">&quot;build_extrusion()&quot;</span>, <span class="stringliteral">&quot;MeshTools::Generation&quot;</span>);</div>
+<div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160;</div>
+<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160;  <span class="comment">// Done building the mesh.  Now prepare it for use.</span></div>
+<div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;  <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.prepare_for_use(<span class="comment">/*skip_renumber =*/</span> <span class="keyword">false</span>);</div>
+<div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">libMesh::TRI6</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00035">enum_elem_type.h:35</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="namespacelibMesh_html_aefa921f501605f00f5881b914fca3eeb"><div class="ttname"><a href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">libMesh::STOP_LOG</a></div><div class="ttdeci">STOP_LOG(&quot;std::sqrt()&quot;,&quot;ExactErrorEstimator&quot;)</div></div>
