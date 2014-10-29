@@ -110,8 +110,8 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3668acd2f9e50aefaed84e715c72bd3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1System_1_1QOIDerivative.html#af3668acd2f9e50aefaed84e715c72bd3">~QOIDerivative</a> ()</td></tr>
 <tr class="separator:af3668acd2f9e50aefaed84e715c72bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae946fa719ce783d2054bddc712ebfb76"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1System_1_1QOIDerivative.html#ae946fa719ce783d2054bddc712ebfb76">qoi_derivative</a> (const <a class="el" href="classlibMesh_1_1QoISet.html">QoISet</a> &amp;qoi_indices)=0</td></tr>
-<tr class="separator:ae946fa719ce783d2054bddc712ebfb76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55d54296bc5b90691ab58fea8359885b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1System_1_1QOIDerivative.html#a55d54296bc5b90691ab58fea8359885b">qoi_derivative</a> (const <a class="el" href="classlibMesh_1_1QoISet.html">QoISet</a> &amp;qoi_indices, bool include_liftfunc, bool apply_constraints)=0</td></tr>
+<tr class="separator:a55d54296bc5b90691ab58fea8359885b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base class to be used for derivatives of quantities of interest. A user class derived from this class may be used to compute quantities of interest by attaching an object with the method <code>attach_QOI_derivative_object</code>. </p>
@@ -146,7 +146,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae946fa719ce783d2054bddc712ebfb76"></a>
+<a class="anchor" id="a55d54296bc5b90691ab58fea8359885b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -157,8 +157,24 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual void libMesh::System::QOIDerivative::qoi_derivative </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classlibMesh_1_1QoISet.html">QoISet</a> &amp;&#160;</td>
-          <td class="paramname"><em>qoi_indices</em></td><td>)</td>
+          <td class="paramname"><em>qoi_indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>include_liftfunc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>apply_constraints</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -168,8 +184,6 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Quantitiy of interest derivative function. This function will be called to compute derivatived of quantities of interest and must be provided by the user in a derived class. </p>
-
-<p>Referenced by <a class="el" href="system_8C_source.html#l01961">libMesh::System::user_QOI_derivative()</a>.</p>
 
 </div>
 </div>

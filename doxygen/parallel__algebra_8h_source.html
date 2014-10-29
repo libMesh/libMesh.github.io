@@ -313,118 +313,122 @@
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keyword">explicit</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01Point_01_4.html#ab04fe32671708c5b624769d6de542527">  216</a></span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01Point_01_4.html#ab04fe32671708c5b624769d6de542527">StandardType</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> *example=NULL) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">// _static_type never gets freed, but it only gets committed once</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// per T, so it&#39;s not a *huge* memory leak...</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">static</span> <a class="code" href="structlibMesh_1_1Parallel_1_1data__type.html">data_type</a> _static_type;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">_is_initialized</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span> (!_is_initialized)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      {</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="comment">// We need an example for MPI_Address to use</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <a class="code" href="classlibMesh_1_1Point.html">Point</a> *ex;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <a class="code" href="classlibMesh_1_1AutoPtr.html">AutoPtr&lt;Point&gt;</a> temp;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">if</span> (example)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          ex = <span class="keyword">const_cast&lt;</span><a class="code" href="classlibMesh_1_1Point.html">Point</a> *<span class="keyword">&gt;</span>(example);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            temp.<a class="code" href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">reset</a>(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>());</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            ex = temp.<a class="code" href="classlibMesh_1_1AutoPtr.html#a47c8f66bc54219761cefe575c26a81dd">get</a>();</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;          }</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType&lt;Real&gt;</a> T_type(&amp;((*ex)(0)));</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#if MPI_VERSION == 1</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01Point_01_4.html#ab04fe32671708c5b624769d6de542527">  216</a></span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01Point_01_4.html#ab04fe32671708c5b624769d6de542527">StandardType</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> *example=NULL)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// Prevent unused variable warnings when !LIBMESH_HAVE_MPI</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <a class="code" href="namespacelibMesh.html#af9617f9bc68487eb3167a099a19c2fb2">libmesh_ignore</a>(example);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">// _static_type never gets freed, but it only gets committed once</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">// per T, so it&#39;s not a *huge* memory leak...</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">static</span> <a class="code" href="structlibMesh_1_1Parallel_1_1data__type.html">data_type</a> _static_type;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">_is_initialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">if</span> (!_is_initialized)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="comment">// We need an example for MPI_Address to use</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <a class="code" href="classlibMesh_1_1Point.html">Point</a> *ex;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <a class="code" href="classlibMesh_1_1AutoPtr.html">AutoPtr&lt;Point&gt;</a> temp;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keywordflow">if</span> (example)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          ex = <span class="keyword">const_cast&lt;</span><a class="code" href="classlibMesh_1_1Point.html">Point</a> *<span class="keyword">&gt;</span>(example);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;          {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            temp.<a class="code" href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">reset</a>(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>());</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            ex = temp.<a class="code" href="classlibMesh_1_1AutoPtr.html#a47c8f66bc54219761cefe575c26a81dd">get</a>();</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;          }</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordtype">int</span> blocklengths[LIBMESH_DIM+2];</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        MPI_Aint displs[LIBMESH_DIM+2];</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        MPI_Datatype types[LIBMESH_DIM+2];</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        MPI_Aint start, later;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        MPI_Address(ex, &amp;start);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        blocklengths[0] = 1;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        displs[0] = 0;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        types[0] = MPI_LB;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != LIBMESH_DIM; ++i)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            MPI_Address(&amp;((*ex)(i)), &amp;later);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            blocklengths[i+1] = 1;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            displs[i+1] = later - start;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            types[i+1] = T_type;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;          }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        MPI_Address((ex+1), &amp;later);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        blocklengths[LIBMESH_DIM+1] = 1;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        displs[LIBMESH_DIM+1] = later - start;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        types[LIBMESH_DIM+1] = MPI_UB;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        MPI_Type_struct (LIBMESH_DIM+2, blocklengths, displs, types, &amp;_static_type);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor">#else // MPI_VERSION &gt;= 2</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType&lt;Real&gt;</a> T_type(&amp;((*ex)(0)));</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="preprocessor">#if MPI_VERSION == 1</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordtype">int</span> blocklengths[LIBMESH_DIM+2];</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        MPI_Aint displs[LIBMESH_DIM+2];</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        MPI_Datatype types[LIBMESH_DIM+2];</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        MPI_Aint start, later;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        MPI_Address(ex, &amp;start);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        blocklengths[0] = 1;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        displs[0] = 0;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        types[0] = MPI_LB;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != LIBMESH_DIM; ++i)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;          {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            MPI_Address(&amp;((*ex)(i)), &amp;later);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            blocklengths[i+1] = 1;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            displs[i+1] = later - start;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            types[i+1] = T_type;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;          }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        MPI_Address((ex+1), &amp;later);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        blocklengths[LIBMESH_DIM+1] = 1;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        displs[LIBMESH_DIM+1] = later - start;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        types[LIBMESH_DIM+1] = MPI_UB;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordtype">int</span> blocklength = LIBMESH_DIM;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        MPI_Aint displs, start;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        MPI_Datatype tmptype, type = T_type;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        MPI_Type_struct (LIBMESH_DIM+2, blocklengths, displs, types, &amp;_static_type);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">#else // MPI_VERSION &gt;= 2</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        MPI_Get_address (ex,   &amp;start);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        MPI_Get_address (&amp;((*ex)(0)), &amp;displs);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="comment">// subtract off offset to first value from the beginning of the structure</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        displs -= start;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="comment">// create a prototype structure</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        MPI_Type_create_struct (1, &amp;blocklength, &amp;displs, &amp;type, &amp;tmptype);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="comment">// resize the structure type to account for padding, if any</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        MPI_Type_create_resized (tmptype, 0, <span class="keyword">sizeof</span>(<a class="code" href="classlibMesh_1_1Point.html">Point</a>), &amp;_static_type);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordtype">int</span> blocklength = LIBMESH_DIM;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        MPI_Aint displs, start;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        MPI_Datatype tmptype, type = T_type;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        MPI_Get_address (ex,   &amp;start);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        MPI_Get_address (&amp;((*ex)(0)), &amp;displs);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="comment">// subtract off offset to first value from the beginning of the structure</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        displs -= start;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="comment">// create a prototype structure</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        MPI_Type_create_struct (1, &amp;blocklength, &amp;displs, &amp;type, &amp;tmptype);</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        MPI_Type_commit (&amp;_static_type);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_MPI</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        _is_initialized = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      }</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a> = _static_type;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  }</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;};</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">// StandardType&lt;&gt; specializations to return a derived MPI datatype</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">// to handle communication of LIBMESH_DIM*LIBMESH_DIM-tensors.</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">// We use a singleton pattern here because a global variable would</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">// have tried to call MPI functions before MPI got initialized.</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">// We assume contiguous storage here</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html">  300</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;<a class="code" href="classlibMesh_1_1TypeTensor.html">TypeTensor</a>&lt;T&gt; &gt; : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <span class="keyword">explicit</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adb9b6880332a17faf39cc658ab220dab">  304</a></span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adb9b6880332a17faf39cc658ab220dab">StandardType</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1TypeTensor.html">TypeTensor&lt;T&gt;</a> *example=NULL) :</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a>(<a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;T&gt;(example ?  &amp;((*example)(0,0)) : NULL), LIBMESH_DIM*LIBMESH_DIM) {}</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adf04f510232eb178a8351e4bb3ef1b2a">  307</a></span>&#160;  <span class="keyword">inline</span> <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adf04f510232eb178a8351e4bb3ef1b2a">~StandardType</a>() { this-&gt;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a946f066948fc0ca306e7fc4025cef311">free</a>(); }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;};</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html">  311</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;<a class="code" href="classlibMesh_1_1TensorValue.html">TensorValue</a>&lt;T&gt; &gt; : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keyword">explicit</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#aaeb430d944da86930526a3131bd8e694">  315</a></span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#aaeb430d944da86930526a3131bd8e694">StandardType</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1TensorValue.html">TensorValue&lt;T&gt;</a> *example=NULL) :</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a>(<a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;T&gt;(example ?  &amp;((*example)(0,0)) : NULL), LIBMESH_DIM*LIBMESH_DIM) {}</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
-<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#a521f9b9d3fadf6d84b56a6da241134c8">  318</a></span>&#160;  <span class="keyword">inline</span> <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#a521f9b9d3fadf6d84b56a6da241134c8">~StandardType</a>() { this-&gt;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a946f066948fc0ca306e7fc4025cef311">free</a>(); }</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;};</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;} <span class="comment">// namespace Parallel</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="preprocessor">#endif // LIBMESH_PARALLEL_ALGEBRA_H</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="comment">// resize the structure type to account for padding, if any</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        MPI_Type_create_resized (tmptype, 0, <span class="keyword">sizeof</span>(<a class="code" href="classlibMesh_1_1Point.html">Point</a>), &amp;_static_type);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        MPI_Type_commit (&amp;_static_type);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_MPI</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        _is_initialized = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a> = _static_type;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  }</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;};</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">// StandardType&lt;&gt; specializations to return a derived MPI datatype</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">// to handle communication of LIBMESH_DIM*LIBMESH_DIM-tensors.</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">// We use a singleton pattern here because a global variable would</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">// have tried to call MPI functions before MPI got initialized.</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">// We assume contiguous storage here</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html">  304</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;<a class="code" href="classlibMesh_1_1TypeTensor.html">TypeTensor</a>&lt;T&gt; &gt; : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;{</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keyword">explicit</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adb9b6880332a17faf39cc658ab220dab">  308</a></span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adb9b6880332a17faf39cc658ab220dab">StandardType</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1TypeTensor.html">TypeTensor&lt;T&gt;</a> *example=NULL) :</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a>(<a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;T&gt;(example ?  &amp;((*example)(0,0)) : NULL), LIBMESH_DIM*LIBMESH_DIM) {}</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adf04f510232eb178a8351e4bb3ef1b2a">  311</a></span>&#160;  <span class="keyword">inline</span> <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adf04f510232eb178a8351e4bb3ef1b2a">~StandardType</a>() { this-&gt;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a946f066948fc0ca306e7fc4025cef311">free</a>(); }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;};</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html">  315</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;<a class="code" href="classlibMesh_1_1TensorValue.html">TensorValue</a>&lt;T&gt; &gt; : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keyword">explicit</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#aaeb430d944da86930526a3131bd8e694">  319</a></span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#aaeb430d944da86930526a3131bd8e694">StandardType</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1TensorValue.html">TensorValue&lt;T&gt;</a> *example=NULL) :</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html">DataType</a>(<a class="code" href="classlibMesh_1_1Parallel_1_1StandardType.html">StandardType</a>&lt;T&gt;(example ?  &amp;((*example)(0,0)) : NULL), LIBMESH_DIM*LIBMESH_DIM) {}</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#a521f9b9d3fadf6d84b56a6da241134c8">  322</a></span>&#160;  <span class="keyword">inline</span> <a class="code" href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#a521f9b9d3fadf6d84b56a6da241134c8">~StandardType</a>() { this-&gt;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a946f066948fc0ca306e7fc4025cef311">free</a>(); }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;};</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;} <span class="comment">// namespace Parallel</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif // LIBMESH_PARALLEL_ALGEBRA_H</span></div>
 <div class="ttc" id="structlibMesh_1_1Parallel_1_1data__type_html"><div class="ttname"><a href="structlibMesh_1_1Parallel_1_1data__type.html">libMesh::Parallel::data_type</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00159">parallel.h:159</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01VectorValue_3_01T_01_4_01_4_html_a4fe6ee450c99a16cdbead28ed66d3f90"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01VectorValue_3_01T_01_4_01_4.html#a4fe6ee450c99a16cdbead28ed66d3f90">libMesh::Parallel::StandardType&lt; VectorValue&lt; T &gt; &gt;::StandardType</a></div><div class="ttdeci">StandardType(const VectorValue&lt; T &gt; *example=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00137">parallel_algebra.h:137</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4_html_adb9b6880332a17faf39cc658ab220dab"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adb9b6880332a17faf39cc658ab220dab">libMesh::Parallel::StandardType&lt; TypeTensor&lt; T &gt; &gt;::StandardType</a></div><div class="ttdeci">StandardType(const TypeTensor&lt; T &gt; *example=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00304">parallel_algebra.h:304</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4_html_aaeb430d944da86930526a3131bd8e694"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#aaeb430d944da86930526a3131bd8e694">libMesh::Parallel::StandardType&lt; TensorValue&lt; T &gt; &gt;::StandardType</a></div><div class="ttdeci">StandardType(const TensorValue&lt; T &gt; *example=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00315">parallel_algebra.h:315</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4_html_adb9b6880332a17faf39cc658ab220dab"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adb9b6880332a17faf39cc658ab220dab">libMesh::Parallel::StandardType&lt; TypeTensor&lt; T &gt; &gt;::StandardType</a></div><div class="ttdeci">StandardType(const TypeTensor&lt; T &gt; *example=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00308">parallel_algebra.h:308</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4_html_aaeb430d944da86930526a3131bd8e694"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#aaeb430d944da86930526a3131bd8e694">libMesh::Parallel::StandardType&lt; TensorValue&lt; T &gt; &gt;::StandardType</a></div><div class="ttdeci">StandardType(const TensorValue&lt; T &gt; *example=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00319">parallel_algebra.h:319</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00294">parallel.h:294</a></div></div>
 <div class="ttc" id="point_8h_html"><div class="ttname"><a href="point_8h.html">point.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1VectorValue_html"><div class="ttname"><a href="classlibMesh_1_1VectorValue.html">libMesh::VectorValue</a></div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8h_source.html#l00048">exact_error_estimator.h:48</a></div></div>
@@ -436,13 +440,14 @@
 <div class="ttc" id="parallel_8h_html"><div class="ttname"><a href="parallel_8h.html">parallel.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType.html">libMesh::Parallel::StandardType</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00324">parallel.h:324</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TypeVector_html"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html">libMesh::TypeVector</a></div><div class="ttdef"><b>Definition:</b> <a href="tensor__tools_8h_source.html#l00030">tensor_tools.h:30</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4_html_adf04f510232eb178a8351e4bb3ef1b2a"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adf04f510232eb178a8351e4bb3ef1b2a">libMesh::Parallel::StandardType&lt; TypeTensor&lt; T &gt; &gt;::~StandardType</a></div><div class="ttdeci">~StandardType()</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00307">parallel_algebra.h:307</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4_html_adf04f510232eb178a8351e4bb3ef1b2a"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeTensor_3_01T_01_4_01_4.html#adf04f510232eb178a8351e4bb3ef1b2a">libMesh::Parallel::StandardType&lt; TypeTensor&lt; T &gt; &gt;::~StandardType</a></div><div class="ttdeci">~StandardType()</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00311">parallel_algebra.h:311</a></div></div>
 <div class="ttc" id="vector__value_8h_html"><div class="ttname"><a href="vector__value_8h.html">vector_value.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html">libMesh::Parallel::DataType</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00235">parallel.h:235</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_af9617f9bc68487eb3167a099a19c2fb2"><div class="ttname"><a href="namespacelibMesh.html#af9617f9bc68487eb3167a099a19c2fb2">libMesh::libmesh_ignore</a></div><div class="ttdeci">void libmesh_ignore(const T &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00450">libmesh_common.h:450</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeVector_3_01T_01_4_01_4_html_a61ba430737ab4b9dc72d38bdeb11532c"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TypeVector_3_01T_01_4_01_4.html#a61ba430737ab4b9dc72d38bdeb11532c">libMesh::Parallel::StandardType&lt; TypeVector&lt; T &gt; &gt;::StandardType</a></div><div class="ttdeci">StandardType(const TypeVector&lt; T &gt; *example=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00058">parallel_algebra.h:58</a></div></div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_aca7dac34d00cd798c43629794345a09c"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">libMesh::AutoPtr::reset</a></div><div class="ttdeci">void reset(element_type *p=0)</div><div class="ttdoc">Forcibly deletes the managed object. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00257">auto_ptr.h:257</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4_html_a521f9b9d3fadf6d84b56a6da241134c8"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#a521f9b9d3fadf6d84b56a6da241134c8">libMesh::Parallel::StandardType&lt; TensorValue&lt; T &gt; &gt;::~StandardType</a></div><div class="ttdeci">~StandardType()</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00318">parallel_algebra.h:318</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4_html_a521f9b9d3fadf6d84b56a6da241134c8"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1StandardType_3_01TensorValue_3_01T_01_4_01_4.html#a521f9b9d3fadf6d84b56a6da241134c8">libMesh::Parallel::StandardType&lt; TensorValue&lt; T &gt; &gt;::~StandardType</a></div><div class="ttdeci">~StandardType()</div><div class="ttdef"><b>Definition:</b> <a href="parallel__algebra_8h_source.html#l00322">parallel_algebra.h:322</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a946f066948fc0ca306e7fc4025cef311"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a946f066948fc0ca306e7fc4025cef311">libMesh::Parallel::DataType::free</a></div><div class="ttdeci">void free()</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00285">parallel.h:285</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00042">point.h:42</a></div></div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html">libMesh::AutoPtr</a></div><div class="ttdoc">A simple smart pointer providing strict ownership semantics. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00102">auto_ptr.h:102</a></div></div>

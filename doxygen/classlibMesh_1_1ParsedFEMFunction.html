@@ -208,9 +208,9 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00051">51</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00291">libMesh::ParsedFEMFunction&lt; Output &gt;::_additional_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00292">libMesh::ParsedFEMFunction&lt; Output &gt;::_initial_vals</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00284">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00288">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00324">end</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00286">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, <a class="el" href="libmesh__common_8h_source.html#l00119">libMesh::Real</a>, and <a class="el" href="system_8h_source.html#l02052">libMesh::System::variable_name()</a>.</p>
+<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00294">libMesh::ParsedFEMFunction&lt; Output &gt;::_additional_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00295">libMesh::ParsedFEMFunction&lt; Output &gt;::_initial_vals</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00287">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00291">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00324">end</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00289">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, <a class="el" href="libmesh__common_8h_source.html#l00119">libMesh::Real</a>, and <a class="el" href="system_8h_source.html#l02064">libMesh::System::variable_name()</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00167">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00170">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    : <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">_sys</a>(<a class="code" href="namespacelibMesh.html#a13b55b2e3e43370c0ccf466d8615ccea">sys</a>),</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">_expression</a>(expression),</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>(<a class="code" href="namespacelibMesh.html#a13b55b2e3e43370c0ccf466d8615ccea">sys</a>.<a class="code" href="classlibMesh_1_1System.html#a4cf032eda109fe32a7fcde672ef5726e">n_vars</a>())</div>
@@ -278,41 +278,43 @@ template&lt;typename Output  = Number&gt; </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                            std::string::npos : <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> - nextstart);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="comment">// fparser can crash on empty expressions</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(!subexpression.empty());</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_FPARSER</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="comment">// Parse (and optimize if possible) the subexpression.</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="comment">// Add some basic constants, to Real precision.</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        FunctionParserBase&lt;Output&gt; fp;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        fp.AddConstant(<span class="stringliteral">&quot;NaN&quot;</span>, std::numeric_limits&lt;Real&gt;::quiet_NaN());</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        fp.AddConstant(<span class="stringliteral">&quot;pi&quot;</span>, std::acos(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>(-1)));</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        fp.AddConstant(<span class="stringliteral">&quot;e&quot;</span>, std::exp(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>(1)));</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        fp.Parse(subexpression, variables);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        fp.Optimize();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>.push_back(fp);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="comment">// If at end, use nextstart=maxSize.  Else start at next</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="comment">// character.</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        nextstart = (<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> == std::string::npos) ?</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;          std::string::npos : <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> + 1;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a7b2a12c2393c739a72e37d880de3fa8a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a7b2a12c2393c739a72e37d880de3fa8a">libMesh::ParsedFEMFunction::_initial_vals</a></div><div class="ttdeci">std::vector&lt; Output &gt; _initial_vals</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00292">parsed_fem_function.h:292</a></div></div>
-<div class="ttc" id="classlibMesh_1_1System_html_a9cddad5dd8b68389373567fddfbdb257"><div class="ttname"><a href="classlibMesh_1_1System.html#a9cddad5dd8b68389373567fddfbdb257">libMesh::System::variable_name</a></div><div class="ttdeci">const std::string &amp; variable_name(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l02052">system.h:2052</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a530fb28fab8514d6d19149fc35d9a52a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">libMesh::ParsedFEMFunction::_expression</a></div><div class="ttdeci">std::string _expression</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00283">parsed_fem_function.h:283</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a5a0f284b515fafd4287841a3d3afe78e"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a5a0f284b515fafd4287841a3d3afe78e">libMesh::ParsedFEMFunction::_additional_vars</a></div><div class="ttdeci">std::vector&lt; std::string &gt; _additional_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00291">parsed_fem_function.h:291</a></div></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span> (subexpression.empty())</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;ERROR: FunctionParser is unable to parse empty expression.\n&quot;</span>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_FPARSER</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">// Parse (and optimize if possible) the subexpression.</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="comment">// Add some basic constants, to Real precision.</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        FunctionParserBase&lt;Output&gt; fp;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        fp.AddConstant(<span class="stringliteral">&quot;NaN&quot;</span>, std::numeric_limits&lt;Real&gt;::quiet_NaN());</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        fp.AddConstant(<span class="stringliteral">&quot;pi&quot;</span>, std::acos(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>(-1)));</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        fp.AddConstant(<span class="stringliteral">&quot;e&quot;</span>, std::exp(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>(1)));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">if</span> (fp.Parse(subexpression, variables) != -1) <span class="comment">// -1 for success</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;ERROR: FunctionParser is unable to parse expression: &quot;</span> &lt;&lt; subexpression &lt;&lt; <span class="charliteral">&#39;\n&#39;</span> &lt;&lt; fp.ErrorMsg());</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        fp.Optimize();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>.push_back(fp);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="comment">// If at end, use nextstart=maxSize.  Else start at next</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="comment">// character.</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        nextstart = (<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> == std::string::npos) ?</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          std::string::npos : <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> + 1;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a7b2a12c2393c739a72e37d880de3fa8a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a7b2a12c2393c739a72e37d880de3fa8a">libMesh::ParsedFEMFunction::_initial_vals</a></div><div class="ttdeci">std::vector&lt; Output &gt; _initial_vals</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00295">parsed_fem_function.h:295</a></div></div>
+<div class="ttc" id="classlibMesh_1_1System_html_a9cddad5dd8b68389373567fddfbdb257"><div class="ttname"><a href="classlibMesh_1_1System.html#a9cddad5dd8b68389373567fddfbdb257">libMesh::System::variable_name</a></div><div class="ttdeci">const std::string &amp; variable_name(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l02064">system.h:2064</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a530fb28fab8514d6d19149fc35d9a52a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">libMesh::ParsedFEMFunction::_expression</a></div><div class="ttdeci">std::string _expression</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00286">parsed_fem_function.h:286</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a5a0f284b515fafd4287841a3d3afe78e"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a5a0f284b515fafd4287841a3d3afe78e">libMesh::ParsedFEMFunction::_additional_vars</a></div><div class="ttdeci">std::vector&lt; std::string &gt; _additional_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00294">parsed_fem_function.h:294</a></div></div>
 <div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00324">variant_filter_iterator.h:324</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00288">parsed_fem_function.h:288</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a55861c383f7677b3e960f540d687dbbd"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">libMesh::ParsedFEMFunction::_sys</a></div><div class="ttdeci">const System &amp; _sys</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00282">parsed_fem_function.h:282</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00284">parsed_fem_function.h:284</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00286">parsed_fem_function.h:286</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00291">parsed_fem_function.h:291</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a55861c383f7677b3e960f540d687dbbd"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">libMesh::ParsedFEMFunction::_sys</a></div><div class="ttdeci">const System &amp; _sys</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00285">parsed_fem_function.h:285</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00287">parsed_fem_function.h:287</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00289">parsed_fem_function.h:289</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00119">libmesh_common.h:119</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a13b55b2e3e43370c0ccf466d8615ccea"><div class="ttname"><a href="namespacelibMesh.html#a13b55b2e3e43370c0ccf466d8615ccea">libMesh::sys</a></div><div class="ttdeci">ImplicitSystem &amp; sys</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00154">petsc_diff_solver.C:154</a></div></div>
-<div class="ttc" id="classlibMesh_1_1System_html_a4cf032eda109fe32a7fcde672ef5726e"><div class="ttname"><a href="classlibMesh_1_1System.html#a4cf032eda109fe32a7fcde672ef5726e">libMesh::System::n_vars</a></div><div class="ttdeci">unsigned int n_vars() const </div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l02004">system.h:2004</a></div></div>
+<div class="ttc" id="classlibMesh_1_1System_html_a4cf032eda109fe32a7fcde672ef5726e"><div class="ttname"><a href="classlibMesh_1_1System.html#a4cf032eda109fe32a7fcde672ef5726e">libMesh::System::n_vars</a></div><div class="ttdeci">unsigned int n_vars() const </div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l02016">system.h:2016</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -340,8 +342,8 @@ template&lt;typename Output  = Number&gt; </div>
 </div><div class="memdoc">
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00148">148</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{}</div>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00151">151</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -372,19 +374,19 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a99d9caf0421ab6f6a280d446c87e375b">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00167">167</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00170">170</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00291">libMesh::ParsedFEMFunction&lt; Output &gt;::_additional_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00283">libMesh::ParsedFEMFunction&lt; Output &gt;::_expression</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00292">libMesh::ParsedFEMFunction&lt; Output &gt;::_initial_vals</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00282">libMesh::ParsedFEMFunction&lt; Output &gt;::_sys</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                                                           {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">return</span> AutoPtr&lt;FEMFunctionBase&lt;Output&gt; &gt;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      (<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#aaf2f3709224d7f747cb9025bb0698955">ParsedFEMFunction</a></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;       (<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">_sys</a>, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">_expression</a>, &amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a5a0f284b515fafd4287841a3d3afe78e">_additional_vars</a>, &amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a7b2a12c2393c739a72e37d880de3fa8a">_initial_vals</a>));</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a7b2a12c2393c739a72e37d880de3fa8a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a7b2a12c2393c739a72e37d880de3fa8a">libMesh::ParsedFEMFunction::_initial_vals</a></div><div class="ttdeci">std::vector&lt; Output &gt; _initial_vals</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00292">parsed_fem_function.h:292</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a530fb28fab8514d6d19149fc35d9a52a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">libMesh::ParsedFEMFunction::_expression</a></div><div class="ttdeci">std::string _expression</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00283">parsed_fem_function.h:283</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a5a0f284b515fafd4287841a3d3afe78e"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a5a0f284b515fafd4287841a3d3afe78e">libMesh::ParsedFEMFunction::_additional_vars</a></div><div class="ttdeci">std::vector&lt; std::string &gt; _additional_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00291">parsed_fem_function.h:291</a></div></div>
+<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00294">libMesh::ParsedFEMFunction&lt; Output &gt;::_additional_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00286">libMesh::ParsedFEMFunction&lt; Output &gt;::_expression</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00295">libMesh::ParsedFEMFunction&lt; Output &gt;::_initial_vals</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00285">libMesh::ParsedFEMFunction&lt; Output &gt;::_sys</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                                                           {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">return</span> AutoPtr&lt;FEMFunctionBase&lt;Output&gt; &gt;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      (<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#aaf2f3709224d7f747cb9025bb0698955">ParsedFEMFunction</a></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;       (<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">_sys</a>, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">_expression</a>, &amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a5a0f284b515fafd4287841a3d3afe78e">_additional_vars</a>, &amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a7b2a12c2393c739a72e37d880de3fa8a">_initial_vals</a>));</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a7b2a12c2393c739a72e37d880de3fa8a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a7b2a12c2393c739a72e37d880de3fa8a">libMesh::ParsedFEMFunction::_initial_vals</a></div><div class="ttdeci">std::vector&lt; Output &gt; _initial_vals</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00295">parsed_fem_function.h:295</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a530fb28fab8514d6d19149fc35d9a52a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a530fb28fab8514d6d19149fc35d9a52a">libMesh::ParsedFEMFunction::_expression</a></div><div class="ttdeci">std::string _expression</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00286">parsed_fem_function.h:286</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a5a0f284b515fafd4287841a3d3afe78e"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a5a0f284b515fafd4287841a3d3afe78e">libMesh::ParsedFEMFunction::_additional_vars</a></div><div class="ttdeci">std::vector&lt; std::string &gt; _additional_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00294">parsed_fem_function.h:294</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_aaf2f3709224d7f747cb9025bb0698955"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#aaf2f3709224d7f747cb9025bb0698955">libMesh::ParsedFEMFunction::ParsedFEMFunction</a></div><div class="ttdeci">ParsedFEMFunction(const System &amp;sys, const std::string &amp;expression, const std::vector&lt; std::string &gt; *additional_vars=NULL, const std::vector&lt; Output &gt; *initial_vals=NULL)</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00051">parsed_fem_function.h:51</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a55861c383f7677b3e960f540d687dbbd"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">libMesh::ParsedFEMFunction::_sys</a></div><div class="ttdeci">const System &amp; _sys</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00282">parsed_fem_function.h:282</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a55861c383f7677b3e960f540d687dbbd"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a55861c383f7677b3e960f540d687dbbd">libMesh::ParsedFEMFunction::_sys</a></div><div class="ttdeci">const System &amp; _sys</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00285">parsed_fem_function.h:285</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -437,37 +439,37 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#ade48b862ec4bc7a787824598205f0ef3">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00252">252</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00255">255</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00284">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00288">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00286">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, and <a class="el" href="fem__context_8C_source.html#l00745">libMesh::FEMContext::point_value()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  {</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0] = p(0);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[1] = p(1);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[2] = p(2);</div>
+<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00287">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00291">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00289">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, and <a class="el" href="fem__context_8C_source.html#l00745">libMesh::FEMContext::point_value()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0] = p(0);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[1] = p(1);</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM] = time;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        c.point_value(v, p, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM+1+v]);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      }</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_FPARSER</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    libmesh_assert_less (i, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>.size());</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// The remaining locations in _spacetime are currently fixed at construction</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">// but could potentially be made dynamic</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>[i].Eval(&amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0]);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> Output(0);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00288">parsed_fem_function.h:288</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00284">parsed_fem_function.h:284</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00286">parsed_fem_function.h:286</a></div></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[2] = p(2);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM] = time;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        c.point_value(v, p, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM+1+v]);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_FPARSER</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    libmesh_assert_less (i, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>.size());</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="comment">// The remaining locations in _spacetime are currently fixed at construction</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">// but could potentially be made dynamic</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>[i].Eval(&amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0]);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">return</span> Output(0);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00291">parsed_fem_function.h:291</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00287">parsed_fem_function.h:287</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00289">parsed_fem_function.h:289</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -498,18 +500,18 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a755ede0c73871ab3082697220f06a9ad">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00153">153</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00156">156</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00284">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="fem__context_8h_source.html#l00778">libMesh::FEMContext::get_element_fe()</a>, and <a class="el" href="fe__base_8h_source.html#l00210">libMesh::FEGenericBase&lt; T &gt;::get_phi()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                                                  {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <a class="code" href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">FEBase</a>* elem_fe;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        c.get_element_fe(v, elem_fe);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        elem_fe-&gt;get_phi();</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00284">parsed_fem_function.h:284</a></div></div>
+<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00287">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="fem__context_8h_source.html#l00778">libMesh::FEMContext::get_element_fe()</a>, and <a class="el" href="fe__base_8h_source.html#l00210">libMesh::FEGenericBase&lt; T &gt;::get_phi()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                                  {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <a class="code" href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">FEBase</a>* elem_fe;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        c.get_element_fe(v, elem_fe);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        elem_fe-&gt;get_phi();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00287">parsed_fem_function.h:287</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_adf7aee34b8c6fe4be28c90fe132a73a0"><div class="ttname"><a href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">libMesh::FEBase</a></div><div class="ttdeci">FEGenericBase&lt; Real &gt; FEBase</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8h_source.html#l00037">exact_error_estimator.h:37</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -607,36 +609,36 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00181">181</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00184">184</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00284">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00288">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00286">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, and <a class="el" href="fem__context_8C_source.html#l00745">libMesh::FEMContext::point_value()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0] = p(0);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[1] = p(1);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[2] = p(2);</div>
+<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00287">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00291">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00289">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, and <a class="el" href="fem__context_8C_source.html#l00745">libMesh::FEMContext::point_value()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0] = p(0);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[1] = p(1);</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM] = time;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        c.point_value(v, p, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM+1+v]);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="comment">// The remaining locations in _spacetime are currently fixed at construction</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">// but could potentially be made dynamic</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#if LIBMESH_HAVE_FPARSER</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>[0].Eval(&amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0]);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">return</span> Output(0);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00288">parsed_fem_function.h:288</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00284">parsed_fem_function.h:284</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00286">parsed_fem_function.h:286</a></div></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[2] = p(2);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM] = time;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        c.point_value(v, p, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM+1+v]);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">// The remaining locations in _spacetime are currently fixed at construction</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">// but could potentially be made dynamic</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#if LIBMESH_HAVE_FPARSER</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>[0].Eval(&amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0]);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">return</span> Output(0);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00291">parsed_fem_function.h:291</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00287">parsed_fem_function.h:287</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00289">parsed_fem_function.h:289</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -689,40 +691,40 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#ab7f447139d476bca461b64feebc3b695">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00215">215</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00218">218</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00284">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00288">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00286">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, <a class="el" href="fem__context_8C_source.html#l00745">libMesh::FEMContext::point_value()</a>, and <a class="el" href="dense__vector_8h_source.html#l00081">libMesh::DenseVector&lt; T &gt;::size()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0] = p(0);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[1] = p(1);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[2] = p(2);</div>
+<p>References <a class="el" href="parsed__fem__function_8h_source.html#l00287">libMesh::ParsedFEMFunction&lt; Output &gt;::_n_vars</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00291">libMesh::ParsedFEMFunction&lt; Output &gt;::_spacetime</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00289">libMesh::ParsedFEMFunction&lt; Output &gt;::parsers</a>, <a class="el" href="fem__context_8C_source.html#l00745">libMesh::FEMContext::point_value()</a>, and <a class="el" href="dense__vector_8h_source.html#l00081">libMesh::DenseVector&lt; T &gt;::size()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0] = p(0);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[1] = p(1);</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM] = time;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        c.point_value(v, p, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM+1+v]);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size = output.size();</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_FPARSER</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    libmesh_assert_equal_to (size, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>.size());</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[2] = p(2);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM] = time;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v=0; v != <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">_n_vars</a>; ++v)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      {</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        c.point_value(v, p, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[LIBMESH_DIM+1+v]);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size = output.size();</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">// The remaining locations in _spacetime are currently fixed at construction</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="comment">// but could potentially be made dynamic</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != size; ++i)</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      output(i) = <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>[i].Eval(&amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0]);</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00288">parsed_fem_function.h:288</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00284">parsed_fem_function.h:284</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00286">parsed_fem_function.h:286</a></div></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_FPARSER</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    libmesh_assert_equal_to (size, <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>.size());</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="comment">// The remaining locations in _spacetime are currently fixed at construction</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment">// but could potentially be made dynamic</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != size; ++i)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      output(i) = <a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">parsers</a>[i].Eval(&amp;<a class="code" href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">_spacetime</a>[0]);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;ERROR: This functionality requires fparser!&quot;</span>);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_a3aa8652dad2dfccbbae11f211593340c"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#a3aa8652dad2dfccbbae11f211593340c">libMesh::ParsedFEMFunction::_spacetime</a></div><div class="ttdeci">std::vector&lt; Output &gt; _spacetime</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00291">parsed_fem_function.h:291</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ada72e862d42552a258d9f276cdce8308"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ada72e862d42552a258d9f276cdce8308">libMesh::ParsedFEMFunction::_n_vars</a></div><div class="ttdeci">unsigned int _n_vars</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00287">parsed_fem_function.h:287</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParsedFEMFunction_html_ae5bd5999931d42ecdc3ea75dce2dbac1"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunction.html#ae5bd5999931d42ecdc3ea75dce2dbac1">libMesh::ParsedFEMFunction::parsers</a></div><div class="ttdeci">std::vector&lt; FunctionParserBase&lt; Output &gt; &gt; parsers</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function_8h_source.html#l00289">parsed_fem_function.h:289</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -747,9 +749,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00291">291</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00294">294</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00167">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00170">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
 
 </div>
 </div>
@@ -773,9 +775,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00283">283</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00286">286</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00167">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00170">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>.</p>
 
 </div>
 </div>
@@ -799,9 +801,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00292">292</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00295">295</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00167">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00170">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
 
 </div>
 </div>
@@ -825,9 +827,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00284">284</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00287">287</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00252">libMesh::ParsedFEMFunction&lt; Output &gt;::component()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00153">libMesh::ParsedFEMFunction&lt; Output &gt;::init_context()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00181">libMesh::ParsedFEMFunction&lt; Output &gt;::operator()()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00255">libMesh::ParsedFEMFunction&lt; Output &gt;::component()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00156">libMesh::ParsedFEMFunction&lt; Output &gt;::init_context()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00184">libMesh::ParsedFEMFunction&lt; Output &gt;::operator()()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
 
 </div>
 </div>
@@ -851,9 +853,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00288">288</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00291">291</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00252">libMesh::ParsedFEMFunction&lt; Output &gt;::component()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00181">libMesh::ParsedFEMFunction&lt; Output &gt;::operator()()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00255">libMesh::ParsedFEMFunction&lt; Output &gt;::component()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00184">libMesh::ParsedFEMFunction&lt; Output &gt;::operator()()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
 
 </div>
 </div>
@@ -877,9 +879,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00282">282</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00285">285</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00167">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00170">libMesh::ParsedFEMFunction&lt; Output &gt;::clone()</a>.</p>
 
 </div>
 </div>
@@ -903,9 +905,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00286">286</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="parsed__fem__function_8h_source.html#l00289">289</a> of file <a class="el" href="parsed__fem__function_8h_source.html">parsed_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00252">libMesh::ParsedFEMFunction&lt; Output &gt;::component()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00181">libMesh::ParsedFEMFunction&lt; Output &gt;::operator()()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
+<p>Referenced by <a class="el" href="parsed__fem__function_8h_source.html#l00255">libMesh::ParsedFEMFunction&lt; Output &gt;::component()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00184">libMesh::ParsedFEMFunction&lt; Output &gt;::operator()()</a>, and <a class="el" href="parsed__fem__function_8h_source.html#l00051">libMesh::ParsedFEMFunction&lt; Output &gt;::ParsedFEMFunction()</a>.</p>
 
 </div>
 </div>
