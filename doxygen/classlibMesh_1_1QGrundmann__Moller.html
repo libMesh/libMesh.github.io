@@ -247,7 +247,7 @@ Private Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class implements the Grundmann-Moller quadrature rules for tetrahedra. The GM rules are well-defined for simplices of arbitrary dimension and to any order, but the rules by Dunavant for two-dimensional simplices are in general superior. This is primarily due to the fact that the GM rules contain a significant proportion of negative weights, making them susceptible to round-off error at high-order.</p>
 <p>The GM rules are interesting in 3D because they overlap with the conical product rules at higher order while having significantly fewer evaluation points, making them potentially much more efficient. The table below gives a comparison between the number of points in a conical product (CP) rule and the GM rule of equivalent order. The GM rules are defined to be exact for polynomials of degree d=2*s+1, s=0,1,2,3,... The table also gives the percentage of each GM rule's weights which are negative. The percentage of negative weights appears to approach 50, and the amplification factor (a measure of the effect of round-off) defined as</p>
-<p>amp. factor = <img class="formulaInl" alt="$ \frac{1}{V} \sum \|w_i\|, $" src="form_99.png"/></p>
+<p>amp. factor = <img class="formulaInl" alt="$ \frac{1}{V} \sum \|w_i\|, $" src="form_102.png"/></p>
 <p>where V is the volume of the reference element, grows like exp(C*s). (A rule with all positive weights has an amplification factor of 1.0 by definition.)</p>
 <pre class="fragment">* s   degree  n_pts(conical)  n_pts(GM)   % neg wts  amp. factor
 * ------------------------------------------------------------------------

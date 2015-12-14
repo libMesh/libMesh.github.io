@@ -5250,7 +5250,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Computes the indices of shape functions in the base <code>base_shape</code> and in radial direction <code>radial_shape</code> (0 in the base, <img class="formulaInl" alt="$ \ge 1 $" src="form_73.png"/> further out) associated to the shape with global index <code>i</code> of an infinite element of type <code>inf_elem_type</code>. </p>
+<p>Computes the indices of shape functions in the base <code>base_shape</code> and in radial direction <code>radial_shape</code> (0 in the base, <img class="formulaInl" alt="$ \ge 1 $" src="form_76.png"/> further out) associated to the shape with global index <code>i</code> of an infinite element of type <code>inf_elem_type</code>. </p>
 
 <p>Definition at line <a class="el" href="inf__fe__static_8C_source.html#l00701">701</a> of file <a class="el" href="inf__fe__static_8C_source.html">inf_fe_static.C</a>.</p>
 
@@ -10305,7 +10305,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the location (on the reference element) of the point <code>p</code> located in physical space. First, the location in the base face is computed. This requires inverting the (possibly nonlinear) transformation map in the base, so it is not trivial. The optional parameter <code>tolerance</code> defines how close is "good enough." The map inversion iteration computes the sequence <img class="formulaInl" alt="$ \{ p_n \} $" src="form_55.png"/>, and the iteration is terminated when <img class="formulaInl" alt="$ \|p - p_n\| < \mbox{\texttt{tolerance}} $" src="form_56.png"/>. Once the base face point is determined, the radial local coordinate is directly evaluated. If <code>interpolated</code> is true, the interpolated distance from the base element to the infinite element origin is used for the map in radial direction. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the location (on the reference element) of the point <code>p</code> located in physical space. First, the location in the base face is computed. This requires inverting the (possibly nonlinear) transformation map in the base, so it is not trivial. The optional parameter <code>tolerance</code> defines how close is "good enough." The map inversion iteration computes the sequence <img class="formulaInl" alt="$ \{ p_n \} $" src="form_58.png"/>, and the iteration is terminated when <img class="formulaInl" alt="$ \|p - p_n\| < \mbox{\texttt{tolerance}} $" src="form_59.png"/>. Once the base face point is determined, the radial local coordinate is directly evaluated. If <code>interpolated</code> is true, the interpolated distance from the base element to the infinite element origin is used for the map in radial direction. </dd></dl>
 <p>The number of iterations in the map inversion process.</p>
 <p>Newton iteration loop.</p>
 
@@ -11087,7 +11087,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the number of shape functions associated with this infinite element. Currently, we have <code>o_radial+1</code> modes in radial direction, and <code><a class="el" href="classlibMesh_1_1FE.html">FE</a>&lt;Dim-1</code>,T&gt;::n_dofs(...) in the base. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of shape functions associated with this infinite element. Currently, we have <code>o_radial+1</code> modes in radial direction, and <a class="el" href="classlibMesh_1_1FE.html">FE</a>&lt;Dim-1,T&gt;::n_dofs(...) in the base. </dd></dl>
 
 <p>Definition at line <a class="el" href="inf__fe__static_8C_source.html#l00055">55</a> of file <a class="el" href="inf__fe__static_8C_source.html">inf_fe_static.C</a>.</p>
 
@@ -11501,7 +11501,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true if the point p is located on the reference element for element type t, false otherwise. Since we are doing floating point comparisons here the parameter <code>eps</code> can be specified to indicate a tolerance. For example, <img class="formulaInl" alt="$ x \le 1 $" src="form_57.png"/> becomes <img class="formulaInl" alt="$ x \le 1 + \epsilon $" src="form_58.png"/>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the point p is located on the reference element for element type t, false otherwise. Since we are doing floating point comparisons here the parameter <code>eps</code> can be specified to indicate a tolerance. For example, <img class="formulaInl" alt="$ x \le 1 $" src="form_60.png"/> becomes <img class="formulaInl" alt="$ x \le 1 + \epsilon $" src="form_61.png"/>. </dd></dl>
 
 <p>Definition at line <a class="el" href="fe__abstract_8C_source.html#l00554">554</a> of file <a class="el" href="fe__abstract_8C_source.html">fe_abstract.C</a>.</p>
 
@@ -14193,7 +14193,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>the first local derivative of the radial decay <img class="formulaInl" alt="$ 1/r $" src="form_74.png"/> in local coordinates. Needed when setting up the overall shape functions. </p>
+<p>the first local derivative of the radial decay <img class="formulaInl" alt="$ 1/r $" src="form_77.png"/> in local coordinates. Needed when setting up the overall shape functions. </p>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00636">636</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
@@ -14218,7 +14218,7 @@ template&lt;typename OutputType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Used for certain <em>infinite</em> element families: the global derivative of the additional radial weight <img class="formulaInl" alt="$ 1/{r^2} $" src="form_59.png"/>, over <em>all</em> quadrature points. </p>
+<p>Used for certain <em>infinite</em> element families: the global derivative of the additional radial weight <img class="formulaInl" alt="$ 1/{r^2} $" src="form_62.png"/>, over <em>all</em> quadrature points. </p>
 
 <p>Definition at line <a class="el" href="fe__base_8h_source.html#l00645">645</a> of file <a class="el" href="fe__base_8h_source.html">fe_base.h</a>.</p>
 
@@ -14245,7 +14245,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>the additional radial weight <img class="formulaInl" alt="$ 1/{r^2} $" src="form_59.png"/> in local coordinates, over all quadrature points. The weight does not vary in base direction. However, for uniform access to the data fields from the outside, this data field is expanded to <em>all</em> quadrature points. </p>
+<p>the additional radial weight <img class="formulaInl" alt="$ 1/{r^2} $" src="form_62.png"/> in local coordinates, over all quadrature points. The weight does not vary in base direction. However, for uniform access to the data fields from the outside, this data field is expanded to <em>all</em> quadrature points. </p>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00623">623</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
@@ -14472,7 +14472,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>the radial decay <img class="formulaInl" alt="$ 1/r $" src="form_74.png"/> in local coordinates. Needed when setting up the overall shape functions. Note that it is this decay which assures to satisfy the Sommerfeld radiation condition in advance. </p>
+<p>the radial decay <img class="formulaInl" alt="$ 1/r $" src="form_77.png"/> in local coordinates. Needed when setting up the overall shape functions. Note that it is this decay which assures to satisfy the Sommerfeld radiation condition in advance. </p>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00631">631</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
@@ -14497,7 +14497,7 @@ template&lt;typename OutputType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Used for certain <em>infinite</em> element families: the additional radial weight <img class="formulaInl" alt="$ 1/{r^2} $" src="form_59.png"/> in local coordinates, over <em>all</em> quadrature points. </p>
+<p>Used for certain <em>infinite</em> element families: the additional radial weight <img class="formulaInl" alt="$ 1/{r^2} $" src="form_62.png"/> in local coordinates, over <em>all</em> quadrature points. </p>
 
 <p>Definition at line <a class="el" href="fe__base_8h_source.html#l00652">652</a> of file <a class="el" href="fe__base_8h_source.html">fe_base.h</a>.</p>
 

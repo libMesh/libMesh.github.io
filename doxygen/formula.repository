@@ -18,98 +18,102 @@
 \form#17:$|Mv|_1\leq |M|_1 |v|_1$
 \form#18:$|M|_\infty=max_{all rows i}\sum_{all columns j} |M_ij|$
 \form#19:$|Mv|_\infty \leq |M|_\infty |v|_\infty$
-\form#20:$l_1$
-\form#21:$l_2$
-\form#22:$l_\infty$
-\form#23:\[ F(u) + G(u) - M(u,\dot{u})\dot{u} = 0 \]
-\form#24:$ F(u) = 0$
-\form#25:$F(u)$
-\form#26:$ G(u) $
-\form#27:$ M(u,\dot{u})\dot{u} $
-\form#28:\[ M(u,\ddot{u})\ddot{u} + C(u,\dot{u})\dot{u} + F(u) + G(u) = 0 \]
-\form#29:$G(u)$
-\form#30:$C(u,\dot{u})\dot{u}$
-\form#31:$ -M(u,\ddot{u})\ddot{u}$
-\form#32:${u}$
-\form#33:$\dot{u}$
-\form#34:$\ddot{u}$
-\form#35:$ u_{n+1} $
-\form#36:$ M(u,\ddot{u})\ddot{u} $
-\form#37:$ C(u,\ddot{u})\ddot{u} $
-\form#38:$U(0-N) = s$
-\form#39:$U = V$
-\form#40:$U(0-LIBMESH_DIM)+=s$
-\form#41:$U+=V$
-\form#42:$U+=a*V$
-\form#43:$U+=A*V$
-\form#44:$U+=A^T*V$
-\form#45:$ Ue[i] = Ug[dof_indices[i]] $
-\form#46:$ m \times n $
-\form#47:$ m_l \times n_l $
-\form#48:$ M \times N $
-\form#49:$\texttt{this} += a*X $
-\form#50:$ U+=V $
-\form#51:$ U+=a*V $
-\form#52:$ 4 \le n < 6 $
-\form#53:$ 4 \le n < 8 $
-\form#54:$ 3 \le n < 6 $
-\form#55:$ \{ p_n \} $
-\form#56:$ \|p - p_n\| < \mbox{\texttt{tolerance}} $
-\form#57:$ x \le 1 $
-\form#58:$ x \le 1 + \epsilon $
-\form#59:$ 1/{r^2} $
-\form#60:$ \xi \le 1 $
-\form#61:$ \xi \le 1 + \epsilon $
-\form#62:\[ M(u)\dot{u} = F(u)\]
-\form#63:$ [ \texttt{n\_start, n\_stop} ]^{th} $
-\form#64:$ [ \texttt{min\_freq, max\_freq} ] $
-\form#65:$ f(\mathbf{x},t) = \mbox{\texttt{v}} $
-\form#66:$ \phi(x) = \phi(\xi) $
-\form#67:$ \phi = (dx/d\xi)^{-T} \hat{\phi} $
-\form#68:$ (dx/d\xi)^{-T} $
-\form#69:$ x, \xi $
-\form#70:$ \nabla \times \phi = J^{-1} * \nabla \times \hat{\phi} $
-\form#71:$ J = \det( dx/d\xi ) $
-\form#72:$ \nabla \times \phi = J^{-1} dx/d\xi \nabla \times \hat{\phi} $
-\form#73:$ \ge 1 $
-\form#74:$ 1/r $
-\form#75:$ (i,j) $
-\form#76:$ \sqrt{-1} $
-\form#77:$ \pi=3.14159... $
-\form#78:$ zero=0. $
-\form#79:$ nx \times ny \times nz $
-\form#80:$ [0,1] $
-\form#81:$\gamma$
-\form#82:$\beta$
-\form#83:$a_0$
-\form#84:$\gamma=0.5$
-\form#85:$ \beta \ge \frac{1}{4} \left( \gamma + \frac{1}{2}\right)^2 $
-\form#86:$ R(X) $
-\form#87:$ J(X) $
-\form#88:$ X $
-\form#89:$ XL $
-\form#90:$ XU $
-\form#91:$ U+=v $
-\form#92:$ U=v $
-\form#93:$U=V$
-\form#94:$ U=V $
-\form#95:$\texttt{this} = a*X + \texttt{this} $
-\form#96:$|M|_infty=max_{all rows i}\sum_{all columns j} |M_ij|$
-\form#97:$|Mv|_infty \leq |M|_infty |v|_infty$
-\form#98:$U+=A^H*V$
-\form#99:$ \frac{1}{V} \sum \|w_i\|, $
-\form#100:\[ M(u)\ddot{u} + C(u)\dot{u} + F(u) = 0 \]
-\form#101:$\dot{u}_n$
-\form#102:$\ddot{u}_n$
-\form#103:$ \dot{u}_n $
-\form#104:$ \ddot{u}_n $
-\form#105:$\texttt{this} = \_a*\_X + \texttt{this} $
-\form#106:$ (x, y, z) $
-\form#107:$ (r, \theta, \phi) $
-\form#108:$ 0 \le r < \infty $
-\form#109:$ 0 \le \theta < \pi $
-\form#110:$ 0 \le \phi < 2\pi $
-\form#111:$ \phi $
-\form#112:$ \theta $
-\form#113:$ i,j^{th} $
-\form#114:$ i,this $
+\form#20:$(m \times n)$
+\form#21:$(0,0)$
+\form#22:$(ioff,joff)$
+\form#23:$l_1$
+\form#24:$l_2$
+\form#25:$l_\infty$
+\form#26:\[ F(u) + G(u) - M(u,\dot{u})\dot{u} = 0 \]
+\form#27:$ F(u) = 0$
+\form#28:$F(u)$
+\form#29:$ G(u) $
+\form#30:$ M(u,\dot{u})\dot{u} $
+\form#31:\[ M(u,\ddot{u})\ddot{u} + C(u,\dot{u})\dot{u} + F(u) + G(u) = 0 \]
+\form#32:$G(u)$
+\form#33:$C(u,\dot{u})\dot{u}$
+\form#34:$ -M(u,\ddot{u})\ddot{u}$
+\form#35:${u}$
+\form#36:$\dot{u}$
+\form#37:$\ddot{u}$
+\form#38:$ u_{n+1} $
+\form#39:$ M(u,\ddot{u})\ddot{u} $
+\form#40:$ C(u,\ddot{u})\ddot{u} $
+\form#41:$U(0-N) = s$
+\form#42:$U = V$
+\form#43:$U(0-LIBMESH_DIM)+=s$
+\form#44:$U+=V$
+\form#45:$U+=a*V$
+\form#46:$U+=A*V$
+\form#47:$U+=A^T*V$
+\form#48:$ Ue[i] = Ug[dof_indices[i]] $
+\form#49:$ m \times n $
+\form#50:$ m_l \times n_l $
+\form#51:$ M \times N $
+\form#52:$\texttt{this} += a*X $
+\form#53:$ U+=V $
+\form#54:$ U+=a*V $
+\form#55:$ 4 \le n < 6 $
+\form#56:$ 4 \le n < 8 $
+\form#57:$ 3 \le n < 6 $
+\form#58:$ \{ p_n \} $
+\form#59:$ \|p - p_n\| < \mbox{\texttt{tolerance}} $
+\form#60:$ x \le 1 $
+\form#61:$ x \le 1 + \epsilon $
+\form#62:$ 1/{r^2} $
+\form#63:$ \xi \le 1 $
+\form#64:$ \xi \le 1 + \epsilon $
+\form#65:\[ M(u)\dot{u} = F(u)\]
+\form#66:$ [ \texttt{n\_start, n\_stop} ]^{th} $
+\form#67:$ [ \texttt{min\_freq, max\_freq} ] $
+\form#68:$ f(\mathbf{x},t) = \mbox{\texttt{v}} $
+\form#69:$ \phi(x) = \phi(\xi) $
+\form#70:$ \phi = (dx/d\xi)^{-T} \hat{\phi} $
+\form#71:$ (dx/d\xi)^{-T} $
+\form#72:$ x, \xi $
+\form#73:$ \nabla \times \phi = J^{-1} * \nabla \times \hat{\phi} $
+\form#74:$ J = \det( dx/d\xi ) $
+\form#75:$ \nabla \times \phi = J^{-1} dx/d\xi \nabla \times \hat{\phi} $
+\form#76:$ \ge 1 $
+\form#77:$ 1/r $
+\form#78:$ (i,j) $
+\form#79:$ \sqrt{-1} $
+\form#80:$ \pi=3.14159... $
+\form#81:$ zero=0. $
+\form#82:$ nx \times ny \times nz $
+\form#83:$ [0,1] $
+\form#84:$\gamma$
+\form#85:$\beta$
+\form#86:$a_0$
+\form#87:$\gamma=0.5$
+\form#88:$ \beta \ge \frac{1}{4} \left( \gamma + \frac{1}{2}\right)^2 $
+\form#89:$ R(X) $
+\form#90:$ J(X) $
+\form#91:$ X $
+\form#92:$ XL $
+\form#93:$ XU $
+\form#94:$ U+=v $
+\form#95:$ U=v $
+\form#96:$U=V$
+\form#97:$ U=V $
+\form#98:$\texttt{this} = a*X + \texttt{this} $
+\form#99:$|M|_infty=max_{all rows i}\sum_{all columns j} |M_ij|$
+\form#100:$|Mv|_infty \leq |M|_infty |v|_infty$
+\form#101:$U+=A^H*V$
+\form#102:$ \frac{1}{V} \sum \|w_i\|, $
+\form#103:$ \mu $
+\form#104:\[ M(u)\ddot{u} + C(u)\dot{u} + F(u) = 0 \]
+\form#105:$\dot{u}_n$
+\form#106:$\ddot{u}_n$
+\form#107:$ \dot{u}_n $
+\form#108:$ \ddot{u}_n $
+\form#109:$\texttt{this} = \_a*\_X + \texttt{this} $
+\form#110:$ (x, y, z) $
+\form#111:$ (r, \theta, \phi) $
+\form#112:$ 0 \le r < \infty $
+\form#113:$ 0 \le \theta < \pi $
+\form#114:$ 0 \le \phi < 2\pi $
+\form#115:$ \phi $
+\form#116:$ \theta $
+\form#117:$ i,j^{th} $
+\form#118:$ i,this $

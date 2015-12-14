@@ -5309,7 +5309,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Subtracts a damping vector contribution on <code>elem</code> from elem_residual. This method is not used in first-order-in-time problems. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ C(u,\ddot{u})\ddot{u} $" src="form_37.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
+<p>Subtracts a damping vector contribution on <code>elem</code> from elem_residual. This method is not used in first-order-in-time problems. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ C(u,\ddot{u})\ddot{u} $" src="form_40.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
 <p>If this method receives request_jacobian = true, then it should compute elem_jacobian and return true if possible. If elem_jacobian has not been computed then the method should return false.</p>
 <p>If the problem has no damping, the default "do-nothing" is correct. Otherwise, this must be reimplemented. </p>
 
@@ -8592,7 +8592,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Subtracts a mass vector contribution on <code>elem</code> from elem_residual. For first-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\dot{u})\dot{u} $" src="form_27.png"/> term. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\ddot{u})\ddot{u} $" src="form_36.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
+<p>Subtracts a mass vector contribution on <code>elem</code> from elem_residual. For first-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\dot{u})\dot{u} $" src="form_30.png"/> term. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\ddot{u})\ddot{u} $" src="form_39.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
 <p>If this method receives request_jacobian = true, then it should compute elem_jacobian and return true if possible. If elem_jacobian has not been computed then the method should return false.</p>
 <p>Many first-order-in-time problems can use the reimplementation in <a class="el" href="classlibMesh_1_1FEMPhysics.html#a66aaafb25dc42433f3bdc180e6bf5b32">FEMPhysics::mass_residual</a> which subtracts (du/dt,v) for each transient variable u; users with more complicated transient problems or second-order-in-time problems will need to reimplement this themselves. </p>
 
@@ -10285,7 +10285,7 @@ Private Attributes</h2></td></tr>
 <p>Returns the value of the solution variable <code>var</code> at the physical point <code>p</code> in the mesh, without knowing a priori which element contains <code>p</code>.</p>
 <p>Note that this function uses <code><a class="el" href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">MeshBase::sub_point_locator()</a></code>; users may or may not want to call <code><a class="el" href="classlibMesh_1_1MeshBase.html#acc11230de16adce50cbd3edabe8b778a">MeshBase::clear_point_locator()</a></code> afterward. Also, point_locator() is expensive (N log N for initial construction, log N for evaluations). Avoid using this function in any context where you are already looping over elements.</p>
 <p>Because the element containing <code>p</code> may lie on any processor, this function is parallel-only.</p>
-<p>By default this method expects the point to reside inside the domain and will abort if no element can be found which contains <code></code>. The optional parameter <code>insist_on_success</code> can be set to false to allow the method to return 0 when the point is not located. </p>
+<p>By default this method expects the point to reside inside the domain and will abort if no element can be found which contains <code>p</code>. The optional parameter <code>insist_on_success</code> can be set to false to allow the method to return 0 when the point is not located. </p>
 
 <p>Definition at line <a class="el" href="system_8C_source.html#l01994">1994</a> of file <a class="el" href="system_8C_source.html">system.C</a>.</p>
 

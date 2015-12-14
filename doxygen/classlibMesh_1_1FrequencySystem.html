@@ -7098,7 +7098,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Returns the value of the solution variable <code>var</code> at the physical point <code>p</code> in the mesh, without knowing a priori which element contains <code>p</code>.</p>
 <p>Note that this function uses <code><a class="el" href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">MeshBase::sub_point_locator()</a></code>; users may or may not want to call <code><a class="el" href="classlibMesh_1_1MeshBase.html#acc11230de16adce50cbd3edabe8b778a">MeshBase::clear_point_locator()</a></code> afterward. Also, point_locator() is expensive (N log N for initial construction, log N for evaluations). Avoid using this function in any context where you are already looping over elements.</p>
 <p>Because the element containing <code>p</code> may lie on any processor, this function is parallel-only.</p>
-<p>By default this method expects the point to reside inside the domain and will abort if no element can be found which contains <code></code>. The optional parameter <code>insist_on_success</code> can be set to false to allow the method to return 0 when the point is not located. </p>
+<p>By default this method expects the point to reside inside the domain and will abort if no element can be found which contains <code>p</code>. The optional parameter <code>insist_on_success</code> can be set to false to allow the method to return 0 when the point is not located. </p>
 
 <p>Definition at line <a class="el" href="system_8C_source.html#l01994">1994</a> of file <a class="el" href="system_8C_source.html">system.C</a>.</p>
 
@@ -10925,7 +10925,7 @@ template&lt;typename InValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the frequency range for which the system should be solved. <code>n_freq</code> frequencies are equally distributed in the interval <img class="formulaInl" alt="$ [ \texttt{min\_freq, max\_freq} ] $" src="form_64.png"/> . By default, the solution for each frequency is copied to a separate <code><a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a></code>. This feature can be disabled with <code>allocate_solution_duplicates=false</code>. </p>
+<p>Set the frequency range for which the system should be solved. <code>n_freq</code> frequencies are equally distributed in the interval <img class="formulaInl" alt="$ [ \texttt{min\_freq, max\_freq} ] $" src="form_67.png"/> . By default, the solution for each frequency is copied to a separate <code><a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a></code>. This feature can be disabled with <code>allocate_solution_duplicates=false</code>. </p>
 
 <p>Definition at line <a class="el" href="frequency__system_8C_source.html#l00222">222</a> of file <a class="el" href="frequency__system_8C_source.html">frequency_system.C</a>.</p>
 
@@ -11209,7 +11209,7 @@ template&lt;typename InValType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Solves the linear system for the <img class="formulaInl" alt="$ [ \texttt{n\_start, n\_stop} ]^{th} $" src="form_63.png"/> frequencies. The solution vectors are stored in automatically allocated vectors named <code>solution_nnnn</code>. For access to these vectors, see <code><a class="el" href="classlibMesh_1_1System.html">System</a></code>. When calling this, the frequency range should better be already set. </p>
+<p>Solves the linear system for the <img class="formulaInl" alt="$ [ \texttt{n\_start, n\_stop} ]^{th} $" src="form_66.png"/> frequencies. The solution vectors are stored in automatically allocated vectors named <code>solution_nnnn</code>. For access to these vectors, see <code><a class="el" href="classlibMesh_1_1System.html">System</a></code>. When calling this, the frequency range should better be already set. </p>
 <p>store the current solution in the additional vector</p>
 
 <p>Definition at line <a class="el" href="frequency__system_8C_source.html#l00317">317</a> of file <a class="el" href="frequency__system_8C_source.html">frequency_system.C</a>.</p>

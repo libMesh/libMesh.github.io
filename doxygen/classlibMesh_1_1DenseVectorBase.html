@@ -234,7 +234,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the <code></code>(i) element of the vector. </dd></dl>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#a7c1efd15a86f00904bd4c21022e9ad3f">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#a7c1efd15a86f00904bd4c21022e9ad3f">libMesh::DenseVector&lt; Number &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#a7c1efd15a86f00904bd4c21022e9ad3f">libMesh::DenseVector&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1DenseVector.html#a7c1efd15a86f00904bd4c21022e9ad3f">libMesh::DenseVector&lt; Number &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseSubVector.html#a107289711a60dfac650f734752ae39d9">libMesh::DenseSubVector&lt; T &gt;</a>.</p>
 
 <p>Referenced by <a class="el" href="dense__matrix__base_8C_source.html#l00058">libMesh::DenseMatrixBase&lt; T &gt;::condense()</a>, and <a class="el" href="dof__map_8C_source.html#l01719">libMesh::DofMap::extract_local_vector()</a>.</p>
 
@@ -265,7 +265,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the <code></code>(i) element of the vector as a writeable reference. </dd></dl>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#aae1279f9ed7a8f34c934bf4876cbca00">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#aae1279f9ed7a8f34c934bf4876cbca00">libMesh::DenseVector&lt; Number &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#aae1279f9ed7a8f34c934bf4876cbca00">libMesh::DenseVector&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1DenseVector.html#aae1279f9ed7a8f34c934bf4876cbca00">libMesh::DenseVector&lt; Number &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseSubVector.html#a664087f4cfb0c4a71e71e557b8981f12">libMesh::DenseSubVector&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -293,13 +293,11 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true iff <a class="el" href="classlibMesh_1_1DenseVectorBase.html#a4ec1ad50c02f01beea21df4c29ed9736">size()</a> is 0. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classlibMesh_1_1DenseVector.html#a2bb6c2e5b3b5eb3f57e95aaf270f5482">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#a2bb6c2e5b3b5eb3f57e95aaf270f5482">libMesh::DenseVector&lt; Number &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classlibMesh_1_1DenseSubVector.html#a3cb6365d19ea656371b765686e549de2">libMesh::DenseSubVector&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1DenseVector.html#a2bb6c2e5b3b5eb3f57e95aaf270f5482">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#a2bb6c2e5b3b5eb3f57e95aaf270f5482">libMesh::DenseVector&lt; Number &gt;</a>.</p>
 
 <p>Definition at line <a class="el" href="dense__vector__base_8h_source.html#l00079">79</a> of file <a class="el" href="dense__vector__base_8h_source.html">dense_vector_base.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1DenseVectorBase.html#a4ec1ad50c02f01beea21df4c29ed9736">libMesh::DenseVectorBase&lt; T &gt;::size()</a>.</p>
-
-<p>Referenced by <a class="el" href="numeric__vector_8h_source.html#l00855">libMesh::NumericVector&lt; T &gt;::insert()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{ <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1DenseVectorBase.html#a4ec1ad50c02f01beea21df4c29ed9736">size</a>() == 0); }</div>
 <div class="ttc" id="classlibMesh_1_1DenseVectorBase_html_a4ec1ad50c02f01beea21df4c29ed9736"><div class="ttname"><a href="classlibMesh_1_1DenseVectorBase.html#a4ec1ad50c02f01beea21df4c29ed9736">libMesh::DenseVectorBase::size</a></div><div class="ttdeci">virtual unsigned int size() const =0</div></div>
 </div><!-- fragment -->
@@ -418,9 +416,9 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the size of the vector. </dd></dl>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#a4294b6dedecf5bda03a60bdda8de3bf4">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#a4294b6dedecf5bda03a60bdda8de3bf4">libMesh::DenseVector&lt; Number &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1DenseSubVector.html#a27c1a8fefdad59d5eda0d228c413aa86">libMesh::DenseSubVector&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1DenseVector.html#a4294b6dedecf5bda03a60bdda8de3bf4">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#a4294b6dedecf5bda03a60bdda8de3bf4">libMesh::DenseVector&lt; Number &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="dense__matrix__base_8C_source.html#l00058">libMesh::DenseMatrixBase&lt; T &gt;::condense()</a>, <a class="el" href="dense__vector__base_8h_source.html#l00079">libMesh::DenseVectorBase&lt; T &gt;::empty()</a>, <a class="el" href="dof__map_8C_source.html#l01719">libMesh::DofMap::extract_local_vector()</a>, and <a class="el" href="numeric__vector_8h_source.html#l00855">libMesh::NumericVector&lt; T &gt;::insert()</a>.</p>
+<p>Referenced by <a class="el" href="dense__matrix__base_8C_source.html#l00058">libMesh::DenseMatrixBase&lt; T &gt;::condense()</a>, <a class="el" href="dense__vector__base_8h_source.html#l00079">libMesh::DenseVectorBase&lt; T &gt;::empty()</a>, and <a class="el" href="dof__map_8C_source.html#l01719">libMesh::DofMap::extract_local_vector()</a>.</p>
 
 </div>
 </div>
@@ -448,7 +446,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <p>Set every element in the vector to 0. Needs to be pure virtual since the storage method may be different in derived classes. </p>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#a785c5a9f2bd174f45943c63d346c86f5">libMesh::DenseVector&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseVector.html#a785c5a9f2bd174f45943c63d346c86f5">libMesh::DenseVector&lt; Number &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1DenseVector.html#a785c5a9f2bd174f45943c63d346c86f5">libMesh::DenseVector&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1DenseVector.html#a785c5a9f2bd174f45943c63d346c86f5">libMesh::DenseVector&lt; Number &gt;</a>, and <a class="el" href="classlibMesh_1_1DenseSubVector.html#ad4805cadbcb9d639ad92758c867af327">libMesh::DenseSubVector&lt; T &gt;</a>.</p>
 
 <p>Referenced by <a class="el" href="dof__map_8C_source.html#l01719">libMesh::DofMap::extract_local_vector()</a>.</p>
 

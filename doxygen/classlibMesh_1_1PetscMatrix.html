@@ -605,7 +605,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Add a Sparse matrix <code>X</code>, scaled with <code>a</code>, to <code>this</code>, stores the result in <code>this:</code> <img class="formulaInl" alt="$\texttt{this} = a*X + \texttt{this} $" src="form_95.png"/>. Use this with caution, the sparse matrices need to have the same nonzero pattern, otherwise <code>PETSc</code> will crash! It is advisable to not only allocate appropriate memory with <code><a class="el" href="classlibMesh_1_1PetscMatrix.html#a4a2b077adf64a35b5b93da392220985a">init()</a></code> , but also explicitly zero the terms of <code>this</code> whenever you add a non-zero value to <code>X</code>. Note: <code>X</code> will be closed, if not already done, before performing any work. </p>
+<p>Add a Sparse matrix <code>X</code>, scaled with <code>a</code>, to <code>this</code>, stores the result in <code>this:</code> <img class="formulaInl" alt="$\texttt{this} = a*X + \texttt{this} $" src="form_98.png"/>. Use this with caution, the sparse matrices need to have the same nonzero pattern, otherwise <code>PETSc</code> will crash! It is advisable to not only allocate appropriate memory with <code><a class="el" href="classlibMesh_1_1PetscMatrix.html#a4a2b077adf64a35b5b93da392220985a">init()</a></code> , but also explicitly zero the terms of <code>this</code> whenever you add a non-zero value to <code>X</code>. Note: <code>X</code> will be closed, if not already done, before performing any work. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1SparseMatrix.html#a92c792e7984e6f72ee450d31b99a9d7b">libMesh::SparseMatrix&lt; T &gt;</a>.</p>
 
@@ -1685,7 +1685,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Initialize a Petsc matrix that is of global dimension <img class="formulaInl" alt="$ m \times n $" src="form_46.png"/> with local dimensions <img class="formulaInl" alt="$ m_l \times n_l $" src="form_47.png"/>. <code>nnz</code> is the number of on-processor nonzeros per row (defaults to 30). <code>noz</code> is the number of on-processor nonzeros per row (defaults to 30). Optionally supports a block size, which indicates dense coupled blocks for systems with multiple variables all of the same type. </p>
+<p>Initialize a Petsc matrix that is of global dimension <img class="formulaInl" alt="$ m \times n $" src="form_49.png"/> with local dimensions <img class="formulaInl" alt="$ m_l \times n_l $" src="form_50.png"/>. <code>nnz</code> is the number of on-processor nonzeros per row (defaults to 30). <code>noz</code> is the number of on-processor nonzeros per row (defaults to 30). Optionally supports a block size, which indicates dense coupled blocks for systems with multiple variables all of the same type. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1SparseMatrix.html#a06cbf271a0e66560054bc5b2c375788d">libMesh::SparseMatrix&lt; T &gt;</a>.</p>
 
@@ -1838,7 +1838,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize a Petsc matrix that is of global dimension <img class="formulaInl" alt="$ m \times n $" src="form_46.png"/> with local dimensions <img class="formulaInl" alt="$ m_l \times n_l $" src="form_47.png"/>. <code>nnz</code> is the number of on-processor nonzeros per row. <code>noz</code> is the number of off-processor nonzeros per row. Optionally supports a block size, which indicates dense coupled blocks for systems with multiple variables all of the same type. </p>
+<p>Initialize a Petsc matrix that is of global dimension <img class="formulaInl" alt="$ m \times n $" src="form_49.png"/> with local dimensions <img class="formulaInl" alt="$ m_l \times n_l $" src="form_50.png"/>. <code>nnz</code> is the number of on-processor nonzeros per row. <code>noz</code> is the number of off-processor nonzeros per row. Optionally supports a block size, which indicates dense coupled blocks for systems with multiple variables all of the same type. </p>
 
 <p>Definition at line <a class="el" href="petsc__matrix_8C_source.html#l00215">215</a> of file <a class="el" href="petsc__matrix_8C_source.html">petsc_matrix.C</a>.</p>
 
@@ -2208,7 +2208,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the linfty-norm of the matrix, that is <img class="formulaInl" alt="$|M|_infty=max_{all rows i}\sum_{all columns j} |M_ij|$" src="form_96.png"/>, (max. sum of rows). This is the natural matrix norm that is compatible to the linfty-norm of vectors, i.e. <img class="formulaInl" alt="$|Mv|_infty \leq |M|_infty |v|_infty$" src="form_97.png"/>. (cf. Haemmerlin-Hoffmann : Numerische Mathematik) </p>
+<p>Return the linfty-norm of the matrix, that is <img class="formulaInl" alt="$|M|_infty=max_{all rows i}\sum_{all columns j} |M_ij|$" src="form_99.png"/>, (max. sum of rows). This is the natural matrix norm that is compatible to the linfty-norm of vectors, i.e. <img class="formulaInl" alt="$|Mv|_infty \leq |M|_infty |v|_infty$" src="form_100.png"/>. (cf. Haemmerlin-Hoffmann : Numerische Mathematik) </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1SparseMatrix.html#af3950addff2fa6a5ea627b002859c4b4">libMesh::SparseMatrix&lt; T &gt;</a>.</p>
 
@@ -2265,7 +2265,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><code>m</code>, the row-dimension of the matrix where the marix is <img class="formulaInl" alt="$ M \times N $" src="form_48.png"/>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>m</code>, the row-dimension of the matrix where the marix is <img class="formulaInl" alt="$ M \times N $" src="form_51.png"/>. </dd></dl>
 
 <p>Implements <a class="el" href="classlibMesh_1_1SparseMatrix.html#a95dedaf3b58050d303a5e971e1124882">libMesh::SparseMatrix&lt; T &gt;</a>.</p>
 
@@ -2350,7 +2350,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><code>n</code>, the column-dimension of the matrix where the marix is <img class="formulaInl" alt="$ M \times N $" src="form_48.png"/>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>n</code>, the column-dimension of the matrix where the marix is <img class="formulaInl" alt="$ M \times N $" src="form_51.png"/>. </dd></dl>
 
 <p>Implements <a class="el" href="classlibMesh_1_1SparseMatrix.html#a759bad4b67e66f75c5a2fdc0772b755b">libMesh::SparseMatrix&lt; T &gt;</a>.</p>
 

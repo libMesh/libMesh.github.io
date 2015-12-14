@@ -271,7 +271,7 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class defines a Newmark time integrator for second order (in time) DifferentiableSystems. There are two parameters <img class="formulaInl" alt="$\gamma$" src="form_81.png"/> and <img class="formulaInl" alt="$\beta$" src="form_82.png"/> (defaulting to 0.5 and 0.25, respectively). Note that projectors are included for the initial velocity and acceleration; the initial displacement can be set by calling <a class="el" href="classlibMesh_1_1System.html#a3a5704034d4665e017c4d6651d00601f">System::project_solution()</a>.</p>
+<div class="textblock"><p>This class defines a Newmark time integrator for second order (in time) DifferentiableSystems. There are two parameters <img class="formulaInl" alt="$\gamma$" src="form_84.png"/> and <img class="formulaInl" alt="$\beta$" src="form_85.png"/> (defaulting to 0.5 and 0.25, respectively). Note that projectors are included for the initial velocity and acceleration; the initial displacement can be set by calling <a class="el" href="classlibMesh_1_1System.html#a3a5704034d4665e017c4d6651d00601f">System::project_solution()</a>.</p>
 <p>This class is part of the new <a class="el" href="classlibMesh_1_1DifferentiableSystem.html">DifferentiableSystem</a> framework, which is still experimental. Users of this framework should beware of bugs and future API changes.</p>
 <dl class="section author"><dt>Author</dt><dd>Paul T. Bauman </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
@@ -834,7 +834,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This method uses the specified initial displacement and velocity to compute the initial acceleration <img class="formulaInl" alt="$a_0$" src="form_83.png"/>. </p>
+<p>This method uses the specified initial displacement and velocity to compute the initial acceleration <img class="formulaInl" alt="$a_0$" src="form_86.png"/>. </p>
 
 <p>Definition at line <a class="el" href="newmark__solver_8C_source.html#l00106">106</a> of file <a class="el" href="newmark__solver_8C_source.html">newmark_solver.C</a>.</p>
 
@@ -1093,7 +1093,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Error convergence order: 2 for <img class="formulaInl" alt="$\gamma=0.5$" src="form_84.png"/>, 1 otherwise </p>
+<p>Error convergence order: 2 for <img class="formulaInl" alt="$\gamma=0.5$" src="form_87.png"/>, 1 otherwise </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1UnsteadySolver.html#a54a7e63ce7ae0e82f983886661ccecbf">libMesh::UnsteadySolver</a>.</p>
 
@@ -1589,7 +1589,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the solution acceleration at the previous time step, <img class="formulaInl" alt="$\ddot{u}_n$" src="form_102.png"/>, for the specified global DOF. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the solution acceleration at the previous time step, <img class="formulaInl" alt="$\ddot{u}_n$" src="form_106.png"/>, for the specified global DOF. </dd></dl>
 
 <p>Definition at line <a class="el" href="second__order__unsteady__solver_8C_source.html#l00115">115</a> of file <a class="el" href="second__order__unsteady__solver_8C_source.html">second_order_unsteady_solver.C</a>.</p>
 
@@ -1630,7 +1630,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the solution rate at the previous time step, <img class="formulaInl" alt="$\dot{u}_n$" src="form_101.png"/>, for the specified global DOF. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the solution rate at the previous time step, <img class="formulaInl" alt="$\dot{u}_n$" src="form_105.png"/>, for the specified global DOF. </dd></dl>
 
 <p>Definition at line <a class="el" href="second__order__unsteady__solver_8C_source.html#l00106">106</a> of file <a class="el" href="second__order__unsteady__solver_8C_source.html">second_order_unsteady_solver.C</a>.</p>
 
@@ -2184,7 +2184,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The value for the <img class="formulaInl" alt="$\beta$" src="form_82.png"/> to employ. Method is unconditionally stable for <img class="formulaInl" alt="$ \beta \ge \frac{1}{4} \left( \gamma + \frac{1}{2}\right)^2 $" src="form_85.png"/> </p>
+<p>The value for the <img class="formulaInl" alt="$\beta$" src="form_85.png"/> to employ. Method is unconditionally stable for <img class="formulaInl" alt="$ \beta \ge \frac{1}{4} \left( \gamma + \frac{1}{2}\right)^2 $" src="form_88.png"/> </p>
 
 <p>Definition at line <a class="el" href="newmark__solver_8h_source.html#l00150">150</a> of file <a class="el" href="newmark__solver_8h_source.html">newmark_solver.h</a>.</p>
 
@@ -2284,7 +2284,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The value for <img class="formulaInl" alt="$\gamma$" src="form_81.png"/> to employ. Newmark is 2nd order iff <img class="formulaInl" alt="$\gamma=0.5$" src="form_84.png"/>. </p>
+<p>The value for <img class="formulaInl" alt="$\gamma$" src="form_84.png"/> to employ. Newmark is 2nd order iff <img class="formulaInl" alt="$\gamma=0.5$" src="form_87.png"/>. </p>
 
 <p>Definition at line <a class="el" href="newmark__solver_8h_source.html#l00156">156</a> of file <a class="el" href="newmark__solver_8h_source.html">newmark_solver.h</a>.</p>
 
@@ -2432,7 +2432,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Serial vector of previous time step accleration <img class="formulaInl" alt="$ \ddot{u}_n $" src="form_104.png"/> </p>
+<p>Serial vector of previous time step accleration <img class="formulaInl" alt="$ \ddot{u}_n $" src="form_108.png"/> </p>
 
 <p>Definition at line <a class="el" href="second__order__unsteady__solver_8h_source.html#l00111">111</a> of file <a class="el" href="second__order__unsteady__solver_8h_source.html">second_order_unsteady_solver.h</a>.</p>
 
@@ -2457,7 +2457,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Serial vector of previous time step velocity <img class="formulaInl" alt="$ \dot{u}_n $" src="form_103.png"/> </p>
+<p>Serial vector of previous time step velocity <img class="formulaInl" alt="$ \dot{u}_n $" src="form_107.png"/> </p>
 
 <p>Definition at line <a class="el" href="second__order__unsteady__solver_8h_source.html#l00106">106</a> of file <a class="el" href="second__order__unsteady__solver_8h_source.html">second_order_unsteady_solver.h</a>.</p>
 

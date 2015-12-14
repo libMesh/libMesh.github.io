@@ -5867,7 +5867,7 @@ Private Member Functions</h2></td></tr>
 <p>Returns the value of the solution variable <code>var</code> at the physical point <code>p</code> in the mesh, without knowing a priori which element contains <code>p</code>.</p>
 <p>Note that this function uses <code><a class="el" href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">MeshBase::sub_point_locator()</a></code>; users may or may not want to call <code><a class="el" href="classlibMesh_1_1MeshBase.html#acc11230de16adce50cbd3edabe8b778a">MeshBase::clear_point_locator()</a></code> afterward. Also, point_locator() is expensive (N log N for initial construction, log N for evaluations). Avoid using this function in any context where you are already looping over elements.</p>
 <p>Because the element containing <code>p</code> may lie on any processor, this function is parallel-only.</p>
-<p>By default this method expects the point to reside inside the domain and will abort if no element can be found which contains <code></code>. The optional parameter <code>insist_on_success</code> can be set to false to allow the method to return 0 when the point is not located. </p>
+<p>By default this method expects the point to reside inside the domain and will abort if no element can be found which contains <code>p</code>. The optional parameter <code>insist_on_success</code> can be set to false to allow the method to return 0 when the point is not located. </p>
 
 <p>Definition at line <a class="el" href="system_8C_source.html#l01994">1994</a> of file <a class="el" href="system_8C_source.html">system.C</a>.</p>
 

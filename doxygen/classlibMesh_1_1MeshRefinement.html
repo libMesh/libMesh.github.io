@@ -1348,7 +1348,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>The <code>coarsen_fraction</code> sets either a desired target or a desired maximum number of elements to flag for coarsening, depending on which flag_elements_by method is called.</p>
-<p><code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>, and is 0 by default. </p>
+<p><code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>, and is 0 by default. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement_8h_source.html#l00860">860</a> of file <a class="el" href="mesh__refinement_8h_source.html">mesh_refinement.h</a>.</p>
 
@@ -1383,7 +1383,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>The <code>coarsen_threshold</code> provides hysteresis in AMR/C strategies. Refinement of elements with error estimate E will be done even at the expense of coarsening elements whose children's accumulated error does not exceed <code>coarsen_threshold</code> * E.</p>
-<p><code>coarsen_threshold</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>, and is 0.1 by default. </p>
+<p><code>coarsen_threshold</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>, and is 0.1 by default. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement_8h_source.html#l00872">872</a> of file <a class="el" href="mesh__refinement_8h_source.html">mesh_refinement.h</a>.</p>
 
@@ -2113,7 +2113,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. This method picks the top <code>refine_fraction</code> * <code>n_elem</code> elements for refinement and the bottom <code>coarsen_fraction</code> * <code>n_elem</code> elements for coarsening. The two fractions <code>refine_fraction</code> and <code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>.</p>
+<p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. This method picks the top <code>refine_fraction</code> * <code>n_elem</code> elements for refinement and the bottom <code>coarsen_fraction</code> * <code>n_elem</code> elements for coarsening. The two fractions <code>refine_fraction</code> and <code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>.</p>
 <p>All the function arguments except error_per_cell have been deprecated, and will be removed in future <a class="el" href="namespacelibMesh.html">libMesh</a> releases - to control these parameters, set the corresponding member variables. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement__flagging_8C_source.html#l00453">453</a> of file <a class="el" href="mesh__refinement__flagging_8C_source.html">mesh_refinement_flagging.C</a>.</p>
@@ -2311,7 +2311,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. The two fractions <code>refine_fraction</code> and <code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>.</p>
+<p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. The two fractions <code>refine_fraction</code> and <code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>.</p>
 <p>All the function arguments except error_per_cell have been deprecated, and will be removed in future <a class="el" href="namespacelibMesh.html">libMesh</a> releases - to control these parameters, set the corresponding member variables. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement__flagging_8C_source.html#l00045">45</a> of file <a class="el" href="mesh__refinement__flagging_8C_source.html">mesh_refinement_flagging.C</a>.</p>
@@ -2483,7 +2483,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. This method refines the worst elements with errors greater than <code>absolute_global_tolerance</code> / n_active_elem, flagging at most <code>refine_fraction</code> * n_active_elem It coarsens elements with errors less than <code>coarsen_threshold</code> * <code>global_tolerance</code> / n_active_elem, flagging at most <code>coarsen_fraction</code> * n_active_elem</p>
-<p>The three fractions <code>refine_fraction</code> <code>coarsen_fraction</code> and <code>coarsen_threshold</code> should be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>. </p>
+<p>The three fractions <code>refine_fraction</code> <code>coarsen_fraction</code> and <code>coarsen_threshold</code> should be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement__flagging_8C_source.html#l00178">178</a> of file <a class="el" href="mesh__refinement__flagging_8C_source.html">mesh_refinement_flagging.C</a>.</p>
 
@@ -2606,7 +2606,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. This method picks the top <code>refine_fraction</code> * <code>stddev</code> + <code>mean</code> elements for refinement and the bottom <code>mean</code> - <code>coarsen_fraction</code> * <code>stddev</code> elements for coarsening. The two fractions <code>refine_fraction</code> and <code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>.</p>
+<p>Flags elements for coarsening and refinement based on the computed error passed in <code>error_per_cell</code>. This method picks the top <code>refine_fraction</code> * <code>stddev</code> + <code>mean</code> elements for refinement and the bottom <code>mean</code> - <code>coarsen_fraction</code> * <code>stddev</code> elements for coarsening. The two fractions <code>refine_fraction</code> and <code>coarsen_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>.</p>
 <p>All the function arguments except error_per_cell have been deprecated, and will be removed in future <a class="el" href="namespacelibMesh.html">libMesh</a> releases - to control these parameters, set the corresponding member variables. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement__flagging_8C_source.html#l00592">592</a> of file <a class="el" href="mesh__refinement__flagging_8C_source.html">mesh_refinement_flagging.C</a>.</p>
@@ -4883,7 +4883,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>The <code>refine_fraction</code> sets either a desired target or a desired maximum number of elements to flag for refinement, depending on which flag_elements_by method is called.</p>
-<p><code>refine_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_80.png"/>, and is 0.3 by default. </p>
+<p><code>refine_fraction</code> must be in <img class="formulaInl" alt="$ [0,1] $" src="form_83.png"/>, and is 0.3 by default. </p>
 
 <p>Definition at line <a class="el" href="mesh__refinement_8h_source.html#l00854">854</a> of file <a class="el" href="mesh__refinement_8h_source.html">mesh_refinement.h</a>.</p>
 

@@ -128,7 +128,7 @@
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// // ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// // Dense Matrix member functions</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#afcb264450d957c4bc7ca54ad487ea8df">DenseSubMatrix&lt;T&gt;::left_multiply</a> (<span class="keyword">const</span> DenseMatrixBase&lt;T&gt;&amp; M2)</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseSubMatrix.html#aed01999caaadf98d8994b9f4e41fea40">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseSubMatrix.html#aed01999caaadf98d8994b9f4e41fea40">DenseSubMatrix&lt;T&gt;::left_multiply</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a>&amp; M2)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// (*this) &lt;- M2 * M3</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">// Where:</span></div>
@@ -137,7 +137,7 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// M3      = (p x n)</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">// M3 is a simply a copy of *this</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  DenseSubMatrix&lt;T&gt; M3(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classlibMesh_1_1DenseSubMatrix.html">DenseSubMatrix&lt;T&gt;</a> M3(*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// Call the multiply function in the base class</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  this-&gt;multiply(*<span class="keyword">this</span>, M2, M3);</div>
@@ -146,7 +146,7 @@
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a1a8f1cc874504144e65f4ba01747c286">DenseSubMatrix&lt;T&gt;::right_multiply</a> (<span class="keyword">const</span> DenseMatrixBase&lt;T&gt;&amp; M3)</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseSubMatrix.html#a5835e844f7f34292d5586a819c2c8443">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseSubMatrix.html#a5835e844f7f34292d5586a819c2c8443">DenseSubMatrix&lt;T&gt;::right_multiply</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a>&amp; M3)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">// (*this) &lt;- M2 * M3</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// Where:</span></div>
@@ -155,7 +155,7 @@
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// M3      = (p x n)</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">// M2 is simply a copy of *this</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  DenseSubMatrix&lt;T&gt; M2(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="classlibMesh_1_1DenseSubMatrix.html">DenseSubMatrix&lt;T&gt;</a> M2(*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">// Call the multiply function in the base class</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  this-&gt;multiply(*<span class="keyword">this</span>, M2, M3);</div>
@@ -165,17 +165,19 @@
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//--------------------------------------------------------------</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">// Explicit instantiations</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span>DenseSubMatrix&lt;Real&gt;;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1DenseSubMatrix.html">DenseSubMatrix&lt;Real&gt;</a>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#ifdef LIBMESH_USE_COMPLEX_NUMBERS</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span>DenseSubMatrix&lt;Complex&gt;;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1DenseSubMatrix.html">DenseSubMatrix&lt;Complex&gt;</a>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="ttc" id="classlibMesh_1_1DenseSubMatrix_html_a5835e844f7f34292d5586a819c2c8443"><div class="ttname"><a href="classlibMesh_1_1DenseSubMatrix.html#a5835e844f7f34292d5586a819c2c8443">libMesh::DenseSubMatrix::right_multiply</a></div><div class="ttdeci">virtual void right_multiply(const DenseMatrixBase&lt; T &gt; &amp;M3) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="dense__submatrix_8C_source.html#l00049">dense_submatrix.C:49</a></div></div>
 <div class="ttc" id="dense__submatrix_8h_html"><div class="ttname"><a href="dense__submatrix_8h.html">dense_submatrix.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DenseMatrixBase_html_afcb264450d957c4bc7ca54ad487ea8df"><div class="ttname"><a href="classlibMesh_1_1DenseMatrixBase.html#afcb264450d957c4bc7ca54ad487ea8df">libMesh::DenseMatrixBase::left_multiply</a></div><div class="ttdeci">virtual void left_multiply(const DenseMatrixBase&lt; T &gt; &amp;M2)=0</div></div>
-<div class="ttc" id="classlibMesh_1_1DenseMatrixBase_html_a1a8f1cc874504144e65f4ba01747c286"><div class="ttname"><a href="classlibMesh_1_1DenseMatrixBase.html#a1a8f1cc874504144e65f4ba01747c286">libMesh::DenseMatrixBase::right_multiply</a></div><div class="ttdeci">virtual void right_multiply(const DenseMatrixBase&lt; T &gt; &amp;M3)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1DenseSubMatrix_html"><div class="ttname"><a href="classlibMesh_1_1DenseSubMatrix.html">libMesh::DenseSubMatrix</a></div><div class="ttdef"><b>Definition:</b> <a href="dense__submatrix_8h_source.html#l00042">dense_submatrix.h:42</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DenseMatrixBase_html"><div class="ttname"><a href="classlibMesh_1_1DenseMatrixBase.html">libMesh::DenseMatrixBase</a></div><div class="ttdef"><b>Definition:</b> <a href="dense__matrix__base_8h_source.html#l00044">dense_matrix_base.h:44</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DenseSubMatrix_html_aed01999caaadf98d8994b9f4e41fea40"><div class="ttname"><a href="classlibMesh_1_1DenseSubMatrix.html#aed01999caaadf98d8994b9f4e41fea40">libMesh::DenseSubMatrix::left_multiply</a></div><div class="ttdeci">virtual void left_multiply(const DenseMatrixBase&lt; T &gt; &amp;M2) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="dense__submatrix_8C_source.html#l00031">dense_submatrix.C:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->
