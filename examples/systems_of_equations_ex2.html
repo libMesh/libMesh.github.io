@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -79,8 +79,8 @@ Basic include file needed for the mesh functionality.
 </pre>
 </div>
 <div class = "comment">
-For systems of equations the \p DenseSubMatrix
-and \p DenseSubVector provide convenient ways for
+For systems of equations the DenseSubMatrix
+and DenseSubVector provide convenient ways for
 assembling the element matrix and vector on a
 component-by-component basis.
 </div>
@@ -119,8 +119,8 @@ matrix and right-hand-side.
 
 <div class ="fragment">
 <pre>
-        void assemble_stokes (EquationSystems& es,
-                              const std::string& system_name);
+        void assemble_stokes (EquationSystems & es,
+                              const std::string & system_name);
         
 </pre>
 </div>
@@ -181,7 +181,7 @@ across the default MPI communicator.
 <div class = "comment">
 Use the MeshTools::Generation mesh generator to create a uniform
 2D grid on the square [-1,1]^2.  We instruct the mesh generator
-to build a mesh of 8x8 \p Quad9 elements in 2D.  Building these
+to build a mesh of 8x8 Quad9 elements in 2D.  Building these
 higher-order elements allows us to use higher-order
 approximation, as in example 3.
 </div>
@@ -301,7 +301,7 @@ Get a reference to the Stokes system to use later.
 
 <div class ="fragment">
 <pre>
-          TransientLinearImplicitSystem&  navier_stokes_system =
+          TransientLinearImplicitSystem & navier_stokes_system =
             equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;("Navier-Stokes");
         
 </pre>
@@ -362,7 +362,7 @@ determine if we can exit the nonlinear loop.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;NumericVector&lt;Number&gt; &gt;
+          UniquePtr&lt;NumericVector&lt;Number&gt; &gt;
             last_nonlinear_soln (navier_stokes_system.solution-&gt;clone());
         
           for (unsigned int t_step=0; t_step&lt;n_timesteps; ++t_step)
@@ -386,9 +386,12 @@ A pretty update message
 
 <div class ="fragment">
 <pre>
-              std::cout &lt;&lt; "\n\n*** Solving time step " &lt;&lt; t_step &lt;&lt;
-                ", time = " &lt;&lt; navier_stokes_system.time &lt;&lt;
-                " ***" &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "\n\n*** Solving time step "
+                           &lt;&lt; t_step
+                           &lt;&lt; ", time = "
+                           &lt;&lt; navier_stokes_system.time
+                           &lt;&lt; " ***"
+                           &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -507,13 +510,13 @@ nonlinear iterations.
 
 <div class ="fragment">
 <pre>
-                  std::cout &lt;&lt; "Linear solver converged at step: "
-                            &lt;&lt; n_linear_iterations
-                            &lt;&lt; ", final residual: "
-                            &lt;&lt; final_linear_residual
-                            &lt;&lt; "  Nonlinear convergence: ||u - u_old|| = "
-                            &lt;&lt; norm_delta
-                            &lt;&lt; std::endl;
+                  libMesh::out &lt;&lt; "Linear solver converged at step: "
+                               &lt;&lt; n_linear_iterations
+                               &lt;&lt; ", final residual: "
+                               &lt;&lt; final_linear_residual
+                               &lt;&lt; "  Nonlinear convergence: ||u - u_old|| = "
+                               &lt;&lt; norm_delta
+                               &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -528,9 +531,9 @@ if the most recent linear system was solved to a sufficient tolerance.
                   if ((norm_delta &lt; nonlinear_tolerance) &&
                       (navier_stokes_system.final_linear_residual() &lt; nonlinear_tolerance))
                     {
-                      std::cout &lt;&lt; " Nonlinear solver converged at step "
-                                &lt;&lt; l
-                                &lt;&lt; std::endl;
+                      libMesh::out &lt;&lt; " Nonlinear solver converged at step "
+                                   &lt;&lt; l
+                                   &lt;&lt; std::endl;
                       break;
                     }
         
@@ -548,7 +551,6 @@ Real flr2 = final_linear_residual*final_linear_residual;
 <pre>
                   equation_systems.parameters.set&lt;Real&gt; ("linear solver tolerance") =
                     std::min(Utility::pow&lt;2&gt;(final_linear_residual), initial_linear_solver_tol);
-        
                 } // end nonlinear loop
         
         #ifdef LIBMESH_HAVE_EXODUS_API
@@ -612,8 +614,8 @@ prepare for the linear solve.
 
 <div class ="fragment">
 <pre>
-        void assemble_stokes (EquationSystems& es,
-                              const std::string& system_name)
+        void assemble_stokes (EquationSystems & es,
+                              const std::string & system_name)
         {
 </pre>
 </div>
@@ -634,7 +636,7 @@ Get a constant reference to the mesh object.
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
 </pre>
 </div>
@@ -699,7 +701,7 @@ the velocity variables.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
+          UniquePtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
         
 </pre>
 </div>
@@ -710,13 +712,13 @@ the pressure variables.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
+          UniquePtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
         
 </pre>
 </div>
 <div class = "comment">
 A Gauss quadrature rule for numerical integration.
-Let the \p FEType object decide what order rule is appropriate.
+Let the FEType object decide what order rule is appropriate.
 </div>
 
 <div class ="fragment">
@@ -745,7 +747,7 @@ will be used to assemble the linear system.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW = fe_vel-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = fe_vel-&gt;get_JxW();
         
 </pre>
 </div>
@@ -755,7 +757,7 @@ The element shape functions evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe_vel-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe_vel-&gt;get_phi();
         
 </pre>
 </div>
@@ -766,7 +768,7 @@ variables evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe_vel-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe_vel-&gt;get_dphi();
         
 </pre>
 </div>
@@ -777,18 +779,18 @@ evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& psi = fe_pres-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & psi = fe_pres-&gt;get_phi();
         
 </pre>
 </div>
 <div class = "comment">
 The value of the linear shape function gradients at the quadrature points
-const std::vector<std::vector<RealGradient> >& dpsi = fe_pres->get_dphi();
+const std::vector<std::vector<RealGradient> > & dpsi = fe_pres->get_dphi();
 
 
-<br><br>A reference to the \p DofMap object for this system.  The \p DofMap
+<br><br>A reference to the DofMap object for this system.  The DofMap
 object handles the index translation from node and element numbers
-to degree of freedom numbers.  We will talk more about the \p DofMap
+to degree of freedom numbers.  We will talk more about the DofMap
 in future examples.
 </div>
 
@@ -862,7 +864,7 @@ Now we will loop over all the elements in the mesh that
 live on the local processor. We will compute the element
 matrix and right-hand-side contribution.  Since the mesh
 will be refined we want to only consider the ACTIVE elements,
-hence we use a variant of the \p active_elem_iterator.
+hence we use a variant of the active_elem_iterator.
 </div>
 
 <div class ="fragment">
@@ -881,7 +883,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -945,10 +947,10 @@ Ke = | Kvu Kvv Kvp |;  Fe = | Fv |
 | Kpu Kpv Kpp |        | Fp |
 -           -          -  -
 
-<br><br>The \p DenseSubMatrix.repostition () member takes the
+<br><br>The DenseSubMatrix.repostition () member takes the
 (row_offset, column_offset, row_size, column_size).
 
-<br><br>Similarly, the \p DenseSubVector.reposition () member
+<br><br>Similarly, the DenseSubVector.reposition () member
 takes the (row_offset, row_size)
 </div>
 
@@ -993,9 +995,9 @@ Values to hold the solution & its gradient at the previous timestep.
 
 <div class ="fragment">
 <pre>
-                  Number   u = 0., u_old = 0.;
-                  Number   v = 0., v_old = 0.;
-                  Number   p_old = 0.;
+                  Number u = 0., u_old = 0.;
+                  Number v = 0., v_old = 0.;
+                  Number p_old = 0.;
                   Gradient grad_u, grad_u_old;
                   Gradient grad_v, grad_v_old;
         
@@ -1046,9 +1048,7 @@ Compute the old pressure value at this quadrature point.
 <div class ="fragment">
 <pre>
                   for (unsigned int l=0; l&lt;n_p_dofs; l++)
-                    {
-                      p_old += psi[l][qp]*navier_stokes_system.old_solution (dof_indices_p[l]);
-                    }
+                    p_old += psi[l][qp]*navier_stokes_system.old_solution (dof_indices_p[l]);
         
 </pre>
 </div>
@@ -1061,10 +1061,10 @@ dot product if you have the full vector at your disposal.
 <pre>
                   const NumberVectorValue U_old (u_old, v_old);
                   const NumberVectorValue U     (u,     v);
-                  const Number  u_x = grad_u(0);
-                  const Number  u_y = grad_u(1);
-                  const Number  v_x = grad_v(0);
-                  const Number  v_y = grad_v(1);
+                  const Number u_x = grad_u(0);
+                  const Number u_y = grad_u(1);
+                  const Number v_x = grad_v(0);
+                  const Number v_y = grad_v(1);
         
 </pre>
 </div>
@@ -1148,13 +1148,11 @@ negative one.  Here we do not.
 <div class ="fragment">
 <pre>
                   for (unsigned int i=0; i&lt;n_p_dofs; i++)
-                    {
-                      for (unsigned int j=0; j&lt;n_u_dofs; j++)
-                        {
-                          Kpu(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](0);
-                          Kpv(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](1);
-                        }
-                    }
+                    for (unsigned int j=0; j&lt;n_u_dofs; j++)
+                      {
+                        Kpu(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](0);
+                        Kpv(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](1);
+                      }
                 } // end of the quadrature point qp-loop
         
         
@@ -1195,9 +1193,9 @@ side MUST live on a boundary of the domain.
 <div class ="fragment">
 <pre>
                 for (unsigned int s=0; s&lt;elem-&gt;n_sides(); s++)
-                  if (elem-&gt;neighbor(s) == NULL)
+                  if (elem-&gt;neighbor(s) == libmesh_nullptr)
                     {
-                      AutoPtr&lt;Elem&gt; side (elem-&gt;build_side(s));
+                      UniquePtr&lt;Elem&gt; side (elem-&gt;build_side(s));
         
 </pre>
 </div>
@@ -1226,8 +1224,8 @@ build_square().
 <div class ="fragment">
 <pre>
                           const Real u_value =
-                            (mesh.get_boundary_info().has_boundary_id(elem,s,2))
-                              ? 1. : 0.;
+                            (mesh.get_boundary_info().has_boundary_id(elem, s, 2))
+                            ? 1. : 0.;
         
 </pre>
 </div>
@@ -1275,7 +1273,7 @@ Right-hand-side contribution.
                                 Fv(n) += penalty*v_value;
                               }
                         } // end face node loop
-                    } // end if (elem-&gt;neighbor(side) == NULL)
+                    } // end if (elem-&gt;neighbor(side) == libmesh_nullptr)
         
 </pre>
 </div>
@@ -1317,8 +1315,8 @@ we would have to apply any hanging node constraint equations
 <div class = "comment">
 The element matrix and right-hand-side are now built
 for this element.  Add them to the global matrix and
-right-hand-side vector.  The \p SparseMatrix::add_matrix()
-and \p NumericVector::add_vector() members do this for us.
+right-hand-side vector.  The SparseMatrix::add_matrix()
+and NumericVector::add_vector() members do this for us.
 </div>
 
 <div class ="fragment">
@@ -1326,16 +1324,6 @@ and \p NumericVector::add_vector() members do this for us.
               navier_stokes_system.matrix-&gt;add_matrix (Ke, dof_indices);
               navier_stokes_system.rhs-&gt;add_vector    (Fe, dof_indices);
             } // end of element loop
-        
-</pre>
-</div>
-<div class = "comment">
-That's it.
-</div>
-
-<div class ="fragment">
-<pre>
-          return;
         }
 </pre>
 </div>
@@ -1373,8 +1361,8 @@ That's it.
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
   {
@@ -1415,7 +1403,7 @@ That's it.
   
     PerfLog perf_log(<B><FONT COLOR="#BC8F8F">&quot;Systems Example 2&quot;</FONT></B>);
   
-    TransientLinearImplicitSystem&amp;  navier_stokes_system =
+    TransientLinearImplicitSystem &amp; navier_stokes_system =
       equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Navier-Stokes&quot;</FONT></B>);
   
     <B><FONT COLOR="#228B22">const</FONT></B> Real dt = 0.01;
@@ -1429,16 +1417,19 @@ That's it.
   
     equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;dt&quot;</FONT></B>)   = dt;
   
-    AutoPtr&lt;NumericVector&lt;Number&gt; &gt;
+    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;
       last_nonlinear_soln (navier_stokes_system.solution-&gt;clone());
   
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> t_step=0; t_step&lt;n_timesteps; ++t_step)
       {
         navier_stokes_system.time += dt;
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n\n*** Solving time step &quot;</FONT></B> &lt;&lt; t_step &lt;&lt;
-          <B><FONT COLOR="#BC8F8F">&quot;, time = &quot;</FONT></B> &lt;&lt; navier_stokes_system.time &lt;&lt;
-          <B><FONT COLOR="#BC8F8F">&quot; ***&quot;</FONT></B> &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n\n*** Solving time step &quot;</FONT></B>
+                     &lt;&lt; t_step
+                     &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, time = &quot;</FONT></B>
+                     &lt;&lt; navier_stokes_system.time
+                     &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; ***&quot;</FONT></B>
+                     &lt;&lt; std::endl;
   
         *navier_stokes_system.old_local_solution = *navier_stokes_system.current_local_solution;
   
@@ -1464,26 +1455,25 @@ That's it.
   
             <B><FONT COLOR="#228B22">const</FONT></B> Real final_linear_residual = navier_stokes_system.final_linear_residual();
   
-            <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Linear solver converged at step: &quot;</FONT></B>
-                      &lt;&lt; n_linear_iterations
-                      &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, final residual: &quot;</FONT></B>
-                      &lt;&lt; final_linear_residual
-                      &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Nonlinear convergence: ||u - u_old|| = &quot;</FONT></B>
-                      &lt;&lt; norm_delta
-                      &lt;&lt; std::endl;
+            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Linear solver converged at step: &quot;</FONT></B>
+                         &lt;&lt; n_linear_iterations
+                         &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, final residual: &quot;</FONT></B>
+                         &lt;&lt; final_linear_residual
+                         &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Nonlinear convergence: ||u - u_old|| = &quot;</FONT></B>
+                         &lt;&lt; norm_delta
+                         &lt;&lt; std::endl;
   
             <B><FONT COLOR="#A020F0">if</FONT></B> ((norm_delta &lt; nonlinear_tolerance) &amp;&amp;
                 (navier_stokes_system.final_linear_residual() &lt; nonlinear_tolerance))
               {
-                <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; Nonlinear solver converged at step &quot;</FONT></B>
-                          &lt;&lt; l
-                          &lt;&lt; std::endl;
+                <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; Nonlinear solver converged at step &quot;</FONT></B>
+                             &lt;&lt; l
+                             &lt;&lt; std::endl;
                 <B><FONT COLOR="#A020F0">break</FONT></B>;
               }
   
             equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;linear solver tolerance&quot;</FONT></B>) =
               <B><FONT COLOR="#5F9EA0">std</FONT></B>::min(Utility::pow&lt;2&gt;(final_linear_residual), initial_linear_solver_tol);
-  
           } <I><FONT COLOR="#B22222">// end nonlinear loop
 </FONT></I>  
   #ifdef LIBMESH_HAVE_EXODUS_API
@@ -1514,12 +1504,12 @@ That's it.
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Navier-Stokes&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
@@ -1534,22 +1524,22 @@ That's it.
   
     FEType fe_pres_type = navier_stokes_system.variable_type(p_var);
   
-    AutoPtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
+    UniquePtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
   
-    AutoPtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
+    UniquePtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
   
     QGauss qrule (dim, fe_vel_type.default_quadrature_order());
   
     fe_vel-&gt;attach_quadrature_rule (&amp;qrule);
     fe_pres-&gt;attach_quadrature_rule (&amp;qrule);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe_vel-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe_vel-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe_vel-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe_vel-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe_vel-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe_vel-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; psi = fe_pres-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; psi = fe_pres-&gt;get_phi();
   
   
     <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = navier_stokes_system.get_dof_map();
@@ -1580,7 +1570,7 @@ That's it.
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
         dof_map.dof_indices (elem, dof_indices_u, u_var);
@@ -1616,9 +1606,9 @@ That's it.
   
         <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule.n_points(); qp++)
           {
-            Number   u = 0., u_old = 0.;
-            Number   v = 0., v_old = 0.;
-            Number   p_old = 0.;
+            Number u = 0., u_old = 0.;
+            Number v = 0., v_old = 0.;
+            Number p_old = 0.;
             Gradient grad_u, grad_u_old;
             Gradient grad_v, grad_v_old;
   
@@ -1636,16 +1626,14 @@ That's it.
               }
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> l=0; l&lt;n_p_dofs; l++)
-              {
-                p_old += psi[l][qp]*navier_stokes_system.old_solution (dof_indices_p[l]);
-              }
+              p_old += psi[l][qp]*navier_stokes_system.old_solution (dof_indices_p[l]);
   
             <B><FONT COLOR="#228B22">const</FONT></B> NumberVectorValue U_old (u_old, v_old);
             <B><FONT COLOR="#228B22">const</FONT></B> NumberVectorValue U     (u,     v);
-            <B><FONT COLOR="#228B22">const</FONT></B> Number  u_x = grad_u(0);
-            <B><FONT COLOR="#228B22">const</FONT></B> Number  u_y = grad_u(1);
-            <B><FONT COLOR="#228B22">const</FONT></B> Number  v_x = grad_v(0);
-            <B><FONT COLOR="#228B22">const</FONT></B> Number  v_y = grad_v(1);
+            <B><FONT COLOR="#228B22">const</FONT></B> Number u_x = grad_u(0);
+            <B><FONT COLOR="#228B22">const</FONT></B> Number u_y = grad_u(1);
+            <B><FONT COLOR="#228B22">const</FONT></B> Number v_x = grad_v(0);
+            <B><FONT COLOR="#228B22">const</FONT></B> Number v_y = grad_v(1);
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_u_dofs; i++)
               {
@@ -1689,13 +1677,11 @@ That's it.
               }
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_p_dofs; i++)
-              {
-                <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_u_dofs; j++)
-                  {
-                    Kpu(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](0);
-                    Kpv(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](1);
-                  }
-              }
+              <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_u_dofs; j++)
+                {
+                  Kpu(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](0);
+                  Kpv(i,j) += JxW[qp]*psi[i][qp]*dphi[j][qp](1);
+                }
           } <I><FONT COLOR="#B22222">// end of the quadrature point qp-loop
 </FONT></I>  
   
@@ -1703,16 +1689,16 @@ That's it.
           <B><FONT COLOR="#228B22">const</FONT></B> Real penalty = 1.e10;
   
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> s=0; s&lt;elem-&gt;n_sides(); s++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == libmesh_nullptr)
               {
-                AutoPtr&lt;Elem&gt; side (elem-&gt;build_side(s));
+                UniquePtr&lt;Elem&gt; side (elem-&gt;build_side(s));
   
                 <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> ns=0; ns&lt;side-&gt;n_nodes(); ns++)
                   {
   
                     <B><FONT COLOR="#228B22">const</FONT></B> Real u_value =
-                      (mesh.get_boundary_info().has_boundary_id(elem,s,2))
-                        ? 1. : 0.;
+                      (mesh.get_boundary_info().has_boundary_id(elem, s, 2))
+                      ? 1. : 0.;
   
                     <B><FONT COLOR="#228B22">const</FONT></B> Real v_value = 0.;
   
@@ -1726,7 +1712,7 @@ That's it.
                           Fv(n) += penalty*v_value;
                         }
                   } <I><FONT COLOR="#B22222">// end face node loop
-</FONT></I>              } <I><FONT COLOR="#B22222">// end if (elem-&gt;neighbor(side) == NULL)
+</FONT></I>              } <I><FONT COLOR="#B22222">// end if (elem-&gt;neighbor(side) == libmesh_nullptr)
 </FONT></I>  
           <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> pin_pressure = true;
           <B><FONT COLOR="#A020F0">if</FONT></B> (pin_pressure)
@@ -1747,21 +1733,21 @@ That's it.
         navier_stokes_system.matrix-&gt;add_matrix (Ke, dof_indices);
         navier_stokes_system.rhs-&gt;add_vector    (Fe, dof_indices);
       } <I><FONT COLOR="#B22222">// end of element loop
-</FONT></I>  
-    <B><FONT COLOR="#A020F0">return</FONT></B>;
-  }
+</FONT></I>  }
 </pre> 
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-systems_of_equations_ex2.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example systems_of_equations_ex2:
 *   example-opt  
 ***************************************************************
  
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=1681
     n_local_nodes()=1681
   n_elem()=400
@@ -1794,162 +1780,179 @@ That's it.
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 
 
 *** Solving time step 0, time = 0.01 ***
 Linear solver converged at step: 236, final residual: 0.000214866  Nonlinear convergence: ||u - u_old|| = 282.453
 Linear solver converged at step: 90, final residual: 9.23274e-06  Nonlinear convergence: ||u - u_old|| = 0.743958
-Linear solver converged at step: 250, final residual: 8.01572e-07  Nonlinear convergence: ||u - u_old|| = 0.0129303
-Linear solver converged at step: 250, final residual: 1.2986e-09  Nonlinear convergence: ||u - u_old|| = 0.00156521
-Linear solver converged at step: 250, final residual: 1.5333e-11  Nonlinear convergence: ||u - u_old|| = 1.93835e-06
+Linear solver converged at step: 250, final residual: 8.01557e-07  Nonlinear convergence: ||u - u_old|| = 0.0129303
+Linear solver converged at step: 250, final residual: 1.29901e-09  Nonlinear convergence: ||u - u_old|| = 0.00156519
+Linear solver converged at step: 250, final residual: 1.81135e-11  Nonlinear convergence: ||u - u_old|| = 1.9347e-06
  Nonlinear solver converged at step 4
 
 
 *** Solving time step 1, time = 0.02 ***
 Linear solver converged at step: 235, final residual: 0.000218713  Nonlinear convergence: ||u - u_old|| = 30.6378
-Linear solver converged at step: 178, final residual: 1.06624e-05  Nonlinear convergence: ||u - u_old|| = 0.372807
-Linear solver converged at step: 250, final residual: 4.23865e-08  Nonlinear convergence: ||u - u_old|| = 0.00605111
-Linear solver converged at step: 250, final residual: 3.15334e-10  Nonlinear convergence: ||u - u_old|| = 8.48975e-05
+Linear solver converged at step: 178, final residual: 1.06626e-05  Nonlinear convergence: ||u - u_old|| = 0.372807
+Linear solver converged at step: 250, final residual: 5.32852e-08  Nonlinear convergence: ||u - u_old|| = 0.00603164
+Linear solver converged at step: 250, final residual: 2.90971e-11  Nonlinear convergence: ||u - u_old|| = 0.000105181
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 2, time = 0.03 ***
 Linear solver converged at step: 76, final residual: 0.00022519  Nonlinear convergence: ||u - u_old|| = 6.00785
-Linear solver converged at step: 120, final residual: 1.02697e-05  Nonlinear convergence: ||u - u_old|| = 0.251248
-Linear solver converged at step: 250, final residual: 8.03393e-07  Nonlinear convergence: ||u - u_old|| = 0.0163576
-Linear solver converged at step: 250, final residual: 3.80525e-10  Nonlinear convergence: ||u - u_old|| = 0.00109546
-Linear solver converged at step: 250, final residual: 6.24929e-12  Nonlinear convergence: ||u - u_old|| = 4.0815e-07
+Linear solver converged at step: 120, final residual: 1.02696e-05  Nonlinear convergence: ||u - u_old|| = 0.251248
+Linear solver converged at step: 250, final residual: 8.05847e-07  Nonlinear convergence: ||u - u_old|| = 0.0163508
+Linear solver converged at step: 250, final residual: 1.04342e-09  Nonlinear convergence: ||u - u_old|| = 0.00110321
+Linear solver converged at step: 250, final residual: 1.07596e-10  Nonlinear convergence: ||u - u_old|| = 1.43612e-06
  Nonlinear solver converged at step 4
 
 
 *** Solving time step 3, time = 0.04 ***
 Linear solver converged at step: 72, final residual: 0.000219168  Nonlinear convergence: ||u - u_old|| = 2.18001
-Linear solver converged at step: 107, final residual: 1.06524e-05  Nonlinear convergence: ||u - u_old|| = 0.26029
-Linear solver converged at step: 250, final residual: 6.49582e-07  Nonlinear convergence: ||u - u_old|| = 0.0170289
-Linear solver converged at step: 250, final residual: 7.4674e-10  Nonlinear convergence: ||u - u_old|| = 0.00105193
-Linear solver converged at step: 250, final residual: 5.36706e-12  Nonlinear convergence: ||u - u_old|| = 1.12151e-06
+Linear solver converged at step: 107, final residual: 1.06522e-05  Nonlinear convergence: ||u - u_old|| = 0.26029
+Linear solver converged at step: 250, final residual: 6.45964e-07  Nonlinear convergence: ||u - u_old|| = 0.0170193
+Linear solver converged at step: 250, final residual: 3.95146e-09  Nonlinear convergence: ||u - u_old|| = 0.00105789
+Linear solver converged at step: 250, final residual: 1.25745e-12  Nonlinear convergence: ||u - u_old|| = 4.47682e-06
  Nonlinear solver converged at step 4
 
 
 *** Solving time step 4, time = 0.05 ***
 Linear solver converged at step: 57, final residual: 0.00022426  Nonlinear convergence: ||u - u_old|| = 0.988783
-Linear solver converged at step: 168, final residual: 1.09442e-05  Nonlinear convergence: ||u - u_old|| = 0.16081
-Linear solver converged at step: 250, final residual: 9.82403e-07  Nonlinear convergence: ||u - u_old|| = 0.0129081
-Linear solver converged at step: 222, final residual: 2.01491e-10  Nonlinear convergence: ||u - u_old|| = 0.00147601
-Linear solver converged at step: 250, final residual: 2.40891e-13  Nonlinear convergence: ||u - u_old|| = 2.07125e-07
+Linear solver converged at step: 168, final residual: 1.09441e-05  Nonlinear convergence: ||u - u_old|| = 0.16081
+Linear solver converged at step: 250, final residual: 9.82019e-07  Nonlinear convergence: ||u - u_old|| = 0.0129089
+Linear solver converged at step: 250, final residual: 3.29125e-10  Nonlinear convergence: ||u - u_old|| = 0.00147557
+Linear solver converged at step: 250, final residual: 1.37699e-11  Nonlinear convergence: ||u - u_old|| = 6.01585e-07
  Nonlinear solver converged at step 4
 
 
 *** Solving time step 5, time = 0.06 ***
 Linear solver converged at step: 52, final residual: 0.000214357  Nonlinear convergence: ||u - u_old|| = 0.476249
 Linear solver converged at step: 172, final residual: 9.66487e-06  Nonlinear convergence: ||u - u_old|| = 0.203206
-Linear solver converged at step: 250, final residual: 3.11612e-08  Nonlinear convergence: ||u - u_old|| = 0.0169576
-Linear solver converged at step: 250, final residual: 1.97933e-09  Nonlinear convergence: ||u - u_old|| = 4.93847e-05
+Linear solver converged at step: 250, final residual: 3.16979e-08  Nonlinear convergence: ||u - u_old|| = 0.0169568
+Linear solver converged at step: 250, final residual: 1.94227e-09  Nonlinear convergence: ||u - u_old|| = 5.01869e-05
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 6, time = 0.07 ***
 Linear solver converged at step: 22, final residual: 0.000212706  Nonlinear convergence: ||u - u_old|| = 0.256589
-Linear solver converged at step: 127, final residual: 9.96362e-06  Nonlinear convergence: ||u - u_old|| = 0.152875
-Linear solver converged at step: 250, final residual: 7.93293e-08  Nonlinear convergence: ||u - u_old|| = 0.00949494
-Linear solver converged at step: 250, final residual: 1.8779e-09  Nonlinear convergence: ||u - u_old|| = 9.92382e-05
+Linear solver converged at step: 127, final residual: 9.96381e-06  Nonlinear convergence: ||u - u_old|| = 0.152875
+Linear solver converged at step: 250, final residual: 9.83166e-08  Nonlinear convergence: ||u - u_old|| = 0.00946214
+Linear solver converged at step: 250, final residual: 8.34252e-10  Nonlinear convergence: ||u - u_old|| = 0.000133858
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 7, time = 0.08 ***
 Linear solver converged at step: 19, final residual: 0.00019437  Nonlinear convergence: ||u - u_old|| = 0.152024
-Linear solver converged at step: 59, final residual: 6.53728e-06  Nonlinear convergence: ||u - u_old|| = 0.0858662
-Linear solver converged at step: 227, final residual: 6.61674e-09  Nonlinear convergence: ||u - u_old|| = 0.00280901
-Linear solver converged at step: 250, final residual: 1.11674e-13  Nonlinear convergence: ||u - u_old|| = 2.65895e-07
+Linear solver converged at step: 59, final residual: 6.54079e-06  Nonlinear convergence: ||u - u_old|| = 0.0858625
+Linear solver converged at step: 227, final residual: 6.54855e-09  Nonlinear convergence: ||u - u_old|| = 0.00281105
+Linear solver converged at step: 239, final residual: 8.61149e-15  Nonlinear convergence: ||u - u_old|| = 3.58207e-07
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 8, time = 0.09 ***
 Linear solver converged at step: 15, final residual: 0.000203605  Nonlinear convergence: ||u - u_old|| = 0.0866795
-Linear solver converged at step: 119, final residual: 8.87843e-06  Nonlinear convergence: ||u - u_old|| = 0.041811
-Linear solver converged at step: 250, final residual: 2.35964e-08  Nonlinear convergence: ||u - u_old|| = 0.00678777
-Linear solver converged at step: 250, final residual: 2.57037e-10  Nonlinear convergence: ||u - u_old|| = 3.96202e-05
+Linear solver converged at step: 119, final residual: 8.87784e-06  Nonlinear convergence: ||u - u_old|| = 0.0418116
+Linear solver converged at step: 236, final residual: 1.77583e-08  Nonlinear convergence: ||u - u_old|| = 0.0068032
+Linear solver converged at step: 250, final residual: 7.6203e-11  Nonlinear convergence: ||u - u_old|| = 2.37763e-05
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 9, time = 0.1 ***
 Linear solver converged at step: 11, final residual: 0.000219903  Nonlinear convergence: ||u - u_old|| = 0.0505947
-Linear solver converged at step: 70, final residual: 1.08506e-05  Nonlinear convergence: ||u - u_old|| = 0.0181967
-Linear solver converged at step: 250, final residual: 4.54915e-08  Nonlinear convergence: ||u - u_old|| = 0.0127985
-Linear solver converged at step: 250, final residual: 6.79582e-11  Nonlinear convergence: ||u - u_old|| = 7.19506e-05
+Linear solver converged at step: 70, final residual: 1.08505e-05  Nonlinear convergence: ||u - u_old|| = 0.0181966
+Linear solver converged at step: 250, final residual: 4.55109e-08  Nonlinear convergence: ||u - u_old|| = 0.0127983
+Linear solver converged at step: 250, final residual: 8.00529e-11  Nonlinear convergence: ||u - u_old|| = 7.19859e-05
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 10, time = 0.11 ***
 Linear solver converged at step: 11, final residual: 0.000139303  Nonlinear convergence: ||u - u_old|| = 0.0322426
-Linear solver converged at step: 105, final residual: 4.32522e-06  Nonlinear convergence: ||u - u_old|| = 0.012634
-Linear solver converged at step: 229, final residual: 4.15714e-09  Nonlinear convergence: ||u - u_old|| = 0.00578586
-Linear solver converged at step: 250, final residual: 6.85282e-13  Nonlinear convergence: ||u - u_old|| = 7.07349e-06
+Linear solver converged at step: 105, final residual: 4.32521e-06  Nonlinear convergence: ||u - u_old|| = 0.012634
+Linear solver converged at step: 229, final residual: 4.15933e-09  Nonlinear convergence: ||u - u_old|| = 0.00578586
+Linear solver converged at step: 250, final residual: 4.24343e-11  Nonlinear convergence: ||u - u_old|| = 7.01804e-06
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 11, time = 0.12 ***
 Linear solver converged at step: 10, final residual: 0.000145762  Nonlinear convergence: ||u - u_old|| = 0.020515
-Linear solver converged at step: 48, final residual: 4.72564e-06  Nonlinear convergence: ||u - u_old|| = 0.00781656
-Linear solver converged at step: 250, final residual: 3.20834e-08  Nonlinear convergence: ||u - u_old|| = 0.00687868
-Linear solver converged at step: 250, final residual: 1.93183e-10  Nonlinear convergence: ||u - u_old|| = 4.03854e-05
+Linear solver converged at step: 48, final residual: 4.72567e-06  Nonlinear convergence: ||u - u_old|| = 0.00781656
+Linear solver converged at step: 250, final residual: 3.20806e-08  Nonlinear convergence: ||u - u_old|| = 0.00687872
+Linear solver converged at step: 250, final residual: 1.55861e-10  Nonlinear convergence: ||u - u_old|| = 4.04035e-05
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 12, time = 0.13 ***
 Linear solver converged at step: 10, final residual: 9.33348e-05  Nonlinear convergence: ||u - u_old|| = 0.0136033
-Linear solver converged at step: 67, final residual: 1.95953e-06  Nonlinear convergence: ||u - u_old|| = 0.00578776
-Linear solver converged at step: 250, final residual: 2.67323e-08  Nonlinear convergence: ||u - u_old|| = 0.00252316
-Linear solver converged at step: 250, final residual: 1.55865e-11  Nonlinear convergence: ||u - u_old|| = 4.22122e-05
+Linear solver converged at step: 67, final residual: 1.95952e-06  Nonlinear convergence: ||u - u_old|| = 0.00578775
+Linear solver converged at step: 250, final residual: 2.69457e-08  Nonlinear convergence: ||u - u_old|| = 0.00252266
+Linear solver converged at step: 250, final residual: 2.49022e-10  Nonlinear convergence: ||u - u_old|| = 4.23675e-05
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 13, time = 0.14 ***
-Linear solver converged at step: 9, final residual: 0.000150149  Nonlinear convergence: ||u - u_old|| = 0.00909495
-Linear solver converged at step: 19, final residual: 3.93368e-06  Nonlinear convergence: ||u - u_old|| = 0.00478247
-Linear solver converged at step: 250, final residual: 8.02817e-09  Nonlinear convergence: ||u - u_old|| = 0.00217152
-Linear solver converged at step: 250, final residual: 1.64826e-09  Nonlinear convergence: ||u - u_old|| = 9.28588e-06
+Linear solver converged at step: 9, final residual: 0.00015015  Nonlinear convergence: ||u - u_old|| = 0.00909494
+Linear solver converged at step: 19, final residual: 3.93378e-06  Nonlinear convergence: ||u - u_old|| = 0.00478245
+Linear solver converged at step: 250, final residual: 7.99254e-09  Nonlinear convergence: ||u - u_old|| = 0.00217195
+Linear solver converged at step: 250, final residual: 1.58995e-09  Nonlinear convergence: ||u - u_old|| = 9.28168e-06
  Nonlinear solver converged at step 3
 
 
 *** Solving time step 14, time = 0.15 ***
-Linear solver converged at step: 8, final residual: 0.000160079  Nonlinear convergence: ||u - u_old|| = 0.00592992
-Linear solver converged at step: 17, final residual: 5.46764e-06  Nonlinear convergence: ||u - u_old|| = 0.00369958
-Linear solver converged at step: 250, final residual: 1.09397e-08  Nonlinear convergence: ||u - u_old|| = 0.00118612
-Linear solver converged at step: 250, final residual: 1.90999e-11  Nonlinear convergence: ||u - u_old|| = 1.58237e-05
+Linear solver converged at step: 8, final residual: 0.000160079  Nonlinear convergence: ||u - u_old|| = 0.00592993
+Linear solver converged at step: 17, final residual: 5.46766e-06  Nonlinear convergence: ||u - u_old|| = 0.0036996
+Linear solver converged at step: 250, final residual: 1.09116e-08  Nonlinear convergence: ||u - u_old|| = 0.00118612
+Linear solver converged at step: 250, final residual: 2.13422e-11  Nonlinear convergence: ||u - u_old|| = 1.57131e-05
  Nonlinear solver converged at step 3
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:40:23 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:53:21 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| Systems Example 2 Performance: Alive time=7.57186, Active time=7.49002                                     |
+| Systems Example 2 Performance: Alive time=3.79878, Active time=3.74836                                     |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
 |------------------------------------------------------------------------------------------------------------|
 |                                                                                                            |
-| linear solve                  64         7.4900      0.117032    7.4900      0.117032    100.00   100.00   |
+| linear solve                  64         3.7484      0.058568    3.7484      0.058568    100.00   100.00   |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       64         7.4900                                          100.00            |
+| Totals:                       64         3.7484                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=7.67125, Active time=7.53845                                                    |
+| libMesh Performance: Alive time=3.81318, Active time=3.77631                                                    |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1957,52 +1960,52 @@ Linear solver converged at step: 250, final residual: 1.90999e-11  Nonlinear con
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     1          0.0002      0.000245    0.0002      0.000245    0.00     0.00     |
-|   build_sparsity()                 1          0.0051      0.005088    0.0057      0.005694    0.07     0.08     |
-|   create_dof_constraints()         1          0.0001      0.000125    0.0001      0.000125    0.00     0.00     |
-|   distribute_dofs()                1          0.0005      0.000505    0.0016      0.001623    0.01     0.02     |
-|   dof_indices()                    120800     0.1044      0.000001    0.1044      0.000001    1.38     1.38     |
-|   prepare_send_list()              1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   reinit()                         1          0.0011      0.001118    0.0011      0.001118    0.01     0.01     |
+|   add_neighbors_to_send_list()     1          0.0002      0.000228    0.0002      0.000228    0.01     0.01     |
+|   build_sparsity()                 1          0.0034      0.003407    0.0037      0.003657    0.09     0.10     |
+|   create_dof_constraints()         1          0.0001      0.000067    0.0001      0.000067    0.00     0.00     |
+|   distribute_dofs()                1          0.0004      0.000356    0.0014      0.001356    0.01     0.04     |
+|   dof_indices()                    120800     0.0340      0.000000    0.0340      0.000000    0.90     0.90     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0010      0.001000    0.0010      0.001000    0.03     0.03     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          15         0.0243      0.001622    0.0387      0.002581    0.32     0.51     |
+|   build_solution_vector()          15         0.0136      0.000906    0.0188      0.001252    0.36     0.50     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               15         0.0286      0.001907    0.0286      0.001907    0.38     0.38     |
+|   write_nodal_data()               15         0.0240      0.001602    0.0240      0.001602    0.64     0.64     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        51200      0.1406      0.000003    0.1406      0.000003    1.87     1.87     |
-|   init_shape_functions()           128        0.0009      0.000007    0.0009      0.000007    0.01     0.01     |
+|   compute_shape_functions()        51200      0.0741      0.000001    0.0741      0.000001    1.96     1.96     |
+|   init_shape_functions()           128        0.0006      0.000004    0.0006      0.000004    0.01     0.01     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             51200      0.0527      0.000001    0.0527      0.000001    0.70     0.70     |
-|   init_reference_to_physical_map() 128        0.0021      0.000016    0.0021      0.000016    0.03     0.03     |
+|   compute_affine_map()             51200      0.0388      0.000001    0.0388      0.000001    1.03     1.03     |
+|   init_reference_to_physical_map() 128        0.0013      0.000010    0.0013      0.000010    0.03     0.03     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   all_second_order()               1          0.0011      0.001136    0.0011      0.001136    0.02     0.02     |
-|   find_neighbors()                 2          0.0011      0.000530    0.0011      0.000530    0.01     0.01     |
-|   renumber_nodes_and_elem()        4          0.0001      0.000033    0.0001      0.000033    0.00     0.00     |
+|   all_second_order()               1          0.0008      0.000796    0.0008      0.000796    0.02     0.02     |
+|   find_neighbors()                 2          0.0013      0.000657    0.0013      0.000657    0.03     0.03     |
+|   renumber_nodes_and_elem()        4          0.0000      0.000011    0.0000      0.000011    0.00     0.00     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         15         0.0004      0.000025    0.0677      0.004514    0.01     0.90     |
+|   write_equation_systems()         15         0.0001      0.000010    0.0430      0.002864    0.00     1.14     |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0003      0.000290    0.0003      0.000290    0.00     0.00     |
+|   build_cube()                     1          0.0004      0.000363    0.0004      0.000363    0.01     0.01     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               2          0.0001      0.000036    0.0001      0.000036    0.00     0.00     |
+|   single_partition()               2          0.0000      0.000021    0.0000      0.000021    0.00     0.00     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          64         5.9802      0.093441    5.9802      0.093441    79.33    79.33    |
+|   solve()                          64         2.9667      0.046355    2.9667      0.046355    78.56    78.56    |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       64         1.1945      0.018664    1.4994      0.023428    15.85    19.89    |
+|   assemble()                       64         0.6155      0.009617    0.7777      0.012151    16.30    20.59    |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            223646     7.5384                                          100.00            |
+| Totals:                            223647     3.7763                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  

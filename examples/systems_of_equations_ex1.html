@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -74,8 +74,8 @@ Basic include file needed for the mesh functionality.
 </pre>
 </div>
 <div class = "comment">
-For systems of equations the \p DenseSubMatrix
-and \p DenseSubVector provide convenient ways for
+For systems of equations the DenseSubMatrix
+and DenseSubVector provide convenient ways for
 assembling the element matrix and vector on a
 component-by-component basis.
 </div>
@@ -114,8 +114,8 @@ matrix and right-hand-side.
 
 <div class ="fragment">
 <pre>
-        void assemble_stokes (EquationSystems& es,
-                              const std::string& system_name);
+        void assemble_stokes (EquationSystems & es,
+                              const std::string & system_name);
         
 </pre>
 </div>
@@ -125,7 +125,7 @@ The main program.
 
 <div class ="fragment">
 <pre>
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -176,7 +176,7 @@ across the default MPI communicator.
 <div class = "comment">
 Use the MeshTools::Generation mesh generator to create a uniform
 2D grid on the square [-1,1]^2.  We instruct the mesh generator
-to build a mesh of 8x8 \p Quad9 elements.  Building these
+to build a mesh of 8x8 Quad9 elements.  Building these
 higher-order elements allows us to use higher-order
 approximation, as in example 3.
 </div>
@@ -306,8 +306,8 @@ All done.
           return 0;
         }
         
-        void assemble_stokes (EquationSystems& es,
-                              const std::string& system_name)
+        void assemble_stokes (EquationSystems & es,
+                              const std::string & system_name)
         {
 </pre>
 </div>
@@ -328,7 +328,7 @@ Get a constant reference to the mesh object.
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
 </pre>
 </div>
@@ -393,7 +393,7 @@ the velocity variables.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
+          UniquePtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
         
 </pre>
 </div>
@@ -404,13 +404,13 @@ the pressure variables.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
+          UniquePtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
         
 </pre>
 </div>
 <div class = "comment">
 A Gauss quadrature rule for numerical integration.
-Let the \p FEType object decide what order rule is appropriate.
+Let the FEType object decide what order rule is appropriate.
 </div>
 
 <div class ="fragment">
@@ -439,7 +439,7 @@ will be used to assemble the linear system.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW = fe_vel-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = fe_vel-&gt;get_JxW();
         
 </pre>
 </div>
@@ -450,7 +450,7 @@ variables evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe_vel-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe_vel-&gt;get_dphi();
         
 </pre>
 </div>
@@ -461,14 +461,14 @@ evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& psi = fe_pres-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & psi = fe_pres-&gt;get_phi();
         
 </pre>
 </div>
 <div class = "comment">
-A reference to the \p DofMap object for this system.  The \p DofMap
+A reference to the DofMap object for this system.  The DofMap
 object handles the index translation from node and element numbers
-to degree of freedom numbers.  We will talk more about the \p DofMap
+to degree of freedom numbers.  We will talk more about the DofMap
 in future examples.
 </div>
 
@@ -523,7 +523,7 @@ live on the local processor. We will compute the element
 matrix and right-hand-side contribution.  In case users later
 modify this program to include refinement, we will be safe and
 will only consider the active elements; hence we use a variant of
-the \p active_elem_iterator.
+the active_elem_iterator.
 
 
 <br><br></div>
@@ -544,7 +544,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -608,10 +608,10 @@ Ke = | Kvu Kvv Kvp |;  Fe = | Fv |
 | Kpu Kpv Kpp |        | Fp |
 -           -          -  -
 
-<br><br>The \p DenseSubMatrix.repostition () member takes the
+<br><br>The DenseSubMatrix.repostition () member takes the
 (row_offset, column_offset, row_size, column_size).
 
-<br><br>Similarly, the \p DenseSubVector.reposition () member
+<br><br>Similarly, the DenseSubVector.reposition () member
 takes the (row_offset, row_size)
 </div>
 
@@ -749,9 +749,9 @@ side MUST live on a boundary of the domain.
 <div class ="fragment">
 <pre>
                 for (unsigned int s=0; s&lt;elem-&gt;n_sides(); s++)
-                  if (elem-&gt;neighbor(s) == NULL)
+                  if (elem-&gt;neighbor(s) == libmesh_nullptr)
                     {
-                      AutoPtr&lt;Elem&gt; side (elem-&gt;build_side(s));
+                      UniquePtr&lt;Elem&gt; side (elem-&gt;build_side(s));
         
 </pre>
 </div>
@@ -846,7 +846,7 @@ Right-hand-side contribution.
                                 Fv(n) += penalty*v_value;
                               }
                         } // end face node loop
-                    } // end if (elem-&gt;neighbor(side) == NULL)
+                    } // end if (elem-&gt;neighbor(side) == libmesh_nullptr)
               } // end boundary condition section
         
 </pre>
@@ -865,8 +865,8 @@ we would have to apply any hanging node constraint equations.
 <div class = "comment">
 The element matrix and right-hand-side are now built
 for this element.  Add them to the global matrix and
-right-hand-side vector.  The \p NumericMatrix::add_matrix()
-and \p NumericVector::add_vector() members do this for us.
+right-hand-side vector.  The NumericMatrix::add_matrix()
+and NumericVector::add_vector() members do this for us.
 </div>
 
 <div class ="fragment">
@@ -874,16 +874,6 @@ and \p NumericVector::add_vector() members do this for us.
               system.matrix-&gt;add_matrix (Ke, dof_indices);
               system.rhs-&gt;add_vector    (Fe, dof_indices);
             } // end of element loop
-        
-</pre>
-</div>
-<div class = "comment">
-That's it.
-</div>
-
-<div class ="fragment">
-<pre>
-          return;
         }
 </pre>
 </div>
@@ -916,10 +906,10 @@ That's it.
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -967,12 +957,12 @@ That's it.
     <B><FONT COLOR="#A020F0">return</FONT></B> 0;
   }
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_stokes (EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Stokes&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
@@ -987,20 +977,20 @@ That's it.
   
     FEType fe_pres_type = system.variable_type(p_var);
   
-    AutoPtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
+    UniquePtr&lt;FEBase&gt; fe_vel  (FEBase::build(dim, fe_vel_type));
   
-    AutoPtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
+    UniquePtr&lt;FEBase&gt; fe_pres (FEBase::build(dim, fe_pres_type));
   
     QGauss qrule (dim, fe_vel_type.default_quadrature_order());
   
     fe_vel-&gt;attach_quadrature_rule (&amp;qrule);
     fe_pres-&gt;attach_quadrature_rule (&amp;qrule);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe_vel-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe_vel-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe_vel-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe_vel-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; psi = fe_pres-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; psi = fe_pres-&gt;get_phi();
   
     <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
@@ -1028,7 +1018,7 @@ That's it.
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
         dof_map.dof_indices (elem, dof_indices_u, u_var);
@@ -1094,9 +1084,9 @@ That's it.
 </FONT></I>  
         {
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> s=0; s&lt;elem-&gt;n_sides(); s++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == libmesh_nullptr)
               {
-                AutoPtr&lt;Elem&gt; side (elem-&gt;build_side(s));
+                UniquePtr&lt;Elem&gt; side (elem-&gt;build_side(s));
   
                 <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> ns=0; ns&lt;side-&gt;n_nodes(); ns++)
                   {
@@ -1120,7 +1110,7 @@ That's it.
                           Fv(n) += penalty*v_value;
                         }
                   } <I><FONT COLOR="#B22222">// end face node loop
-</FONT></I>              } <I><FONT COLOR="#B22222">// end if (elem-&gt;neighbor(side) == NULL)
+</FONT></I>              } <I><FONT COLOR="#B22222">// end if (elem-&gt;neighbor(side) == libmesh_nullptr)
 </FONT></I>        } <I><FONT COLOR="#B22222">// end boundary condition section
 </FONT></I>  
         dof_map.constrain_element_matrix_and_vector (Ke, Fe, dof_indices);
@@ -1128,21 +1118,21 @@ That's it.
         system.matrix-&gt;add_matrix (Ke, dof_indices);
         system.rhs-&gt;add_vector    (Fe, dof_indices);
       } <I><FONT COLOR="#B22222">// end of element loop
-</FONT></I>  
-    <B><FONT COLOR="#A020F0">return</FONT></B>;
-  }
+</FONT></I>  }
 </pre> 
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-systems_of_equations_ex1.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example systems_of_equations_ex1:
 *   example-opt  
 ***************************************************************
  
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=961
     n_local_nodes()=961
   n_elem()=225
@@ -1175,26 +1165,43 @@ That's it.
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:40:15 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:52:06 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.140967, Active time=0.050529                                                  |
+| libMesh Performance: Alive time=0.02633, Active time=0.020097                                                   |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1202,51 +1209,51 @@ That's it.
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     1          0.0001      0.000138    0.0001      0.000138    0.27     0.27     |
-|   build_sparsity()                 1          0.0029      0.002948    0.0033      0.003299    5.83     6.53     |
-|   create_dof_constraints()         1          0.0001      0.000090    0.0001      0.000090    0.18     0.18     |
-|   distribute_dofs()                1          0.0003      0.000299    0.0009      0.000936    0.59     1.85     |
-|   dof_indices()                    1800       0.0016      0.000001    0.0016      0.000001    3.17     3.17     |
-|   prepare_send_list()              1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         1          0.0006      0.000637    0.0006      0.000637    1.26     1.26     |
+|   add_neighbors_to_send_list()     1          0.0001      0.000105    0.0001      0.000105    0.52     0.52     |
+|   build_sparsity()                 1          0.0020      0.001960    0.0021      0.002124    9.75     10.57    |
+|   create_dof_constraints()         1          0.0000      0.000033    0.0000      0.000033    0.16     0.16     |
+|   distribute_dofs()                1          0.0002      0.000154    0.0007      0.000658    0.77     3.27     |
+|   dof_indices()                    1800       0.0005      0.000000    0.0005      0.000000    2.56     2.56     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0005      0.000504    0.0005      0.000504    2.51     2.51     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          1          0.0011      0.001052    0.0016      0.001637    2.08     3.24     |
+|   build_solution_vector()          1          0.0005      0.000524    0.0007      0.000717    2.61     3.57     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               1          0.0026      0.002610    0.0026      0.002610    5.17     5.17     |
+|   write_nodal_data()               1          0.0013      0.001301    0.0013      0.001301    6.47     6.47     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        450        0.0006      0.000001    0.0006      0.000001    1.10     1.10     |
-|   init_shape_functions()           2          0.0000      0.000018    0.0000      0.000018    0.07     0.07     |
+|   compute_shape_functions()        450        0.0003      0.000001    0.0003      0.000001    1.50     1.50     |
+|   init_shape_functions()           2          0.0000      0.000007    0.0000      0.000007    0.07     0.07     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             450        0.0005      0.000001    0.0005      0.000001    0.92     0.92     |
-|   init_reference_to_physical_map() 2          0.0001      0.000036    0.0001      0.000036    0.14     0.14     |
+|   compute_affine_map()             450        0.0003      0.000001    0.0003      0.000001    1.73     1.73     |
+|   init_reference_to_physical_map() 2          0.0000      0.000013    0.0000      0.000013    0.13     0.13     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   find_neighbors()                 1          0.0004      0.000420    0.0004      0.000420    0.83     0.83     |
-|   renumber_nodes_and_elem()        2          0.0001      0.000035    0.0001      0.000035    0.14     0.14     |
+|   find_neighbors()                 1          0.0004      0.000372    0.0004      0.000372    1.85     1.85     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000008    0.0000      0.000008    0.08     0.08     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         1          0.0001      0.000075    0.0043      0.004323    0.15     8.56     |
+|   write_equation_systems()         1          0.0000      0.000015    0.0020      0.002034    0.07     10.12    |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0003      0.000342    0.0003      0.000342    0.68     0.68     |
+|   build_cube()                     1          0.0002      0.000211    0.0002      0.000211    1.05     1.05     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               1          0.0000      0.000041    0.0000      0.000041    0.08     0.08     |
+|   single_partition()               1          0.0000      0.000017    0.0000      0.000017    0.08     0.08     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          1          0.0315      0.031505    0.0315      0.031505    62.35    62.35    |
+|   solve()                          1          0.0108      0.010791    0.0108      0.010791    53.69    53.69    |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       1          0.0076      0.007570    0.0096      0.009625    14.98    19.05    |
+|   assemble()                       1          0.0029      0.002890    0.0039      0.003944    14.38    19.62    |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            2721       0.0505                                          100.00            |
+| Totals:                            2722       0.0201                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  

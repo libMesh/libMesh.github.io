@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -98,14 +98,14 @@ Matrix and right-hand side assemble
 
 <div class ="fragment">
 <pre>
-        void assemble_elasticity(EquationSystems& es,
-                                 const std::string& system_name);
+        void assemble_elasticity(EquationSystems & es,
+                                 const std::string & system_name);
         
 </pre>
 </div>
 <div class = "comment">
 Define the elasticity tensor, which is a fourth-order tensor
-i.e. it has four indices i,j,k,l
+i.e. it has four indices i, j, k, l
 </div>
 
 <div class ="fragment">
@@ -123,7 +123,7 @@ Begin the main program.
 
 <div class ="fragment">
 <pre>
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -180,7 +180,6 @@ Create a 2D mesh distributed across the default MPI communicator.
                                                0., 0.2,
                                                QUAD9);
         
-        
 </pre>
 </div>
 <div class = "comment">
@@ -190,7 +189,6 @@ Print information about the mesh to the screen.
 <div class ="fragment">
 <pre>
           mesh.print_info();
-        
         
 </pre>
 </div>
@@ -211,9 +209,8 @@ Create a system named "Elasticity"
 
 <div class ="fragment">
 <pre>
-          LinearImplicitSystem& system =
+          LinearImplicitSystem & system =
             equation_systems.add_system&lt;LinearImplicitSystem&gt; ("Elasticity");
-        
         
 </pre>
 </div>
@@ -223,8 +220,8 @@ Add two displacement variables, u and v, to the system
 
 <div class ="fragment">
 <pre>
-          unsigned int u_var      = system.add_variable("u", SECOND, LAGRANGE);
-          unsigned int v_var      = system.add_variable("v", SECOND, LAGRANGE);
+          unsigned int u_var = system.add_variable("u", SECOND, LAGRANGE);
+          unsigned int v_var = system.add_variable("v", SECOND, LAGRANGE);
         
 </pre>
 </div>
@@ -235,7 +232,6 @@ Add a SCALAR variable for the Lagrange multiplier to enforce our constraint
 <div class ="fragment">
 <pre>
           system.add_variable("lambda", FIRST, SCALAR);
-        
         
           system.attach_assemble_function (assemble_elasticity);
         
@@ -261,7 +257,8 @@ Create a vector storing the variable numbers which the BC applies to
 <div class ="fragment">
 <pre>
           std::vector&lt;unsigned int&gt; variables(2);
-          variables[0] = u_var; variables[1] = v_var;
+          variables[0] = u_var;
+          variables[1] = v_var;
         
 </pre>
 </div>
@@ -327,7 +324,7 @@ Plot the solution
 <div class ="fragment">
 <pre>
         #ifdef LIBMESH_HAVE_EXODUS_API
-          ExodusII_IO (mesh).write_equation_systems("displacement.e",equation_systems);
+          ExodusII_IO (mesh).write_equation_systems("displacement.e", equation_systems);
         #endif // #ifdef LIBMESH_HAVE_EXODUS_API
         
 </pre>
@@ -342,33 +339,33 @@ All done.
         }
         
         
-        void assemble_elasticity(EquationSystems& es,
-                                 const std::string& system_name)
+        void assemble_elasticity(EquationSystems & es,
+                                 const std::string & system_name)
         {
           libmesh_assert_equal_to (system_name, "Elasticity");
         
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
           const unsigned int dim = mesh.mesh_dimension();
         
-          LinearImplicitSystem& system = es.get_system&lt;LinearImplicitSystem&gt;("Elasticity");
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt;("Elasticity");
         
           const unsigned int u_var = system.variable_number ("u");
           const unsigned int v_var = system.variable_number ("v");
           const unsigned int lambda_var = system.variable_number ("lambda");
         
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
           FEType fe_type = dof_map.variable_type(0);
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
           QGauss qrule (dim, fe_type.default_quadrature_order());
           fe-&gt;attach_quadrature_rule (&qrule);
         
-          AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
           QGauss qface(dim-1, fe_type.default_quadrature_order());
           fe_face-&gt;attach_quadrature_rule (&qface);
         
-          const std::vector&lt;Real&gt;& JxW = fe-&gt;get_JxW();
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
           DenseMatrix&lt;Number&gt; Ke;
           DenseVector&lt;Number&gt; Fe;
@@ -392,7 +389,7 @@ All done.
         
           for ( ; el != end_el; ++el)
             {
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
               dof_map.dof_indices (elem, dof_indices);
               dof_map.dof_indices (elem, dof_indices_u, u_var);
@@ -445,18 +442,17 @@ Tensor indices
                         unsigned int C_i, C_j, C_k, C_l;
                         C_i=0, C_k=0;
         
-        
                         C_j=0, C_l=0;
-                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=0;
-                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=0, C_l=1;
-                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=1;
-                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                       }
         
                   for (unsigned int i=0; i&lt;n_u_dofs; i++)
@@ -473,18 +469,17 @@ Tensor indices
                         unsigned int C_i, C_j, C_k, C_l;
                         C_i=0, C_k=1;
         
-        
                         C_j=0, C_l=0;
-                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=0;
-                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=0, C_l=1;
-                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=1;
-                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                       }
         
                   for (unsigned int i=0; i&lt;n_v_dofs; i++)
@@ -501,18 +496,17 @@ Tensor indices
                         unsigned int C_i, C_j, C_k, C_l;
                         C_i=1, C_k=0;
         
-        
                         C_j=0, C_l=0;
-                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=0;
-                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=0, C_l=1;
-                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=1;
-                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                       }
         
                   for (unsigned int i=0; i&lt;n_v_dofs; i++)
@@ -529,30 +523,29 @@ Tensor indices
                         unsigned int C_i, C_j, C_k, C_l;
                         C_i=1, C_k=1;
         
-        
                         C_j=0, C_l=0;
-                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=0;
-                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=0, C_l=1;
-                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
         
                         C_j=1, C_l=1;
-                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                        Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                       }
                 }
         
               {
+                std::vector&lt;boundary_id_type&gt; bc_ids;
                 for (unsigned int side=0; side&lt;elem-&gt;n_sides(); side++)
-                  if (elem-&gt;neighbor(side) == NULL)
+                  if (elem-&gt;neighbor(side) == libmesh_nullptr)
                     {
-                      const std::vector&lt;boundary_id_type&gt; bc_ids =
-                        mesh.get_boundary_info().boundary_ids (elem,side);
+                      mesh.get_boundary_info().boundary_ids (elem, side, bc_ids);
         
-                      const std::vector&lt;std::vector&lt;Real&gt; &gt;&  phi_face = fe_face-&gt;get_phi();
-                      const std::vector&lt;Real&gt;& JxW_face = fe_face-&gt;get_JxW();
+                      const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi_face = fe_face-&gt;get_phi();
+                      const std::vector&lt;Real&gt; & JxW_face = fe_face-&gt;get_JxW();
         
                       fe_face-&gt;reinit(elem, side);
         
@@ -570,13 +563,9 @@ Add the loading
 
 <div class ="fragment">
 <pre>
-                              if( bc_id == 2 )
-                                {
-                                  for (unsigned int i=0; i&lt;n_v_dofs; i++)
-                                    {
-                                      Fv(i) += JxW_face[qp]* (-1.) * phi_face[i][qp];
-                                    }
-                                }
+                              if (bc_id == 2)
+                                for (unsigned int i=0; i&lt;n_v_dofs; i++)
+                                  Fv(i) += JxW_face[qp] * (-1.) * phi_face[i][qp];
         
 </pre>
 </div>
@@ -586,19 +575,15 @@ Add the constraint contributions
 
 <div class ="fragment">
 <pre>
-                              if( bc_id == 1 )
+                              if (bc_id == 1)
                                 {
                                   for (unsigned int i=0; i&lt;n_v_dofs; i++)
                                     for (unsigned int j=0; j&lt;n_lambda_dofs; j++)
-                                      {
-                                        Kv_lambda(i,j) += JxW_face[qp]* (-1.) * phi_face[i][qp];
-                                      }
+                                      Kv_lambda(i,j) += JxW_face[qp] * (-1.) * phi_face[i][qp];
         
                                   for (unsigned int i=0; i&lt;n_lambda_dofs; i++)
                                     for (unsigned int j=0; j&lt;n_v_dofs; j++)
-                                      {
-                                        Klambda_v(i,j) += JxW_face[qp]* (-1.) * phi_face[j][qp];
-                                      }
+                                      Klambda_v(i,j) += JxW_face[qp] * (-1.) * phi_face[j][qp];
                                 }
                             }
                         }
@@ -635,7 +620,7 @@ Define the Lame constants (lambda_1 and lambda_2) based on Poisson ratio
 
 <div class ="fragment">
 <pre>
-          const Real lambda_1 = nu / ( (1. + nu) * (1. - 2.*nu) );
+          const Real lambda_1 = nu / ((1. + nu) * (1. - 2.*nu));
           const Real lambda_2 = 0.5 / (1 + nu);
         
 </pre>
@@ -690,15 +675,15 @@ Define the Kronecker delta functions that we need here
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_elasticity(EquationSystems&amp; es,
-                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_elasticity(EquationSystems &amp; es,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   Real eval_elasticity_tensor(<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i,
                               <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j,
                               <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> k,
                               <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> l);
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -715,21 +700,17 @@ Define the Kronecker delta functions that we need here
                                          0., 0.2,
                                          QUAD9);
   
-  
     mesh.print_info();
-  
   
     EquationSystems equation_systems (mesh);
   
-    LinearImplicitSystem&amp; system =
+    LinearImplicitSystem &amp; system =
       equation_systems.add_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Elasticity&quot;</FONT></B>);
   
-  
-    <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> u_var      = system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>, SECOND, LAGRANGE);
-    <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> v_var      = system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;v&quot;</FONT></B>, SECOND, LAGRANGE);
+    <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> u_var = system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>, SECOND, LAGRANGE);
+    <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> v_var = system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;v&quot;</FONT></B>, SECOND, LAGRANGE);
   
     system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;lambda&quot;</FONT></B>, FIRST, SCALAR);
-  
   
     system.attach_assemble_function (assemble_elasticity);
   
@@ -737,7 +718,8 @@ Define the Kronecker delta functions that we need here
     boundary_ids.insert(3);
   
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt; variables(2);
-    variables[0] = u_var; variables[1] = v_var;
+    variables[0] = u_var;
+    variables[1] = v_var;
   
     ZeroFunction&lt;&gt; zf;
   
@@ -754,40 +736,40 @@ Define the Kronecker delta functions that we need here
     system.solve();
   
   #ifdef LIBMESH_HAVE_EXODUS_API
-    ExodusII_IO (mesh).write_equation_systems(<B><FONT COLOR="#BC8F8F">&quot;displacement.e&quot;</FONT></B>,equation_systems);
+    ExodusII_IO (mesh).write_equation_systems(<B><FONT COLOR="#BC8F8F">&quot;displacement.e&quot;</FONT></B>, equation_systems);
   #endif <I><FONT COLOR="#B22222">// #ifdef LIBMESH_HAVE_EXODUS_API
 </FONT></I>  
     <B><FONT COLOR="#A020F0">return</FONT></B> 0;
   }
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_elasticity(EquationSystems&amp; es,
-                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_elasticity(EquationSystems &amp; es,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Elasticity&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
-    LinearImplicitSystem&amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Elasticity&quot;</FONT></B>);
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Elasticity&quot;</FONT></B>);
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> u_var = system.variable_number (<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>);
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> v_var = system.variable_number (<B><FONT COLOR="#BC8F8F">&quot;v&quot;</FONT></B>);
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> lambda_var = system.variable_number (<B><FONT COLOR="#BC8F8F">&quot;lambda&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
     FEType fe_type = dof_map.variable_type(0);
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
     QGauss qrule (dim, fe_type.default_quadrature_order());
     fe-&gt;attach_quadrature_rule (&amp;qrule);
   
-    AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
     QGauss qface(dim-1, fe_type.default_quadrature_order());
     fe_face-&gt;attach_quadrature_rule (&amp;qface);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe-&gt;get_JxW();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
     DenseMatrix&lt;Number&gt; Ke;
     DenseVector&lt;Number&gt; Fe;
@@ -811,7 +793,7 @@ Define the Kronecker delta functions that we need here
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
         dof_map.dof_indices (elem, dof_indices_u, u_var);
@@ -848,18 +830,17 @@ Define the Kronecker delta functions that we need here
                   <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> C_i, C_j, C_k, C_l;
                   C_i=0, C_k=0;
   
-  
                   C_j=0, C_l=0;
-                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=0;
-                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=0, C_l=1;
-                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=1;
-                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                 }
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_u_dofs; i++)
@@ -868,18 +849,17 @@ Define the Kronecker delta functions that we need here
                   <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> C_i, C_j, C_k, C_l;
                   C_i=0, C_k=1;
   
-  
                   C_j=0, C_l=0;
-                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=0;
-                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=0, C_l=1;
-                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=1;
-                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kuv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                 }
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_v_dofs; i++)
@@ -888,18 +868,17 @@ Define the Kronecker delta functions that we need here
                   <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> C_i, C_j, C_k, C_l;
                   C_i=1, C_k=0;
   
-  
                   C_j=0, C_l=0;
-                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=0;
-                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=0, C_l=1;
-                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=1;
-                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvu(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                 }
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_v_dofs; i++)
@@ -908,30 +887,29 @@ Define the Kronecker delta functions that we need here
                   <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> C_i, C_j, C_k, C_l;
                   C_i=1, C_k=1;
   
-  
                   C_j=0, C_l=0;
-                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=0;
-                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=0, C_l=1;
-                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
   
                   C_j=1, C_l=1;
-                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i,C_j,C_k,C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
+                  Kvv(i,j) += JxW[qp]*(eval_elasticity_tensor(C_i, C_j, C_k, C_l) * dphi[i][qp](C_j)*dphi[j][qp](C_l));
                 }
           }
   
         {
+          <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;boundary_id_type&gt; bc_ids;
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> side=0; side&lt;elem-&gt;n_sides(); side++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;boundary_id_type&gt; bc_ids =
-                  mesh.get_boundary_info().boundary_ids (elem,side);
+                mesh.get_boundary_info().boundary_ids (elem, side, bc_ids);
   
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp;  phi_face = fe_face-&gt;get_phi();
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW_face = fe_face-&gt;get_JxW();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_face = fe_face-&gt;get_phi();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW_face = fe_face-&gt;get_JxW();
   
                 fe_face-&gt;reinit(elem, side);
   
@@ -941,27 +919,19 @@ Define the Kronecker delta functions that we need here
                     <B><FONT COLOR="#228B22">const</FONT></B> boundary_id_type bc_id = *b;
                     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
                       {
-                        <B><FONT COLOR="#A020F0">if</FONT></B>( bc_id == 2 )
-                          {
-                            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_v_dofs; i++)
-                              {
-                                Fv(i) += JxW_face[qp]* (-1.) * phi_face[i][qp];
-                              }
-                          }
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (bc_id == 2)
+                          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_v_dofs; i++)
+                            Fv(i) += JxW_face[qp] * (-1.) * phi_face[i][qp];
   
-                        <B><FONT COLOR="#A020F0">if</FONT></B>( bc_id == 1 )
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (bc_id == 1)
                           {
                             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_v_dofs; i++)
                               <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_lambda_dofs; j++)
-                                {
-                                  Kv_lambda(i,j) += JxW_face[qp]* (-1.) * phi_face[i][qp];
-                                }
+                                Kv_lambda(i,j) += JxW_face[qp] * (-1.) * phi_face[i][qp];
   
                             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_lambda_dofs; i++)
                               <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_v_dofs; j++)
-                                {
-                                  Klambda_v(i,j) += JxW_face[qp]* (-1.) * phi_face[j][qp];
-                                }
+                                Klambda_v(i,j) += JxW_face[qp] * (-1.) * phi_face[j][qp];
                           }
                       }
                   }
@@ -982,7 +952,7 @@ Define the Kronecker delta functions that we need here
   {
     <B><FONT COLOR="#228B22">const</FONT></B> Real nu = 0.3;
   
-    <B><FONT COLOR="#228B22">const</FONT></B> Real lambda_1 = nu / ( (1. + nu) * (1. - 2.*nu) );
+    <B><FONT COLOR="#228B22">const</FONT></B> Real lambda_1 = nu / ((1. + nu) * (1. - 2.*nu));
     <B><FONT COLOR="#228B22">const</FONT></B> Real lambda_2 = 0.5 / (1 + nu);
   
     Real delta_ij = (i == j) ? 1. : 0.;
@@ -1004,8 +974,8 @@ Define the Kronecker delta functions that we need here
 ***************************************************************
  
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=2121
     n_local_nodes()=2121
   n_elem()=500
@@ -1039,26 +1009,43 @@ Define the Kronecker delta functions that we need here
     DofMap Constraints
       Number of DoF Constraints = 42
       Average DoF Constraint Length= 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:40:27 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:59:23 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.260814, Active time=0.17352                                                   |
+| libMesh Performance: Alive time=0.303991, Active time=0.097548                                                  |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1066,57 +1053,57 @@ Define the Kronecker delta functions that we need here
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   SCALAR_dof_indices()             2500       0.0009      0.000000    0.0009      0.000000    0.54     0.54     |
-|   add_neighbors_to_send_list()     1          0.0005      0.000491    0.0007      0.000701    0.28     0.40     |
-|   build_constraint_matrix()        500        0.0003      0.000001    0.0003      0.000001    0.19     0.19     |
-|   build_sparsity()                 1          0.0047      0.004693    0.0058      0.005757    2.70     3.32     |
-|   cnstrn_elem_mat_vec()            500        0.0094      0.000019    0.0094      0.000019    5.39     5.39     |
-|   create_dof_constraints()         1          0.0020      0.001953    0.0032      0.003237    1.13     1.87     |
-|   distribute_dofs()                1          0.0004      0.000366    0.0015      0.001459    0.21     0.84     |
-|   dof_indices()                    5000       0.0047      0.000001    0.0056      0.000001    2.69     3.24     |
-|   prepare_send_list()              1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         1          0.0011      0.001091    0.0011      0.001091    0.63     0.63     |
+|   SCALAR_dof_indices()             2500       0.0003      0.000000    0.0003      0.000000    0.32     0.32     |
+|   add_neighbors_to_send_list()     1          0.0004      0.000430    0.0006      0.000554    0.44     0.57     |
+|   build_constraint_matrix()        500        0.0001      0.000000    0.0001      0.000000    0.15     0.15     |
+|   build_sparsity()                 1          0.0042      0.004221    0.0048      0.004774    4.33     4.89     |
+|   cnstrn_elem_mat_vec()            500        0.0001      0.000000    0.0001      0.000000    0.12     0.12     |
+|   create_dof_constraints()         1          0.0017      0.001724    0.0024      0.002382    1.77     2.44     |
+|   distribute_dofs()                1          0.0003      0.000266    0.0016      0.001646    0.27     1.69     |
+|   dof_indices()                    5000       0.0016      0.000000    0.0020      0.000000    1.66     2.10     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0014      0.001379    0.0014      0.001379    1.41     1.41     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          1          0.0021      0.002109    0.0036      0.003566    1.22     2.06     |
+|   build_solution_vector()          1          0.0012      0.001207    0.0017      0.001732    1.24     1.78     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               1          0.0032      0.003207    0.0032      0.003207    1.85     1.85     |
+|   write_nodal_data()               1          0.0019      0.001860    0.0019      0.001860    1.91     1.91     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        640        0.0007      0.000001    0.0007      0.000001    0.39     0.39     |
-|   init_shape_functions()           141        0.0001      0.000001    0.0001      0.000001    0.06     0.06     |
-|   inverse_map()                    420        0.0009      0.000002    0.0009      0.000002    0.49     0.49     |
+|   compute_shape_functions()        640        0.0003      0.000001    0.0003      0.000001    0.36     0.36     |
+|   init_shape_functions()           141        0.0000      0.000000    0.0000      0.000000    0.03     0.03     |
+|   inverse_map()                    420        0.0003      0.000001    0.0003      0.000001    0.31     0.31     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             640        0.0007      0.000001    0.0007      0.000001    0.38     0.38     |
-|   compute_face_map()               140        0.0005      0.000004    0.0014      0.000010    0.31     0.82     |
-|   init_face_shape_functions()      21         0.0000      0.000002    0.0000      0.000002    0.02     0.02     |
-|   init_reference_to_physical_map() 141        0.0007      0.000005    0.0007      0.000005    0.38     0.38     |
+|   compute_affine_map()             640        0.0004      0.000001    0.0004      0.000001    0.44     0.44     |
+|   compute_face_map()               140        0.0002      0.000002    0.0006      0.000004    0.22     0.57     |
+|   init_face_shape_functions()      21         0.0000      0.000001    0.0000      0.000001    0.02     0.02     |
+|   init_reference_to_physical_map() 141        0.0003      0.000002    0.0003      0.000002    0.32     0.32     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   find_neighbors()                 1          0.0007      0.000728    0.0007      0.000728    0.42     0.42     |
-|   renumber_nodes_and_elem()        2          0.0001      0.000058    0.0001      0.000058    0.07     0.07     |
+|   find_neighbors()                 1          0.0017      0.001677    0.0017      0.001677    1.72     1.72     |
+|   renumber_nodes_and_elem()        2          0.0001      0.000030    0.0001      0.000030    0.06     0.06     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         1          0.0001      0.000068    0.0068      0.006842    0.04     3.94     |
+|   write_equation_systems()         1          0.0000      0.000018    0.0036      0.003610    0.02     3.70     |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0006      0.000577    0.0006      0.000577    0.33     0.33     |
+|   build_cube()                     1          0.0008      0.000773    0.0008      0.000773    0.79     0.79     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               1          0.0001      0.000066    0.0001      0.000066    0.04     0.04     |
+|   single_partition()               1          0.0000      0.000048    0.0000      0.000048    0.05     0.05     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          1          0.1190      0.119018    0.1190      0.119018    68.59    68.59    |
+|   solve()                          1          0.0714      0.071412    0.0714      0.071412    73.21    73.21    |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       1          0.0202      0.020226    0.0359      0.035949    11.66    20.72    |
+|   assemble()                       1          0.0086      0.008614    0.0115      0.011541    8.83     11.83    |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            10660      0.1735                                          100.00            |
+| Totals:                            10661      0.0975                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
