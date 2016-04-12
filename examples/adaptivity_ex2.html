@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -77,7 +77,7 @@ Basic include file needed for the mesh functionality.
 </div>
 <div class = "comment">
 This example will solve a linear transient system,
-so we need to include the \p TransientLinearImplicitSystem definition.
+so we need to include the TransientLinearImplicitSystem definition.
 </div>
 
 <div class ="fragment">
@@ -89,7 +89,7 @@ so we need to include the \p TransientLinearImplicitSystem definition.
 </pre>
 </div>
 <div class = "comment">
-To refine the mesh we need an \p ErrorEstimator
+To refine the mesh we need an ErrorEstimator
 object to figure out which elements to refine.
 </div>
 
@@ -132,8 +132,8 @@ system matrix.
 
 <div class ="fragment">
 <pre>
-        void assemble_cd (EquationSystems& es,
-                          const std::string& system_name);
+        void assemble_cd (EquationSystems & es,
+                          const std::string & system_name);
         
 </pre>
 </div>
@@ -147,8 +147,8 @@ solution is provided.
 
 <div class ="fragment">
 <pre>
-        void init_cd (EquationSystems& es,
-                      const std::string& system_name);
+        void init_cd (EquationSystems & es,
+                      const std::string & system_name);
         
 </pre>
 </div>
@@ -165,10 +165,10 @@ as will the Dirichlet boundary conditions at time t.
                              const Real y,
                              const Real t);
         
-        Number exact_value (const Point& p,
-                            const Parameters& parameters,
-                            const std::string&,
-                            const std::string&)
+        Number exact_value (const Point & p,
+                            const Parameters & parameters,
+                            const std::string &,
+                            const std::string &)
         {
           return exact_solution(p(0), p(1), parameters.get&lt;Real&gt; ("time"));
         }
@@ -187,7 +187,7 @@ numbers.
 
 <div class ="fragment">
 <pre>
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -227,18 +227,18 @@ read in an initial solution or generate it ourself
 
 <div class ="fragment">
 <pre>
-          std::cout &lt;&lt; "Usage:\n"
-                    &lt;&lt;"\t " &lt;&lt; argv[0] &lt;&lt; " -init_timestep 0\n"
-                    &lt;&lt; "OR\n"
-                    &lt;&lt;"\t " &lt;&lt; argv[0] &lt;&lt; " -read_solution -init_timestep 26\n"
-                    &lt;&lt; std::endl;
-        
-          std::cout &lt;&lt; "Running: " &lt;&lt; argv[0];
-        
+          libMesh::out &lt;&lt; "Usage:\n"
+                       &lt;&lt;"\t " &lt;&lt; argv[0] &lt;&lt; " -init_timestep 0\n"
+                       &lt;&lt; "OR\n"
+                       &lt;&lt;"\t " &lt;&lt; argv[0] &lt;&lt; " -read_solution -init_timestep 26\n"
+                       &lt;&lt; std::endl;
+
+          libMesh::out &lt;&lt; "Running: " &lt;&lt; argv[0];
+
           for (int i=1; i&lt;argc; i++)
-            std::cout &lt;&lt; " " &lt;&lt; argv[i];
+            libMesh::out &lt;&lt; " " &lt;&lt; argv[i];
         
-          std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+          libMesh::out &lt;&lt; std::endl &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -264,7 +264,7 @@ or whether we are going to start from scratch by just reading
 
 <div class ="fragment">
 <pre>
-          const bool read_solution   = command_line.search("-read_solution");
+          const bool read_solution = command_line.search("-read_solution");
         
 </pre>
 </div>
@@ -289,7 +289,7 @@ present, set init_timestep accordingly.
 
 <div class ="fragment">
 <pre>
-          if(command_line.search("-init_timestep"))
+          if (command_line.search("-init_timestep"))
             init_timestep = command_line.next(0);
           else
             {
@@ -324,7 +324,7 @@ Again do a search on the command line for the argument
 
 <div class ="fragment">
 <pre>
-          if(command_line.search("-n_timesteps"))
+          if (command_line.search("-n_timesteps"))
             n_timesteps = command_line.next(0);
           else
             libmesh_error_msg("ERROR: Number of timesteps not specified");
@@ -371,7 +371,7 @@ First we process the case where we do not read in the solution
 
 <div class ="fragment">
 <pre>
-          if(!read_solution)
+          if (!read_solution)
             {
 </pre>
 </div>
@@ -392,7 +392,7 @@ Again do a search on the command line for an argument
 <div class ="fragment">
 <pre>
               unsigned int n_refinements = 5;
-              if(command_line.search("-n_refinements"))
+              if (command_line.search("-n_refinements"))
                 n_refinements = command_line.next(0);
         
 </pre>
@@ -403,7 +403,7 @@ Uniformly refine the mesh 5 times
 
 <div class ="fragment">
 <pre>
-              if(!read_solution)
+              if (!read_solution)
                 mesh_refinement.uniformly_refine (n_refinements);
         
 </pre>
@@ -416,7 +416,6 @@ Print information about the mesh to the screen.
 <pre>
               mesh.print_info();
         
-        
 </pre>
 </div>
 <div class = "comment">
@@ -428,8 +427,7 @@ named "Convection-Diffusion".
 <div class ="fragment">
 <pre>
               TransientLinearImplicitSystem & system =
-                equation_systems.add_system&lt;TransientLinearImplicitSystem&gt;
-                ("Convection-Diffusion");
+                equation_systems.add_system&lt;TransientLinearImplicitSystem&gt;("Convection-Diffusion");
         
 </pre>
 </div>
@@ -513,8 +511,7 @@ Get a reference to the system so that we can call update() on it
 <div class ="fragment">
 <pre>
               TransientLinearImplicitSystem & system =
-                equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;
-                ("Convection-Diffusion");
+                equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;("Convection-Diffusion");
         
 </pre>
 </div>
@@ -549,7 +546,7 @@ Print out the H1 norm of the saved solution, for verification purposes:
 <pre>
               Real H1norm = system.calculate_norm(*system.solution, SystemNorm(H1));
         
-              std::cout &lt;&lt; "Initial H1 norm = " &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "Initial H1 norm = " &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
             }
         
 </pre>
@@ -562,12 +559,10 @@ Prints information about the system to the screen.
 <pre>
           equation_systems.print_info();
         
-          equation_systems.parameters.set&lt;unsigned int&gt;
-            ("linear solver maximum iterations") = 250;
-          equation_systems.parameters.set&lt;Real&gt;
-            ("linear solver tolerance") = TOLERANCE;
+          equation_systems.parameters.set&lt;unsigned int&gt;("linear solver maximum iterations") = 250;
+          equation_systems.parameters.set&lt;Real&gt;("linear solver tolerance") = TOLERANCE;
         
-          if(!read_solution)
+          if (!read_solution)
 </pre>
 </div>
 <div class = "comment">
@@ -576,8 +571,7 @@ Write out the initial condition
 
 <div class ="fragment">
 <pre>
-            GMVIO(mesh).write_equation_systems ("out.gmv.000",
-                                                equation_systems);
+            GMVIO(mesh).write_equation_systems ("out.gmv.000", equation_systems);
           else
 </pre>
 </div>
@@ -587,8 +581,7 @@ Write out the solution that was read in
 
 <div class ="fragment">
 <pre>
-            GMVIO(mesh).write_equation_systems ("solution_read_in.gmv",
-                                                equation_systems);
+            GMVIO(mesh).write_equation_systems ("solution_read_in.gmv", equation_systems);
         
 </pre>
 </div>
@@ -620,11 +613,11 @@ diffusivity.  We use an isotropic (hence Real) value.
 <div class = "comment">
 Solve the system "Convection-Diffusion".  This will be done by
 looping over the specified time interval and calling the
-\p solve() member at each time step.  This will assemble the
+solve() member at each time step.  This will assemble the
 system and call the linear solver.
 
 
-<br><br>Since only \p TransientLinearImplicitSystems (and systems
+<br><br>Since only TransientLinearImplicitSystems (and systems
 derived from them) contain old solutions, to use the
 old_local_solution later we now need to specify the system
 type when we ask for it.
@@ -632,11 +625,11 @@ type when we ask for it.
 
 <div class ="fragment">
 <pre>
-          TransientLinearImplicitSystem &  system =
+          TransientLinearImplicitSystem & system =
             equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;("Convection-Diffusion");
         
           const Real dt = 0.025;
-          system.time   = init_timestep*dt;
+          system.time = init_timestep*dt;
         
 </pre>
 </div>
@@ -647,9 +640,7 @@ intermediate solution
 
 <div class ="fragment">
 <pre>
-          for(unsigned int t_step=init_timestep;
-              t_step&lt;(init_timestep+n_timesteps);
-              t_step++)
+          for (unsigned int t_step=init_timestep; t_step&lt;(init_timestep+n_timesteps); t_step++)
             {
 </pre>
 </div>
@@ -673,7 +664,7 @@ A pretty update message
 
 <div class ="fragment">
 <pre>
-              std::cout &lt;&lt; " Solving time step ";
+              libMesh::out &lt;&lt; " Solving time step ";
         
 </pre>
 </div>
@@ -698,7 +689,7 @@ Add a set of scope braces to enforce data locality.
                     &lt;&lt; system.time
                     &lt;&lt;  "...";
         
-                std::cout &lt;&lt; out.str() &lt;&lt; std::endl;
+                libMesh::out &lt;&lt; out.str() &lt;&lt; std::endl;
               }
         
 </pre>
@@ -756,7 +747,7 @@ Print out the H1 norm, for verification purposes:
 <pre>
                   Real H1norm = system.calculate_norm(*system.solution, SystemNorm(H1));
         
-                  std::cout &lt;&lt; "H1 norm = " &lt;&lt; H1norm &lt;&lt; std::endl;
+                  libMesh::out &lt;&lt; "H1 norm = " &lt;&lt; H1norm &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -768,12 +759,12 @@ Possibly refine the mesh
 <pre>
                   if (r_step+1 != max_r_steps)
                     {
-                      std::cout &lt;&lt; "  Refining the mesh..." &lt;&lt; std::endl;
+                      libMesh::out &lt;&lt; "  Refining the mesh..." &lt;&lt; std::endl;
         
 </pre>
 </div>
 <div class = "comment">
-The \p ErrorVector is a particular \p StatisticsVector
+The ErrorVector is a particular StatisticsVector
 for computing error information on a finite element mesh.
 </div>
 
@@ -784,7 +775,7 @@ for computing error information on a finite element mesh.
 </pre>
 </div>
 <div class = "comment">
-The \p ErrorEstimator class interrogates a finite element
+The ErrorEstimator class interrogates a finite element
 solution and assigns to each element a positive error value.
 This value is used for deciding which elements to refine
 and which to coarsen.
@@ -799,7 +790,7 @@ ErrorEstimator* error_estimator = new KellyErrorEstimator;
 </div>
 <div class = "comment">
 Compute the error for each active element using the provided
-\p flux_jump indicator.  Note in general you will need to
+flux_jump indicator.  Note in general you will need to
 provide an error estimator specifically designed for your
 application.
 </div>
@@ -812,7 +803,7 @@ application.
 </pre>
 </div>
 <div class = "comment">
-This takes the error in \p error and decides which elements
+This takes the error in error and decides which elements
 will be coarsened or refined.  Any element within 20% of the
 maximum error on any element will be refined, and any
 element within 7% of the minimum error on any element might
@@ -842,10 +833,10 @@ elements.
 </pre>
 </div>
 <div class = "comment">
-This call reinitializes the \p EquationSystems object for
+This call reinitializes the EquationSystems object for
 the newly refined mesh.  One of the steps in the
-reinitialization is projecting the \p solution,
-\p old_solution, etc... vectors from the old mesh to
+reinitialization is projecting the solution,
+old_solution, etc... vectors from the old mesh to
 the current one.
 </div>
 
@@ -864,7 +855,7 @@ Again do a search on the command line for an argument
 <div class ="fragment">
 <pre>
               unsigned int output_freq = 10;
-              if(command_line.search("-output_freq"))
+              if (command_line.search("-output_freq"))
                 output_freq = command_line.next(0);
         
 </pre>
@@ -875,7 +866,7 @@ Output every 10 timesteps to file.
 
 <div class ="fragment">
 <pre>
-              if ( (t_step+1)%output_freq == 0)
+              if ((t_step+1)%output_freq == 0)
                 {
                   std::ostringstream file_name;
         
@@ -890,7 +881,7 @@ Output every 10 timesteps to file.
                 }
             }
         
-          if(!read_solution)
+          if (!read_solution)
             {
 </pre>
 </div>
@@ -902,7 +893,7 @@ Print out the H1 norm of the saved solution, for verification purposes:
 <pre>
               Real H1norm = system.calculate_norm(*system.solution, SystemNorm(H1));
         
-              std::cout &lt;&lt; "Final H1 norm = " &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "Final H1 norm = " &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
         
               mesh.write("saved_mesh.xda");
               equation_systems.write("saved_solution.xda", WRITE);
@@ -925,8 +916,8 @@ the system.
 
 <div class ="fragment">
 <pre>
-        void init_cd (EquationSystems& es,
-                      const std::string& system_name)
+        void init_cd (EquationSystems & es,
+                      const std::string & system_name)
         {
 </pre>
 </div>
@@ -938,7 +929,7 @@ the proper system.
 <div class ="fragment">
 <pre>
           libmesh_assert_equal_to (system_name, "Convection-Diffusion");
-        
+
 </pre>
 </div>
 <div class = "comment">
@@ -960,7 +951,7 @@ Project initial conditions at time 0
 <pre>
           es.parameters.set&lt;Real&gt; ("time") = system.time = 0;
         
-          system.project_solution(exact_value, NULL, es.parameters);
+          system.project_solution(exact_value, libmesh_nullptr, es.parameters);
         }
         
         
@@ -976,8 +967,8 @@ element stiffness matrices and right-hand sides.
 
 <div class ="fragment">
 <pre>
-        void assemble_cd (EquationSystems& es,
-                          const std::string& system_name)
+        void assemble_cd (EquationSystems & es,
+                          const std::string & system_name)
         {
         #ifdef LIBMESH_ENABLE_AMR
 </pre>
@@ -999,7 +990,7 @@ Get a constant reference to the mesh object.
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
 </pre>
 </div>
@@ -1037,21 +1028,21 @@ variable in the system.
 </div>
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
-\p FEBase::build() member dynamically creates memory we will
-store the object as an \p AutoPtr<FEBase>.  This can be thought
+FEBase::build() member dynamically creates memory we will
+store the object as a UniquePtr<FEBase>.  This can be thought
 of as a pointer that will clean up after itself.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe      (FEBase::build(dim, fe_type));
-          AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe      (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
 <div class = "comment">
 A Gauss quadrature rule for numerical integration.
-Let the \p FEType object decide what order rule is appropriate.
+Let the FEType object decide what order rule is appropriate.
 </div>
 
 <div class ="fragment">
@@ -1080,8 +1071,8 @@ with the element Jacobian * quadrature weight at each integration point.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW      = fe-&gt;get_JxW();
-          const std::vector&lt;Real&gt;& JxW_face = fe_face-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW      = fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW_face = fe_face-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1091,8 +1082,8 @@ The element shape functions evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& psi = fe_face-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & psi = fe_face-&gt;get_phi();
         
 </pre>
 </div>
@@ -1103,7 +1094,7 @@ points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
 </pre>
 </div>
@@ -1113,20 +1104,20 @@ The XY locations of the quadrature points used for face integration
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Point&gt;& qface_points = fe_face-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & qface_points = fe_face-&gt;get_xyz();
         
 </pre>
 </div>
 <div class = "comment">
-A reference to the \p DofMap object for this system.  The \p DofMap
+A reference to the DofMap object for this system.  The DofMap
 object handles the index translation from node and element numbers
-to degree of freedom numbers.  We will talk more about the \p DofMap
+to degree of freedom numbers.  We will talk more about the DofMap
 in future examples.
 </div>
 
 <div class ="fragment">
 <pre>
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
         
 </pre>
 </div>
@@ -1169,7 +1160,7 @@ EquationSystems object.
           const Real diffusivity =
             es.parameters.get&lt;Real&gt; ("diffusivity");
         
-          const Real dt = es.parameters.get&lt;Real&gt;   ("dt");
+          const Real dt = es.parameters.get&lt;Real&gt; ("dt");
         
 </pre>
 </div>
@@ -1178,7 +1169,7 @@ Now we will loop over all the elements in the mesh that
 live on the local processor. We will compute the element
 matrix and right-hand-side contribution.  Since the mesh
 will be refined we want to only consider the ACTIVE elements,
-hence we use a variant of the \p active_elem_iterator.
+hence we use a variant of the active_elem_iterator.
 </div>
 
 <div class ="fragment">
@@ -1197,7 +1188,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -1279,7 +1270,7 @@ Compute the old solution & its gradient.
 <pre>
                   for (unsigned int l=0; l&lt;phi.size(); l++)
                     {
-                      u_old      += phi[l][qp]*system.old_solution  (dof_indices[l]);
+                      u_old += phi[l][qp]*system.old_solution (dof_indices[l]);
         
 </pre>
 </div>
@@ -1291,7 +1282,7 @@ but we can do it without creating a temporary like this:
 
 <div class ="fragment">
 <pre>
-                      grad_u_old.add_scaled (dphi[l][qp],system.old_solution (dof_indices[l]));
+                      grad_u_old.add_scaled (dphi[l][qp], system.old_solution (dof_indices[l]));
                     }
         
 </pre>
@@ -1428,9 +1419,9 @@ side MUST live on a boundary of the domain.
 <div class ="fragment">
 <pre>
                 for (unsigned int s=0; s&lt;elem-&gt;n_sides(); s++)
-                  if (elem-&gt;neighbor(s) == NULL)
+                  if (elem-&gt;neighbor(s) == libmesh_nullptr)
                     {
-                      fe_face-&gt;reinit(elem,s);
+                      fe_face-&gt;reinit(elem, s);
         
                       for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
                         {
@@ -1474,7 +1465,7 @@ that some of the element DOFs are constrained to enforce
 solution continuity, i.e. they are not really "free".  We need
 to constrain those DOFs in terms of non-constrained DOFs to
 ensure a continuous solution.  The
-\p DofMap::constrain_element_matrix_and_vector() method does
+DofMap::constrain_element_matrix_and_vector() method does
 just that.
 </div>
 
@@ -1487,8 +1478,8 @@ just that.
 <div class = "comment">
 The element matrix and right-hand-side are now built
 for this element.  Add them to the global matrix and
-right-hand-side vector.  The \p SparseMatrix::add_matrix()
-and \p NumericVector::add_vector() members do this for us.
+right-hand-side vector.  The SparseMatrix::add_matrix()
+and NumericVector::add_vector() members do this for us.
 </div>
 
 <div class ="fragment">
@@ -1544,27 +1535,27 @@ Finished computing the sytem matrix and right-hand side.
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_cd (EquationSystems&amp; es,
-                    <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_cd (EquationSystems &amp; es,
+                    <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
-  <B><FONT COLOR="#228B22">void</FONT></B> init_cd (EquationSystems&amp; es,
-                <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> init_cd (EquationSystems &amp; es,
+                <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   Real exact_solution (<B><FONT COLOR="#228B22">const</FONT></B> Real x,
                        <B><FONT COLOR="#228B22">const</FONT></B> Real y,
                        <B><FONT COLOR="#228B22">const</FONT></B> Real t);
   
-  Number exact_value (<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                      <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters,
-                      <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,
-                      <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;)
+  Number exact_value (<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                      <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                      <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                      <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;)
   {
     <B><FONT COLOR="#A020F0">return</FONT></B> exact_solution(p(0), p(1), parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;time&quot;</FONT></B>));
   }
   
   
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -1575,27 +1566,27 @@ Finished computing the sytem matrix and right-hand side.
     libmesh_example_requires(libMesh::default_solver_package() != TRILINOS_SOLVERS, <B><FONT COLOR="#BC8F8F">&quot;--enable-petsc&quot;</FONT></B>);
   
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Usage:\n&quot;</FONT></B>
-              &lt;&lt;<B><FONT COLOR="#BC8F8F">&quot;\t &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -init_timestep 0\n&quot;</FONT></B>
-              &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;OR\n&quot;</FONT></B>
-              &lt;&lt;<B><FONT COLOR="#BC8F8F">&quot;\t &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -read_solution -init_timestep 26\n&quot;</FONT></B>
-              &lt;&lt; std::endl;
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Usage:\n&quot;</FONT></B>
+                 &lt;&lt;<B><FONT COLOR="#BC8F8F">&quot;\t &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -init_timestep 0\n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;OR\n&quot;</FONT></B>
+                 &lt;&lt;<B><FONT COLOR="#BC8F8F">&quot;\t &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -read_solution -init_timestep 26\n&quot;</FONT></B>
+                 &lt;&lt; std::endl;
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running: &quot;</FONT></B> &lt;&lt; argv[0];
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running: &quot;</FONT></B> &lt;&lt; argv[0];
   
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i=1; i&lt;argc; i++)
-      <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
+      <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; std::endl &lt;&lt; std::endl;
   
     GetPot command_line (argc, argv);
   
   
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> read_solution   = command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-read_solution&quot;</FONT></B>);
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> read_solution = command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-read_solution&quot;</FONT></B>);
   
     <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> init_timestep = 0;
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>(command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-init_timestep&quot;</FONT></B>))
+    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-init_timestep&quot;</FONT></B>))
       init_timestep = command_line.next(0);
     <B><FONT COLOR="#A020F0">else</FONT></B>
       {
@@ -1604,7 +1595,7 @@ Finished computing the sytem matrix and right-hand side.
   
     <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_timesteps = 0;
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>(command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-n_timesteps&quot;</FONT></B>))
+    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-n_timesteps&quot;</FONT></B>))
       n_timesteps = command_line.next(0);
     <B><FONT COLOR="#A020F0">else</FONT></B>
       libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;ERROR: Number of timesteps not specified&quot;</FONT></B>);
@@ -1617,23 +1608,21 @@ Finished computing the sytem matrix and right-hand side.
     EquationSystems equation_systems (mesh);
     MeshRefinement mesh_refinement (mesh);
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>(!read_solution)
+    <B><FONT COLOR="#A020F0">if</FONT></B> (!read_solution)
       {
         mesh.read (<B><FONT COLOR="#BC8F8F">&quot;mesh.xda&quot;</FONT></B>);
   
         <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_refinements = 5;
-        <B><FONT COLOR="#A020F0">if</FONT></B>(command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-n_refinements&quot;</FONT></B>))
+        <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-n_refinements&quot;</FONT></B>))
           n_refinements = command_line.next(0);
   
-        <B><FONT COLOR="#A020F0">if</FONT></B>(!read_solution)
+        <B><FONT COLOR="#A020F0">if</FONT></B> (!read_solution)
           mesh_refinement.uniformly_refine (n_refinements);
   
         mesh.print_info();
   
-  
         TransientLinearImplicitSystem &amp; system =
-          equation_systems.add_system&lt;TransientLinearImplicitSystem&gt;
-          (<B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
+          equation_systems.add_system&lt;TransientLinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
   
         system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>, FIRST);
   
@@ -1651,8 +1640,7 @@ Finished computing the sytem matrix and right-hand side.
         equation_systems.read(<B><FONT COLOR="#BC8F8F">&quot;saved_solution.xda&quot;</FONT></B>, READ);
   
         TransientLinearImplicitSystem &amp; system =
-          equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;
-          (<B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
+          equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
   
         system.update();
   
@@ -1660,22 +1648,18 @@ Finished computing the sytem matrix and right-hand side.
   
         Real H1norm = system.calculate_norm(*system.solution, SystemNorm(H1));
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Initial H1 norm = &quot;</FONT></B> &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Initial H1 norm = &quot;</FONT></B> &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
       }
   
     equation_systems.print_info();
   
-    equation_systems.parameters.set&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt;
-      (<B><FONT COLOR="#BC8F8F">&quot;linear solver maximum iterations&quot;</FONT></B>) = 250;
-    equation_systems.parameters.set&lt;Real&gt;
-      (<B><FONT COLOR="#BC8F8F">&quot;linear solver tolerance&quot;</FONT></B>) = TOLERANCE;
+    equation_systems.parameters.set&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt;(<B><FONT COLOR="#BC8F8F">&quot;linear solver maximum iterations&quot;</FONT></B>) = 250;
+    equation_systems.parameters.set&lt;Real&gt;(<B><FONT COLOR="#BC8F8F">&quot;linear solver tolerance&quot;</FONT></B>) = TOLERANCE;
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>(!read_solution)
-      GMVIO(mesh).write_equation_systems (<B><FONT COLOR="#BC8F8F">&quot;out.gmv.000&quot;</FONT></B>,
-                                          equation_systems);
+    <B><FONT COLOR="#A020F0">if</FONT></B> (!read_solution)
+      GMVIO(mesh).write_equation_systems (<B><FONT COLOR="#BC8F8F">&quot;out.gmv.000&quot;</FONT></B>, equation_systems);
     <B><FONT COLOR="#A020F0">else</FONT></B>
-      GMVIO(mesh).write_equation_systems (<B><FONT COLOR="#BC8F8F">&quot;solution_read_in.gmv&quot;</FONT></B>,
-                                          equation_systems);
+      GMVIO(mesh).write_equation_systems (<B><FONT COLOR="#BC8F8F">&quot;solution_read_in.gmv&quot;</FONT></B>, equation_systems);
   
     equation_systems.parameters.set&lt;RealVectorValue&gt;(<B><FONT COLOR="#BC8F8F">&quot;velocity&quot;</FONT></B>) =
       RealVectorValue (0.8, 0.8);
@@ -1683,22 +1667,20 @@ Finished computing the sytem matrix and right-hand side.
     equation_systems.parameters.set&lt;Real&gt;(<B><FONT COLOR="#BC8F8F">&quot;diffusivity&quot;</FONT></B>) = 0.01;
   
   
-    TransientLinearImplicitSystem &amp;  system =
+    TransientLinearImplicitSystem &amp; system =
       equation_systems.get_system&lt;TransientLinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
   
     <B><FONT COLOR="#228B22">const</FONT></B> Real dt = 0.025;
-    system.time   = init_timestep*dt;
+    system.time = init_timestep*dt;
   
-    <B><FONT COLOR="#A020F0">for</FONT></B>(<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> t_step=init_timestep;
-        t_step&lt;(init_timestep+n_timesteps);
-        t_step++)
+    <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> t_step=init_timestep; t_step&lt;(init_timestep+n_timesteps); t_step++)
       {
         system.time += dt;
   
         equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;time&quot;</FONT></B>) = system.time;
         equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;dt&quot;</FONT></B>)   = dt;
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; Solving time step &quot;</FONT></B>;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; Solving time step &quot;</FONT></B>;
   
         {
           <B><FONT COLOR="#5F9EA0">std</FONT></B>::ostringstream out;
@@ -1715,7 +1697,7 @@ Finished computing the sytem matrix and right-hand side.
               &lt;&lt; system.time
               &lt;&lt;  <B><FONT COLOR="#BC8F8F">&quot;...&quot;</FONT></B>;
   
-          <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; out.str() &lt;&lt; std::endl;
+          <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; out.str() &lt;&lt; std::endl;
         }
   
   
@@ -1729,11 +1711,11 @@ Finished computing the sytem matrix and right-hand side.
   
             Real H1norm = system.calculate_norm(*system.solution, SystemNorm(H1));
   
-            <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1 norm = &quot;</FONT></B> &lt;&lt; H1norm &lt;&lt; std::endl;
+            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1 norm = &quot;</FONT></B> &lt;&lt; H1norm &lt;&lt; std::endl;
   
             <B><FONT COLOR="#A020F0">if</FONT></B> (r_step+1 != max_r_steps)
               {
-                <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Refining the mesh...&quot;</FONT></B> &lt;&lt; std::endl;
+                <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Refining the mesh...&quot;</FONT></B> &lt;&lt; std::endl;
   
                 ErrorVector error;
   
@@ -1754,10 +1736,10 @@ Finished computing the sytem matrix and right-hand side.
           }
   
         <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> output_freq = 10;
-        <B><FONT COLOR="#A020F0">if</FONT></B>(command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-output_freq&quot;</FONT></B>))
+        <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(<B><FONT COLOR="#BC8F8F">&quot;-output_freq&quot;</FONT></B>))
           output_freq = command_line.next(0);
   
-        <B><FONT COLOR="#A020F0">if</FONT></B> ( (t_step+1)%output_freq == 0)
+        <B><FONT COLOR="#A020F0">if</FONT></B> ((t_step+1)%output_freq == 0)
           {
             <B><FONT COLOR="#5F9EA0">std</FONT></B>::ostringstream file_name;
   
@@ -1772,11 +1754,11 @@ Finished computing the sytem matrix and right-hand side.
           }
       }
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>(!read_solution)
+    <B><FONT COLOR="#A020F0">if</FONT></B> (!read_solution)
       {
         Real H1norm = system.calculate_norm(*system.solution, SystemNorm(H1));
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Final H1 norm = &quot;</FONT></B> &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Final H1 norm = &quot;</FONT></B> &lt;&lt; H1norm &lt;&lt; std::endl &lt;&lt; std::endl;
   
         mesh.write(<B><FONT COLOR="#BC8F8F">&quot;saved_mesh.xda&quot;</FONT></B>);
         equation_systems.write(<B><FONT COLOR="#BC8F8F">&quot;saved_solution.xda&quot;</FONT></B>, WRITE);
@@ -1788,8 +1770,8 @@ Finished computing the sytem matrix and right-hand side.
     <B><FONT COLOR="#A020F0">return</FONT></B> 0;
   }
   
-  <B><FONT COLOR="#228B22">void</FONT></B> init_cd (EquationSystems&amp; es,
-                <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> init_cd (EquationSystems &amp; es,
+                <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
   
@@ -1798,18 +1780,18 @@ Finished computing the sytem matrix and right-hand side.
   
     es.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;time&quot;</FONT></B>) = system.time = 0;
   
-    system.project_solution(exact_value, NULL, es.parameters);
+    system.project_solution(exact_value, libmesh_nullptr, es.parameters);
   }
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_cd (EquationSystems&amp; es,
-                    <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_cd (EquationSystems &amp; es,
+                    <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
   #ifdef LIBMESH_ENABLE_AMR
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Convection-Diffusion&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
@@ -1818,8 +1800,8 @@ Finished computing the sytem matrix and right-hand side.
   
     FEType fe_type = system.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe      (FEBase::build(dim, fe_type));
-    AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe      (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
   
     QGauss qrule (dim,   fe_type.default_quadrature_order());
     QGauss qface (dim-1, fe_type.default_quadrature_order());
@@ -1827,17 +1809,17 @@ Finished computing the sytem matrix and right-hand side.
     fe-&gt;attach_quadrature_rule      (&amp;qrule);
     fe_face-&gt;attach_quadrature_rule (&amp;qface);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW      = fe-&gt;get_JxW();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW_face = fe_face-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW      = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW_face = fe_face-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; psi = fe_face-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; psi = fe_face-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; qface_points = fe_face-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; qface_points = fe_face-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
     DenseMatrix&lt;Number&gt; Ke;
     DenseVector&lt;Number&gt; Fe;
@@ -1850,14 +1832,14 @@ Finished computing the sytem matrix and right-hand side.
     <B><FONT COLOR="#228B22">const</FONT></B> Real diffusivity =
       es.parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;diffusivity&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> Real dt = es.parameters.get&lt;Real&gt;   (<B><FONT COLOR="#BC8F8F">&quot;dt&quot;</FONT></B>);
+    <B><FONT COLOR="#228B22">const</FONT></B> Real dt = es.parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;dt&quot;</FONT></B>);
   
     <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_element_iterator       el     = mesh.active_local_elements_begin();
     <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_element_iterator end_el = mesh.active_local_elements_end();
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
   
@@ -1875,9 +1857,9 @@ Finished computing the sytem matrix and right-hand side.
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> l=0; l&lt;phi.size(); l++)
               {
-                u_old      += phi[l][qp]*system.old_solution  (dof_indices[l]);
+                u_old += phi[l][qp]*system.old_solution (dof_indices[l]);
   
-                grad_u_old.add_scaled (dphi[l][qp],system.old_solution (dof_indices[l]));
+                grad_u_old.add_scaled (dphi[l][qp], system.old_solution (dof_indices[l]));
               }
   
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
@@ -1906,9 +1888,9 @@ Finished computing the sytem matrix and right-hand side.
           <B><FONT COLOR="#228B22">const</FONT></B> Real penalty = 1.e10;
   
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> s=0; s&lt;elem-&gt;n_sides(); s++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == libmesh_nullptr)
               {
-                fe_face-&gt;reinit(elem,s);
+                fe_face-&gt;reinit(elem, s);
   
                 <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
                   {
@@ -1939,21 +1921,23 @@ Finished computing the sytem matrix and right-hand side.
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-adaptivity_ex2.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example adaptivity_ex2:
 *   example-opt -n_timesteps 25 -n_refinements 5 -output_freq 10 -init_timestep 0 
 ***************************************************************
  
 Usage:
-	 /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.libs/example-opt -init_timestep 0
+	 /Users/petejw/projects/libmesh_git/build/examples/adaptivity/adaptivity_ex2/.libs/example-opt -init_timestep 0
 OR
-	 /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.libs/example-opt -read_solution -init_timestep 26
+	 /Users/petejw/projects/libmesh_git/build/examples/adaptivity/adaptivity_ex2/.libs/example-opt -read_solution -init_timestep 26
 
-Running: /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.libs/example-opt -n_timesteps 25 -n_refinements 5 -output_freq 10 -init_timestep 0
+Running: /Users/petejw/projects/libmesh_git/build/examples/adaptivity/adaptivity_ex2/.libs/example-opt -n_timesteps 25 -n_refinements 5 -output_freq 10 -init_timestep 0
 
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=6273
     n_local_nodes()=6273
   n_elem()=13650
@@ -1986,7 +1970,6 @@ Running: /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.li
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
  Solving time step  0, time=0.0250...
 H1 norm = 1.58843
@@ -2091,23 +2074,41 @@ H1 norm = 0.509057
 Final H1 norm = 0.509057
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:39:16 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:30:07 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=2.32834, Active time=2.09951                                                    |
+| libMesh Performance: Alive time=2.01387, Active time=1.78897                                                    |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -2115,92 +2116,106 @@ Final H1 norm = 0.509057
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     26         0.0063      0.000242    0.0063      0.000242    0.30     0.30     |
-|   build_constraint_matrix()        29356      0.0204      0.000001    0.0204      0.000001    0.97     0.97     |
-|   build_sparsity()                 26         0.0420      0.001616    0.0579      0.002225    2.00     2.76     |
-|   cnstrn_elem_mat_vec()            29356      0.0285      0.000001    0.0285      0.000001    1.36     1.36     |
-|   create_dof_constraints()         26         0.0357      0.001373    0.0451      0.001734    1.70     2.15     |
-|   distribute_dofs()                26         0.0085      0.000327    0.0375      0.001442    0.41     1.79     |
-|   dof_indices()                    267936     0.1549      0.000001    0.1549      0.000001    7.38     7.38     |
-|   enforce_constraints_exactly()    75         0.0027      0.000035    0.0027      0.000035    0.13     0.13     |
-|   old_dof_indices()                121164     0.0582      0.000000    0.0582      0.000000    2.77     2.77     |
-|   prepare_send_list()              26         0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         26         0.0290      0.001114    0.0290      0.001114    1.38     1.38     |
+|   add_neighbors_to_send_list()     26         0.0041      0.000158    0.0041      0.000158    0.23     0.23     |
+|   build_constraint_matrix()        29356      0.0129      0.000000    0.0129      0.000000    0.72     0.72     |
+|   build_sparsity()                 26         0.0278      0.001070    0.0332      0.001278    1.55     1.86     |
+|   cnstrn_elem_mat_vec()            29356      0.0094      0.000000    0.0094      0.000000    0.53     0.53     |
+|   create_dof_constraints()         26         0.0105      0.000404    0.0124      0.000478    0.59     0.69     |
+|   distribute_dofs()                26         0.0046      0.000179    0.0299      0.001152    0.26     1.67     |
+|   dof_indices()                    372429     0.0512      0.000000    0.0512      0.000000    2.86     2.86     |
+|   enforce_constraints_exactly()    75         0.0017      0.000023    0.0017      0.000023    0.10     0.10     |
+|   old_dof_indices()                145719     0.0286      0.000000    0.0286      0.000000    1.60     1.60     |
+|   prepare_send_list()              27         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         26         0.0253      0.000972    0.0253      0.000972    1.41     1.41     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          4          0.0109      0.002733    0.0178      0.004462    0.52     0.85     |
-|   write()                          1          0.0014      0.001357    0.0031      0.003138    0.06     0.15     |
+|   build_solution_vector()          4          0.0051      0.001263    0.0075      0.001874    0.28     0.42     |
+|   write()                          1          0.0009      0.000855    0.0009      0.000941    0.05     0.05     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        168850     0.1111      0.000001    0.1111      0.000001    5.29     5.29     |
-|   init_shape_functions()           89895      0.0884      0.000001    0.0884      0.000001    4.21     4.21     |
-|   inverse_map()                    190411     0.1536      0.000001    0.1536      0.000001    7.32     7.32     |
+|   compute_shape_functions()        259914     0.0845      0.000000    0.0845      0.000000    4.72     4.72     |
+|   init_shape_functions()           180959     0.0925      0.000001    0.0925      0.000001    5.17     5.17     |
+|   inverse_map()                    358880     0.1186      0.000000    0.1186      0.000000    6.63     6.63     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             168850     0.0898      0.000001    0.0898      0.000001    4.28     4.28     |
-|   compute_face_map()               45464      0.0796      0.000002    0.1639      0.000004    3.79     7.81     |
-|   init_face_shape_functions()      434        0.0003      0.000001    0.0003      0.000001    0.01     0.01     |
-|   init_reference_to_physical_map() 89895      0.0916      0.000001    0.0916      0.000001    4.36     4.36     |
+|   compute_affine_map()             259914     0.0862      0.000000    0.0862      0.000000    4.82     4.82     |
+|   compute_face_map()               130354     0.0913      0.000001    0.1998      0.000002    5.11     11.17    |
+|   init_face_shape_functions()      444        0.0002      0.000000    0.0002      0.000000    0.01     0.01     |
+|   init_reference_to_physical_map() 180959     0.0987      0.000001    0.0987      0.000001    5.51     5.51     |
 |                                                                                                                 |
 | GMVIO                                                                                                           |
-|   write_nodal_data()               4          0.0298      0.007439    0.0298      0.007439    1.42     1.42     |
+|   write_nodal_data()               4          0.0290      0.007241    0.0290      0.007241    1.62     1.62     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   copy_dofs                        31749      0.0116      0.000000    0.0638      0.000002    0.65     3.57     |
+|   operator()                       76         0.0544      0.000716    0.3003      0.003951    3.04     16.79    |
+|   project_edges                    23674      0.0013      0.000000    0.0013      0.000000    0.07     0.07     |
+|   project_interior                 23674      0.0015      0.000000    0.0015      0.000000    0.08     0.08     |
+|   project_nodes                    23674      0.0144      0.000001    0.1441      0.000006    0.80     8.06     |
+|   project_sides                    23674      0.0014      0.000000    0.0014      0.000000    0.08     0.08     |
 |                                                                                                                 |
 | JumpErrorEstimator                                                                                              |
-|   estimate_error()                 25         0.4120      0.016481    0.9900      0.039599    19.62    47.15    |
-|                                                                                                                 |
-| LocationMap                                                                                                     |
-|   find()                           35664      0.0142      0.000000    0.0142      0.000000    0.68     0.68     |
-|   init()                           55         0.0071      0.000129    0.0071      0.000129    0.34     0.34     |
+|   estimate_error()                 25         0.4491      0.017966    1.0242      0.040969    25.11    57.25    |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   contract()                       25         0.0031      0.000124    0.0051      0.000203    0.15     0.24     |
-|   find_neighbors()                 27         0.0739      0.002738    0.0739      0.002738    3.52     3.52     |
-|   renumber_nodes_and_elem()        79         0.0056      0.000071    0.0056      0.000071    0.27     0.27     |
+|   contract()                       25         0.0053      0.000214    0.0079      0.000316    0.30     0.44     |
+|   find_neighbors()                 27         0.0760      0.002815    0.0760      0.002815    4.25     4.25     |
+|   renumber_nodes_and_elem()        79         0.0040      0.000051    0.0040      0.000051    0.22     0.22     |
+|   write()                          1          0.0001      0.000123    0.0035      0.003488    0.01     0.19     |
 |                                                                                                                 |
 | MeshCommunication                                                                                               |
-|   assign_global_indices()          1          0.0164      0.016419    0.0164      0.016431    0.78     0.78     |
+|   assign_global_indices()          1          0.0067      0.006745    0.0067      0.006747    0.38     0.38     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         4          0.0001      0.000027    0.0477      0.011929    0.01     2.27     |
+|   write_equation_systems()         4          0.0000      0.000011    0.0365      0.009126    0.00     2.04     |
 |                                                                                                                 |
 | MeshRefinement                                                                                                  |
-|   _coarsen_elements()              50         0.0035      0.000069    0.0035      0.000069    0.16     0.16     |
-|   _refine_elements()               55         0.0277      0.000504    0.0698      0.001269    1.32     3.32     |
-|   add_point()                      35664      0.0218      0.000001    0.0390      0.000001    1.04     1.86     |
-|   make_coarsening_compatible()     63         0.0501      0.000795    0.0501      0.000795    2.39     2.39     |
-|   make_flags_parallel_consistent() 75         0.0071      0.000094    0.0071      0.000094    0.34     0.34     |
-|   make_refinement_compatible()     63         0.0015      0.000024    0.0015      0.000024    0.07     0.07     |
+|   _coarsen_elements()              50         0.0019      0.000038    0.0019      0.000038    0.11     0.11     |
+|   _refine_elements()               55         0.0197      0.000358    0.0346      0.000630    1.10     1.94     |
+|   add_node()                       47552      0.0100      0.000000    0.0100      0.000000    0.56     0.56     |
+|   make_coarsening_compatible()     63         0.0305      0.000485    0.0305      0.000485    1.71     1.71     |
+|   make_flags_parallel_consistent() 75         0.0045      0.000060    0.0045      0.000060    0.25     0.25     |
+|   make_refinement_compatible()     63         0.0014      0.000022    0.0014      0.000022    0.08     0.08     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Number eval_at_node()            44598      0.0031      0.000000    0.0031      0.000000    0.17     0.17     |
+|   check_old_context(c)             31749      0.0192      0.000001    0.0363      0.000001    1.08     2.03     |
+|   check_old_context(c,p)           6174       0.0035      0.000001    0.0067      0.000001    0.20     0.37     |
+|   eval_at_point()                  6174       0.0629      0.000010    0.1227      0.000020    3.52     6.86     |
+|   eval_old_dofs()                  31749      0.0106      0.000000    0.0496      0.000002    0.59     2.77     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      30         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   probe()                          8          0.0001      0.000015    0.0001      0.000015    0.01     0.01     |
-|   receive()                        4          0.0001      0.000028    0.0001      0.000029    0.01     0.01     |
-|   send()                           4          0.0015      0.000377    0.0015      0.000377    0.07     0.07     |
-|   send_receive()                   4          0.0000      0.000002    0.0000      0.000002    0.00     0.00     |
+|   probe()                          8          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   receive()                        4          0.0000      0.000005    0.0000      0.000006    0.00     0.00     |
+|   send()                           4          0.0000      0.000006    0.0000      0.000006    0.00     0.00     |
+|   send_receive()                   4          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Parallel::Request                                                                                               |
-|   wait()                           4          0.0000      0.000009    0.0000      0.000009    0.00     0.00     |
+|   wait()                           4          0.0000      0.000008    0.0000      0.000008    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   set_node_processor_ids()         1          0.0000      0.000033    0.0000      0.000033    0.00     0.00     |
-|   single_partition()               27         0.0015      0.000056    0.0015      0.000056    0.07     0.07     |
+|   set_node_processor_ids()         1          0.0000      0.000031    0.0000      0.000031    0.00     0.00     |
+|   single_partition()               27         0.0012      0.000044    0.0012      0.000044    0.07     0.07     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          50         0.0326      0.000651    0.0326      0.000651    1.55     1.55     |
-|                                                                                                                 |
-| ProjectVector                                                                                                   |
-|   operator()                       75         0.0591      0.000789    0.1154      0.001538    2.82     5.49     |
+|   solve()                          50         0.0123      0.000247    0.0123      0.000247    0.69     0.69     |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       50         0.1720      0.003439    0.3443      0.006886    8.19     16.40    |
-|   calculate_norm()                 51         0.0768      0.001506    0.1693      0.003319    3.66     8.06     |
-|   project_vector()                 76         0.0644      0.000848    0.2311      0.003040    3.07     11.01    |
+|   assemble()                       50         0.0880      0.001759    0.1717      0.003434    4.92     9.60     |
+|   calculate_norm()                 51         0.0410      0.000803    0.0891      0.001747    2.29     4.98     |
+|   project_fem_vector()             1          0.0003      0.000331    0.0283      0.028287    0.02     1.58     |
+|   project_vector(FunctionBase)     1          0.0000      0.000008    0.0283      0.028295    0.00     1.58     |
+|   project_vector(old,new)          75         0.0277      0.000370    0.3232      0.004309    1.55     18.06    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           55         0.0385      0.000699    0.0385      0.000699    2.15     2.15     |
 |                                                                                                                 |
 | XdrIO                                                                                                           |
-|   read()                           1          0.0003      0.000259    0.0003      0.000259    0.01     0.01     |
-|   write()                          1          0.0042      0.004170    0.0042      0.004170    0.20     0.20     |
+|   read()                           1          0.0001      0.000124    0.0001      0.000124    0.01     0.01     |
+|   write()                          1          0.0034      0.003365    0.0034      0.003365    0.19     0.19     |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            1274087    2.0995                                          100.00            |
+| Totals:                            2243877    1.7890                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
@@ -2217,15 +2232,15 @@ Final H1 norm = 0.509057
 ***************************************************************
  
 Usage:
-	 /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.libs/example-opt -init_timestep 0
+	 /Users/petejw/projects/libmesh_git/build/examples/adaptivity/adaptivity_ex2/.libs/example-opt -init_timestep 0
 OR
-	 /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.libs/example-opt -read_solution -init_timestep 26
+	 /Users/petejw/projects/libmesh_git/build/examples/adaptivity/adaptivity_ex2/.libs/example-opt -read_solution -init_timestep 26
 
-Running: /aerolab/benkirk/libmesh/gcc-4.6/examples/adaptivity/adaptivity_ex2/.libs/example-opt -read_solution -n_timesteps 25 -output_freq 10 -init_timestep 25
+Running: /Users/petejw/projects/libmesh_git/build/examples/adaptivity/adaptivity_ex2/.libs/example-opt -read_solution -n_timesteps 25 -output_freq 10 -init_timestep 25
 
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=713
     n_local_nodes()=713
   n_elem()=1018
@@ -2261,9 +2276,6 @@ Initial H1 norm = 0.509057
     DofMap Constraints
       Number of DoF Constraints = 122
       Average DoF Constraint Length= 2
-      Number of Node Constraints = 239
-      Maximum Node Constraint Length= 5
-      Average Node Constraint Length= 2.53138
 
  Solving time step 25, time=0.6500...
 H1 norm = 0.495174
@@ -2366,23 +2378,41 @@ H1 norm = 0.2997
   Refining the mesh...
 H1 norm = 0.299685
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:39:20 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:30:10 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=3.8536, Active time=3.52397                                                     |
+| libMesh Performance: Alive time=3.32917, Active time=2.95028                                                    |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -2390,92 +2420,103 @@ H1 norm = 0.299685
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     26         0.0098      0.000377    0.0098      0.000377    0.28     0.28     |
-|   build_constraint_matrix()        84344      0.0544      0.000001    0.0544      0.000001    1.54     1.54     |
-|   build_sparsity()                 26         0.0743      0.002857    0.1002      0.003854    2.11     2.84     |
-|   cnstrn_elem_mat_vec()            84344      0.0814      0.000001    0.0814      0.000001    2.31     2.31     |
-|   create_dof_constraints()         26         0.0645      0.002482    0.0837      0.003218    1.83     2.37     |
-|   distribute_dofs()                26         0.0113      0.000435    0.0521      0.002005    0.32     1.48     |
-|   dof_indices()                    505296     0.2810      0.000001    0.2810      0.000001    7.97     7.97     |
-|   enforce_constraints_exactly()    75         0.0045      0.000060    0.0045      0.000060    0.13     0.13     |
-|   old_dof_indices()                259584     0.1163      0.000000    0.1163      0.000000    3.30     3.30     |
-|   prepare_send_list()              26         0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         26         0.0408      0.001569    0.0408      0.001569    1.16     1.16     |
+|   add_neighbors_to_send_list()     26         0.0064      0.000245    0.0064      0.000245    0.22     0.22     |
+|   build_constraint_matrix()        84344      0.0341      0.000000    0.0341      0.000000    1.16     1.16     |
+|   build_sparsity()                 26         0.0493      0.001895    0.0593      0.002281    1.67     2.01     |
+|   cnstrn_elem_mat_vec()            84344      0.0234      0.000000    0.0234      0.000000    0.79     0.79     |
+|   create_dof_constraints()         26         0.0187      0.000718    0.0226      0.000870    0.63     0.77     |
+|   distribute_dofs()                26         0.0064      0.000246    0.0389      0.001496    0.22     1.32     |
+|   dof_indices()                    716783     0.0954      0.000000    0.0954      0.000000    3.23     3.23     |
+|   enforce_constraints_exactly()    75         0.0029      0.000038    0.0029      0.000038    0.10     0.10     |
+|   old_dof_indices()                385185     0.0679      0.000000    0.0679      0.000000    2.30     2.30     |
+|   prepare_send_list()              27         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         26         0.0325      0.001250    0.0325      0.001250    1.10     1.10     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          4          0.0053      0.001315    0.0088      0.002211    0.15     0.25     |
-|   read()                           1          0.0041      0.004133    0.0278      0.027759    0.12     0.79     |
-|   update()                         1          0.0001      0.000121    0.0001      0.000121    0.00     0.00     |
+|   build_solution_vector()          4          0.0028      0.000706    0.0041      0.001035    0.10     0.14     |
+|   read()                           1          0.0019      0.001942    0.0117      0.011686    0.07     0.40     |
+|   update()                         1          0.0000      0.000015    0.0000      0.000015    0.00     0.00     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        310932     0.2030      0.000001    0.2030      0.000001    5.76     5.76     |
-|   init_shape_functions()           146431     0.1270      0.000001    0.1270      0.000001    3.60     3.60     |
-|   inverse_map()                    309149     0.2291      0.000001    0.2291      0.000001    6.50     6.50     |
+|   compute_shape_functions()        461384     0.1433      0.000000    0.1433      0.000000    4.86     4.86     |
+|   init_shape_functions()           296883     0.1600      0.000001    0.1600      0.000001    5.42     5.42     |
+|   inverse_map()                    579972     0.1645      0.000000    0.1645      0.000000    5.58     5.58     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             310932     0.1655      0.000001    0.1655      0.000001    4.70     4.70     |
-|   compute_face_map()               71366      0.1166      0.000002    0.2405      0.000003    3.31     6.83     |
-|   init_face_shape_functions()      1417       0.0008      0.000001    0.0008      0.000001    0.02     0.02     |
-|   init_reference_to_physical_map() 146431     0.1256      0.000001    0.1256      0.000001    3.56     3.56     |
+|   compute_affine_map()             461384     0.1535      0.000000    0.1535      0.000000    5.20     5.20     |
+|   compute_face_map()               207394     0.1268      0.000001    0.2798      0.000001    4.30     9.48     |
+|   init_face_shape_functions()      1445       0.0006      0.000000    0.0006      0.000000    0.02     0.02     |
+|   init_reference_to_physical_map() 296883     0.1464      0.000000    0.1464      0.000000    4.96     4.96     |
 |                                                                                                                 |
 | GMVIO                                                                                                           |
-|   write_nodal_data()               4          0.0203      0.005074    0.0203      0.005074    0.58     0.58     |
+|   write_nodal_data()               4          0.0140      0.003508    0.0140      0.003508    0.48     0.48     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   copy_dofs                        118731     0.0355      0.000000    0.2271      0.000002    1.20     7.70     |
+|   operator()                       75         0.0873      0.001164    0.6594      0.008792    2.96     22.35    |
+|   project_edges                    9666       0.0006      0.000000    0.0006      0.000000    0.02     0.02     |
+|   project_interior                 9666       0.0008      0.000000    0.0008      0.000000    0.03     0.03     |
+|   project_nodes                    9666       0.0116      0.000001    0.2772      0.000029    0.39     9.40     |
+|   project_sides                    9666       0.0006      0.000000    0.0006      0.000000    0.02     0.02     |
 |                                                                                                                 |
 | JumpErrorEstimator                                                                                              |
-|   estimate_error()                 25         0.6873      0.027491    1.5464      0.061854    19.50    43.88    |
-|                                                                                                                 |
-| LocationMap                                                                                                     |
-|   find()                           7080       0.0029      0.000000    0.0029      0.000000    0.08     0.08     |
-|   init()                           50         0.0092      0.000184    0.0092      0.000184    0.26     0.26     |
+|   estimate_error()                 25         0.7168      0.028671    1.5660      0.062639    24.30    53.08    |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   contract()                       25         0.0020      0.000081    0.0045      0.000181    0.06     0.13     |
-|   find_neighbors()                 26         0.0916      0.003522    0.0916      0.003522    2.60     2.60     |
-|   renumber_nodes_and_elem()        77         0.0070      0.000090    0.0070      0.000090    0.20     0.20     |
+|   contract()                       25         0.0016      0.000062    0.0028      0.000111    0.05     0.09     |
+|   find_neighbors()                 26         0.0874      0.003362    0.0874      0.003362    2.96     2.96     |
+|   renumber_nodes_and_elem()        77         0.0030      0.000039    0.0030      0.000039    0.10     0.10     |
 |                                                                                                                 |
 | MeshCommunication                                                                                               |
-|   assign_global_indices()          1          0.0165      0.016501    0.0165      0.016515    0.47     0.47     |
+|   assign_global_indices()          1          0.0069      0.006909    0.0069      0.006912    0.23     0.23     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         4          0.0001      0.000022    0.0292      0.007307    0.00     0.83     |
+|   write_equation_systems()         4          0.0000      0.000008    0.0182      0.004551    0.00     0.62     |
 |                                                                                                                 |
 | MeshRefinement                                                                                                  |
-|   _coarsen_elements()              50         0.0027      0.000054    0.0027      0.000054    0.08     0.08     |
-|   _refine_elements()               50         0.0118      0.000236    0.0203      0.000406    0.34     0.58     |
-|   add_point()                      7080       0.0044      0.000001    0.0079      0.000001    0.13     0.22     |
-|   make_coarsening_compatible()     68         0.0998      0.001467    0.0998      0.001467    2.83     2.83     |
-|   make_flags_parallel_consistent() 75         0.0144      0.000192    0.0144      0.000192    0.41     0.41     |
-|   make_refinement_compatible()     68         0.0037      0.000055    0.0037      0.000055    0.11     0.11     |
+|   _coarsen_elements()              50         0.0016      0.000033    0.0016      0.000033    0.06     0.06     |
+|   _refine_elements()               50         0.0105      0.000210    0.0130      0.000259    0.36     0.44     |
+|   add_node()                       9440       0.0017      0.000000    0.0017      0.000000    0.06     0.06     |
+|   make_coarsening_compatible()     68         0.0584      0.000859    0.0584      0.000859    1.98     1.98     |
+|   make_flags_parallel_consistent() 75         0.0083      0.000111    0.0083      0.000111    0.28     0.28     |
+|   make_refinement_compatible()     68         0.0033      0.000049    0.0033      0.000049    0.11     0.11     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Number eval_at_node()            31536      0.0022      0.000000    0.0022      0.000000    0.07     0.07     |
+|   check_old_context(c)             118731     0.0729      0.000001    0.1339      0.000001    2.47     4.54     |
+|   check_old_context(c,p)           14424      0.0080      0.000001    0.0149      0.000001    0.27     0.51     |
+|   eval_at_point()                  14424      0.1336      0.000009    0.2596      0.000018    4.53     8.80     |
+|   eval_old_dofs()                  118731     0.0384      0.000000    0.1819      0.000002    1.30     6.17     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      30         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   probe()                          4          0.0001      0.000017    0.0001      0.000017    0.00     0.00     |
-|   receive()                        4          0.0001      0.000035    0.0001      0.000036    0.00     0.00     |
-|   send()                           4          0.0014      0.000355    0.0014      0.000355    0.04     0.04     |
-|   send_receive()                   4          0.0000      0.000003    0.0000      0.000003    0.00     0.00     |
+|   probe()                          4          0.0000      0.000002    0.0000      0.000002    0.00     0.00     |
+|   receive()                        4          0.0000      0.000008    0.0000      0.000008    0.00     0.00     |
+|   send()                           4          0.0000      0.000005    0.0000      0.000005    0.00     0.00     |
+|   send_receive()                   4          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
 |                                                                                                                 |
 | Parallel::Request                                                                                               |
-|   wait()                           4          0.0000      0.000008    0.0000      0.000008    0.00     0.00     |
+|   wait()                           4          0.0000      0.000005    0.0000      0.000005    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   set_node_processor_ids()         1          0.0002      0.000152    0.0002      0.000152    0.00     0.00     |
-|   single_partition()               26         0.0019      0.000071    0.0019      0.000071    0.05     0.05     |
+|   set_node_processor_ids()         1          0.0001      0.000098    0.0001      0.000098    0.00     0.00     |
+|   single_partition()               26         0.0013      0.000051    0.0013      0.000051    0.04     0.04     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          50         0.0357      0.000715    0.0357      0.000715    1.01     1.01     |
-|                                                                                                                 |
-| ProjectVector                                                                                                   |
-|   operator()                       75         0.1623      0.002164    0.3086      0.004114    4.61     8.76     |
+|   solve()                          50         0.0199      0.000397    0.0199      0.000397    0.67     0.67     |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       50         0.3818      0.007636    0.7560      0.015119    10.83    21.45    |
-|   calculate_norm()                 51         0.1682      0.003297    0.3605      0.007068    4.77     10.23    |
-|   project_vector()                 75         0.0802      0.001070    0.4639      0.006186    2.28     13.16    |
+|   assemble()                       50         0.1913      0.003825    0.3723      0.007446    6.48     12.62    |
+|   calculate_norm()                 51         0.0853      0.001673    0.1844      0.003616    2.89     6.25     |
+|   project_vector(old,new)          75         0.0430      0.000573    0.7385      0.009847    1.46     25.03    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           50         0.0647      0.001294    0.0647      0.001294    2.19     2.19     |
 |                                                                                                                 |
 | XdrIO                                                                                                           |
-|   read()                           1          0.0029      0.002933    0.0029      0.002933    0.08     0.08     |
+|   read()                           1          0.0030      0.002970    0.0030      0.002970    0.10     0.10     |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            2245525    3.5240                                          100.00            |
+| Totals:                            4041822    2.9503                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
