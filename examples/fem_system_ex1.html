@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -70,8 +70,8 @@ Constructor
 
 <div class ="fragment">
 <pre>
-          NavierSystem(EquationSystems& es,
-                       const std::string& name_in,
+          NavierSystem(EquationSystems & es,
+                       const std::string & name_in,
                        const unsigned int number_in)
             : FEMSystem(es, name_in, number_in), Reynolds(1.), application(0) {}
         
@@ -93,7 +93,7 @@ Context initialization
 
 <div class ="fragment">
 <pre>
-          virtual void init_context(DiffContext &context);
+          virtual void init_context(DiffContext & context);
         
 </pre>
 </div>
@@ -105,7 +105,7 @@ Time dependent parts
 <div class ="fragment">
 <pre>
           virtual bool element_time_derivative (bool request_jacobian,
-                                                DiffContext& context);
+                                                DiffContext & context);
         
 </pre>
 </div>
@@ -116,9 +116,9 @@ Constraint parts
 <div class ="fragment">
 <pre>
           virtual bool element_constraint (bool request_jacobian,
-                                           DiffContext& context);
+                                           DiffContext & context);
           virtual bool side_constraint (bool request_jacobian,
-                                        DiffContext& context);
+                                        DiffContext & context);
         
 </pre>
 </div>
@@ -129,7 +129,7 @@ Mass matrix part
 <div class ="fragment">
 <pre>
           virtual bool mass_residual (bool request_jacobian,
-                                      DiffContext& context);
+                                      DiffContext & context);
         
 </pre>
 </div>
@@ -183,7 +183,7 @@ depends on which application is being used.
 
 <div class ="fragment">
 <pre>
-          Point forcing(const Point& p);
+          Point forcing(const Point & p);
         };
 </pre>
 </div>
@@ -246,7 +246,7 @@ The main program.
 
 <div class ="fragment">
 <pre>
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -437,11 +437,11 @@ Solve this as a time-dependent or steady system
 <pre>
           if (transient)
             system.time_solver =
-              AutoPtr&lt;TimeSolver&gt;(new EulerSolver(system));
+              UniquePtr&lt;TimeSolver&gt;(new EulerSolver(system));
           else
             {
               system.time_solver =
-                AutoPtr&lt;TimeSolver&gt;(new SteadySolver(system));
+                UniquePtr&lt;TimeSolver&gt;(new SteadySolver(system));
               libmesh_assert_equal_to (n_timesteps, 1);
             }
         
@@ -473,7 +473,7 @@ And the nonlinear solver options
 
 <div class ="fragment">
 <pre>
-          DiffSolver &solver = *(system.time_solver-&gt;diff_solver().get());
+          DiffSolver & solver = *(system.time_solver-&gt;diff_solver().get());
           solver.quiet = infile("solver_quiet", true);
           solver.verbose = !solver.quiet;
           solver.max_nonlinear_iterations =
@@ -527,8 +527,11 @@ A pretty update message
 
 <div class ="fragment">
 <pre>
-              std::cout &lt;&lt; "\n\nSolving time step " &lt;&lt; t_step &lt;&lt; ", time = "
-                        &lt;&lt; system.time &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "\n\nSolving time step "
+                           &lt;&lt; t_step
+                           &lt;&lt; ", time = "
+                           &lt;&lt; system.time
+                           &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -547,7 +550,7 @@ Adaptively solve the timestep
         
                   ErrorVector error;
         
-                  AutoPtr&lt;ErrorEstimator&gt; error_estimator;
+                  UniquePtr&lt;ErrorEstimator&gt; error_estimator;
         
 </pre>
 </div>
@@ -571,8 +574,7 @@ size at once
 <pre>
                       libmesh_assert_equal_to (nelem_target, 0);
         
-                      UniformRefinementEstimator *u =
-                        new UniformRefinementEstimator;
+                      UniformRefinementEstimator * u = new UniformRefinementEstimator;
         
 </pre>
 </div>
@@ -649,13 +651,22 @@ Print out status at each adaptive step.
 <div class ="fragment">
 <pre>
                   Real global_error = error.l2_norm();
-                  std::cout &lt;&lt; "Adaptive step " &lt;&lt; a_step &lt;&lt; ": " &lt;&lt; std::endl;
+                  libMesh::out &lt;&lt; "Adaptive step "
+                               &lt;&lt; a_step
+                               &lt;&lt; ": "
+                               &lt;&lt; std::endl;
+
                   if (global_tolerance != 0.)
-                    std::cout &lt;&lt; "Global_error = " &lt;&lt; global_error
-                              &lt;&lt; std::endl;
+                    libMesh::out &lt;&lt; "Global_error = "
+                                 &lt;&lt; global_error
+                                 &lt;&lt; std::endl;
+
                   if (global_tolerance != 0.)
-                    std::cout &lt;&lt; "Worst element error = " &lt;&lt; error.maximum()
-                              &lt;&lt; ", mean = " &lt;&lt; error.mean() &lt;&lt; std::endl;
+                    libMesh::out &lt;&lt; "Worst element error = "
+                                 &lt;&lt; error.maximum()
+                                 &lt;&lt; ", mean = "
+                                 &lt;&lt; error.mean()
+                                 &lt;&lt; std::endl;
         
                   if (global_tolerance != 0.)
                     {
@@ -703,11 +714,12 @@ Carry out the adaptive mesh refinement/coarsening
                   mesh_refinement.refine_and_coarsen_elements();
                   equation_systems.reinit();
         
-                  std::cout &lt;&lt; "Refined mesh to "
-                            &lt;&lt; mesh.n_active_elem()
-                            &lt;&lt; " active elements and "
-                            &lt;&lt; equation_systems.n_active_dofs()
-                            &lt;&lt; " active dofs." &lt;&lt; std::endl;
+                  libMesh::out &lt;&lt; "Refined mesh to "
+                               &lt;&lt; mesh.n_active_elem()
+                               &lt;&lt; " active elements and "
+                               &lt;&lt; equation_systems.n_active_dofs()
+                               &lt;&lt; " active dofs."
+                               &lt;&lt; std::endl;
                 }
 </pre>
 </div>
@@ -764,8 +776,15 @@ We write the file in the ExodusII format.
         
                   ExodusII_IO(mesh).write_timestep(file_name.str(),
                                                    equation_systems,
-                                                   1, /* This number indicates how many time steps
-                                                         are being written to the file */
+                                                   1, // This number indicates how many time steps
+</pre>
+</div>
+<div class = "comment">
+are being written to the file
+</div>
+
+<div class ="fragment">
+<pre>
                                                    system.time);
                 }
         #endif // #ifdef LIBMESH_HAVE_EXODUS_API
@@ -805,6 +824,7 @@ All done.
         #include "libmesh/quadrature.h"
         #include "libmesh/string_to_enum.h"
         #include "libmesh/zero_function.h"
+        #include "libmesh/elem.h"
         
 </pre>
 </div>
@@ -835,12 +855,12 @@ Boundary conditions for the 3D test case
             : _u_var(u_var), _v_var(v_var), _w_var(w_var), _Re(Reynolds)
           { this-&gt;_initialized = true; }
         
-          virtual Number operator() (const Point&, const Real = 0)
+          virtual Number operator() (const Point &, const Real = 0)
           { libmesh_not_implemented(); }
         
-          virtual void operator() (const Point& p,
+          virtual void operator() (const Point & p,
                                    const Real,
-                                   DenseVector&lt;Number&gt;& output)
+                                   DenseVector&lt;Number&gt; & output)
           {
             output.zero();
             const Real x=p(0), y=p(1), z=p(2);
@@ -849,8 +869,8 @@ Boundary conditions for the 3D test case
             output(_w_var) = (_Re+1)*(x*x + y*y);
           }
         
-          virtual AutoPtr&lt;FunctionBase&lt;Number&gt; &gt; clone() const
-          { return AutoPtr&lt;FunctionBase&lt;Number&gt; &gt; (new BdyFunction(_u_var, _v_var, _w_var, _Re)); }
+          virtual UniquePtr&lt;FunctionBase&lt;Number&gt; &gt; clone() const
+          { return UniquePtr&lt;FunctionBase&lt;Number&gt; &gt; (new BdyFunction(_u_var, _v_var, _w_var, _Re)); }
         
         private:
           const unsigned int _u_var, _v_var, _w_var;
@@ -1024,7 +1044,7 @@ For 3D test case with quadratic velocity field, set that field on walls
 <pre>
           else if (application == 2)
             {
-              BdyFunction bdy(u_var,v_var,w_var,Reynolds);
+              BdyFunction bdy(u_var, v_var, w_var, Reynolds);
               this-&gt;get_dof_map().add_dirichlet_boundary
                 (DirichletBoundary (all_bdys, uvw, &bdy));
             }
@@ -1042,17 +1062,17 @@ Do the parent's initialization after variables and boundary constraints are defi
         
         
         
-        void NavierSystem::init_context(DiffContext &context)
+        void NavierSystem::init_context(DiffContext & context)
         {
-          FEMContext &c = cast_ref&lt;FEMContext&&gt;(context);
+          FEMContext & c = cast_ref&lt;FEMContext &&gt;(context);
         
-          FEBase* u_elem_fe;
-          FEBase* p_elem_fe;
-          FEBase* u_side_fe;
+          FEBase * u_elem_fe;
+          FEBase * p_elem_fe;
+          FEBase * u_side_fe;
         
-          c.get_element_fe( u_var, u_elem_fe );
-          c.get_element_fe( p_var, p_elem_fe );
-          c.get_side_fe( u_var, u_side_fe );
+          c.get_element_fe(u_var, u_elem_fe);
+          c.get_element_fe(p_var, p_elem_fe);
+          c.get_side_fe(u_var, u_side_fe);
         
 </pre>
 </div>
@@ -1077,15 +1097,15 @@ we will need to build the linear system.
         
         
         bool NavierSystem::element_time_derivative (bool request_jacobian,
-                                                    DiffContext &context)
+                                                    DiffContext & context)
         {
-          FEMContext &c = cast_ref&lt;FEMContext&&gt;(context);
+          FEMContext & c = cast_ref&lt;FEMContext &&gt;(context);
         
-          FEBase* u_elem_fe;
-          FEBase* p_elem_fe;
+          FEBase * u_elem_fe;
+          FEBase * p_elem_fe;
         
-          c.get_element_fe( u_var, u_elem_fe );
-          c.get_element_fe( p_var, p_elem_fe );
+          c.get_element_fe(u_var, u_elem_fe);
+          c.get_element_fe(p_var, p_elem_fe);
         
 </pre>
 </div>
@@ -1099,7 +1119,7 @@ will be used to assemble the linear system.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt; &JxW = u_elem_fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = u_elem_fe-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1109,7 +1129,7 @@ The velocity shape functions at interior quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = u_elem_fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = u_elem_fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1120,7 +1140,7 @@ quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = u_elem_fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = u_elem_fe-&gt;get_dphi();
         
 </pre>
 </div>
@@ -1131,7 +1151,7 @@ quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& psi = p_elem_fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & psi = p_elem_fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1141,7 +1161,7 @@ Physical location of the quadrature points
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Point&gt;& qpoint = u_elem_fe-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & qpoint = u_elem_fe-&gt;get_xyz();
         
 </pre>
 </div>
@@ -1151,9 +1171,9 @@ The number of local degrees of freedom in each variable
 
 <div class ="fragment">
 <pre>
-          const unsigned int n_p_dofs = c.get_dof_indices( p_var ).size();
-          const unsigned int n_u_dofs = c.get_dof_indices( u_var ).size();
-          libmesh_assert_equal_to (n_u_dofs, c.get_dof_indices( v_var ).size());
+          const unsigned int n_p_dofs = c.get_dof_indices(p_var).size();
+          const unsigned int n_u_dofs = c.get_dof_indices(u_var).size();
+          libmesh_assert_equal_to (n_u_dofs, c.get_dof_indices(v_var).size());
         
 </pre>
 </div>
@@ -1164,21 +1184,21 @@ The subvectors and submatrices we need to fill:
 <div class ="fragment">
 <pre>
           const unsigned int dim = this-&gt;get_mesh().mesh_dimension();
-          DenseSubMatrix&lt;Number&gt; &Kuu = c.get_elem_jacobian( u_var, u_var );
-          DenseSubMatrix&lt;Number&gt; &Kvv = c.get_elem_jacobian( v_var, v_var );
-          DenseSubMatrix&lt;Number&gt; &Kww = c.get_elem_jacobian( w_var, w_var );
-          DenseSubMatrix&lt;Number&gt; &Kuv = c.get_elem_jacobian( u_var, v_var );
-          DenseSubMatrix&lt;Number&gt; &Kuw = c.get_elem_jacobian( u_var, w_var );
-          DenseSubMatrix&lt;Number&gt; &Kvu = c.get_elem_jacobian( v_var, u_var );
-          DenseSubMatrix&lt;Number&gt; &Kvw = c.get_elem_jacobian( v_var, w_var );
-          DenseSubMatrix&lt;Number&gt; &Kwu = c.get_elem_jacobian( w_var, u_var );
-          DenseSubMatrix&lt;Number&gt; &Kwv = c.get_elem_jacobian( w_var, v_var );
-          DenseSubMatrix&lt;Number&gt; &Kup = c.get_elem_jacobian( u_var, p_var );
-          DenseSubMatrix&lt;Number&gt; &Kvp = c.get_elem_jacobian( v_var, p_var );
-          DenseSubMatrix&lt;Number&gt; &Kwp = c.get_elem_jacobian( w_var, p_var );
-          DenseSubVector&lt;Number&gt; &Fu = c.get_elem_residual( u_var );
-          DenseSubVector&lt;Number&gt; &Fv = c.get_elem_residual( v_var );
-          DenseSubVector&lt;Number&gt; &Fw = c.get_elem_residual( w_var );
+          DenseSubMatrix&lt;Number&gt; & Kuu = c.get_elem_jacobian(u_var, u_var);
+          DenseSubMatrix&lt;Number&gt; & Kvv = c.get_elem_jacobian(v_var, v_var);
+          DenseSubMatrix&lt;Number&gt; & Kww = c.get_elem_jacobian(w_var, w_var);
+          DenseSubMatrix&lt;Number&gt; & Kuv = c.get_elem_jacobian(u_var, v_var);
+          DenseSubMatrix&lt;Number&gt; & Kuw = c.get_elem_jacobian(u_var, w_var);
+          DenseSubMatrix&lt;Number&gt; & Kvu = c.get_elem_jacobian(v_var, u_var);
+          DenseSubMatrix&lt;Number&gt; & Kvw = c.get_elem_jacobian(v_var, w_var);
+          DenseSubMatrix&lt;Number&gt; & Kwu = c.get_elem_jacobian(w_var, u_var);
+          DenseSubMatrix&lt;Number&gt; & Kwv = c.get_elem_jacobian(w_var, v_var);
+          DenseSubMatrix&lt;Number&gt; & Kup = c.get_elem_jacobian(u_var, p_var);
+          DenseSubMatrix&lt;Number&gt; & Kvp = c.get_elem_jacobian(v_var, p_var);
+          DenseSubMatrix&lt;Number&gt; & Kwp = c.get_elem_jacobian(w_var, p_var);
+          DenseSubVector&lt;Number&gt; & Fu = c.get_elem_residual(u_var);
+          DenseSubVector&lt;Number&gt; & Fv = c.get_elem_residual(v_var);
+          DenseSubVector&lt;Number&gt; & Fw = c.get_elem_residual(w_var);
         
 </pre>
 </div>
@@ -1222,18 +1242,18 @@ dot product if you have the full vector at your disposal.
 
 <div class ="fragment">
 <pre>
-              NumberVectorValue U     (u,     v);
+              NumberVectorValue U (u, v);
               if (dim == 3)
                 U(2) = w;
-              const Number  u_x = grad_u(0);
-              const Number  u_y = grad_u(1);
-              const Number  u_z = (dim == 3)?grad_u(2):0;
-              const Number  v_x = grad_v(0);
-              const Number  v_y = grad_v(1);
-              const Number  v_z = (dim == 3)?grad_v(2):0;
-              const Number  w_x = (dim == 3)?grad_w(0):0;
-              const Number  w_y = (dim == 3)?grad_w(1):0;
-              const Number  w_z = (dim == 3)?grad_w(2):0;
+              const Number u_x = grad_u(0);
+              const Number u_y = grad_u(1);
+              const Number u_z = (dim == 3) ? grad_u(2) : 0;
+              const Number v_x = grad_v(0);
+              const Number v_y = grad_v(1);
+              const Number v_z = (dim == 3) ? grad_v(2) : 0;
+              const Number w_x = (dim == 3) ? grad_w(0) : 0;
+              const Number w_y = (dim == 3) ? grad_w(1) : 0;
+              const Number w_z = (dim == 3) ? grad_w(2) : 0;
         
 </pre>
 </div>
@@ -1364,15 +1384,15 @@ Matrix contributions for the up and vp couplings.
         
         
         bool NavierSystem::element_constraint (bool request_jacobian,
-                                               DiffContext &context)
+                                               DiffContext & context)
         {
-          FEMContext &c = cast_ref&lt;FEMContext&&gt;(context);
+          FEMContext & c = cast_ref&lt;FEMContext &&gt;(context);
         
-          FEBase* u_elem_fe;
-          FEBase* p_elem_fe;
+          FEBase * u_elem_fe;
+          FEBase * p_elem_fe;
         
-          c.get_element_fe( u_var, u_elem_fe );
-          c.get_element_fe( p_var, p_elem_fe );
+          c.get_element_fe(u_var, u_elem_fe);
+          c.get_element_fe(p_var, p_elem_fe);
         
 </pre>
 </div>
@@ -1386,7 +1406,7 @@ will be used to assemble the linear system.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt; &JxW = u_elem_fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = u_elem_fe-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1397,7 +1417,7 @@ quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = u_elem_fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = u_elem_fe-&gt;get_dphi();
         
 </pre>
 </div>
@@ -1408,7 +1428,7 @@ quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& psi = p_elem_fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & psi = p_elem_fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1418,8 +1438,8 @@ The number of local degrees of freedom in each variable
 
 <div class ="fragment">
 <pre>
-          const unsigned int n_u_dofs = c.get_dof_indices( u_var ).size();
-          const unsigned int n_p_dofs = c.get_dof_indices( p_var ).size();
+          const unsigned int n_u_dofs = c.get_dof_indices(u_var).size();
+          const unsigned int n_p_dofs = c.get_dof_indices(p_var).size();
         
 </pre>
 </div>
@@ -1430,10 +1450,10 @@ The subvectors and submatrices we need to fill:
 <div class ="fragment">
 <pre>
           const unsigned int dim = this-&gt;get_mesh().mesh_dimension();
-          DenseSubMatrix&lt;Number&gt; &Kpu = c.get_elem_jacobian( p_var, u_var );
-          DenseSubMatrix&lt;Number&gt; &Kpv = c.get_elem_jacobian( p_var, v_var );
-          DenseSubMatrix&lt;Number&gt; &Kpw = c.get_elem_jacobian( p_var, w_var );
-          DenseSubVector&lt;Number&gt; &Fp = c.get_elem_residual( p_var );
+          DenseSubMatrix&lt;Number&gt; & Kpu = c.get_elem_jacobian(p_var, u_var);
+          DenseSubMatrix&lt;Number&gt; & Kpv = c.get_elem_jacobian(p_var, v_var);
+          DenseSubMatrix&lt;Number&gt; & Kpw = c.get_elem_jacobian(p_var, w_var);
+          DenseSubVector&lt;Number&gt; & Fp = c.get_elem_residual(p_var);
         
 </pre>
 </div>
@@ -1497,13 +1517,13 @@ computes the contributions of the continuity equation.
         
         
         bool NavierSystem::side_constraint (bool request_jacobian,
-                                            DiffContext &context)
+                                            DiffContext & context)
         {
-          FEMContext &c = cast_ref&lt;FEMContext&&gt;(context);
+          FEMContext & c = cast_ref&lt;FEMContext &&gt;(context);
         
-          FEBase* p_elem_fe;
+          FEBase * p_elem_fe;
         
-          c.get_element_fe( p_var, p_elem_fe );
+          c.get_element_fe(p_var, p_elem_fe);
         
 </pre>
 </div>
@@ -1513,9 +1533,9 @@ Pin p = 0 at the origin
 
 <div class ="fragment">
 <pre>
-          const Point zero(0.,0.);
+          const Point zero(0., 0.);
         
-          if( c.get_elem().contains_point(zero))
+          if (c.get_elem().contains_point(zero))
             {
 </pre>
 </div>
@@ -1527,9 +1547,9 @@ The pressure penalty value.  \f$ \frac{1}{\epsilon} \f$
 <pre>
               const Real penalty = 1.e9;
         
-              DenseSubMatrix&lt;Number&gt; &Kpp = c.get_elem_jacobian( p_var, p_var );
-              DenseSubVector&lt;Number&gt; &Fp = c.get_elem_residual( p_var );
-              const unsigned int n_p_dofs = c.get_dof_indices( p_var ).size();
+              DenseSubMatrix&lt;Number&gt; & Kpp = c.get_elem_jacobian(p_var, p_var);
+              DenseSubVector&lt;Number&gt; & Fp = c.get_elem_residual(p_var);
+              const unsigned int n_p_dofs = c.get_dof_indices(p_var).size();
         
               Number p = c.point_value(p_var, zero);
               Number p_value = 0.;
@@ -1576,13 +1596,13 @@ FEMSystem::mass_residual()
 <div class ="fragment">
 <pre>
         bool NavierSystem::mass_residual (bool request_jacobian,
-                                          DiffContext &context)
+                                          DiffContext & context)
         {
-          FEMContext &c = cast_ref&lt;FEMContext&&gt;(context);
+          FEMContext & c = cast_ref&lt;FEMContext &&gt;(context);
         
-          FEBase* u_elem_fe;
+          FEBase * u_elem_fe;
         
-          c.get_element_fe( u_var, u_elem_fe );
+          c.get_element_fe(u_var, u_elem_fe);
         
 </pre>
 </div>
@@ -1602,7 +1622,7 @@ Element Jacobian * quadrature weight for interior integration
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt; &JxW = u_elem_fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = u_elem_fe-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1612,7 +1632,7 @@ The velocity shape functions at interior quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = u_elem_fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = u_elem_fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1622,12 +1642,12 @@ The subvectors and submatrices we need to fill:
 
 <div class ="fragment">
 <pre>
-          DenseSubVector&lt;Number&gt; &Fu = c.get_elem_residual( u_var );
-          DenseSubVector&lt;Number&gt; &Fv = c.get_elem_residual( v_var );
-          DenseSubVector&lt;Number&gt; &Fw = c.get_elem_residual( w_var );
-          DenseSubMatrix&lt;Number&gt; &Kuu = c.get_elem_jacobian( u_var, u_var );
-          DenseSubMatrix&lt;Number&gt; &Kvv = c.get_elem_jacobian( v_var, v_var );
-          DenseSubMatrix&lt;Number&gt; &Kww = c.get_elem_jacobian( w_var, w_var );
+          DenseSubVector&lt;Number&gt; & Fu = c.get_elem_residual(u_var);
+          DenseSubVector&lt;Number&gt; & Fv = c.get_elem_residual(v_var);
+          DenseSubVector&lt;Number&gt; & Fw = c.get_elem_residual(w_var);
+          DenseSubMatrix&lt;Number&gt; & Kuu = c.get_elem_jacobian(u_var, u_var);
+          DenseSubMatrix&lt;Number&gt; & Kvv = c.get_elem_jacobian(v_var, v_var);
+          DenseSubMatrix&lt;Number&gt; & Kww = c.get_elem_jacobian(w_var, w_var);
         
 </pre>
 </div>
@@ -1637,7 +1657,7 @@ The number of local degrees of freedom in velocity
 
 <div class ="fragment">
 <pre>
-          const unsigned int n_u_dofs = c.get_dof_indices( u_var ).size();
+          const unsigned int n_u_dofs = c.get_dof_indices(u_var).size();
         
           unsigned int n_qpoints = c.get_element_qrule().n_points();
         
@@ -1719,16 +1739,17 @@ triangles
             v = point_value(v_var, p),
             w = (dim == 3) ? point_value(w_var, p) : 0;
         
-          std::cout &lt;&lt; "u(1/3,1/3) = ("
-                    &lt;&lt; u &lt;&lt; ", "
-                    &lt;&lt; v &lt;&lt; ", "
-                    &lt;&lt; w &lt;&lt; ")" &lt;&lt; std::endl;
+          libMesh::out &lt;&lt; "u(1/3,1/3) = ("
+                       &lt;&lt; u &lt;&lt; ", "
+                       &lt;&lt; v &lt;&lt; ", "
+                       &lt;&lt; w &lt;&lt; ")"
+                       &lt;&lt; std::endl;
         }
         
         
         
         
-        Point NavierSystem::forcing(const Point& p)
+        Point NavierSystem::forcing(const Point & p)
         {
           switch (application)
             {
@@ -1858,25 +1879,25 @@ This problem doesn't make sense in 1D...
   <B><FONT COLOR="#228B22">class</FONT></B> NavierSystem : <B><FONT COLOR="#228B22">public</FONT></B> FEMSystem
   {
   <B><FONT COLOR="#228B22">public</FONT></B>:
-    NavierSystem(EquationSystems&amp; es,
-                 <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; name_in,
+    NavierSystem(EquationSystems &amp; es,
+                 <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; name_in,
                  <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> number_in)
       : FEMSystem(es, name_in, number_in), Reynolds(1.), application(0) {}
   
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> init_data ();
   
-    <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> init_context(DiffContext &amp;context);
+    <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> init_context(DiffContext &amp; context);
   
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> element_time_derivative (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                          DiffContext&amp; context);
+                                          DiffContext &amp; context);
   
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> element_constraint (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                     DiffContext&amp; context);
+                                     DiffContext &amp; context);
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> side_constraint (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                  DiffContext&amp; context);
+                                  DiffContext &amp; context);
   
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">bool</FONT></B> mass_residual (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                DiffContext&amp; context);
+                                DiffContext &amp; context);
   
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> postprocess ();
   
@@ -1886,7 +1907,7 @@ This problem doesn't make sense in 1D...
   
     <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> application;
   
-    Point forcing(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p);
+    Point forcing(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p);
   };
 </pre> 
 <a name="nocomments"></a> 
@@ -1911,7 +1932,7 @@ This problem doesn't make sense in 1D...
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -1984,11 +2005,11 @@ This problem doesn't make sense in 1D...
   
     <B><FONT COLOR="#A020F0">if</FONT></B> (transient)
       system.time_solver =
-        AutoPtr&lt;TimeSolver&gt;(<B><FONT COLOR="#A020F0">new</FONT></B> EulerSolver(system));
+        UniquePtr&lt;TimeSolver&gt;(<B><FONT COLOR="#A020F0">new</FONT></B> EulerSolver(system));
     <B><FONT COLOR="#A020F0">else</FONT></B>
       {
         system.time_solver =
-          AutoPtr&lt;TimeSolver&gt;(<B><FONT COLOR="#A020F0">new</FONT></B> SteadySolver(system));
+          UniquePtr&lt;TimeSolver&gt;(<B><FONT COLOR="#A020F0">new</FONT></B> SteadySolver(system));
         libmesh_assert_equal_to (n_timesteps, 1);
       }
   
@@ -1996,7 +2017,7 @@ This problem doesn't make sense in 1D...
   
     system.deltat = deltat;
   
-    DiffSolver &amp;solver = *(system.time_solver-&gt;diff_solver().get());
+    DiffSolver &amp; solver = *(system.time_solver-&gt;diff_solver().get());
     solver.quiet = infile(<B><FONT COLOR="#BC8F8F">&quot;solver_quiet&quot;</FONT></B>, true);
     solver.verbose = !solver.quiet;
     solver.max_nonlinear_iterations =
@@ -2017,8 +2038,11 @@ This problem doesn't make sense in 1D...
   
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> t_step=0; t_step != n_timesteps; ++t_step)
       {
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n\nSolving time step &quot;</FONT></B> &lt;&lt; t_step &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, time = &quot;</FONT></B>
-                  &lt;&lt; system.time &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n\nSolving time step &quot;</FONT></B>
+                     &lt;&lt; t_step
+                     &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, time = &quot;</FONT></B>
+                     &lt;&lt; system.time
+                     &lt;&lt; std::endl;
   
         <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> a_step = 0;
         <B><FONT COLOR="#A020F0">for</FONT></B> (; a_step != max_adaptivesteps; ++a_step)
@@ -2029,14 +2053,13 @@ This problem doesn't make sense in 1D...
   
             ErrorVector error;
   
-            AutoPtr&lt;ErrorEstimator&gt; error_estimator;
+            UniquePtr&lt;ErrorEstimator&gt; error_estimator;
   
             <B><FONT COLOR="#A020F0">if</FONT></B> (global_tolerance != 0.)
               {
                 libmesh_assert_equal_to (nelem_target, 0);
   
-                UniformRefinementEstimator *u =
-                  <B><FONT COLOR="#A020F0">new</FONT></B> UniformRefinementEstimator;
+                UniformRefinementEstimator * u = <B><FONT COLOR="#A020F0">new</FONT></B> UniformRefinementEstimator;
   
                 u-&gt;error_norm = L2;
   
@@ -2060,13 +2083,22 @@ This problem doesn't make sense in 1D...
             error_estimator-&gt;estimate_error(system, error);
   
             Real global_error = error.l2_norm();
-            <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Adaptive step &quot;</FONT></B> &lt;&lt; a_step &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B> &lt;&lt; std::endl;
+            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Adaptive step &quot;</FONT></B>
+                         &lt;&lt; a_step
+                         &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;: &quot;</FONT></B>
+                         &lt;&lt; std::endl;
+
             <B><FONT COLOR="#A020F0">if</FONT></B> (global_tolerance != 0.)
-              <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Global_error = &quot;</FONT></B> &lt;&lt; global_error
-                        &lt;&lt; std::endl;
+              <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Global_error = &quot;</FONT></B>
+                           &lt;&lt; global_error
+                           &lt;&lt; std::endl;
+
             <B><FONT COLOR="#A020F0">if</FONT></B> (global_tolerance != 0.)
-              <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Worst element error = &quot;</FONT></B> &lt;&lt; error.maximum()
-                        &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, mean = &quot;</FONT></B> &lt;&lt; error.mean() &lt;&lt; std::endl;
+              <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Worst element error = &quot;</FONT></B>
+                           &lt;&lt; error.maximum()
+                           &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, mean = &quot;</FONT></B>
+                           &lt;&lt; error.mean()
+                           &lt;&lt; std::endl;
   
             <B><FONT COLOR="#A020F0">if</FONT></B> (global_tolerance != 0.)
               {
@@ -2088,11 +2120,12 @@ This problem doesn't make sense in 1D...
             mesh_refinement.refine_and_coarsen_elements();
             equation_systems.reinit();
   
-            <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Refined mesh to &quot;</FONT></B>
-                      &lt;&lt; mesh.n_active_elem()
-                      &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; active elements and &quot;</FONT></B>
-                      &lt;&lt; equation_systems.n_active_dofs()
-                      &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; active dofs.&quot;</FONT></B> &lt;&lt; std::endl;
+            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Refined mesh to &quot;</FONT></B>
+                         &lt;&lt; mesh.n_active_elem()
+                         &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; active elements and &quot;</FONT></B>
+                         &lt;&lt; equation_systems.n_active_dofs()
+                         &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; active dofs.&quot;</FONT></B>
+                         &lt;&lt; std::endl;
           }
         <B><FONT COLOR="#A020F0">if</FONT></B> (a_step == max_adaptivesteps)
           {
@@ -2117,9 +2150,8 @@ This problem doesn't make sense in 1D...
   
             ExodusII_IO(mesh).write_timestep(file_name.str(),
                                              equation_systems,
-                                             1, <I><FONT COLOR="#B22222">/* This number indicates how many time steps
-                                                   are being written to the file */</FONT></I>
-                                             system.time);
+                                             1, <I><FONT COLOR="#B22222">// This number indicates how many time steps
+</FONT></I>                                             system.time);
           }
   #endif <I><FONT COLOR="#B22222">// #ifdef LIBMESH_HAVE_EXODUS_API
 </FONT></I>      }
@@ -2144,6 +2176,7 @@ This problem doesn't make sense in 1D...
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/quadrature.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/string_to_enum.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/zero_function.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/elem.h&quot;</FONT></B>
   
   using namespace libMesh;
   
@@ -2158,12 +2191,12 @@ This problem doesn't make sense in 1D...
       : _u_var(u_var), _v_var(v_var), _w_var(w_var), _Re(Reynolds)
     { <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;_initialized = true; }
   
-    <B><FONT COLOR="#228B22">virtual</FONT></B> Number <B><FONT COLOR="#A020F0">operator</FONT></B>() (<B><FONT COLOR="#228B22">const</FONT></B> Point&amp;, <B><FONT COLOR="#228B22">const</FONT></B> Real = 0)
+    <B><FONT COLOR="#228B22">virtual</FONT></B> Number <B><FONT COLOR="#A020F0">operator</FONT></B>() (<B><FONT COLOR="#228B22">const</FONT></B> Point &amp;, <B><FONT COLOR="#228B22">const</FONT></B> Real = 0)
     { libmesh_not_implemented(); }
   
-    <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#A020F0">operator</FONT></B>() (<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
+    <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> <B><FONT COLOR="#A020F0">operator</FONT></B>() (<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
                              <B><FONT COLOR="#228B22">const</FONT></B> Real,
-                             DenseVector&lt;Number&gt;&amp; output)
+                             DenseVector&lt;Number&gt; &amp; output)
     {
       output.zero();
       <B><FONT COLOR="#228B22">const</FONT></B> Real x=p(0), y=p(1), z=p(2);
@@ -2172,8 +2205,8 @@ This problem doesn't make sense in 1D...
       output(_w_var) = (_Re+1)*(x*x + y*y);
     }
   
-    <B><FONT COLOR="#228B22">virtual</FONT></B> AutoPtr&lt;FunctionBase&lt;Number&gt; &gt; clone() <B><FONT COLOR="#228B22">const</FONT></B>
-    { <B><FONT COLOR="#A020F0">return</FONT></B> AutoPtr&lt;FunctionBase&lt;Number&gt; &gt; (<B><FONT COLOR="#A020F0">new</FONT></B> BdyFunction(_u_var, _v_var, _w_var, _Re)); }
+    <B><FONT COLOR="#228B22">virtual</FONT></B> UniquePtr&lt;FunctionBase&lt;Number&gt; &gt; clone() <B><FONT COLOR="#228B22">const</FONT></B>
+    { <B><FONT COLOR="#A020F0">return</FONT></B> UniquePtr&lt;FunctionBase&lt;Number&gt; &gt; (<B><FONT COLOR="#A020F0">new</FONT></B> BdyFunction(_u_var, _v_var, _w_var, _Re)); }
   
   <B><FONT COLOR="#228B22">private</FONT></B>:
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> _u_var, _v_var, _w_var;
@@ -2259,7 +2292,7 @@ This problem doesn't make sense in 1D...
       }
     <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (application == 2)
       {
-        BdyFunction bdy(u_var,v_var,w_var,Reynolds);
+        BdyFunction bdy(u_var, v_var, w_var, Reynolds);
         <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;get_dof_map().add_dirichlet_boundary
           (DirichletBoundary (all_bdys, uvw, &amp;bdy));
       }
@@ -2269,17 +2302,17 @@ This problem doesn't make sense in 1D...
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> NavierSystem::init_context(DiffContext &amp;context)
+  <B><FONT COLOR="#228B22">void</FONT></B> NavierSystem::init_context(DiffContext &amp; context)
   {
-    FEMContext &amp;c = cast_ref&lt;FEMContext&amp;&gt;(context);
+    FEMContext &amp; c = cast_ref&lt;FEMContext &amp;&gt;(context);
   
-    FEBase* u_elem_fe;
-    FEBase* p_elem_fe;
-    FEBase* u_side_fe;
+    FEBase * u_elem_fe;
+    FEBase * p_elem_fe;
+    FEBase * u_side_fe;
   
-    c.get_element_fe( u_var, u_elem_fe );
-    c.get_element_fe( p_var, p_elem_fe );
-    c.get_side_fe( u_var, u_side_fe );
+    c.get_element_fe(u_var, u_elem_fe);
+    c.get_element_fe(p_var, p_elem_fe);
+    c.get_side_fe(u_var, u_side_fe);
   
     u_elem_fe-&gt;get_JxW();
     u_elem_fe-&gt;get_phi();
@@ -2295,47 +2328,47 @@ This problem doesn't make sense in 1D...
   
   
   <B><FONT COLOR="#228B22">bool</FONT></B> NavierSystem::element_time_derivative (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                              DiffContext &amp;context)
+                                              DiffContext &amp; context)
   {
-    FEMContext &amp;c = cast_ref&lt;FEMContext&amp;&gt;(context);
+    FEMContext &amp; c = cast_ref&lt;FEMContext &amp;&gt;(context);
   
-    FEBase* u_elem_fe;
-    FEBase* p_elem_fe;
+    FEBase * u_elem_fe;
+    FEBase * p_elem_fe;
   
-    c.get_element_fe( u_var, u_elem_fe );
-    c.get_element_fe( p_var, p_elem_fe );
+    c.get_element_fe(u_var, u_elem_fe);
+    c.get_element_fe(p_var, p_elem_fe);
   
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp;JxW = u_elem_fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = u_elem_fe-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = u_elem_fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = u_elem_fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = u_elem_fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = u_elem_fe-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; psi = p_elem_fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; psi = p_elem_fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; qpoint = u_elem_fe-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; qpoint = u_elem_fe-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_p_dofs = c.get_dof_indices( p_var ).size();
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_u_dofs = c.get_dof_indices( u_var ).size();
-    libmesh_assert_equal_to (n_u_dofs, c.get_dof_indices( v_var ).size());
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_p_dofs = c.get_dof_indices(p_var).size();
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_u_dofs = c.get_dof_indices(u_var).size();
+    libmesh_assert_equal_to (n_u_dofs, c.get_dof_indices(v_var).size());
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;get_mesh().mesh_dimension();
-    DenseSubMatrix&lt;Number&gt; &amp;Kuu = c.get_elem_jacobian( u_var, u_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kvv = c.get_elem_jacobian( v_var, v_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kww = c.get_elem_jacobian( w_var, w_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kuv = c.get_elem_jacobian( u_var, v_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kuw = c.get_elem_jacobian( u_var, w_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kvu = c.get_elem_jacobian( v_var, u_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kvw = c.get_elem_jacobian( v_var, w_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kwu = c.get_elem_jacobian( w_var, u_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kwv = c.get_elem_jacobian( w_var, v_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kup = c.get_elem_jacobian( u_var, p_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kvp = c.get_elem_jacobian( v_var, p_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kwp = c.get_elem_jacobian( w_var, p_var );
-    DenseSubVector&lt;Number&gt; &amp;Fu = c.get_elem_residual( u_var );
-    DenseSubVector&lt;Number&gt; &amp;Fv = c.get_elem_residual( v_var );
-    DenseSubVector&lt;Number&gt; &amp;Fw = c.get_elem_residual( w_var );
+    DenseSubMatrix&lt;Number&gt; &amp; Kuu = c.get_elem_jacobian(u_var, u_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kvv = c.get_elem_jacobian(v_var, v_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kww = c.get_elem_jacobian(w_var, w_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kuv = c.get_elem_jacobian(u_var, v_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kuw = c.get_elem_jacobian(u_var, w_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kvu = c.get_elem_jacobian(v_var, u_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kvw = c.get_elem_jacobian(v_var, w_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kwu = c.get_elem_jacobian(w_var, u_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kwv = c.get_elem_jacobian(w_var, v_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kup = c.get_elem_jacobian(u_var, p_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kvp = c.get_elem_jacobian(v_var, p_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kwp = c.get_elem_jacobian(w_var, p_var);
+    DenseSubVector&lt;Number&gt; &amp; Fu = c.get_elem_residual(u_var);
+    DenseSubVector&lt;Number&gt; &amp; Fv = c.get_elem_residual(v_var);
+    DenseSubVector&lt;Number&gt; &amp; Fw = c.get_elem_residual(w_var);
   
     <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_qpoints = c.get_element_qrule().n_points();
   
@@ -2349,18 +2382,18 @@ This problem doesn't make sense in 1D...
           grad_v = c.interior_gradient(v_var, qp),
           grad_w = c.interior_gradient(w_var, qp);
   
-        NumberVectorValue U     (u,     v);
+        NumberVectorValue U (u, v);
         <B><FONT COLOR="#A020F0">if</FONT></B> (dim == 3)
           U(2) = w;
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  u_x = grad_u(0);
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  u_y = grad_u(1);
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  u_z = (dim == 3)?grad_u(2):0;
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  v_x = grad_v(0);
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  v_y = grad_v(1);
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  v_z = (dim == 3)?grad_v(2):0;
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  w_x = (dim == 3)?grad_w(0):0;
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  w_y = (dim == 3)?grad_w(1):0;
-        <B><FONT COLOR="#228B22">const</FONT></B> Number  w_z = (dim == 3)?grad_w(2):0;
+        <B><FONT COLOR="#228B22">const</FONT></B> Number u_x = grad_u(0);
+        <B><FONT COLOR="#228B22">const</FONT></B> Number u_y = grad_u(1);
+        <B><FONT COLOR="#228B22">const</FONT></B> Number u_z = (dim == 3) ? grad_u(2) : 0;
+        <B><FONT COLOR="#228B22">const</FONT></B> Number v_x = grad_v(0);
+        <B><FONT COLOR="#228B22">const</FONT></B> Number v_y = grad_v(1);
+        <B><FONT COLOR="#228B22">const</FONT></B> Number v_z = (dim == 3) ? grad_v(2) : 0;
+        <B><FONT COLOR="#228B22">const</FONT></B> Number w_x = (dim == 3) ? grad_w(0) : 0;
+        <B><FONT COLOR="#228B22">const</FONT></B> Number w_y = (dim == 3) ? grad_w(1) : 0;
+        <B><FONT COLOR="#228B22">const</FONT></B> Number w_z = (dim == 3) ? grad_w(2) : 0;
   
         Point f = <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;forcing(qpoint[qp]);
   
@@ -2447,31 +2480,31 @@ This problem doesn't make sense in 1D...
   
   
   <B><FONT COLOR="#228B22">bool</FONT></B> NavierSystem::element_constraint (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                         DiffContext &amp;context)
+                                         DiffContext &amp; context)
   {
-    FEMContext &amp;c = cast_ref&lt;FEMContext&amp;&gt;(context);
+    FEMContext &amp; c = cast_ref&lt;FEMContext &amp;&gt;(context);
   
-    FEBase* u_elem_fe;
-    FEBase* p_elem_fe;
+    FEBase * u_elem_fe;
+    FEBase * p_elem_fe;
   
-    c.get_element_fe( u_var, u_elem_fe );
-    c.get_element_fe( p_var, p_elem_fe );
+    c.get_element_fe(u_var, u_elem_fe);
+    c.get_element_fe(p_var, p_elem_fe);
   
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp;JxW = u_elem_fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = u_elem_fe-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = u_elem_fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = u_elem_fe-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; psi = p_elem_fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; psi = p_elem_fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_u_dofs = c.get_dof_indices( u_var ).size();
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_p_dofs = c.get_dof_indices( p_var ).size();
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_u_dofs = c.get_dof_indices(u_var).size();
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_p_dofs = c.get_dof_indices(p_var).size();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;get_mesh().mesh_dimension();
-    DenseSubMatrix&lt;Number&gt; &amp;Kpu = c.get_elem_jacobian( p_var, u_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kpv = c.get_elem_jacobian( p_var, v_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kpw = c.get_elem_jacobian( p_var, w_var );
-    DenseSubVector&lt;Number&gt; &amp;Fp = c.get_elem_residual( p_var );
+    DenseSubMatrix&lt;Number&gt; &amp; Kpu = c.get_elem_jacobian(p_var, u_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kpv = c.get_elem_jacobian(p_var, v_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kpw = c.get_elem_jacobian(p_var, w_var);
+    DenseSubVector&lt;Number&gt; &amp; Fp = c.get_elem_residual(p_var);
   
     <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_qpoints = c.get_element_qrule().n_points();
   
@@ -2510,23 +2543,23 @@ This problem doesn't make sense in 1D...
   
   
   <B><FONT COLOR="#228B22">bool</FONT></B> NavierSystem::side_constraint (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                      DiffContext &amp;context)
+                                      DiffContext &amp; context)
   {
-    FEMContext &amp;c = cast_ref&lt;FEMContext&amp;&gt;(context);
+    FEMContext &amp; c = cast_ref&lt;FEMContext &amp;&gt;(context);
   
-    FEBase* p_elem_fe;
+    FEBase * p_elem_fe;
   
-    c.get_element_fe( p_var, p_elem_fe );
+    c.get_element_fe(p_var, p_elem_fe);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> Point zero(0.,0.);
+    <B><FONT COLOR="#228B22">const</FONT></B> Point zero(0., 0.);
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>( c.get_elem().contains_point(zero))
+    <B><FONT COLOR="#A020F0">if</FONT></B> (c.get_elem().contains_point(zero))
       {
         <B><FONT COLOR="#228B22">const</FONT></B> Real penalty = 1.e9;
   
-        DenseSubMatrix&lt;Number&gt; &amp;Kpp = c.get_elem_jacobian( p_var, p_var );
-        DenseSubVector&lt;Number&gt; &amp;Fp = c.get_elem_residual( p_var );
-        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_p_dofs = c.get_dof_indices( p_var ).size();
+        DenseSubMatrix&lt;Number&gt; &amp; Kpp = c.get_elem_jacobian(p_var, p_var);
+        DenseSubVector&lt;Number&gt; &amp; Fp = c.get_elem_residual(p_var);
+        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_p_dofs = c.get_dof_indices(p_var).size();
   
         Number p = c.point_value(p_var, zero);
         Number p_value = 0.;
@@ -2559,28 +2592,28 @@ This problem doesn't make sense in 1D...
   
   
   <B><FONT COLOR="#228B22">bool</FONT></B> NavierSystem::mass_residual (<B><FONT COLOR="#228B22">bool</FONT></B> request_jacobian,
-                                    DiffContext &amp;context)
+                                    DiffContext &amp; context)
   {
-    FEMContext &amp;c = cast_ref&lt;FEMContext&amp;&gt;(context);
+    FEMContext &amp; c = cast_ref&lt;FEMContext &amp;&gt;(context);
   
-    FEBase* u_elem_fe;
+    FEBase * u_elem_fe;
   
-    c.get_element_fe( u_var, u_elem_fe );
+    c.get_element_fe(u_var, u_elem_fe);
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;get_mesh().mesh_dimension();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp;JxW = u_elem_fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = u_elem_fe-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = u_elem_fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = u_elem_fe-&gt;get_phi();
   
-    DenseSubVector&lt;Number&gt; &amp;Fu = c.get_elem_residual( u_var );
-    DenseSubVector&lt;Number&gt; &amp;Fv = c.get_elem_residual( v_var );
-    DenseSubVector&lt;Number&gt; &amp;Fw = c.get_elem_residual( w_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kuu = c.get_elem_jacobian( u_var, u_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kvv = c.get_elem_jacobian( v_var, v_var );
-    DenseSubMatrix&lt;Number&gt; &amp;Kww = c.get_elem_jacobian( w_var, w_var );
+    DenseSubVector&lt;Number&gt; &amp; Fu = c.get_elem_residual(u_var);
+    DenseSubVector&lt;Number&gt; &amp; Fv = c.get_elem_residual(v_var);
+    DenseSubVector&lt;Number&gt; &amp; Fw = c.get_elem_residual(w_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kuu = c.get_elem_jacobian(u_var, u_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kvv = c.get_elem_jacobian(v_var, v_var);
+    DenseSubMatrix&lt;Number&gt; &amp; Kww = c.get_elem_jacobian(w_var, w_var);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_u_dofs = c.get_dof_indices( u_var ).size();
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_u_dofs = c.get_dof_indices(u_var).size();
   
     <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_qpoints = c.get_element_qrule().n_points();
   
@@ -2644,16 +2677,17 @@ This problem doesn't make sense in 1D...
       v = point_value(v_var, p),
       w = (dim == 3) ? point_value(w_var, p) : 0;
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;u(1/3,1/3) = (&quot;</FONT></B>
-              &lt;&lt; u &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, &quot;</FONT></B>
-              &lt;&lt; v &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, &quot;</FONT></B>
-              &lt;&lt; w &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;)&quot;</FONT></B> &lt;&lt; std::endl;
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;u(1/3,1/3) = (&quot;</FONT></B>
+                 &lt;&lt; u &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, &quot;</FONT></B>
+                 &lt;&lt; v &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, &quot;</FONT></B>
+                 &lt;&lt; w &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;)&quot;</FONT></B>
+                 &lt;&lt; std::endl;
   }
   
   
   
   
-  Point NavierSystem::forcing(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p)
+  Point NavierSystem::forcing(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p)
   {
     <B><FONT COLOR="#A020F0">switch</FONT></B> (application)
       {
@@ -2716,8 +2750,8 @@ This problem doesn't make sense in 1D...
 ***************************************************************
  
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=1681
     n_local_nodes()=1681
   n_elem()=400
@@ -2752,206 +2786,225 @@ This problem doesn't make sense in 1D...
       Number of DoF Constraints = 320
       Number of Heterogenous Constraints= 41
       Average DoF Constraint Length= 0
-      Number of Node Constraints = 0
 
 
 
 Solving time step 0, time = 0
 Assembling the System
-Nonlinear Residual: 0.0439835
-Linear solve starting, tolerance 4.39835e-05
-Linear solve finished, step 54, residual 0.00670157
+Nonlinear Residual: 8.91374
+Linear solve starting, tolerance 0.001
+Linear solve finished, step 23, residual 0.148405
 Trying full Newton step
-  Current Residual: 4.23636e-05
-  Nonlinear solver converged, step 0, residual reduction 0.000963171 < 0.001
-  Nonlinear solver relative step size 35.2472 > 0.001
-u(1/3,1/3) = (-0.0319295, 0.0160332, 0)
+  Current Residual: 0.151381
+  Nonlinear step: |du|/|u| = 0.99946, |du| = 194.712
+Assembling the System
+Nonlinear Residual: 0.151381
+Linear solve starting, tolerance 0.000151381
+Linear solve finished, step 324, residual 8.33816e-05
+Trying full Newton step
+  Current Residual: 0.000532267
+  Nonlinear solver converged, step 1, residual reduction 5.9713e-05 < 0.001
+  Nonlinear solver relative step size 0.0541853 > 0.001
+u(1/3,1/3) = (-0.121174, 0.0709801, 0)
 
 
 Solving time step 1, time = 0.005
 Assembling the System
-Nonlinear Residual: 0.00407258
-Linear solve starting, tolerance 4.07258e-06
-Linear solve finished, step 159, residual 1.24384e-05
+Nonlinear Residual: 0.000532267
+Linear solve starting, tolerance 5.32267e-07
+Linear solve finished, step 1072, residual 1.04563e-08
 Trying full Newton step
-  Current Residual: 2.26273e-06
-  Nonlinear solver converged, step 0, residual reduction 5.1445e-05 < 0.001
-  Nonlinear solver relative step size 0.161816 > 0.001
-u(1/3,1/3) = (-0.0499332, 0.0258684, 0)
+  Current Residual: 3.6894e-09
+  Nonlinear solver converged, step 0, residual reduction 4.139e-10 < 0.001
+  Nonlinear solver converged, step 0, relative step size 0.000768437 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 2, time = 0.01
 Assembling the System
-Nonlinear Residual: 0.00128425
-Linear solve starting, tolerance 1.28425e-06
-Linear solve finished, step 226, residual 1.01884e-06
+Nonlinear Residual: 3.6894e-09
+Linear solve starting, tolerance 3.6894e-12
+Linear solve finished, step 2988, residual 4.94884e-20
 Trying full Newton step
-  Current Residual: 6.45253e-07
-  Nonlinear solver converged, step 0, residual reduction 1.46703e-05 < 0.001
-  Nonlinear solver relative step size 0.0468216 > 0.001
-u(1/3,1/3) = (-0.0633744, 0.0334934, 0)
+  Current Residual: 3.70259e-15
+  Nonlinear solver converged, step 0, residual reduction 4.1538e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 7.2649e-08 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 3, time = 0.015
 Assembling the System
-Nonlinear Residual: 0.000716339
-Linear solve starting, tolerance 7.16339e-07
-Linear solve finished, step 128, residual 1.89216e-07
+Nonlinear Residual: 3.70259e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2387, residual 6.75488e-26
 Trying full Newton step
-  Current Residual: 2.65102e-07
-  Nonlinear solver converged, step 0, residual reduction 6.02731e-06 < 0.001
-  Nonlinear solver relative step size 0.0199863 > 0.001
-u(1/3,1/3) = (-0.0741608, 0.0397249, 0)
+  Current Residual: 2.86976e-15
+  Nonlinear solver converged, step 0, residual reduction 3.21948e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 2.57965e-15 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 4, time = 0.02
 Assembling the System
-Nonlinear Residual: 0.000467956
-Linear solve starting, tolerance 4.67956e-07
-Linear solve finished, step 178, residual 1.03622e-07
+Nonlinear Residual: 2.86976e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2264, residual 3.88067e-26
 Trying full Newton step
-  Current Residual: 1.26857e-07
-  Nonlinear solver converged, step 0, residual reduction 2.8842e-06 < 0.001
-  Nonlinear solver relative step size 0.0107811 > 0.001
-u(1/3,1/3) = (-0.0829804, 0.0449071, 0)
+  Current Residual: 3.00722e-15
+  Nonlinear solver converged, step 0, residual reduction 3.37368e-16 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 5, time = 0.025
 Assembling the System
-Nonlinear Residual: 0.000327913
-Linear solve starting, tolerance 3.27913e-07
-Linear solve finished, step 236, residual 3.8425e-08
+Nonlinear Residual: 3.00722e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 1587, residual 3.93109e-26
 Trying full Newton step
-  Current Residual: 6.58028e-08
-  Nonlinear solver converged, step 0, residual reduction 1.49608e-06 < 0.001
-  Nonlinear solver relative step size 0.00654133 > 0.001
-u(1/3,1/3) = (-0.0901936, 0.0492408, 0)
+  Current Residual: 3.00354e-15
+  Nonlinear solver converged, step 0, residual reduction 3.36956e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 1.52755e-15 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 6, time = 0.03
 Assembling the System
-Nonlinear Residual: 0.000238805
-Linear solve starting, tolerance 2.38805e-07
-Linear solve finished, step 186, residual 3.01243e-08
+Nonlinear Residual: 3.00354e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 1500, residual 4.08942e-26
 Trying full Newton step
-  Current Residual: 3.58255e-08
-  Nonlinear solver converged, step 0, residual reduction 8.14521e-07 < 0.001
-  Nonlinear solver relative step size 0.00424093 > 0.001
-u(1/3,1/3) = (-0.0960568, 0.0528657, 0)
+  Current Residual: 2.89034e-15
+  Nonlinear solver converged, step 0, residual reduction 3.24256e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 2.15553e-14 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 7, time = 0.035
 Assembling the System
-Nonlinear Residual: 0.000178105
-Linear solve starting, tolerance 1.78105e-07
-Linear solve finished, step 195, residual 1.2375e-08
+Nonlinear Residual: 2.89034e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 1618, residual 4.15309e-26
 Trying full Newton step
-  Current Residual: 2.01634e-08
-  Nonlinear solver converged, step 0, residual reduction 4.58431e-07 < 0.001
-  Nonlinear solver relative step size 0.00286307 > 0.001
-u(1/3,1/3) = (-0.100787, 0.0558896, 0)
+  Current Residual: 2.76649e-15
+  Nonlinear solver converged, step 0, residual reduction 3.10363e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 2.50199e-16 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 8, time = 0.04
 Assembling the System
-Nonlinear Residual: 0.000134971
-Linear solve starting, tolerance 1.34971e-07
-Linear solve finished, step 129, residual 9.11656e-09
+Nonlinear Residual: 2.76649e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2396, residual 8.42985e-26
 Trying full Newton step
-  Current Residual: 1.16181e-08
-  Nonlinear solver converged, step 0, residual reduction 2.64147e-07 < 0.001
-  Nonlinear solver relative step size 0.00198383 > 0.001
-u(1/3,1/3) = (-0.104576, 0.0584018, 0)
+  Current Residual: 2.86854e-15
+  Nonlinear solver converged, step 0, residual reduction 3.21811e-16 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 9, time = 0.045
 Assembling the System
-Nonlinear Residual: 0.000103444
-Linear solve starting, tolerance 1.03444e-07
-Linear solve finished, step 132, residual 3.6237e-09
+Nonlinear Residual: 2.86854e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2846, residual 5.20961e-26
 Trying full Newton step
-  Current Residual: 6.81645e-09
-  Nonlinear solver converged, step 0, residual reduction 1.54977e-07 < 0.001
-  Nonlinear solver relative step size 0.00139965 > 0.001
-u(1/3,1/3) = (-0.107595, 0.0604793, 0)
+  Current Residual: 2.69779e-15
+  Nonlinear solver converged, step 0, residual reduction 3.02656e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 1.50625e-14 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 10, time = 0.05
 Assembling the System
-Nonlinear Residual: 7.99401e-05
-Linear solve starting, tolerance 7.99401e-08
-Linear solve finished, step 115, residual 2.32138e-09
+Nonlinear Residual: 2.69779e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2429, residual 6.72758e-26
 Trying full Newton step
-  Current Residual: 4.05759e-09
-  Nonlinear solver converged, step 0, residual reduction 9.22526e-08 < 0.001
-  Nonlinear solver relative step size 0.00100107 > 0.001
-u(1/3,1/3) = (-0.109989, 0.0621891, 0)
+  Current Residual: 2.78119e-15
+  Nonlinear solver converged, step 0, residual reduction 3.12011e-16 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 11, time = 0.055
 Assembling the System
-Nonlinear Residual: 6.21594e-05
-Linear solve starting, tolerance 6.21594e-08
-Linear solve finished, step 187, residual 1.82709e-09
+Nonlinear Residual: 2.78119e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2819, residual 6.70115e-26
 Trying full Newton step
-  Current Residual: 2.44229e-09
-  Nonlinear solver converged, step 0, residual reduction 5.55275e-08 < 0.001
-  Nonlinear solver converged, step 0, relative step size 0.000724232 < 0.001
-u(1/3,1/3) = (-0.111882, 0.0635899, 0)
+  Current Residual: 2.93064e-15
+  Nonlinear solver converged, step 0, residual reduction 3.28778e-16 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 12, time = 0.06
 Assembling the System
-Nonlinear Residual: 4.85595e-05
-Linear solve starting, tolerance 4.85595e-08
-Linear solve finished, step 187, residual 1.28202e-09
+Nonlinear Residual: 2.93064e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2658, residual 5.47546e-26
 Trying full Newton step
-  Current Residual: 1.48382e-09
-  Nonlinear solver converged, step 0, residual reduction 3.37358e-08 < 0.001
-  Nonlinear solver converged, step 0, relative step size 0.000529401 < 0.001
-u(1/3,1/3) = (-0.113377, 0.0647328, 0)
+  Current Residual: 2.79907e-15
+  Nonlinear solver converged, step 0, residual reduction 3.14017e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 5.5229e-14 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 13, time = 0.065
 Assembling the System
-Nonlinear Residual: 3.80696e-05
-Linear solve starting, tolerance 3.80696e-08
-Linear solve finished, step 212, residual 7.98719e-10
+Nonlinear Residual: 2.79907e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2359, residual 3.64948e-26
 Trying full Newton step
-  Current Residual: 9.08414e-10
-  Nonlinear solver converged, step 0, residual reduction 2.06535e-08 < 0.001
-  Nonlinear solver converged, step 0, relative step size 0.000390795 < 0.001
-u(1/3,1/3) = (-0.114554, 0.0656617, 0)
+  Current Residual: 2.64323e-15
+  Nonlinear solver converged, step 0, residual reduction 2.96534e-16 < 0.001
+  Nonlinear solver converged, step 0, relative step size 9.49509e-15 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
 
 Solving time step 14, time = 0.07
 Assembling the System
-Nonlinear Residual: 2.99259e-05
-Linear solve starting, tolerance 2.99259e-08
-Linear solve finished, step 190, residual 4.77508e-10
+Nonlinear Residual: 2.64323e-15
+Linear solve starting, tolerance 1e-12
+Linear solve finished, step 2327, residual 3.48849e-26
 Trying full Newton step
-  Current Residual: 5.58995e-10
-  Nonlinear solver converged, step 0, residual reduction 1.27092e-08 < 0.001
-  Nonlinear solver converged, step 0, relative step size 0.000291221 < 0.001
-u(1/3,1/3) = (-0.115482, 0.0664141, 0)
+  Current Residual: 2.70471e-15
+  Nonlinear solver converged, step 0, residual reduction 3.03432e-16 < 0.001
+u(1/3,1/3) = (-0.12115, 0.0709841, 0)
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:39:50 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 15:23:12 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=2.58982, Active time=2.4787                                                     |
+| libMesh Performance: Alive time=9.11619, Active time=9.07626                                                    |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -2959,67 +3012,66 @@ u(1/3,1/3) = (-0.115482, 0.0664141, 0)
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     1          0.0002      0.000248    0.0002      0.000248    0.01     0.01     |
-|   build_constraint_matrix()        12000      0.0203      0.000002    0.0203      0.000002    0.82     0.82     |
-|   build_sparsity()                 1          0.0052      0.005233    0.0058      0.005838    0.21     0.24     |
-|   cnstrn_elem_mat_vec()            6000       0.0277      0.000005    0.0277      0.000005    1.12     1.12     |
-|   constrain_elem_vector()          6000       0.0041      0.000001    0.0041      0.000001    0.17     0.17     |
-|   create_dof_constraints()         1          0.0040      0.003958    0.0082      0.008210    0.16     0.33     |
-|   distribute_dofs()                1          0.0004      0.000443    0.0015      0.001506    0.02     0.06     |
-|   dof_indices()                    68150      0.0592      0.000001    0.0592      0.000001    2.39     2.39     |
-|   enforce_constraints_exactly()    45         0.0040      0.000089    0.0040      0.000089    0.16     0.16     |
-|   prepare_send_list()              1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         1          0.0011      0.001063    0.0011      0.001063    0.04     0.04     |
+|   add_neighbors_to_send_list()     1          0.0002      0.000190    0.0002      0.000190    0.00     0.00     |
+|   build_constraint_matrix()        12800      0.0107      0.000001    0.0107      0.000001    0.12     0.12     |
+|   build_sparsity()                 1          0.0037      0.003708    0.0040      0.004027    0.04     0.04     |
+|   cnstrn_elem_mat_vec()            6400       0.0131      0.000002    0.0131      0.000002    0.14     0.14     |
+|   constrain_elem_vector()          6400       0.0025      0.000000    0.0025      0.000000    0.03     0.03     |
+|   create_dof_constraints()         1          0.0029      0.002931    0.0051      0.005063    0.03     0.06     |
+|   distribute_dofs()                1          0.0003      0.000265    0.0012      0.001231    0.00     0.01     |
+|   dof_indices()                    71230      0.0200      0.000000    0.0200      0.000000    0.22     0.22     |
+|   enforce_constraints_exactly()    46         0.0020      0.000044    0.0020      0.000044    0.02     0.02     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0010      0.000966    0.0010      0.000966    0.01     0.01     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          15         0.0233      0.001553    0.0375      0.002501    0.94     1.51     |
+|   build_solution_vector()          15         0.0124      0.000824    0.0174      0.001157    0.14     0.19     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               15         0.0283      0.001887    0.0283      0.001887    1.14     1.14     |
+|   write_nodal_data()               15         0.0219      0.001462    0.0219      0.001462    0.24     0.24     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        77170      0.2036      0.000003    0.2036      0.000003    8.22     8.22     |
-|   init_shape_functions()           5230       0.0093      0.000002    0.0093      0.000002    0.38     0.38     |
-|   inverse_map()                    17940      0.0356      0.000002    0.0356      0.000002    1.44     1.44     |
+|   compute_shape_functions()        82174      0.1171      0.000001    0.1171      0.000001    1.29     1.29     |
+|   init_shape_functions()           5438       0.0039      0.000001    0.0039      0.000001    0.04     0.04     |
+|   inverse_map()                    20748      0.0145      0.000001    0.0145      0.000001    0.16     0.16     |
 |                                                                                                                 |
 | FEMSystem                                                                                                       |
-|   assembly()                       15         0.3867      0.025780    0.6424      0.042824    15.60    25.92    |
-|   assembly(get_residual)           15         0.1345      0.008966    0.3620      0.024132    5.43     14.60    |
+|   assembly()                       16         0.2305      0.014405    0.3791      0.023692    2.54     4.18     |
+|   assembly(get_residual)           16         0.0717      0.004484    0.2008      0.012550    0.79     2.21     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             77050      0.0773      0.000001    0.0773      0.000001    3.12     3.12     |
-|   compute_face_map()               4960       0.0183      0.000004    0.0488      0.000010    0.74     1.97     |
-|   compute_null_map()               120        0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   init_face_shape_functions()      220        0.0002      0.000001    0.0002      0.000001    0.01     0.01     |
-|   init_reference_to_physical_map() 5110       0.0238      0.000005    0.0238      0.000005    0.96     0.96     |
+|   compute_affine_map()             82174      0.0610      0.000001    0.0610      0.000001    0.67     0.67     |
+|   compute_face_map()               5280       0.0074      0.000001    0.0199      0.000004    0.08     0.22     |
+|   init_face_shape_functions()      224        0.0002      0.000001    0.0002      0.000001    0.00     0.00     |
+|   init_reference_to_physical_map() 5438       0.0118      0.000002    0.0118      0.000002    0.13     0.13     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   find_neighbors()                 1          0.0006      0.000600    0.0006      0.000600    0.02     0.02     |
-|   renumber_nodes_and_elem()        2          0.0001      0.000041    0.0001      0.000041    0.00     0.00     |
+|   find_neighbors()                 1          0.0007      0.000701    0.0007      0.000701    0.01     0.01     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000022    0.0000      0.000022    0.00     0.00     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         15         0.0003      0.000018    0.0661      0.004406    0.01     2.67     |
+|   write_equation_systems()         15         0.0001      0.000008    0.0394      0.002628    0.00     0.43     |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0005      0.000472    0.0005      0.000472    0.02     0.02     |
+|   build_cube()                     1          0.0005      0.000453    0.0005      0.000453    0.00     0.00     |
 |                                                                                                                 |
 | NewtonSolver                                                                                                    |
-|   solve()                          15         0.0034      0.000230    2.4168      0.161120    0.14     97.50    |
+|   solve()                          15         0.0032      0.000213    9.0472      0.603147    0.04     99.68    |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               1          0.0001      0.000055    0.0001      0.000055    0.00     0.00     |
+|   single_partition()               1          0.0000      0.000027    0.0000      0.000027    0.00     0.00     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          15         1.4050      0.093667    1.4050      0.093667    56.68    56.68    |
+|   solve()                          16         8.4621      0.528881    8.4621      0.528881    93.23    93.23    |
 |                                                                                                                 |
 | PointLocatorTree                                                                                                |
-|   init(no master)                  1          0.0010      0.001014    0.0010      0.001014    0.04     0.04     |
-|   operator()                       30         0.0005      0.000017    0.0015      0.000050    0.02     0.06     |
+|   init(no master)                  1          0.0002      0.000232    0.0002      0.000232    0.00     0.00     |
+|   operator()                       30         0.0007      0.000024    0.0023      0.000076    0.01     0.03     |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            280143     2.4787                                          100.00            |
+| Totals:                            298504     9.0763                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
