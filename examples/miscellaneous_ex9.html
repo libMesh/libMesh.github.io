@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -59,12 +59,12 @@
 </pre>
 </div>
 <div class = "comment">
-Convenient typedef for a map for (element id,side id) --> element neighbor id
+Convenient typedef for a map for (element id, side id) --> element neighbor id
 </div>
 
 <div class ="fragment">
 <pre>
-        typedef std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, dof_id_type&gt; ElementIdMap;
+        typedef std::map&lt;std::pair&lt;dof_id_type, unsigned char&gt;, dof_id_type&gt; ElementIdMap;
         
         class AugmentSparsityOnInterface : public DofMap::AugmentSparsityPattern
         {
@@ -73,7 +73,7 @@ Convenient typedef for a map for (element id,side id) --> element neighbor id
           /**
            * The EquationSystems object that we're using here.
            */
-          EquationSystems& _es;
+          EquationSystems & _es;
         
           /**
            * A map from (lower element ID, side ID) to matching upper element ID. Here "lower"
@@ -92,14 +92,14 @@ Convenient typedef for a map for (element id,side id) --> element neighbor id
           /**
            * Constructor.
            */
-          AugmentSparsityOnInterface(EquationSystems& es,
+          AugmentSparsityOnInterface(EquationSystems & es,
                                      boundary_id_type crack_boundary_lower,
                                      boundary_id_type crack_boundary_upper);
         
           /**
            * @return a const reference to the lower-to-upper element ID map.
            */
-          const ElementIdMap& get_lower_to_upper() const;
+          const ElementIdMap & get_lower_to_upper() const;
         
           /**
            * User-defined function to augment the sparsity pattern.
@@ -107,7 +107,6 @@ Convenient typedef for a map for (element id,side id) --> element neighbor id
           virtual void augment_sparsity_pattern (libMesh::SparsityPattern::Graph & ,
                                                  std::vector&lt;dof_id_type&gt; & n_nz,
                                                  std::vector&lt;dof_id_type&gt; & n_oz);
-        
         };
         
         #endif
@@ -132,24 +131,24 @@ libMesh includes
 <div class ="fragment">
 <pre>
         #include "libmesh/linear_implicit_system.h"
-        
+        #include "libmesh/elem.h"
+
         using namespace libMesh;
         
-        AugmentSparsityOnInterface::AugmentSparsityOnInterface(EquationSystems& es,
+        AugmentSparsityOnInterface::AugmentSparsityOnInterface(EquationSystems & es,
                                                                boundary_id_type crack_boundary_lower,
-                                                               boundary_id_type crack_boundary_upper)
-          :
+                                                               boundary_id_type crack_boundary_upper) :
           _es(es),
           _crack_boundary_lower(crack_boundary_lower),
           _crack_boundary_upper(crack_boundary_upper)
         {}
         
-        const ElementIdMap& AugmentSparsityOnInterface::get_lower_to_upper() const
+        const ElementIdMap & AugmentSparsityOnInterface::get_lower_to_upper() const
         {
           return _lower_to_upper;
         }
         
-        void AugmentSparsityOnInterface::augment_sparsity_pattern (SparsityPattern::Graph & ,
+        void AugmentSparsityOnInterface::augment_sparsity_pattern (SparsityPattern::Graph &,
                                                                    std::vector&lt;dof_id_type&gt; & n_nz,
                                                                    std::vector&lt;dof_id_type&gt; & n_oz)
         {
@@ -161,7 +160,7 @@ get a constant reference to the mesh object
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = _es.get_mesh();
+          const MeshBase & mesh = _es.get_mesh();
         
 </pre>
 </div>
@@ -181,26 +180,25 @@ Loop over all elements (not just local elements) to make sure we find
 </pre>
 </div>
 <div class = "comment">
-Map from (elem,side) to centroid
+Map from (elem, side) to centroid
 </div>
 
 <div class ="fragment">
 <pre>
-          std::map&lt; std::pair&lt;dof_id_type,unsigned char&gt;, Point&gt; lower_centroids;
-          std::map&lt; std::pair&lt;dof_id_type,unsigned char&gt;, Point&gt; upper_centroids;
+          std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, Point&gt; lower_centroids;
+          std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, Point&gt; upper_centroids;
         
           for ( ; el != end_el; ++el)
             {
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
               {
                 for (unsigned char side=0; side&lt;elem-&gt;n_sides(); side++)
-                  if (elem-&gt;neighbor(side) == NULL)
+                  if (elem-&gt;neighbor(side) == libmesh_nullptr)
                     {
-                      if( mesh.get_boundary_info().has_boundary_id
-                            (elem,side, _crack_boundary_lower) )
+                      if (mesh.get_boundary_info().has_boundary_id(elem, side, _crack_boundary_lower))
                         {
-                          AutoPtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
+                          UniquePtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
         
                           lower_centroids[std::make_pair(elem-&gt;id(), side)] = side_elem-&gt;centroid();
                         }
@@ -209,12 +207,11 @@ Map from (elem,side) to centroid
         
               {
                 for (unsigned char side=0; side&lt;elem-&gt;n_sides(); side++)
-                  if (elem-&gt;neighbor(side) == NULL)
+                  if (elem-&gt;neighbor(side) == libmesh_nullptr)
                     {
-                      if( mesh.get_boundary_info().has_boundary_id
-                            (elem,side, _crack_boundary_upper) )
+                      if (mesh.get_boundary_info().has_boundary_id(elem, side, _crack_boundary_upper))
                         {
-                          AutoPtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
+                          UniquePtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
         
                           upper_centroids[std::make_pair(elem-&gt;id(), side)] = side_elem-&gt;centroid();
                         }
@@ -255,9 +252,9 @@ e.g. by first sorting the centroids based on their (x,y,z) location.
 <div class ="fragment">
 <pre>
           {
-            std::map&lt; std::pair&lt;dof_id_type,unsigned char&gt;, Point&gt;::iterator it     = lower_centroids.begin();
-            std::map&lt; std::pair&lt;dof_id_type,unsigned char&gt;, Point&gt;::iterator it_end = lower_centroids.end();
-            for( ; it != it_end; ++it)
+            std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, Point&gt;::iterator it     = lower_centroids.begin();
+            std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, Point&gt;::iterator it_end = lower_centroids.end();
+            for ( ; it != it_end; ++it)
               {
                 Point lower_centroid = it-&gt;second;
         
@@ -269,16 +266,16 @@ find centroid in upper_centroids
 
 <div class ="fragment">
 <pre>
-                std::map&lt; std::pair&lt;dof_id_type,unsigned char&gt;, Point&gt;::iterator inner_it     = upper_centroids.begin();
-                std::map&lt; std::pair&lt;dof_id_type,unsigned char&gt;, Point&gt;::iterator inner_it_end = upper_centroids.end();
+                std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, Point&gt;::iterator inner_it     = upper_centroids.begin();
+                std::map&lt; std::pair&lt;dof_id_type, unsigned char&gt;, Point&gt;::iterator inner_it_end = upper_centroids.end();
         
                 Real min_distance = std::numeric_limits&lt;Real&gt;::max();
-                for( ; inner_it != inner_it_end; ++inner_it)
+                for ( ; inner_it != inner_it_end; ++inner_it)
                   {
                     Point upper_centroid = inner_it-&gt;second;
         
                     Real distance = (upper_centroid - lower_centroid).size();
-                    if( distance &lt; min_distance )
+                    if (distance &lt; min_distance)
                       {
                         min_distance = distance;
                         _lower_to_upper[it-&gt;first] = inner_it-&gt;first.first;
@@ -311,9 +308,9 @@ fill up a "two way element ID map" which we iterate over below
           }
         
           {
-            const LinearImplicitSystem &system =
+            const LinearImplicitSystem & system =
               _es.get_system&lt;LinearImplicitSystem&gt; ("Poisson");
-            const DofMap &dof_map = system.get_dof_map();
+            const DofMap & dof_map = system.get_dof_map();
             const unsigned int sys_num = system.number();
             const unsigned int var_num = system.variable_number("u");
         
@@ -330,7 +327,7 @@ Create a set that will have the DoF numbers we need to augment the sparsity patt
             std::map&lt;dof_id_type, dof_id_type&gt;::iterator it     = two_way_element_ID_map.begin();
             std::map&lt;dof_id_type, dof_id_type&gt;::iterator it_end = two_way_element_ID_map.end();
         
-            for( ; it != it_end; ++it)
+            for ( ; it != it_end; ++it)
               {
                 local_coupled_dofs.clear();
                 remote_coupled_dofs.clear();
@@ -343,7 +340,7 @@ get a pointer to the one of the elements on the crack
 
 <div class ="fragment">
 <pre>
-                const Elem* this_elem = mesh.elem(it-&gt;first);
+                const Elem * this_elem = mesh.elem(it-&gt;first);
         
 </pre>
 </div>
@@ -354,7 +351,7 @@ of the "crack" in the mesh
 
 <div class ="fragment">
 <pre>
-                const Elem* neighbor_elem = mesh.elem(it-&gt;second);
+                const Elem * neighbor_elem = mesh.elem(it-&gt;second);
         
 </pre>
 </div>
@@ -367,7 +364,7 @@ These will be used to augment the sparsity patttern.
 <pre>
                 for (unsigned int n=0; n&lt;neighbor_elem-&gt;n_nodes(); n++)
                   {
-                    const dof_id_type global_dof_number = neighbor_elem-&gt;get_node(n)-&gt;dof_number(sys_num,var_num,0);
+                    const dof_id_type global_dof_number = neighbor_elem-&gt;get_node(n)-&gt;dof_number(sys_num, var_num, 0);
         
 </pre>
 </div>
@@ -401,7 +398,7 @@ to account for these dofs
                 for (unsigned int nl=0; nl&lt;this_elem-&gt;n_nodes(); nl++)
                   {
                     const dof_id_type
-                      global_dof_number = this_elem-&gt;get_node(nl)-&gt;dof_number(sys_num,var_num,0),
+                      global_dof_number = this_elem-&gt;get_node(nl)-&gt;dof_number(sys_num, var_num, 0),
                       n_local_dofs      = dof_map.n_local_dofs(),
                       n_remote_dofs     = dof_map.n_dofs() - n_local_dofs;
         
@@ -520,8 +517,8 @@ Bring in everything from the libMesh namespace
         /**
          * Assemble the system matrix and rhs vector.
          */
-        void assemble_poisson(EquationSystems& es,
-                              const ElementIdMap& lower_to_upper);
+        void assemble_poisson(EquationSystems & es,
+                              const ElementIdMap & lower_to_upper);
         
 </pre>
 </div>
@@ -531,7 +528,7 @@ The main program.
 
 <div class ="fragment">
 <pre>
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -578,7 +575,7 @@ Skip this 3D example if libMesh was compiled as 1D or 2D-only.
           GetPot command_line (argc, argv);
         
           Real R = 2.;
-          if ( command_line.search(1, "-R") )
+          if (command_line.search(1, "-R"))
             R = command_line.next(R);
         
 </pre>
@@ -595,7 +592,7 @@ trickier.
         
           EquationSystems equation_systems (mesh);
         
-          LinearImplicitSystem& system =
+          LinearImplicitSystem & system =
             equation_systems.add_system&lt;LinearImplicitSystem&gt; ("Poisson");
           system.add_variable("u", FIRST, LAGRANGE);
         
@@ -683,23 +680,23 @@ Plot the solution
           return 0;
         }
         
-        void assemble_poisson(EquationSystems& es,
-                              const ElementIdMap& lower_to_upper)
+        void assemble_poisson(EquationSystems & es,
+                              const ElementIdMap & lower_to_upper)
         {
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
           const unsigned int dim = mesh.mesh_dimension();
         
           Real R = es.parameters.get&lt;Real&gt;("R");
         
-          LinearImplicitSystem& system = es.get_system&lt;LinearImplicitSystem&gt;("Poisson");
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt;("Poisson");
         
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
         
           FEType fe_type = dof_map.variable_type(0);
         
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
-          AutoPtr&lt;FEBase&gt; fe_elem_face (FEBase::build(dim, fe_type));
-          AutoPtr&lt;FEBase&gt; fe_neighbor_face (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_elem_face (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_neighbor_face (FEBase::build(dim, fe_type));
         
           QGauss qrule (dim, fe_type.default_quadrature_order());
           QGauss qface(dim-1, fe_type.default_quadrature_order());
@@ -708,16 +705,16 @@ Plot the solution
           fe_elem_face-&gt;attach_quadrature_rule (&qface);
           fe_neighbor_face-&gt;attach_quadrature_rule (&qface);
         
-          const std::vector&lt;Real&gt;& JxW = fe-&gt;get_JxW();
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
-          const std::vector&lt;Real&gt;& JxW_face = fe_elem_face-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW_face = fe_elem_face-&gt;get_JxW();
         
-          const std::vector&lt;Point&gt;& qface_points = fe_elem_face-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & qface_points = fe_elem_face-&gt;get_xyz();
         
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;&  phi_face          = fe_elem_face-&gt;get_phi();
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;&  phi_neighbor_face = fe_neighbor_face-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi_face          = fe_elem_face-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi_neighbor_face = fe_neighbor_face-&gt;get_phi();
         
           DenseMatrix&lt;Number&gt; Ke;
           DenseVector&lt;Number&gt; Fe;
@@ -734,7 +731,7 @@ Plot the solution
         
           for ( ; el != end_el; ++el)
             {
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
               dof_map.dof_indices (elem, dof_indices);
               const unsigned int n_dofs = dof_indices.size();
@@ -767,19 +764,15 @@ Boundary flux provides forcing in this example
 <pre>
               {
                 for (unsigned int side=0; side&lt;elem-&gt;n_sides(); side++)
-                  if (elem-&gt;neighbor(side) == NULL)
+                  if (elem-&gt;neighbor(side) == libmesh_nullptr)
                     {
-                      if( mesh.get_boundary_info().has_boundary_id (elem,side,MIN_Z_BOUNDARY) )
+                      if (mesh.get_boundary_info().has_boundary_id (elem, side, MIN_Z_BOUNDARY))
                         {
                           fe_elem_face-&gt;reinit(elem, side);
         
                           for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
-                            {
-                              for (unsigned int i=0; i&lt;phi.size(); i++)
-                                {
-                                  Fe(i) += JxW_face[qp] * phi_face[i][qp];
-                                }
-                            }
+                            for (unsigned int i=0; i&lt;phi.size(); i++)
+                              Fe(i) += JxW_face[qp] * phi_face[i][qp];
                         }
         
                     }
@@ -795,7 +788,7 @@ Add boundary terms on the crack
 <pre>
               {
                 for (unsigned int side=0; side&lt;elem-&gt;n_sides(); side++)
-                  if (elem-&gt;neighbor(side) == NULL)
+                  if (elem-&gt;neighbor(side) == libmesh_nullptr)
                     {
 </pre>
 </div>
@@ -805,14 +798,14 @@ Found the lower side of the crack. Assemble terms due to lower and upper in here
 
 <div class ="fragment">
 <pre>
-                      if( mesh.get_boundary_info().has_boundary_id (elem,side,CRACK_BOUNDARY_LOWER) )
+                      if (mesh.get_boundary_info().has_boundary_id (elem, side, CRACK_BOUNDARY_LOWER))
                         {
                           fe_elem_face-&gt;reinit(elem, side);
         
                           ElementIdMap::const_iterator ltu_it =
-                            lower_to_upper.find(std::make_pair(elem-&gt;id(),side));
+                            lower_to_upper.find(std::make_pair(elem-&gt;id(), side));
                           dof_id_type upper_elem_id = ltu_it-&gt;second;
-                          const Elem* neighbor = mesh.elem(upper_elem_id);
+                          const Elem * neighbor = mesh.elem(upper_elem_id);
         
                           std::vector&lt;Point&gt; qface_neighbor_points;
                           FEInterface::inverse_map (elem-&gt;dim(), fe-&gt;get_fe_type(),
@@ -837,13 +830,9 @@ Lower-to-lower coupling term
 <div class ="fragment">
 <pre>
                           for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
-                            {
-                              for (unsigned int i=0; i&lt;n_dofs; i++)
-                                for (unsigned int j=0; j&lt;n_dofs; j++)
-                                  {
-                                    Kee(i,j) -= JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_face[j][qp]);
-                                  }
-                            }
+                            for (unsigned int i=0; i&lt;n_dofs; i++)
+                              for (unsigned int j=0; j&lt;n_dofs; j++)
+                                Kee(i,j) -= JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_face[j][qp]);
         
 </pre>
 </div>
@@ -854,13 +843,9 @@ Lower-to-upper coupling term
 <div class ="fragment">
 <pre>
                           for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
-                            {
-                              for (unsigned int i=0; i&lt;n_dofs; i++)
-                                for (unsigned int j=0; j&lt;n_neighbor_dofs; j++)
-                                  {
-                                    Ken(i,j) += JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_neighbor_face[j][qp]);
-                                  }
-                            }
+                            for (unsigned int i=0; i&lt;n_dofs; i++)
+                              for (unsigned int j=0; j&lt;n_neighbor_dofs; j++)
+                                Ken(i,j) += JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_neighbor_face[j][qp]);
         
 </pre>
 </div>
@@ -871,13 +856,9 @@ Upper-to-upper coupling term
 <div class ="fragment">
 <pre>
                           for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
-                            {
-                              for (unsigned int i=0; i&lt;n_neighbor_dofs; i++)
-                                for (unsigned int j=0; j&lt;n_neighbor_dofs; j++)
-                                  {
-                                    Knn(i,j) -= JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_neighbor_face[j][qp]);
-                                  }
-                            }
+                            for (unsigned int i=0; i&lt;n_neighbor_dofs; i++)
+                              for (unsigned int j=0; j&lt;n_neighbor_dofs; j++)
+                                Knn(i,j) -= JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_neighbor_face[j][qp]);
         
 </pre>
 </div>
@@ -888,18 +869,14 @@ Upper-to-lower coupling term
 <div class ="fragment">
 <pre>
                           for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
-                            {
-                              for (unsigned int i=0; i&lt;n_neighbor_dofs; i++)
-                                for (unsigned int j=0; j&lt;n_dofs; j++)
-                                  {
-                                    Kne(i,j) += JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_face[j][qp]);
-                                  }
-                            }
-        
-                          system.matrix-&gt;add_matrix(Kne,neighbor_dof_indices,dof_indices);
-                          system.matrix-&gt;add_matrix(Ken,dof_indices,neighbor_dof_indices);
-                          system.matrix-&gt;add_matrix(Kee,dof_indices);
-                          system.matrix-&gt;add_matrix(Knn,neighbor_dof_indices);
+                            for (unsigned int i=0; i&lt;n_neighbor_dofs; i++)
+                              for (unsigned int j=0; j&lt;n_dofs; j++)
+                                Kne(i,j) += JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_face[j][qp]);
+
+                          system.matrix-&gt;add_matrix(Kne, neighbor_dof_indices, dof_indices);
+                          system.matrix-&gt;add_matrix(Ken, dof_indices, neighbor_dof_indices);
+                          system.matrix-&gt;add_matrix(Kee, dof_indices);
+                          system.matrix-&gt;add_matrix(Knn, neighbor_dof_indices);
                         }
                     }
               }
@@ -927,7 +904,7 @@ Upper-to-lower coupling term
   using libMesh::dof_id_type;
   using libMesh::boundary_id_type;
   
-  <B><FONT COLOR="#228B22">typedef</FONT></B> std::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, dof_id_type&gt; ElementIdMap;
+  <B><FONT COLOR="#228B22">typedef</FONT></B> std::map&lt;std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, dof_id_type&gt; ElementIdMap;
   
   <B><FONT COLOR="#228B22">class</FONT></B> AugmentSparsityOnInterface : <B><FONT COLOR="#228B22">public</FONT></B> DofMap::AugmentSparsityPattern
   {
@@ -936,7 +913,7 @@ Upper-to-lower coupling term
     <I><FONT COLOR="#B22222">/**
      * The EquationSystems object that we're using here.
      */</FONT></I>
-    EquationSystems&amp; _es;
+    EquationSystems &amp; _es;
   
     <I><FONT COLOR="#B22222">/**
      * A map from (lower element ID, side ID) to matching upper element ID. Here &quot;lower&quot;
@@ -955,14 +932,14 @@ Upper-to-lower coupling term
     <I><FONT COLOR="#B22222">/**
      * Constructor.
      */</FONT></I>
-    AugmentSparsityOnInterface(EquationSystems&amp; es,
+    AugmentSparsityOnInterface(EquationSystems &amp; es,
                                boundary_id_type crack_boundary_lower,
                                boundary_id_type crack_boundary_upper);
   
     <I><FONT COLOR="#B22222">/**
      * @return a const reference to the lower-to-upper element ID map.
      */</FONT></I>
-    <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap&amp; get_lower_to_upper() <B><FONT COLOR="#228B22">const</FONT></B>;
+    <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap &amp; get_lower_to_upper() <B><FONT COLOR="#228B22">const</FONT></B>;
   
     <I><FONT COLOR="#B22222">/**
      * User-defined function to augment the sparsity pattern.
@@ -970,7 +947,6 @@ Upper-to-lower coupling term
     <B><FONT COLOR="#228B22">virtual</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> augment_sparsity_pattern (libMesh::SparsityPattern::Graph &amp; ,
                                            <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; &amp; n_nz,
                                            <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; &amp; n_oz);
-  
   };
   
   #endif
@@ -981,48 +957,47 @@ Upper-to-lower coupling term
   #include <B><FONT COLOR="#BC8F8F">&quot;augment_sparsity_on_interface.h&quot;</FONT></B>
   
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/linear_implicit_system.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/elem.h&quot;</FONT></B>
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#5F9EA0">AugmentSparsityOnInterface</FONT></B>::AugmentSparsityOnInterface(EquationSystems&amp; es,
+  <B><FONT COLOR="#5F9EA0">AugmentSparsityOnInterface</FONT></B>::AugmentSparsityOnInterface(EquationSystems &amp; es,
                                                          boundary_id_type crack_boundary_lower,
-                                                         boundary_id_type crack_boundary_upper)
-    :
+                                                         boundary_id_type crack_boundary_upper) :
     _es(es),
     _crack_boundary_lower(crack_boundary_lower),
     _crack_boundary_upper(crack_boundary_upper)
   {}
   
-  <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap&amp; AugmentSparsityOnInterface::get_lower_to_upper() <B><FONT COLOR="#228B22">const</FONT></B>
+  <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap &amp; AugmentSparsityOnInterface::get_lower_to_upper() <B><FONT COLOR="#228B22">const</FONT></B>
   {
     <B><FONT COLOR="#A020F0">return</FONT></B> _lower_to_upper;
   }
   
-  <B><FONT COLOR="#228B22">void</FONT></B> AugmentSparsityOnInterface::augment_sparsity_pattern (SparsityPattern::Graph &amp; ,
+  <B><FONT COLOR="#228B22">void</FONT></B> AugmentSparsityOnInterface::augment_sparsity_pattern (SparsityPattern::Graph &amp;,
                                                              <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; &amp; n_nz,
                                                              <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; &amp; n_oz)
   {
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = _es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = _es.get_mesh();
   
   
     <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_element_iterator       el     = mesh.active_elements_begin();
     <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_element_iterator end_el = mesh.active_elements_end();
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type,<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt; lower_centroids;
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type,<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt; upper_centroids;
+    <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt; lower_centroids;
+    <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt; upper_centroids;
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         {
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B> side=0; side&lt;elem-&gt;n_sides(); side++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#A020F0">if</FONT></B>( mesh.get_boundary_info().has_boundary_id
-                      (elem,side, _crack_boundary_lower) )
+                <B><FONT COLOR="#A020F0">if</FONT></B> (mesh.get_boundary_info().has_boundary_id(elem, side, _crack_boundary_lower))
                   {
-                    AutoPtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
+                    UniquePtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
   
                     lower_centroids[std::make_pair(elem-&gt;id(), side)] = side_elem-&gt;centroid();
                   }
@@ -1031,12 +1006,11 @@ Upper-to-lower coupling term
   
         {
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B> side=0; side&lt;elem-&gt;n_sides(); side++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#A020F0">if</FONT></B>( mesh.get_boundary_info().has_boundary_id
-                      (elem,side, _crack_boundary_upper) )
+                <B><FONT COLOR="#A020F0">if</FONT></B> (mesh.get_boundary_info().has_boundary_id(elem, side, _crack_boundary_upper))
                   {
-                    AutoPtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
+                    UniquePtr&lt;Elem&gt; side_elem = elem-&gt;build_side(side);
   
                     upper_centroids[std::make_pair(elem-&gt;id(), side)] = side_elem-&gt;centroid();
                   }
@@ -1052,22 +1026,22 @@ Upper-to-lower coupling term
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt;dof_id_type, dof_id_type&gt; two_way_element_ID_map;
   
     {
-      <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type,<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator it     = lower_centroids.begin();
-      <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type,<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator it_end = lower_centroids.end();
-      <B><FONT COLOR="#A020F0">for</FONT></B>( ; it != it_end; ++it)
+      <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator it     = lower_centroids.begin();
+      <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator it_end = lower_centroids.end();
+      <B><FONT COLOR="#A020F0">for</FONT></B> ( ; it != it_end; ++it)
         {
           Point lower_centroid = it-&gt;second;
   
-          <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type,<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator inner_it     = upper_centroids.begin();
-          <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type,<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator inner_it_end = upper_centroids.end();
+          <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator inner_it     = upper_centroids.begin();
+          <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt; std::pair&lt;dof_id_type, <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">char</FONT></B>&gt;, Point&gt;::iterator inner_it_end = upper_centroids.end();
   
           Real min_distance = std::numeric_limits&lt;Real&gt;::max();
-          <B><FONT COLOR="#A020F0">for</FONT></B>( ; inner_it != inner_it_end; ++inner_it)
+          <B><FONT COLOR="#A020F0">for</FONT></B> ( ; inner_it != inner_it_end; ++inner_it)
             {
               Point upper_centroid = inner_it-&gt;second;
   
               Real distance = (upper_centroid - lower_centroid).size();
-              <B><FONT COLOR="#A020F0">if</FONT></B>( distance &lt; min_distance )
+              <B><FONT COLOR="#A020F0">if</FONT></B> (distance &lt; min_distance)
                 {
                   min_distance = distance;
                   _lower_to_upper[it-&gt;first] = inner_it-&gt;first.first;
@@ -1084,9 +1058,9 @@ Upper-to-lower coupling term
     }
   
     {
-      <B><FONT COLOR="#228B22">const</FONT></B> LinearImplicitSystem &amp;system =
+      <B><FONT COLOR="#228B22">const</FONT></B> LinearImplicitSystem &amp; system =
         _es.get_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
-      <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp;dof_map = system.get_dof_map();
+      <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
       <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> sys_num = system.number();
       <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> var_num = system.variable_number(<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>);
   
@@ -1095,18 +1069,18 @@ Upper-to-lower coupling term
       <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt;dof_id_type, dof_id_type&gt;::iterator it     = two_way_element_ID_map.begin();
       <B><FONT COLOR="#5F9EA0">std</FONT></B>::map&lt;dof_id_type, dof_id_type&gt;::iterator it_end = two_way_element_ID_map.end();
   
-      <B><FONT COLOR="#A020F0">for</FONT></B>( ; it != it_end; ++it)
+      <B><FONT COLOR="#A020F0">for</FONT></B> ( ; it != it_end; ++it)
         {
           local_coupled_dofs.clear();
           remote_coupled_dofs.clear();
   
-          <B><FONT COLOR="#228B22">const</FONT></B> Elem* this_elem = mesh.elem(it-&gt;first);
+          <B><FONT COLOR="#228B22">const</FONT></B> Elem * this_elem = mesh.elem(it-&gt;first);
   
-          <B><FONT COLOR="#228B22">const</FONT></B> Elem* neighbor_elem = mesh.elem(it-&gt;second);
+          <B><FONT COLOR="#228B22">const</FONT></B> Elem * neighbor_elem = mesh.elem(it-&gt;second);
   
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n=0; n&lt;neighbor_elem-&gt;n_nodes(); n++)
             {
-              <B><FONT COLOR="#228B22">const</FONT></B> dof_id_type global_dof_number = neighbor_elem-&gt;get_node(n)-&gt;dof_number(sys_num,var_num,0);
+              <B><FONT COLOR="#228B22">const</FONT></B> dof_id_type global_dof_number = neighbor_elem-&gt;get_node(n)-&gt;dof_number(sys_num, var_num, 0);
   
               <B><FONT COLOR="#A020F0">if</FONT></B> ((global_dof_number &lt;  dof_map.first_dof()) ||
                   (global_dof_number &gt;= dof_map.end_dof()))
@@ -1123,7 +1097,7 @@ Upper-to-lower coupling term
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> nl=0; nl&lt;this_elem-&gt;n_nodes(); nl++)
             {
               <B><FONT COLOR="#228B22">const</FONT></B> dof_id_type
-                global_dof_number = this_elem-&gt;get_node(nl)-&gt;dof_number(sys_num,var_num,0),
+                global_dof_number = this_elem-&gt;get_node(nl)-&gt;dof_number(sys_num, var_num, 0),
                 n_local_dofs      = dof_map.n_local_dofs(),
                 n_remote_dofs     = dof_map.n_dofs() - n_local_dofs;
   
@@ -1187,10 +1161,10 @@ Upper-to-lower coupling term
   <I><FONT COLOR="#B22222">/**
    * Assemble the system matrix and rhs vector.
    */</FONT></I>
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap&amp; lower_to_upper);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap &amp; lower_to_upper);
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -1205,7 +1179,7 @@ Upper-to-lower coupling term
     GetPot command_line (argc, argv);
   
     Real R = 2.;
-    <B><FONT COLOR="#A020F0">if</FONT></B> ( command_line.search(1, <B><FONT COLOR="#BC8F8F">&quot;-R&quot;</FONT></B>) )
+    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(1, <B><FONT COLOR="#BC8F8F">&quot;-R&quot;</FONT></B>))
       R = command_line.next(R);
   
     SerialMesh mesh(init.comm());
@@ -1213,7 +1187,7 @@ Upper-to-lower coupling term
   
     EquationSystems equation_systems (mesh);
   
-    LinearImplicitSystem&amp; system =
+    LinearImplicitSystem &amp; system =
       equation_systems.add_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
     system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>, FIRST, LAGRANGE);
   
@@ -1251,23 +1225,23 @@ Upper-to-lower coupling term
     <B><FONT COLOR="#A020F0">return</FONT></B> 0;
   }
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap&amp; lower_to_upper)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> ElementIdMap &amp; lower_to_upper)
   {
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
     Real R = es.parameters.get&lt;Real&gt;(<B><FONT COLOR="#BC8F8F">&quot;R&quot;</FONT></B>);
   
-    LinearImplicitSystem&amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
-    AutoPtr&lt;FEBase&gt; fe_elem_face (FEBase::build(dim, fe_type));
-    AutoPtr&lt;FEBase&gt; fe_neighbor_face (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_elem_face (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_neighbor_face (FEBase::build(dim, fe_type));
   
     QGauss qrule (dim, fe_type.default_quadrature_order());
     QGauss qface(dim-1, fe_type.default_quadrature_order());
@@ -1276,16 +1250,16 @@ Upper-to-lower coupling term
     fe_elem_face-&gt;attach_quadrature_rule (&amp;qface);
     fe_neighbor_face-&gt;attach_quadrature_rule (&amp;qface);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe-&gt;get_JxW();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW_face = fe_elem_face-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW_face = fe_elem_face-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; qface_points = fe_elem_face-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; qface_points = fe_elem_face-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp;  phi_face          = fe_elem_face-&gt;get_phi();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp;  phi_neighbor_face = fe_neighbor_face-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_face          = fe_elem_face-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_neighbor_face = fe_neighbor_face-&gt;get_phi();
   
     DenseMatrix&lt;Number&gt; Ke;
     DenseVector&lt;Number&gt; Fe;
@@ -1302,7 +1276,7 @@ Upper-to-lower coupling term
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
         <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_dofs = dof_indices.size();
@@ -1319,19 +1293,15 @@ Upper-to-lower coupling term
   
         {
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> side=0; side&lt;elem-&gt;n_sides(); side++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#A020F0">if</FONT></B>( mesh.get_boundary_info().has_boundary_id (elem,side,MIN_Z_BOUNDARY) )
+                <B><FONT COLOR="#A020F0">if</FONT></B> (mesh.get_boundary_info().has_boundary_id (elem, side, MIN_Z_BOUNDARY))
                   {
                     fe_elem_face-&gt;reinit(elem, side);
   
                     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
-                      {
-                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
-                          {
-                            Fe(i) += JxW_face[qp] * phi_face[i][qp];
-                          }
-                      }
+                      <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
+                        Fe(i) += JxW_face[qp] * phi_face[i][qp];
                   }
   
               }
@@ -1339,16 +1309,16 @@ Upper-to-lower coupling term
   
         {
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> side=0; side&lt;elem-&gt;n_sides(); side++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#A020F0">if</FONT></B>( mesh.get_boundary_info().has_boundary_id (elem,side,CRACK_BOUNDARY_LOWER) )
+                <B><FONT COLOR="#A020F0">if</FONT></B> (mesh.get_boundary_info().has_boundary_id (elem, side, CRACK_BOUNDARY_LOWER))
                   {
                     fe_elem_face-&gt;reinit(elem, side);
   
                     <B><FONT COLOR="#5F9EA0">ElementIdMap</FONT></B>::const_iterator ltu_it =
-                      lower_to_upper.find(std::make_pair(elem-&gt;id(),side));
+                      lower_to_upper.find(std::make_pair(elem-&gt;id(), side));
                     dof_id_type upper_elem_id = ltu_it-&gt;second;
-                    <B><FONT COLOR="#228B22">const</FONT></B> Elem* neighbor = mesh.elem(upper_elem_id);
+                    <B><FONT COLOR="#228B22">const</FONT></B> Elem * neighbor = mesh.elem(upper_elem_id);
   
                     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Point&gt; qface_neighbor_points;
                     <B><FONT COLOR="#5F9EA0">FEInterface</FONT></B>::inverse_map (elem-&gt;dim(), fe-&gt;get_fe_type(),
@@ -1365,45 +1335,29 @@ Upper-to-lower coupling term
                     Knn.resize (n_neighbor_dofs, n_neighbor_dofs);
   
                     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
-                      {
-                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_dofs; i++)
-                          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_dofs; j++)
-                            {
-                              Kee(i,j) -= JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_face[j][qp]);
-                            }
-                      }
+                      <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_dofs; i++)
+                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_dofs; j++)
+                          Kee(i,j) -= JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_face[j][qp]);
   
                     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
-                      {
-                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_dofs; i++)
-                          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_neighbor_dofs; j++)
-                            {
-                              Ken(i,j) += JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_neighbor_face[j][qp]);
-                            }
-                      }
+                      <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_dofs; i++)
+                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_neighbor_dofs; j++)
+                          Ken(i,j) += JxW_face[qp] * (1./R)*(phi_face[i][qp] * phi_neighbor_face[j][qp]);
   
                     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
-                      {
-                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_neighbor_dofs; i++)
-                          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_neighbor_dofs; j++)
-                            {
-                              Knn(i,j) -= JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_neighbor_face[j][qp]);
-                            }
-                      }
+                      <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_neighbor_dofs; i++)
+                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_neighbor_dofs; j++)
+                          Knn(i,j) -= JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_neighbor_face[j][qp]);
   
                     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
-                      {
-                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_neighbor_dofs; i++)
-                          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_dofs; j++)
-                            {
-                              Kne(i,j) += JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_face[j][qp]);
-                            }
-                      }
-  
-                    system.matrix-&gt;add_matrix(Kne,neighbor_dof_indices,dof_indices);
-                    system.matrix-&gt;add_matrix(Ken,dof_indices,neighbor_dof_indices);
-                    system.matrix-&gt;add_matrix(Kee,dof_indices);
-                    system.matrix-&gt;add_matrix(Knn,neighbor_dof_indices);
+                      <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_neighbor_dofs; i++)
+                        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_dofs; j++)
+                          Kne(i,j) += JxW_face[qp] * (1./R)*(phi_neighbor_face[i][qp] * phi_face[j][qp]);
+
+                    system.matrix-&gt;add_matrix(Kne, neighbor_dof_indices, dof_indices);
+                    system.matrix-&gt;add_matrix(Ken, dof_indices, neighbor_dof_indices);
+                    system.matrix-&gt;add_matrix(Kee, dof_indices);
+                    system.matrix-&gt;add_matrix(Knn, neighbor_dof_indices);
                   }
               }
         }
@@ -1423,6 +1377,7 @@ Upper-to-lower coupling term
 *   example-opt  
 ***************************************************************
  
+*** Warning, This code is deprecated, and likely to be removed in future library versions! ../../../include/libmesh/type_vector.h, line 878, compiled Apr 12 2016 at 11:19:59 ***
  EquationSystems
   n_systems()=1
    System #0, "Poisson"
@@ -1445,26 +1400,43 @@ Upper-to-lower coupling term
     DofMap Constraints
       Number of DoF Constraints = 44
       Average DoF Constraint Length= 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:40:05 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 15:55:19 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.262435, Active time=0.132964                                                  |
+| libMesh Performance: Alive time=0.111516, Active time=0.078664                                                  |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1472,51 +1444,53 @@ Upper-to-lower coupling term
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     1          0.0019      0.001871    0.0019      0.001871    1.41     1.41     |
-|   build_constraint_matrix()        8371       0.0029      0.000000    0.0029      0.000000    2.17     2.17     |
-|   build_sparsity()                 1          0.0142      0.014192    0.0194      0.019361    10.67    14.56    |
-|   cnstrn_elem_mat_vec()            8371       0.0127      0.000002    0.0127      0.000002    9.55     9.55     |
-|   create_dof_constraints()         1          0.0114      0.011376    0.0162      0.016240    8.56     12.21    |
-|   distribute_dofs()                1          0.0014      0.001430    0.0069      0.006905    1.08     5.19     |
-|   dof_indices()                    33550      0.0181      0.000001    0.0181      0.000001    13.62    13.62    |
-|   prepare_send_list()              1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         1          0.0055      0.005475    0.0055      0.005475    4.12     4.12     |
+|   add_neighbors_to_send_list()     1          0.0012      0.001178    0.0012      0.001178    1.50     1.50     |
+|   build_constraint_matrix()        8371       0.0016      0.000000    0.0016      0.000000    2.10     2.10     |
+|   build_sparsity()                 1          0.0118      0.011848    0.0139      0.013894    15.06    17.66    |
+|   cnstrn_elem_mat_vec()            8371       0.0007      0.000000    0.0007      0.000000    0.89     0.89     |
+|   create_dof_constraints()         1          0.0099      0.009944    0.0119      0.011944    12.64    15.18    |
+|   distribute_dofs()                1          0.0007      0.000740    0.0046      0.004612    0.94     5.86     |
+|   dof_indices()                    33550      0.0050      0.000000    0.0050      0.000000    6.36     6.36     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0039      0.003872    0.0039      0.003872    4.92     4.92     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          1          0.0071      0.007111    0.0122      0.012195    5.35     9.17     |
+|   build_solution_vector()          1          0.0034      0.003430    0.0052      0.005209    4.36     6.62     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               1          0.0058      0.005783    0.0058      0.005783    4.35     4.35     |
+|   write_nodal_data()               1          0.0056      0.005644    0.0056      0.005644    7.17     7.17     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        8569       0.0101      0.000001    0.0101      0.000001    7.62     7.62     |
-|   init_shape_functions()           199        0.0001      0.000001    0.0001      0.000001    0.08     0.08     |
-|   inverse_map()                    264        0.0002      0.000001    0.0002      0.000001    0.18     0.18     |
+|   compute_shape_functions()        8569       0.0047      0.000001    0.0047      0.000001    5.92     5.92     |
+|   init_shape_functions()           199        0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
+|   inverse_map()                    264        0.0001      0.000000    0.0001      0.000000    0.14     0.14     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             8569       0.0060      0.000001    0.0060      0.000001    4.50     4.50     |
-|   compute_face_map()               132        0.0002      0.000001    0.0002      0.000001    0.13     0.13     |
-|   init_face_shape_functions()      1          0.0000      0.000015    0.0000      0.000015    0.01     0.01     |
-|   init_reference_to_physical_map() 199        0.0003      0.000001    0.0003      0.000001    0.20     0.20     |
+|   compute_affine_map()             8569       0.0045      0.000001    0.0045      0.000001    5.71     5.71     |
+|   compute_face_map()               132        0.0001      0.000000    0.0001      0.000000    0.07     0.07     |
+|   init_face_shape_functions()      1          0.0000      0.000005    0.0000      0.000005    0.01     0.01     |
+|   init_reference_to_physical_map() 199        0.0002      0.000001    0.0002      0.000001    0.20     0.20     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   find_neighbors()                 1          0.0120      0.011954    0.0120      0.011954    8.99     8.99     |
-|   read()                           1          0.0037      0.003689    0.0037      0.003689    2.77     2.77     |
-|   renumber_nodes_and_elem()        2          0.0006      0.000311    0.0006      0.000311    0.47     0.47     |
+|   find_neighbors()                 1          0.0140      0.013992    0.0140      0.013992    17.79    17.79    |
+|   renumber_nodes_and_elem()        2          0.0002      0.000116    0.0002      0.000116    0.30     0.30     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         1          0.0001      0.000054    0.0180      0.018033    0.04     13.56    |
+|   write_equation_systems()         1          0.0000      0.000016    0.0109      0.010869    0.02     13.82    |
+|                                                                                                                 |
+| NameBasedIO                                                                                                     |
+|   read()                           1          0.0024      0.002398    0.0024      0.002398    3.05     3.05     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               1          0.0002      0.000208    0.0002      0.000208    0.16     0.16     |
+|   single_partition()               1          0.0001      0.000133    0.0001      0.000133    0.17     0.17     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          1          0.0186      0.018607    0.0186      0.018607    13.99    13.99    |
+|   solve()                          1          0.0084      0.008373    0.0084      0.008373    10.64    10.64    |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            68241      0.1330                                          100.00            |
+| Totals:                            68242      0.0787                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  

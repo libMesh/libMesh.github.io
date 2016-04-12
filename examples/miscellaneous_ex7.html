@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -39,19 +39,20 @@
 <div id="content">
 
 <a name="comments"></a> 
-<br><br><br> <h1> The source file biharmonic.h with comments: </h1> 
+<br><br><br> <h1> The source file biharmonic.h with comments: </h1>
 <div class = "comment">
 </div>
 
 <div class ="fragment">
 <pre>
-        #ifndef __biharmonic_h__
-        #define __biharmonic_h__
+        #ifndef BIHARMONIC_H
+        #define BIHARMONIC_H
         
         #include "libmesh/equation_systems.h"
         #include "libmesh/serial_mesh.h"
         #include "libmesh/exodusII_io.h"
-        
+        #include "libmesh/mesh_refinement.h"
+
 </pre>
 </div>
 <div class = "comment">
@@ -124,8 +125,8 @@ Free energy enumeration
            * Static creation/destruction routines.  FIXME - this looks like
            * object-oriented C, can we get rid of it?
            */
-          static void Create(Biharmonic** b, const libMesh::Parallel::Communicator &comm);
-          static void Destroy(Biharmonic** b);
+          static void Create(Biharmonic ** b, const libMesh::Parallel::Communicator & comm);
+          static void Destroy(Biharmonic ** b);
         
         
           /**
@@ -135,8 +136,8 @@ Free energy enumeration
            * We recommend that this be used through the factory Create function, which allocates
            * the mesh. In that case don't forget to call Destroy at the end, to free the mesh up.
            */
-          Biharmonic(UnstructuredMesh* m);
-        
+          Biharmonic(UnstructuredMesh * m);
+
         
           /**
            * Destructor
@@ -177,8 +178,8 @@ Public interface functions
 <pre>
           void viewParameters();
           void init();
-          void step(const Real& dt = -1.0);
-          void output(int timestep, const Real& t, Real& o_t, bool force = false);
+          void step(const Real & dt = -1.0);
+          void output(int timestep, const Real & t, Real & o_t, bool force = false);
           void run();
         
         private:
@@ -203,7 +204,7 @@ Public interface functions
 <div class ="fragment">
 <pre>
           std::string  _ofile_base, _ofile;
-          ExodusII_IO* _exio;
+          ExodusII_IO * _exio;
           Real    _o_dt;
           int     _o_count;
 </pre>
@@ -216,9 +217,9 @@ Public interface functions
 <pre>
           friend class JR;
           class JR;       // forward
-          UnstructuredMesh*                       _mesh;
-          MeshRefinement*                         _meshRefinement;
-          JR*                                     _jr;
+          UnstructuredMesh * _mesh;
+          MeshRefinement * _meshRefinement;
+          JR * _jr;
         };
         
         
@@ -227,7 +228,7 @@ Public interface functions
         
         
         
-        #endif // __biharmonic_h__
+        #endif // BIHARMONIC_H
 </pre>
 </div>
 
@@ -238,8 +239,8 @@ Public interface functions
 
 <div class ="fragment">
 <pre>
-        #ifndef __biharmonic_jr_h__
-        #define __biharmonic_jr_h__
+        #ifndef BIHARMONIC_JR_H
+        #define BIHARMONIC_JR_H
         
 </pre>
 </div>
@@ -296,40 +297,56 @@ Just the bits we're using, since this is a header.
           /**
            * Constructor.
            */
-          JR(EquationSystems& eqSys, const std::string& name, const unsigned int number);
+          JR(EquationSystems & eqSys,
+             const std::string & name,
+             const unsigned int number);
         
           void initialize();
         
           /**
            * Static functions to be used for initialization
            */
-          static Number InitialDensityBall(const Point& p, const Parameters& parameters, const std::string&, const std::string&);
-          static Number InitialDensityRod(const Point& p, const Parameters& parameters, const std::string&, const std::string&);
-          static Number InitialDensityStrip(const Point& p, const Parameters& parameters, const std::string&, const std::string&);
-          static Gradient InitialGradientZero(const Point&, const Parameters&, const std::string&, const std::string&);
+          static Number InitialDensityBall(const Point & p,
+                                           const Parameters & parameters,
+                                           const std::string &,
+                                           const std::string &);
+
+          static Number InitialDensityRod(const Point & p,
+                                          const Parameters & parameters,
+                                          const std::string &,
+                                          const std::string &);
+
+          static Number InitialDensityStrip(const Point & p,
+                                            const Parameters & parameters,
+                                            const std::string &,
+                                            const std::string &);
+
+          static Gradient InitialGradientZero(const Point &,
+                                              const Parameters &,
+                                              const std::string &,
+                                              const std::string &);
         
           /**
            * The residual and Jacobian assembly function for the Biharmonic system.
            */
-          void residual_and_jacobian(const NumericVector&lt;Number&gt;& u,
-                                     NumericVector&lt;Number&gt;* R,
-                                     SparseMatrix&lt;Number&gt;* J,
-                                     NonlinearImplicitSystem&);
-        
+          void residual_and_jacobian(const NumericVector&lt;Number&gt; & u,
+                                     NumericVector&lt;Number&gt; * R,
+                                     SparseMatrix&lt;Number&gt; * J,
+                                     NonlinearImplicitSystem &);
         
           /**
            * Function defining the bounds of the Biharmonic system.
            */
-          void bounds(NumericVector&lt;Number&gt;& XL,
-                      NumericVector&lt;Number&gt;& XU,
-                      NonlinearImplicitSystem&);
+          void bounds(NumericVector&lt;Number&gt; & XL,
+                      NumericVector&lt;Number&gt; & XU,
+                      NonlinearImplicitSystem &);
         
         private:
-          Biharmonic& _biharmonic;
+          Biharmonic & _biharmonic;
         };
         
         
-        #endif // __biharmonic_jr_h__
+        #endif // BIHARMONIC_JR_H
 </pre>
 </div>
 
@@ -357,7 +374,7 @@ Example includes
         
         using namespace libMesh;
         
-        void Biharmonic::Create(Biharmonic** b, const Parallel::Communicator &comm)
+        void Biharmonic::Create(Biharmonic ** b, const Parallel::Communicator & comm)
         {
 </pre>
 </div>
@@ -367,22 +384,22 @@ ParallelMesh doesn't yet understand periodic BCs
 
 <div class ="fragment">
 <pre>
-          SerialMesh* mesh = new SerialMesh(comm);
-          Biharmonic *biharmonic = new Biharmonic(mesh);
+          SerialMesh * mesh = new SerialMesh(comm);
+          Biharmonic * biharmonic = new Biharmonic(mesh);
           *b = biharmonic;
         }
         
         
         
+
         
-        
-        void Biharmonic::Destroy(Biharmonic** b)
+        void Biharmonic::Destroy(Biharmonic ** b)
         {
-          Biharmonic* biharmonic = *b;
-          UnstructuredMesh* mesh = biharmonic-&gt;_mesh;
+          Biharmonic * biharmonic = *b;
+          UnstructuredMesh * mesh = biharmonic-&gt;_mesh;
           delete biharmonic;
           delete mesh;
-          *b = NULL;
+          *b = libmesh_nullptr;
         }
         
         
@@ -450,14 +467,14 @@ Print parameters
         
         void Biharmonic::init()
         {
-          if(_verbose)
+          if (_verbose)
             libMesh::out &lt;&lt; "&gt;&gt;&gt; Initializing Biharmonic\n";
         
           _dt  =  0;
           _o_count = 0;
           this-&gt;EquationSystems::init();
         
-          if(_verbose)
+          if (_verbose)
             libMesh::out &lt;&lt; "&lt;&lt;&lt; Initializing Biharmonic\n";
         }
         
@@ -465,7 +482,7 @@ Print parameters
         
         
         
-        void Biharmonic::step(const Real& dt_in)
+        void Biharmonic::step(const Real & dt_in)
         {
 </pre>
 </div>
@@ -498,7 +515,10 @@ this will localize the current solution, resulting in a current_local_solution w
         
         
         
-        void Biharmonic::output(int timestep, const Real& t, Real& o_t, bool force)
+        void Biharmonic::output(int timestep,
+                                const Real & t,
+                                Real & o_t,
+                                bool force)
         {
         #ifdef LIBMESH_HAVE_EXODUS_API
           if (!force && t - o_t &lt; _o_dt)
@@ -507,7 +527,15 @@ this will localize the current solution, resulting in a current_local_solution w
           ++_o_count;
         
           if (_verbose)
-            libMesh::out &lt;&lt; "Writing state " &lt;&lt; timestep &lt;&lt; " at time " &lt;&lt; t &lt;&lt; " to file " &lt;&lt; _ofile &lt;&lt; "; output a total of " &lt;&lt; _o_count &lt;&lt; " states so far\n";
+            libMesh::out &lt;&lt; "Writing state "
+                         &lt;&lt; timestep
+                         &lt;&lt; " at time "
+                         &lt;&lt; t
+                         &lt;&lt; " to file "
+                         &lt;&lt; _ofile
+                         &lt;&lt; "; output a total of "
+                         &lt;&lt; _o_count
+                         &lt;&lt; " states so far\n";
         
           _exio-&gt;write_timestep(_ofile, *this, timestep, t);
         
@@ -531,7 +559,7 @@ Force-write the initial timestep
 
 <div class ="fragment">
 <pre>
-          output(timestep,t,o_t,true);
+          output(timestep, t, o_t, true);
         
           while (t &lt; _t1)
             {
@@ -576,7 +604,7 @@ Output
 
 <div class ="fragment">
 <pre>
-              output(timestep,t,o_t);
+              output(timestep, t, o_t);
             } // while(t &lt; _t1)
         
 </pre>
@@ -587,14 +615,14 @@ Force-write the final timestep
 
 <div class ="fragment">
 <pre>
-          output(timestep,t,o_t,true);
+          output(timestep, t, o_t, true);
         }
         
         
         
         
         
-        Biharmonic::Biharmonic(UnstructuredMesh* m) :
+        Biharmonic::Biharmonic(UnstructuredMesh * m) :
           EquationSystems(*m),
           _mesh(m)
         {
@@ -606,11 +634,23 @@ Retrieve parameters and set defaults
 
 <div class ="fragment">
 <pre>
-          _verbose      = false; if(on_command_line("--verbose")) _verbose = true;
-          _growth       = false; if(on_command_line("--growth"))       _growth = true;
-          _degenerate   = false; if(on_command_line("--degenerate"))   _degenerate = true;
-          _cahn_hillard = false; if(on_command_line("--cahn_hillard")) _cahn_hillard = true;
-          _netforce     = false; if(on_command_line("--netforce"))     _netforce = true;
+          _verbose      = false;
+          _growth       = false;
+          _degenerate   = false;
+          _cahn_hillard = false;
+          _netforce     = false;
+
+          if (on_command_line("--verbose"))
+            _verbose = true;
+          if (on_command_line("--growth"))
+            _growth = true;
+          if (on_command_line("--degenerate"))
+            _degenerate = true;
+          if (on_command_line("--cahn_hillard"))
+            _cahn_hillard = true;
+          if (on_command_line("--netforce"))
+            _netforce = true;
+
           _kappa = command_line_value("kappa", 1.0);
         
 </pre>
@@ -622,6 +662,7 @@ Retrieve parameters and set defaults
 <div class ="fragment">
 <pre>
           std::string energy = command_line_value("energy", std::string("double_well"));
+
           if (energy == "double_well")
             _energy = DOUBLE_WELL;
           else if (energy == "double_obstacle")
@@ -633,9 +674,9 @@ Retrieve parameters and set defaults
           else
             libmesh_error_msg("Unknown energy type: " &lt;&lt; energy);
         
-          _tol     = command_line_value("tol",1.0e-8);
+          _tol     = command_line_value("tol", 1.0e-8);
           _theta   = command_line_value("theta", .001);
-          _theta_c = command_line_value("theta_c",1.0);
+          _theta_c = command_line_value("theta_c", 1.0);
         
 </pre>
 </div>
@@ -659,7 +700,7 @@ Dimension
 
 <div class ="fragment">
 <pre>
-          _dim = command_line_value("dim",1);
+          _dim = command_line_value("dim", 1);
         
           libmesh_assert_msg((_dim &lt;= 3) && (_dim &gt; 0), "Invalid mesh dimension");
         
@@ -701,7 +742,7 @@ Determine the initial timestep size
 <pre>
           _dt0 = command_line_value("dt", 1.0/(10*_kappa*_N*_N*_N*_N));
           libmesh_assert_msg(_dt0&gt;=0, "Negative initial timestep");
-        
+
           _t0 = command_line_value("min_time", 0.0);
           _t1 = command_line_value("max_time", _t0 + 50.0*_dt0);
           libmesh_assert_msg(_t1 &gt;= _t0, "Final time less than initial time");
@@ -720,6 +761,7 @@ Initial state
 <pre>
           _initialState = STRIP;
           std::string initialState = command_line_value("initial_state", std::string("strip"));
+
           if (initialState == std::string("ball"))
             _initialState = BALL;
           else if (initialState == std::string("strip"))
@@ -758,7 +800,7 @@ Pad
           for (unsigned int i = _dim; i &lt; 3; ++i)
             icenter[i] = 0.0;
         
-          _initialCenter = Point(icenter[0],icenter[1], icenter[2]);
+          _initialCenter = Point(icenter[0], icenter[1], icenter[2]);
           _initialWidth = command_line_value("initial_width", 0.125);
         
 </pre>
@@ -826,6 +868,7 @@ Output options
         #include "libmesh/numeric_vector.h"
         #include "libmesh/periodic_boundaries.h"
         #include "libmesh/periodic_boundary.h"
+        #include "libmesh/elem.h"
         
 </pre>
 </div>
@@ -839,11 +882,11 @@ Example includes
         
         using namespace libMesh;
         
-        Biharmonic::JR::JR(EquationSystems& eqSys,
-                           const std::string& name_in,
+        Biharmonic::JR::JR(EquationSystems & eqSys,
+                           const std::string & name_in,
                            const unsigned int number_in) :
-          TransientNonlinearImplicitSystem(eqSys,name_in,number_in),
-          _biharmonic(dynamic_cast&lt;Biharmonic&&gt;(eqSys))
+          TransientNonlinearImplicitSystem(eqSys, name_in, number_in),
+          _biharmonic(dynamic_cast&lt;Biharmonic &&gt;(eqSys))
         {
 </pre>
 </div>
@@ -866,7 +909,7 @@ Add periodicity to the mesh
 
 <div class ="fragment">
 <pre>
-          DofMap& dof_map = get_dof_map();
+          DofMap & dof_map = get_dof_map();
           PeriodicBoundary xbdry(RealVectorValue(1.0, 0.0, 0.0));
         #if LIBMESH_DIM &gt; 1
           PeriodicBoundary ybdry(RealVectorValue(0.0, 1.0, 0.0));
@@ -1007,10 +1050,10 @@ both states are equal
         
         
         
-        Number Biharmonic::JR::InitialDensityBall(const Point& p,
-                                                  const Parameters& parameters,
-                                                  const std::string&,
-                                                  const std::string&)
+        Number Biharmonic::JR::InitialDensityBall(const Point & p,
+                                                  const Parameters & parameters,
+                                                  const std::string &,
+                                                  const std::string &)
         {
 </pre>
 </div>
@@ -1030,10 +1073,10 @@ Initialize with a ball in the middle, which is a segment in 1D, a disk in 2D and
         
         
         
-        Number Biharmonic::JR::InitialDensityRod(const Point& p,
-                                                 const Parameters& parameters,
-                                                 const std::string&,
-                                                 const std::string&)
+        Number Biharmonic::JR::InitialDensityRod(const Point & p,
+                                                 const Parameters & parameters,
+                                                 const std::string &,
+                                                 const std::string &)
         {
 </pre>
 </div>
@@ -1053,10 +1096,10 @@ Initialize with a rod in the middle so that we have a z-homogeneous system to mo
         
         
         
-        Number Biharmonic::JR::InitialDensityStrip(const Point& p,
-                                                   const Parameters& parameters,
-                                                   const std::string&,
-                                                   const std::string&)
+        Number Biharmonic::JR::InitialDensityStrip(const Point & p,
+                                                   const Parameters & parameters,
+                                                   const std::string &,
+                                                   const std::string &)
         {
 </pre>
 </div>
@@ -1075,21 +1118,21 @@ Initialize with a wide strip in the middle so that we have a yz-homogeneous syst
         
         
         
-        Gradient Biharmonic::JR::InitialGradientZero(const Point&,
-                                                     const Parameters&,
-                                                     const std::string&,
-                                                     const std::string&)
+        Gradient Biharmonic::JR::InitialGradientZero(const Point &,
+                                                     const Parameters &,
+                                                     const std::string &,
+                                                     const std::string &)
         {
-          return Gradient(0.0,0.0,0.0);
+          return Gradient(0.0, 0.0, 0.0);
         }
         
         
         
         
-        void Biharmonic::JR::residual_and_jacobian(const NumericVector&lt;Number&gt; &u,
-                                                   NumericVector&lt;Number&gt; *R,
-                                                   SparseMatrix&lt;Number&gt; *J,
-                                                   NonlinearImplicitSystem&)
+        void Biharmonic::JR::residual_and_jacobian(const NumericVector&lt;Number&gt; & u,
+                                                   NumericVector&lt;Number&gt; * R,
+                                                   SparseMatrix&lt;Number&gt; * J,
+                                                   NonlinearImplicitSystem &)
         {
         #ifdef LIBMESH_ENABLE_SECOND_DERIVATIVES
           if (!R && !J)
@@ -1119,7 +1162,7 @@ in future examples.
 
 <div class ="fragment">
 <pre>
-          const DofMap& dof_map = get_dof_map();
+          const DofMap & dof_map = get_dof_map();
         
 </pre>
 </div>
@@ -1137,13 +1180,13 @@ for the first (and only) variable in the system.
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
 \p FEBase::build() member dynamically creates memory we will
-store the object as an \p AutoPtr<FEBase>.  This can be thought
+store the object as an \p UniquePtr<FEBase>.  This can be thought
 of as a pointer that will clean up after itself.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
         
 </pre>
 </div>
@@ -1155,7 +1198,7 @@ quadrature rule on each of the 3 subelements
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(_biharmonic._dim));
+          UniquePtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(_biharmonic._dim));
         
 </pre>
 </div>
@@ -1178,7 +1221,7 @@ integration point.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW = fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1188,7 +1231,7 @@ The element shape functions evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1198,7 +1241,7 @@ The element shape functions' derivatives evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
 </pre>
 </div>
@@ -1208,7 +1251,7 @@ The element shape functions'  second derivatives evaluated at the quadrature poi
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealTensor&gt; &gt;& d2phi = fe-&gt;get_d2phi();
+          const std::vector&lt;std::vector&lt;RealTensor&gt; &gt; & d2phi = fe-&gt;get_d2phi();
         
 </pre>
 </div>
@@ -1255,7 +1298,7 @@ Old solution
 
 <div class ="fragment">
 <pre>
-          const NumericVector&lt;Number&gt;& u_old = *old_local_solution;
+          const NumericVector&lt;Number&gt; & u_old = *old_local_solution;
         
 </pre>
 </div>
@@ -1272,7 +1315,8 @@ example 3 for a discussion of the element iterators.
           MeshBase::const_element_iterator       el     = _biharmonic._mesh-&gt;active_local_elements_begin();
           const MeshBase::const_element_iterator end_el = _biharmonic._mesh-&gt;active_local_elements_end();
         
-          for ( ; el != end_el; ++el) {
+          for ( ; el != end_el; ++el)
+            {
 </pre>
 </div>
 <div class = "comment">
@@ -1282,7 +1326,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-            const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -1295,7 +1339,7 @@ contribute to.
 
 <div class ="fragment">
 <pre>
-            dof_map.dof_indices (elem, dof_indices);
+              dof_map.dof_indices (elem, dof_indices);
         
 </pre>
 </div>
@@ -1303,12 +1347,12 @@ contribute to.
 Compute the element-specific data for the current
 element.  This involves computing the location of the
 quadrature points (q_point) and the shape function
-values/derivatives (phi, dphi,d2phi) for the current element.
+values/derivatives (phi, dphi, d2phi) for the current element.
 </div>
 
 <div class ="fragment">
 <pre>
-            fe-&gt;reinit (elem);
+              fe-&gt;reinit (elem);
         
 </pre>
 </div>
@@ -1319,16 +1363,16 @@ before summing them.
 
 <div class ="fragment">
 <pre>
-            if (J)
-              Je.resize(dof_indices.size(), dof_indices.size());
+              if (J)
+                Je.resize(dof_indices.size(), dof_indices.size());
         
-            if (R)
-              Re.resize(dof_indices.size());
+              if (R)
+                Re.resize(dof_indices.size());
         
-            Laplacian_phi_qp.resize(dof_indices.size());
+              Laplacian_phi_qp.resize(dof_indices.size());
         
-            for (unsigned int qp=0; qp&lt;qrule-&gt;n_points(); qp++)
-              {
+              for (unsigned int qp=0; qp&lt;qrule-&gt;n_points(); qp++)
+                {
 </pre>
 </div>
 <div class = "comment">
@@ -1341,41 +1385,53 @@ mobility and bulk potentials.
 
 <div class ="fragment">
 <pre>
-                Number u_qp = 0.0, u_old_qp = 0.0, Laplacian_u_qp = 0.0, Laplacian_u_old_qp = 0.0;
-                Gradient grad_u_qp(0.0,0.0,0.0), grad_u_old_qp(0.0,0.0,0.0);
-                Number M_qp = 1.0, M_old_qp = 1.0, M_prime_qp = 0.0, M_prime_old_qp = 0.0;
+                  Number
+                    u_qp = 0.0,
+                    u_old_qp = 0.0,
+                    Laplacian_u_qp = 0.0,
+                    Laplacian_u_old_qp = 0.0;
         
-                for (unsigned int i=0; i&lt;phi.size(); i++)
-                  {
-                    Laplacian_phi_qp[i] = d2phi[i][qp](0,0);
-                    grad_u_qp(0) += u(dof_indices[i])*dphi[i][qp](0);
-                    grad_u_old_qp(0) += u_old(dof_indices[i])*dphi[i][qp](0);
+                  Gradient
+                    grad_u_qp(0.0, 0.0, 0.0),
+                    grad_u_old_qp(0.0, 0.0, 0.0);
         
-                    if (_biharmonic._dim &gt; 1)
-                      {
-                        Laplacian_phi_qp[i] += d2phi[i][qp](1,1);
-                        grad_u_qp(1) += u(dof_indices[i])*dphi[i][qp](1);
-                        grad_u_old_qp(1) += u_old(dof_indices[i])*dphi[i][qp](1);
-                      }
-                    if (_biharmonic._dim &gt; 2)
-                      {
-                        Laplacian_phi_qp[i] += d2phi[i][qp](2,2);
-                        grad_u_qp(2) += u(dof_indices[i])*dphi[i][qp](2);
-                        grad_u_old_qp(2) += u_old(dof_indices[i])*dphi[i][qp](2);
-                      }
-                    u_qp     += phi[i][qp]*u(dof_indices[i]);
-                    u_old_qp += phi[i][qp]*u_old(dof_indices[i]);
-                    Laplacian_u_qp     += Laplacian_phi_qp[i]*u(dof_indices[i]);
-                    Laplacian_u_old_qp += Laplacian_phi_qp[i]*u_old(dof_indices[i]);
-                  } // for i
+                  Number
+                    M_qp = 1.0,
+                    M_old_qp = 1.0,
+                    M_prime_qp = 0.0,
+                    M_prime_old_qp = 0.0;
         
-                if (_biharmonic._degenerate)
-                  {
-                    M_qp           = 1.0 - u_qp*u_qp;
-                    M_old_qp       = 1.0 - u_old_qp*u_old_qp;
-                    M_prime_qp     = -2.0*u_qp;
-                    M_prime_old_qp = -2.0*u_old_qp;
-                  }
+                  for (unsigned int i=0; i&lt;phi.size(); i++)
+                    {
+                      Laplacian_phi_qp[i] = d2phi[i][qp](0, 0);
+                      grad_u_qp(0) += u(dof_indices[i])*dphi[i][qp](0);
+                      grad_u_old_qp(0) += u_old(dof_indices[i])*dphi[i][qp](0);
+
+                      if (_biharmonic._dim &gt; 1)
+                        {
+                          Laplacian_phi_qp[i] += d2phi[i][qp](1, 1);
+                          grad_u_qp(1) += u(dof_indices[i])*dphi[i][qp](1);
+                          grad_u_old_qp(1) += u_old(dof_indices[i])*dphi[i][qp](1);
+                        }
+                      if (_biharmonic._dim &gt; 2)
+                        {
+                          Laplacian_phi_qp[i] += d2phi[i][qp](2, 2);
+                          grad_u_qp(2) += u(dof_indices[i])*dphi[i][qp](2);
+                          grad_u_old_qp(2) += u_old(dof_indices[i])*dphi[i][qp](2);
+                        }
+                      u_qp     += phi[i][qp]*u(dof_indices[i]);
+                      u_old_qp += phi[i][qp]*u_old(dof_indices[i]);
+                      Laplacian_u_qp     += Laplacian_phi_qp[i]*u(dof_indices[i]);
+                      Laplacian_u_old_qp += Laplacian_phi_qp[i]*u_old(dof_indices[i]);
+                    } // for i
+
+                  if (_biharmonic._degenerate)
+                    {
+                      M_qp           = 1.0 - u_qp*u_qp;
+                      M_old_qp       = 1.0 - u_old_qp*u_old_qp;
+                      M_prime_qp     = -2.0*u_qp;
+                      M_prime_old_qp = -2.0*u_old_qp;
+                    }
         
 </pre>
 </div>
@@ -1385,8 +1441,8 @@ ELEMENT RESIDUAL AND JACOBIAN
 
 <div class ="fragment">
 <pre>
-                for (unsigned int i=0; i&lt;phi.size(); i++)
-                  {
+                  for (unsigned int i=0; i&lt;phi.size(); i++)
+                    {
 </pre>
 </div>
 <div class = "comment">
@@ -1395,57 +1451,57 @@ RESIDUAL
 
 <div class ="fragment">
 <pre>
-                    if (R)
-                      {
-                        Number ri = 0.0, ri_old = 0.0;
-                        ri     -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_u_qp;
-                        ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._kappa*Laplacian_u_old_qp;
+                      if (R)
+                        {
+                          Number ri = 0.0, ri_old = 0.0;
+                          ri     -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_u_qp;
+                          ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._kappa*Laplacian_u_old_qp;
         
-                        if (_biharmonic._degenerate)
-                          {
-                            ri       -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp);
-                            ri_old   -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*(_biharmonic._kappa*Laplacian_u_old_qp);
-                          }
+                          if (_biharmonic._degenerate)
+                            {
+                              ri       -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp);
+                              ri_old   -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*(_biharmonic._kappa*Laplacian_u_old_qp);
+                            }
         
-                        if (_biharmonic._cahn_hillard)
-                          {
-                            if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
-                              {
-                                ri += Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
-                                ri_old += Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
-                                if (_biharmonic._degenerate)
-                                  {
-                                    ri     += (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
-                                    ri_old += (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
-                                  }
-                              }// if(_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
-        
-                            if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                              {
-                                ri -= Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*u_qp;
-                                ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*u_old_qp;
-                                if (_biharmonic._degenerate)
-                                  {
-                                    ri     -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*u_qp;
-                                    ri_old -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*u_old_qp;
-                                  }
-                              } // if(_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-        
-                            if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                              {
-                                switch(_biharmonic._log_truncation)
-                                  {
-                                  case 2:
-                                    break;
-                                  case 3:
-                                    break;
-                                  default:
-                                    break;
-                                  }// switch(_biharmonic._log_truncation)
-                              }// if(_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                          }// if(_biharmonic._cahn_hillard)
-                        Re(i) += JxW[qp]*((u_qp-u_old_qp)*phi[i][qp]-_biharmonic._dt*0.5*((2.0-_biharmonic._cnWeight)*ri + _biharmonic._cnWeight*ri_old));
-                      } // if (R)
+                          if (_biharmonic._cahn_hillard)
+                            {
+                              if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+                                {
+                                  ri += Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
+                                  ri_old += Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
+                                  if (_biharmonic._degenerate)
+                                    {
+                                      ri     += (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
+                                      ri_old += (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
+                                    }
+                                }// if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+
+                              if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                                {
+                                  ri -= Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*u_qp;
+                                  ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*u_old_qp;
+                                  if (_biharmonic._degenerate)
+                                    {
+                                      ri     -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*u_qp;
+                                      ri_old -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*u_old_qp;
+                                    }
+                                } // if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+
+                              if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                                {
+                                  switch(_biharmonic._log_truncation)
+                                    {
+                                    case 2:
+                                      break;
+                                    case 3:
+                                      break;
+                                    default:
+                                      break;
+                                    }// switch(_biharmonic._log_truncation)
+                                }// if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                            }// if (_biharmonic._cahn_hillard)
+                          Re(i) += JxW[qp]*((u_qp-u_old_qp)*phi[i][qp]-_biharmonic._dt*0.5*((2.0-_biharmonic._cnWeight)*ri + _biharmonic._cnWeight*ri_old));
+                        } // if (R)
         
 </pre>
 </div>
@@ -1455,63 +1511,63 @@ JACOBIAN
 
 <div class ="fragment">
 <pre>
-                    if (J)
-                      {
-                        Number M_prime_prime_qp = 0.0;
-                        if(_biharmonic._degenerate) M_prime_prime_qp = -2.0;
-                        for (unsigned int j=0; j&lt;phi.size(); j++)
-                          {
-                            Number ri_j = 0.0;
-                            ri_j -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_phi_qp[j];
-                            if (_biharmonic._degenerate)
-                              {
-                                ri_j -=
-                                  Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._kappa*Laplacian_u_qp               +
-                                  (dphi[i][qp]*dphi[j][qp])*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp)                  +
-                                  (dphi[i][qp]*grad_u_qp)*(M_prime_prime_qp*phi[j][qp])*(_biharmonic._kappa*Laplacian_u_qp) +
-                                  (dphi[i][qp]*grad_u_qp)*(M_prime_qp)*(_biharmonic._kappa*Laplacian_phi_qp[j]);
-                              }
-        
-                            if (_biharmonic._cahn_hillard)
-                              {
-                                if(_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
-                                  {
-                                    ri_j +=
-                                      Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp +
-                                      Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp]        +
-                                      (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp      +
-                                      (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp  +
-                                      (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp];
-                                  }// if(_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
-        
-                                if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                                  {
-                                    ri_j -=
-                                      Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*u_qp                   +
-                                      Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*phi[j][qp]                              +
-                                      (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*u_qp                        +
-                                      (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*u_qp                    +
-                                      (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*phi[j][qp];
-                                  } // if(_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-        
-                                if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                                  {
-                                    switch(_biharmonic._log_truncation)
-                                      {
-                                      case 2:
-                                        break;
-                                      case 3:
-                                        break;
-                                      default:
-                                        break;
-                                      }// switch(_biharmonic._log_truncation)
-                                  }// if(_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                              }// if(_biharmonic._cahn_hillard)
-                            Je(i,j) += JxW[qp]*(phi[i][qp]*phi[j][qp] - 0.5*_biharmonic._dt*(2.0-_biharmonic._cnWeight)*ri_j);
-                          } // for j
-                      } // if (J)
-                  } // for i
-              } // for qp
+                      if (J)
+                        {
+                          Number M_prime_prime_qp = 0.0;
+                          if (_biharmonic._degenerate) M_prime_prime_qp = -2.0;
+                          for (unsigned int j=0; j&lt;phi.size(); j++)
+                            {
+                              Number ri_j = 0.0;
+                              ri_j -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_phi_qp[j];
+                              if (_biharmonic._degenerate)
+                                {
+                                  ri_j -=
+                                    Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._kappa*Laplacian_u_qp               +
+                                    (dphi[i][qp]*dphi[j][qp])*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp)                  +
+                                    (dphi[i][qp]*grad_u_qp)*(M_prime_prime_qp*phi[j][qp])*(_biharmonic._kappa*Laplacian_u_qp) +
+                                    (dphi[i][qp]*grad_u_qp)*(M_prime_qp)*(_biharmonic._kappa*Laplacian_phi_qp[j]);
+                                }
+
+                              if (_biharmonic._cahn_hillard)
+                                {
+                                  if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+                                    {
+                                      ri_j +=
+                                        Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp +
+                                        Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp]        +
+                                        (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp      +
+                                        (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp  +
+                                        (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp];
+                                    }// if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+
+                                  if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                                    {
+                                      ri_j -=
+                                        Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*u_qp                   +
+                                        Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*phi[j][qp]                              +
+                                        (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*u_qp                        +
+                                        (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*u_qp                    +
+                                        (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*phi[j][qp];
+                                    } // if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+
+                                  if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                                    {
+                                      switch(_biharmonic._log_truncation)
+                                        {
+                                        case 2:
+                                          break;
+                                        case 3:
+                                          break;
+                                        default:
+                                          break;
+                                        }// switch(_biharmonic._log_truncation)
+                                    }// if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                                }// if (_biharmonic._cahn_hillard)
+                              Je(i,j) += JxW[qp]*(phi[i][qp]*phi[j][qp] - 0.5*_biharmonic._dt*(2.0-_biharmonic._cnWeight)*ri_j);
+                            } // for j
+                        } // if (J)
+                    } // for i
+                } // for qp
         
 </pre>
 </div>
@@ -1526,8 +1582,8 @@ matrix and vector into the global matrix and vector
 
 <div class ="fragment">
 <pre>
-            if (R)
-              {
+              if (R)
+                {
 </pre>
 </div>
 <div class = "comment">
@@ -1536,12 +1592,12 @@ If the mesh has hanging nodes (e.g., as a result of refinement), those need to b
 
 <div class ="fragment">
 <pre>
-                dof_map.constrain_element_vector(Re, dof_indices);
-                R-&gt;add_vector(Re, dof_indices);
-              }
+                  dof_map.constrain_element_vector(Re, dof_indices);
+                  R-&gt;add_vector(Re, dof_indices);
+                }
         
-            if (J)
-              {
+              if (J)
+                {
 </pre>
 </div>
 <div class = "comment">
@@ -1550,10 +1606,10 @@ If the mesh has hanging nodes (e.g., as a result of refinement), those need to b
 
 <div class ="fragment">
 <pre>
-                dof_map.constrain_element_matrix(Je, dof_indices);
-                J-&gt;add_matrix(Je, dof_indices);
-              }
-          } // for el
+                  dof_map.constrain_element_matrix(Je, dof_indices);
+                  J-&gt;add_matrix(Je, dof_indices);
+                }
+            } // for el
         #endif // LIBMESH_ENABLE_SECOND_DERIVATIVES
         }
         
@@ -1561,7 +1617,9 @@ If the mesh has hanging nodes (e.g., as a result of refinement), those need to b
         
         
         
-        void Biharmonic::JR::bounds(NumericVector&lt;Number&gt; &XL, NumericVector&lt;Number&gt;& XU, NonlinearImplicitSystem&)
+        void Biharmonic::JR::bounds(NumericVector&lt;Number&gt; & XL,
+                                    NumericVector&lt;Number&gt; & XU,
+                                    NonlinearImplicitSystem &)
         {
 </pre>
 </div>
@@ -1590,7 +1648,7 @@ in future examples.
 
 <div class ="fragment">
 <pre>
-          const DofMap& dof_map = get_dof_map();
+          const DofMap & dof_map = get_dof_map();
         
 </pre>
 </div>
@@ -1608,13 +1666,13 @@ for the first (and only) variable in the system.
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
 \p FEBase::build() member dynamically creates memory we will
-store the object as an \p AutoPtr<FEBase>.  This can be thought
+store the object as an \p UniquePtr<FEBase>.  This can be thought
 of as a pointer that will clean up after itself.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
         
 </pre>
 </div>
@@ -1651,7 +1709,7 @@ Extract the shape function to be evaluated at the nodes
 
 <div class ="fragment">
 <pre>
-              const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
+              const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1727,12 +1785,14 @@ FIXME: should be able to define INF and pass it to the solve
 <pre>
                   Real infinity = 1.0e20;
                   Real bound = infinity;
-                  for(unsigned int j = 0; j &lt; nodes.size(); ++j) {
-                    if(phi[i][j]) {
-                      bound = 1.0/fabs(phi[i][j]);
-                      break;
+                  for (unsigned int j = 0; j &lt; nodes.size(); ++j)
+                    {
+                      if (phi[i][j])
+                        {
+                          bound = 1.0/std::abs(phi[i][j]);
+                          break;
+                        }
                     }
-                  }
         
 </pre>
 </div>
@@ -1773,7 +1833,6 @@ the bounds are always -1.0 and 1.0.
 <pre>
         #include "biharmonic.h"
         
-        
 </pre>
 </div>
 <div class = "comment">
@@ -1792,9 +1851,9 @@ Print usage information if requested on command line
 
 <div class ="fragment">
 <pre>
-        void print_help(int argc, char** argv);
+        void print_help(int argc, char ** argv);
         
-        int main(int argc, char** argv)
+        int main(int argc, char ** argv)
         {
 </pre>
 </div>
@@ -1825,7 +1884,7 @@ This is a PETSc-specific solver
 <pre>
               libmesh_example_requires(libMesh::default_solver_package() == PETSC_SOLVERS, "--enable-petsc");
         
-              const int dim = command_line_value("dim",1);
+              const int dim = command_line_value("dim", 1);
         
 </pre>
 </div>
@@ -1837,8 +1896,8 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
 <pre>
               libmesh_example_requires(dim &lt;= LIBMESH_DIM, "2D/3D support");
         
-              Biharmonic* biharmonic;
-              Biharmonic::Create(&biharmonic,init.comm());
+              Biharmonic * biharmonic;
+              Biharmonic::Create(&biharmonic, init.comm());
               biharmonic-&gt;viewParameters();
               biharmonic-&gt;init();
               biharmonic-&gt;run();
@@ -1851,7 +1910,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
         
         
         
-        void print_help(int, char** argv)
+        void print_help(int, char ** argv)
         {
           libMesh::out &lt;&lt; "This example solves the Cahn-Hillard equation with chemical potential f:\n"
                        &lt;&lt; "    u_t = \\div(M(u)\\grad f(u))\n"
@@ -1896,7 +1955,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
                        &lt;&lt; "\n-----------\n"
                        &lt;&lt; "RUNNING:     "
                        &lt;&lt; "\n-----------\n"
-                       &lt;&lt; "Run in serial with build METHOD &lt;method&gt; as follows:\n"
+                       &lt;&lt; "Run in serial with PETSc-3.4 and above as follows:\n"
                        &lt;&lt; "\n"
                        &lt;&lt; argv[0] &lt;&lt; "\n"
                        &lt;&lt; "               [--verbose] dim=&lt;1|2|3&gt; N=&lt;number_of_linear_elements&gt; \n"
@@ -1905,8 +1964,8 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
                        &lt;&lt; "               theta=&lt;theta_value&gt; theta_c=&lt;theta_c_value&gt;                                                                        \n"
                        &lt;&lt; "               initial_state=&lt;ball|rod|strip&gt; initial_center='x [y [z]]' initial_width=&lt;width&gt;                                    \n"
                        &lt;&lt; "               min_time=&lt;initial_time&gt; max_time=&lt;final_time&gt; dt=&lt;timestep_size&gt; crank_nicholson_weight=&lt;between_0_and_1&gt;          \n"
-                       &lt;&lt; "               output_base=&lt;base_filename&gt; output_dt=&lt;output_timestep_size&gt; [--use-petsc-dm -snes_type virs]                      \n"
-                       &lt;&lt; "\n"
+                       &lt;&lt; "               output_base=&lt;base_filename&gt; output_dt=&lt;output_timestep_size&gt; [-snes_type vinewtonrsls | vinewtonssls]              \n"
+                       &lt;&lt; "(with PETSc-3.3 use -snes_type virs | viss).\n"
                        &lt;&lt; argv[0] &lt;&lt; " --verbose \n"
                        &lt;&lt; "is a pretty good start.\n"
                        &lt;&lt; "\nModeling a 1D system with 2D or 3D (for a strip the second and third components of the center are immaterial):\n"
@@ -1921,7 +1980,9 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
                        &lt;&lt; "A 3D system with an initial ball in the center\n"
                        &lt;&lt; argv[0] &lt;&lt; " --verbose dim=3 N=32   initial_state=ball initial_center='0.5 0.5 0.5' initial_width=0.1 dt=1e-10 max_time=1e-6 \n"
                        &lt;&lt; "\n"
-                       &lt;&lt; "Add --use-petsc-dm -snes_type virs to run the variational inequality version that ensures the solution is between -1.0 and 1.0 at all times.\n\n"
+                       &lt;&lt; "Add -snes_type vinewtonrsls to run the variational inequality version that ensures the solution is between -1.0 and 1.0 at all times.\n"
+                       &lt;&lt; "If using PETSc-3.3, run with -snes_type virs.\n"
+                       &lt;&lt; "\n"
                        &lt;&lt; std::endl;
         }
 </pre>
@@ -1930,12 +1991,13 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
 <a name="nocomments"></a> 
 <br><br><br> <h1> The source file biharmonic.h without comments: </h1> 
 <pre> 
-  #ifndef __biharmonic_h__
-  #define __biharmonic_h__
+  #ifndef BIHARMONIC_H
+  #define BIHARMONIC_H
   
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/equation_systems.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/serial_mesh.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/exodusII_io.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/mesh_refinement.h&quot;</FONT></B>
   
   using libMesh::EquationSystems;
   using libMesh::ExodusII_IO;
@@ -1984,8 +2046,8 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
      * Static creation/destruction routines.  FIXME - this looks like
      * object-oriented C, can we get rid of it?
      */</FONT></I>
-    <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> Create(Biharmonic** b, <B><FONT COLOR="#228B22">const</FONT></B> libMesh::Parallel::Communicator &amp;comm);
-    <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> Destroy(Biharmonic** b);
+    <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> Create(Biharmonic ** b, <B><FONT COLOR="#228B22">const</FONT></B> libMesh::Parallel::Communicator &amp; comm);
+    <B><FONT COLOR="#228B22">static</FONT></B> <B><FONT COLOR="#228B22">void</FONT></B> Destroy(Biharmonic ** b);
   
   
     <I><FONT COLOR="#B22222">/**
@@ -1995,7 +2057,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
      * We recommend that this be used through the factory Create function, which allocates
      * the mesh. In that case don't forget to call Destroy at the end, to free the mesh up.
      */</FONT></I>
-    Biharmonic(UnstructuredMesh* m);
+    Biharmonic(UnstructuredMesh * m);
   
   
     <I><FONT COLOR="#B22222">/**
@@ -2013,8 +2075,8 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
     <B><FONT COLOR="#228B22">void</FONT></B> viewParameters();
     <B><FONT COLOR="#228B22">void</FONT></B> init();
-    <B><FONT COLOR="#228B22">void</FONT></B> step(<B><FONT COLOR="#228B22">const</FONT></B> Real&amp; dt = -1.0);
-    <B><FONT COLOR="#228B22">void</FONT></B> output(<B><FONT COLOR="#228B22">int</FONT></B> timestep, <B><FONT COLOR="#228B22">const</FONT></B> Real&amp; t, Real&amp; o_t, <B><FONT COLOR="#228B22">bool</FONT></B> force = false);
+    <B><FONT COLOR="#228B22">void</FONT></B> step(<B><FONT COLOR="#228B22">const</FONT></B> Real &amp; dt = -1.0);
+    <B><FONT COLOR="#228B22">void</FONT></B> output(<B><FONT COLOR="#228B22">int</FONT></B> timestep, <B><FONT COLOR="#228B22">const</FONT></B> Real &amp; t, Real &amp; o_t, <B><FONT COLOR="#228B22">bool</FONT></B> force = false);
     <B><FONT COLOR="#228B22">void</FONT></B> run();
   
   <B><FONT COLOR="#228B22">private</FONT></B>:
@@ -2031,14 +2093,14 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
     Real _dt0, _dt, _t0, _T, _t1;
     Real _cnWeight;
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::string  _ofile_base, _ofile;
-    ExodusII_IO* _exio;
+    ExodusII_IO * _exio;
     Real    _o_dt;
     <B><FONT COLOR="#228B22">int</FONT></B>     _o_count;
     <B><FONT COLOR="#228B22">friend</FONT></B> <B><FONT COLOR="#228B22">class</FONT></B> JR;
     <B><FONT COLOR="#228B22">class</FONT></B> JR;       <I><FONT COLOR="#B22222">// forward
-</FONT></I>    UnstructuredMesh*                       _mesh;
-    MeshRefinement*                         _meshRefinement;
-    JR*                                     _jr;
+</FONT></I>    UnstructuredMesh * _mesh;
+    MeshRefinement * _meshRefinement;
+    JR * _jr;
   };
   
   
@@ -2047,13 +2109,13 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  #endif <I><FONT COLOR="#B22222">// __biharmonic_h__
+  #endif <I><FONT COLOR="#B22222">// BIHARMONIC_H
 </pre> 
 <a name="nocomments"></a> 
 <br><br><br> <h1> The source file biharmonic_jr.h without comments: </h1> 
 <pre> 
-  #ifndef __biharmonic_jr_h__
-  #define __biharmonic_jr_h__
+  #ifndef BIHARMONIC_JR_H
+  #define BIHARMONIC_JR_H
   
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/transient_system.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/nonlinear_solver.h&quot;</FONT></B>
@@ -2085,40 +2147,56 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
     <I><FONT COLOR="#B22222">/**
      * Constructor.
      */</FONT></I>
-    JR(EquationSystems&amp; eqSys, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; name, <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> number);
+    JR(EquationSystems &amp; eqSys,
+       <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; name,
+       <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> number);
   
     <B><FONT COLOR="#228B22">void</FONT></B> initialize();
   
     <I><FONT COLOR="#B22222">/**
      * Static functions to be used for initialization
      */</FONT></I>
-    <B><FONT COLOR="#228B22">static</FONT></B> Number InitialDensityBall(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p, <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
-    <B><FONT COLOR="#228B22">static</FONT></B> Number InitialDensityRod(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p, <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
-    <B><FONT COLOR="#228B22">static</FONT></B> Number InitialDensityStrip(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p, <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
-    <B><FONT COLOR="#228B22">static</FONT></B> Gradient InitialGradientZero(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp;, <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
+    <B><FONT COLOR="#228B22">static</FONT></B> Number InitialDensityBall(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                                     <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                                     <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                     <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
+
+    <B><FONT COLOR="#228B22">static</FONT></B> Number InitialDensityRod(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                                    <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                                    <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                    <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
+
+    <B><FONT COLOR="#228B22">static</FONT></B> Number InitialDensityStrip(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                                      <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                                      <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                      <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
+
+    <B><FONT COLOR="#228B22">static</FONT></B> Gradient InitialGradientZero(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp;,
+                                        <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
   
     <I><FONT COLOR="#B22222">/**
      * The residual and Jacobian assembly function for the Biharmonic system.
      */</FONT></I>
-    <B><FONT COLOR="#228B22">void</FONT></B> residual_and_jacobian(<B><FONT COLOR="#228B22">const</FONT></B> NumericVector&lt;Number&gt;&amp; u,
-                               NumericVector&lt;Number&gt;* R,
-                               SparseMatrix&lt;Number&gt;* J,
-                               NonlinearImplicitSystem&amp;);
-  
+    <B><FONT COLOR="#228B22">void</FONT></B> residual_and_jacobian(<B><FONT COLOR="#228B22">const</FONT></B> NumericVector&lt;Number&gt; &amp; u,
+                               NumericVector&lt;Number&gt; * R,
+                               SparseMatrix&lt;Number&gt; * J,
+                               NonlinearImplicitSystem &amp;);
   
     <I><FONT COLOR="#B22222">/**
      * Function defining the bounds of the Biharmonic system.
      */</FONT></I>
-    <B><FONT COLOR="#228B22">void</FONT></B> bounds(NumericVector&lt;Number&gt;&amp; XL,
-                NumericVector&lt;Number&gt;&amp; XU,
-                NonlinearImplicitSystem&amp;);
+    <B><FONT COLOR="#228B22">void</FONT></B> bounds(NumericVector&lt;Number&gt; &amp; XL,
+                NumericVector&lt;Number&gt; &amp; XU,
+                NonlinearImplicitSystem &amp;);
   
   <B><FONT COLOR="#228B22">private</FONT></B>:
-    Biharmonic&amp; _biharmonic;
+    Biharmonic &amp; _biharmonic;
   };
   
   
-  #endif <I><FONT COLOR="#B22222">// __biharmonic_jr_h__
+  #endif <I><FONT COLOR="#B22222">// BIHARMONIC_JR_H
 </pre> 
 <a name="nocomments"></a> 
 <br><br><br> <h1> The source file biharmonic.C without comments: </h1> 
@@ -2132,10 +2210,10 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::Create(Biharmonic** b, <B><FONT COLOR="#228B22">const</FONT></B> Parallel::Communicator &amp;comm)
+  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::Create(Biharmonic ** b, <B><FONT COLOR="#228B22">const</FONT></B> Parallel::Communicator &amp; comm)
   {
-    SerialMesh* mesh = <B><FONT COLOR="#A020F0">new</FONT></B> SerialMesh(comm);
-    Biharmonic *biharmonic = <B><FONT COLOR="#A020F0">new</FONT></B> Biharmonic(mesh);
+    SerialMesh * mesh = <B><FONT COLOR="#A020F0">new</FONT></B> SerialMesh(comm);
+    Biharmonic * biharmonic = <B><FONT COLOR="#A020F0">new</FONT></B> Biharmonic(mesh);
     *b = biharmonic;
   }
   
@@ -2143,13 +2221,13 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::Destroy(Biharmonic** b)
+  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::Destroy(Biharmonic ** b)
   {
-    Biharmonic* biharmonic = *b;
-    UnstructuredMesh* mesh = biharmonic-&gt;_mesh;
+    Biharmonic * biharmonic = *b;
+    UnstructuredMesh * mesh = biharmonic-&gt;_mesh;
     <B><FONT COLOR="#A020F0">delete</FONT></B> biharmonic;
     <B><FONT COLOR="#A020F0">delete</FONT></B> mesh;
-    *b = NULL;
+    *b = libmesh_nullptr;
   }
   
   
@@ -2201,14 +2279,14 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::init()
   {
-    <B><FONT COLOR="#A020F0">if</FONT></B>(_verbose)
+    <B><FONT COLOR="#A020F0">if</FONT></B> (_verbose)
       <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;&gt;&gt;&gt; Initializing Biharmonic\n&quot;</FONT></B>;
   
     _dt  =  0;
     _o_count = 0;
     <B><FONT COLOR="#A020F0">this</FONT></B>-&gt;EquationSystems::init();
   
-    <B><FONT COLOR="#A020F0">if</FONT></B>(_verbose)
+    <B><FONT COLOR="#A020F0">if</FONT></B> (_verbose)
       <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;&lt;&lt;&lt; Initializing Biharmonic\n&quot;</FONT></B>;
   }
   
@@ -2216,7 +2294,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::step(<B><FONT COLOR="#228B22">const</FONT></B> Real&amp; dt_in)
+  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::step(<B><FONT COLOR="#228B22">const</FONT></B> Real &amp; dt_in)
   {
     <B><FONT COLOR="#A020F0">if</FONT></B> (dt_in &lt; 0)
       _dt = _dt0;
@@ -2230,7 +2308,10 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::output(<B><FONT COLOR="#228B22">int</FONT></B> timestep, <B><FONT COLOR="#228B22">const</FONT></B> Real&amp; t, Real&amp; o_t, <B><FONT COLOR="#228B22">bool</FONT></B> force)
+  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::output(<B><FONT COLOR="#228B22">int</FONT></B> timestep,
+                          <B><FONT COLOR="#228B22">const</FONT></B> Real &amp; t,
+                          Real &amp; o_t,
+                          <B><FONT COLOR="#228B22">bool</FONT></B> force)
   {
   #ifdef LIBMESH_HAVE_EXODUS_API
     <B><FONT COLOR="#A020F0">if</FONT></B> (!force &amp;&amp; t - o_t &lt; _o_dt)
@@ -2239,7 +2320,15 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
     ++_o_count;
   
     <B><FONT COLOR="#A020F0">if</FONT></B> (_verbose)
-      <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Writing state &quot;</FONT></B> &lt;&lt; timestep &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; at time &quot;</FONT></B> &lt;&lt; t &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; to file &quot;</FONT></B> &lt;&lt; _ofile &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; output a total of &quot;</FONT></B> &lt;&lt; _o_count &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; states so far\n&quot;</FONT></B>;
+      <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Writing state &quot;</FONT></B>
+                   &lt;&lt; timestep
+                   &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; at time &quot;</FONT></B>
+                   &lt;&lt; t
+                   &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; to file &quot;</FONT></B>
+                   &lt;&lt; _ofile
+                   &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;; output a total of &quot;</FONT></B>
+                   &lt;&lt; _o_count
+                   &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; states so far\n&quot;</FONT></B>;
   
     _exio-&gt;write_timestep(_ofile, *<B><FONT COLOR="#A020F0">this</FONT></B>, timestep, t);
   
@@ -2255,7 +2344,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
     Real t = _t0, o_t = 0.0;
     <B><FONT COLOR="#228B22">int</FONT></B> timestep = 1;
   
-    output(timestep,t,o_t,true);
+    output(timestep, t, o_t, true);
   
     <B><FONT COLOR="#A020F0">while</FONT></B> (t &lt; _t1)
       {
@@ -2268,28 +2357,41 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
         t += _dt;
   
-        output(timestep,t,o_t);
+        output(timestep, t, o_t);
       } <I><FONT COLOR="#B22222">// while(t &lt; _t1)
 </FONT></I>  
-    output(timestep,t,o_t,true);
+    output(timestep, t, o_t, true);
   }
   
   
   
   
   
-  <B><FONT COLOR="#5F9EA0">Biharmonic</FONT></B>::Biharmonic(UnstructuredMesh* m) :
+  <B><FONT COLOR="#5F9EA0">Biharmonic</FONT></B>::Biharmonic(UnstructuredMesh * m) :
     EquationSystems(*m),
     _mesh(m)
   {
-    _verbose      = false; <B><FONT COLOR="#A020F0">if</FONT></B>(on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--verbose&quot;</FONT></B>)) _verbose = true;
-    _growth       = false; <B><FONT COLOR="#A020F0">if</FONT></B>(on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--growth&quot;</FONT></B>))       _growth = true;
-    _degenerate   = false; <B><FONT COLOR="#A020F0">if</FONT></B>(on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--degenerate&quot;</FONT></B>))   _degenerate = true;
-    _cahn_hillard = false; <B><FONT COLOR="#A020F0">if</FONT></B>(on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--cahn_hillard&quot;</FONT></B>)) _cahn_hillard = true;
-    _netforce     = false; <B><FONT COLOR="#A020F0">if</FONT></B>(on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--netforce&quot;</FONT></B>))     _netforce = true;
+    _verbose      = false;
+    _growth       = false;
+    _degenerate   = false;
+    _cahn_hillard = false;
+    _netforce     = false;
+
+    <B><FONT COLOR="#A020F0">if</FONT></B> (on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--verbose&quot;</FONT></B>))
+      _verbose = true;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--growth&quot;</FONT></B>))
+      _growth = true;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--degenerate&quot;</FONT></B>))
+      _degenerate = true;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--cahn_hillard&quot;</FONT></B>))
+      _cahn_hillard = true;
+    <B><FONT COLOR="#A020F0">if</FONT></B> (on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--netforce&quot;</FONT></B>))
+      _netforce = true;
+
     _kappa = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;kappa&quot;</FONT></B>, 1.0);
   
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::string energy = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;energy&quot;</FONT></B>, std::string(<B><FONT COLOR="#BC8F8F">&quot;double_well&quot;</FONT></B>));
+
     <B><FONT COLOR="#A020F0">if</FONT></B> (energy == <B><FONT COLOR="#BC8F8F">&quot;double_well&quot;</FONT></B>)
       _energy = DOUBLE_WELL;
     <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (energy == <B><FONT COLOR="#BC8F8F">&quot;double_obstacle&quot;</FONT></B>)
@@ -2301,9 +2403,9 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
     <B><FONT COLOR="#A020F0">else</FONT></B>
       libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Unknown energy type: &quot;</FONT></B> &lt;&lt; energy);
   
-    _tol     = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;tol&quot;</FONT></B>,1.0e-8);
+    _tol     = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;tol&quot;</FONT></B>, 1.0e-8);
     _theta   = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;theta&quot;</FONT></B>, .001);
-    _theta_c = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;theta_c&quot;</FONT></B>,1.0);
+    _theta_c = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;theta_c&quot;</FONT></B>, 1.0);
   
     _log_truncation = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;log_truncation&quot;</FONT></B>, 2);
   
@@ -2311,7 +2413,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
       <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;WARNING: no truncation is being used for the logarithmic free energy term.\nWARNING: division by zero possible!\n&quot;</FONT></B>;
   
   
-    _dim = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;dim&quot;</FONT></B>,1);
+    _dim = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;dim&quot;</FONT></B>, 1);
   
     libmesh_assert_msg((_dim &lt;= 3) &amp;&amp; (_dim &gt; 0), <B><FONT COLOR="#BC8F8F">&quot;Invalid mesh dimension&quot;</FONT></B>);
   
@@ -2347,6 +2449,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
     _initialState = STRIP;
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::string initialState = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;initial_state&quot;</FONT></B>, std::string(<B><FONT COLOR="#BC8F8F">&quot;strip&quot;</FONT></B>));
+
     <B><FONT COLOR="#A020F0">if</FONT></B> (initialState == std::string(<B><FONT COLOR="#BC8F8F">&quot;ball&quot;</FONT></B>))
       _initialState = BALL;
     <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (initialState == std::string(<B><FONT COLOR="#BC8F8F">&quot;strip&quot;</FONT></B>))
@@ -2369,7 +2472,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i = _dim; i &lt; 3; ++i)
       icenter[i] = 0.0;
   
-    _initialCenter = Point(icenter[0],icenter[1], icenter[2]);
+    _initialCenter = Point(icenter[0], icenter[1], icenter[2]);
     _initialWidth = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;initial_width&quot;</FONT></B>, 0.125);
   
     _jr = &amp;(add_system&lt;Biharmonic::JR&gt;(std::string(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic::JR&quot;</FONT></B>)));
@@ -2415,23 +2518,24 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/numeric_vector.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/periodic_boundaries.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/periodic_boundary.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/elem.h&quot;</FONT></B>
   
   #include <B><FONT COLOR="#BC8F8F">&quot;biharmonic_jr.h&quot;</FONT></B>
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#5F9EA0">Biharmonic</FONT></B>::JR::JR(EquationSystems&amp; eqSys,
-                     <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; name_in,
+  <B><FONT COLOR="#5F9EA0">Biharmonic</FONT></B>::JR::JR(EquationSystems &amp; eqSys,
+                     <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; name_in,
                      <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> number_in) :
-    TransientNonlinearImplicitSystem(eqSys,name_in,number_in),
-    _biharmonic(dynamic_cast&lt;Biharmonic&amp;&gt;(eqSys))
+    TransientNonlinearImplicitSystem(eqSys, name_in, number_in),
+    _biharmonic(dynamic_cast&lt;Biharmonic &amp;&gt;(eqSys))
   {
   #ifndef LIBMESH_ENABLE_SECOND_DERIVATIVES
     libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Must have second derivatives enabled&quot;</FONT></B>);
   #endif
   
   #ifdef LIBMESH_ENABLE_PERIODIC
-    DofMap&amp; dof_map = get_dof_map();
+    DofMap &amp; dof_map = get_dof_map();
     PeriodicBoundary xbdry(RealVectorValue(1.0, 0.0, 0.0));
   #<B><FONT COLOR="#A020F0">if</FONT></B> LIBMESH_DIM &gt; 1
     PeriodicBoundary ybdry(RealVectorValue(0.0, 1.0, 0.0));
@@ -2518,10 +2622,10 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  Number Biharmonic::JR::InitialDensityBall(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                                            <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters,
-                                            <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,
-                                            <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;)
+  Number Biharmonic::JR::InitialDensityBall(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                                            <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                                            <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                            <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;)
   {
     Point center = parameters.get&lt;Point&gt;(<B><FONT COLOR="#BC8F8F">&quot;center&quot;</FONT></B>);
     Real width = parameters.get&lt;Real&gt;(<B><FONT COLOR="#BC8F8F">&quot;width&quot;</FONT></B>);
@@ -2533,10 +2637,10 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  Number Biharmonic::JR::InitialDensityRod(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters,
-                                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,
-                                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;)
+  Number Biharmonic::JR::InitialDensityRod(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;)
   {
     Point center = parameters.get&lt;Point&gt;(<B><FONT COLOR="#BC8F8F">&quot;center&quot;</FONT></B>);
     Real width = parameters.get&lt;Real&gt;(<B><FONT COLOR="#BC8F8F">&quot;width&quot;</FONT></B>);
@@ -2548,10 +2652,10 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  Number Biharmonic::JR::InitialDensityStrip(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                                             <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp; parameters,
-                                             <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,
-                                             <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;)
+  Number Biharmonic::JR::InitialDensityStrip(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                                             <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp; parameters,
+                                             <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                             <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;)
   {
     Point center = parameters.get&lt;Point&gt;(<B><FONT COLOR="#BC8F8F">&quot;center&quot;</FONT></B>);
     Real width = parameters.get&lt;Real&gt;(<B><FONT COLOR="#BC8F8F">&quot;width&quot;</FONT></B>);
@@ -2562,21 +2666,21 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  Gradient Biharmonic::JR::InitialGradientZero(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp;,
-                                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,
-                                               <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,
-                                               <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;)
+  Gradient Biharmonic::JR::InitialGradientZero(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp;,
+                                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;)
   {
-    <B><FONT COLOR="#A020F0">return</FONT></B> Gradient(0.0,0.0,0.0);
+    <B><FONT COLOR="#A020F0">return</FONT></B> Gradient(0.0, 0.0, 0.0);
   }
   
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::JR::residual_and_jacobian(<B><FONT COLOR="#228B22">const</FONT></B> NumericVector&lt;Number&gt; &amp;u,
-                                             NumericVector&lt;Number&gt; *R,
-                                             SparseMatrix&lt;Number&gt; *J,
-                                             NonlinearImplicitSystem&amp;)
+  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::JR::residual_and_jacobian(<B><FONT COLOR="#228B22">const</FONT></B> NumericVector&lt;Number&gt; &amp; u,
+                                             NumericVector&lt;Number&gt; * R,
+                                             SparseMatrix&lt;Number&gt; * J,
+                                             NonlinearImplicitSystem &amp;)
   {
   #ifdef LIBMESH_ENABLE_SECOND_DERIVATIVES
     <B><FONT COLOR="#A020F0">if</FONT></B> (!R &amp;&amp; !J)
@@ -2584,23 +2688,23 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
     PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Biharmonic Residual and Jacobian&quot;</FONT></B>, false);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
   
-    AutoPtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(_biharmonic._dim));
+    UniquePtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(_biharmonic._dim));
   
     fe-&gt;attach_quadrature_rule (qrule.get());
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealTensor&gt; &gt;&amp; d2phi = fe-&gt;get_d2phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealTensor&gt; &gt; &amp; d2phi = fe-&gt;get_d2phi();
   
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Real&gt; Laplacian_phi_qp;
   
@@ -2609,189 +2713,202 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; dof_indices;
   
-    <B><FONT COLOR="#228B22">const</FONT></B> NumericVector&lt;Number&gt;&amp; u_old = *old_local_solution;
+    <B><FONT COLOR="#228B22">const</FONT></B> NumericVector&lt;Number&gt; &amp; u_old = *old_local_solution;
   
   
     <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_element_iterator       el     = _biharmonic._mesh-&gt;active_local_elements_begin();
     <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_element_iterator end_el = _biharmonic._mesh-&gt;active_local_elements_end();
   
-    <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el) {
-      <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+    <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
+      {
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
-      dof_map.dof_indices (elem, dof_indices);
+        dof_map.dof_indices (elem, dof_indices);
   
-      fe-&gt;reinit (elem);
+        fe-&gt;reinit (elem);
   
-      <B><FONT COLOR="#A020F0">if</FONT></B> (J)
-        Je.resize(dof_indices.size(), dof_indices.size());
+        <B><FONT COLOR="#A020F0">if</FONT></B> (J)
+          Je.resize(dof_indices.size(), dof_indices.size());
   
-      <B><FONT COLOR="#A020F0">if</FONT></B> (R)
-        Re.resize(dof_indices.size());
+        <B><FONT COLOR="#A020F0">if</FONT></B> (R)
+          Re.resize(dof_indices.size());
   
-      Laplacian_phi_qp.resize(dof_indices.size());
+        Laplacian_phi_qp.resize(dof_indices.size());
   
-      <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule-&gt;n_points(); qp++)
-        {
-          Number u_qp = 0.0, u_old_qp = 0.0, Laplacian_u_qp = 0.0, Laplacian_u_old_qp = 0.0;
-          Gradient grad_u_qp(0.0,0.0,0.0), grad_u_old_qp(0.0,0.0,0.0);
-          Number M_qp = 1.0, M_old_qp = 1.0, M_prime_qp = 0.0, M_prime_old_qp = 0.0;
+        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule-&gt;n_points(); qp++)
+          {
+            Number
+              u_qp = 0.0,
+              u_old_qp = 0.0,
+              Laplacian_u_qp = 0.0,
+              Laplacian_u_old_qp = 0.0;
+
+            Gradient
+              grad_u_qp(0.0, 0.0, 0.0),
+              grad_u_old_qp(0.0, 0.0, 0.0);
+
+            Number
+              M_qp = 1.0,
+              M_old_qp = 1.0,
+              M_prime_qp = 0.0,
+              M_prime_old_qp = 0.0;
+
+            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
+              {
+                Laplacian_phi_qp[i] = d2phi[i][qp](0, 0);
+                grad_u_qp(0) += u(dof_indices[i])*dphi[i][qp](0);
+                grad_u_old_qp(0) += u_old(dof_indices[i])*dphi[i][qp](0);
   
-          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
-            {
-              Laplacian_phi_qp[i] = d2phi[i][qp](0,0);
-              grad_u_qp(0) += u(dof_indices[i])*dphi[i][qp](0);
-              grad_u_old_qp(0) += u_old(dof_indices[i])*dphi[i][qp](0);
-  
-              <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._dim &gt; 1)
-                {
-                  Laplacian_phi_qp[i] += d2phi[i][qp](1,1);
-                  grad_u_qp(1) += u(dof_indices[i])*dphi[i][qp](1);
-                  grad_u_old_qp(1) += u_old(dof_indices[i])*dphi[i][qp](1);
-                }
-              <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._dim &gt; 2)
-                {
-                  Laplacian_phi_qp[i] += d2phi[i][qp](2,2);
-                  grad_u_qp(2) += u(dof_indices[i])*dphi[i][qp](2);
-                  grad_u_old_qp(2) += u_old(dof_indices[i])*dphi[i][qp](2);
-                }
-              u_qp     += phi[i][qp]*u(dof_indices[i]);
-              u_old_qp += phi[i][qp]*u_old(dof_indices[i]);
-              Laplacian_u_qp     += Laplacian_phi_qp[i]*u(dof_indices[i]);
-              Laplacian_u_old_qp += Laplacian_phi_qp[i]*u_old(dof_indices[i]);
-            } <I><FONT COLOR="#B22222">// for i
+                <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._dim &gt; 1)
+                  {
+                    Laplacian_phi_qp[i] += d2phi[i][qp](1, 1);
+                    grad_u_qp(1) += u(dof_indices[i])*dphi[i][qp](1);
+                    grad_u_old_qp(1) += u_old(dof_indices[i])*dphi[i][qp](1);
+                  }
+                <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._dim &gt; 2)
+                  {
+                    Laplacian_phi_qp[i] += d2phi[i][qp](2, 2);
+                    grad_u_qp(2) += u(dof_indices[i])*dphi[i][qp](2);
+                    grad_u_old_qp(2) += u_old(dof_indices[i])*dphi[i][qp](2);
+                  }
+                u_qp     += phi[i][qp]*u(dof_indices[i]);
+                u_old_qp += phi[i][qp]*u_old(dof_indices[i]);
+                Laplacian_u_qp     += Laplacian_phi_qp[i]*u(dof_indices[i]);
+                Laplacian_u_old_qp += Laplacian_phi_qp[i]*u_old(dof_indices[i]);
+              } <I><FONT COLOR="#B22222">// for i
 </FONT></I>  
-          <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
-            {
-              M_qp           = 1.0 - u_qp*u_qp;
-              M_old_qp       = 1.0 - u_old_qp*u_old_qp;
-              M_prime_qp     = -2.0*u_qp;
-              M_prime_old_qp = -2.0*u_old_qp;
-            }
+            <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
+              {
+                M_qp           = 1.0 - u_qp*u_qp;
+                M_old_qp       = 1.0 - u_old_qp*u_old_qp;
+                M_prime_qp     = -2.0*u_qp;
+                M_prime_old_qp = -2.0*u_old_qp;
+              }
   
-          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
-            {
-              <B><FONT COLOR="#A020F0">if</FONT></B> (R)
-                {
-                  Number ri = 0.0, ri_old = 0.0;
-                  ri     -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_u_qp;
-                  ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._kappa*Laplacian_u_old_qp;
+            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
+              {
+                <B><FONT COLOR="#A020F0">if</FONT></B> (R)
+                  {
+                    Number ri = 0.0, ri_old = 0.0;
+                    ri     -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_u_qp;
+                    ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._kappa*Laplacian_u_old_qp;
   
-                  <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
-                    {
-                      ri       -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp);
-                      ri_old   -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*(_biharmonic._kappa*Laplacian_u_old_qp);
-                    }
+                    <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
+                      {
+                        ri       -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp);
+                        ri_old   -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*(_biharmonic._kappa*Laplacian_u_old_qp);
+                      }
   
-                  <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._cahn_hillard)
-                    {
-                      <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
-                        {
-                          ri += Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
-                          ri_old += Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
-                          <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
-                            {
-                              ri     += (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
-                              ri_old += (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
-                            }
-                        }<I><FONT COLOR="#B22222">// if(_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+                    <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._cahn_hillard)
+                      {
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+                          {
+                            ri += Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
+                            ri_old += Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
+                            <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
+                              {
+                                ri     += (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp;
+                                ri_old += (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*(u_old_qp*u_old_qp - 1.0)*u_old_qp;
+                              }
+                          }<I><FONT COLOR="#B22222">// if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
 </FONT></I>  
-                      <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                        {
-                          ri -= Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*u_qp;
-                          ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*u_old_qp;
-                          <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
-                            {
-                              ri     -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*u_qp;
-                              ri_old -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*u_old_qp;
-                            }
-                        } <I><FONT COLOR="#B22222">// if(_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                          {
+                            ri -= Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*u_qp;
+                            ri_old -= Laplacian_phi_qp[i]*M_old_qp*_biharmonic._theta_c*u_old_qp;
+                            <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
+                              {
+                                ri     -= (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*u_qp;
+                                ri_old -= (dphi[i][qp]*grad_u_old_qp)*M_prime_old_qp*_biharmonic._theta_c*u_old_qp;
+                              }
+                          } <I><FONT COLOR="#B22222">// if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
 </FONT></I>  
-                      <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                        {
-                          <B><FONT COLOR="#A020F0">switch</FONT></B>(_biharmonic._log_truncation)
-                            {
-                            <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">2</FONT></B>:
-                              <B><FONT COLOR="#A020F0">break</FONT></B>;
-                            <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">3</FONT></B>:
-                              <B><FONT COLOR="#A020F0">break</FONT></B>;
-                            <B><FONT COLOR="#5F9EA0">default</FONT></B>:
-                              <B><FONT COLOR="#A020F0">break</FONT></B>;
-                            }<I><FONT COLOR="#B22222">// switch(_biharmonic._log_truncation)
-</FONT></I>                        }<I><FONT COLOR="#B22222">// if(_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-</FONT></I>                    }<I><FONT COLOR="#B22222">// if(_biharmonic._cahn_hillard)
-</FONT></I>                  Re(i) += JxW[qp]*((u_qp-u_old_qp)*phi[i][qp]-_biharmonic._dt*0.5*((2.0-_biharmonic._cnWeight)*ri + _biharmonic._cnWeight*ri_old));
-                } <I><FONT COLOR="#B22222">// if (R)
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                          {
+                            <B><FONT COLOR="#A020F0">switch</FONT></B>(_biharmonic._log_truncation)
+                              {
+                              <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">2</FONT></B>:
+                                <B><FONT COLOR="#A020F0">break</FONT></B>;
+                              <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">3</FONT></B>:
+                                <B><FONT COLOR="#A020F0">break</FONT></B>;
+                              <B><FONT COLOR="#5F9EA0">default</FONT></B>:
+                                <B><FONT COLOR="#A020F0">break</FONT></B>;
+                              }<I><FONT COLOR="#B22222">// switch(_biharmonic._log_truncation)
+</FONT></I>                          }<I><FONT COLOR="#B22222">// if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+</FONT></I>                      }<I><FONT COLOR="#B22222">// if (_biharmonic._cahn_hillard)
+</FONT></I>                    Re(i) += JxW[qp]*((u_qp-u_old_qp)*phi[i][qp]-_biharmonic._dt*0.5*((2.0-_biharmonic._cnWeight)*ri + _biharmonic._cnWeight*ri_old));
+                  } <I><FONT COLOR="#B22222">// if (R)
 </FONT></I>  
-              <B><FONT COLOR="#A020F0">if</FONT></B> (J)
-                {
-                  Number M_prime_prime_qp = 0.0;
-                  <B><FONT COLOR="#A020F0">if</FONT></B>(_biharmonic._degenerate) M_prime_prime_qp = -2.0;
-                  <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;phi.size(); j++)
-                    {
-                      Number ri_j = 0.0;
-                      ri_j -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_phi_qp[j];
-                      <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
-                        {
-                          ri_j -=
-                            Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._kappa*Laplacian_u_qp               +
-                            (dphi[i][qp]*dphi[j][qp])*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp)                  +
-                            (dphi[i][qp]*grad_u_qp)*(M_prime_prime_qp*phi[j][qp])*(_biharmonic._kappa*Laplacian_u_qp) +
-                            (dphi[i][qp]*grad_u_qp)*(M_prime_qp)*(_biharmonic._kappa*Laplacian_phi_qp[j]);
-                        }
+                <B><FONT COLOR="#A020F0">if</FONT></B> (J)
+                  {
+                    Number M_prime_prime_qp = 0.0;
+                    <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate) M_prime_prime_qp = -2.0;
+                    <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;phi.size(); j++)
+                      {
+                        Number ri_j = 0.0;
+                        ri_j -= Laplacian_phi_qp[i]*M_qp*_biharmonic._kappa*Laplacian_phi_qp[j];
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._degenerate)
+                          {
+                            ri_j -=
+                              Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._kappa*Laplacian_u_qp               +
+                              (dphi[i][qp]*dphi[j][qp])*M_prime_qp*(_biharmonic._kappa*Laplacian_u_qp)                  +
+                              (dphi[i][qp]*grad_u_qp)*(M_prime_prime_qp*phi[j][qp])*(_biharmonic._kappa*Laplacian_u_qp) +
+                              (dphi[i][qp]*grad_u_qp)*(M_prime_qp)*(_biharmonic._kappa*Laplacian_phi_qp[j]);
+                          }
   
-                      <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._cahn_hillard)
-                        {
-                          <B><FONT COLOR="#A020F0">if</FONT></B>(_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
-                            {
-                              ri_j +=
-                                Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp +
-                                Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp]        +
-                                (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp      +
-                                (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp  +
-                                (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp];
-                            }<I><FONT COLOR="#B22222">// if(_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+                        <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._cahn_hillard)
+                          {
+                            <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
+                              {
+                                ri_j +=
+                                  Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp +
+                                  Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp]        +
+                                  (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp      +
+                                  (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*(u_qp*u_qp - 1.0)*u_qp  +
+                                  (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*(3.0*u_qp*u_qp - 1.0)*phi[j][qp];
+                              }<I><FONT COLOR="#B22222">// if (_biharmonic._energy == DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_WELL)
 </FONT></I>  
-                          <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                            {
-                              ri_j -=
-                                Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*u_qp                   +
-                                Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*phi[j][qp]                              +
-                                (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*u_qp                        +
-                                (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*u_qp                    +
-                                (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*phi[j][qp];
-                            } <I><FONT COLOR="#B22222">// if(_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                            <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                              {
+                                ri_j -=
+                                  Laplacian_phi_qp[i]*M_prime_qp*phi[j][qp]*_biharmonic._theta_c*u_qp                   +
+                                  Laplacian_phi_qp[i]*M_qp*_biharmonic._theta_c*phi[j][qp]                              +
+                                  (dphi[i][qp]*dphi[j][qp])*M_prime_qp*_biharmonic._theta_c*u_qp                        +
+                                  (dphi[i][qp]*grad_u_qp)*M_prime_prime_qp*_biharmonic._theta_c*u_qp                    +
+                                  (dphi[i][qp]*grad_u_qp)*M_prime_qp*_biharmonic._theta_c*phi[j][qp];
+                              } <I><FONT COLOR="#B22222">// if (_biharmonic._energy == DOUBLE_OBSTACLE || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
 </FONT></I>  
-                          <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-                            {
-                              <B><FONT COLOR="#A020F0">switch</FONT></B>(_biharmonic._log_truncation)
-                                {
-                                <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">2</FONT></B>:
-                                  <B><FONT COLOR="#A020F0">break</FONT></B>;
-                                <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">3</FONT></B>:
-                                  <B><FONT COLOR="#A020F0">break</FONT></B>;
-                                <B><FONT COLOR="#5F9EA0">default</FONT></B>:
-                                  <B><FONT COLOR="#A020F0">break</FONT></B>;
-                                }<I><FONT COLOR="#B22222">// switch(_biharmonic._log_truncation)
-</FONT></I>                            }<I><FONT COLOR="#B22222">// if(_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
-</FONT></I>                        }<I><FONT COLOR="#B22222">// if(_biharmonic._cahn_hillard)
-</FONT></I>                      Je(i,j) += JxW[qp]*(phi[i][qp]*phi[j][qp] - 0.5*_biharmonic._dt*(2.0-_biharmonic._cnWeight)*ri_j);
-                    } <I><FONT COLOR="#B22222">// for j
-</FONT></I>                } <I><FONT COLOR="#B22222">// if (J)
-</FONT></I>            } <I><FONT COLOR="#B22222">// for i
-</FONT></I>        } <I><FONT COLOR="#B22222">// for qp
+                            <B><FONT COLOR="#A020F0">if</FONT></B> (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+                              {
+                                <B><FONT COLOR="#A020F0">switch</FONT></B>(_biharmonic._log_truncation)
+                                  {
+                                  <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">2</FONT></B>:
+                                    <B><FONT COLOR="#A020F0">break</FONT></B>;
+                                  <B><FONT COLOR="#A020F0">case</FONT></B> <B><FONT COLOR="#5F9EA0">3</FONT></B>:
+                                    <B><FONT COLOR="#A020F0">break</FONT></B>;
+                                  <B><FONT COLOR="#5F9EA0">default</FONT></B>:
+                                    <B><FONT COLOR="#A020F0">break</FONT></B>;
+                                  }<I><FONT COLOR="#B22222">// switch(_biharmonic._log_truncation)
+</FONT></I>                              }<I><FONT COLOR="#B22222">// if (_biharmonic._energy == LOG_DOUBLE_WELL || _biharmonic._energy == LOG_DOUBLE_OBSTACLE)
+</FONT></I>                          }<I><FONT COLOR="#B22222">// if (_biharmonic._cahn_hillard)
+</FONT></I>                        Je(i,j) += JxW[qp]*(phi[i][qp]*phi[j][qp] - 0.5*_biharmonic._dt*(2.0-_biharmonic._cnWeight)*ri_j);
+                      } <I><FONT COLOR="#B22222">// for j
+</FONT></I>                  } <I><FONT COLOR="#B22222">// if (J)
+</FONT></I>              } <I><FONT COLOR="#B22222">// for i
+</FONT></I>          } <I><FONT COLOR="#B22222">// for qp
 </FONT></I>  
-      <B><FONT COLOR="#A020F0">if</FONT></B> (R)
-        {
-          dof_map.constrain_element_vector(Re, dof_indices);
-          R-&gt;add_vector(Re, dof_indices);
-        }
+        <B><FONT COLOR="#A020F0">if</FONT></B> (R)
+          {
+            dof_map.constrain_element_vector(Re, dof_indices);
+            R-&gt;add_vector(Re, dof_indices);
+          }
   
-      <B><FONT COLOR="#A020F0">if</FONT></B> (J)
-        {
-          dof_map.constrain_element_matrix(Je, dof_indices);
-          J-&gt;add_matrix(Je, dof_indices);
-        }
-    } <I><FONT COLOR="#B22222">// for el
+        <B><FONT COLOR="#A020F0">if</FONT></B> (J)
+          {
+            dof_map.constrain_element_matrix(Je, dof_indices);
+            J-&gt;add_matrix(Je, dof_indices);
+          }
+      } <I><FONT COLOR="#B22222">// for el
 </FONT></I>  #endif <I><FONT COLOR="#B22222">// LIBMESH_ENABLE_SECOND_DERIVATIVES
 </FONT></I>  }
   
@@ -2799,16 +2916,18 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::JR::bounds(NumericVector&lt;Number&gt; &amp;XL, NumericVector&lt;Number&gt;&amp; XU, NonlinearImplicitSystem&amp;)
+  <B><FONT COLOR="#228B22">void</FONT></B> Biharmonic::JR::bounds(NumericVector&lt;Number&gt; &amp; XL,
+                              NumericVector&lt;Number&gt; &amp; XU,
+                              NonlinearImplicitSystem &amp;)
   {
   
     PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Biharmonic bounds&quot;</FONT></B>, false);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(_biharmonic._dim, fe_type));
   
     DenseVector&lt;Number&gt; XLe, XUe;
   
@@ -2819,7 +2938,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
+        <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
   
         dof_map.dof_indices (*el, dof_indices);
   
@@ -2835,12 +2954,14 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
           {
             Real infinity = 1.0e20;
             Real bound = infinity;
-            <B><FONT COLOR="#A020F0">for</FONT></B>(<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j = 0; j &lt; nodes.size(); ++j) {
-              <B><FONT COLOR="#A020F0">if</FONT></B>(phi[i][j]) {
-                bound = 1.0/fabs(phi[i][j]);
-                <B><FONT COLOR="#A020F0">break</FONT></B>;
+            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j = 0; j &lt; nodes.size(); ++j)
+              {
+                <B><FONT COLOR="#A020F0">if</FONT></B> (phi[i][j])
+                  {
+                    bound = 1.0/std::abs(phi[i][j]);
+                    <B><FONT COLOR="#A020F0">break</FONT></B>;
+                  }
               }
-            }
   
             XLe(i) = -bound;
             XUe(i) = bound;
@@ -2855,12 +2976,11 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
 <pre> 
   #include <B><FONT COLOR="#BC8F8F">&quot;biharmonic.h&quot;</FONT></B>
   
-  
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> print_help(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv);
+  <B><FONT COLOR="#228B22">void</FONT></B> print_help(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv);
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
     <B><FONT COLOR="#A020F0">if</FONT></B> (on_command_line(<B><FONT COLOR="#BC8F8F">&quot;--help&quot;</FONT></B>))
@@ -2875,12 +2995,12 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
         libmesh_example_requires(libMesh::default_solver_package() == PETSC_SOLVERS, <B><FONT COLOR="#BC8F8F">&quot;--enable-petsc&quot;</FONT></B>);
   
-        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;dim&quot;</FONT></B>,1);
+        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = command_line_value(<B><FONT COLOR="#BC8F8F">&quot;dim&quot;</FONT></B>, 1);
   
         libmesh_example_requires(dim &lt;= LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;2D/3D support&quot;</FONT></B>);
   
-        Biharmonic* biharmonic;
-        <B><FONT COLOR="#5F9EA0">Biharmonic</FONT></B>::Create(&amp;biharmonic,init.comm());
+        Biharmonic * biharmonic;
+        <B><FONT COLOR="#5F9EA0">Biharmonic</FONT></B>::Create(&amp;biharmonic, init.comm());
         biharmonic-&gt;viewParameters();
         biharmonic-&gt;init();
         biharmonic-&gt;run();
@@ -2893,7 +3013,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> print_help(<B><FONT COLOR="#228B22">int</FONT></B>, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">void</FONT></B> print_help(<B><FONT COLOR="#228B22">int</FONT></B>, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;This example solves the Cahn-Hillard equation with chemical potential f:\n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;    u_t = \\div(M(u)\\grad f(u))\n&quot;</FONT></B>
@@ -2938,7 +3058,7 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n-----------\n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;RUNNING:     &quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n-----------\n&quot;</FONT></B>
-                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Run in serial with build METHOD &lt;method&gt; as follows:\n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Run in serial with PETSc-3.4 and above as follows:\n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
                  &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;               [--verbose] dim=&lt;1|2|3&gt; N=&lt;number_of_linear_elements&gt; \n&quot;</FONT></B>
@@ -2947,8 +3067,8 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;               theta=&lt;theta_value&gt; theta_c=&lt;theta_c_value&gt;                                                                        \n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;               initial_state=&lt;ball|rod|strip&gt; initial_center='x [y [z]]' initial_width=&lt;width&gt;                                    \n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;               min_time=&lt;initial_time&gt; max_time=&lt;final_time&gt; dt=&lt;timestep_size&gt; crank_nicholson_weight=&lt;between_0_and_1&gt;          \n&quot;</FONT></B>
-                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;               output_base=&lt;base_filename&gt; output_dt=&lt;output_timestep_size&gt; [--use-petsc-dm -snes_type virs]                      \n&quot;</FONT></B>
-                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;               output_base=&lt;base_filename&gt; output_dt=&lt;output_timestep_size&gt; [-snes_type vinewtonrsls | vinewtonssls]              \n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;(with PETSc-3.3 use -snes_type virs | viss).\n&quot;</FONT></B>
                  &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; --verbose \n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;is a pretty good start.\n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\nModeling a 1D system with 2D or 3D (for a strip the second and third components of the center are immaterial):\n&quot;</FONT></B>
@@ -2963,7 +3083,9 @@ Skip higher-dimensional examples on a lower-dimensional libMesh build
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;A 3D system with an initial ball in the center\n&quot;</FONT></B>
                  &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; --verbose dim=3 N=32   initial_state=ball initial_center='0.5 0.5 0.5' initial_width=0.1 dt=1e-10 max_time=1e-6 \n&quot;</FONT></B>
                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
-                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Add --use-petsc-dm -snes_type virs to run the variational inequality version that ensures the solution is between -1.0 and 1.0 at all times.\n\n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Add -snes_type vinewtonrsls to run the variational inequality version that ensures the solution is between -1.0 and 1.0 at all times.\n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;If using PETSc-3.3, run with -snes_type virs.\n&quot;</FONT></B>
+                 &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\n&quot;</FONT></B>
                  &lt;&lt; std::endl;
   }
 </pre> 
@@ -3006,477 +3128,495 @@ Output filename base:      bih.1
 Writing state 1 at time 0 to file bih.1.e; output a total of 1 states so far
 Solving for state 2, time 0
   NL step  0, |residual|_2 = 3.865471e+00
-  NL step  1, |residual|_2 = 7.103196e-15
+  NL step  1, |residual|_2 = 3.700105e-14
 Writing state 2 at time 1.000000e-10 to file bih.1.e; output a total of 2 states so far
 Solving for state 3, time 1.000000e-10
   NL step  0, |residual|_2 = 3.861870e+00
-  NL step  1, |residual|_2 = 5.221549e-15
+  NL step  1, |residual|_2 = 9.419949e-15
 Writing state 3 at time 2.000000e-10 to file bih.1.e; output a total of 3 states so far
 Solving for state 4, time 2.000000e-10
   NL step  0, |residual|_2 = 3.858634e+00
-  NL step  1, |residual|_2 = 4.539967e-15
+  NL step  1, |residual|_2 = 2.484184e-14
 Writing state 4 at time 3.000000e-10 to file bih.1.e; output a total of 4 states so far
 Solving for state 5, time 3.000000e-10
   NL step  0, |residual|_2 = 3.855483e+00
-  NL step  1, |residual|_2 = 6.877479e-15
+  NL step  1, |residual|_2 = 2.581990e-15
 Writing state 5 at time 4.000000e-10 to file bih.1.e; output a total of 5 states so far
 Solving for state 6, time 4.000000e-10
   NL step  0, |residual|_2 = 3.852464e+00
-  NL step  1, |residual|_2 = 2.468310e-15
+  NL step  1, |residual|_2 = 1.013857e-14
 Writing state 6 at time 5.000000e-10 to file bih.1.e; output a total of 6 states so far
 Solving for state 7, time 5.000000e-10
   NL step  0, |residual|_2 = 3.849501e+00
-  NL step  1, |residual|_2 = 8.236553e-15
+  NL step  1, |residual|_2 = 1.458791e-14
 Writing state 7 at time 6.000000e-10 to file bih.1.e; output a total of 7 states so far
 Solving for state 8, time 6.000000e-10
   NL step  0, |residual|_2 = 3.846621e+00
-  NL step  1, |residual|_2 = 1.117148e-14
+  NL step  1, |residual|_2 = 1.080643e-14
 Writing state 8 at time 7.000000e-10 to file bih.1.e; output a total of 8 states so far
 Solving for state 9, time 7.000000e-10
   NL step  0, |residual|_2 = 3.843784e+00
-  NL step  1, |residual|_2 = 3.069599e-15
+  NL step  1, |residual|_2 = 1.551695e-14
 Writing state 9 at time 8.000000e-10 to file bih.1.e; output a total of 9 states so far
 Solving for state 10, time 8.000000e-10
   NL step  0, |residual|_2 = 3.841009e+00
-  NL step  1, |residual|_2 = 2.979509e-15
+  NL step  1, |residual|_2 = 1.690656e-14
 Writing state 10 at time 9.000000e-10 to file bih.1.e; output a total of 10 states so far
 Solving for state 11, time 9.000000e-10
   NL step  0, |residual|_2 = 3.838268e+00
-  NL step  1, |residual|_2 = 1.986730e-14
+  NL step  1, |residual|_2 = 2.450236e-15
 Writing state 11 at time 1.000000e-09 to file bih.1.e; output a total of 11 states so far
 Solving for state 12, time 1.000000e-09
   NL step  0, |residual|_2 = 3.835577e+00
-  NL step  1, |residual|_2 = 1.752727e-14
+  NL step  1, |residual|_2 = 6.586079e-15
 Writing state 12 at time 1.100000e-09 to file bih.1.e; output a total of 12 states so far
 Solving for state 13, time 1.100000e-09
   NL step  0, |residual|_2 = 3.832915e+00
-  NL step  1, |residual|_2 = 6.070099e-15
+  NL step  1, |residual|_2 = 5.896559e-15
 Writing state 13 at time 1.200000e-09 to file bih.1.e; output a total of 13 states so far
 Solving for state 14, time 1.200000e-09
   NL step  0, |residual|_2 = 3.830295e+00
-  NL step  1, |residual|_2 = 2.705320e-15
+  NL step  1, |residual|_2 = 3.431924e-15
 Writing state 14 at time 1.300000e-09 to file bih.1.e; output a total of 14 states so far
 Solving for state 15, time 1.300000e-09
   NL step  0, |residual|_2 = 3.827700e+00
-  NL step  1, |residual|_2 = 7.253883e-15
+  NL step  1, |residual|_2 = 5.412929e-15
 Writing state 15 at time 1.400000e-09 to file bih.1.e; output a total of 15 states so far
 Solving for state 16, time 1.400000e-09
   NL step  0, |residual|_2 = 3.825140e+00
-  NL step  1, |residual|_2 = 9.431336e-15
+  NL step  1, |residual|_2 = 4.992858e-15
 Writing state 16 at time 1.500000e-09 to file bih.1.e; output a total of 16 states so far
 Solving for state 17, time 1.500000e-09
   NL step  0, |residual|_2 = 3.822604e+00
-  NL step  1, |residual|_2 = 6.813469e-15
+  NL step  1, |residual|_2 = 9.898635e-15
 Writing state 17 at time 1.600000e-09 to file bih.1.e; output a total of 17 states so far
 Solving for state 18, time 1.600000e-09
   NL step  0, |residual|_2 = 3.820098e+00
-  NL step  1, |residual|_2 = 8.796227e-15
+  NL step  1, |residual|_2 = 4.071119e-15
 Writing state 18 at time 1.700000e-09 to file bih.1.e; output a total of 18 states so far
 Solving for state 19, time 1.700000e-09
   NL step  0, |residual|_2 = 3.817613e+00
-  NL step  1, |residual|_2 = 1.068673e-14
+  NL step  1, |residual|_2 = 2.620636e-15
 Writing state 19 at time 1.800000e-09 to file bih.1.e; output a total of 19 states so far
 Solving for state 20, time 1.800000e-09
   NL step  0, |residual|_2 = 3.815156e+00
-  NL step  1, |residual|_2 = 2.443579e-15
+  NL step  1, |residual|_2 = 5.960056e-15
 Writing state 20 at time 1.900000e-09 to file bih.1.e; output a total of 20 states so far
 Solving for state 21, time 1.900000e-09
   NL step  0, |residual|_2 = 3.812718e+00
-  NL step  1, |residual|_2 = 6.067084e-15
+  NL step  1, |residual|_2 = 1.107967e-14
 Writing state 21 at time 2.000000e-09 to file bih.1.e; output a total of 21 states so far
 Solving for state 22, time 2.000000e-09
   NL step  0, |residual|_2 = 3.810305e+00
-  NL step  1, |residual|_2 = 3.068644e-15
+  NL step  1, |residual|_2 = 1.535662e-14
 Writing state 22 at time 2.100000e-09 to file bih.1.e; output a total of 22 states so far
 Solving for state 23, time 2.100000e-09
   NL step  0, |residual|_2 = 3.807909e+00
-  NL step  1, |residual|_2 = 2.422347e-15
+  NL step  1, |residual|_2 = 1.176115e-14
 Writing state 23 at time 2.200000e-09 to file bih.1.e; output a total of 23 states so far
 Solving for state 24, time 2.200000e-09
   NL step  0, |residual|_2 = 3.805536e+00
-  NL step  1, |residual|_2 = 1.682797e-14
+  NL step  1, |residual|_2 = 1.691962e-14
 Writing state 24 at time 2.300000e-09 to file bih.1.e; output a total of 24 states so far
 Solving for state 25, time 2.300000e-09
   NL step  0, |residual|_2 = 3.803179e+00
-  NL step  1, |residual|_2 = 3.390169e-15
+  NL step  1, |residual|_2 = 3.363071e-15
 Writing state 25 at time 2.400000e-09 to file bih.1.e; output a total of 25 states so far
 Solving for state 26, time 2.400000e-09
   NL step  0, |residual|_2 = 3.800842e+00
-  NL step  1, |residual|_2 = 7.642977e-15
+  NL step  1, |residual|_2 = 1.200336e-14
 Writing state 26 at time 2.500000e-09 to file bih.1.e; output a total of 26 states so far
 Solving for state 27, time 2.500000e-09
   NL step  0, |residual|_2 = 3.798522e+00
-  NL step  1, |residual|_2 = 5.880640e-15
+  NL step  1, |residual|_2 = 8.651098e-15
 Writing state 27 at time 2.600000e-09 to file bih.1.e; output a total of 27 states so far
 Solving for state 28, time 2.600000e-09
   NL step  0, |residual|_2 = 3.796220e+00
-  NL step  1, |residual|_2 = 9.997525e-15
+  NL step  1, |residual|_2 = 6.598501e-15
 Writing state 28 at time 2.700000e-09 to file bih.1.e; output a total of 28 states so far
 Solving for state 29, time 2.700000e-09
   NL step  0, |residual|_2 = 3.793932e+00
-  NL step  1, |residual|_2 = 1.020434e-14
+  NL step  1, |residual|_2 = 6.938762e-15
 Writing state 29 at time 2.800000e-09 to file bih.1.e; output a total of 29 states so far
 Solving for state 30, time 2.800000e-09
   NL step  0, |residual|_2 = 3.791663e+00
-  NL step  1, |residual|_2 = 2.442624e-15
+  NL step  1, |residual|_2 = 7.534192e-15
 Writing state 30 at time 2.900000e-09 to file bih.1.e; output a total of 30 states so far
 Solving for state 31, time 2.900000e-09
   NL step  0, |residual|_2 = 3.789407e+00
-  NL step  1, |residual|_2 = 1.332402e-14
+  NL step  1, |residual|_2 = 6.826261e-15
 Writing state 31 at time 3.000000e-09 to file bih.1.e; output a total of 31 states so far
 Solving for state 32, time 3.000000e-09
   NL step  0, |residual|_2 = 3.787167e+00
-  NL step  1, |residual|_2 = 3.872343e-15
+  NL step  1, |residual|_2 = 1.366032e-14
 Writing state 32 at time 3.100000e-09 to file bih.1.e; output a total of 32 states so far
 Solving for state 33, time 3.100000e-09
   NL step  0, |residual|_2 = 3.784941e+00
-  NL step  1, |residual|_2 = 7.333762e-15
+  NL step  1, |residual|_2 = 7.775207e-15
 Writing state 33 at time 3.200000e-09 to file bih.1.e; output a total of 33 states so far
 Solving for state 34, time 3.200000e-09
   NL step  0, |residual|_2 = 3.782730e+00
-  NL step  1, |residual|_2 = 8.085214e-15
+  NL step  1, |residual|_2 = 5.915989e-15
 Writing state 34 at time 3.300000e-09 to file bih.1.e; output a total of 34 states so far
 Solving for state 35, time 3.300000e-09
   NL step  0, |residual|_2 = 3.780531e+00
-  NL step  1, |residual|_2 = 3.689091e-15
+  NL step  1, |residual|_2 = 1.583271e-14
 Writing state 35 at time 3.400000e-09 to file bih.1.e; output a total of 35 states so far
 Solving for state 36, time 3.400000e-09
   NL step  0, |residual|_2 = 3.778347e+00
-  NL step  1, |residual|_2 = 2.840335e-15
+  NL step  1, |residual|_2 = 2.867504e-15
 Writing state 36 at time 3.500000e-09 to file bih.1.e; output a total of 36 states so far
 Solving for state 37, time 3.500000e-09
   NL step  0, |residual|_2 = 3.776174e+00
-  NL step  1, |residual|_2 = 5.499960e-15
+  NL step  1, |residual|_2 = 6.916565e-15
 Writing state 37 at time 3.600000e-09 to file bih.1.e; output a total of 37 states so far
 Solving for state 38, time 3.600000e-09
   NL step  0, |residual|_2 = 3.774015e+00
-  NL step  1, |residual|_2 = 1.207984e-14
+  NL step  1, |residual|_2 = 8.571053e-15
 Writing state 38 at time 3.700000e-09 to file bih.1.e; output a total of 38 states so far
 Solving for state 39, time 3.700000e-09
   NL step  0, |residual|_2 = 3.771868e+00
-  NL step  1, |residual|_2 = 2.457556e-14
+  NL step  1, |residual|_2 = 2.199033e-14
 Writing state 39 at time 3.800000e-09 to file bih.1.e; output a total of 39 states so far
 Solving for state 40, time 3.800000e-09
   NL step  0, |residual|_2 = 3.769733e+00
-  NL step  1, |residual|_2 = 6.326839e-14
+  NL step  1, |residual|_2 = 6.211343e-14
 Writing state 40 at time 3.900000e-09 to file bih.1.e; output a total of 40 states so far
 Solving for state 41, time 3.900000e-09
   NL step  0, |residual|_2 = 3.767609e+00
-  NL step  1, |residual|_2 = 1.784303e-13
+  NL step  1, |residual|_2 = 1.775819e-13
 Writing state 41 at time 4.000000e-09 to file bih.1.e; output a total of 41 states so far
 Solving for state 42, time 4.000000e-09
   NL step  0, |residual|_2 = 3.765498e+00
-  NL step  1, |residual|_2 = 5.132188e-13
+  NL step  1, |residual|_2 = 5.111619e-13
 Writing state 42 at time 4.100000e-09 to file bih.1.e; output a total of 42 states so far
 Solving for state 43, time 4.100000e-09
   NL step  0, |residual|_2 = 3.763397e+00
-  NL step  1, |residual|_2 = 1.476951e-12
+  NL step  1, |residual|_2 = 1.471075e-12
 Writing state 43 at time 4.200000e-09 to file bih.1.e; output a total of 43 states so far
 Solving for state 44, time 4.200000e-09
   NL step  0, |residual|_2 = 3.761307e+00
-  NL step  1, |residual|_2 = 4.250845e-12
+  NL step  1, |residual|_2 = 4.234083e-12
 Writing state 44 at time 4.300000e-09 to file bih.1.e; output a total of 44 states so far
 Solving for state 45, time 4.300000e-09
   NL step  0, |residual|_2 = 3.759228e+00
-  NL step  1, |residual|_2 = 1.223511e-11
+  NL step  1, |residual|_2 = 1.218675e-11
 Writing state 45 at time 4.400000e-09 to file bih.1.e; output a total of 45 states so far
 Solving for state 46, time 4.400000e-09
   NL step  0, |residual|_2 = 3.757160e+00
-  NL step  1, |residual|_2 = 3.521627e-11
+  NL step  1, |residual|_2 = 3.507717e-11
 Writing state 46 at time 4.500000e-09 to file bih.1.e; output a total of 46 states so far
 Solving for state 47, time 4.500000e-09
   NL step  0, |residual|_2 = 3.755101e+00
-  NL step  1, |residual|_2 = 1.013632e-10
+  NL step  1, |residual|_2 = 1.009625e-10
 Writing state 47 at time 4.600000e-09 to file bih.1.e; output a total of 47 states so far
 Solving for state 48, time 4.600000e-09
   NL step  0, |residual|_2 = 3.753053e+00
-  NL step  1, |residual|_2 = 2.917539e-10
+  NL step  1, |residual|_2 = 2.906006e-10
 Writing state 48 at time 4.700000e-09 to file bih.1.e; output a total of 48 states so far
 Solving for state 49, time 4.700000e-09
   NL step  0, |residual|_2 = 3.751014e+00
-  NL step  1, |residual|_2 = 8.397554e-10
+  NL step  1, |residual|_2 = 8.364360e-10
 Writing state 49 at time 4.800000e-09 to file bih.1.e; output a total of 49 states so far
 Solving for state 50, time 4.800000e-09
   NL step  0, |residual|_2 = 3.748985e+00
-  NL step  1, |residual|_2 = 2.417068e-09
+  NL step  1, |residual|_2 = 2.407514e-09
 Writing state 50 at time 4.900000e-09 to file bih.1.e; output a total of 50 states so far
 Solving for state 51, time 4.900000e-09
   NL step  0, |residual|_2 = 3.746966e+00
-  NL step  1, |residual|_2 = 6.957048e-09
+  NL step  1, |residual|_2 = 6.929549e-09
 Writing state 51 at time 5.000000e-09 to file bih.1.e; output a total of 51 states so far
 Solving for state 52, time 5.000000e-09
   NL step  0, |residual|_2 = 3.744956e+00
-  NL step  1, |residual|_2 = 2.002448e-08
+  NL step  1, |residual|_2 = 1.994532e-08
 Writing state 52 at time 5.100000e-09 to file bih.1.e; output a total of 52 states so far
 Solving for state 53, time 5.100000e-09
   NL step  0, |residual|_2 = 3.742955e+00
-  NL step  1, |residual|_2 = 5.763646e-08
-  NL step  2, |residual|_2 = 2.605231e-15
+  NL step  1, |residual|_2 = 5.740863e-08
+  NL step  2, |residual|_2 = 2.384681e-15
 Writing state 53 at time 5.200000e-09 to file bih.1.e; output a total of 53 states so far
 Solving for state 54, time 5.200000e-09
   NL step  0, |residual|_2 = 3.740963e+00
-  NL step  1, |residual|_2 = 5.683459e-08
-  NL step  2, |residual|_2 = 2.389246e-15
+  NL step  1, |residual|_2 = 5.660993e-08
+  NL step  2, |residual|_2 = 2.419184e-15
 Writing state 54 at time 5.300000e-09 to file bih.1.e; output a total of 54 states so far
 Solving for state 55, time 5.300000e-09
   NL step  0, |residual|_2 = 3.738979e+00
-  NL step  1, |residual|_2 = 5.629240e-08
-  NL step  2, |residual|_2 = 2.481004e-15
+  NL step  1, |residual|_2 = 5.606989e-08
+  NL step  2, |residual|_2 = 2.469188e-15
 Writing state 55 at time 5.400000e-09 to file bih.1.e; output a total of 55 states so far
 Solving for state 56, time 5.400000e-09
   NL step  0, |residual|_2 = 3.737005e+00
-  NL step  1, |residual|_2 = 5.581251e-08
-  NL step  2, |residual|_2 = 2.352247e-15
+  NL step  1, |residual|_2 = 5.559189e-08
+  NL step  2, |residual|_2 = 2.442416e-15
 Writing state 56 at time 5.500000e-09 to file bih.1.e; output a total of 56 states so far
 Solving for state 57, time 5.500000e-09
   NL step  0, |residual|_2 = 3.735039e+00
-  NL step  1, |residual|_2 = 5.540169e-08
-  NL step  2, |residual|_2 = 2.668973e-15
+  NL step  1, |residual|_2 = 5.518270e-08
+  NL step  2, |residual|_2 = 2.431436e-15
 Writing state 57 at time 5.600000e-09 to file bih.1.e; output a total of 57 states so far
 Solving for state 58, time 5.600000e-09
   NL step  0, |residual|_2 = 3.733082e+00
-  NL step  1, |residual|_2 = 5.502308e-08
-  NL step  2, |residual|_2 = 2.411292e-15
+  NL step  1, |residual|_2 = 5.480558e-08
+  NL step  2, |residual|_2 = 2.400013e-15
 Writing state 58 at time 5.700000e-09 to file bih.1.e; output a total of 58 states so far
 Solving for state 59, time 5.700000e-09
   NL step  0, |residual|_2 = 3.731132e+00
-  NL step  1, |residual|_2 = 5.468019e-08
-  NL step  2, |residual|_2 = 2.352871e-15
+  NL step  1, |residual|_2 = 5.446405e-08
+  NL step  2, |residual|_2 = 2.488918e-15
 Writing state 59 at time 5.800000e-09 to file bih.1.e; output a total of 59 states so far
 Solving for state 60, time 5.800000e-09
   NL step  0, |residual|_2 = 3.729191e+00
-  NL step  1, |residual|_2 = 5.435791e-08
-  NL step  2, |residual|_2 = 2.534867e-15
+  NL step  1, |residual|_2 = 5.414304e-08
+  NL step  2, |residual|_2 = 2.415734e-15
 Writing state 60 at time 5.900000e-09 to file bih.1.e; output a total of 60 states so far
 Solving for state 61, time 5.900000e-09
   NL step  0, |residual|_2 = 3.727257e+00
-  NL step  1, |residual|_2 = 5.405846e-08
-  NL step  2, |residual|_2 = 2.428994e-15
+  NL step  1, |residual|_2 = 5.384478e-08
+  NL step  2, |residual|_2 = 2.465045e-15
 Writing state 61 at time 6.000000e-09 to file bih.1.e; output a total of 61 states so far
 Solving for state 62, time 6.000000e-09
   NL step  0, |residual|_2 = 3.725332e+00
-  NL step  1, |residual|_2 = 5.377369e-08
-  NL step  2, |residual|_2 = 2.381360e-15
+  NL step  1, |residual|_2 = 5.356114e-08
+  NL step  2, |residual|_2 = 2.404997e-15
 Writing state 62 at time 6.100000e-09 to file bih.1.e; output a total of 62 states so far
 Solving for state 63, time 6.100000e-09
   NL step  0, |residual|_2 = 3.723414e+00
-  NL step  1, |residual|_2 = 5.350516e-08
-  NL step  2, |residual|_2 = 2.422865e-15
+  NL step  1, |residual|_2 = 5.329367e-08
+  NL step  2, |residual|_2 = 2.347143e-15
 Writing state 63 at time 6.200000e-09 to file bih.1.e; output a total of 63 states so far
 Solving for state 64, time 6.200000e-09
   NL step  0, |residual|_2 = 3.721504e+00
-  NL step  1, |residual|_2 = 5.324780e-08
-  NL step  2, |residual|_2 = 2.384548e-15
+  NL step  1, |residual|_2 = 5.303732e-08
+  NL step  2, |residual|_2 = 2.466288e-15
 Writing state 64 at time 6.300000e-09 to file bih.1.e; output a total of 64 states so far
 Solving for state 65, time 6.300000e-09
   NL step  0, |residual|_2 = 3.719601e+00
-  NL step  1, |residual|_2 = 5.300276e-08
-  NL step  2, |residual|_2 = 2.521587e-15
+  NL step  1, |residual|_2 = 5.279325e-08
+  NL step  2, |residual|_2 = 2.396288e-15
 Writing state 65 at time 6.400000e-09 to file bih.1.e; output a total of 65 states so far
 Solving for state 66, time 6.400000e-09
   NL step  0, |residual|_2 = 3.717706e+00
-  NL step  1, |residual|_2 = 5.276661e-08
-  NL step  2, |residual|_2 = 2.390665e-15
+  NL step  1, |residual|_2 = 5.255803e-08
+  NL step  2, |residual|_2 = 2.367857e-15
 Writing state 66 at time 6.500000e-09 to file bih.1.e; output a total of 66 states so far
 Solving for state 67, time 6.500000e-09
   NL step  0, |residual|_2 = 3.715818e+00
-  NL step  1, |residual|_2 = 5.254022e-08
-  NL step  2, |residual|_2 = 2.376618e-15
+  NL step  1, |residual|_2 = 5.233254e-08
+  NL step  2, |residual|_2 = 2.396083e-15
 Writing state 67 at time 6.600000e-09 to file bih.1.e; output a total of 67 states so far
 Solving for state 68, time 6.600000e-09
   NL step  0, |residual|_2 = 3.713937e+00
-  NL step  1, |residual|_2 = 5.232113e-08
-  NL step  2, |residual|_2 = 2.435086e-15
+  NL step  1, |residual|_2 = 5.211431e-08
+  NL step  2, |residual|_2 = 2.331777e-15
 Writing state 68 at time 6.700000e-09 to file bih.1.e; output a total of 68 states so far
 Solving for state 69, time 6.700000e-09
   NL step  0, |residual|_2 = 3.712063e+00
-  NL step  1, |residual|_2 = 5.211003e-08
-  NL step  2, |residual|_2 = 2.463207e-15
+  NL step  1, |residual|_2 = 5.190405e-08
+  NL step  2, |residual|_2 = 2.171709e-15
 Writing state 69 at time 6.800000e-09 to file bih.1.e; output a total of 69 states so far
 Solving for state 70, time 6.800000e-09
   NL step  0, |residual|_2 = 3.710197e+00
-  NL step  1, |residual|_2 = 5.190506e-08
-  NL step  2, |residual|_2 = 2.457124e-15
+  NL step  1, |residual|_2 = 5.169989e-08
+  NL step  2, |residual|_2 = 2.386625e-15
 Writing state 70 at time 6.900000e-09 to file bih.1.e; output a total of 70 states so far
 Solving for state 71, time 6.900000e-09
   NL step  0, |residual|_2 = 3.708336e+00
-  NL step  1, |residual|_2 = 5.170680e-08
-  NL step  2, |residual|_2 = 2.441151e-15
+  NL step  1, |residual|_2 = 5.150241e-08
+  NL step  2, |residual|_2 = 2.390530e-15
 Writing state 71 at time 7.000000e-09 to file bih.1.e; output a total of 71 states so far
 Solving for state 72, time 7.000000e-09
   NL step  0, |residual|_2 = 3.706484e+00
-  NL step  1, |residual|_2 = 5.151378e-08
-  NL step  2, |residual|_2 = 2.544587e-15
+  NL step  1, |residual|_2 = 5.131016e-08
+  NL step  2, |residual|_2 = 2.452716e-15
 Writing state 72 at time 7.100000e-09 to file bih.1.e; output a total of 72 states so far
 Solving for state 73, time 7.100000e-09
   NL step  0, |residual|_2 = 3.704637e+00
-  NL step  1, |residual|_2 = 5.132650e-08
-  NL step  2, |residual|_2 = 2.483174e-15
+  NL step  1, |residual|_2 = 5.112361e-08
+  NL step  2, |residual|_2 = 2.443674e-15
 Writing state 73 at time 7.200000e-09 to file bih.1.e; output a total of 73 states so far
 Solving for state 74, time 7.200000e-09
   NL step  0, |residual|_2 = 3.702797e+00
-  NL step  1, |residual|_2 = 5.114377e-08
-  NL step  2, |residual|_2 = 2.476282e-15
+  NL step  1, |residual|_2 = 5.094161e-08
+  NL step  2, |residual|_2 = 2.504119e-15
 Writing state 74 at time 7.300000e-09 to file bih.1.e; output a total of 74 states so far
 Solving for state 75, time 7.300000e-09
   NL step  0, |residual|_2 = 3.700963e+00
-  NL step  1, |residual|_2 = 5.096602e-08
-  NL step  2, |residual|_2 = 2.454184e-15
+  NL step  1, |residual|_2 = 5.076456e-08
+  NL step  2, |residual|_2 = 2.483832e-15
 Writing state 75 at time 7.400000e-09 to file bih.1.e; output a total of 75 states so far
 Solving for state 76, time 7.400000e-09
   NL step  0, |residual|_2 = 3.699137e+00
-  NL step  1, |residual|_2 = 5.079227e-08
-  NL step  2, |residual|_2 = 2.389780e-15
+  NL step  1, |residual|_2 = 5.059150e-08
+  NL step  2, |residual|_2 = 2.485467e-15
 Writing state 76 at time 7.500000e-09 to file bih.1.e; output a total of 76 states so far
 Solving for state 77, time 7.500000e-09
   NL step  0, |residual|_2 = 3.697316e+00
-  NL step  1, |residual|_2 = 5.062290e-08
-  NL step  2, |residual|_2 = 2.517302e-15
+  NL step  1, |residual|_2 = 5.042279e-08
+  NL step  2, |residual|_2 = 2.485405e-15
 Writing state 77 at time 7.600000e-09 to file bih.1.e; output a total of 77 states so far
 Solving for state 78, time 7.600000e-09
   NL step  0, |residual|_2 = 3.695502e+00
-  NL step  1, |residual|_2 = 5.045708e-08
-  NL step  2, |residual|_2 = 2.460049e-15
+  NL step  1, |residual|_2 = 5.025763e-08
+  NL step  2, |residual|_2 = 2.462417e-15
 Writing state 78 at time 7.700000e-09 to file bih.1.e; output a total of 78 states so far
 Solving for state 79, time 7.700000e-09
   NL step  0, |residual|_2 = 3.693694e+00
-  NL step  1, |residual|_2 = 5.029515e-08
-  NL step  2, |residual|_2 = 2.450844e-15
+  NL step  1, |residual|_2 = 5.009634e-08
+  NL step  2, |residual|_2 = 2.330280e-15
 Writing state 79 at time 7.800000e-09 to file bih.1.e; output a total of 79 states so far
 Solving for state 80, time 7.800000e-09
   NL step  0, |residual|_2 = 3.691892e+00
-  NL step  1, |residual|_2 = 5.013641e-08
-  NL step  2, |residual|_2 = 2.428433e-15
+  NL step  1, |residual|_2 = 4.993823e-08
+  NL step  2, |residual|_2 = 2.557443e-15
 Writing state 80 at time 7.900000e-09 to file bih.1.e; output a total of 80 states so far
 Solving for state 81, time 7.900000e-09
   NL step  0, |residual|_2 = 3.690096e+00
-  NL step  1, |residual|_2 = 4.998114e-08
-  NL step  2, |residual|_2 = 2.416671e-15
+  NL step  1, |residual|_2 = 4.978357e-08
+  NL step  2, |residual|_2 = 2.510954e-15
 Writing state 81 at time 8.000000e-09 to file bih.1.e; output a total of 81 states so far
 Solving for state 82, time 8.000000e-09
   NL step  0, |residual|_2 = 3.688306e+00
-  NL step  1, |residual|_2 = 4.982876e-08
-  NL step  2, |residual|_2 = 2.475096e-15
+  NL step  1, |residual|_2 = 4.963179e-08
+  NL step  2, |residual|_2 = 2.532870e-15
 Writing state 82 at time 8.100000e-09 to file bih.1.e; output a total of 82 states so far
 Solving for state 83, time 8.100000e-09
   NL step  0, |residual|_2 = 3.686522e+00
-  NL step  1, |residual|_2 = 4.967951e-08
-  NL step  2, |residual|_2 = 2.341061e-15
+  NL step  1, |residual|_2 = 4.948314e-08
+  NL step  2, |residual|_2 = 2.409232e-15
 Writing state 83 at time 8.200000e-09 to file bih.1.e; output a total of 83 states so far
 Solving for state 84, time 8.200000e-09
   NL step  0, |residual|_2 = 3.684744e+00
-  NL step  1, |residual|_2 = 4.953289e-08
-  NL step  2, |residual|_2 = 2.350640e-15
+  NL step  1, |residual|_2 = 4.933709e-08
+  NL step  2, |residual|_2 = 2.373077e-15
 Writing state 84 at time 8.300000e-09 to file bih.1.e; output a total of 84 states so far
 Solving for state 85, time 8.300000e-09
   NL step  0, |residual|_2 = 3.682971e+00
-  NL step  1, |residual|_2 = 4.938911e-08
-  NL step  2, |residual|_2 = 2.340015e-15
+  NL step  1, |residual|_2 = 4.919388e-08
+  NL step  2, |residual|_2 = 2.567430e-15
 Writing state 85 at time 8.400000e-09 to file bih.1.e; output a total of 85 states so far
 Solving for state 86, time 8.400000e-09
   NL step  0, |residual|_2 = 3.681205e+00
-  NL step  1, |residual|_2 = 4.924773e-08
-  NL step  2, |residual|_2 = 2.477176e-15
+  NL step  1, |residual|_2 = 4.905306e-08
+  NL step  2, |residual|_2 = 2.455994e-15
 Writing state 86 at time 8.500000e-09 to file bih.1.e; output a total of 86 states so far
 Solving for state 87, time 8.500000e-09
   NL step  0, |residual|_2 = 3.679443e+00
-  NL step  1, |residual|_2 = 4.910896e-08
-  NL step  2, |residual|_2 = 2.611744e-15
+  NL step  1, |residual|_2 = 4.891484e-08
+  NL step  2, |residual|_2 = 2.374471e-15
 Writing state 87 at time 8.600000e-09 to file bih.1.e; output a total of 87 states so far
 Solving for state 88, time 8.600000e-09
   NL step  0, |residual|_2 = 3.677688e+00
-  NL step  1, |residual|_2 = 4.897238e-08
-  NL step  2, |residual|_2 = 2.439456e-15
+  NL step  1, |residual|_2 = 4.877880e-08
+  NL step  2, |residual|_2 = 2.483941e-15
 Writing state 88 at time 8.700000e-09 to file bih.1.e; output a total of 88 states so far
 Solving for state 89, time 8.700000e-09
   NL step  0, |residual|_2 = 3.675938e+00
-  NL step  1, |residual|_2 = 4.883820e-08
-  NL step  2, |residual|_2 = 2.570253e-15
+  NL step  1, |residual|_2 = 4.864515e-08
+  NL step  2, |residual|_2 = 2.398725e-15
 Writing state 89 at time 8.800000e-09 to file bih.1.e; output a total of 89 states so far
 Solving for state 90, time 8.800000e-09
   NL step  0, |residual|_2 = 3.674193e+00
-  NL step  1, |residual|_2 = 4.870605e-08
-  NL step  2, |residual|_2 = 2.444979e-15
+  NL step  1, |residual|_2 = 4.851352e-08
+  NL step  2, |residual|_2 = 2.530767e-15
 Writing state 90 at time 8.900000e-09 to file bih.1.e; output a total of 90 states so far
 Solving for state 91, time 8.900000e-09
   NL step  0, |residual|_2 = 3.672454e+00
-  NL step  1, |residual|_2 = 4.857610e-08
-  NL step  2, |residual|_2 = 2.645738e-15
+  NL step  1, |residual|_2 = 4.838409e-08
+  NL step  2, |residual|_2 = 2.615689e-15
 Writing state 91 at time 9.000000e-09 to file bih.1.e; output a total of 91 states so far
 Solving for state 92, time 9.000000e-09
   NL step  0, |residual|_2 = 3.670720e+00
-  NL step  1, |residual|_2 = 4.844804e-08
-  NL step  2, |residual|_2 = 2.711940e-15
+  NL step  1, |residual|_2 = 4.825654e-08
+  NL step  2, |residual|_2 = 2.568743e-15
 Writing state 92 at time 9.100000e-09 to file bih.1.e; output a total of 92 states so far
 Solving for state 93, time 9.100000e-09
   NL step  0, |residual|_2 = 3.668992e+00
-  NL step  1, |residual|_2 = 4.832203e-08
-  NL step  2, |residual|_2 = 2.526058e-15
+  NL step  1, |residual|_2 = 4.813102e-08
+  NL step  2, |residual|_2 = 2.470177e-15
 Writing state 93 at time 9.200000e-09 to file bih.1.e; output a total of 93 states so far
 Solving for state 94, time 9.200000e-09
   NL step  0, |residual|_2 = 3.667269e+00
-  NL step  1, |residual|_2 = 4.819776e-08
-  NL step  2, |residual|_2 = 2.539525e-15
+  NL step  1, |residual|_2 = 4.800725e-08
+  NL step  2, |residual|_2 = 2.370272e-15
 Writing state 94 at time 9.300000e-09 to file bih.1.e; output a total of 94 states so far
 Solving for state 95, time 9.300000e-09
   NL step  0, |residual|_2 = 3.665550e+00
-  NL step  1, |residual|_2 = 4.807540e-08
-  NL step  2, |residual|_2 = 2.555275e-15
+  NL step  1, |residual|_2 = 4.788536e-08
+  NL step  2, |residual|_2 = 2.495545e-15
 Writing state 95 at time 9.400000e-09 to file bih.1.e; output a total of 95 states so far
 Solving for state 96, time 9.400000e-09
   NL step  0, |residual|_2 = 3.663837e+00
-  NL step  1, |residual|_2 = 4.795467e-08
-  NL step  2, |residual|_2 = 2.536156e-15
+  NL step  1, |residual|_2 = 4.776511e-08
+  NL step  2, |residual|_2 = 2.493295e-15
 Writing state 96 at time 9.500000e-09 to file bih.1.e; output a total of 96 states so far
 Solving for state 97, time 9.500000e-09
   NL step  0, |residual|_2 = 3.662129e+00
-  NL step  1, |residual|_2 = 4.783571e-08
-  NL step  2, |residual|_2 = 2.588680e-15
+  NL step  1, |residual|_2 = 4.764662e-08
+  NL step  2, |residual|_2 = 2.383296e-15
 Writing state 97 at time 9.600000e-09 to file bih.1.e; output a total of 97 states so far
 Solving for state 98, time 9.600000e-09
   NL step  0, |residual|_2 = 3.660426e+00
-  NL step  1, |residual|_2 = 4.771829e-08
-  NL step  2, |residual|_2 = 2.675328e-15
+  NL step  1, |residual|_2 = 4.752966e-08
+  NL step  2, |residual|_2 = 2.499442e-15
 Writing state 98 at time 9.700000e-09 to file bih.1.e; output a total of 98 states so far
 Solving for state 99, time 9.700000e-09
   NL step  0, |residual|_2 = 3.658728e+00
-  NL step  1, |residual|_2 = 4.760252e-08
-  NL step  2, |residual|_2 = 2.630177e-15
+  NL step  1, |residual|_2 = 4.741435e-08
+  NL step  2, |residual|_2 = 2.524939e-15
 Writing state 99 at time 9.800000e-09 to file bih.1.e; output a total of 99 states so far
 Solving for state 100, time 9.800000e-09
   NL step  0, |residual|_2 = 3.657035e+00
-  NL step  1, |residual|_2 = 4.748819e-08
-  NL step  2, |residual|_2 = 2.596662e-15
+  NL step  1, |residual|_2 = 4.730047e-08
+  NL step  2, |residual|_2 = 2.548990e-15
 Writing state 100 at time 9.900000e-09 to file bih.1.e; output a total of 100 states so far
 Solving for state 101, time 9.900000e-09
   NL step  0, |residual|_2 = 3.655347e+00
-  NL step  1, |residual|_2 = 4.737541e-08
-  NL step  2, |residual|_2 = 2.600671e-15
+  NL step  1, |residual|_2 = 4.718814e-08
+  NL step  2, |residual|_2 = 2.498620e-15
 Writing state 101 at time 1.000000e-08 to file bih.1.e; output a total of 101 states so far
 Solving for state 102, time 1.000000e-08
   NL step  0, |residual|_2 = 3.653664e+00
-  NL step  1, |residual|_2 = 4.726399e-08
-  NL step  2, |residual|_2 = 2.539853e-15
+  NL step  1, |residual|_2 = 4.707716e-08
+  NL step  2, |residual|_2 = 2.539593e-15
 Writing state 102 at time 1.010000e-08 to file bih.1.e; output a total of 102 states so far
 Writing state 102 at time 1.010000e-08 to file bih.1.e; output a total of 103 states so far
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:39:58 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 15:53:03 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=2.86383, Active time=2.62364                                                    |
+| libMesh Performance: Alive time=1.68414, Active time=1.52968                                                    |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -3484,65 +3624,73 @@ Writing state 102 at time 1.010000e-08 to file bih.1.e; output a total of 103 st
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     1          0.0001      0.000150    0.0001      0.000150    0.01     0.01     |
-|   build_constraint_matrix()        412672     0.1098      0.000000    0.1098      0.000000    4.19     4.19     |
-|   build_sparsity()                 1          0.0015      0.001538    0.0021      0.002149    0.06     0.08     |
-|   constrain_elem_matrix()          154624     0.0362      0.000000    0.0362      0.000000    1.38     1.38     |
-|   constrain_elem_vector()          258048     0.0674      0.000000    0.0674      0.000000    2.57     2.57     |
-|   create_dof_constraints()         1          0.0015      0.001528    0.0038      0.003768    0.06     0.14     |
-|   distribute_dofs()                1          0.0003      0.000250    0.0011      0.001081    0.01     0.04     |
-|   dof_indices()                    520196     0.2992      0.000001    0.2992      0.000001    11.40    11.40    |
-|   enforce_constraints_exactly()    404        0.0160      0.000040    0.0160      0.000040    0.61     0.61     |
-|   prepare_send_list()              1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   reinit()                         1          0.0008      0.000830    0.0008      0.000830    0.03     0.03     |
+|   add_neighbors_to_send_list()     1          0.0001      0.000109    0.0001      0.000109    0.01     0.01     |
+|   build_constraint_matrix()        412672     0.0604      0.000000    0.0604      0.000000    3.95     3.95     |
+|   build_sparsity()                 1          0.0010      0.001048    0.0013      0.001274    0.07     0.08     |
+|   constrain_elem_matrix()          154624     0.0211      0.000000    0.0211      0.000000    1.38     1.38     |
+|   constrain_elem_vector()          258048     0.0353      0.000000    0.0353      0.000000    2.31     2.31     |
+|   create_dof_constraints()         1          0.0009      0.000927    0.0017      0.001654    0.06     0.11     |
+|   distribute_dofs()                1          0.0001      0.000143    0.0008      0.000804    0.01     0.05     |
+|   dof_indices()                    521220     0.0676      0.000000    0.0676      0.000000    4.42     4.42     |
+|   enforce_constraints_exactly()    505        0.0034      0.000007    0.0034      0.000007    0.22     0.22     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0007      0.000661    0.0007      0.000661    0.04     0.04     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          103        0.3597      0.003492    0.4297      0.004172    13.71    16.38    |
+|   build_solution_vector()          103        0.2784      0.002703    0.3008      0.002920    18.20    19.66    |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               103        0.0070      0.000068    0.0070      0.000068    0.27     0.27     |
+|   write_nodal_data()               103        0.0044      0.000043    0.0044      0.000043    0.29     0.29     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        407        0.0025      0.000006    0.0025      0.000006    0.10     0.10     |
-|   init_shape_functions()           407        0.0065      0.000016    0.0065      0.000016    0.25     0.25     |
-|   inverse_map()                    13         0.0000      0.000003    0.0000      0.000003    0.00     0.00     |
+|   compute_shape_functions()        407        0.0021      0.000005    0.0021      0.000005    0.14     0.14     |
+|   init_shape_functions()           407        0.0054      0.000013    0.0054      0.000013    0.36     0.36     |
+|   inverse_map()                    8          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             412676     0.1605      0.000000    0.1605      0.000000    6.12     6.12     |
-|   compute_face_map()               2          0.0000      0.000002    0.0000      0.000002    0.00     0.00     |
-|   init_face_shape_functions()      2          0.0000      0.000002    0.0000      0.000002    0.00     0.00     |
-|   init_reference_to_physical_map() 407        0.0008      0.000002    0.0008      0.000002    0.03     0.03     |
+|   compute_affine_map()             412676     0.0914      0.000000    0.0914      0.000000    5.97     5.97     |
+|   compute_face_map()               2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   init_face_shape_functions()      2          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   init_reference_to_physical_map() 407        0.0004      0.000001    0.0004      0.000001    0.03     0.03     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   operator()                       1          0.0018      0.001791    0.0031      0.003141    0.12     0.21     |
+|   project_edges                    1024       0.0001      0.000000    0.0001      0.000000    0.00     0.00     |
+|   project_interior                 1024       0.0001      0.000000    0.0001      0.000000    0.00     0.00     |
+|   project_nodes                    1024       0.0004      0.000000    0.0004      0.000000    0.03     0.03     |
+|   project_sides                    1024       0.0001      0.000000    0.0001      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   find_neighbors()                 1          0.0007      0.000685    0.0007      0.000685    0.03     0.03     |
-|   renumber_nodes_and_elem()        2          0.0001      0.000027    0.0001      0.000027    0.00     0.00     |
+|   find_neighbors()                 1          0.0007      0.000719    0.0007      0.000719    0.05     0.05     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000010    0.0000      0.000010    0.00     0.00     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         103        0.0011      0.000011    0.4378      0.004251    0.04     16.69    |
+|   write_equation_systems()         103        0.0007      0.000007    0.3059      0.002970    0.05     20.00    |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0003      0.000330    0.0003      0.000330    0.01     0.01     |
+|   build_cube()                     1          0.0003      0.000250    0.0003      0.000250    0.02     0.02     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               1          0.0001      0.000051    0.0001      0.000051    0.00     0.00     |
+|   single_partition()               1          0.0000      0.000027    0.0000      0.000027    0.00     0.00     |
 |                                                                                                                 |
 | PetscNonlinearSolver                                                                                            |
-|   jacobian()                       151        0.5864      0.003884    0.8761      0.005802    22.35    33.39    |
-|   residual()                       252        0.8575      0.003403    1.3448      0.005336    32.68    51.26    |
-|   solve()                          101        0.1024      0.001014    2.3234      0.023004    3.90     88.56    |
+|   jacobian()                       151        0.3593      0.002379    0.5110      0.003384    23.49    33.41    |
+|   residual()                       252        0.5244      0.002081    0.7789      0.003091    34.28    50.92    |
+|   solve()                          101        0.0637      0.000631    1.3558      0.013423    4.16     88.63    |
 |                                                                                                                 |
 | PointLocatorTree                                                                                                |
-|   init(no master)                  1          0.0020      0.002037    0.0020      0.002037    0.08     0.08     |
-|   operator()                       4          0.0001      0.000014    0.0001      0.000019    0.00     0.00     |
+|   init(no master)                  1          0.0006      0.000642    0.0006      0.000642    0.04     0.04     |
+|   operator()                       2          0.0000      0.000011    0.0000      0.000013    0.00     0.00     |
 |                                                                                                                 |
 | System                                                                                                          |
-|   project_vector()                 1          0.0017      0.001703    0.0025      0.002481    0.06     0.09     |
-|   solve()                          101        0.0014      0.000014    2.3248      0.023018    0.05     88.61    |
+|   project_fem_vector()             1          0.0001      0.000066    0.0032      0.003236    0.00     0.21     |
+|   project_vector(FunctionBase)     1          0.0000      0.000004    0.0032      0.003240    0.00     0.21     |
+|   solve()                          101        0.0046      0.000046    1.3604      0.013469    0.30     88.93    |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            1760790    2.6236                                          100.00            |
+| Totals:                            1766007    1.5297                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  

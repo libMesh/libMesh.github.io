@@ -1,0 +1,2241 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>libMesh - A C++ Finite Element Library</title>
+  <meta name="author" content="libMesh development team">
+  <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
+</head>
+
+<body>
+  <nav id="fixedbar">
+    <ul id="fixednav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../support.html">About Us</a></li>
+      <li><a href="../publications.html">Publications</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
+      <li><a href="../installation.html">Installation</a></li>
+      <li><a href="../examples.html">Examples</a></li>
+     <li><a href="../doxygen/index.html">Documentation</a></li>
+    </ul>
+  </nav>
+
+  <div id="w">
+    <header id="logo"><a href="../index.html"><span id="logobg">SomeWebsiteLogo</span></a></header>
+
+    <nav id="navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../support.html">About Us</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
+        <li><a href="../installation.html">Installation</a></li>
+        <li><a href="../examples.html">Examples</a></li>
+        <li><a href="../doxygen/index.html">Documentation</a></li>
+      </ul>
+    </nav>
+
+<div id="content">
+
+<a name="comments"></a>
+<br><br><br> <h1> The source file miscellaneous_ex12.C with comments: </h1>
+<div class = "comment">
+</div>
+
+<div class ="fragment">
+<pre>
+        #include &lt;iostream&gt;
+
+</pre>
+</div>
+<div class = "comment">
+LibMesh includes
+</div>
+
+<div class ="fragment">
+<pre>
+        #include "libmesh/libmesh.h"
+        #include "libmesh/mesh.h"
+        #include "libmesh/linear_implicit_system.h"
+        #include "libmesh/equation_systems.h"
+        #include "libmesh/fe.h"
+        #include "libmesh/quadrature.h"
+        #include "libmesh/node.h"
+        #include "libmesh/elem.h"
+        #include "libmesh/dof_map.h"
+        #include "libmesh/quadrature_gauss.h"
+        #include "libmesh/vector_value.h"
+        #include "libmesh/tensor_value.h"
+        #include "libmesh/dense_matrix.h"
+        #include "libmesh/dense_submatrix.h"
+        #include "libmesh/dense_vector.h"
+        #include "libmesh/dense_subvector.h"
+        #include "libmesh/sparse_matrix.h"
+        #include "libmesh/numeric_vector.h"
+        #include "libmesh/exodusII_io.h"
+        #include "libmesh/dirichlet_boundaries.h"
+        #include "libmesh/zero_function.h"
+        #include "libmesh/linear_solver.h"
+        #include "libmesh/libmesh_nullptr.h"
+
+</pre>
+</div>
+<div class = "comment">
+Eigen includes
+</div>
+
+<div class ="fragment">
+<pre>
+        #ifdef LIBMESH_HAVE_EIGEN
+        # include &lt;Eigen/Dense&gt;
+        #endif
+
+</pre>
+</div>
+<div class = "comment">
+Bring in everything from the libMesh namespace
+</div>
+
+<div class ="fragment">
+<pre>
+        using namespace libMesh;
+
+</pre>
+</div>
+<div class = "comment">
+Function prototype.  This is the function that will assemble
+the stiffness matrix and the right-hand-side vector ready
+for solution.
+</div>
+
+<div class ="fragment">
+<pre>
+        void assemble_shell (EquationSystems & es,
+                             const std::string & system_name);
+
+</pre>
+</div>
+<div class = "comment">
+Begin the main program.
+</div>
+
+<div class ="fragment">
+<pre>
+        int main (int argc, char ** argv)
+        {
+</pre>
+</div>
+<div class = "comment">
+Initialize libMesh.
+</div>
+
+<div class ="fragment">
+<pre>
+          LibMeshInit init (argc, argv);
+
+</pre>
+</div>
+<div class = "comment">
+Skip this 3D example if libMesh was compiled as 1D/2D-only.
+</div>
+
+<div class ="fragment">
+<pre>
+          libmesh_example_requires (3 == LIBMESH_DIM, "3D support");
+
+</pre>
+</div>
+<div class = "comment">
+This example does a bunch of linear algebra during assembly, and
+therefore requires Eigen.
+</div>
+
+<div class ="fragment">
+<pre>
+        #ifndef LIBMESH_HAVE_EIGEN
+          libmesh_example_requires(false, "--enable-eigen");
+        #endif
+
+</pre>
+</div>
+<div class = "comment">
+Create a mesh distributed across the default MPI communicator.
+</div>
+
+<div class ="fragment">
+<pre>
+          Mesh mesh (init.comm(), 3);
+
+          mesh.read("cylinder.exo");
+
+</pre>
+</div>
+<div class = "comment">
+Print information about the mesh to the screen.
+</div>
+
+<div class ="fragment">
+<pre>
+          mesh.print_info();
+
+</pre>
+</div>
+<div class = "comment">
+Create an equation systems object.
+</div>
+
+<div class ="fragment">
+<pre>
+          EquationSystems equation_systems (mesh);
+
+</pre>
+</div>
+<div class = "comment">
+Declare the system and its variables.
+Create a linear implicit system named "Shell".
+</div>
+
+<div class ="fragment">
+<pre>
+          LinearImplicitSystem & system = equation_systems.add_system&lt;LinearImplicitSystem&gt; ("Shell");
+
+</pre>
+</div>
+<div class = "comment">
+Add the three displacement variables "u", "v", "w",
+and the three rotational variables "theta_x", "theta_y", "theta_z".
+All variables are Q1 (first order on a quad mesh).
+</div>
+
+<div class ="fragment">
+<pre>
+          system.add_variable ("u");
+          system.add_variable ("v");
+          system.add_variable ("w");
+          system.add_variable ("theta_x");
+          system.add_variable ("theta_y");
+          system.add_variable ("theta_z");
+
+</pre>
+</div>
+<div class = "comment">
+Give the system a pointer to the matrix and rhs assembly
+function.
+</div>
+
+<div class ="fragment">
+<pre>
+          system.attach_assemble_function (assemble_shell);
+
+</pre>
+</div>
+<div class = "comment">
+Use the parameters of the equation systems object to
+tell the shell system about the material properties, the
+shell thickness, and the external load.
+</div>
+
+<div class ="fragment">
+<pre>
+          const Real h  = 0.03;
+          const Real E  = 3e10;
+          const Real nu = 0.3;
+          const Real q  = 1;
+          equation_systems.parameters.set&lt;Real&gt; ("thickness")       = h;
+          equation_systems.parameters.set&lt;Real&gt; ("young's modulus") = E;
+          equation_systems.parameters.set&lt;Real&gt; ("poisson ratio")   = nu;
+          equation_systems.parameters.set&lt;Real&gt; ("point load")    = q;
+
+</pre>
+</div>
+<div class = "comment">
+Dirichlet conditions for the pinched cylinder problem.
+Only one 8th of the cylinder is considered using symmetry considerations.
+The cylinder longitudinal axis is the y-axis.
+The four corners of the surface are named A(3,0,0), B(3,3,0), C(0,3,3), D(0,0,3).
+The point load (pinch) is applied at C in the -z direction.
+Edge AD is the actual edge of the cylinder and is rigid in the xz-plane.
+Other edges have symmetric boundary conditions.
+
+
+<br><br>AB w, theta_x, theta_y
+</div>
+
+<div class ="fragment">
+<pre>
+          {
+            std::set&lt;boundary_id_type&gt; boundary_ids;
+            boundary_ids.insert(7);
+            unsigned int variables[] = {2, 3, 4};
+            ZeroFunction&lt;&gt; zf;
+            DirichletBoundary dirichlet_bc(boundary_ids,
+                                           std::vector&lt;unsigned int&gt;(variables, variables+3),
+                                           &zf);
+            system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+          }
+</pre>
+</div>
+<div class = "comment">
+BC v, theta_x, theta_z
+</div>
+
+<div class ="fragment">
+<pre>
+          {
+            std::set&lt;boundary_id_type&gt; boundary_ids;
+            boundary_ids.insert(8);
+            unsigned int variables[] = {1, 3, 5};
+            ZeroFunction&lt;&gt; zf;
+            DirichletBoundary dirichlet_bc(boundary_ids,
+                                           std::vector&lt;unsigned int&gt;(variables, variables+3),
+                                           &zf);
+            system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+          }
+</pre>
+</div>
+<div class = "comment">
+CD u, theta_y, theta_z
+</div>
+
+<div class ="fragment">
+<pre>
+          {
+            std::set&lt;boundary_id_type&gt; boundary_ids;
+            boundary_ids.insert(9);
+            unsigned int variables[] = {0, 4, 5};
+            ZeroFunction&lt;&gt; zf;
+            DirichletBoundary dirichlet_bc(boundary_ids,
+                                           std::vector&lt;unsigned int&gt;(variables, variables+3),
+                                           &zf);
+            system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+          }
+</pre>
+</div>
+<div class = "comment">
+AD u, w, theta_y
+</div>
+
+<div class ="fragment">
+<pre>
+          {
+            std::set&lt;boundary_id_type&gt; boundary_ids;
+            boundary_ids.insert(10);
+            unsigned int variables[] = {0, 2, 4};
+            ZeroFunction&lt;&gt; zf;
+            DirichletBoundary dirichlet_bc(boundary_ids,
+                                           std::vector&lt;unsigned int&gt;(variables, variables+3),
+                                           &zf);
+            system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+          }
+
+</pre>
+</div>
+<div class = "comment">
+Initialize the data structures for the equation system.
+</div>
+
+<div class ="fragment">
+<pre>
+          equation_systems.init();
+
+</pre>
+</div>
+<div class = "comment">
+Print information about the system to the screen.
+</div>
+
+<div class ="fragment">
+<pre>
+          equation_systems.print_info();
+
+</pre>
+</div>
+<div class = "comment">
+This example can be run with EigenSparseLinearSolvers, but it
+only works with either the CG or SPARSELU types, and SparseLU
+turns out to be faster.
+</div>
+
+<div class ="fragment">
+<pre>
+          if (libMesh::default_solver_package() == EIGEN_SOLVERS)
+            system.get_linear_solver()-&gt;set_solver_type(SPARSELU);
+
+</pre>
+</div>
+<div class = "comment">
+Solve the linear system.
+</div>
+
+<div class ="fragment">
+<pre>
+          system.solve();
+
+</pre>
+</div>
+<div class = "comment">
+After solving the system, write the solution to an
+ExodusII output file ready for import in, e.g.,
+Paraview.
+</div>
+
+<div class ="fragment">
+<pre>
+          ExodusII_IO(mesh).write_equation_systems ("out.e", equation_systems);
+
+</pre>
+</div>
+<div class = "comment">
+Find the node nearest point C.
+</div>
+
+<div class ="fragment">
+<pre>
+          Node * node_C = libmesh_nullptr;
+          Point point_C(0, 3, 3);
+          {
+            Real nearest_dist_sq = std::numeric_limits&lt;Real&gt;::max();
+
+</pre>
+</div>
+<div class = "comment">
+Find the closest local node.  On a ParallelMesh we may not even
+know about the existence of closer non-local nodes.
+</div>
+
+<div class ="fragment">
+<pre>
+            libMesh::MeshBase::const_node_iterator it = mesh.local_nodes_begin();
+            const libMesh::MeshBase::const_node_iterator end = mesh.local_nodes_end();
+            for (; it != end; ++it)
+              {
+                Node *n = *it;
+                const Real dist_sq = (*n-point_C).norm_sq();
+                if (dist_sq &lt; nearest_dist_sq)
+                  {
+                    nearest_dist_sq = dist_sq;
+                    node_C = n;
+                  }
+              }
+
+</pre>
+</div>
+<div class = "comment">
+Check with other processors to see if any found a closer node
+</div>
+
+<div class ="fragment">
+<pre>
+            unsigned int minrank = 0;
+            system.comm().minloc(nearest_dist_sq, minrank);
+
+</pre>
+</div>
+<div class = "comment">
+Broadcast the ID of the closest node, so every processor can
+see for certain whether they have it or not.
+</div>
+
+<div class ="fragment">
+<pre>
+            dof_id_type nearest_node_id;
+            if (system.processor_id() == minrank)
+              nearest_node_id = node_C-&gt;id();
+            system.comm().broadcast(nearest_node_id, minrank);
+            node_C = mesh.query_node_ptr(nearest_node_id);
+          }
+
+</pre>
+</div>
+<div class = "comment">
+Evaluate the z-displacement "w" at the node nearest C.
+</div>
+
+<div class ="fragment">
+<pre>
+          Number w = 0;
+
+</pre>
+</div>
+<div class = "comment">
+If we know about the closest node, and if we also own the DoFs
+on that node, then we can evaluate the solution at that node.
+</div>
+
+<div class ="fragment">
+<pre>
+          if (node_C)
+            {
+              const unsigned int w_var = system.variable_number ("w");
+              dof_id_type w_dof = node_C-&gt;dof_number (system.number(), w_var, 0);
+              if (w_dof &gt;= system.get_dof_map().first_dof() &&
+                  w_dof &lt; system.get_dof_map().end_dof())
+                w = system.current_solution(w_dof);
+            }
+          system.comm().sum(w);
+
+
+          Real w_C_bar = -E*h*w/q;
+          const Real w_C_bar_analytic = 164.24;
+
+</pre>
+</div>
+<div class = "comment">
+Print the finite element solution and the analytic
+prediction to the screen.
+</div>
+
+<div class ="fragment">
+<pre>
+          libMesh::out &lt;&lt; "z-displacement of the point C: " &lt;&lt; w_C_bar &lt;&lt; std::endl;
+          libMesh::out &lt;&lt; "Analytic solution: " &lt;&lt; w_C_bar_analytic &lt;&lt; std::endl;
+
+</pre>
+</div>
+<div class = "comment">
+Evaluate the y-displacement "v" at point D.  This time we'll
+evaluate at the exact point, not just the closest node.
+</div>
+
+<div class ="fragment">
+<pre>
+          Point point_D(0, 0, 3);
+          const unsigned int v_var = system.variable_number ("v");
+          Number v = system.point_value(v_var, point_D);
+
+          Real v_D_bar = E*h*v/q;
+          const Real v_D_bar_analytic = 4.114;
+
+</pre>
+</div>
+<div class = "comment">
+Print the finite element solution and the analytic
+prediction to the screen.
+</div>
+
+<div class ="fragment">
+<pre>
+          libMesh::out &lt;&lt; "y-displacement of the point D: " &lt;&lt; v_D_bar &lt;&lt; std::endl;
+          libMesh::out &lt;&lt; "Analytic solution: " &lt;&lt; v_D_bar_analytic &lt;&lt; std::endl;
+
+</pre>
+</div>
+<div class = "comment">
+All done.
+</div>
+
+<div class ="fragment">
+<pre>
+          return 0;
+        }
+
+
+
+</pre>
+</div>
+<div class = "comment">
+We now define the matrix and rhs vector assembly function
+for the shell system.
+</div>
+
+<div class ="fragment">
+<pre>
+        void assemble_shell (EquationSystems & es,
+                             const std::string & system_name)
+        {
+</pre>
+</div>
+<div class = "comment">
+This example requires Eigen to actually work, but we should still
+let it compile and throw a runtime error if you don't.
+</div>
+
+<div class ="fragment">
+<pre>
+        #ifdef LIBMESH_HAVE_EIGEN
+</pre>
+</div>
+<div class = "comment">
+It is a good idea to make sure we are assembling
+the proper system.
+</div>
+
+<div class ="fragment">
+<pre>
+          libmesh_assert_equal_to (system_name, "Shell");
+
+</pre>
+</div>
+<div class = "comment">
+Get a constant reference to the mesh object.
+</div>
+
+<div class ="fragment">
+<pre>
+          const MeshBase & mesh = es.get_mesh();
+          const unsigned int dim = mesh.mesh_dimension();
+
+</pre>
+</div>
+<div class = "comment">
+Get a reference to the shell system object.
+</div>
+
+<div class ="fragment">
+<pre>
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt; (system_name);
+
+</pre>
+</div>
+<div class = "comment">
+Get the shell parameters that we need during assembly.
+</div>
+
+<div class ="fragment">
+<pre>
+          const Real h  = es.parameters.get&lt;Real&gt; ("thickness");
+          const Real E  = es.parameters.get&lt;Real&gt; ("young's modulus");
+          const Real nu = es.parameters.get&lt;Real&gt; ("poisson ratio");
+          const Real q  = es.parameters.get&lt;Real&gt; ("point load");
+
+</pre>
+</div>
+<div class = "comment">
+The membrane elastic matrix.
+</div>
+
+<div class ="fragment">
+<pre>
+          Eigen::Matrix3d Hm;
+          Hm &lt;&lt;
+            1., nu, 0.,
+            nu, 1., 0.,
+            0., 0., 0.5 * (1-nu);
+          Hm *= h * E/(1-nu*nu);
+
+</pre>
+</div>
+<div class = "comment">
+The bending elastic matrix.
+</div>
+
+<div class ="fragment">
+<pre>
+          Eigen::Matrix3d Hf;
+          Hf &lt;&lt;
+            1., nu, 0.,
+            nu, 1., 0.,
+            0., 0., 0.5 * (1-nu);
+          Hf *= h*h*h/12 * E/(1-nu*nu);
+
+</pre>
+</div>
+<div class = "comment">
+The shear elastic matrices.
+</div>
+
+<div class ="fragment">
+<pre>
+          Eigen::Matrix2d Hc0 = Eigen::Matrix2d::Identity();
+          Hc0 *= h * 5./6*E/(2*(1+nu));
+
+          Eigen::Matrix2d Hc1 = Eigen::Matrix2d::Identity();
+          Hc1 *= h*h*h/12 * 5./6*E/(2*(1+nu));
+
+</pre>
+</div>
+<div class = "comment">
+Get the Finite Element type, this will be
+the same for all variables.
+</div>
+
+<div class ="fragment">
+<pre>
+          FEType fe_type = system.variable_type (0);
+
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+          QGauss qrule (dim, fe_type.default_quadrature_order());
+          fe-&gt;attach_quadrature_rule (&qrule);
+
+</pre>
+</div>
+<div class = "comment">
+The element Jacobian * quadrature weight at each integration point.
+</div>
+
+<div class ="fragment">
+<pre>
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
+
+</pre>
+</div>
+<div class = "comment">
+The element shape function and its derivatives evaluated at the
+quadrature points.
+</div>
+
+<div class ="fragment">
+<pre>
+          const std::vector&lt;RealGradient&gt; & dxyzdxi = fe-&gt;get_dxyzdxi();
+          const std::vector&lt;RealGradient&gt; & dxyzdeta = fe-&gt;get_dxyzdeta();
+          const std::vector&lt;RealGradient&gt; & d2xyzdxi2 = fe-&gt;get_d2xyzdxi2();
+          const std::vector&lt;RealGradient&gt; & d2xyzdeta2 = fe-&gt;get_d2xyzdeta2();
+          const std::vector&lt;RealGradient&gt; & d2xyzdxideta = fe-&gt;get_d2xyzdxideta();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & dphidxi = fe-&gt;get_dphidxi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & dphideta = fe-&gt;get_dphideta();
+
+</pre>
+</div>
+<div class = "comment">
+A reference to the DofMap object for this system.  The DofMap
+object handles the index translation from node and element numbers
+to degree of freedom numbers.
+</div>
+
+<div class ="fragment">
+<pre>
+          const DofMap & dof_map = system.get_dof_map();
+
+</pre>
+</div>
+<div class = "comment">
+Define data structures to contain the element stiffness matrix.
+</div>
+
+<div class ="fragment">
+<pre>
+          DenseMatrix&lt;Number&gt; Ke;
+          DenseSubMatrix&lt;Number&gt; Ke_var[6][6] =
+          {
+            {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+             DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+            {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+             DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+            {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+             DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+            {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+             DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+            {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+             DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+            {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+             DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)}
+          };
+
+          std::vector&lt;dof_id_type&gt; dof_indices;
+          std::vector&lt; std::vector&lt;dof_id_type&gt; &gt; dof_indices_var(6);
+
+</pre>
+</div>
+<div class = "comment">
+Now we will loop over all the elements in the mesh.  We will
+compute the element matrix and right-hand-side contribution.
+</div>
+
+<div class ="fragment">
+<pre>
+          MeshBase::const_element_iterator       el     = mesh.active_local_elements_begin();
+          const MeshBase::const_element_iterator end_el = mesh.active_local_elements_end();
+
+          for (; el != end_el; ++el)
+            {
+</pre>
+</div>
+<div class = "comment">
+Store a pointer to the element we are currently
+working on.  This allows for nicer syntax later.
+</div>
+
+<div class ="fragment">
+<pre>
+              const Elem * elem = *el;
+
+              dof_map.dof_indices (elem, dof_indices);
+              for (unsigned int var=0; var&lt;6; var++)
+                dof_map.dof_indices (elem, dof_indices_var[var], var);
+
+              const unsigned int n_dofs   = dof_indices.size();
+              const unsigned int n_var_dofs = dof_indices_var[0].size();
+
+</pre>
+</div>
+<div class = "comment">
+First compute element data at the nodes
+</div>
+
+<div class ="fragment">
+<pre>
+              std::vector&lt;Point&gt; nodes;
+              for (unsigned int i=0; i&lt;elem-&gt;n_nodes(); ++i)
+                nodes.push_back(*(elem-&gt;get_node(i)));
+              fe-&gt;reinit (elem, &nodes);
+
+</pre>
+</div>
+<div class = "comment">
+Convenient notation for the element node positions
+</div>
+
+<div class ="fragment">
+<pre>
+              Eigen::Vector3d X1(nodes[0](0), nodes[0](1), nodes[0](2));
+              Eigen::Vector3d X2(nodes[1](0), nodes[1](1), nodes[1](2));
+              Eigen::Vector3d X3(nodes[2](0), nodes[2](1), nodes[2](2));
+              Eigen::Vector3d X4(nodes[3](0), nodes[3](1), nodes[3](2));
+
+</pre>
+</div>
+<div class = "comment">
+Store covariant basis and local orthonormal basis at the nodes
+</div>
+
+<div class ="fragment">
+<pre>
+              std::vector&lt;Eigen::Matrix3d&gt; F0node;
+              std::vector&lt;Eigen::Matrix3d&gt; Qnode;
+              for (unsigned int i=0; i&lt;elem-&gt;n_nodes(); ++i)
+              {
+                 Eigen::Vector3d a1;
+                 a1 &lt;&lt; dxyzdxi[i](0), dxyzdxi[i](1), dxyzdxi[i](2);
+                 Eigen::Vector3d a2;
+                 a2 &lt;&lt; dxyzdeta[i](0), dxyzdeta[i](1), dxyzdeta[i](2);
+                 Eigen::Vector3d n;
+                 n = a1.cross(a2);
+                 n /= n.norm();
+                 Eigen::Matrix3d F0;
+                 F0 &lt;&lt;
+                   a1(0), a2(0), n(0),
+                   a1(1), a2(1), n(1),
+                   a1(2), a2(2), n(2);
+                 F0node.push_back(F0);
+
+                Real nx = n(0);
+                Real ny = n(1);
+                Real C  = n(2);
+                if (std::abs(1.+C)&lt;1e-6)
+                {
+                  Eigen::Matrix3d Q;
+                  Q &lt;&lt;
+                    1, 0, 0,
+                    0, -1, 0,
+                    0, 0, -1;
+                  Qnode.push_back(Q);
+                }
+                else
+                {
+                  Eigen::Matrix3d Q;
+                  Q &lt;&lt;
+                    C+1./(1+C)*ny*ny, -1./(1+C)*nx*ny, nx,
+                    -1./(1+C)*nx*ny, C+1./(1+C)*nx*nx, ny,
+                    -nx,             -ny,              C;
+                  Qnode.push_back(Q);
+                }
+              }
+
+              Ke.resize (n_dofs, n_dofs);
+              for (unsigned int var_i=0; var_i&lt;6; var_i++)
+                for (unsigned int var_j=0; var_j&lt;6; var_j++)
+                  Ke_var[var_i][var_j].reposition (var_i*n_var_dofs, var_j*n_var_dofs, n_var_dofs, n_var_dofs);
+
+</pre>
+</div>
+<div class = "comment">
+Reinit element data at the regular Gauss quadrature points
+</div>
+
+<div class ="fragment">
+<pre>
+              fe-&gt;reinit (elem);
+
+</pre>
+</div>
+<div class = "comment">
+Now we will build the element matrix and right-hand-side.
+</div>
+
+<div class ="fragment">
+<pre>
+              for (unsigned int qp=0; qp&lt;qrule.n_points(); ++qp)
+              {
+
+</pre>
+</div>
+<div class = "comment">
+Covariant basis at the quadrature point
+</div>
+
+<div class ="fragment">
+<pre>
+                Eigen::Vector3d a1;
+                a1 &lt;&lt; dxyzdxi[qp](0), dxyzdxi[qp](1), dxyzdxi[qp](2);
+                Eigen::Vector3d a2;
+                a2 &lt;&lt; dxyzdeta[qp](0), dxyzdeta[qp](1), dxyzdeta[qp](2);
+                Eigen::Vector3d n;
+                n = a1.cross(a2);
+                n /= n.norm();
+                Eigen::Matrix3d F0;
+                F0 &lt;&lt;
+                  a1(0), a2(0), n(0),
+                  a1(1), a2(1), n(1),
+                  a1(2), a2(2), n(2);
+
+</pre>
+</div>
+<div class = "comment">
+Contravariant basis
+</div>
+
+<div class ="fragment">
+<pre>
+                Eigen::Matrix3d F0it;
+                F0it = F0.inverse().transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Local orthonormal basis at the quadrature point
+</div>
+
+<div class ="fragment">
+<pre>
+                Real nx = n(0);
+                Real ny = n(1);
+                Real C  = n(2);
+                Eigen::Matrix3d Q;
+                if (std::abs(1.+C) &lt; 1e-6)
+                {
+                  Q &lt;&lt;
+                    1, 0, 0,
+                    0, -1, 0,
+                    0, 0, -1;
+                }
+                else
+                {
+                  Q &lt;&lt;
+                    C+1./(1+C)*ny*ny, -1./(1+C)*nx*ny, nx,
+                    -1./(1+C)*nx*ny, C+1./(1+C)*nx*nx, ny,
+                    -nx,             -ny,              C;
+                }
+
+                Eigen::Matrix2d C0;
+                C0 = F0it.block&lt;3,2&gt;(0,0).transpose()*Q.block&lt;3,2&gt;(0,0);
+
+</pre>
+</div>
+<div class = "comment">
+Normal derivatives in reference coordinates
+</div>
+
+<div class ="fragment">
+<pre>
+                Eigen::Vector3d d2Xdxi2(d2xyzdxi2[qp](0), d2xyzdxi2[qp](1), d2xyzdxi2[qp](2));
+                Eigen::Vector3d d2Xdeta2(d2xyzdeta2[qp](0), d2xyzdeta2[qp](1), d2xyzdeta2[qp](2));
+                Eigen::Vector3d d2Xdxideta(d2xyzdxideta[qp](0), d2xyzdxideta[qp](1), d2xyzdxideta[qp](2));
+
+                Eigen::Matrix2d b;
+                b &lt;&lt;
+                  n.dot(d2Xdxi2), n.dot(d2Xdxideta),
+                  n.dot(d2Xdxideta), n.dot(d2Xdeta2);
+
+                Eigen::Vector3d dndxi = -b(0,0)*F0it.col(0) - b(0,1)*F0it.col(1);
+                Eigen::Vector3d dndeta = -b(1,0)*F0it.col(0) - b(1,1)*F0it.col(1);
+
+                Eigen::Matrix2d bhat;
+                bhat &lt;&lt;
+                  F0it.col(1).dot(dndeta), -F0it.col(0).dot(dndeta),
+                  -F0it.col(1).dot(dndxi), F0it.col(0).dot(dndxi);
+
+                Eigen::Matrix2d bc;
+                bc = bhat*C0;
+
+</pre>
+</div>
+<div class = "comment">
+Mean curvature
+</div>
+
+<div class ="fragment">
+<pre>
+                Real H = 0.5*(dndxi.dot(F0it.col(0))+dndeta.dot(F0it.col(1)));
+
+</pre>
+</div>
+<div class = "comment">
+Quadrature point reference coordinates
+</div>
+
+<div class ="fragment">
+<pre>
+                Real xi = qrule.qp(qp)(0);
+                Real eta = qrule.qp(qp)(1);
+
+</pre>
+</div>
+<div class = "comment">
+Preassemble the MITC4 shear strain matrix for all nodes as they involve
+cross references to midside nodes.
+The QUAD4 element has nodes X1,X2,X3,X4 with coordinates (xi,eta)
+in the reference element: (-1,-1),(1,-1),(1,1),(-1,1).
+The midside nodes are denoted A1=(X1+X2)/2, B2=(X2+X3)/2, A2=(X3+X4)/2, B1=(X4+X1)/2.
+
+
+<br><br>Normals at the midside nodes (average of normals at the edge corners).
+Multiplication by the assumed shear strain shape function.
+</div>
+
+<div class ="fragment">
+<pre>
+                Eigen::Vector3d nA1 = 0.5*(Qnode[0].col(2)+Qnode[1].col(2));
+                nA1 /= nA1.norm();
+                nA1 *= (1-eta)/4;
+                Eigen::Vector3d nB2 = 0.5*(Qnode[1].col(2)+Qnode[2].col(2));
+                nB2 /= nB2.norm();
+                nB2 *= (1+xi)/4;
+                Eigen::Vector3d nA2 = 0.5*(Qnode[2].col(2)+Qnode[3].col(2));
+                nA2 /= nA2.norm();
+                nA2 *= (1+eta)/4;
+                Eigen::Vector3d nB1 = 0.5*(Qnode[3].col(2)+Qnode[0].col(2));
+                nB1 /= nB1.norm();
+                nB1 *= (1-xi)/4;
+
+</pre>
+</div>
+<div class = "comment">
+Edge tangents
+</div>
+
+<div class ="fragment">
+<pre>
+                Eigen::Vector3d aA1 = 0.5*(X2-X1);
+                Eigen::Vector3d aA2 = 0.5*(X3-X4);
+                Eigen::Vector3d aB1 = 0.5*(X4-X1);
+                Eigen::Vector3d aB2 = 0.5*(X3-X2);
+
+</pre>
+</div>
+<div class = "comment">
+Contribution of the rotational dofs to the shear strain
+</div>
+
+<div class ="fragment">
+<pre>
+                Eigen::Vector2d AS1A1(-aA1.dot(Qnode[0].col(1)), aA1.dot(Qnode[0].col(0)));
+                Eigen::Vector2d AS2A1(-aA1.dot(Qnode[1].col(1)), aA1.dot(Qnode[1].col(0)));
+                AS1A1 *= (1-eta)/4;
+                AS2A1 *= (1-eta)/4;
+
+                Eigen::Vector2d AS1A2(-aA2.dot(Qnode[3].col(1)), aA2.dot(Qnode[3].col(0)));
+                Eigen::Vector2d AS2A2(-aA2.dot(Qnode[2].col(1)), aA2.dot(Qnode[2].col(0)));
+                AS1A2 *= (1+eta)/4;
+                AS2A2 *= (1+eta)/4;
+
+                Eigen::Vector2d AS1B1(-aB1.dot(Qnode[0].col(1)), aB1.dot(Qnode[0].col(0)));
+                Eigen::Vector2d AS2B1(-aB1.dot(Qnode[3].col(1)), aB1.dot(Qnode[3].col(0)));
+                AS1B1 *= (1-xi)/4;
+                AS2B1 *= (1-xi)/4;
+
+                Eigen::Vector2d AS1B2(-aB2.dot(Qnode[1].col(1)), aB2.dot(Qnode[1].col(0)));
+                Eigen::Vector2d AS2B2(-aB2.dot(Qnode[2].col(1)), aB2.dot(Qnode[2].col(0)));
+                AS1B2 *= (1+xi)/4;
+                AS2B2 *= (1+xi)/4;
+
+</pre>
+</div>
+<div class = "comment">
+Store previous quantities in the shear strain matrices for each node
+</div>
+
+<div class ="fragment">
+<pre>
+                std::vector&lt;Eigen::MatrixXd&gt; Bcnode;
+                Eigen::MatrixXd Bc(2, 5);
+</pre>
+</div>
+<div class = "comment">
+Node 1
+</div>
+
+<div class ="fragment">
+<pre>
+                Bc.block&lt;1,3&gt;(0,0) = -nA1.transpose();
+                Bc.block&lt;1,2&gt;(0,3) = AS1A1.transpose();
+                Bc.block&lt;1,3&gt;(1,0) = -nB1.transpose();
+                Bc.block&lt;1,2&gt;(1,3) = AS1B1.transpose();
+                Bcnode.push_back(Bc);
+</pre>
+</div>
+<div class = "comment">
+Node 2
+</div>
+
+<div class ="fragment">
+<pre>
+                Bc.block&lt;1,3&gt;(0,0) = nA1.transpose();
+                Bc.block&lt;1,2&gt;(0,3) = AS2A1.transpose();
+                Bc.block&lt;1,3&gt;(1,0) = -nB2.transpose();
+                Bc.block&lt;1,2&gt;(1,3) = AS1B2.transpose();
+                Bcnode.push_back(Bc);
+</pre>
+</div>
+<div class = "comment">
+Node 3
+</div>
+
+<div class ="fragment">
+<pre>
+                Bc.block&lt;1,3&gt;(0,0) = nA2.transpose();
+                Bc.block&lt;1,2&gt;(0,3) = AS2A2.transpose();
+                Bc.block&lt;1,3&gt;(1,0) = nB2.transpose();
+                Bc.block&lt;1,2&gt;(1,3) = AS2B2.transpose();
+                Bcnode.push_back(Bc);
+</pre>
+</div>
+<div class = "comment">
+Node 4
+</div>
+
+<div class ="fragment">
+<pre>
+                Bc.block&lt;1,3&gt;(0,0) = -nA2.transpose();
+                Bc.block&lt;1,2&gt;(0,3) = AS1A2.transpose();
+                Bc.block&lt;1,3&gt;(1,0) = nB1.transpose();
+                Bc.block&lt;1,2&gt;(1,3) = AS2B1.transpose();
+                Bcnode.push_back(Bc);
+
+</pre>
+</div>
+<div class = "comment">
+Loop over all pairs of nodes I,J.
+</div>
+
+<div class ="fragment">
+<pre>
+                for (unsigned int i=0; i&lt;n_var_dofs; ++i)
+                {
+</pre>
+</div>
+<div class = "comment">
+Matrix B0, zeroth order (through thickness) membrane-bending strain
+</div>
+
+<div class ="fragment">
+<pre>
+                  Real C1i = dphidxi[i][qp]*C0(0,0) + dphideta[i][qp]*C0(1,0);
+                  Real C2i = dphidxi[i][qp]*C0(0,1) + dphideta[i][qp]*C0(1,1);
+
+                  Eigen::MatrixXd B0I(3, 5);
+                  B0I = Eigen::MatrixXd::Zero(3, 5);
+                  B0I.block&lt;1,3&gt;(0,0) = C1i*Q.col(0).transpose();
+                  B0I.block&lt;1,3&gt;(1,0) = C2i*Q.col(1).transpose();
+                  B0I.block&lt;1,3&gt;(2,0) = C2i*Q.col(0).transpose()+C1i*Q.col(1).transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Matrix B1, first order membrane-bending strain
+</div>
+
+<div class ="fragment">
+<pre>
+                  Real bc1i = dphidxi[i][qp]*bc(0,0) + dphideta[i][qp]*bc(1,0);
+                  Real bc2i = dphidxi[i][qp]*bc(0,1) + dphideta[i][qp]*bc(1,1);
+
+                  Eigen::Vector2d V1i(-Q.col(0).dot(Qnode[i].col(1)),
+                                       Q.col(0).dot(Qnode[i].col(0)));
+
+                  Eigen::Vector2d V2i(-Q.col(1).dot(Qnode[i].col(1)),
+                                       Q.col(1).dot(Qnode[i].col(0)));
+
+                  Eigen::MatrixXd B1I(3,5);
+                  B1I = Eigen::MatrixXd::Zero(3,5);
+                  B1I.block&lt;1,3&gt;(0,0) = bc1i*Q.col(0).transpose();
+                  B1I.block&lt;1,3&gt;(1,0) = bc2i*Q.col(1).transpose();
+                  B1I.block&lt;1,3&gt;(2,0) = bc2i*Q.col(0).transpose()+bc1i*Q.col(1).transpose();
+
+                  B1I.block&lt;1,2&gt;(0,3) = C1i*V1i.transpose();
+                  B1I.block&lt;1,2&gt;(1,3) = C2i*V2i.transpose();
+                  B1I.block&lt;1,2&gt;(2,3) = C2i*V1i.transpose()+C1i*V2i.transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Matrix B2, second order membrane-bending strain
+</div>
+
+<div class ="fragment">
+<pre>
+                  Eigen::MatrixXd B2I(3,5);
+                  B2I = Eigen::MatrixXd::Zero(3,5);
+
+                  B2I.block&lt;1,2&gt;(0,3) = bc1i*V1i.transpose();
+                  B2I.block&lt;1,2&gt;(1,3) = bc2i*V2i.transpose();
+                  B2I.block&lt;1,2&gt;(2,3) = bc2i*V1i.transpose()+bc1i*V2i.transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Matrix Bc0, zeroth order shear strain
+</div>
+
+<div class ="fragment">
+<pre>
+                  Eigen::MatrixXd Bc0I(2,5);
+                  Bc0I = C0.transpose()*Bcnode[i];
+
+</pre>
+</div>
+<div class = "comment">
+Matrix Bc1, first order shear strain
+</div>
+
+<div class ="fragment">
+<pre>
+                  Eigen::MatrixXd Bc1I(2,5);
+                  Bc1I = bc.transpose()*Bcnode[i];
+
+</pre>
+</div>
+<div class = "comment">
+Drilling dof (in-plane rotation)
+</div>
+
+<div class ="fragment">
+<pre>
+                  Eigen::Vector2d BdxiI(dphidxi[i][qp],dphideta[i][qp]);
+                  Eigen::Vector2d BdI = C0.transpose()*BdxiI;
+
+                  for (unsigned int j=0; j&lt;n_var_dofs; ++j)
+                  {
+
+</pre>
+</div>
+<div class = "comment">
+Matrix B0, zeroth order membrane-bending strain
+</div>
+
+<div class ="fragment">
+<pre>
+                    Real C1j = dphidxi[j][qp]*C0(0,0) + dphideta[j][qp]*C0(1,0);
+                    Real C2j = dphidxi[j][qp]*C0(0,1) + dphideta[j][qp]*C0(1,1);
+
+                    Eigen::MatrixXd B0J(3,5);
+                    B0J = Eigen::MatrixXd::Zero(3,5);
+                    B0J.block&lt;1,3&gt;(0,0) = C1j*Q.col(0).transpose();
+                    B0J.block&lt;1,3&gt;(1,0) = C2j*Q.col(1).transpose();
+                    B0J.block&lt;1,3&gt;(2,0) = C2j*Q.col(0).transpose()+C1j*Q.col(1).transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Matrix B1, first order membrane-bending strain
+</div>
+
+<div class ="fragment">
+<pre>
+                    Real bc1j = dphidxi[j][qp]*bc(0,0) + dphideta[j][qp]*bc(1,0);
+                    Real bc2j = dphidxi[j][qp]*bc(0,1) + dphideta[j][qp]*bc(1,1);
+
+                    Eigen::Vector2d V1j(-Q.col(0).dot(Qnode[j].col(1)),
+                                         Q.col(0).dot(Qnode[j].col(0)));
+
+                    Eigen::Vector2d V2j(-Q.col(1).dot(Qnode[j].col(1)),
+                                         Q.col(1).dot(Qnode[j].col(0)));
+
+                    Eigen::MatrixXd B1J(3,5);
+                    B1J = Eigen::MatrixXd::Zero(3,5);
+                    B1J.block&lt;1,3&gt;(0,0) = bc1j*Q.col(0).transpose();
+                    B1J.block&lt;1,3&gt;(1,0) = bc2j*Q.col(1).transpose();
+                    B1J.block&lt;1,3&gt;(2,0) = bc2j*Q.col(0).transpose()+bc1j*Q.col(1).transpose();
+
+                    B1J.block&lt;1,2&gt;(0,3) = C1j*V1j.transpose();
+                    B1J.block&lt;1,2&gt;(1,3) = C2j*V2j.transpose();
+                    B1J.block&lt;1,2&gt;(2,3) = C2j*V1j.transpose()+C1j*V2j.transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Matrix B2, second order membrane-bending strain
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::MatrixXd B2J(3,5);
+                    B2J = Eigen::MatrixXd::Zero(3,5);
+
+                    B2J.block&lt;1,2&gt;(0,3) = bc1j*V1j.transpose();
+                    B2J.block&lt;1,2&gt;(1,3) = bc2j*V2j.transpose();
+                    B2J.block&lt;1,2&gt;(2,3) = bc2j*V1j.transpose()+bc1j*V2j.transpose();
+
+</pre>
+</div>
+<div class = "comment">
+Matrix Bc0, zeroth order shear strain
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::MatrixXd Bc0J(2, 5);
+                    Bc0J = C0.transpose()*Bcnode[j];
+
+</pre>
+</div>
+<div class = "comment">
+Matrix Bc1, first order shear strain
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::MatrixXd Bc1J(2, 5);
+                    Bc1J = bc.transpose()*Bcnode[j];
+
+</pre>
+</div>
+<div class = "comment">
+Drilling dof
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::Vector2d BdxiJ(dphidxi[j][qp], dphideta[j][qp]);
+                    Eigen::Vector2d BdJ = C0.transpose()*BdxiJ;
+
+</pre>
+</div>
+<div class = "comment">
+The total stiffness matrix coupling the nodes
+I and J is a sum of membrane, bending and shear contributions.
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::MatrixXd local_KIJ(5, 5);
+                    local_KIJ = JxW[qp] * (
+                         B0I.transpose() * Hm * B0J
+                      +  B2I.transpose() * Hf * B0J
+                      +  B0I.transpose() * Hf * B2J
+                      +  B1I.transpose() * Hf * B1J
+                      +  2*H * B0I.transpose() * Hf * B1J
+                      +  2*H * B1I.transpose() * Hf * B0J
+                      +  Bc0I.transpose() * Hc0 * Bc0J
+                      +  Bc1I.transpose() * Hc1 * Bc1J
+                      +  2*H * Bc0I.transpose() * Hc1 * Bc1J
+                      +  2*H * Bc1I.transpose() * Hc1 * Bc0J
+                      );
+
+</pre>
+</div>
+<div class = "comment">
+Going from 5 to 6 dofs to add drilling dof
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::MatrixXd full_local_KIJ(6, 6);
+                    full_local_KIJ = Eigen::MatrixXd::Zero(6, 6);
+                    full_local_KIJ.block&lt;5,5&gt;(0,0)=local_KIJ;
+
+</pre>
+</div>
+<div class = "comment">
+Drilling dof stiffness contribution
+</div>
+
+<div class ="fragment">
+<pre>
+                    full_local_KIJ(5,5) = 1e-7*Hf(0,0)*JxW[qp]*BdI.transpose()*BdJ;
+
+</pre>
+</div>
+<div class = "comment">
+Transform the stiffness matrix to global coordinates
+</div>
+
+<div class ="fragment">
+<pre>
+                    Eigen::MatrixXd global_KIJ(6,6);
+                    Eigen::MatrixXd TI(6,6);
+                    TI = Eigen::MatrixXd::Identity(6,6);
+                    TI.block&lt;3,3&gt;(3,3) = Qnode[i].transpose();
+                    Eigen::MatrixXd TJ(6,6);
+                    TJ = Eigen::MatrixXd::Identity(6,6);
+                    TJ.block&lt;3,3&gt;(3,3) = Qnode[j].transpose();
+                    global_KIJ = TI.transpose()*full_local_KIJ*TJ;
+
+</pre>
+</div>
+<div class = "comment">
+Insert the components of the coupling stiffness
+matrix KIJ into the corresponding directional
+submatrices.
+</div>
+
+<div class ="fragment">
+<pre>
+                    for (unsigned int k=0;k&lt;6;k++)
+                      for (unsigned int l=0;l&lt;6;l++)
+                        Ke_var[k][l](i,j) += global_KIJ(k,l);
+                  }
+                }
+
+              } // end of the quadrature point qp-loop
+
+</pre>
+</div>
+<div class = "comment">
+The element matrix is now built for this element.
+Add it to the global matrix.
+
+
+<br><br></div>
+
+<div class ="fragment">
+<pre>
+              dof_map.constrain_element_matrix (Ke,dof_indices);
+
+              system.matrix-&gt;add_matrix (Ke, dof_indices);
+            }
+
+</pre>
+</div>
+<div class = "comment">
+Adding point load to the RHS
+
+
+<br><br>Pinch position
+</div>
+
+<div class ="fragment">
+<pre>
+          Point C(0, 3, 3);
+
+          MeshBase::const_node_iterator nodeit = mesh.nodes_begin();
+          const MeshBase::const_node_iterator node_end = mesh.nodes_end();
+
+          for ( ; nodeit!=node_end; ++nodeit)
+            {
+              Node & node = **nodeit;
+              if ((node-C).norm() &lt; 1e-3)
+                system.rhs-&gt;set(node.dof_number(0, 2, 0), -q/4);
+            }
+        #else
+</pre>
+</div>
+<div class = "comment">
+Avoid compiler warnings
+</div>
+
+<div class ="fragment">
+<pre>
+          libmesh_ignore(es);
+          libmesh_ignore(system_name);
+        #endif // LIBMESH_HAVE_EIGEN
+        }
+</pre>
+</div>
+
+<a name="nocomments"></a>
+<br><br><br> <h1> The source file miscellaneous_ex12.C without comments: </h1>
+<pre>
+  #include &lt;iostream&gt;
+
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/libmesh.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/mesh.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/linear_implicit_system.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/equation_systems.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/fe.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/quadrature.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/node.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/elem.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dof_map.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/quadrature_gauss.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/vector_value.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/tensor_value.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_matrix.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_submatrix.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_vector.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_subvector.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/sparse_matrix.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/numeric_vector.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/exodusII_io.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dirichlet_boundaries.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/zero_function.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/linear_solver.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/libmesh_nullptr.h&quot;</FONT></B>
+
+  #ifdef LIBMESH_HAVE_EIGEN
+  # include &lt;Eigen/Dense&gt;
+  #endif
+
+  using namespace libMesh;
+
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_shell (EquationSystems &amp; es,
+                       <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
+
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
+  {
+    LibMeshInit init (argc, argv);
+
+    libmesh_example_requires (3 == LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;3D support&quot;</FONT></B>);
+
+  #ifndef LIBMESH_HAVE_EIGEN
+    libmesh_example_requires(false, <B><FONT COLOR="#BC8F8F">&quot;--enable-eigen&quot;</FONT></B>);
+  #endif
+
+    Mesh mesh (init.comm(), 3);
+
+    mesh.read(<B><FONT COLOR="#BC8F8F">&quot;cylinder.exo&quot;</FONT></B>);
+
+    mesh.print_info();
+
+    EquationSystems equation_systems (mesh);
+
+    LinearImplicitSystem &amp; system = equation_systems.add_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Shell&quot;</FONT></B>);
+
+    system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>);
+    system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;v&quot;</FONT></B>);
+    system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;w&quot;</FONT></B>);
+    system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;theta_x&quot;</FONT></B>);
+    system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;theta_y&quot;</FONT></B>);
+    system.add_variable (<B><FONT COLOR="#BC8F8F">&quot;theta_z&quot;</FONT></B>);
+
+    system.attach_assemble_function (assemble_shell);
+
+    <B><FONT COLOR="#228B22">const</FONT></B> Real h  = 0.03;
+    <B><FONT COLOR="#228B22">const</FONT></B> Real E  = 3e10;
+    <B><FONT COLOR="#228B22">const</FONT></B> Real nu = 0.3;
+    <B><FONT COLOR="#228B22">const</FONT></B> Real q  = 1;
+    equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;thickness&quot;</FONT></B>)       = h;
+    equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;young's modulus&quot;</FONT></B>) = E;
+    equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;poisson ratio&quot;</FONT></B>)   = nu;
+    equation_systems.parameters.set&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;point load&quot;</FONT></B>)    = q;
+
+
+    {
+      <B><FONT COLOR="#5F9EA0">std</FONT></B>::set&lt;boundary_id_type&gt; boundary_ids;
+      boundary_ids.insert(7);
+      <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> variables[] = {2, 3, 4};
+      ZeroFunction&lt;&gt; zf;
+      DirichletBoundary dirichlet_bc(boundary_ids,
+                                     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt;(variables, variables+3),
+                                     &amp;zf);
+      system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+    }
+    {
+      <B><FONT COLOR="#5F9EA0">std</FONT></B>::set&lt;boundary_id_type&gt; boundary_ids;
+      boundary_ids.insert(8);
+      <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> variables[] = {1, 3, 5};
+      ZeroFunction&lt;&gt; zf;
+      DirichletBoundary dirichlet_bc(boundary_ids,
+                                     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt;(variables, variables+3),
+                                     &amp;zf);
+      system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+    }
+    {
+      <B><FONT COLOR="#5F9EA0">std</FONT></B>::set&lt;boundary_id_type&gt; boundary_ids;
+      boundary_ids.insert(9);
+      <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> variables[] = {0, 4, 5};
+      ZeroFunction&lt;&gt; zf;
+      DirichletBoundary dirichlet_bc(boundary_ids,
+                                     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt;(variables, variables+3),
+                                     &amp;zf);
+      system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+    }
+    {
+      <B><FONT COLOR="#5F9EA0">std</FONT></B>::set&lt;boundary_id_type&gt; boundary_ids;
+      boundary_ids.insert(10);
+      <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> variables[] = {0, 2, 4};
+      ZeroFunction&lt;&gt; zf;
+      DirichletBoundary dirichlet_bc(boundary_ids,
+                                     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt;(variables, variables+3),
+                                     &amp;zf);
+      system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
+    }
+
+    equation_systems.init();
+
+    equation_systems.print_info();
+
+    <B><FONT COLOR="#A020F0">if</FONT></B> (libMesh::default_solver_package() == EIGEN_SOLVERS)
+      system.get_linear_solver()-&gt;set_solver_type(SPARSELU);
+
+    system.solve();
+
+    ExodusII_IO(mesh).write_equation_systems (<B><FONT COLOR="#BC8F8F">&quot;out.e&quot;</FONT></B>, equation_systems);
+
+    Node * node_C = libmesh_nullptr;
+    Point point_C(0, 3, 3);
+    {
+      Real nearest_dist_sq = std::numeric_limits&lt;Real&gt;::max();
+
+      <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::MeshBase::const_node_iterator it = mesh.local_nodes_begin();
+      <B><FONT COLOR="#228B22">const</FONT></B> libMesh::MeshBase::const_node_iterator end = mesh.local_nodes_end();
+      <B><FONT COLOR="#A020F0">for</FONT></B> (; it != end; ++it)
+        {
+          Node *n = *it;
+          <B><FONT COLOR="#228B22">const</FONT></B> Real dist_sq = (*n-point_C).norm_sq();
+          <B><FONT COLOR="#A020F0">if</FONT></B> (dist_sq &lt; nearest_dist_sq)
+            {
+              nearest_dist_sq = dist_sq;
+              node_C = n;
+            }
+        }
+
+      <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> minrank = 0;
+      system.comm().minloc(nearest_dist_sq, minrank);
+
+      dof_id_type nearest_node_id;
+      <B><FONT COLOR="#A020F0">if</FONT></B> (system.processor_id() == minrank)
+        nearest_node_id = node_C-&gt;id();
+      system.comm().broadcast(nearest_node_id, minrank);
+      node_C = mesh.query_node_ptr(nearest_node_id);
+    }
+
+    Number w = 0;
+
+    <B><FONT COLOR="#A020F0">if</FONT></B> (node_C)
+      {
+        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> w_var = system.variable_number (<B><FONT COLOR="#BC8F8F">&quot;w&quot;</FONT></B>);
+        dof_id_type w_dof = node_C-&gt;dof_number (system.number(), w_var, 0);
+        <B><FONT COLOR="#A020F0">if</FONT></B> (w_dof &gt;= system.get_dof_map().first_dof() &amp;&amp;
+            w_dof &lt; system.get_dof_map().end_dof())
+          w = system.current_solution(w_dof);
+      }
+    system.comm().sum(w);
+
+
+    Real w_C_bar = -E*h*w/q;
+    <B><FONT COLOR="#228B22">const</FONT></B> Real w_C_bar_analytic = 164.24;
+
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;z-displacement of the point C: &quot;</FONT></B> &lt;&lt; w_C_bar &lt;&lt; std::endl;
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Analytic solution: &quot;</FONT></B> &lt;&lt; w_C_bar_analytic &lt;&lt; std::endl;
+
+    Point point_D(0, 0, 3);
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> v_var = system.variable_number (<B><FONT COLOR="#BC8F8F">&quot;v&quot;</FONT></B>);
+    Number v = system.point_value(v_var, point_D);
+
+    Real v_D_bar = E*h*v/q;
+    <B><FONT COLOR="#228B22">const</FONT></B> Real v_D_bar_analytic = 4.114;
+
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;y-displacement of the point D: &quot;</FONT></B> &lt;&lt; v_D_bar &lt;&lt; std::endl;
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Analytic solution: &quot;</FONT></B> &lt;&lt; v_D_bar_analytic &lt;&lt; std::endl;
+
+    <B><FONT COLOR="#A020F0">return</FONT></B> 0;
+  }
+
+
+
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_shell (EquationSystems &amp; es,
+                       <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
+  {
+  #ifdef LIBMESH_HAVE_EIGEN
+    libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Shell&quot;</FONT></B>);
+
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
+
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt; (system_name);
+
+    <B><FONT COLOR="#228B22">const</FONT></B> Real h  = es.parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;thickness&quot;</FONT></B>);
+    <B><FONT COLOR="#228B22">const</FONT></B> Real E  = es.parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;young's modulus&quot;</FONT></B>);
+    <B><FONT COLOR="#228B22">const</FONT></B> Real nu = es.parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;poisson ratio&quot;</FONT></B>);
+    <B><FONT COLOR="#228B22">const</FONT></B> Real q  = es.parameters.get&lt;Real&gt; (<B><FONT COLOR="#BC8F8F">&quot;point load&quot;</FONT></B>);
+
+    <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d Hm;
+    Hm &lt;&lt;
+      1., nu, 0.,
+      nu, 1., 0.,
+      0., 0., 0.5 * (1-nu);
+    Hm *= h * E/(1-nu*nu);
+
+    <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d Hf;
+    Hf &lt;&lt;
+      1., nu, 0.,
+      nu, 1., 0.,
+      0., 0., 0.5 * (1-nu);
+    Hf *= h*h*h/12 * E/(1-nu*nu);
+
+    <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix2d Hc0 = Eigen::Matrix2d::Identity();
+    Hc0 *= h * 5./6*E/(2*(1+nu));
+
+    <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix2d Hc1 = Eigen::Matrix2d::Identity();
+    Hc1 *= h*h*h/12 * 5./6*E/(2*(1+nu));
+
+    FEType fe_type = system.variable_type (0);
+
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+    QGauss qrule (dim, fe_type.default_quadrature_order());
+    fe-&gt;attach_quadrature_rule (&amp;qrule);
+
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
+
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;RealGradient&gt; &amp; dxyzdxi = fe-&gt;get_dxyzdxi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;RealGradient&gt; &amp; dxyzdeta = fe-&gt;get_dxyzdeta();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;RealGradient&gt; &amp; d2xyzdxi2 = fe-&gt;get_d2xyzdxi2();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;RealGradient&gt; &amp; d2xyzdeta2 = fe-&gt;get_d2xyzdeta2();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;RealGradient&gt; &amp; d2xyzdxideta = fe-&gt;get_d2xyzdxideta();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidxi = fe-&gt;get_dphidxi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphideta = fe-&gt;get_dphideta();
+
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
+
+    DenseMatrix&lt;Number&gt; Ke;
+    DenseSubMatrix&lt;Number&gt; Ke_var[6][6] =
+    {
+      {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+       DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+      {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+       DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+      {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+       DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+      {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+       DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+      {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+       DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)},
+      {DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke),
+       DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke), DenseSubMatrix&lt;Number&gt;(Ke)}
+    };
+
+    <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; dof_indices;
+    <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt; std::vector&lt;dof_id_type&gt; &gt; dof_indices_var(6);
+
+    <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_element_iterator       el     = mesh.active_local_elements_begin();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_element_iterator end_el = mesh.active_local_elements_end();
+
+    <B><FONT COLOR="#A020F0">for</FONT></B> (; el != end_el; ++el)
+      {
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
+
+        dof_map.dof_indices (elem, dof_indices);
+        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> var=0; var&lt;6; var++)
+          dof_map.dof_indices (elem, dof_indices_var[var], var);
+
+        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_dofs   = dof_indices.size();
+        <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n_var_dofs = dof_indices_var[0].size();
+
+        <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Point&gt; nodes;
+        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;elem-&gt;n_nodes(); ++i)
+          nodes.push_back(*(elem-&gt;get_node(i)));
+        fe-&gt;reinit (elem, &amp;nodes);
+
+        <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d X1(nodes[0](0), nodes[0](1), nodes[0](2));
+        <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d X2(nodes[1](0), nodes[1](1), nodes[1](2));
+        <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d X3(nodes[2](0), nodes[2](1), nodes[2](2));
+        <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d X4(nodes[3](0), nodes[3](1), nodes[3](2));
+
+        <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Eigen::Matrix3d&gt; F0node;
+        <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Eigen::Matrix3d&gt; Qnode;
+        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;elem-&gt;n_nodes(); ++i)
+        {
+           <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d a1;
+           a1 &lt;&lt; dxyzdxi[i](0), dxyzdxi[i](1), dxyzdxi[i](2);
+           <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d a2;
+           a2 &lt;&lt; dxyzdeta[i](0), dxyzdeta[i](1), dxyzdeta[i](2);
+           <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d n;
+           n = a1.cross(a2);
+           n /= n.norm();
+           <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d F0;
+           F0 &lt;&lt;
+             a1(0), a2(0), n(0),
+             a1(1), a2(1), n(1),
+             a1(2), a2(2), n(2);
+           F0node.push_back(F0);
+
+          Real nx = n(0);
+          Real ny = n(1);
+          Real C  = n(2);
+          <B><FONT COLOR="#A020F0">if</FONT></B> (std::abs(1.+C)&lt;1e-6)
+          {
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d Q;
+            Q &lt;&lt;
+              1, 0, 0,
+              0, -1, 0,
+              0, 0, -1;
+            Qnode.push_back(Q);
+          }
+          <B><FONT COLOR="#A020F0">else</FONT></B>
+          {
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d Q;
+            Q &lt;&lt;
+              C+1./(1+C)*ny*ny, -1./(1+C)*nx*ny, nx,
+              -1./(1+C)*nx*ny, C+1./(1+C)*nx*nx, ny,
+              -nx,             -ny,              C;
+            Qnode.push_back(Q);
+          }
+        }
+
+        Ke.resize (n_dofs, n_dofs);
+        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> var_i=0; var_i&lt;6; var_i++)
+          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> var_j=0; var_j&lt;6; var_j++)
+            Ke_var[var_i][var_j].reposition (var_i*n_var_dofs, var_j*n_var_dofs, n_var_dofs, n_var_dofs);
+
+        fe-&gt;reinit (elem);
+
+        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule.n_points(); ++qp)
+        {
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d a1;
+          a1 &lt;&lt; dxyzdxi[qp](0), dxyzdxi[qp](1), dxyzdxi[qp](2);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d a2;
+          a2 &lt;&lt; dxyzdeta[qp](0), dxyzdeta[qp](1), dxyzdeta[qp](2);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d n;
+          n = a1.cross(a2);
+          n /= n.norm();
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d F0;
+          F0 &lt;&lt;
+            a1(0), a2(0), n(0),
+            a1(1), a2(1), n(1),
+            a1(2), a2(2), n(2);
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d F0it;
+          F0it = F0.inverse().transpose();
+
+          Real nx = n(0);
+          Real ny = n(1);
+          Real C  = n(2);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix3d Q;
+          <B><FONT COLOR="#A020F0">if</FONT></B> (std::abs(1.+C) &lt; 1e-6)
+          {
+            Q &lt;&lt;
+              1, 0, 0,
+              0, -1, 0,
+              0, 0, -1;
+          }
+          <B><FONT COLOR="#A020F0">else</FONT></B>
+          {
+            Q &lt;&lt;
+              C+1./(1+C)*ny*ny, -1./(1+C)*nx*ny, nx,
+              -1./(1+C)*nx*ny, C+1./(1+C)*nx*nx, ny,
+              -nx,             -ny,              C;
+          }
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix2d C0;
+          C0 = F0it.block&lt;3,2&gt;(0,0).transpose()*Q.block&lt;3,2&gt;(0,0);
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d d2Xdxi2(d2xyzdxi2[qp](0), d2xyzdxi2[qp](1), d2xyzdxi2[qp](2));
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d d2Xdeta2(d2xyzdeta2[qp](0), d2xyzdeta2[qp](1), d2xyzdeta2[qp](2));
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d d2Xdxideta(d2xyzdxideta[qp](0), d2xyzdxideta[qp](1), d2xyzdxideta[qp](2));
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix2d b;
+          b &lt;&lt;
+            n.dot(d2Xdxi2), n.dot(d2Xdxideta),
+            n.dot(d2Xdxideta), n.dot(d2Xdeta2);
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d dndxi = -b(0,0)*F0it.col(0) - b(0,1)*F0it.col(1);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d dndeta = -b(1,0)*F0it.col(0) - b(1,1)*F0it.col(1);
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix2d bhat;
+          bhat &lt;&lt;
+            F0it.col(1).dot(dndeta), -F0it.col(0).dot(dndeta),
+            -F0it.col(1).dot(dndxi), F0it.col(0).dot(dndxi);
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Matrix2d bc;
+          bc = bhat*C0;
+
+          Real H = 0.5*(dndxi.dot(F0it.col(0))+dndeta.dot(F0it.col(1)));
+
+          Real xi = qrule.qp(qp)(0);
+          Real eta = qrule.qp(qp)(1);
+
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d nA1 = 0.5*(Qnode[0].col(2)+Qnode[1].col(2));
+          nA1 /= nA1.norm();
+          nA1 *= (1-eta)/4;
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d nB2 = 0.5*(Qnode[1].col(2)+Qnode[2].col(2));
+          nB2 /= nB2.norm();
+          nB2 *= (1+xi)/4;
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d nA2 = 0.5*(Qnode[2].col(2)+Qnode[3].col(2));
+          nA2 /= nA2.norm();
+          nA2 *= (1+eta)/4;
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d nB1 = 0.5*(Qnode[3].col(2)+Qnode[0].col(2));
+          nB1 /= nB1.norm();
+          nB1 *= (1-xi)/4;
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d aA1 = 0.5*(X2-X1);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d aA2 = 0.5*(X3-X4);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d aB1 = 0.5*(X4-X1);
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector3d aB2 = 0.5*(X3-X2);
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS1A1(-aA1.dot(Qnode[0].col(1)), aA1.dot(Qnode[0].col(0)));
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS2A1(-aA1.dot(Qnode[1].col(1)), aA1.dot(Qnode[1].col(0)));
+          AS1A1 *= (1-eta)/4;
+          AS2A1 *= (1-eta)/4;
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS1A2(-aA2.dot(Qnode[3].col(1)), aA2.dot(Qnode[3].col(0)));
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS2A2(-aA2.dot(Qnode[2].col(1)), aA2.dot(Qnode[2].col(0)));
+          AS1A2 *= (1+eta)/4;
+          AS2A2 *= (1+eta)/4;
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS1B1(-aB1.dot(Qnode[0].col(1)), aB1.dot(Qnode[0].col(0)));
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS2B1(-aB1.dot(Qnode[3].col(1)), aB1.dot(Qnode[3].col(0)));
+          AS1B1 *= (1-xi)/4;
+          AS2B1 *= (1-xi)/4;
+
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS1B2(-aB2.dot(Qnode[1].col(1)), aB2.dot(Qnode[1].col(0)));
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d AS2B2(-aB2.dot(Qnode[2].col(1)), aB2.dot(Qnode[2].col(0)));
+          AS1B2 *= (1+xi)/4;
+          AS2B2 *= (1+xi)/4;
+
+          <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Eigen::MatrixXd&gt; Bcnode;
+          <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd Bc(2, 5);
+          Bc.block&lt;1,3&gt;(0,0) = -nA1.transpose();
+          Bc.block&lt;1,2&gt;(0,3) = AS1A1.transpose();
+          Bc.block&lt;1,3&gt;(1,0) = -nB1.transpose();
+          Bc.block&lt;1,2&gt;(1,3) = AS1B1.transpose();
+          Bcnode.push_back(Bc);
+          Bc.block&lt;1,3&gt;(0,0) = nA1.transpose();
+          Bc.block&lt;1,2&gt;(0,3) = AS2A1.transpose();
+          Bc.block&lt;1,3&gt;(1,0) = -nB2.transpose();
+          Bc.block&lt;1,2&gt;(1,3) = AS1B2.transpose();
+          Bcnode.push_back(Bc);
+          Bc.block&lt;1,3&gt;(0,0) = nA2.transpose();
+          Bc.block&lt;1,2&gt;(0,3) = AS2A2.transpose();
+          Bc.block&lt;1,3&gt;(1,0) = nB2.transpose();
+          Bc.block&lt;1,2&gt;(1,3) = AS2B2.transpose();
+          Bcnode.push_back(Bc);
+          Bc.block&lt;1,3&gt;(0,0) = -nA2.transpose();
+          Bc.block&lt;1,2&gt;(0,3) = AS1A2.transpose();
+          Bc.block&lt;1,3&gt;(1,0) = nB1.transpose();
+          Bc.block&lt;1,2&gt;(1,3) = AS2B1.transpose();
+          Bcnode.push_back(Bc);
+
+          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;n_var_dofs; ++i)
+          {
+            Real C1i = dphidxi[i][qp]*C0(0,0) + dphideta[i][qp]*C0(1,0);
+            Real C2i = dphidxi[i][qp]*C0(0,1) + dphideta[i][qp]*C0(1,1);
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd B0I(3, 5);
+            B0I = Eigen::MatrixXd::Zero(3, 5);
+            B0I.block&lt;1,3&gt;(0,0) = C1i*Q.col(0).transpose();
+            B0I.block&lt;1,3&gt;(1,0) = C2i*Q.col(1).transpose();
+            B0I.block&lt;1,3&gt;(2,0) = C2i*Q.col(0).transpose()+C1i*Q.col(1).transpose();
+
+            Real bc1i = dphidxi[i][qp]*bc(0,0) + dphideta[i][qp]*bc(1,0);
+            Real bc2i = dphidxi[i][qp]*bc(0,1) + dphideta[i][qp]*bc(1,1);
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d V1i(-Q.col(0).dot(Qnode[i].col(1)),
+                                 Q.col(0).dot(Qnode[i].col(0)));
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d V2i(-Q.col(1).dot(Qnode[i].col(1)),
+                                 Q.col(1).dot(Qnode[i].col(0)));
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd B1I(3,5);
+            B1I = Eigen::MatrixXd::Zero(3,5);
+            B1I.block&lt;1,3&gt;(0,0) = bc1i*Q.col(0).transpose();
+            B1I.block&lt;1,3&gt;(1,0) = bc2i*Q.col(1).transpose();
+            B1I.block&lt;1,3&gt;(2,0) = bc2i*Q.col(0).transpose()+bc1i*Q.col(1).transpose();
+
+            B1I.block&lt;1,2&gt;(0,3) = C1i*V1i.transpose();
+            B1I.block&lt;1,2&gt;(1,3) = C2i*V2i.transpose();
+            B1I.block&lt;1,2&gt;(2,3) = C2i*V1i.transpose()+C1i*V2i.transpose();
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd B2I(3,5);
+            B2I = Eigen::MatrixXd::Zero(3,5);
+
+            B2I.block&lt;1,2&gt;(0,3) = bc1i*V1i.transpose();
+            B2I.block&lt;1,2&gt;(1,3) = bc2i*V2i.transpose();
+            B2I.block&lt;1,2&gt;(2,3) = bc2i*V1i.transpose()+bc1i*V2i.transpose();
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd Bc0I(2,5);
+            Bc0I = C0.transpose()*Bcnode[i];
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd Bc1I(2,5);
+            Bc1I = bc.transpose()*Bcnode[i];
+
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d BdxiI(dphidxi[i][qp],dphideta[i][qp]);
+            <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d BdI = C0.transpose()*BdxiI;
+
+            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;n_var_dofs; ++j)
+            {
+
+              Real C1j = dphidxi[j][qp]*C0(0,0) + dphideta[j][qp]*C0(1,0);
+              Real C2j = dphidxi[j][qp]*C0(0,1) + dphideta[j][qp]*C0(1,1);
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd B0J(3,5);
+              B0J = Eigen::MatrixXd::Zero(3,5);
+              B0J.block&lt;1,3&gt;(0,0) = C1j*Q.col(0).transpose();
+              B0J.block&lt;1,3&gt;(1,0) = C2j*Q.col(1).transpose();
+              B0J.block&lt;1,3&gt;(2,0) = C2j*Q.col(0).transpose()+C1j*Q.col(1).transpose();
+
+              Real bc1j = dphidxi[j][qp]*bc(0,0) + dphideta[j][qp]*bc(1,0);
+              Real bc2j = dphidxi[j][qp]*bc(0,1) + dphideta[j][qp]*bc(1,1);
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d V1j(-Q.col(0).dot(Qnode[j].col(1)),
+                                   Q.col(0).dot(Qnode[j].col(0)));
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d V2j(-Q.col(1).dot(Qnode[j].col(1)),
+                                   Q.col(1).dot(Qnode[j].col(0)));
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd B1J(3,5);
+              B1J = Eigen::MatrixXd::Zero(3,5);
+              B1J.block&lt;1,3&gt;(0,0) = bc1j*Q.col(0).transpose();
+              B1J.block&lt;1,3&gt;(1,0) = bc2j*Q.col(1).transpose();
+              B1J.block&lt;1,3&gt;(2,0) = bc2j*Q.col(0).transpose()+bc1j*Q.col(1).transpose();
+
+              B1J.block&lt;1,2&gt;(0,3) = C1j*V1j.transpose();
+              B1J.block&lt;1,2&gt;(1,3) = C2j*V2j.transpose();
+              B1J.block&lt;1,2&gt;(2,3) = C2j*V1j.transpose()+C1j*V2j.transpose();
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd B2J(3,5);
+              B2J = Eigen::MatrixXd::Zero(3,5);
+
+              B2J.block&lt;1,2&gt;(0,3) = bc1j*V1j.transpose();
+              B2J.block&lt;1,2&gt;(1,3) = bc2j*V2j.transpose();
+              B2J.block&lt;1,2&gt;(2,3) = bc2j*V1j.transpose()+bc1j*V2j.transpose();
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd Bc0J(2, 5);
+              Bc0J = C0.transpose()*Bcnode[j];
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd Bc1J(2, 5);
+              Bc1J = bc.transpose()*Bcnode[j];
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d BdxiJ(dphidxi[j][qp], dphideta[j][qp]);
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::Vector2d BdJ = C0.transpose()*BdxiJ;
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd local_KIJ(5, 5);
+              local_KIJ = JxW[qp] * (
+                   B0I.transpose() * Hm * B0J
+                +  B2I.transpose() * Hf * B0J
+                +  B0I.transpose() * Hf * B2J
+                +  B1I.transpose() * Hf * B1J
+                +  2*H * B0I.transpose() * Hf * B1J
+                +  2*H * B1I.transpose() * Hf * B0J
+                +  Bc0I.transpose() * Hc0 * Bc0J
+                +  Bc1I.transpose() * Hc1 * Bc1J
+                +  2*H * Bc0I.transpose() * Hc1 * Bc1J
+                +  2*H * Bc1I.transpose() * Hc1 * Bc0J
+                );
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd full_local_KIJ(6, 6);
+              full_local_KIJ = Eigen::MatrixXd::Zero(6, 6);
+              full_local_KIJ.block&lt;5,5&gt;(0,0)=local_KIJ;
+
+              full_local_KIJ(5,5) = 1e-7*Hf(0,0)*JxW[qp]*BdI.transpose()*BdJ;
+
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd global_KIJ(6,6);
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd TI(6,6);
+              TI = Eigen::MatrixXd::Identity(6,6);
+              TI.block&lt;3,3&gt;(3,3) = Qnode[i].transpose();
+              <B><FONT COLOR="#5F9EA0">Eigen</FONT></B>::MatrixXd TJ(6,6);
+              TJ = Eigen::MatrixXd::Identity(6,6);
+              TJ.block&lt;3,3&gt;(3,3) = Qnode[j].transpose();
+              global_KIJ = TI.transpose()*full_local_KIJ*TJ;
+
+              <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> k=0;k&lt;6;k++)
+                <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> l=0;l&lt;6;l++)
+                  Ke_var[k][l](i,j) += global_KIJ(k,l);
+            }
+          }
+
+        } <I><FONT COLOR="#B22222">// end of the quadrature point qp-loop
+</FONT></I>
+
+        dof_map.constrain_element_matrix (Ke,dof_indices);
+
+        system.matrix-&gt;add_matrix (Ke, dof_indices);
+      }
+
+
+    Point C(0, 3, 3);
+
+    <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_node_iterator nodeit = mesh.nodes_begin();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_node_iterator node_end = mesh.nodes_end();
+
+    <B><FONT COLOR="#A020F0">for</FONT></B> ( ; nodeit!=node_end; ++nodeit)
+      {
+        Node &amp; node = **nodeit;
+        <B><FONT COLOR="#A020F0">if</FONT></B> ((node-C).norm() &lt; 1e-3)
+          system.rhs-&gt;set(node.dof_number(0, 2, 0), -q/4);
+      }
+  #<B><FONT COLOR="#A020F0">else</FONT></B>
+    libmesh_ignore(es);
+    libmesh_ignore(system_name);
+  #endif <I><FONT COLOR="#B22222">// LIBMESH_HAVE_EIGEN
+</FONT></I>  }
+</pre>
+<a name="output"></a>
+<br><br><br> <h1> The console output of the program: </h1>
+<pre>
+  CXX      example_dbg-miscellaneous_ex12.o
+  CXXLD    example-dbg
+***************************************************************
+* Running Example miscellaneous_ex12:
+*   example-opt -pc_type jacobi -ksp_type cg
+***************************************************************
+
+ Mesh Information:
+  elem_dimensions()={2}
+  spatial_dimension()=3
+  n_nodes()=457
+    n_local_nodes()=457
+  n_elem()=416
+    n_local_elem()=416
+    n_active_elem()=416
+  n_subdomains()=1
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+
+ EquationSystems
+  n_systems()=1
+   System #0, "Shell"
+    Type "LinearImplicit"
+    Variables={ "u" "v" "w" "theta_x" "theta_y" "theta_z" }
+    Finite Element Types="LAGRANGE", "JACOBI_20_00"
+    Infinite Element Mapping="CARTESIAN"
+    Approximation Orders="FIRST", "THIRD"
+    n_dofs()=2742
+    n_local_dofs()=2742
+    n_constrained_dofs()=246
+    n_local_constrained_dofs()=246
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 50.744
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 66
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 246
+      Average DoF Constraint Length= 0
+
+z-displacement of the point C: 157.262
+Analytic solution: 164.24
+y-displacement of the point D: 4.06743
+Analytic solution: 4.114
+
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 16:03:21 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.566626, Active time=0.55742                                                   |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     1          0.0001      0.000150    0.0001      0.000150    0.03     0.03     |
+|   build_constraint_matrix()        416        0.0004      0.000001    0.0004      0.000001    0.08     0.08     |
+|   build_sparsity()                 1          0.0046      0.004583    0.0049      0.004865    0.82     0.87     |
+|   constrain_elem_matrix()          416        0.0011      0.000003    0.0011      0.000003    0.20     0.20     |
+|   create_dof_constraints()         1          0.0060      0.006016    0.0072      0.007221    1.08     1.30     |
+|   distribute_dofs()                1          0.0001      0.000085    0.0005      0.000452    0.02     0.08     |
+|   dof_indices()                    10817      0.0020      0.000000    0.0020      0.000000    0.36     0.36     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0004      0.000366    0.0004      0.000366    0.07     0.07     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_solution_vector()          1          0.0013      0.001319    0.0020      0.001968    0.24     0.35     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0018      0.001774    0.0018      0.001774    0.32     0.32     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        833        0.0008      0.000001    0.0008      0.000001    0.14     0.14     |
+|   init_shape_functions()           833        0.0011      0.000001    0.0011      0.000001    0.19     0.19     |
+|   inverse_map()                    2          0.0000      0.000002    0.0000      0.000002    0.00     0.00     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_map()                    833        0.0057      0.000007    0.0057      0.000007    1.02     1.02     |
+|   init_reference_to_physical_map() 833        0.0009      0.000001    0.0009      0.000001    0.17     0.17     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0007      0.000732    0.0007      0.000732    0.13     0.13     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000010    0.0000      0.000010    0.00     0.00     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000020    0.0038      0.003762    0.00     0.67     |
+|                                                                                                                 |
+| NameBasedIO                                                                                                     |
+|   read()                           1          0.0007      0.000724    0.0007      0.000724    0.13     0.13     |
+|                                                                                                                 |
+| Parallel                                                                                                        |
+|   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition()               1          0.0000      0.000017    0.0000      0.000017    0.00     0.00     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          1          0.2662      0.266242    0.2662      0.266242    47.76    47.76    |
+|                                                                                                                 |
+| PointLocatorTree                                                                                                |
+|   init(no master)                  1          0.0002      0.000179    0.0002      0.000179    0.03     0.03     |
+|   operator()                       1          0.0000      0.000015    0.0000      0.000017    0.00     0.00     |
+|                                                                                                                 |
+| System                                                                                                          |
+|   assemble()                       1          0.2631      0.263119    0.2743      0.274300    47.20    49.21    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            15003      0.5574                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+
+***************************************************************
+* Done Running Example miscellaneous_ex12:
+*   example-opt -pc_type jacobi -ksp_type cg
+***************************************************************
+</pre>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(window).on('scroll',function() {
+    var scrolltop = $(this).scrollTop();
+
+    if(scrolltop >= 215) {
+      $('#fixedbar').fadeIn(250);
+    }
+
+    else if(scrolltop <= 210) {
+      $('#fixedbar').fadeOut(250);
+    }
+  });
+});
+</script>
+
+<!-- Google Analytics stuff -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24978333-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
