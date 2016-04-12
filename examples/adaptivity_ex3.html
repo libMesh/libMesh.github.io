@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -39,7 +39,7 @@
 <div id="content">
 
 <a name="comments"></a> 
-<br><br><br> <h1> The source file adaptivity_ex3.C with comments: </h1> 
+<br><br><br> <h1> The source file adaptivity_ex3.C with comments: </h1>
 <div class = "comment">
 </div>
 
@@ -57,6 +57,7 @@
         #include "libmesh/sparse_matrix.h"
         #include "libmesh/mesh_refinement.h"
         #include "libmesh/error_vector.h"
+        #include "libmesh/discontinuity_measure.h"
         #include "libmesh/exact_error_estimator.h"
         #include "libmesh/kelly_error_estimator.h"
         #include "libmesh/patch_recovery_error_estimator.h"
@@ -72,7 +73,7 @@
         #include "libmesh/numeric_vector.h"
         #include "libmesh/elem.h"
         #include "libmesh/string_to_enum.h"
-        
+
 </pre>
 </div>
 <div class = "comment">
@@ -88,16 +89,16 @@ Bring in everything from the libMesh namespace
 <div class = "comment">
 Function prototype.  This is the function that will assemble
 the linear system for our Laplace problem.  Note that the
-function will take the \p EquationSystems object and the
+function will take the EquationSystems object and the
 name of the system we are assembling as input.  From the
-\p EquationSystems object we have acess to the \p Mesh and
+EquationSystems object we have acess to the Mesh and
 other objects we might need.
 </div>
 
 <div class ="fragment">
 <pre>
-        void assemble_laplace(EquationSystems& es,
-                              const std::string& system_name);
+        void assemble_laplace(EquationSystems & es,
+                              const std::string & system_name);
         
         
 </pre>
@@ -109,10 +110,10 @@ for setting boundary conditions.
 
 <div class ="fragment">
 <pre>
-        Number exact_solution(const Point& p,
-                              const Parameters&,   // EquationSystem parameters, not needed
-                              const std::string&,  // sys_name, not needed
-                              const std::string&); // unk_name, not needed);
+        Number exact_solution(const Point & p,
+                              const Parameters &,   // EquationSystem parameters, not needed
+                              const std::string &,  // sys_name, not needed
+                              const std::string &); // unk_name, not needed);
         
 </pre>
 </div>
@@ -122,10 +123,10 @@ Prototype for calculation of the gradient of the exact solution.
 
 <div class ="fragment">
 <pre>
-        Gradient exact_derivative(const Point& p,
-                                  const Parameters&,   // EquationSystems parameters, not needed
-                                  const std::string&,  // sys_name, not needed
-                                  const std::string&); // unk_name, not needed);
+        Gradient exact_derivative(const Point & p,
+                                  const Parameters &,   // EquationSystems parameters, not needed
+                                  const std::string &,  // sys_name, not needed
+                                  const std::string &); // unk_name, not needed);
         
         
 </pre>
@@ -153,7 +154,7 @@ Choose whether or not to use the singular solution
         bool singularity = true;
         
         
-        int main(int argc, char** argv)
+        int main(int argc, char ** argv)
         {
 </pre>
 </div>
@@ -176,7 +177,7 @@ Skip adaptive examples on a non-adaptive libMesh build
         #ifndef LIBMESH_ENABLE_AMR
           libmesh_example_requires(false, "--enable-amr");
         #else
-        
+
 </pre>
 </div>
 <div class = "comment">
@@ -187,6 +188,16 @@ Parse the input file
 <pre>
           GetPot input_file("adaptivity_ex3.in");
         
+</pre>
+</div>
+<div class = "comment">
+But allow the command line to override it.
+</div>
+
+<div class ="fragment">
+<pre>
+          input_file.parse_command_line(argc, argv);
+
 </pre>
 </div>
 <div class = "comment">
@@ -245,7 +256,7 @@ the number of degrees of freedom.
             approx_name += "cubic";
           else if (approx_order == 4)
             approx_name += "quartic";
-        
+
           std::string output_file = approx_name;
           output_file += "_";
           output_file += refine_type;
@@ -268,7 +279,7 @@ default MPI communicator.
 <div class ="fragment">
 <pre>
           Mesh mesh(init.comm());
-        
+
 </pre>
 </div>
 <div class = "comment">
@@ -278,7 +289,7 @@ Read in the mesh
 <div class ="fragment">
 <pre>
           if (dim == 1)
-            MeshTools::Generation::build_line(mesh,1,-1.,0.);
+            MeshTools::Generation::build_line(mesh, 1, -1., 0.);
           else if (dim == 2)
             mesh.read("lshaped.xda");
           else
@@ -340,7 +351,7 @@ Creates a system named "Laplace"
 
 <div class ="fragment">
 <pre>
-          LinearImplicitSystem& system =
+          LinearImplicitSystem & system =
             equation_systems.add_system&lt;LinearImplicitSystem&gt; ("Laplace");
         
 </pre>
@@ -441,7 +452,7 @@ A refinement loop.
 <pre>
           for (unsigned int r_step=0; r_step&lt;max_r_steps; r_step++)
             {
-              std::cout &lt;&lt; "Beginning Solve " &lt;&lt; r_step &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "Beginning Solve " &lt;&lt; r_step &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -453,15 +464,16 @@ Solve the system "Laplace", just like example 2.
 <pre>
               system.solve();
         
-              std::cout &lt;&lt; "System has: " &lt;&lt; equation_systems.n_active_dofs()
-                        &lt;&lt; " degrees of freedom."
-                        &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "System has: "
+                           &lt;&lt; equation_systems.n_active_dofs()
+                           &lt;&lt; " degrees of freedom."
+                           &lt;&lt; std::endl;
         
-              std::cout &lt;&lt; "Linear solver converged at step: "
-                        &lt;&lt; system.n_linear_iterations()
-                        &lt;&lt; ", final residual: "
-                        &lt;&lt; system.final_linear_residual()
-                        &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "Linear solver converged at step: "
+                           &lt;&lt; system.n_linear_iterations()
+                           &lt;&lt; ", final residual: "
+                           &lt;&lt; system.final_linear_residual()
+                           &lt;&lt; std::endl;
         
         #ifdef LIBMESH_HAVE_EXODUS_API
 </pre>
@@ -500,12 +512,32 @@ Print out the error values
 
 <div class ="fragment">
 <pre>
-              std::cout &lt;&lt; "L2-Error is: "
-                        &lt;&lt; exact_sol.l2_error("Laplace", "u")
-                        &lt;&lt; std::endl;
-              std::cout &lt;&lt; "H1-Error is: "
-                        &lt;&lt; exact_sol.h1_error("Laplace", "u")
-                        &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "L2-Error is: "
+                           &lt;&lt; exact_sol.l2_error("Laplace", "u")
+                           &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "H1-Error is: "
+                           &lt;&lt; exact_sol.h1_error("Laplace", "u")
+                           &lt;&lt; std::endl;
+
+</pre>
+</div>
+<div class = "comment">
+Compute any discontinuity.  There should be none.
+</div>
+
+<div class ="fragment">
+<pre>
+              {
+                DiscontinuityMeasure disc;
+                ErrorVector disc_error;
+                disc.estimate_error(system, disc_error);
+
+                Real mean_disc_error = disc_error.mean();
+
+                libMesh::out &lt;&lt; "Mean discontinuity error = " &lt;&lt; mean_disc_error &lt;&lt; std::endl;
+
+                libmesh_assert_less (mean_disc_error, 1e-14);
+              }
         
 </pre>
 </div>
@@ -529,7 +561,7 @@ Possibly refine the mesh
 <pre>
               if (r_step+1 != max_r_steps)
                 {
-                  std::cout &lt;&lt; "  Refining the mesh..." &lt;&lt; std::endl;
+                  libMesh::out &lt;&lt; "  Refining the mesh..." &lt;&lt; std::endl;
         
                   if (uniform_refine == 0)
                     {
@@ -537,7 +569,7 @@ Possibly refine the mesh
 </pre>
 </div>
 <div class = "comment">
-The \p ErrorVector is a particular \p StatisticsVector
+The ErrorVector is a particular StatisticsVector
 for computing error information on a finite element mesh.
 </div>
 
@@ -550,7 +582,7 @@ for computing error information on a finite element mesh.
 </pre>
 </div>
 <div class = "comment">
-The \p ErrorEstimator class interrogates a
+The ErrorEstimator class interrogates a
 finite element solution and assigns to each
 element a positive error value.
 This value is used for deciding which elements to
@@ -566,7 +598,7 @@ solution.
 <div class ="fragment">
 <pre>
                           ExactErrorEstimator error_estimator;
-        
+
                           error_estimator.attach_exact_value(exact_solution);
                           error_estimator.attach_exact_deriv(exact_derivative);
         
@@ -649,16 +681,16 @@ Write out the error distribution
                       std::ostringstream ss;
                       ss &lt;&lt; r_step;
         #ifdef LIBMESH_HAVE_EXODUS_API
-                      std::string error_output = "error_"+ss.str()+".e";
+                      std::string error_output = "error_" + ss.str() + ".e";
         #else
-                      std::string error_output = "error_"+ss.str()+".gmv";
+                      std::string error_output = "error_" + ss.str() + ".gmv";
         #endif
-                      error.plot_error( error_output, mesh );
+                      error.plot_error(error_output, mesh);
         
 </pre>
 </div>
 <div class = "comment">
-This takes the error in \p error and decides which elements
+This takes the error in error and decides which elements
 will be coarsened or refined.  Any element within 20% of the
 maximum error on any element will be refined, and any
 element within 10% of the minimum error on any element might
@@ -691,7 +723,7 @@ flag elements for both h and p
 
 <div class ="fragment">
 <pre>
-                      if (refine_type == "matchedhp")
+                      else if (refine_type == "matchedhp")
                         mesh_refinement.add_p_to_h_refinement();
 </pre>
 </div>
@@ -702,7 +734,7 @@ try switching some elements from h to p
 
 <div class ="fragment">
 <pre>
-                      if (refine_type == "hp")
+                      else if (refine_type == "hp")
                         {
                           HPCoarsenTest hpselector;
                           hpselector.select_refinement(system);
@@ -716,7 +748,7 @@ try switching most elements from h to p
 
 <div class ="fragment">
 <pre>
-                      if (refine_type == "singularhp")
+                      else if (refine_type == "singularhp")
                         {
 </pre>
 </div>
@@ -740,6 +772,8 @@ Our only singular point is at the origin
                           hpselector.singular_points.push_back(Point());
                           hpselector.select_refinement(system);
                         }
+                      else if (refine_type != "h")
+                        libmesh_error_msg("Unknown refinement_type = " &lt;&lt; refine_type);
         
 </pre>
 </div>
@@ -762,14 +796,14 @@ elements.
                           refine_type == "matchedhp")
                         mesh_refinement.uniformly_p_refine(1);
                     }
-        
+
 </pre>
 </div>
 <div class = "comment">
-This call reinitializes the \p EquationSystems object for
+This call reinitializes the EquationSystems object for
 the newly refined mesh.  One of the steps in the
-reinitialization is projecting the \p solution,
-\p old_solution, etc... vectors from the old mesh to
+reinitialization is projecting the solution,
+old_solution, etc... vectors from the old mesh to
 the current one.
 </div>
 
@@ -855,10 +889,10 @@ quadrant.
 
 <div class ="fragment">
 <pre>
-        Number exact_solution(const Point& p,
-                              const Parameters&,  // parameters, not needed
-                              const std::string&, // sys_name, not needed
-                              const std::string&) // unk_name, not needed
+        Number exact_solution(const Point & p,
+                              const Parameters &,  // parameters, not needed
+                              const std::string &, // sys_name, not needed
+                              const std::string &) // unk_name, not needed
         {
           const Real x = p(0);
           const Real y = (dim &gt; 1) ? p(1) : 0.;
@@ -874,7 +908,7 @@ u_exact = r^(2/3)*sin(2*theta/3).
 
 <div class ="fragment">
 <pre>
-              Real theta = atan2(y,x);
+              Real theta = atan2(y, x);
         
 </pre>
 </div>
@@ -930,10 +964,10 @@ quadrant.
 
 <div class ="fragment">
 <pre>
-        Gradient exact_derivative(const Point& p,
-                                  const Parameters&,  // parameters, not needed
-                                  const std::string&, // sys_name, not needed
-                                  const std::string&) // unk_name, not needed
+        Gradient exact_derivative(const Point & p,
+                                  const Parameters &,  // parameters, not needed
+                                  const std::string &, // sys_name, not needed
+                                  const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -998,7 +1032,7 @@ u_exact = r^(2/3)*sin(2*theta/3).
 
 <div class ="fragment">
 <pre>
-              Real theta = atan2(y,x);
+              Real theta = atan2(y, x);
         
 </pre>
 </div>
@@ -1066,8 +1100,8 @@ via a penalty method.
 
 <div class ="fragment">
 <pre>
-        void assemble_laplace(EquationSystems& es,
-                              const std::string& system_name)
+        void assemble_laplace(EquationSystems & es,
+                              const std::string & system_name)
         {
         #ifdef LIBMESH_ENABLE_AMR
 </pre>
@@ -1093,7 +1127,7 @@ application.
 
 <div class ="fragment">
 <pre>
-          PerfLog perf_log ("Matrix Assembly",false);
+          PerfLog perf_log ("Matrix Assembly", false);
         
 </pre>
 </div>
@@ -1103,7 +1137,7 @@ Get a constant reference to the mesh object.
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
 </pre>
 </div>
@@ -1123,20 +1157,20 @@ Get a reference to the LinearImplicitSystem we are solving
 
 <div class ="fragment">
 <pre>
-          LinearImplicitSystem& system = es.get_system&lt;LinearImplicitSystem&gt;("Laplace");
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt;("Laplace");
         
 </pre>
 </div>
 <div class = "comment">
-A reference to the \p DofMap object for this system.  The \p DofMap
+A reference to the DofMap object for this system.  The DofMap
 object handles the index translation from node and element numbers
-to degree of freedom numbers.  We will talk more about the \p DofMap
+to degree of freedom numbers.  We will talk more about the DofMap
 in future examples.
 </div>
 
 <div class ="fragment">
 <pre>
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
         
 </pre>
 </div>
@@ -1153,15 +1187,15 @@ for the first (and only) variable in the system.
 </div>
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
-\p FEBase::build() member dynamically creates memory we will
-store the object as an \p AutoPtr<FEBase>.  This can be thought
+FEBase::build() member dynamically creates memory we will
+store the object as an UniquePtr<FEBase>.  This can be thought
 of as a pointer that will clean up after itself.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe      (FEBase::build(mesh_dim, fe_type));
-          AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(mesh_dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe      (FEBase::build(mesh_dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(mesh_dim, fe_type));
         
 </pre>
 </div>
@@ -1171,8 +1205,8 @@ Quadrature rules for numerical integration.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(mesh_dim));
-          AutoPtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(mesh_dim-1));
+          UniquePtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(mesh_dim));
+          UniquePtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(mesh_dim-1));
         
 </pre>
 </div>
@@ -1196,8 +1230,8 @@ integration point.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW      = fe-&gt;get_JxW();
-          const std::vector&lt;Real&gt;& JxW_face = fe_face-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW      = fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW_face = fe_face-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1209,7 +1243,7 @@ properties or forcing functions at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Point&gt;& q_point = fe-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & q_point = fe-&gt;get_xyz();
         
 </pre>
 </div>
@@ -1221,8 +1255,8 @@ boundaries.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& psi = fe_face-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & psi = fe_face-&gt;get_phi();
         
 </pre>
 </div>
@@ -1233,7 +1267,7 @@ points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
 </pre>
 </div>
@@ -1243,7 +1277,7 @@ The XY locations of the quadrature points used for face integration
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Point&gt;& qface_points = fe_face-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & qface_points = fe_face-&gt;get_xyz();
         
 </pre>
 </div>
@@ -1277,7 +1311,7 @@ the element degrees of freedom get mapped.
 Now we will loop over all the elements in the mesh.  We will
 compute the element matrix and right-hand-side contribution.  See
 example 3 for a discussion of the element iterators.  Here we use
-the \p const_active_local_elem_iterator to indicate we only want
+the const_active_local_elem_iterator to indicate we only want
 to loop over elements that are assigned to the local processor
 which are "active" in the sense of AMR.  This allows each
 processor to compute its components of the global matrix for
@@ -1313,7 +1347,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -1469,9 +1503,9 @@ side MUST live on a boundary of the domain.
 <div class ="fragment">
 <pre>
                 for (unsigned int s=0; s&lt;elem-&gt;n_sides(); s++)
-                  if (elem-&gt;neighbor(s) == NULL)
+                  if (elem-&gt;neighbor(s) == libmesh_nullptr)
                     {
-                      fe_face-&gt;reinit(elem,s);
+                      fe_face-&gt;reinit(elem, s);
         
                       for (unsigned int qp=0; qp&lt;qface-&gt;n_points(); qp++)
                         {
@@ -1522,8 +1556,8 @@ Stop logging the boundary condition computation
 <div class = "comment">
 The element matrix and right-hand-side are now built
 for this element.  Add them to the global matrix and
-right-hand-side vector.  The \p SparseMatrix::add_matrix()
-and \p NumericVector::add_vector() members do this for us.
+right-hand-side vector.  The SparseMatrix::add_matrix()
+and NumericVector::add_vector() members do this for us.
 Start logging the insertion of the local (element)
 matrix and vector into the global matrix and vector
 </div>
@@ -1578,6 +1612,7 @@ it will print its log to the screen. Pretty easy, huh?
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/sparse_matrix.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/mesh_refinement.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/error_vector.h&quot;</FONT></B>
+  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/discontinuity_measure.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/exact_error_estimator.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/kelly_error_estimator.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/patch_recovery_error_estimator.h&quot;</FONT></B>
@@ -1596,19 +1631,19 @@ it will print its log to the screen. Pretty easy, huh?
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_laplace(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_laplace(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   
-  Number exact_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                        <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,   <I><FONT COLOR="#B22222">// EquationSystem parameters, not needed
-</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,  <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;); <I><FONT COLOR="#B22222">// unk_name, not needed);
+  Number exact_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                        <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,   <I><FONT COLOR="#B22222">// EquationSystem parameters, not needed
+</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,  <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;); <I><FONT COLOR="#B22222">// unk_name, not needed);
 </FONT></I>  
-  Gradient exact_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                            <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,   <I><FONT COLOR="#B22222">// EquationSystems parameters, not needed
-</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,  <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;); <I><FONT COLOR="#B22222">// unk_name, not needed);
+  Gradient exact_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                            <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,   <I><FONT COLOR="#B22222">// EquationSystems parameters, not needed
+</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,  <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;); <I><FONT COLOR="#B22222">// unk_name, not needed);
 </FONT></I>  
   
   
@@ -1617,7 +1652,7 @@ it will print its log to the screen. Pretty easy, huh?
   <B><FONT COLOR="#228B22">bool</FONT></B> singularity = true;
   
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -1627,6 +1662,8 @@ it will print its log to the screen. Pretty easy, huh?
   
     GetPot input_file(<B><FONT COLOR="#BC8F8F">&quot;adaptivity_ex3.in&quot;</FONT></B>);
   
+    input_file.parse_command_line(argc, argv);
+
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> max_r_steps    = input_file(<B><FONT COLOR="#BC8F8F">&quot;max_r_steps&quot;</FONT></B>, 3);
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> max_r_level    = input_file(<B><FONT COLOR="#BC8F8F">&quot;max_r_level&quot;</FONT></B>, 3);
     <B><FONT COLOR="#228B22">const</FONT></B> Real refine_percentage      = input_file(<B><FONT COLOR="#BC8F8F">&quot;refine_percentage&quot;</FONT></B>, 0.5);
@@ -1676,7 +1713,7 @@ it will print its log to the screen. Pretty easy, huh?
     Mesh mesh(init.comm());
   
     <B><FONT COLOR="#A020F0">if</FONT></B> (dim == 1)
-      <B><FONT COLOR="#5F9EA0">MeshTools</FONT></B>::Generation::build_line(mesh,1,-1.,0.);
+      <B><FONT COLOR="#5F9EA0">MeshTools</FONT></B>::Generation::build_line(mesh, 1, -1., 0.);
     <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (dim == 2)
       mesh.read(<B><FONT COLOR="#BC8F8F">&quot;lshaped.xda&quot;</FONT></B>);
     <B><FONT COLOR="#A020F0">else</FONT></B>
@@ -1695,7 +1732,7 @@ it will print its log to the screen. Pretty easy, huh?
   
     EquationSystems equation_systems (mesh);
   
-    LinearImplicitSystem&amp; system =
+    LinearImplicitSystem &amp; system =
       equation_systems.add_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>);
   
     system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>, static_cast&lt;Order&gt;(approx_order),
@@ -1721,19 +1758,20 @@ it will print its log to the screen. Pretty easy, huh?
   
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> r_step=0; r_step&lt;max_r_steps; r_step++)
       {
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Beginning Solve &quot;</FONT></B> &lt;&lt; r_step &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Beginning Solve &quot;</FONT></B> &lt;&lt; r_step &lt;&lt; std::endl;
   
         system.solve();
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;System has: &quot;</FONT></B> &lt;&lt; equation_systems.n_active_dofs()
-                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; degrees of freedom.&quot;</FONT></B>
-                  &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;System has: &quot;</FONT></B>
+                     &lt;&lt; equation_systems.n_active_dofs()
+                     &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; degrees of freedom.&quot;</FONT></B>
+                     &lt;&lt; std::endl;
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Linear solver converged at step: &quot;</FONT></B>
-                  &lt;&lt; system.n_linear_iterations()
-                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, final residual: &quot;</FONT></B>
-                  &lt;&lt; system.final_linear_residual()
-                  &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Linear solver converged at step: &quot;</FONT></B>
+                     &lt;&lt; system.n_linear_iterations()
+                     &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, final residual: &quot;</FONT></B>
+                     &lt;&lt; system.final_linear_residual()
+                     &lt;&lt; std::endl;
   
   #ifdef LIBMESH_HAVE_EXODUS_API
         <B><FONT COLOR="#A020F0">if</FONT></B> (output_intermediate)
@@ -1747,12 +1785,24 @@ it will print its log to the screen. Pretty easy, huh?
 </FONT></I>  
         exact_sol.compute_error(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>);
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;L2-Error is: &quot;</FONT></B>
-                  &lt;&lt; exact_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl;
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1-Error is: &quot;</FONT></B>
-                  &lt;&lt; exact_sol.h1_error(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;L2-Error is: &quot;</FONT></B>
+                     &lt;&lt; exact_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1-Error is: &quot;</FONT></B>
+                     &lt;&lt; exact_sol.h1_error(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl;
+
+        {
+          DiscontinuityMeasure disc;
+          ErrorVector disc_error;
+          disc.estimate_error(system, disc_error);
+
+          Real mean_disc_error = disc_error.mean();
+
+          <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Mean discontinuity error = &quot;</FONT></B> &lt;&lt; mean_disc_error &lt;&lt; std::endl;
+
+          libmesh_assert_less (mean_disc_error, 1e-14);
+        }
   
         out &lt;&lt; equation_systems.n_active_dofs() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B>
             &lt;&lt; exact_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>) &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B>
@@ -1760,7 +1810,7 @@ it will print its log to the screen. Pretty easy, huh?
   
         <B><FONT COLOR="#A020F0">if</FONT></B> (r_step+1 != max_r_steps)
           {
-            <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Refining the mesh...&quot;</FONT></B> &lt;&lt; std::endl;
+            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Refining the mesh...&quot;</FONT></B> &lt;&lt; std::endl;
   
             <B><FONT COLOR="#A020F0">if</FONT></B> (uniform_refine == 0)
               {
@@ -1801,30 +1851,32 @@ it will print its log to the screen. Pretty easy, huh?
                 <B><FONT COLOR="#5F9EA0">std</FONT></B>::ostringstream ss;
                 ss &lt;&lt; r_step;
   #ifdef LIBMESH_HAVE_EXODUS_API
-                <B><FONT COLOR="#5F9EA0">std</FONT></B>::string error_output = <B><FONT COLOR="#BC8F8F">&quot;error_&quot;</FONT></B>+ss.str()+<B><FONT COLOR="#BC8F8F">&quot;.e&quot;</FONT></B>;
+                <B><FONT COLOR="#5F9EA0">std</FONT></B>::string error_output = <B><FONT COLOR="#BC8F8F">&quot;error_&quot;</FONT></B> + ss.str() + <B><FONT COLOR="#BC8F8F">&quot;.e&quot;</FONT></B>;
   #<B><FONT COLOR="#A020F0">else</FONT></B>
-                <B><FONT COLOR="#5F9EA0">std</FONT></B>::string error_output = <B><FONT COLOR="#BC8F8F">&quot;error_&quot;</FONT></B>+ss.str()+<B><FONT COLOR="#BC8F8F">&quot;.gmv&quot;</FONT></B>;
+                <B><FONT COLOR="#5F9EA0">std</FONT></B>::string error_output = <B><FONT COLOR="#BC8F8F">&quot;error_&quot;</FONT></B> + ss.str() + <B><FONT COLOR="#BC8F8F">&quot;.gmv&quot;</FONT></B>;
   #endif
-                error.plot_error( error_output, mesh );
+                error.plot_error(error_output, mesh);
   
                 mesh_refinement.flag_elements_by_error_fraction (error);
   
                 <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;p&quot;</FONT></B>)
                   mesh_refinement.switch_h_to_p_refinement();
-                <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;matchedhp&quot;</FONT></B>)
+                <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;matchedhp&quot;</FONT></B>)
                   mesh_refinement.add_p_to_h_refinement();
-                <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;hp&quot;</FONT></B>)
+                <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;hp&quot;</FONT></B>)
                   {
                     HPCoarsenTest hpselector;
                     hpselector.select_refinement(system);
                   }
-                <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;singularhp&quot;</FONT></B>)
+                <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type == <B><FONT COLOR="#BC8F8F">&quot;singularhp&quot;</FONT></B>)
                   {
                     libmesh_assert (singularity);
                     HPSingularity hpselector;
                     hpselector.singular_points.push_back(Point());
                     hpselector.select_refinement(system);
                   }
+                <B><FONT COLOR="#A020F0">else</FONT></B> <B><FONT COLOR="#A020F0">if</FONT></B> (refine_type != <B><FONT COLOR="#BC8F8F">&quot;h&quot;</FONT></B>)
+                  libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Unknown refinement_type = &quot;</FONT></B> &lt;&lt; refine_type);
   
                 mesh_refinement.refine_and_coarsen_elements();
               }
@@ -1863,17 +1915,17 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  Number exact_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                        <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Number exact_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                        <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     <B><FONT COLOR="#228B22">const</FONT></B> Real x = p(0);
     <B><FONT COLOR="#228B22">const</FONT></B> Real y = (dim &gt; 1) ? p(1) : 0.;
   
     <B><FONT COLOR="#A020F0">if</FONT></B> (singularity)
       {
-        Real theta = atan2(y,x);
+        Real theta = atan2(y, x);
   
         <B><FONT COLOR="#A020F0">if</FONT></B> (theta &lt; 0)
           theta += 2. * libMesh::pi;
@@ -1894,10 +1946,10 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  Gradient exact_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                            <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Gradient exact_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                            <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                            <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     Gradient gradu;
   
@@ -1913,7 +1965,7 @@ it will print its log to the screen. Pretty easy, huh?
   
         <B><FONT COLOR="#228B22">const</FONT></B> Real r2 = x*x + y*y;
   
-        Real theta = atan2(y,x);
+        Real theta = atan2(y, x);
   
         <B><FONT COLOR="#A020F0">if</FONT></B> (theta &lt; 0)
           theta += 2. * libMesh::pi;
@@ -1945,45 +1997,45 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_laplace(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_laplace(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
   #ifdef LIBMESH_ENABLE_AMR
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>);
   
   
-    PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Matrix Assembly&quot;</FONT></B>,false);
+    PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Matrix Assembly&quot;</FONT></B>, false);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> mesh_dim = mesh.mesh_dimension();
   
-    LinearImplicitSystem&amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>);
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Laplace&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe      (FEBase::build(mesh_dim, fe_type));
-    AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(mesh_dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe      (FEBase::build(mesh_dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(mesh_dim, fe_type));
   
-    AutoPtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(mesh_dim));
-    AutoPtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(mesh_dim-1));
+    UniquePtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(mesh_dim));
+    UniquePtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(mesh_dim-1));
   
     fe-&gt;attach_quadrature_rule      (qrule.get());
     fe_face-&gt;attach_quadrature_rule (qface.get());
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW      = fe-&gt;get_JxW();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW_face = fe_face-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW      = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW_face = fe_face-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; q_point = fe-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; q_point = fe-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; psi = fe_face-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; psi = fe_face-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; qface_points = fe_face-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; qface_points = fe_face-&gt;get_xyz();
   
     DenseMatrix&lt;Number&gt; Ke;
     DenseVector&lt;Number&gt; Fe;
@@ -1997,7 +2049,7 @@ it will print its log to the screen. Pretty easy, huh?
       {
         perf_log.push(<B><FONT COLOR="#BC8F8F">&quot;elem init&quot;</FONT></B>);
   
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
   
@@ -2036,9 +2088,9 @@ it will print its log to the screen. Pretty easy, huh?
           <B><FONT COLOR="#228B22">const</FONT></B> Real penalty = 1.e10;
   
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> s=0; s&lt;elem-&gt;n_sides(); s++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == libmesh_nullptr)
               {
-                fe_face-&gt;reinit(elem,s);
+                fe_face-&gt;reinit(elem, s);
   
                 <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface-&gt;n_points(); qp++)
                   {
@@ -2075,9 +2127,11 @@ it will print its log to the screen. Pretty easy, huh?
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-adaptivity_ex3.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example adaptivity_ex3:
-*   example-opt  
+*   example-opt refinement_type=h
 ***************************************************************
  
  EquationSystems
@@ -2085,7 +2139,7 @@ it will print its log to the screen. Pretty easy, huh?
    System #0, "Laplace"
     Type "LinearImplicit"
     Variables="u" 
-    Finite Element Types="LAGRANGE", "JACOBI_20_00" 
+    Finite Element Types="HIERARCHIC", "JACOBI_20_00"
     Infinite Element Mapping="CARTESIAN" 
     Approximation Orders="SECOND", "THIRD" 
     n_dofs()=21
@@ -2101,85 +2155,112 @@ it will print its log to the screen. Pretty easy, huh?
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 Beginning Solve 0
 System has: 21 degrees of freedom.
-Linear solver converged at step: 8, final residual: 3.17301e-16
+Linear solver converged at step: 8, final residual: 2.49903e-15
 L2-Error is: 0.0150899
 H1-Error is: 0.125332
+Mean discontinuity error = 1.3534e-15
   Refining the mesh...
 Beginning Solve 1
 System has: 65 degrees of freedom.
-Linear solver converged at step: 14, final residual: 2.45877e-15
+Linear solver converged at step: 28, final residual: 1.98117e-15
 L2-Error is: 0.00515425
 H1-Error is: 0.0777803
+Mean discontinuity error = 1.36389e-15
   Refining the mesh...
 Beginning Solve 2
 System has: 97 degrees of freedom.
-Linear solver converged at step: 19, final residual: 4.25063e-15
+Linear solver converged at step: 26, final residual: 3.82001e-15
 L2-Error is: 0.00199025
 H1-Error is: 0.0494318
+Mean discontinuity error = 1.29491e-15
   Refining the mesh...
 Beginning Solve 3
 System has: 129 degrees of freedom.
-Linear solver converged at step: 23, final residual: 3.69493e-15
+Linear solver converged at step: 28, final residual: 1.20572e-15
 L2-Error is: 0.000890215
 H1-Error is: 0.0320056
+Mean discontinuity error = 1.14377e-15
   Refining the mesh...
 Beginning Solve 4
 System has: 161 degrees of freedom.
-Linear solver converged at step: 26, final residual: 2.60545e-15
+Linear solver converged at step: 28, final residual: 1.60368e-15
 L2-Error is: 0.000559523
 H1-Error is: 0.0215069
+Mean discontinuity error = 1.01171e-15
   Refining the mesh...
 Beginning Solve 5
 System has: 193 degrees of freedom.
-Linear solver converged at step: 29, final residual: 7.97493e-16
+Linear solver converged at step: 28, final residual: 2.01811e-15
 L2-Error is: 0.000483386
 H1-Error is: 0.0154837
+Mean discontinuity error = 8.9769e-16
   Refining the mesh...
 Beginning Solve 6
 System has: 225 degrees of freedom.
-Linear solver converged at step: 31, final residual: 1.47545e-15
+Linear solver converged at step: 28, final residual: 1.84743e-15
 L2-Error is: 0.000467457
 H1-Error is: 0.0123018
+Mean discontinuity error = 8.0082e-16
   Refining the mesh...
 Beginning Solve 7
 System has: 257 degrees of freedom.
-Linear solver converged at step: 32, final residual: 3.90762e-15
+Linear solver converged at step: 27, final residual: 3.48952e-15
 L2-Error is: 0.000463656
 H1-Error is: 0.0107815
+Mean discontinuity error = 7.18974e-16
   Refining the mesh...
 Beginning Solve 8
 System has: 341 degrees of freedom.
-Linear solver converged at step: 40, final residual: 4.88316e-15
+Linear solver converged at step: 37, final residual: 4.07649e-15
 L2-Error is: 0.000301328
 H1-Error is: 0.00820153
+Mean discontinuity error = 6.98674e-16
   Refining the mesh...
 Beginning Solve 9
 System has: 445 degrees of freedom.
-Linear solver converged at step: 50, final residual: 4.20186e-15
+Linear solver converged at step: 38, final residual: 3.54366e-15
 L2-Error is: 0.000182515
 H1-Error is: 0.00601168
+Mean discontinuity error = 6.72619e-16
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:39:21 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:37:56 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.221048, Active time=0.105115                                                  |
+| libMesh Performance: Alive time=0.287103, Active time=0.251846                                                  |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -2187,84 +2268,756 @@ H1-Error is: 0.00601168
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     19         0.0005      0.000025    0.0005      0.000025    0.46     0.46     |
-|   build_constraint_matrix()        462        0.0012      0.000003    0.0012      0.000003    1.13     1.13     |
-|   build_sparsity()                 10         0.0030      0.000296    0.0034      0.000341    2.82     3.24     |
-|   cnstrn_elem_mat_vec()            462        0.0028      0.000006    0.0028      0.000006    2.64     2.64     |
-|   create_dof_constraints()         19         0.0041      0.000215    0.0059      0.000310    3.89     5.61     |
-|   distribute_dofs()                19         0.0007      0.000039    0.0025      0.000131    0.71     2.37     |
-|   dof_indices()                    5049       0.0039      0.000001    0.0039      0.000001    3.68     3.68     |
-|   enforce_constraints_exactly()    8          0.0003      0.000038    0.0003      0.000038    0.29     0.29     |
-|   old_dof_indices()                948        0.0007      0.000001    0.0007      0.000001    0.64     0.64     |
-|   prepare_send_list()              19         0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
-|   reinit()                         19         0.0017      0.000091    0.0017      0.000091    1.65     1.65     |
+|   add_neighbors_to_send_list()     19         0.0004      0.000023    0.0004      0.000023    0.17     0.17     |
+|   build_constraint_matrix()        462        0.0009      0.000002    0.0009      0.000002    0.37     0.37     |
+|   build_sparsity()                 10         0.0026      0.000263    0.0028      0.000282    1.04     1.12     |
+|   cnstrn_elem_mat_vec()            462        0.0010      0.000002    0.0010      0.000002    0.40     0.40     |
+|   create_dof_constraints()         19         0.0098      0.000516    0.0197      0.001036    3.89     7.81     |
+|   distribute_dofs()                19         0.0007      0.000035    0.0024      0.000127    0.26     0.96     |
+|   dof_indices()                    9095       0.0029      0.000000    0.0029      0.000000    1.14     1.14     |
+|   enforce_constraints_exactly()    8          0.0003      0.000031    0.0003      0.000031    0.10     0.10     |
+|   old_dof_indices()                1422       0.0005      0.000000    0.0005      0.000000    0.21     0.21     |
+|   prepare_send_list()              29         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         19         0.0017      0.000092    0.0017      0.000092    0.69     0.69     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          1          0.0002      0.000242    0.0003      0.000337    0.23     0.32     |
+|   build_solution_vector()          1          0.0003      0.000299    0.0003      0.000337    0.12     0.13     |
+|                                                                                                                 |
+| ErrorVector                                                                                                     |
+|   mean()                           10         0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               1          0.0006      0.000646    0.0006      0.000646    0.61     0.61     |
+|   write_nodal_data()               1          0.0005      0.000517    0.0005      0.000517    0.21     0.21     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        2614       0.0060      0.000002    0.0060      0.000002    5.66     5.66     |
-|   init_shape_functions()           1680       0.0042      0.000002    0.0042      0.000002    3.95     3.95     |
-|   inverse_map()                    8051       0.0118      0.000001    0.0118      0.000001    11.25    11.25    |
+|   compute_shape_functions()        11320      0.0086      0.000001    0.0086      0.000001    3.42     3.42     |
+|   init_shape_functions()           11320      0.0420      0.000004    0.0420      0.000004    16.69    16.69    |
+|   inverse_map()                    30220      0.0207      0.000001    0.0207      0.000001    8.21     8.21     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             2614       0.0024      0.000001    0.0024      0.000001    2.31     2.31     |
-|   compute_face_map()               948        0.0036      0.000004    0.0094      0.000010    3.46     8.90     |
-|   init_face_shape_functions()      19         0.0000      0.000002    0.0000      0.000002    0.03     0.03     |
-|   init_reference_to_physical_map() 1680       0.0075      0.000004    0.0075      0.000004    7.15     7.15     |
+|   compute_affine_map()             12310      0.0095      0.000001    0.0095      0.000001    3.79     3.79     |
+|   compute_face_map()               5854       0.0085      0.000001    0.0217      0.000004    3.36     8.60     |
+|   init_face_shape_functions()      5854       0.0021      0.000000    0.0021      0.000000    0.83     0.83     |
+|   init_reference_to_physical_map() 11320      0.0307      0.000003    0.0307      0.000003    12.20    12.20    |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   copy_dofs                        326        0.0002      0.000001    0.0008      0.000003    0.07     0.33     |
+|   operator()                       9          0.0008      0.000083    0.1299      0.014434    0.30     51.58    |
+|   project_edges                    148        0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
+|   project_interior                 148        0.0006      0.000004    0.0496      0.000335    0.25     19.69    |
+|   project_nodes                    148        0.0002      0.000002    0.0061      0.000041    0.09     2.40     |
+|   project_sides                    148        0.0027      0.000018    0.0722      0.000488    1.08     28.68    |
 |                                                                                                                 |
 | JumpErrorEstimator                                                                                              |
-|   estimate_error()                 9          0.0089      0.000984    0.0336      0.003738    8.42     32.00    |
-|                                                                                                                 |
-| LocationMap                                                                                                     |
-|   find()                           740        0.0006      0.000001    0.0006      0.000001    0.55     0.55     |
-|   init()                           18         0.0007      0.000038    0.0007      0.000038    0.66     0.66     |
+|   estimate_error()                 19         0.0203      0.001066    0.0743      0.003911    8.05     29.50    |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   all_first_order()                9          0.0003      0.000037    0.0003      0.000037    0.32     0.32     |
-|   all_second_order()               1          0.0001      0.000091    0.0001      0.000091    0.09     0.09     |
-|   contract()                       9          0.0001      0.000013    0.0005      0.000056    0.11     0.48     |
-|   find_neighbors()                 29         0.0029      0.000101    0.0029      0.000101    2.80     2.80     |
-|   renumber_nodes_and_elem()        27         0.0005      0.000017    0.0005      0.000017    0.44     0.44     |
+|   all_first_order()                9          0.0003      0.000034    0.0003      0.000034    0.12     0.12     |
+|   all_second_order()               1          0.0000      0.000023    0.0000      0.000023    0.01     0.01     |
+|   contract()                       9          0.0002      0.000023    0.0007      0.000075    0.08     0.27     |
+|   find_neighbors()                 29         0.0033      0.000113    0.0033      0.000113    1.30     1.30     |
+|   renumber_nodes_and_elem()        27         0.0005      0.000018    0.0005      0.000018    0.20     0.20     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         1          0.0000      0.000034    0.0010      0.001017    0.03     0.97     |
+|   write_equation_systems()         1          0.0000      0.000011    0.0009      0.000865    0.00     0.34     |
 |                                                                                                                 |
 | MeshRefinement                                                                                                  |
-|   _coarsen_elements()              18         0.0000      0.000002    0.0000      0.000002    0.03     0.03     |
-|   _refine_elements()               18         0.0009      0.000048    0.0021      0.000118    0.83     2.02     |
-|   add_point()                      740        0.0005      0.000001    0.0012      0.000002    0.52     1.13     |
-|   make_coarsening_compatible()     18         0.0009      0.000049    0.0009      0.000049    0.84     0.84     |
-|   make_flags_parallel_consistent() 27         0.0002      0.000009    0.0002      0.000009    0.23     0.23     |
-|   make_refinement_compatible()     18         0.0000      0.000002    0.0000      0.000002    0.04     0.04     |
+|   _coarsen_elements()              18         0.0000      0.000002    0.0000      0.000002    0.01     0.01     |
+|   _refine_elements()               18         0.0010      0.000055    0.0015      0.000081    0.39     0.58     |
+|   add_node()                       1332       0.0004      0.000000    0.0004      0.000000    0.14     0.14     |
+|   make_coarsening_compatible()     18         0.0010      0.000053    0.0010      0.000053    0.38     0.38     |
+|   make_flags_parallel_consistent() 27         0.0003      0.000010    0.0003      0.000010    0.10     0.10     |
+|   make_refinement_compatible()     18         0.0001      0.000004    0.0001      0.000004    0.03     0.03     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Number eval_at_node()            592        0.0001      0.000000    0.0001      0.000000    0.02     0.02     |
+|   check_old_context(c)             326        0.0002      0.000001    0.0005      0.000001    0.08     0.19     |
+|   check_old_context(c,p)           3256       0.0018      0.000001    0.0046      0.000001    0.71     1.81     |
+|   eval_at_point()                  3256       0.0589      0.000018    0.1184      0.000036    23.37    47.03    |
+|   eval_old_dofs()                  326        0.0001      0.000000    0.0006      0.000002    0.05     0.25     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
-|   allgather()                      19         0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
+|   allgather()                      19         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   set_node_processor_ids()         9          0.0002      0.000019    0.0002      0.000019    0.17     0.17     |
-|   single_partition()               20         0.0001      0.000006    0.0001      0.000006    0.12     0.12     |
+|   set_node_processor_ids()         18         0.0003      0.000017    0.0003      0.000017    0.12     0.12     |
+|   single_partition()               20         0.0001      0.000005    0.0001      0.000005    0.04     0.04     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          10         0.0229      0.002292    0.0229      0.002292    21.80    21.80    |
-|                                                                                                                 |
-| ProjectVector                                                                                                   |
-|   operator()                       9          0.0015      0.000170    0.0036      0.000398    1.45     3.41     |
+|   solve()                          10         0.0075      0.000750    0.0075      0.000750    2.98     2.98     |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       10         0.0075      0.000748    0.0195      0.001949    7.12     18.54    |
-|   project_vector()                 9          0.0009      0.000101    0.0052      0.000575    0.86     4.92     |
+|   assemble()                       10         0.0037      0.000370    0.0091      0.000911    1.47     3.62     |
+|   project_vector(old,new)          9          0.0011      0.000126    0.1315      0.014610    0.45     52.21    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           18         0.0025      0.000138    0.0025      0.000138    0.99     0.99     |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            26410      0.1051                                          100.00            |
+| Totals:                            110087     0.2518                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+
+***************************************************************
+* Done Running Example adaptivity_ex3:
+*   example-opt refinement_type=h
+***************************************************************
+***************************************************************
+* Running Example adaptivity_ex3:
+*   example-opt refinement_type=p
+***************************************************************
+
+ EquationSystems
+  n_systems()=1
+   System #0, "Laplace"
+    Type "LinearImplicit"
+    Variables="u"
+    Finite Element Types="HIERARCHIC", "JACOBI_20_00"
+    Infinite Element Mapping="CARTESIAN"
+    Approximation Orders="SECOND", "THIRD"
+    n_dofs()=21
+    n_local_dofs()=21
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 10.7143
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 21
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+
+Beginning Solve 0
+System has: 21 degrees of freedom.
+Linear solver converged at step: 8, final residual: 2.49903e-15
+L2-Error is: 0.0150899
+H1-Error is: 0.125332
+Mean discontinuity error = 1.3534e-15
+  Refining the mesh...
+Beginning Solve 1
+System has: 40 degrees of freedom.
+Linear solver converged at step: 8, final residual: 1.00655e-14
+L2-Error is: 0.00548184
+H1-Error is: 0.0756163
+Mean discontinuity error = 1.3534e-15
+  Refining the mesh...
+Beginning Solve 2
+System has: 65 degrees of freedom.
+Linear solver converged at step: 17, final residual: 6.03129e-13
+L2-Error is: 0.00272698
+H1-Error is: 0.0534528
+Mean discontinuity error = 1.35887e-15
+  Refining the mesh...
+Beginning Solve 3
+System has: 96 degrees of freedom.
+Linear solver converged at step: 39, final residual: 1.85348e-11
+L2-Error is: 0.00157574
+H1-Error is: 0.0409795
+Mean discontinuity error = 1.35515e-15
+  Refining the mesh...
+Beginning Solve 4
+System has: 133 degrees of freedom.
+Linear solver converged at step: 70, final residual: 2.28275e-09
+L2-Error is: 0.0010024
+H1-Error is: 0.0330339
+Mean discontinuity error = 1.35409e-15
+  Refining the mesh...
+Beginning Solve 5
+System has: 176 degrees of freedom.
+Linear solver converged at step: 74, final residual: 6.15076e-09
+L2-Error is: 0.000681537
+H1-Error is: 0.0275314
+Mean discontinuity error = 1.35669e-15
+  Refining the mesh...
+Beginning Solve 6
+System has: 225 degrees of freedom.
+Linear solver converged at step: 75, final residual: 1.29727e-05
+L2-Error is: 0.000486686
+H1-Error is: 0.0234989
+Mean discontinuity error = 1.37103e-15
+  Refining the mesh...
+Beginning Solve 7
+System has: 280 degrees of freedom.
+Linear solver converged at step: 75, final residual: 0.0167521
+L2-Error is: 0.000360945
+H1-Error is: 0.0204212
+Mean discontinuity error = 1.35712e-15
+  Refining the mesh...
+Beginning Solve 8
+System has: 341 degrees of freedom.
+Linear solver converged at step: 73, final residual: 5.76205
+L2-Error is: 0.000275878
+H1-Error is: 0.0179989
+Mean discontinuity error = 1.36878e-15
+  Refining the mesh...
+Beginning Solve 9
+System has: 408 degrees of freedom.
+Linear solver converged at step: 78, final residual: 2246.39
+L2-Error is: 0.000216113
+H1-Error is: 0.0160456
+Mean discontinuity error = 1.40034e-15
+
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:37:56 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.68496, Active time=0.65379                                                    |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     19         0.0002      0.000010    0.0002      0.000010    0.03     0.03     |
+|   build_sparsity()                 10         0.0012      0.000117    0.0012      0.000122    0.18     0.19     |
+|   create_dof_constraints()         19         0.0002      0.000010    0.0002      0.000010    0.03     0.03     |
+|   distribute_dofs()                19         0.0004      0.000021    0.0009      0.000048    0.06     0.14     |
+|   dof_indices()                    391        0.0004      0.000001    0.0004      0.000001    0.06     0.06     |
+|   old_dof_indices()                81         0.0001      0.000001    0.0001      0.000001    0.01     0.01     |
+|   prepare_send_list()              29         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         19         0.0005      0.000027    0.0005      0.000027    0.08     0.08     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_solution_vector()          1          0.0002      0.000183    0.0002      0.000189    0.03     0.03     |
+|                                                                                                                 |
+| ErrorVector                                                                                                     |
+|   mean()                           10         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0004      0.000374    0.0004      0.000374    0.06     0.06     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        3141       0.0275      0.000009    0.0275      0.000009    4.21     4.21     |
+|   init_shape_functions()           3141       0.2475      0.000079    0.2475      0.000079    37.85    37.85    |
+|   inverse_map()                    8085       0.0063      0.000001    0.0063      0.000001    0.97     0.97     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             3199       0.0049      0.000002    0.0049      0.000002    0.75     0.75     |
+|   compute_face_map()               302        0.0012      0.000004    0.0031      0.000010    0.18     0.47     |
+|   init_face_shape_functions()      302        0.0002      0.000001    0.0002      0.000001    0.03     0.03     |
+|   init_reference_to_physical_map() 3141       0.0144      0.000005    0.0144      0.000005    2.20     2.20     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   operator()                       9          0.0002      0.000021    0.5276      0.058620    0.03     80.70    |
+|   project_edges                    27         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   project_interior                 27         0.0301      0.001117    0.3821      0.014152    4.61     58.45    |
+|   project_nodes                    27         0.0001      0.000002    0.0001      0.000002    0.01     0.01     |
+|   project_sides                    27         0.0011      0.000040    0.1451      0.005374    0.17     22.19    |
+|                                                                                                                 |
+| JumpErrorEstimator                                                                                              |
+|   estimate_error()                 19         0.0017      0.000091    0.0126      0.000665    0.26     1.93     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   all_first_order()                9          0.0001      0.000007    0.0001      0.000007    0.01     0.01     |
+|   all_second_order()               1          0.0000      0.000020    0.0000      0.000020    0.00     0.00     |
+|   contract()                       9          0.0000      0.000004    0.0001      0.000009    0.01     0.01     |
+|   find_neighbors()                 29         0.0005      0.000016    0.0005      0.000016    0.07     0.07     |
+|   renumber_nodes_and_elem()        27         0.0001      0.000002    0.0001      0.000002    0.01     0.01     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000017    0.0006      0.000581    0.00     0.09     |
+|                                                                                                                 |
+| MeshRefinement                                                                                                  |
+|   _coarsen_elements()              18         0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   _refine_elements()               18         0.0000      0.000003    0.0000      0.000003    0.01     0.01     |
+|   make_coarsening_compatible()     18         0.0002      0.000013    0.0002      0.000013    0.04     0.04     |
+|   make_flags_parallel_consistent() 27         0.0002      0.000007    0.0002      0.000007    0.03     0.03     |
+|   make_refinement_compatible()     18         0.0001      0.000003    0.0001      0.000003    0.01     0.01     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Number eval_at_node()            108        0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   check_old_context(c,p)           2772       0.0017      0.000001    0.0042      0.000002    0.26     0.64     |
+|   eval_at_point()                  2772       0.2290      0.000083    0.4890      0.000176    35.03    74.80    |
+|                                                                                                                 |
+| Parallel                                                                                                        |
+|   allgather()                      19         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   set_node_processor_ids()         18         0.0002      0.000010    0.0002      0.000010    0.03     0.03     |
+|   single_partition()               20         0.0001      0.000003    0.0001      0.000003    0.01     0.01     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          10         0.0250      0.002504    0.0250      0.002504    3.83     3.83     |
+|                                                                                                                 |
+| System                                                                                                          |
+|   assemble()                       10         0.0569      0.005691    0.0654      0.006544    8.71     10.01    |
+|   project_vector(old,new)          9          0.0009      0.000097    0.5285      0.058721    0.13     80.83    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           18         0.0000      0.000003    0.0000      0.000003    0.01     0.01     |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            27977      0.6538                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+
+***************************************************************
+* Done Running Example adaptivity_ex3:
+*   example-opt refinement_type=p
+***************************************************************
+***************************************************************
+* Running Example adaptivity_ex3:
+*   example-opt refinement_type=hp
+***************************************************************
+
+ EquationSystems
+  n_systems()=1
+   System #0, "Laplace"
+    Type "LinearImplicit"
+    Variables="u"
+    Finite Element Types="HIERARCHIC", "JACOBI_20_00"
+    Infinite Element Mapping="CARTESIAN"
+    Approximation Orders="SECOND", "THIRD"
+    n_dofs()=21
+    n_local_dofs()=21
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 10.7143
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 21
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+
+Beginning Solve 0
+System has: 21 degrees of freedom.
+Linear solver converged at step: 8, final residual: 2.49903e-15
+L2-Error is: 0.0150899
+H1-Error is: 0.125332
+Mean discontinuity error = 1.3534e-15
+  Refining the mesh...
+*** Warning, This code is untested, experimental, or likely to see future API changes: ../../../include/libmesh/hp_coarsentest.h, line 77, compiled Apr 12 2016 at 13:37:48 ***
+Beginning Solve 1
+System has: 65 degrees of freedom.
+Linear solver converged at step: 28, final residual: 1.98117e-15
+L2-Error is: 0.00515425
+H1-Error is: 0.0777803
+Mean discontinuity error = 1.36389e-15
+  Refining the mesh...
+Beginning Solve 2
+System has: 78 degrees of freedom.
+Linear solver converged at step: 24, final residual: 3.24542e-15
+L2-Error is: 0.00210411
+H1-Error is: 0.0483608
+Mean discontinuity error = 1.36389e-15
+  Refining the mesh...
+Beginning Solve 3
+System has: 131 degrees of freedom.
+Linear solver converged at step: 39, final residual: 1.67935e-14
+L2-Error is: 0.00102524
+H1-Error is: 0.0336714
+Mean discontinuity error = 1.36523e-15
+  Refining the mesh...
+Beginning Solve 4
+System has: 223 degrees of freedom.
+Linear solver converged at step: 46, final residual: 1.1326e-12
+L2-Error is: 0.000590004
+H1-Error is: 0.0257611
+Mean discontinuity error = 1.36447e-15
+  Refining the mesh...
+Beginning Solve 5
+System has: 339 degrees of freedom.
+Linear solver converged at step: 56, final residual: 3.35834e-11
+L2-Error is: 0.000377664
+H1-Error is: 0.0207812
+Mean discontinuity error = 1.36473e-15
+  Refining the mesh...
+Beginning Solve 6
+System has: 479 degrees of freedom.
+Linear solver converged at step: 75, final residual: 1.05954e-08
+L2-Error is: 0.000258007
+H1-Error is: 0.017326
+Mean discontinuity error = 1.36599e-15
+  Refining the mesh...
+Beginning Solve 7
+System has: 643 degrees of freedom.
+Linear solver converged at step: 80, final residual: 4.57754e-07
+L2-Error is: 0.000184986
+H1-Error is: 0.0147921
+Mean discontinuity error = 1.36755e-15
+  Refining the mesh...
+Beginning Solve 8
+System has: 831 degrees of freedom.
+Linear solver converged at step: 109, final residual: 0.000487974
+L2-Error is: 0.000137664
+H1-Error is: 0.0128571
+Mean discontinuity error = 1.36493e-15
+  Refining the mesh...
+Beginning Solve 9
+System has: 1043 degrees of freedom.
+Linear solver converged at step: 23006, final residual: 0.0726822
+L2-Error is: 0.000105534
+H1-Error is: 0.0113334
+Mean discontinuity error = 1.36769e-15
+
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:38:01 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=4.78586, Active time=4.74405                                                    |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     19         0.0002      0.000012    0.0002      0.000012    0.00     0.00     |
+|   build_constraint_matrix()        96         0.0004      0.000004    0.0004      0.000004    0.01     0.01     |
+|   build_sparsity()                 10         0.0024      0.000239    0.0025      0.000248    0.05     0.05     |
+|   cnstrn_elem_mat_vec()            96         0.0223      0.000233    0.0223      0.000233    0.47     0.47     |
+|   create_dof_constraints()         19         0.0003      0.000016    0.0003      0.000016    0.01     0.01     |
+|   distribute_dofs()                19         0.0004      0.000023    0.0011      0.000060    0.01     0.02     |
+|   dof_indices()                    1854       0.0011      0.000001    0.0011      0.000001    0.02     0.02     |
+|   enforce_constraints_exactly()    8          0.0002      0.000022    0.0002      0.000022    0.00     0.00     |
+|   old_dof_indices()                324        0.0002      0.000001    0.0002      0.000001    0.00     0.00     |
+|   prepare_send_list()              29         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         19         0.0007      0.000037    0.0007      0.000037    0.01     0.01     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_solution_vector()          1          0.0004      0.000354    0.0004      0.000366    0.01     0.01     |
+|                                                                                                                 |
+| ErrorVector                                                                                                     |
+|   mean()                           10         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0004      0.000378    0.0004      0.000378    0.01     0.01     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        9282       0.0821      0.000009    0.0821      0.000009    1.73     1.73     |
+|   init_shape_functions()           9282       0.4829      0.000052    0.4829      0.000052    10.18    10.18    |
+|   inverse_map()                    29403      0.0208      0.000001    0.0208      0.000001    0.44     0.44     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             9443       0.0133      0.000001    0.0133      0.000001    0.28     0.28     |
+|   compute_face_map()               1364       0.0043      0.000003    0.0108      0.000008    0.09     0.23     |
+|   init_face_shape_functions()      1364       0.0007      0.000001    0.0007      0.000001    0.02     0.02     |
+|   init_reference_to_physical_map() 9282       0.0457      0.000005    0.0457      0.000005    0.96     0.96     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   copy_dofs                        12         0.0000      0.000001    0.0000      0.000003    0.00     0.00     |
+|   operator()                       9          0.0004      0.000048    0.9334      0.103714    0.01     19.68    |
+|   project_edges                    96         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   project_interior                 96         0.0379      0.000395    0.6310      0.006573    0.80     13.30    |
+|   project_nodes                    96         0.0001      0.000001    0.0006      0.000007    0.00     0.01     |
+|   project_sides                    96         0.0030      0.000032    0.3011      0.003137    0.06     6.35     |
+|                                                                                                                 |
+| HPCoarsenTest                                                                                                   |
+|   select_refinement()              9          0.1212      0.013472    0.1685      0.018717    2.56     3.55     |
+|                                                                                                                 |
+| JumpErrorEstimator                                                                                              |
+|   estimate_error()                 19         0.0073      0.000386    0.0546      0.002875    0.15     1.15     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   all_first_order()                9          0.0001      0.000013    0.0001      0.000013    0.00     0.00     |
+|   all_second_order()               1          0.0000      0.000018    0.0000      0.000018    0.00     0.00     |
+|   contract()                       9          0.0001      0.000008    0.0002      0.000021    0.00     0.00     |
+|   find_neighbors()                 29         0.0010      0.000034    0.0010      0.000034    0.02     0.02     |
+|   renumber_nodes_and_elem()        27         0.0001      0.000005    0.0001      0.000005    0.00     0.00     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000015    0.0008      0.000759    0.00     0.02     |
+|                                                                                                                 |
+| MeshRefinement                                                                                                  |
+|   _coarsen_elements()              18         0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   _refine_elements()               18         0.0002      0.000011    0.0003      0.000014    0.00     0.01     |
+|   add_node()                       108        0.0001      0.000000    0.0001      0.000000    0.00     0.00     |
+|   make_coarsening_compatible()     25         0.0004      0.000016    0.0004      0.000016    0.01     0.01     |
+|   make_flags_parallel_consistent() 27         0.0002      0.000007    0.0002      0.000007    0.00     0.00     |
+|   make_refinement_compatible()     25         0.0001      0.000005    0.0001      0.000005    0.00     0.00     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Number eval_at_node()            384        0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   check_old_context(c)             12         0.0000      0.000001    0.0000      0.000002    0.00     0.00     |
+|   check_old_context(c,p)           7221       0.0036      0.000001    0.0096      0.000001    0.08     0.20     |
+|   eval_at_point()                  7221       0.4137      0.000057    0.8726      0.000121    8.72     18.39    |
+|   eval_old_dofs()                  12         0.0000      0.000000    0.0000      0.000002    0.00     0.00     |
+|                                                                                                                 |
+| Parallel                                                                                                        |
+|   allgather()                      19         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   set_node_processor_ids()         18         0.0002      0.000011    0.0002      0.000011    0.00     0.00     |
+|   single_partition()               20         0.0001      0.000003    0.0001      0.000003    0.00     0.00     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          10         3.3995      0.339950    3.3995      0.339950    71.66    71.66    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   assemble()                       10         0.0740      0.007403    0.1211      0.012110    1.56     2.55     |
+|   project_vector(old,new)          9          0.0010      0.000109    0.9347      0.103850    0.02     19.70    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           18         0.0005      0.000030    0.0005      0.000030    0.01     0.01     |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            87609      4.7441                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+
+***************************************************************
+* Done Running Example adaptivity_ex3:
+*   example-opt refinement_type=hp
+***************************************************************
+***************************************************************
+* Running Example adaptivity_ex3:
+*   example-opt refinement_type=matchedhp max_r_steps=5
+***************************************************************
+
+ EquationSystems
+  n_systems()=1
+   System #0, "Laplace"
+    Type "LinearImplicit"
+    Variables="u"
+    Finite Element Types="HIERARCHIC", "JACOBI_20_00"
+    Infinite Element Mapping="CARTESIAN"
+    Approximation Orders="SECOND", "THIRD"
+    n_dofs()=21
+    n_local_dofs()=21
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 10.7143
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 21
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+
+Beginning Solve 0
+System has: 21 degrees of freedom.
+Linear solver converged at step: 8, final residual: 2.49903e-15
+L2-Error is: 0.0150899
+H1-Error is: 0.125332
+Mean discontinuity error = 1.3534e-15
+  Refining the mesh...
+Beginning Solve 1
+System has: 133 degrees of freedom.
+Linear solver converged at step: 39, final residual: 8.45551e-15
+L2-Error is: 0.001986
+H1-Error is: 0.0472766
+Mean discontinuity error = 1.36502e-15
+  Refining the mesh...
+Beginning Solve 2
+System has: 267 degrees of freedom.
+Linear solver converged at step: 55, final residual: 9.75205e-15
+L2-Error is: 0.000414735
+H1-Error is: 0.0212714
+Mean discontinuity error = 1.28248e-15
+  Refining the mesh...
+Beginning Solve 3
+System has: 486 degrees of freedom.
+Linear solver converged at step: 71, final residual: 9.8287e-14
+L2-Error is: 0.000176167
+H1-Error is: 0.0105736
+Mean discontinuity error = 1.14958e-15
+  Refining the mesh...
+Beginning Solve 4
+System has: 802 degrees of freedom.
+Linear solver converged at step: 89, final residual: 2.52357e-12
+L2-Error is: 0.000153487
+H1-Error is: 0.00587325
+Mean discontinuity error = 1.01718e-15
+
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:38:02 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.308053, Active time=0.288897                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     9          0.0001      0.000016    0.0001      0.000016    0.05     0.05     |
+|   build_constraint_matrix()        90         0.0003      0.000004    0.0003      0.000004    0.12     0.12     |
+|   build_sparsity()                 5          0.0016      0.000311    0.0016      0.000325    0.54     0.56     |
+|   cnstrn_elem_mat_vec()            90         0.0027      0.000030    0.0027      0.000030    0.94     0.94     |
+|   create_dof_constraints()         9          0.0019      0.000211    0.0047      0.000520    0.66     1.62     |
+|   distribute_dofs()                9          0.0002      0.000027    0.0007      0.000079    0.08     0.25     |
+|   dof_indices()                    1768       0.0008      0.000000    0.0008      0.000000    0.28     0.28     |
+|   enforce_constraints_exactly()    3          0.0001      0.000038    0.0001      0.000038    0.04     0.04     |
+|   old_dof_indices()                306        0.0001      0.000000    0.0001      0.000000    0.05     0.05     |
+|   prepare_send_list()              14         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         9          0.0005      0.000052    0.0005      0.000052    0.16     0.16     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_solution_vector()          1          0.0004      0.000357    0.0004      0.000374    0.12     0.13     |
+|                                                                                                                 |
+| ErrorVector                                                                                                     |
+|   mean()                           5          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0004      0.000409    0.0004      0.000409    0.14     0.14     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        4591       0.0125      0.000003    0.0125      0.000003    4.31     4.31     |
+|   init_shape_functions()           4591       0.0913      0.000020    0.0913      0.000020    31.61    31.61    |
+|   inverse_map()                    13871      0.0098      0.000001    0.0098      0.000001    3.40     3.40     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             4781       0.0057      0.000001    0.0057      0.000001    1.96     1.96     |
+|   compute_face_map()               1218       0.0029      0.000002    0.0076      0.000006    1.00     2.62     |
+|   init_face_shape_functions()      1218       0.0006      0.000000    0.0006      0.000000    0.19     0.19     |
+|   init_reference_to_physical_map() 4591       0.0179      0.000004    0.0179      0.000004    6.21     6.21     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   copy_dofs                        45         0.0000      0.000001    0.0002      0.000003    0.01     0.05     |
+|   operator()                       4          0.0003      0.000067    0.2192      0.054795    0.09     75.87    |
+|   project_edges                    57         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   project_interior                 57         0.0032      0.000056    0.1245      0.002185    1.11     43.10    |
+|   project_nodes                    57         0.0001      0.000002    0.0033      0.000058    0.03     1.15     |
+|   project_sides                    57         0.0015      0.000027    0.0908      0.001592    0.53     31.42    |
+|                                                                                                                 |
+| JumpErrorEstimator                                                                                              |
+|   estimate_error()                 9          0.0053      0.000589    0.0289      0.003213    1.84     10.01    |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   all_first_order()                4          0.0001      0.000016    0.0001      0.000016    0.02     0.02     |
+|   all_second_order()               1          0.0000      0.000019    0.0000      0.000019    0.01     0.01     |
+|   contract()                       4          0.0000      0.000011    0.0001      0.000036    0.02     0.05     |
+|   find_neighbors()                 14         0.0007      0.000048    0.0007      0.000048    0.23     0.23     |
+|   renumber_nodes_and_elem()        12         0.0001      0.000009    0.0001      0.000009    0.04     0.04     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000013    0.0008      0.000796    0.00     0.28     |
+|                                                                                                                 |
+| MeshRefinement                                                                                                  |
+|   _coarsen_elements()              8          0.0000      0.000002    0.0000      0.000002    0.00     0.00     |
+|   _refine_elements()               8          0.0003      0.000032    0.0004      0.000053    0.09     0.15     |
+|   add_node()                       432        0.0001      0.000000    0.0001      0.000000    0.05     0.05     |
+|   make_coarsening_compatible()     8          0.0002      0.000029    0.0002      0.000029    0.08     0.08     |
+|   make_flags_parallel_consistent() 12         0.0001      0.000008    0.0001      0.000008    0.03     0.03     |
+|   make_refinement_compatible()     8          0.0000      0.000003    0.0000      0.000003    0.01     0.01     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Number eval_at_node()            228        0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
+|   check_old_context(c)             45         0.0001      0.000001    0.0001      0.000002    0.02     0.03     |
+|   check_old_context(c,p)           2928       0.0016      0.000001    0.0042      0.000001    0.56     1.44     |
+|   eval_at_point()                  2928       0.1020      0.000035    0.2088      0.000071    35.31    72.29    |
+|   eval_old_dofs()                  45         0.0000      0.000000    0.0001      0.000003    0.01     0.04     |
+|                                                                                                                 |
+| Parallel                                                                                                        |
+|   allgather()                      9          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   set_node_processor_ids()         8          0.0001      0.000012    0.0001      0.000012    0.03     0.03     |
+|   single_partition()               10         0.0000      0.000003    0.0000      0.000003    0.01     0.01     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          5          0.0146      0.002923    0.0146      0.002923    5.06     5.06     |
+|                                                                                                                 |
+| System                                                                                                          |
+|   assemble()                       5          0.0075      0.001503    0.0139      0.002785    2.60     4.82     |
+|   project_vector(old,new)          4          0.0005      0.000120    0.2198      0.054958    0.17     76.09    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           8          0.0005      0.000058    0.0005      0.000058    0.16     0.16     |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            44201      0.2889                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
 ***************************************************************
 * Done Running Example adaptivity_ex3:
-*   example-opt  
+*   example-opt refinement_type=matchedhp max_r_steps=5
 ***************************************************************
 </pre>
 </div>
