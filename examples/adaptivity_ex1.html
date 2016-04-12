@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -918,7 +918,7 @@ l2 norm = 0.0599993
 maximum = 0.0230905
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 12:50:39 2016                                                                          |
+| Time:           Tue Apr 12 14:21:39 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -951,7 +951,7 @@ maximum = 0.0230905
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.258492, Active time=0.008269                                                  |
+| libMesh Performance: Alive time=0.016114, Active time=0.007155                                                  |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -959,89 +959,89 @@ maximum = 0.0230905
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     6          0.0001      0.000017    0.0001      0.000017    1.23     1.23     |
-|   build_sparsity()                 6          0.0003      0.000043    0.0003      0.000049    3.14     3.53     |
-|   create_dof_constraints()         6          0.0000      0.000001    0.0000      0.000001    0.07     0.07     |
-|   distribute_dofs()                6          0.0002      0.000040    0.0006      0.000099    2.88     7.18     |
-|   dof_indices()                    688        0.0002      0.000000    0.0002      0.000000    1.87     1.87     |
-|   old_dof_indices()                300        0.0001      0.000000    0.0001      0.000000    1.11     1.11     |
-|   prepare_send_list()              7          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   reinit()                         6          0.0004      0.000059    0.0004      0.000059    4.28     4.28     |
+|   add_neighbors_to_send_list()     6          0.0001      0.000014    0.0001      0.000014    1.13     1.13     |
+|   build_sparsity()                 6          0.0002      0.000035    0.0002      0.000041    2.94     3.44     |
+|   create_dof_constraints()         6          0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
+|   distribute_dofs()                6          0.0002      0.000028    0.0004      0.000074    2.36     6.19     |
+|   dof_indices()                    688        0.0001      0.000000    0.0001      0.000000    1.72     1.72     |
+|   old_dof_indices()                300        0.0001      0.000000    0.0001      0.000000    0.96     0.96     |
+|   prepare_send_list()              7          0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
+|   reinit()                         6          0.0003      0.000045    0.0003      0.000045    3.80     3.80     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          1          0.0001      0.000057    0.0001      0.000071    0.69     0.86     |
+|   build_solution_vector()          1          0.0001      0.000070    0.0001      0.000079    0.98     1.10     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        408        0.0001      0.000000    0.0001      0.000000    1.68     1.68     |
-|   init_shape_functions()           310        0.0004      0.000001    0.0004      0.000001    5.25     5.25     |
-|   inverse_map()                    133        0.0000      0.000000    0.0000      0.000000    0.31     0.31     |
+|   compute_shape_functions()        408        0.0001      0.000000    0.0001      0.000000    1.47     1.47     |
+|   init_shape_functions()           310        0.0004      0.000001    0.0004      0.000001    4.96     4.96     |
+|   inverse_map()                    133        0.0000      0.000000    0.0000      0.000000    0.39     0.39     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             408        0.0002      0.000000    0.0002      0.000000    2.35     2.35     |
-|   compute_face_map()               171        0.0000      0.000000    0.0000      0.000000    0.28     0.28     |
-|   init_face_shape_functions()      5          0.0000      0.000001    0.0000      0.000001    0.07     0.07     |
-|   init_reference_to_physical_map() 310        0.0002      0.000001    0.0002      0.000001    2.43     2.43     |
+|   compute_affine_map()             408        0.0002      0.000000    0.0002      0.000000    2.11     2.11     |
+|   compute_face_map()               171        0.0000      0.000000    0.0000      0.000000    0.20     0.20     |
+|   init_face_shape_functions()      5          0.0000      0.000001    0.0000      0.000001    0.06     0.06     |
+|   init_reference_to_physical_map() 310        0.0002      0.000001    0.0002      0.000001    2.21     2.21     |
 |                                                                                                                 |
 | GenericProjector                                                                                                |
-|   copy_dofs                        24         0.0000      0.000001    0.0001      0.000003    0.21     1.02     |
-|   operator()                       5          0.0003      0.000052    0.0020      0.000404    3.14     24.44    |
-|   project_edges                    76         0.0000      0.000000    0.0000      0.000000    0.11     0.11     |
-|   project_interior                 76         0.0000      0.000000    0.0000      0.000000    0.07     0.07     |
-|   project_nodes                    76         0.0001      0.000001    0.0015      0.000020    1.09     18.73    |
-|   project_sides                    76         0.0000      0.000000    0.0000      0.000000    0.12     0.12     |
+|   copy_dofs                        24         0.0000      0.000001    0.0001      0.000003    0.34     1.06     |
+|   operator()                       5          0.0002      0.000044    0.0017      0.000339    3.05     23.66    |
+|   project_edges                    76         0.0000      0.000000    0.0000      0.000000    0.08     0.08     |
+|   project_interior                 76         0.0000      0.000000    0.0000      0.000000    0.06     0.06     |
+|   project_nodes                    76         0.0001      0.000001    0.0013      0.000017    1.06     18.07    |
+|   project_sides                    76         0.0000      0.000000    0.0000      0.000000    0.11     0.11     |
 |                                                                                                                 |
 | GnuPlotIO                                                                                                       |
-|   write_nodal_data()               1          0.0004      0.000368    0.0004      0.000368    4.45     4.45     |
+|   write_nodal_data()               1          0.0008      0.000783    0.0008      0.000783    10.94    10.94    |
 |                                                                                                                 |
 | JumpErrorEstimator                                                                                              |
-|   estimate_error()                 5          0.0010      0.000197    0.0016      0.000311    11.92    18.79    |
+|   estimate_error()                 5          0.0008      0.000155    0.0012      0.000235    10.82    16.45    |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   contract()                       5          0.0000      0.000003    0.0000      0.000004    0.17     0.23     |
-|   find_neighbors()                 6          0.0005      0.000081    0.0005      0.000081    5.88     5.88     |
-|   renumber_nodes_and_elem()        17         0.0000      0.000001    0.0000      0.000001    0.21     0.21     |
+|   contract()                       5          0.0000      0.000003    0.0000      0.000004    0.18     0.25     |
+|   find_neighbors()                 6          0.0003      0.000056    0.0003      0.000056    4.70     4.70     |
+|   renumber_nodes_and_elem()        17         0.0000      0.000001    0.0000      0.000001    0.20     0.20     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         1          0.0000      0.000014    0.0005      0.000454    0.17     5.49     |
+|   write_equation_systems()         1          0.0000      0.000019    0.0009      0.000882    0.27     12.33    |
 |                                                                                                                 |
 | MeshRefinement                                                                                                  |
-|   _coarsen_elements()              10         0.0000      0.000002    0.0000      0.000002    0.21     0.21     |
-|   _refine_elements()               10         0.0002      0.000020    0.0003      0.000031    2.47     3.81     |
-|   add_node()                       228        0.0001      0.000000    0.0001      0.000000    1.05     1.05     |
-|   make_coarsening_compatible()     11         0.0004      0.000035    0.0004      0.000035    4.68     4.68     |
-|   make_flags_parallel_consistent() 15         0.0002      0.000011    0.0002      0.000011    1.98     1.98     |
-|   make_refinement_compatible()     11         0.0001      0.000007    0.0001      0.000007    0.96     0.96     |
+|   _coarsen_elements()              10         0.0000      0.000001    0.0000      0.000001    0.20     0.20     |
+|   _refine_elements()               10         0.0002      0.000016    0.0002      0.000023    2.18     3.17     |
+|   add_node()                       228        0.0001      0.000000    0.0001      0.000000    0.77     0.77     |
+|   make_coarsening_compatible()     11         0.0003      0.000028    0.0003      0.000028    4.35     4.35     |
+|   make_flags_parallel_consistent() 15         0.0001      0.000008    0.0001      0.000008    1.77     1.77     |
+|   make_refinement_compatible()     11         0.0000      0.000004    0.0000      0.000004    0.59     0.59     |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0001      0.000051    0.0001      0.000051    0.62     0.62     |
+|   build_cube()                     1          0.0000      0.000026    0.0000      0.000026    0.36     0.36     |
 |                                                                                                                 |
 | OldSolutionValue                                                                                                |
-|   Number eval_at_node()            228        0.0000      0.000000    0.0000      0.000000    0.28     0.28     |
-|   check_old_context(c)             24         0.0000      0.000001    0.0000      0.000002    0.29     0.48     |
-|   check_old_context(c,p)           76         0.0001      0.000001    0.0001      0.000002    0.77     1.44     |
-|   eval_at_point()                  76         0.0007      0.000009    0.0014      0.000018    8.66     17.00    |
-|   eval_old_dofs()                  24         0.0000      0.000001    0.0001      0.000003    0.21     0.73     |
+|   Number eval_at_node()            228        0.0000      0.000000    0.0000      0.000000    0.31     0.31     |
+|   check_old_context(c)             24         0.0000      0.000001    0.0000      0.000002    0.25     0.56     |
+|   check_old_context(c,p)           76         0.0000      0.000001    0.0001      0.000001    0.68     1.33     |
+|   eval_at_point()                  76         0.0006      0.000008    0.0012      0.000015    8.30     16.30    |
+|   eval_old_dofs()                  24         0.0000      0.000000    0.0001      0.000002    0.13     0.73     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
-|   allgather()                      6          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   allgather()                      6          0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               6          0.0000      0.000004    0.0000      0.000004    0.33     0.33     |
+|   single_partition()               6          0.0000      0.000003    0.0000      0.000003    0.24     0.24     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          6          0.0010      0.000162    0.0010      0.000162    11.75    11.75    |
+|   solve()                          6          0.0008      0.000138    0.0008      0.000138    11.53    11.53    |
 |                                                                                                                 |
 | StatisticsVector                                                                                                |
-|   maximum()                        5          0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
+|   maximum()                        5          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       6          0.0003      0.000046    0.0005      0.000080    3.36     5.79     |
-|   project_vector(old,new)          5          0.0004      0.000081    0.0025      0.000493    4.92     29.81    |
+|   assemble()                       6          0.0002      0.000041    0.0004      0.000070    3.47     5.86     |
+|   project_vector(old,new)          5          0.0004      0.000078    0.0021      0.000424    5.46     29.62    |
 |                                                                                                                 |
 | TopologyMap                                                                                                     |
-|   init()                           10         0.0002      0.000019    0.0002      0.000019    2.26     2.26     |
+|   init()                           10         0.0002      0.000016    0.0002      0.000016    2.26     2.26     |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            3897       0.0083                                          100.00            |
+| Totals:                            3897       0.0072                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
