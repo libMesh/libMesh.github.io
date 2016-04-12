@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -187,8 +187,8 @@ other objects we might need.
 
 <div class ="fragment">
 <pre>
-        void assemble_poisson(EquationSystems& es,
-                              const std::string& system_name);
+        void assemble_poisson(EquationSystems & es,
+                              const std::string & system_name);
         
 </pre>
 </div>
@@ -202,7 +202,7 @@ Function prototype for the exact solution.
                              const Real y,
                              const Real z = 0.);
         
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -223,12 +223,12 @@ and command line arguments.
 
 <div class ="fragment">
 <pre>
-          std::cout &lt;&lt; "Running " &lt;&lt; argv[0];
+          libMesh::out &lt;&lt; "Running " &lt;&lt; argv[0];
         
           for (int i=1; i&lt;argc; i++)
-            std::cout &lt;&lt; " " &lt;&lt; argv[i];
+            libMesh::out &lt;&lt; " " &lt;&lt; argv[i];
         
-          std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+          libMesh::out &lt;&lt; std::endl &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -409,8 +409,8 @@ via a penalty method.
 
 <div class ="fragment">
 <pre>
-        void assemble_poisson(EquationSystems& es,
-                              const std::string& system_name)
+        void assemble_poisson(EquationSystems & es,
+                              const std::string & system_name)
         {
         
 </pre>
@@ -433,7 +433,7 @@ Get a constant reference to the mesh object.
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
 </pre>
 </div>
@@ -453,7 +453,7 @@ Get a reference to the LinearImplicitSystem we are solving
 
 <div class ="fragment">
 <pre>
-          LinearImplicitSystem& system = es.get_system&lt;LinearImplicitSystem&gt; ("Poisson");
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt; ("Poisson");
         
 </pre>
 </div>
@@ -466,7 +466,7 @@ in future examples.
 
 <div class ="fragment">
 <pre>
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
         
 </pre>
 </div>
@@ -484,15 +484,15 @@ for the first (and only) variable in the system.
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
 FEBase::build() member dynamically creates memory we will
-store the object as an AutoPtr<FEBase>.  This can be thought
+store the object as a UniquePtr<FEBase>.  This can be thought
 of as a pointer that will clean up after itself.  Introduction Example 4
-describes some advantages of  AutoPtr's in the context of
+describes some advantages of  UniquePtr's in the context of
 quadrature rules.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
@@ -523,7 +523,7 @@ boundary integration.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
@@ -559,7 +559,7 @@ will be used to assemble the linear system.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW = fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
         
 </pre>
 </div>
@@ -571,7 +571,7 @@ properties at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Point&gt;& q_point = fe-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & q_point = fe-&gt;get_xyz();
         
 </pre>
 </div>
@@ -581,7 +581,7 @@ The element shape functions evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -592,7 +592,7 @@ points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
 </pre>
 </div>
@@ -609,7 +609,6 @@ or complex numbers.
 <pre>
           DenseMatrix&lt;Number&gt; Ke;
           DenseVector&lt;Number&gt; Fe;
-        
         
 </pre>
 </div>
@@ -637,7 +636,7 @@ the local processor.  The iterator end_el tells us when to stop.
 It is smart to make this one const so that we don't accidentally
 mess it up!  In case users later modify this program to include
 refinement, we will be safe and will only consider the active
-elements; hence we use a variant of the \p active_elem_iterator.
+elements; hence we use a variant of the active_elem_iterator.
 </div>
 
 <div class ="fragment">
@@ -666,7 +665,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -693,7 +692,6 @@ quadrature points (q_point) and the shape functions
 <div class ="fragment">
 <pre>
               fe-&gt;reinit (elem);
-        
         
 </pre>
 </div>
@@ -783,11 +781,11 @@ we will compute it here, outside of the i-loop
 
 <div class ="fragment">
 <pre>
-                    const Real fxy = -(exact_solution(x,y-eps) +
-                                       exact_solution(x,y+eps) +
-                                       exact_solution(x-eps,y) +
-                                       exact_solution(x+eps,y) -
-                                       4.*exact_solution(x,y))/eps/eps;
+                    const Real fxy = -(exact_solution(x, y-eps) +
+                                       exact_solution(x, y+eps) +
+                                       exact_solution(x-eps, y) +
+                                       exact_solution(x+eps, y) -
+                                       4.*exact_solution(x, y))/eps/eps;
         
                     for (unsigned int i=0; i&lt;phi.size(); i++)
                       Fe(i) += JxW[qp]*fxy*phi[i][qp];
@@ -844,7 +842,7 @@ side MUST live on a boundary of the domain.
 <div class ="fragment">
 <pre>
                 for (unsigned int side=0; side&lt;elem-&gt;n_sides(); side++)
-                  if (elem-&gt;neighbor(side) == NULL)
+                  if (elem-&gt;neighbor(side) == libmesh_nullptr)
                     {
 </pre>
 </div>
@@ -855,7 +853,7 @@ points.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;std::vector&lt;Real&gt; &gt;&  phi_face = fe_face-&gt;get_phi();
+                      const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi_face = fe_face-&gt;get_phi();
         
 </pre>
 </div>
@@ -866,7 +864,7 @@ points on the face.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;Real&gt;& JxW_face = fe_face-&gt;get_JxW();
+                      const std::vector&lt;Real&gt; & JxW_face = fe_face-&gt;get_JxW();
         
 </pre>
 </div>
@@ -878,7 +876,7 @@ we will interpolate the boundary value function.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;Point &gt;& qface_point = fe_face-&gt;get_xyz();
+                      const std::vector&lt;Point&gt; & qface_point = fe_face-&gt;get_xyz();
         
 </pre>
 </div>
@@ -901,7 +899,6 @@ Loop over the face quadrature points for integration.
 <pre>
                       for (unsigned int qp=0; qp&lt;qface.n_points(); qp++)
                         {
-        
 </pre>
 </div>
 <div class = "comment">
@@ -1064,23 +1061,23 @@ All done!
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   Real exact_solution (<B><FONT COLOR="#228B22">const</FONT></B> Real x,
                        <B><FONT COLOR="#228B22">const</FONT></B> Real y,
                        <B><FONT COLOR="#228B22">const</FONT></B> Real z = 0.);
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
   
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i=1; i&lt;argc; i++)
-      <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
+      <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; std::endl &lt;&lt; std::endl;
   
     libmesh_example_requires(2 &lt;= LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;2D support&quot;</FONT></B>);
   
@@ -1119,46 +1116,45 @@ All done!
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
   
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
   
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
-    LinearImplicitSystem&amp; system = es.get_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
   
     QGauss qrule (dim, FIFTH);
   
     fe-&gt;attach_quadrature_rule (&amp;qrule);
   
-    AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
   
     QGauss qface(dim-1, FIFTH);
   
     fe_face-&gt;attach_quadrature_rule (&amp;qface);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; q_point = fe-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; q_point = fe-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
     DenseMatrix&lt;Number&gt; Ke;
     DenseVector&lt;Number&gt; Fe;
-  
   
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; dof_indices;
   
@@ -1167,12 +1163,11 @@ All done!
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el ; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
   
         fe-&gt;reinit (elem);
-  
   
   
         Ke.resize (dof_indices.size(),
@@ -1195,11 +1190,11 @@ All done!
               <B><FONT COLOR="#228B22">const</FONT></B> Real eps = 1.e-3;
   
   
-              <B><FONT COLOR="#228B22">const</FONT></B> Real fxy = -(exact_solution(x,y-eps) +
-                                 exact_solution(x,y+eps) +
-                                 exact_solution(x-eps,y) +
-                                 exact_solution(x+eps,y) -
-                                 4.*exact_solution(x,y))/eps/eps;
+              <B><FONT COLOR="#228B22">const</FONT></B> Real fxy = -(exact_solution(x, y-eps) +
+                                 exact_solution(x, y+eps) +
+                                 exact_solution(x-eps, y) +
+                                 exact_solution(x+eps, y) -
+                                 4.*exact_solution(x, y))/eps/eps;
   
               <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
                 Fe(i) += JxW[qp]*fxy*phi[i][qp];
@@ -1209,19 +1204,18 @@ All done!
         {
   
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> side=0; side&lt;elem-&gt;n_sides(); side++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(side) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp;  phi_face = fe_face-&gt;get_phi();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_face = fe_face-&gt;get_phi();
   
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW_face = fe_face-&gt;get_JxW();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW_face = fe_face-&gt;get_JxW();
   
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point &gt;&amp; qface_point = fe_face-&gt;get_xyz();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; qface_point = fe_face-&gt;get_xyz();
   
                 fe_face-&gt;reinit(elem, side);
   
                 <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qface.n_points(); qp++)
                   {
-  
                     <B><FONT COLOR="#228B22">const</FONT></B> Real xf = qface_point[qp](0);
                     <B><FONT COLOR="#228B22">const</FONT></B> Real yf = qface_point[qp](1);
   
@@ -1251,16 +1245,18 @@ All done!
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-introduction_ex3.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example introduction_ex3:
 *   example-opt  
 ***************************************************************
  
-Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex3/.libs/example-opt
+Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduction_ex3/.libs/example-opt
 
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=961
     n_local_nodes()=961
   n_elem()=225
@@ -1293,26 +1289,43 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex3/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:38:56 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:43:17 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.117198, Active time=0.023583                                                  |
+| libMesh Performance: Alive time=0.338493, Active time=0.012397                                                  |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1320,45 +1333,45 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex3/
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     1          0.0001      0.000082    0.0001      0.000082    0.35     0.35     |
-|   build_sparsity()                 1          0.0008      0.000795    0.0010      0.000992    3.37     4.21     |
-|   create_dof_constraints()         1          0.0001      0.000064    0.0001      0.000064    0.27     0.27     |
-|   distribute_dofs()                1          0.0002      0.000195    0.0007      0.000719    0.83     3.05     |
-|   dof_indices()                    450        0.0004      0.000001    0.0004      0.000001    1.65     1.65     |
-|   prepare_send_list()              1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                         1          0.0005      0.000523    0.0005      0.000523    2.22     2.22     |
+|   add_neighbors_to_send_list()     1          0.0001      0.000091    0.0001      0.000091    0.73     0.73     |
+|   build_sparsity()                 1          0.0010      0.001036    0.0012      0.001171    8.36     9.45     |
+|   create_dof_constraints()         1          0.0000      0.000029    0.0000      0.000029    0.23     0.23     |
+|   distribute_dofs()                1          0.0001      0.000143    0.0008      0.000764    1.15     6.16     |
+|   dof_indices()                    450        0.0003      0.000001    0.0003      0.000001    2.10     2.10     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0006      0.000621    0.0006      0.000621    5.01     5.01     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        285        0.0010      0.000003    0.0010      0.000003    4.19     4.19     |
-|   init_shape_functions()           61         0.0001      0.000001    0.0001      0.000001    0.28     0.28     |
-|   inverse_map()                    180        0.0004      0.000002    0.0004      0.000002    1.61     1.61     |
+|   compute_shape_functions()        285        0.0010      0.000004    0.0010      0.000004    8.42     8.42     |
+|   init_shape_functions()           61         0.0000      0.000001    0.0000      0.000001    0.36     0.36     |
+|   inverse_map()                    180        0.0003      0.000001    0.0003      0.000001    2.09     2.09     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             285        0.0003      0.000001    0.0003      0.000001    1.23     1.23     |
-|   compute_face_map()               60         0.0002      0.000004    0.0006      0.000011    1.02     2.70     |
-|   init_face_shape_functions()      1          0.0000      0.000003    0.0000      0.000003    0.01     0.01     |
-|   init_reference_to_physical_map() 61         0.0003      0.000005    0.0003      0.000005    1.37     1.37     |
+|   compute_affine_map()             285        0.0004      0.000001    0.0004      0.000001    3.40     3.40     |
+|   compute_face_map()               60         0.0002      0.000003    0.0005      0.000008    1.63     3.90     |
+|   init_face_shape_functions()      1          0.0000      0.000005    0.0000      0.000005    0.04     0.04     |
+|   init_reference_to_physical_map() 61         0.0003      0.000005    0.0003      0.000005    2.48     2.48     |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   find_neighbors()                 1          0.0004      0.000398    0.0004      0.000398    1.69     1.69     |
-|   renumber_nodes_and_elem()        2          0.0001      0.000032    0.0001      0.000032    0.28     0.28     |
+|   find_neighbors()                 1          0.0008      0.000835    0.0008      0.000835    6.74     6.74     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000017    0.0000      0.000017    0.27     0.27     |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0003      0.000343    0.0003      0.000343    1.45     1.45     |
+|   build_cube()                     1          0.0004      0.000420    0.0004      0.000420    3.39     3.39     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               1          0.0000      0.000039    0.0000      0.000039    0.17     0.17     |
+|   single_partition()               1          0.0000      0.000036    0.0000      0.000036    0.29     0.29     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          1          0.0155      0.015499    0.0155      0.015499    65.72    65.72    |
+|   solve()                          1          0.0041      0.004072    0.0041      0.004072    32.85    32.85    |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       1          0.0029      0.002900    0.0055      0.005508    12.30    23.36    |
+|   assemble()                       1          0.0025      0.002537    0.0051      0.005088    20.46    41.04    |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            1397       0.0236                                          100.00            |
+| Totals:                            1398       0.0124                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  

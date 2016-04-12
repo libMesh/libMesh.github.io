@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -98,7 +98,7 @@ Bring in everything from the libMesh namespace
         
         
         
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
           LibMeshInit init (argc, argv);
         
@@ -121,10 +121,10 @@ exact name of the program being run, and its command line.
 
 <div class ="fragment">
 <pre>
-          std::cout &lt;&lt; "Running " &lt;&lt; argv[0];
+          libMesh::out &lt;&lt; "Running " &lt;&lt; argv[0];
           for (int i=1; i&lt;argc; i++)
-            std::cout &lt;&lt; " " &lt;&lt; argv[i];
-          std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+            libMesh::out &lt;&lt; " " &lt;&lt; argv[i];
+          libMesh::out &lt;&lt; std::endl &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -301,8 +301,8 @@ this data later.
           if (argc &gt; 1)
             if (argv[1][0] != '-')
               {
-                std::cout &lt;&lt; "&lt;&lt;&lt; Writing system to file " &lt;&lt; argv[1]
-                          &lt;&lt; std::endl;
+                libMesh::out &lt;&lt; "&lt;&lt;&lt; Writing system to file " &lt;&lt; argv[1]
+                             &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -324,8 +324,8 @@ Clear the equation systems data structure.
 <pre>
                 equation_systems.clear ();
         
-                std::cout &lt;&lt; "&gt;&gt;&gt; Reading system from file " &lt;&lt; argv[1]
-                          &lt;&lt; std::endl &lt;&lt; std::endl;
+                libMesh::out &lt;&lt; "&gt;&gt;&gt; Reading system from file " &lt;&lt; argv[1]
+                             &lt;&lt; std::endl &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -381,16 +381,16 @@ checks for leaked memory.
   
   
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
     libmesh_example_requires(2 &lt;= LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;2D support&quot;</FONT></B>);
   
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
     <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i=1; i&lt;argc; i++)
-      <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+      <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
+    <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; std::endl &lt;&lt; std::endl;
   
     Mesh mesh(init.comm());
   
@@ -422,15 +422,15 @@ checks for leaked memory.
     <B><FONT COLOR="#A020F0">if</FONT></B> (argc &gt; 1)
       <B><FONT COLOR="#A020F0">if</FONT></B> (argv[1][0] != <B><FONT COLOR="#BC8F8F">'-'</FONT></B>)
         {
-          <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;&lt;&lt;&lt; Writing system to file &quot;</FONT></B> &lt;&lt; argv[1]
-                    &lt;&lt; std::endl;
+          <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;&lt;&lt;&lt; Writing system to file &quot;</FONT></B> &lt;&lt; argv[1]
+                       &lt;&lt; std::endl;
   
           equation_systems.write (argv[1], WRITE);
   
           equation_systems.clear ();
   
-          <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;&gt;&gt;&gt; Reading system from file &quot;</FONT></B> &lt;&lt; argv[1]
-                    &lt;&lt; std::endl &lt;&lt; std::endl;
+          <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;&gt;&gt;&gt; Reading system from file &quot;</FONT></B> &lt;&lt; argv[1]
+                       &lt;&lt; std::endl &lt;&lt; std::endl;
   
           equation_systems.read (argv[1], READ);
   
@@ -448,11 +448,11 @@ checks for leaked memory.
 *   example-opt  
 ***************************************************************
  
-Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/.libs/example-opt
+Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduction_ex2/.libs/example-opt
 
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=36
     n_local_nodes()=36
   n_elem()=25
@@ -485,7 +485,6 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
    System #0, "Simple System"
     Type "TransientLinearImplicit"
     Variables="u" 
@@ -505,26 +504,43 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:38:55 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:34:22 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.086086, Active time=0.000876                                              |
+| libMesh Performance: Alive time=0.258355, Active time=0.000872                                              |
  -------------------------------------------------------------------------------------------------------------
 | Event                          nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                           w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -532,28 +548,28 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
 |                                                                                                             |
 |                                                                                                             |
 | DofMap                                                                                                      |
-|   add_neighbors_to_send_list() 2          0.0000      0.000018    0.0000      0.000018    4.22     4.22     |
-|   build_sparsity()             1          0.0001      0.000147    0.0002      0.000173    16.78    19.75    |
-|   create_dof_constraints()     2          0.0000      0.000023    0.0000      0.000023    5.25     5.25     |
-|   distribute_dofs()            2          0.0001      0.000050    0.0003      0.000126    11.42    28.77    |
-|   dof_indices()                25         0.0000      0.000001    0.0000      0.000001    2.51     2.51     |
-|   prepare_send_list()          2          0.0000      0.000000    0.0000      0.000000    0.11     0.11     |
-|   reinit()                     2          0.0002      0.000075    0.0002      0.000075    17.24    17.24    |
+|   add_neighbors_to_send_list() 2          0.0001      0.000031    0.0001      0.000031    7.11     7.11     |
+|   build_sparsity()             1          0.0001      0.000139    0.0002      0.000156    15.94    17.89    |
+|   create_dof_constraints()     2          0.0000      0.000021    0.0000      0.000021    4.70     4.70     |
+|   distribute_dofs()            2          0.0001      0.000074    0.0004      0.000181    16.97    41.51    |
+|   dof_indices()                25         0.0000      0.000000    0.0000      0.000000    1.26     1.26     |
+|   prepare_send_list()          4          0.0000      0.000000    0.0000      0.000000    0.11     0.11     |
+|   reinit()                     2          0.0002      0.000106    0.0002      0.000106    24.43    24.43    |
 |                                                                                                             |
 | Mesh                                                                                                        |
-|   find_neighbors()             1          0.0002      0.000167    0.0002      0.000167    19.06    19.06    |
-|   renumber_nodes_and_elem()    2          0.0000      0.000012    0.0000      0.000012    2.74     2.74     |
+|   find_neighbors()             1          0.0002      0.000170    0.0002      0.000170    19.50    19.50    |
+|   renumber_nodes_and_elem()    2          0.0000      0.000002    0.0000      0.000002    0.57     0.57     |
 |                                                                                                             |
 | MeshTools::Generation                                                                                       |
-|   build_cube()                 1          0.0002      0.000161    0.0002      0.000161    18.38    18.38    |
+|   build_cube()                 1          0.0001      0.000074    0.0001      0.000074    8.49     8.49     |
 |                                                                                                             |
 | Parallel                                                                                                    |
 |   allgather()                  2          0.0000      0.000000    0.0000      0.000000    0.11     0.11     |
 |                                                                                                             |
 | Partitioner                                                                                                 |
-|   single_partition()           1          0.0000      0.000019    0.0000      0.000019    2.17     2.17     |
+|   single_partition()           1          0.0000      0.000007    0.0000      0.000007    0.80     0.80     |
  -------------------------------------------------------------------------------------------------------------
-| Totals:                        43         0.0009                                          100.00            |
+| Totals:                        45         0.0009                                          100.00            |
  -------------------------------------------------------------------------------------------------------------
 
  
@@ -567,11 +583,11 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
 *   example-opt eqn_sys.dat 
 ***************************************************************
  
-Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/.libs/example-opt eqn_sys.dat
+Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduction_ex2/.libs/example-opt eqn_sys.dat
 
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=36
     n_local_nodes()=36
   n_elem()=25
@@ -604,7 +620,6 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
    System #0, "Simple System"
     Type "TransientLinearImplicit"
     Variables="u" 
@@ -624,7 +639,6 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 <<< Writing system to file eqn_sys.dat
 >>> Reading system from file eqn_sys.dat
@@ -650,7 +664,6 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
    System #1, "Simple System"
     Type "TransientLinearImplicit"
     Variables="u" 
@@ -670,26 +683,43 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:38:56 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:34:22 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.08942, Active time=0.007028                                               |
+| libMesh Performance: Alive time=0.00886, Active time=0.002729                                               |
  -------------------------------------------------------------------------------------------------------------
 | Event                          nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                           w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -697,43 +727,43 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex2/
 |                                                                                                             |
 |                                                                                                             |
 | DofMap                                                                                                      |
-|   add_neighbors_to_send_list() 4          0.0001      0.000015    0.0001      0.000015    0.83     0.83     |
-|   build_sparsity()             2          0.0002      0.000109    0.0003      0.000128    3.10     3.64     |
-|   create_dof_constraints()     4          0.0001      0.000017    0.0001      0.000017    0.94     0.94     |
-|   distribute_dofs()            4          0.0002      0.000040    0.0004      0.000102    2.31     5.81     |
-|   dof_indices()                50         0.0000      0.000001    0.0000      0.000001    0.51     0.51     |
-|   prepare_send_list()          4          0.0000      0.000000    0.0000      0.000000    0.03     0.03     |
-|   reinit()                     4          0.0002      0.000061    0.0002      0.000061    3.49     3.49     |
+|   add_neighbors_to_send_list() 4          0.0001      0.000015    0.0001      0.000015    2.20     2.20     |
+|   build_sparsity()             2          0.0001      0.000058    0.0001      0.000065    4.25     4.80     |
+|   create_dof_constraints()     4          0.0000      0.000009    0.0000      0.000009    1.36     1.36     |
+|   distribute_dofs()            4          0.0001      0.000035    0.0003      0.000087    5.13     12.79    |
+|   dof_indices()                50         0.0000      0.000000    0.0000      0.000000    0.37     0.37     |
+|   prepare_send_list()          8          0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
+|   reinit()                     4          0.0002      0.000052    0.0002      0.000052    7.59     7.59     |
 |                                                                                                             |
 | EquationSystems                                                                                             |
-|   read()                       1          0.0013      0.001345    0.0024      0.002403    19.14    34.19    |
-|   update()                     1          0.0001      0.000113    0.0001      0.000113    1.61     1.61     |
-|   write()                      1          0.0012      0.001198    0.0029      0.002852    17.05    40.58    |
+|   read()                       1          0.0007      0.000703    0.0014      0.001389    25.76    50.90    |
+|   update()                     1          0.0000      0.000014    0.0000      0.000014    0.51     0.51     |
+|   write()                      1          0.0005      0.000521    0.0006      0.000603    19.09    22.10    |
 |                                                                                                             |
 | Mesh                                                                                                        |
-|   find_neighbors()             1          0.0001      0.000142    0.0001      0.000142    2.02     2.02     |
-|   renumber_nodes_and_elem()    2          0.0000      0.000013    0.0000      0.000013    0.36     0.36     |
+|   find_neighbors()             1          0.0001      0.000083    0.0001      0.000083    3.04     3.04     |
+|   renumber_nodes_and_elem()    2          0.0000      0.000002    0.0000      0.000002    0.15     0.15     |
 |                                                                                                             |
 | MeshCommunication                                                                                           |
-|   assign_global_indices()      2          0.0015      0.000735    0.0015      0.000737    20.90    20.99    |
+|   assign_global_indices()      2          0.0007      0.000338    0.0007      0.000340    24.73    24.92    |
 |                                                                                                             |
 | MeshTools::Generation                                                                                       |
-|   build_cube()                 1          0.0002      0.000169    0.0002      0.000169    2.40     2.40     |
+|   build_cube()                 1          0.0000      0.000038    0.0000      0.000038    1.39     1.39     |
 |                                                                                                             |
 | Parallel                                                                                                    |
-|   allgather()                  12         0.0000      0.000000    0.0000      0.000000    0.03     0.03     |
-|   probe()                      24         0.0001      0.000004    0.0001      0.000004    1.37     1.37     |
-|   receive()                    16         0.0001      0.000008    0.0001      0.000008    1.84     1.94     |
-|   send()                       16         0.0015      0.000094    0.0015      0.000094    21.30    21.30    |
-|   send_receive()               8          0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
+|   allgather()                  12         0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   probe()                      24         0.0000      0.000000    0.0000      0.000000    0.33     0.33     |
+|   receive()                    16         0.0000      0.000003    0.0000      0.000003    1.65     1.80     |
+|   send()                       16         0.0000      0.000002    0.0000      0.000002    1.06     1.06     |
+|   send_receive()               8          0.0000      0.000000    0.0000      0.000000    0.07     0.07     |
 |                                                                                                             |
 | Parallel::Request                                                                                           |
-|   wait()                       16         0.0000      0.000002    0.0000      0.000002    0.48     0.48     |
+|   wait()                       16         0.0000      0.000002    0.0000      0.000002    1.17     1.17     |
 |                                                                                                             |
 | Partitioner                                                                                                 |
-|   single_partition()           1          0.0000      0.000019    0.0000      0.000019    0.27     0.27     |
+|   single_partition()           1          0.0000      0.000003    0.0000      0.000003    0.11     0.11     |
  -------------------------------------------------------------------------------------------------------------
-| Totals:                        174        0.0070                                          100.00            |
+| Totals:                        178        0.0027                                          100.00            |
  -------------------------------------------------------------------------------------------------------------
 
  

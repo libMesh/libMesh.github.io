@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -14,7 +14,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../support.html">About Us</a></li>
       <li><a href="../publications.html">Publications</a></li>
-      <li><a href="../developers.html">Developers</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
       <li><a href="../installation.html">Installation</a></li>
       <li><a href="../examples.html">Examples</a></li>
      <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -29,7 +29,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../support.html">About Us</a></li>
         <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../developers.html">Developers</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
         <li><a href="../installation.html">Installation</a></li>
         <li><a href="../examples.html">Examples</a></li>
         <li><a href="../doxygen/index.html">Documentation</a></li>
@@ -89,17 +89,6 @@ specialized quadrature rules will be built.
 </pre>
 </div>
 <div class = "comment">
-Include the namespace \p QuadratureRules for
-some handy descriptions.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/quadrature_rules.h"
-        
-</pre>
-</div>
-<div class = "comment">
 Define useful datatypes for finite element
 matrix and vector components.
 </div>
@@ -155,10 +144,6 @@ Bring in everything from the libMesh namespace
         
         
         
-        
-        
-        
-        
 </pre>
 </div>
 <div class = "comment">
@@ -167,10 +152,8 @@ Function prototype, as before.
 
 <div class ="fragment">
 <pre>
-        void assemble_poisson(EquationSystems& es,
-                              const std::string& system_name);
-        
-        
+        void assemble_poisson(EquationSystems & es,
+                              const std::string & system_name);
         
 </pre>
 </div>
@@ -192,11 +175,11 @@ Define a wrapper for exact_solution that will be needed below
 
 <div class ="fragment">
 <pre>
-        void exact_solution_wrapper (DenseVector&lt;Number&gt;& output,
-                                     const Point& p,
+        void exact_solution_wrapper (DenseVector&lt;Number&gt; & output,
+                                     const Point & p,
                                      const Real)
         {
-          output(0) = exact_solution(p(0),p(1),p(2));
+          output(0) = exact_solution(p(0), p(1), p(2));
         }
         
         
@@ -220,7 +203,7 @@ Begin the main program.
 
 <div class ="fragment">
 <pre>
-        int main (int argc, char** argv)
+        int main (int argc, char ** argv)
         {
 </pre>
 </div>
@@ -243,29 +226,8 @@ must be given at run time.
 <pre>
           if (argc &lt; 3)
             {
-              if (init.comm().rank() == 0)
-                {
-                  libMesh::err &lt;&lt; "Usage: " &lt;&lt; argv[0] &lt;&lt; " -q n\n"
-                               &lt;&lt; "  where n is one of:" &lt;&lt; std::endl;
-        
-</pre>
-</div>
-<div class = "comment">
-Note that only some of all quadrature rules are
-valid choices.  For example, the Jacobi quadrature
-is actually a "helper" for higher-order rules,
-included in QGauss.
-</div>
-
-<div class ="fragment">
-<pre>
-                  for (unsigned int n=0; n&lt;QuadratureRules::num_valid_elem_rules; n++)
-                    libMesh::err &lt;&lt; "  " &lt;&lt; QuadratureRules::valid_elem_rules[n] &lt;&lt; "    "
-                                 &lt;&lt; QuadratureRules::name(QuadratureRules::valid_elem_rules[n])
-                                 &lt;&lt; std::endl;
-                }
-        
-              libmesh_error_msg("Error, must choose a valid quadrature rule.");
+              libmesh_error_msg("Usage: " &lt;&lt; argv[0] &lt;&lt; " -q &lt;rule&gt;\n"          \
+                                &lt;&lt; "  where &lt;rule&gt; is one of QGAUSS, QSIMPSON, or QTRAP.");
             }
         
         
@@ -279,12 +241,12 @@ Tell the user what we are doing.
 <pre>
           else
             {
-              std::cout &lt;&lt; "Running " &lt;&lt; argv[0];
+              libMesh::out &lt;&lt; "Running " &lt;&lt; argv[0];
         
               for (int i=1; i&lt;argc; i++)
-                std::cout &lt;&lt; " " &lt;&lt; argv[i];
+                libMesh::out &lt;&lt; " " &lt;&lt; argv[i];
         
-              std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; std::endl &lt;&lt; std::endl;
             }
         
         
@@ -451,36 +413,34 @@ All done.
         
         
         
-        void assemble_poisson(EquationSystems& es,
-                              const std::string& system_name)
+        void assemble_poisson(EquationSystems & es,
+                              const std::string & system_name)
         {
           libmesh_assert_equal_to (system_name, "Poisson");
         
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
           const unsigned int dim = mesh.mesh_dimension();
         
-          LinearImplicitSystem& system = es.get_system&lt;LinearImplicitSystem&gt;("Poisson");
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt;("Poisson");
         
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
         
           FEType fe_type = dof_map.variable_type(0);
-        
         
 </pre>
 </div>
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
-\p FEBase::build() member dynamically creates memory we will
-store the object as an \p AutoPtr<FEBase>.  Below, the
-functionality of \p AutoPtr's is described more detailed in
+FEBase::build() member dynamically creates memory we will
+store the object as a UniquePtr<FEBase>.  Below, the
+functionality of UniquePtr's is described more detailed in
 the context of building quadrature rules.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
-        
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
@@ -493,28 +453,25 @@ quadrature rules support this order.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;QBase&gt; qrule(QBase::build(quad_type, dim, THIRD));
-        
-        
+          UniquePtr&lt;QBase&gt; qrule(QBase::build(quad_type, dim, THIRD));
         
 </pre>
 </div>
 <div class = "comment">
 Tell the finte element object to use our
-quadrature rule.  Note that a \p AutoPtr<QBase> returns
-a QBase* pointer to the object it handles with \p get().
-However, using \p get(), the \p AutoPtr<QBase> \p qrule is
-still in charge of this pointer. I.e., when \p qrule goes
-out of scope, it will safely delete the \p QBase object it
+quadrature rule.  Note that a UniquePtr<QBase> returns
+a QBase* pointer to the object it handles with get().
+However, using get(), the UniquePtr<QBase> qrule is
+still in charge of this pointer. I.e., when qrule goes
+out of scope, it will safely delete the QBase object it
 points to.  This behavior may be overridden using
-\p AutoPtr<Xyz>::release(), but is currently not
+UniquePtr<Xyz>::release(), but is currently not
 recommended.
 </div>
 
 <div class ="fragment">
 <pre>
           fe-&gt;attach_quadrature_rule (qrule.get());
-        
         
 </pre>
 </div>
@@ -525,8 +482,7 @@ boundary integration.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
-        
+          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
@@ -534,45 +490,42 @@ boundary integration.
 As already seen in example 3, boundary integration
 requires a quadrature rule.  Here, however,
 we use the more convenient way of building this
-rule at run-time using \p quad_type.  Note that one
+rule at run-time using quad_type.  Note that one
 could also have initialized the face quadrature rules
-with the type directly determined from \p qrule, namely
+with the type directly determined from qrule, namely
 through:
 \verbatim
-AutoPtr<QBase>  qface (QBase::build(qrule->type(),
+UniquePtr<QBase>  qface (QBase::build(qrule->type(),
 dim-1,
 THIRD));
 \endverbatim
-And again: using the \p AutoPtr<QBase> relaxes
+And again: using the UniquePtr<QBase> relaxes
 the need to delete the object afterwards,
 they clean up themselves.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;QBase&gt;  qface (QBase::build(quad_type,
-                                              dim-1,
-                                              THIRD));
-        
+          UniquePtr&lt;QBase&gt;  qface (QBase::build(quad_type,
+                                                dim-1,
+                                                THIRD));
         
 </pre>
 </div>
 <div class = "comment">
 Tell the finte element object to use our
-quadrature rule.  Note that a \p AutoPtr<QBase> returns
-a \p QBase* pointer to the object it handles with \p get().
-However, using \p get(), the \p AutoPtr<QBase> \p qface is
-still in charge of this pointer. I.e., when \p qface goes
-out of scope, it will safely delete the \p QBase object it
+quadrature rule.  Note that a UniquePtr<QBase> returns
+a QBase* pointer to the object it handles with get().
+However, using get(), the UniquePtr<QBase> qface is
+still in charge of this pointer. I.e., when qface goes
+out of scope, it will safely delete the QBase object it
 points to.  This behavior may be overridden using
-\p AutoPtr<Xyz>::release(), but is not recommended.
+UniquePtr<Xyz>::release(), but is not recommended.
 </div>
 
 <div class ="fragment">
 <pre>
           fe_face-&gt;attach_quadrature_rule (qface.get());
-        
-        
         
 </pre>
 </div>
@@ -582,22 +535,17 @@ This is again identical to example 4, and not commented.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW = fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
         
-          const std::vector&lt;Point&gt;& q_point = fe-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & q_point = fe-&gt;get_xyz();
         
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
         
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi = fe-&gt;get_dphi();
+          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
         
           DenseMatrix&lt;Number&gt; Ke;
           DenseVector&lt;Number&gt; Fe;
-        
           std::vector&lt;dof_id_type&gt; dof_indices;
-        
-        
-        
-        
         
 </pre>
 </div>
@@ -613,7 +561,7 @@ See example 3 for details.
         
           for ( ; el != end_el; ++el)
             {
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
               dof_map.dof_indices (elem, dof_indices);
         
@@ -623,9 +571,6 @@ See example 3 for details.
                          dof_indices.size());
         
               Fe.resize (dof_indices.size());
-        
-        
-        
         
 </pre>
 </div>
@@ -650,7 +595,6 @@ Add the matrix contribution
                   for (unsigned int i=0; i&lt;phi.size(); i++)
                     for (unsigned int j=0; j&lt;phi.size(); j++)
                       Ke(i,j) += JxW[qp]*(dphi[i][qp]*dphi[j][qp]);
-        
         
 </pre>
 </div>
@@ -678,17 +622,17 @@ we will compute it here, outside of the i-loop
                   const Real z = q_point[qp](2);
                   const Real eps = 1.e-3;
         
-                  const Real uxx = (exact_solution(x-eps,y,z) +
-                                    exact_solution(x+eps,y,z) +
-                                    -2.*exact_solution(x,y,z))/eps/eps;
+                  const Real uxx = (exact_solution(x-eps, y, z) +
+                                    exact_solution(x+eps, y, z) +
+                                    -2.*exact_solution(x, y, z))/eps/eps;
         
-                  const Real uyy = (exact_solution(x,y-eps,z) +
-                                    exact_solution(x,y+eps,z) +
-                                    -2.*exact_solution(x,y,z))/eps/eps;
+                  const Real uyy = (exact_solution(x, y-eps, z) +
+                                    exact_solution(x, y+eps, z) +
+                                    -2.*exact_solution(x, y, z))/eps/eps;
         
-                  const Real uzz = (exact_solution(x,y,z-eps) +
-                                    exact_solution(x,y,z+eps) +
-                                    -2.*exact_solution(x,y,z))/eps/eps;
+                  const Real uzz = (exact_solution(x, y, z-eps) +
+                                    exact_solution(x, y, z+eps) +
+                                    -2.*exact_solution(x, y, z))/eps/eps;
         
                   const Real fxy = - (uxx + uyy + ((dim==2) ? 0. : uzz));
         
@@ -723,8 +667,8 @@ non-homogeneous Dirichlet BCs
 <div class = "comment">
 The element matrix and right-hand-side are now built
 for this element.  Add them to the global matrix and
-right-hand-side vector.  The \p SparseMatrix::add_matrix()
-and \p NumericVector::add_vector() members do this for us.
+right-hand-side vector.  The SparseMatrix::add_matrix()
+and NumericVector::add_vector() members do this for us.
 </div>
 
 <div class ="fragment">
@@ -733,19 +677,6 @@ and \p NumericVector::add_vector() members do this for us.
               system.rhs-&gt;add_vector    (Fe, dof_indices);
         
             } // end of element loop
-        
-        
-        
-        
-</pre>
-</div>
-<div class = "comment">
-All done!
-</div>
-
-<div class ="fragment">
-<pre>
-          return;
         }
 </pre>
 </div>
@@ -769,8 +700,6 @@ All done!
   
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/quadrature.h&quot;</FONT></B>
   
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/quadrature_rules.h&quot;</FONT></B>
-  
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/sparse_matrix.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/numeric_vector.h&quot;</FONT></B>
   #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_matrix.h&quot;</FONT></B>
@@ -787,24 +716,18 @@ All done!
   
   
   
-  
-  
-  
-  
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
-  
-  
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   Real exact_solution (<B><FONT COLOR="#228B22">const</FONT></B> Real x,
                        <B><FONT COLOR="#228B22">const</FONT></B> Real y,
                        <B><FONT COLOR="#228B22">const</FONT></B> Real z = 0.);
   
-  <B><FONT COLOR="#228B22">void</FONT></B> exact_solution_wrapper (DenseVector&lt;Number&gt;&amp; output,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
+  <B><FONT COLOR="#228B22">void</FONT></B> exact_solution_wrapper (DenseVector&lt;Number&gt; &amp; output,
+                               <B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
                                <B><FONT COLOR="#228B22">const</FONT></B> Real)
   {
-    output(0) = exact_solution(p(0),p(1),p(2));
+    output(0) = exact_solution(p(0), p(1), p(2));
   }
   
   
@@ -812,35 +735,25 @@ All done!
   
   
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
     <B><FONT COLOR="#A020F0">if</FONT></B> (argc &lt; 3)
       {
-        <B><FONT COLOR="#A020F0">if</FONT></B> (init.comm().rank() == 0)
-          {
-            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::err &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Usage: &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -q n\n&quot;</FONT></B>
-                         &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  where n is one of:&quot;</FONT></B> &lt;&lt; std::endl;
-  
-            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> n=0; n&lt;QuadratureRules::num_valid_elem_rules; n++)
-              <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::err &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  &quot;</FONT></B> &lt;&lt; QuadratureRules::valid_elem_rules[n] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;    &quot;</FONT></B>
-                           &lt;&lt; QuadratureRules::name(QuadratureRules::valid_elem_rules[n])
-                           &lt;&lt; std::endl;
-          }
-  
-        libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Error, must choose a valid quadrature rule.&quot;</FONT></B>);
+        libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Usage: &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -q &lt;rule&gt;\n&quot;</FONT></B>          \
+                          &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  where &lt;rule&gt; is one of QGAUSS, QSIMPSON, or QTRAP.&quot;</FONT></B>);
       }
   
   
     <B><FONT COLOR="#A020F0">else</FONT></B>
       {
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
   
         <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i=1; i&lt;argc; i++)
-          <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
+          <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; std::endl &lt;&lt; std::endl;
       }
   
   
@@ -907,67 +820,53 @@ All done!
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems&amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
+                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
-    LinearImplicitSystem&amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
   
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
-  
-  
-    AutoPtr&lt;QBase&gt; qrule(QBase::build(quad_type, dim, THIRD));
-  
-  
+    UniquePtr&lt;QBase&gt; qrule(QBase::build(quad_type, dim, THIRD));
   
     fe-&gt;attach_quadrature_rule (qrule.get());
   
+    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
   
-    AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
-  
-  
-    AutoPtr&lt;QBase&gt;  qface (QBase::build(quad_type,
-                                        dim-1,
-                                        THIRD));
-  
+    UniquePtr&lt;QBase&gt;  qface (QBase::build(quad_type,
+                                          dim-1,
+                                          THIRD));
   
     fe_face-&gt;attach_quadrature_rule (qface.get());
   
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
   
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; q_point = fe-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; q_point = fe-&gt;get_xyz();
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi = fe-&gt;get_dphi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
   
     DenseMatrix&lt;Number&gt; Ke;
     DenseVector&lt;Number&gt; Fe;
-  
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; dof_indices;
-  
-  
-  
-  
   
     <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_element_iterator       el     = mesh.active_local_elements_begin();
     <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_element_iterator end_el = mesh.active_local_elements_end();
   
     <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
       {
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
   
@@ -978,32 +877,28 @@ All done!
   
         Fe.resize (dof_indices.size());
   
-  
-  
-  
         <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule-&gt;n_points(); qp++)
           {
             <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
               <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;phi.size(); j++)
                 Ke(i,j) += JxW[qp]*(dphi[i][qp]*dphi[j][qp]);
   
-  
             <B><FONT COLOR="#228B22">const</FONT></B> Real x = q_point[qp](0);
             <B><FONT COLOR="#228B22">const</FONT></B> Real y = q_point[qp](1);
             <B><FONT COLOR="#228B22">const</FONT></B> Real z = q_point[qp](2);
             <B><FONT COLOR="#228B22">const</FONT></B> Real eps = 1.e-3;
   
-            <B><FONT COLOR="#228B22">const</FONT></B> Real uxx = (exact_solution(x-eps,y,z) +
-                              exact_solution(x+eps,y,z) +
-                              -2.*exact_solution(x,y,z))/eps/eps;
+            <B><FONT COLOR="#228B22">const</FONT></B> Real uxx = (exact_solution(x-eps, y, z) +
+                              exact_solution(x+eps, y, z) +
+                              -2.*exact_solution(x, y, z))/eps/eps;
   
-            <B><FONT COLOR="#228B22">const</FONT></B> Real uyy = (exact_solution(x,y-eps,z) +
-                              exact_solution(x,y+eps,z) +
-                              -2.*exact_solution(x,y,z))/eps/eps;
+            <B><FONT COLOR="#228B22">const</FONT></B> Real uyy = (exact_solution(x, y-eps, z) +
+                              exact_solution(x, y+eps, z) +
+                              -2.*exact_solution(x, y, z))/eps/eps;
   
-            <B><FONT COLOR="#228B22">const</FONT></B> Real uzz = (exact_solution(x,y,z-eps) +
-                              exact_solution(x,y,z+eps) +
-                              -2.*exact_solution(x,y,z))/eps/eps;
+            <B><FONT COLOR="#228B22">const</FONT></B> Real uzz = (exact_solution(x, y, z-eps) +
+                              exact_solution(x, y, z+eps) +
+                              -2.*exact_solution(x, y, z))/eps/eps;
   
             <B><FONT COLOR="#228B22">const</FONT></B> Real fxy = - (uxx + uyy + ((dim==2) ? 0. : uzz));
   
@@ -1018,25 +913,22 @@ All done!
         system.rhs-&gt;add_vector    (Fe, dof_indices);
   
       } <I><FONT COLOR="#B22222">// end of element loop
-</FONT></I>  
-  
-  
-  
-    <B><FONT COLOR="#A020F0">return</FONT></B>;
-  }
+</FONT></I>  }
 </pre> 
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-introduction_ex5.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example introduction_ex5:
 *   example-opt -q 0 
 ***************************************************************
  
-Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex5/.libs/example-opt -q 0
+Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduction_ex5/.libs/example-opt -q 0
 
  Mesh Information:
-  mesh_dimension()=3
+  elem_dimensions()={3}
   spatial_dimension()=3
   n_nodes()=4913
     n_local_nodes()=4913
@@ -1072,26 +964,43 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex5/
       Number of DoF Constraints = 1538
       Number of Heterogenous Constraints= 1474
       Average DoF Constraint Length= 0
-      Number of Node Constraints = 0
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:38:59 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 14:41:04 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  ---------------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.274468, Active time=0.183282                                                      |
+| libMesh Performance: Alive time=0.402849, Active time=0.099907                                                      |
  ---------------------------------------------------------------------------------------------------------------------
 | Event                                  nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                                   w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1099,53 +1008,53 @@ Running /aerolab/benkirk/libmesh/gcc-4.6/examples/introduction/introduction_ex5/
 |                                                                                                                     |
 |                                                                                                                     |
 | DofMap                                                                                                              |
-|   add_neighbors_to_send_list()         1          0.0013      0.001293    0.0013      0.001293    0.71     0.71     |
-|   build_constraint_matrix_and_vector() 4096       0.0053      0.000001    0.0053      0.000001    2.86     2.86     |
-|   build_sparsity()                     1          0.0137      0.013719    0.0168      0.016803    7.49     9.17     |
-|   create_dof_constraints()             1          0.0129      0.012935    0.0160      0.016034    7.06     8.75     |
-|   distribute_dofs()                    1          0.0012      0.001173    0.0060      0.005992    0.64     3.27     |
-|   dof_indices()                        16384      0.0118      0.000001    0.0118      0.000001    6.45     6.45     |
-|   hetero_cnstrn_elem_mat_vec()         4096       0.0184      0.000004    0.0184      0.000004    10.02    10.02    |
-|   prepare_send_list()                  1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
-|   reinit()                             1          0.0048      0.004818    0.0048      0.004818    2.63     2.63     |
+|   add_neighbors_to_send_list()         1          0.0009      0.000893    0.0009      0.000893    0.89     0.89     |
+|   build_constraint_matrix_and_vector() 4096       0.0031      0.000001    0.0031      0.000001    3.11     3.11     |
+|   build_sparsity()                     1          0.0126      0.012606    0.0144      0.014378    12.62    14.39    |
+|   create_dof_constraints()             1          0.0074      0.007382    0.0085      0.008512    7.39     8.52     |
+|   distribute_dofs()                    1          0.0006      0.000610    0.0039      0.003875    0.61     3.88     |
+|   dof_indices()                        16384      0.0039      0.000000    0.0039      0.000000    3.90     3.90     |
+|   hetero_cnstrn_elem_mat_vec()         4096       0.0032      0.000001    0.0032      0.000001    3.16     3.16     |
+|   prepare_send_list()                  2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                             1          0.0033      0.003265    0.0033      0.003265    3.27     3.27     |
 |                                                                                                                     |
 | EquationSystems                                                                                                     |
-|   build_solution_vector()              1          0.0048      0.004788    0.0077      0.007710    2.61     4.21     |
+|   build_solution_vector()              1          0.0027      0.002686    0.0039      0.003871    2.69     3.87     |
 |                                                                                                                     |
 | ExodusII_IO                                                                                                         |
-|   write_nodal_data()                   1          0.0068      0.006757    0.0068      0.006757    3.69     3.69     |
+|   write_nodal_data()                   1          0.0060      0.005964    0.0060      0.005964    5.97     5.97     |
 |                                                                                                                     |
 | FE                                                                                                                  |
-|   compute_shape_functions()            4096       0.0166      0.000004    0.0166      0.000004    9.08     9.08     |
-|   init_shape_functions()               1          0.0000      0.000035    0.0000      0.000035    0.02     0.02     |
+|   compute_shape_functions()            4096       0.0082      0.000002    0.0082      0.000002    8.21     8.21     |
+|   init_shape_functions()               1          0.0000      0.000013    0.0000      0.000013    0.01     0.01     |
 |                                                                                                                     |
 | FEMap                                                                                                               |
-|   compute_affine_map()                 4096       0.0050      0.000001    0.0050      0.000001    2.73     2.73     |
-|   init_reference_to_physical_map()     1          0.0001      0.000057    0.0001      0.000057    0.03     0.03     |
+|   compute_affine_map()                 4096       0.0034      0.000001    0.0034      0.000001    3.42     3.42     |
+|   init_reference_to_physical_map()     1          0.0000      0.000028    0.0000      0.000028    0.03     0.03     |
 |                                                                                                                     |
 | Mesh                                                                                                                |
-|   find_neighbors()                     1          0.0089      0.008895    0.0089      0.008895    4.85     4.85     |
-|   renumber_nodes_and_elem()            2          0.0005      0.000243    0.0005      0.000243    0.27     0.27     |
+|   find_neighbors()                     1          0.0112      0.011191    0.0112      0.011191    11.20    11.20    |
+|   renumber_nodes_and_elem()            2          0.0002      0.000118    0.0002      0.000118    0.24     0.24     |
 |                                                                                                                     |
 | MeshOutput                                                                                                          |
-|   write_equation_systems()             1          0.0001      0.000066    0.0145      0.014533    0.04     7.93     |
+|   write_equation_systems()             1          0.0000      0.000021    0.0099      0.009856    0.02     9.87     |
 |                                                                                                                     |
 | MeshTools::Generation                                                                                               |
-|   build_cube()                         1          0.0021      0.002117    0.0021      0.002117    1.16     1.16     |
+|   build_cube()                         1          0.0030      0.002982    0.0030      0.002982    2.98     2.98     |
 |                                                                                                                     |
 | Parallel                                                                                                            |
-|   allgather()                          1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   allgather()                          1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                     |
 | Partitioner                                                                                                         |
-|   single_partition()                   1          0.0002      0.000194    0.0002      0.000194    0.11     0.11     |
+|   single_partition()                   1          0.0001      0.000123    0.0001      0.000123    0.12     0.12     |
 |                                                                                                                     |
 | PetscLinearSolver                                                                                                   |
-|   solve()                              1          0.0144      0.014429    0.0144      0.014429    7.87     7.87     |
+|   solve()                              1          0.0070      0.006992    0.0070      0.006992    7.00     7.00     |
 |                                                                                                                     |
 | System                                                                                                              |
-|   assemble()                           1          0.0544      0.054437    0.1053      0.105304    29.70    57.45    |
+|   assemble()                           1          0.0231      0.023128    0.0437      0.043699    23.15    43.74    |
  ---------------------------------------------------------------------------------------------------------------------
-| Totals:                                32787      0.1833                                          100.00            |
+| Totals:                                32788      0.0999                                          100.00            |
  ---------------------------------------------------------------------------------------------------------------------
 
  
