@@ -290,7 +290,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="sphere_8C_source.html#l00062">62</a> of file <a class="el" href="sphere_8C_source.html">sphere.C</a>.</p>
 
-<p>References <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00059">std::abs()</a>, <a class="el" href="sphere_8C_source.html#l00111">create_from_center_radius()</a>, <a class="el" href="type__tensor_8h_source.html#l01083">libMesh::TypeTensor&lt; T &gt;::det()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="libmesh__common_8h_source.html#l00128">libMesh::Real</a>, and <a class="el" href="type__vector_8h_source.html#l00879">libMesh::TypeVector&lt; T &gt;::size_sq()</a>.</p>
+<p>References <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00059">std::abs()</a>, <a class="el" href="sphere_8C_source.html#l00111">create_from_center_radius()</a>, <a class="el" href="type__tensor_8h_source.html#l01111">libMesh::TypeTensor&lt; T &gt;::det()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="type__vector_8h_source.html#l00915">libMesh::TypeVector&lt; T &gt;::norm_sq()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  Point pad = pa - pd;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  Point pbd = pb - pd;</div>
@@ -303,9 +303,9 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// The points had better not be coplanar</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(D), 1e-12);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> e = 0.5*(pa.size_sq() - pd.size_sq());</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> f = 0.5*(pb.size_sq() - pd.size_sq());</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> g = 0.5*(<a class="code" href="namespacelibMesh.html#a54321cd7965683f42790b8e37972a998">pc</a>.size_sq() - pd.size_sq());</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> e = 0.5*(pa.norm_sq() - pd.norm_sq());</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> f = 0.5*(pb.norm_sq() - pd.norm_sq());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> g = 0.5*(<a class="code" href="namespacelibMesh.html#a54321cd7965683f42790b8e37972a998">pc</a>.norm_sq() - pd.norm_sq());</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  TensorValue&lt;Real&gt; T1(e,pad(1),pad(2),</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                       f,pbd(1),pbd(2),</div>
@@ -323,14 +323,14 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> sz = T3.det()/D;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  Point c(sx,sy,sz);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> r = (c-pa).size();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> r = (c-pa).norm();</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a39e04e9dc2a00c14bee08032cf239f1f">create_from_center_radius</a>(c,r);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
 <div class="ttc" id="namespacestd_html_a267975f6c8fdf9f989e14d438036706a"><div class="ttname"><a href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a></div><div class="ttdeci">double abs(double a)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00059">libmesh_augment_std_namespace.h:59</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a54321cd7965683f42790b8e37972a998"><div class="ttname"><a href="namespacelibMesh.html#a54321cd7965683f42790b8e37972a998">libMesh::pc</a></div><div class="ttdeci">PetscErrorCode Vec Mat Mat pc</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00143">petsc_diff_solver.C:143</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a54321cd7965683f42790b8e37972a998"><div class="ttname"><a href="namespacelibMesh.html#a54321cd7965683f42790b8e37972a998">libMesh::pc</a></div><div class="ttdeci">PetscErrorCode Vec Mat Mat pc</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00144">petsc_diff_solver.C:144</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Sphere_html_a39e04e9dc2a00c14bee08032cf239f1f"><div class="ttname"><a href="classlibMesh_1_1Sphere.html#a39e04e9dc2a00c14bee08032cf239f1f">libMesh::Sphere::create_from_center_radius</a></div><div class="ttdeci">void create_from_center_radius(const Point &amp;c, const Real r)</div><div class="ttdef"><b>Definition:</b> <a href="sphere_8C_source.html#l00111">sphere.C:111</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -353,7 +353,7 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="sphere_8C_source.html#l00053">53</a> of file <a class="el" href="sphere_8C_source.html">sphere.C</a>.</p>
 
 <p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="sphere_8C_source.html#l00111">create_from_center_radius()</a>, and <a class="el" href="sphere_8h_source.html#l00152">radius()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                          :</div>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                           :</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="classlibMesh_1_1Surface.html#a123a7c8b48cf92de5e31eb543afd476a">Surface</a>()</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a39e04e9dc2a00c14bee08032cf239f1f">create_from_center_radius</a> (other_sphere.center(),</div>
@@ -412,7 +412,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="sphere_8C_source.html#l00140">140</a> of file <a class="el" href="sphere_8C_source.html">sphere.C</a>.</p>
 
-<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="sphere_8h_source.html#l00152">radius()</a>, and <a class="el" href="type__vector_8h_source.html#l00860">libMesh::TypeVector&lt; T &gt;::size()</a>.</p>
+<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="type__vector_8h_source.html#l00886">libMesh::TypeVector&lt; T &gt;::norm()</a>, and <a class="el" href="sphere_8h_source.html#l00152">radius()</a>.</p>
 
 <p>Referenced by <a class="el" href="sphere_8C_source.html#l00155">below_surface()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
@@ -421,7 +421,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="comment">// create a vector from the center to the point.</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">const</span> Point w = p - this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">center</a>();</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">if</span> (w.size() &gt; this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>())</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">if</span> (w.norm() &gt; this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>())</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -640,20 +640,20 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="sphere_8C_source.html#l00128">128</a> of file <a class="el" href="sphere_8C_source.html">sphere.C</a>.</p>
 
-<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="sphere_8h_source.html#l00152">radius()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00128">libMesh::Real</a>.</p>
+<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="sphere_8h_source.html#l00152">radius()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 
 <p>Referenced by <a class="el" href="sphere_8C_source.html#l00121">intersects()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> ( this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>(), 0. );</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> ( other_sphere.radius(), 0. );</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> the_distance = (this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">center</a>() - other_sphere.center()).size();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> the_distance = (this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">center</a>() - other_sphere.center()).norm();</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordflow">return</span> the_distance - (this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>() + other_sphere.radius());</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1Sphere_html_a313834b5acda26732dbfe683996b7e64"><div class="ttname"><a href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">libMesh::Sphere::radius</a></div><div class="ttdeci">Real radius() const </div><div class="ttdef"><b>Definition:</b> <a href="sphere_8h_source.html#l00152">sphere.h:152</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Sphere_html_a9e47f744762137d278c3bcfab0a6ac04"><div class="ttname"><a href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">libMesh::Sphere::center</a></div><div class="ttdeci">const Point &amp; center() const </div><div class="ttdef"><b>Definition:</b> <a href="sphere_8h_source.html#l00162">sphere.h:162</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -710,7 +710,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="sphere_8C_source.html#l00164">164</a> of file <a class="el" href="sphere_8C_source.html">sphere.C</a>.</p>
 
-<p>References <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00059">std::abs()</a>, <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="sphere_8h_source.html#l00152">radius()</a>, and <a class="el" href="type__vector_8h_source.html#l00860">libMesh::TypeVector&lt; T &gt;::size()</a>.</p>
+<p>References <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00059">std::abs()</a>, <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>, <a class="el" href="type__vector_8h_source.html#l00886">libMesh::TypeVector&lt; T &gt;::norm()</a>, and <a class="el" href="sphere_8h_source.html#l00152">radius()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;{</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>(), 0.);</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
@@ -719,7 +719,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="comment">// if the size of that vector is the same as the radius() then</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="comment">// the point is on the surface.</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(w.size() - this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>()) &lt; 1.e-10)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(w.norm() - this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a313834b5acda26732dbfe683996b7e64">radius</a>()) &lt; 1.e-10)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -820,7 +820,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="sphere_8h_source.html#l00200">200</a> of file <a class="el" href="sphere_8h_source.html">sphere.h</a>.</p>
 
-<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="libmesh_8h_source.html#l00160">libMesh::pi</a>, <a class="el" href="libmesh__common_8h_source.html#l00128">libMesh::Real</a>, and <a class="el" href="type__vector_8h_source.html#l00860">libMesh::TypeVector&lt; T &gt;::size()</a>.</p>
+<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, <a class="el" href="type__vector_8h_source.html#l00886">libMesh::TypeVector&lt; T &gt;::norm()</a>, <a class="el" href="libmesh_8h_source.html#l00160">libMesh::pi</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;{</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">// constant translation in the origin</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keyword">const</span> Point c (cart-this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">center</a>());</div>
@@ -828,11 +828,11 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="comment">// phi: special care, so that it gives 0..2pi results</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> phi = std::atan2(c(1), c(0));</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordflow">return</span> Point(<span class="comment">/* radius */</span> c.size(),</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordflow">return</span> Point(<span class="comment">/* radius */</span> c.norm(),</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;               <span class="comment">/* theta  */</span> std::atan2( std::sqrt( c(0)*c(0) + c(1)*c(1) ), c(2) ),</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;               <span class="comment">/* phi    */</span> ( (phi &lt; 0)  ?  2.*<a class="code" href="namespacelibMesh.html#a668b057121e7cf9d0c35207b7ab6bf38">libMesh::pi</a>+phi  :  phi ) );</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a668b057121e7cf9d0c35207b7ab6bf38"><div class="ttname"><a href="namespacelibMesh.html#a668b057121e7cf9d0c35207b7ab6bf38">libMesh::pi</a></div><div class="ttdeci">const Real pi</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8h_source.html#l00160">libmesh.h:160</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Sphere_html_a9e47f744762137d278c3bcfab0a6ac04"><div class="ttname"><a href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">libMesh::Sphere::center</a></div><div class="ttdeci">const Point &amp; center() const </div><div class="ttdef"><b>Definition:</b> <a href="sphere_8h_source.html#l00162">sphere.h:162</a></div></div>
 </div><!-- fragment -->
@@ -911,7 +911,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="sphere_8h_source.html#l00216">216</a> of file <a class="el" href="sphere_8h_source.html">sphere.h</a>.</p>
 
-<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00128">libMesh::Real</a>.</p>
+<p>References <a class="el" href="sphere_8h_source.html#l00162">center()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> r     = sph(0);</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> theta = sph(1);</div>
@@ -922,7 +922,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="comment">/* y */</span> r*std::sin(theta)*std::sin(phi) + this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">center</a>()(1),</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                <span class="comment">/* z */</span> r*std::cos(theta)               + this-&gt;<a class="code" href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">center</a>()(2));</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Sphere_html_a9e47f744762137d278c3bcfab0a6ac04"><div class="ttname"><a href="classlibMesh_1_1Sphere.html#a9e47f744762137d278c3bcfab0a6ac04">libMesh::Sphere::center</a></div><div class="ttdeci">const Point &amp; center() const </div><div class="ttdef"><b>Definition:</b> <a href="sphere_8h_source.html#l00162">sphere.h:162</a></div></div>
 </div><!-- fragment -->
 </div>

@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="cell__hex8_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -132,7 +132,7 @@
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// Hex8 class static member initializations</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1Hex8.html#a84b21fba36e8bd586aad2501c7e69e9c">Hex8::side_nodes_map</a>[6][4] =</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Hex8::side_nodes_map[6][4] =</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {0, 3, 2, 1}, <span class="comment">// Side 0</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {0, 1, 5, 4}, <span class="comment">// Side 1</span></div>
@@ -142,7 +142,7 @@
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {4, 5, 6, 7}  <span class="comment">// Side 5</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  };</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1Hex8.html#ac083d9af8349f02dffe7fe2ce50645c1">Hex8::edge_nodes_map</a>[12][2] =</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Hex8::edge_nodes_map[12][2] =</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {0, 1}, <span class="comment">// Side 0</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {1, 2}, <span class="comment">// Side 1</span></div>
@@ -162,54 +162,54 @@
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">// Hex8 class member functions</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#a494514ed4dc41ad0752fcf1fca84a107">   65</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Hex8.html#a494514ed4dc41ad0752fcf1fca84a107">Hex8::is_vertex</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">bool</span> Hex8::is_vertex(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#a15ec3671a70cebe28015a5cb8f80f8af">   70</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Hex8.html#a15ec3671a70cebe28015a5cb8f80f8af">Hex8::is_edge</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">bool</span> Hex8::is_edge(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#ad95704df57d37d3de58d68598d0e0be1">   75</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Hex8.html#ad95704df57d37d3de58d68598d0e0be1">Hex8::is_face</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">bool</span> Hex8::is_face(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#aa62d3a4fcf5eb61a7fa7e91883e74865">   80</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Hex8.html#aa62d3a4fcf5eb61a7fa7e91883e74865">Hex8::is_node_on_side</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">bool</span> Hex8::is_node_on_side(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  libmesh_assert_less (s, <a class="code" href="classlibMesh_1_1Hex.html#a294578472d308076838e88386d86beee">n_sides</a>());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  libmesh_assert_less (s, n_sides());</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i != 4; ++i)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1Hex8.html#a84b21fba36e8bd586aad2501c7e69e9c">side_nodes_map</a>[s][i] == n)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (side_nodes_map[s][i] == n)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#a01705ccfa8b1708e10fab10d3a81ffa3">   90</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Hex8.html#a01705ccfa8b1708e10fab10d3a81ffa3">Hex8::is_node_on_edge</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">bool</span> Hex8::is_node_on_edge(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  libmesh_assert_less (e, <a class="code" href="classlibMesh_1_1Hex.html#a1ed73396cc3c83cbcf37c17c7828effa">n_edges</a>());</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  libmesh_assert_less (e, n_edges());</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i != 2; ++i)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1Hex8.html#ac083d9af8349f02dffe7fe2ce50645c1">edge_nodes_map</a>[e][i] == n)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (edge_nodes_map[e][i] == n)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#ab36ae0c8a270defa246ced550efb2013">  102</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Hex8.html#ab36ae0c8a270defa246ced550efb2013">Hex8::has_affine_map</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">bool</span> Hex8::has_affine_map()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">// Make sure x-edge endpoints are affine</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> v = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(1) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(0);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">if</span> (!v.<a class="code" href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">relative_fuzzy_equals</a>(this-&gt;point(2) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(3)) ||</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      !v.<a class="code" href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">relative_fuzzy_equals</a>(this-&gt;point(5) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(4)) ||</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      !v.<a class="code" href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">relative_fuzzy_equals</a>(this-&gt;point(6) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(7)))</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  Point v = this-&gt;point(1) - this-&gt;point(0);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">if</span> (!v.relative_fuzzy_equals(this-&gt;point(2) - this-&gt;point(3)) ||</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      !v.relative_fuzzy_equals(this-&gt;point(5) - this-&gt;point(4)) ||</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      !v.relative_fuzzy_equals(this-&gt;point(6) - this-&gt;point(7)))</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">// Make sure xz-faces are identical parallelograms</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  v = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(4) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(0);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span> (!v.<a class="code" href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">relative_fuzzy_equals</a>(this-&gt;point(7) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(3)))</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  v = this-&gt;point(4) - this-&gt;point(0);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span> (!v.relative_fuzzy_equals(this-&gt;point(7) - this-&gt;point(3)))</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">// If all the above checks out, the map is affine</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -217,46 +217,46 @@
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#ab6f31fbeffb122e78b5a688db1408ca0">  120</a></span>&#160;<a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="classlibMesh_1_1Hex8.html#ab6f31fbeffb122e78b5a688db1408ca0">Hex8::build_side</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;UniquePtr&lt;Elem&gt; Hex8::build_side (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                  <span class="keywordtype">bool</span> proxy)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  libmesh_assert_less (i, this-&gt;<a class="code" href="classlibMesh_1_1Hex.html#a294578472d308076838e88386d86beee">n_sides</a>());</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  libmesh_assert_less (i, this-&gt;n_sides());</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordflow">if</span> (proxy)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Side.html">Side&lt;Quad4,Hex8&gt;</a>(<span class="keyword">this</span>,i));</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(<span class="keyword">new</span> Side&lt;Quad4,Hex8&gt;(<span class="keyword">this</span>,i));</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* face = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Quad4.html">Quad4</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      face-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a96faae17e7ede5aa89c687d54cefb4b3">subdomain_id</a>() = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a96faae17e7ede5aa89c687d54cefb4b3">subdomain_id</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      Elem * face = <span class="keyword">new</span> Quad4;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      face-&gt;subdomain_id() = this-&gt;subdomain_id();</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> n=0; n&lt;face-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">n_nodes</a>(); ++n)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        face-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(n) = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ac190df363bef9fc5eed46b8d86b756d6">get_node</a>(Hex8::side_nodes_map[i][n]);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> n=0; n&lt;face-&gt;n_nodes(); ++n)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        face-&gt;set_node(n) = this-&gt;get_node(Hex8::side_nodes_map[i][n]);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(face);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(face);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;();</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#a765a2c302e0de98f24b97551dbdb1bfd">  145</a></span>&#160;<a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="classlibMesh_1_1Hex8.html#a765a2c302e0de98f24b97551dbdb1bfd">Hex8::build_edge</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;UniquePtr&lt;Elem&gt; Hex8::build_edge (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  libmesh_assert_less (i, this-&gt;<a class="code" href="classlibMesh_1_1Hex.html#a1ed73396cc3c83cbcf37c17c7828effa">n_edges</a>());</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  libmesh_assert_less (i, this-&gt;n_edges());</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1SideEdge.html">SideEdge&lt;Edge2,Hex8&gt;</a>(<span class="keyword">this</span>,i));</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(<span class="keyword">new</span> SideEdge&lt;Edge2,Hex8&gt;(<span class="keyword">this</span>,i));</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#a287104a77ab3cfd8bc281401e4c0cb3f">  154</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Hex8.html#a287104a77ab3cfd8bc281401e4c0cb3f">Hex8::connectivity</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(sc),</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordtype">void</span> Hex8::connectivity(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(sc),</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                        <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">IOPackage</a> iop,</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        std::vector&lt;dof_id_type&gt;&amp; conn)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        std::vector&lt;dof_id_type&gt; &amp; conn)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1Elem.html#a66f802040c258daed713a2c6e079de49">_nodes</a>);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  libmesh_assert_less (sc, this-&gt;<a class="code" href="classlibMesh_1_1Hex8.html#a45d26daa50965fef4a6d7949d4fc6fc0">n_sub_elem</a>());</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(_nodes);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  libmesh_assert_less (sc, this-&gt;n_sub_elem());</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  libmesh_assert_not_equal_to (iop, <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">INVALID_IO_PACKAGE</a>);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  conn.resize(8);</div>
@@ -265,27 +265,27 @@
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    {</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368">TECPLOT</a>:</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        conn[0] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(0)+1;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        conn[1] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(1)+1;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        conn[2] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(2)+1;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        conn[3] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(3)+1;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        conn[4] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(4)+1;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        conn[5] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(5)+1;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        conn[6] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(6)+1;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        conn[7] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(7)+1;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        conn[0] = this-&gt;node(0)+1;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        conn[1] = this-&gt;node(1)+1;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        conn[2] = this-&gt;node(2)+1;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        conn[3] = this-&gt;node(3)+1;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        conn[4] = this-&gt;node(4)+1;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        conn[5] = this-&gt;node(5)+1;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        conn[6] = this-&gt;node(6)+1;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        conn[7] = this-&gt;node(7)+1;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      }</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404af2db6ec37b808c93965ea31b2d152ce3">VTK</a>:</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        conn[0] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(0);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        conn[1] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(1);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        conn[2] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(2);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        conn[3] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(3);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        conn[4] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(4);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        conn[5] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(5);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        conn[6] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(6);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        conn[7] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">node</a>(7);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        conn[0] = this-&gt;node(0);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        conn[1] = this-&gt;node(1);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        conn[2] = this-&gt;node(2);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        conn[3] = this-&gt;node(3);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        conn[4] = this-&gt;node(4);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        conn[5] = this-&gt;node(5);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        conn[6] = this-&gt;node(6);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        conn[7] = this-&gt;node(7);</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
@@ -298,7 +298,7 @@
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_AMR</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="classlibMesh_1_1Hex8.html#a1cb6101136c48070d3052e892dc3cd14">Hex8::_embedding_matrix</a>[8][8][8] =</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">const</span> <span class="keywordtype">float</span> Hex8::_embedding_matrix[8][8][8] =</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  {</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">// The 8 children of the Hex-type elements can be thought of as being</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">// associated with the 8 vertices of the Hex.  Some of the children are</span></div>
@@ -418,100 +418,56 @@
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
-<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Hex8.html#ac107d9778efb0d8409f7746ef6789653">  321</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1Hex8.html#ac107d9778efb0d8409f7746ef6789653">Hex8::volume</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> Hex8::volume ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="comment">// Compute the volume of the tri-linear hex by splitting it</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="comment">// into 6 sub-pyramids and applying the formula in:</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="comment">// &quot;Calculation of the Volume of a General Hexahedron</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="comment">// for Flow Predictions&quot;, AIAA Journal v.23, no.6, 1984, p.954-</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> sub_pyr[6][4] =</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      {0, 3, 2, 1},</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      {6, 7, 4, 5},</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      {0, 1, 5, 4},</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      {3, 7, 6, 2},</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      {0, 4, 7, 3},</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      {1, 2, 6, 5}</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    };</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <span class="comment">// The centroid is a convenient point to use</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="comment">// for the apex of all the pyramids.</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> R = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a462388b471a3cd8d88e9452a00299f8e">centroid</a>();</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <a class="code" href="classlibMesh_1_1Node.html">Node</a>* pyr_base[4];</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> vol=0.;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="comment">// Make copies of our points.  It makes the subsequent calculations a bit</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="comment">// shorter and avoids dereferencing the same pointer multiple times.</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  Point</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    x0 = point(0), x1 = point(1), x2 = point(2), x3 = point(3),</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    x4 = point(4), x5 = point(5), x6 = point(6), x7 = point(7);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="comment">// Construct constant data vectors.  The notation is:</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="comment">// \vec{x}_{\xi}   = \vec{a1}*eta*zeta + \vec{b1}*eta + \vec{c1}*zeta + \vec{d1}</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="comment">// \vec{x}_{\eta}  = \vec{a2}*xi*zeta  + \vec{b2}*xi  + \vec{c2}*zeta + \vec{d2}</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="comment">// \vec{x}_{\zeta} = \vec{a3}*xi*eta   + \vec{b3}*xi  + \vec{c3}*eta  + \vec{d3}</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <span class="comment">// but it turns out that a1, a2, and a3 are not needed for the volume calculation.</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="comment">// This is copy-pasted directly from the output of a Python script, other</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  <span class="comment">// than division by 8, which is done at the end when the volume is returned.</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  Point</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    b1 = x0 - x1 + x2 - x3 + x4 - x5 + x6 - x7,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    c1 = x0 - x1 - x2 + x3 - x4 + x5 + x6 - x7,</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    d1 = -x0 + x1 + x2 - x3 - x4 + x5 + x6 - x7,</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    b2 = b1,</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    c2 = x0 + x1 - x2 - x3 - x4 - x5 + x6 + x7,</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    d2 = -x0 - x1 + x2 + x3 - x4 - x5 + x6 + x7,</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="comment">// Compute the volume using 6 sub-pyramids</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n=0; n&lt;6; ++n)</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="comment">// Set the nodes of the pyramid base</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;4; ++i)</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        pyr_base[i] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a66f802040c258daed713a2c6e079de49">_nodes</a>[sub_pyr[n][i]];</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      <span class="comment">// Compute diff vectors</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      <a class="code" href="classlibMesh_1_1Point.html">Point</a> a ( *pyr_base[0] - R );</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <a class="code" href="classlibMesh_1_1Point.html">Point</a> b ( *pyr_base[1] - *pyr_base[3] );</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <a class="code" href="classlibMesh_1_1Point.html">Point</a> c ( *pyr_base[2] - *pyr_base[0] );</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      <a class="code" href="classlibMesh_1_1Point.html">Point</a> d ( *pyr_base[3] - *pyr_base[0] );</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <a class="code" href="classlibMesh_1_1Point.html">Point</a> e ( *pyr_base[1] - *pyr_base[0] );</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;      <span class="comment">// Compute pyramid volume</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> sub_vol = (1./6.)*(a*(b.<a class="code" href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">cross</a>(c))) + (1./12.)*(c*(d.<a class="code" href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">cross</a>(e)));</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (sub_vol&gt;0.);</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      vol += sub_vol;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    }</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="keywordflow">return</span> vol;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;}</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_ac107d9778efb0d8409f7746ef6789653"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#ac107d9778efb0d8409f7746ef6789653">libMesh::Hex8::volume</a></div><div class="ttdeci">virtual Real volume() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00321">cell_hex8.C:321</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a01705ccfa8b1708e10fab10d3a81ffa3"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a01705ccfa8b1708e10fab10d3a81ffa3">libMesh::Hex8::is_node_on_edge</a></div><div class="ttdeci">virtual bool is_node_on_edge(const unsigned int n, const unsigned int e) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00090">cell_hex8.C:90</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a0d25454251fb8f3518211ccd9f467b91"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">libMesh::Elem::set_node</a></div><div class="ttdeci">virtual Node *&amp; set_node(const unsigned int i)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01554">elem.h:1554</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Node_html"><div class="ttname"><a href="classlibMesh_1_1Node.html">libMesh::Node</a></div><div class="ttdef"><b>Definition:</b> <a href="node_8h_source.html#l00053">node.h:53</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a66f802040c258daed713a2c6e079de49"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a66f802040c258daed713a2c6e079de49">libMesh::Elem::_nodes</a></div><div class="ttdeci">Node ** _nodes</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01336">elem.h:1336</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_ad95704df57d37d3de58d68598d0e0be1"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#ad95704df57d37d3de58d68598d0e0be1">libMesh::Hex8::is_face</a></div><div class="ttdeci">virtual bool is_face(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00075">cell_hex8.C:75</a></div></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    b3 = c1,</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    c3 = c2,</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    d3 = -x0 - x1 - x2 - x3 + x4 + x5 + x6 + x7;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="comment">// We could check for a quick return, but it&#39;s almost faster to just</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="comment">// compute the result...</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    (<a class="code" href="namespacelibMesh.html#a460a81f6296c6671299fe5ff90d690ce">triple_product</a>(b1,d2,c3) +</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;     <a class="code" href="namespacelibMesh.html#a460a81f6296c6671299fe5ff90d690ce">triple_product</a>(d1,b2,b3) +</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;     <a class="code" href="namespacelibMesh.html#a460a81f6296c6671299fe5ff90d690ce">triple_product</a>(c1,c2,d3)) / 192. +</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <a class="code" href="namespacelibMesh.html#a460a81f6296c6671299fe5ff90d690ce">triple_product</a>(d1,d2,d3) / 64.;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="classlibMesh_1_1Quad4_html"><div class="ttname"><a href="classlibMesh_1_1Quad4.html">libMesh::Quad4</a></div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8h_source.html#l00049">face_quad4.h:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a84b21fba36e8bd586aad2501c7e69e9c"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a84b21fba36e8bd586aad2501c7e69e9c">libMesh::Hex8::side_nodes_map</a></div><div class="ttdeci">static const unsigned int side_nodes_map[6][4]</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8h_source.html#l00142">cell_hex8.h:142</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00091">elem.h:91</a></div></div>
 <div class="ttc" id="cell__hex8_8h_html"><div class="ttname"><a href="cell__hex8_8h.html">cell_hex8.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ac190df363bef9fc5eed46b8d86b756d6"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ac190df363bef9fc5eed46b8d86b756d6">libMesh::Elem::get_node</a></div><div class="ttdeci">Node * get_node(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01531">elem.h:1531</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a287104a77ab3cfd8bc281401e4c0cb3f"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a287104a77ab3cfd8bc281401e4c0cb3f">libMesh::Hex8::connectivity</a></div><div class="ttdeci">virtual void connectivity(const unsigned int sc, const IOPackage iop, std::vector&lt; dof_id_type &gt; &amp;conn) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00154">cell_hex8.C:154</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368">libMesh::TECPLOT</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00036">enum_io_package.h:36</a></div></div>
-<div class="ttc" id="classlibMesh_1_1TypeVector_html_a2b8f70a62a56eaaf417359e929507ce5"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">libMesh::TypeVector::cross</a></div><div class="ttdeci">TypeVector&lt; typename CompareTypes&lt; T, T2 &gt;::supertype &gt; cross(const TypeVector&lt; T2 &gt; &amp;) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00842">type_vector.h:842</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_af0a78fa0f592d2b8f515c69cabfaf529"><div class="ttname"><a href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">libMesh::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; T &gt; UniquePtr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00046">auto_ptr.h:46</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_ab6f31fbeffb122e78b5a688db1408ca0"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#ab6f31fbeffb122e78b5a688db1408ca0">libMesh::Hex8::build_side</a></div><div class="ttdeci">virtual UniquePtr&lt; Elem &gt; build_side(const unsigned int i, bool proxy) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00120">cell_hex8.C:120</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a460a81f6296c6671299fe5ff90d690ce"><div class="ttname"><a href="namespacelibMesh.html#a460a81f6296c6671299fe5ff90d690ce">libMesh::triple_product</a></div><div class="ttdeci">T triple_product(const TypeVector&lt; T &gt; &amp;a, const TypeVector&lt; T &gt; &amp;b, const TypeVector&lt; T &gt; &amp;c)</div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l01026">type_vector.h:1026</a></div></div>
 <div class="ttc" id="side_8h_html"><div class="ttname"><a href="side_8h.html">side.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a3a1e00b1906b0f6cf0cc1760c9a7da1f"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes</a></div><div class="ttdeci">virtual unsigned int n_nodes() const =0</div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">libMesh::INVALID_IO_PACKAGE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00044">enum_io_package.h:44</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_ac083d9af8349f02dffe7fe2ce50645c1"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#ac083d9af8349f02dffe7fe2ce50645c1">libMesh::Hex8::edge_nodes_map</a></div><div class="ttdeci">static const unsigned int edge_nodes_map[12][2]</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8h_source.html#l00148">cell_hex8.h:148</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a45d26daa50965fef4a6d7949d4fc6fc0"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a45d26daa50965fef4a6d7949d4fc6fc0">libMesh::Hex8::n_sub_elem</a></div><div class="ttdeci">virtual unsigned int n_sub_elem() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8h_source.html#l00079">cell_hex8.h:79</a></div></div>
 <div class="ttc" id="face__quad4_8h_html"><div class="ttname"><a href="face__quad4_8h.html">face_quad4.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_aa62d3a4fcf5eb61a7fa7e91883e74865"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#aa62d3a4fcf5eb61a7fa7e91883e74865">libMesh::Hex8::is_node_on_side</a></div><div class="ttdeci">virtual bool is_node_on_side(const unsigned int n, const unsigned int s) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00080">cell_hex8.C:80</a></div></div>
 <div class="ttc" id="edge__edge2_8h_html"><div class="ttname"><a href="edge__edge2_8h.html">edge_edge2.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a96faae17e7ede5aa89c687d54cefb4b3"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a96faae17e7ede5aa89c687d54cefb4b3">libMesh::Elem::subdomain_id</a></div><div class="ttdeci">subdomain_id_type subdomain_id() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01564">elem.h:1564</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_af591f704edd63f707d8e884f95db4477"><div class="ttname"><a href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libMesh::libmesh_dbg_var</a></div><div class="ttdeci">PetscErrorCode Vec Mat libmesh_dbg_var(j)</div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_ab36ae0c8a270defa246ced550efb2013"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#ab36ae0c8a270defa246ced550efb2013">libMesh::Hex8::has_affine_map</a></div><div class="ttdeci">virtual bool has_affine_map() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00102">cell_hex8.C:102</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a7cffa0aae912cc004972c9ea34a22ad4"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">libMesh::Elem::node</a></div><div class="ttdeci">dof_id_type node(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01499">elem.h:1499</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Side_html"><div class="ttname"><a href="classlibMesh_1_1Side.html">libMesh::Side</a></div><div class="ttdef"><b>Definition:</b> <a href="side_8h_source.html#l00050">side.h:50</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a2cb5212bd36caff163c65e3ccff273f0"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">libMesh::Elem::point</a></div><div class="ttdeci">const Point &amp; point(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01477">elem.h:1477</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a15ec3671a70cebe28015a5cb8f80f8af"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a15ec3671a70cebe28015a5cb8f80f8af">libMesh::Hex8::is_edge</a></div><div class="ttdeci">virtual bool is_edge(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00070">cell_hex8.C:70</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a462388b471a3cd8d88e9452a00299f8e"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a462388b471a3cd8d88e9452a00299f8e">libMesh::Elem::centroid</a></div><div class="ttdeci">virtual Point centroid() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8C_source.html#l00409">elem.C:409</a></div></div>
-<div class="ttc" id="classlibMesh_1_1SideEdge_html"><div class="ttname"><a href="classlibMesh_1_1SideEdge.html">libMesh::SideEdge</a></div><div class="ttdef"><b>Definition:</b> <a href="side_8h_source.html#l00113">side.h:113</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">libMesh::IOPackage</a></div><div class="ttdeci">IOPackage</div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00034">enum_io_package.h:34</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a1cb6101136c48070d3052e892dc3cd14"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a1cb6101136c48070d3052e892dc3cd14">libMesh::Hex8::_embedding_matrix</a></div><div class="ttdeci">static const float _embedding_matrix[8][8][8]</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8h_source.html#l00179">cell_hex8.h:179</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex_html_a1ed73396cc3c83cbcf37c17c7828effa"><div class="ttname"><a href="classlibMesh_1_1Hex.html#a1ed73396cc3c83cbcf37c17c7828effa">libMesh::Hex::n_edges</a></div><div class="ttdeci">virtual unsigned int n_edges() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex_8h_source.html#l00077">cell_hex.h:77</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a494514ed4dc41ad0752fcf1fca84a107"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a494514ed4dc41ad0752fcf1fca84a107">libMesh::Hex8::is_vertex</a></div><div class="ttdeci">virtual bool is_vertex(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00065">cell_hex8.C:65</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00039">point.h:39</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex_html_a294578472d308076838e88386d86beee"><div class="ttname"><a href="classlibMesh_1_1Hex.html#a294578472d308076838e88386d86beee">libMesh::Hex::n_sides</a></div><div class="ttdeci">virtual unsigned int n_sides() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex_8h_source.html#l00067">cell_hex.h:67</a></div></div>
-<div class="ttc" id="classlibMesh_1_1TypeVector_html_a510b7f78c908b4d0f2a1250bace34d88"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">libMesh::TypeVector::relative_fuzzy_equals</a></div><div class="ttdeci">bool relative_fuzzy_equals(const TypeVector&lt; T &gt; &amp;rhs, Real tol=TOLERANCE) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00926">type_vector.h:926</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Hex8_html_a765a2c302e0de98f24b97551dbdb1bfd"><div class="ttname"><a href="classlibMesh_1_1Hex8.html#a765a2c302e0de98f24b97551dbdb1bfd">libMesh::Hex8::build_edge</a></div><div class="ttdeci">virtual UniquePtr&lt; Elem &gt; build_edge(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell__hex8_8C_source.html#l00145">cell_hex8.C:145</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404af2db6ec37b808c93965ea31b2d152ce3"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404af2db6ec37b808c93965ea31b2d152ce3">libMesh::VTK</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00039">enum_io_package.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

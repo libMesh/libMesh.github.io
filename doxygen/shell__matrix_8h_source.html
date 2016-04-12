@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="shell__matrix_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -140,7 +140,7 @@
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keyword">public</span> ParallelObject</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="classlibMesh_1_1ShellMatrix.html#aefa217e7e198e784db185197ef770376">ShellMatrix</a> (<span class="keyword">const</span> Parallel::Communicator &amp;comm_in</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="classlibMesh_1_1ShellMatrix.html#aefa217e7e198e784db185197ef770376">ShellMatrix</a> (<span class="keyword">const</span> Parallel::Communicator &amp; comm_in</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;               LIBMESH_CAN_DEFAULT_TO_COMMWORLD);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a931d03354f8044d5669e0c614577a2c4">~ShellMatrix</a> ();</div>
@@ -149,13 +149,13 @@
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a019c16a58f871435ea75956ad1aaf9b5">n</a> () <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a090ec49ccc34e8d103eba352b66cdf31">vector_mult</a> (NumericVector&lt;T&gt;&amp; dest,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            <span class="keyword">const</span> NumericVector&lt;T&gt;&amp; arg) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a090ec49ccc34e8d103eba352b66cdf31">vector_mult</a> (NumericVector&lt;T&gt; &amp; dest,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            <span class="keyword">const</span> NumericVector&lt;T&gt; &amp; arg) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a754071de77d848c5481a42fd41fc5157">vector_mult_add</a> (NumericVector&lt;T&gt;&amp; dest,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                <span class="keyword">const</span> NumericVector&lt;T&gt;&amp; arg) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a754071de77d848c5481a42fd41fc5157">vector_mult_add</a> (NumericVector&lt;T&gt; &amp; dest,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                <span class="keyword">const</span> NumericVector&lt;T&gt; &amp; arg) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a1516571b30e8da439c498ce0e4ac788c">get_diagonal</a> (NumericVector&lt;T&gt;&amp; dest) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1ShellMatrix.html#a1516571b30e8da439c498ce0e4ac788c">get_diagonal</a> (NumericVector&lt;T&gt; &amp; dest) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
@@ -164,7 +164,7 @@
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">// ShellMatrix inline members</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ShellMatrix.html#aefa217e7e198e784db185197ef770376">   99</a></span>&#160;<a class="code" href="classlibMesh_1_1ShellMatrix.html#aefa217e7e198e784db185197ef770376">ShellMatrix&lt;T&gt;::ShellMatrix</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;comm_in) :</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ShellMatrix.html#aefa217e7e198e784db185197ef770376">   99</a></span>&#160;<a class="code" href="classlibMesh_1_1ShellMatrix.html#aefa217e7e198e784db185197ef770376">ShellMatrix&lt;T&gt;::ShellMatrix</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp; comm_in) :</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="classlibMesh_1_1ParallelObject.html">ParallelObject</a>(comm_in)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{}</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
@@ -181,7 +181,7 @@
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif // LIBMESH_SHELL_MATRIX_H</span></div>
 <div class="ttc" id="classlibMesh_1_1ShellMatrix_html_a931d03354f8044d5669e0c614577a2c4"><div class="ttname"><a href="classlibMesh_1_1ShellMatrix.html#a931d03354f8044d5669e0c614577a2c4">libMesh::ShellMatrix::~ShellMatrix</a></div><div class="ttdeci">virtual ~ShellMatrix()</div><div class="ttdef"><b>Definition:</b> <a href="shell__matrix_8h_source.html#l00107">shell_matrix.h:107</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html">libMesh::Parallel::Communicator</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00631">parallel.h:631</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html">libMesh::Parallel::Communicator</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00606">parallel.h:606</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ShellMatrix_html_a8a1cf848d85e7f710b4d9153c9405248"><div class="ttname"><a href="classlibMesh_1_1ShellMatrix.html#a8a1cf848d85e7f710b4d9153c9405248">libMesh::ShellMatrix::m</a></div><div class="ttdeci">virtual numeric_index_type m() const =0</div></div>
 <div class="ttc" id="classlibMesh_1_1ShellMatrix_html_a754071de77d848c5481a42fd41fc5157"><div class="ttname"><a href="classlibMesh_1_1ShellMatrix.html#a754071de77d848c5481a42fd41fc5157">libMesh::ShellMatrix::vector_mult_add</a></div><div class="ttdeci">virtual void vector_mult_add(NumericVector&lt; T &gt; &amp;dest, const NumericVector&lt; T &gt; &amp;arg) const =0</div></div>

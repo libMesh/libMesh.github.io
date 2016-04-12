@@ -270,7 +270,7 @@ template&lt;typename T = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Proxy: for backward compatibility, we allow codes to treat a <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a> as if it were a simple pointer-to-value. We can't safely allow "Number *n = parameter_vector[p]" to compile, but we can allow "*parameter_vector[p] += deltap" to work. </p>
+<p>Proxy: for backward compatibility, we allow codes to treat a <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a> as if it were a simple pointer-to-value. We can't safely allow "Number * n = parameter_vector[p]" to compile, but we can allow "*parameter_vector[p] += deltap" to work. </p>
 
 <p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00082">82</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
 <div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{ <span class="keywordflow">return</span> ParameterProxy&lt;T&gt;(*this); }</div>

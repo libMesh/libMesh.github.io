@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="parameter__multiaccessor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -137,7 +137,7 @@
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ParameterMultiAccessor.html#a03633f494d7daea82a77aa8c193c8f8e">   49</a></span>&#160;  <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a03633f494d7daea82a77aa8c193c8f8e">ParameterMultiAccessor</a>() {}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ParameterMultiAccessor.html#ad01a33ea8d1235e9f06e44083318f0ba">   54</a></span>&#160;  <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#ad01a33ea8d1235e9f06e44083318f0ba">ParameterMultiAccessor</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor&lt;T&gt;</a>&amp; param_accessor) :</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ParameterMultiAccessor.html#ad01a33ea8d1235e9f06e44083318f0ba">   54</a></span>&#160;  <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#ad01a33ea8d1235e9f06e44083318f0ba">ParameterMultiAccessor</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor&lt;T&gt;</a> &amp; param_accessor) :</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>(1, param_accessor.<a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a9da03b36682989a982f94df8dfc14871">clone</a>()) {}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">/*</span></div>
@@ -160,7 +160,7 @@
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(!<a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.empty());</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#ifndef NDEBUG</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Compare other values to the last one we&#39;ll change</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> T&amp; val = <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.back()-&gt;get();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> T &amp; val = <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.back()-&gt;get();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.size(); ++i)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      {</div>
@@ -171,10 +171,10 @@
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ParameterMultiAccessor.html#a855fbff97b62b2b03a2438022c05efa2">   97</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <span class="keyword">get</span> () <span class="keyword">const</span> libmesh_override</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ParameterMultiAccessor.html#a855fbff97b62b2b03a2438022c05efa2">   97</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> T &amp; <span class="keyword">get</span> () <span class="keyword">const</span> libmesh_override</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  {</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(!<a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.empty());</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">const</span> T&amp; val = <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>[0]-&gt;get();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">const</span> T &amp; val = <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>[0]-&gt;get();</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#ifndef NDEBUG</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// If you&#39;re already using inconsistent parameters we can&#39;t help</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// you.</span></div>
@@ -186,7 +186,7 @@
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classlibMesh_1_1ParameterMultiAccessor.html#a9da03b36682989a982f94df8dfc14871">  113</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;ParameterAccessor&lt;T&gt;</a> &gt; <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a9da03b36682989a982f94df8dfc14871">clone</a>() const libmesh_override</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html">ParameterMultiAccessor</a> *pmp = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html">ParameterMultiAccessor&lt;T&gt;</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html">ParameterMultiAccessor</a> * pmp = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html">ParameterMultiAccessor&lt;T&gt;</a>();</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != <a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.size(); ++i)</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      pmp-&gt;<a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>.push_back(<a class="code" href="classlibMesh_1_1ParameterMultiAccessor.html#a8c47a47a4252245bc58c773be26df0fe">_accessors</a>[i]-&gt;clone().release());</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>

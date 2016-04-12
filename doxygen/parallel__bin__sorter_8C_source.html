@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="parallel__bin__sorter_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -121,113 +121,113 @@
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// Local includes</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="libmesh__common_8h.html">libmesh/libmesh_common.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__bin__sorter_8h.html">libmesh/parallel_bin_sorter.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__histogram_8h.html">libmesh/parallel_histogram.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_LIBHILBERT</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#  include &quot;hilbert.h&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel_8h.html">libmesh/parallel.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__conversion__utils_8h.html">libmesh/parallel_conversion_utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel_8h.html">libmesh/parallel.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__bin__sorter_8h.html">libmesh/parallel_bin_sorter.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__hilbert_8h.html">libmesh/parallel_hilbert.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__histogram_8h.html">libmesh/parallel_histogram.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parallel__conversion__utils_8h.html">libmesh/parallel_conversion_utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Parallel.html">   35</a></span>&#160;<span class="keyword">namespace </span>Parallel {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Parallel.html">   37</a></span>&#160;<span class="keyword">namespace </span>Parallel {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> KeyType, <span class="keyword">typename</span> IdxType&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a51c195c75a4f6cee290e8589bdd8b7e7">   40</a></span>&#160;<a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a51c195c75a4f6cee290e8589bdd8b7e7">BinSorter&lt;KeyType,IdxType&gt;::BinSorter</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;comm_in,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;KeyType&gt;&amp; d) :</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="classlibMesh_1_1ParallelObject.html">ParallelObject</a>(comm_in),</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>(d)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="comment">// Assume (&amp; libmesh_assert) we are working with a sorted range</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">// Ah...  is_sorted is an STL extension!</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">//libmesh_assert (std::is_sorted (data.begin(), data.end()));</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="comment">// Home-grown is_sorted</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (<a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#a1a148823d82abcf5e179095dc58bc15e">Parallel::Utils::is_sorted</a> (<a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a4fb3086c61dab4cabe9e4728a6b78113">data</a>));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> KeyType, <span class="keyword">typename</span> IdxType&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a51c195c75a4f6cee290e8589bdd8b7e7">   38</a></span>&#160;<a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a51c195c75a4f6cee290e8589bdd8b7e7">BinSorter&lt;KeyType,IdxType&gt;::BinSorter</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp; comm_in,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;KeyType&gt; &amp; d) :</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classlibMesh_1_1ParallelObject.html">ParallelObject</a>(comm_in),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>(d)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// Assume (&amp; libmesh_assert) we are working with a sorted range</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="comment">// Ah...  is_sorted is an STL extension!</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">//libmesh_assert (std::is_sorted (data.begin(), data.end()));</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">// Home-grown is_sorted</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (<a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#a1a148823d82abcf5e179095dc58bc15e">Parallel::Utils::is_sorted</a> (<a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a4fb3086c61dab4cabe9e4728a6b78113">data</a>));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> KeyType, <span class="keyword">typename</span> IdxType&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a3a770577cb0c94e83d53dee2550a9425">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a3a770577cb0c94e83d53dee2550a9425">BinSorter&lt;KeyType,IdxType&gt;::binsort</a> (<span class="keyword">const</span> IdxType nbins,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                          KeyType <a class="code" href="namespacelibMesh_1_1Parallel.html#a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e">max</a>,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                          KeyType <a class="code" href="namespacelibMesh_1_1Parallel.html#ac07b1aa13caefecc587d42f0036e3975">min</a>)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  libmesh_assert_less (min, max);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// Build a histogram in parallel from our data.</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// Use this to create quasi-uniform bins.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html">Parallel::Histogram&lt;KeyType,IdxType&gt;</a> phist (this-&gt;<a class="code" href="namespacelibMesh.html#ac58d93c086340dd1c4e8071081728d18">comm</a>(), <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#aa67828354310f7e3ead1db7aa6331525">make_histogram</a> (nbins*50, max, min);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#acf5128af9a399f9a4ad35a571512675e">build_histogram</a> ();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">const</span> std::vector&lt;IdxType&gt;&amp; histogram =</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#ae720b2f2d8ecbac5b7ad6957deabd745">get_histogram</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">// Now we will locate the bin boundaries so</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// that each bin is roughly equal size</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Find the total size of the data set</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    IdxType local_data_size = cast_int&lt;IdxType&gt;(<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.size());</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    IdxType global_data_size = cast_int&lt;IdxType&gt;(local_data_size);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> KeyType, <span class="keyword">typename</span> IdxType&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a3a770577cb0c94e83d53dee2550a9425">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html#a3a770577cb0c94e83d53dee2550a9425">BinSorter&lt;KeyType,IdxType&gt;::binsort</a> (<span class="keyword">const</span> IdxType nbins,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                          KeyType <a class="code" href="namespacelibMesh_1_1Parallel.html#a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e">max</a>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                          KeyType <a class="code" href="namespacelibMesh_1_1Parallel.html#ac07b1aa13caefecc587d42f0036e3975">min</a>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  libmesh_assert_less (min, max);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// Build a histogram in parallel from our data.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// Use this to create quasi-uniform bins.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html">Parallel::Histogram&lt;KeyType,IdxType&gt;</a> phist (this-&gt;<a class="code" href="namespacelibMesh.html#ab3347ee25863a5deda233c8449a27cd4">comm</a>(), <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#aa67828354310f7e3ead1db7aa6331525">make_histogram</a> (nbins*50, max, min);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#acf5128af9a399f9a4ad35a571512675e">build_histogram</a> ();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">const</span> std::vector&lt;IdxType&gt; &amp; histogram =</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#ae720b2f2d8ecbac5b7ad6957deabd745">get_histogram</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">// Now we will locate the bin boundaries so</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// that each bin is roughly equal size</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Find the total size of the data set</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    IdxType local_data_size = cast_int&lt;IdxType&gt;(<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.size());</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    IdxType global_data_size = cast_int&lt;IdxType&gt;(local_data_size);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    this-&gt;<a class="code" href="namespacelibMesh.html#ab3347ee25863a5deda233c8449a27cd4">comm</a>().sum(global_data_size);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    this-&gt;<a class="code" href="namespacelibMesh.html#ac58d93c086340dd1c4e8071081728d18">comm</a>().sum(global_data_size);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::vector&lt;IdxType&gt; target_bin_size (nbins, global_data_size / nbins);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::vector&lt;IdxType&gt; target_bin_size (nbins, global_data_size / nbins);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// Equally distribute the remainder</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span> (IdxType i=0; i&lt;(global_data_size % nbins); i++)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      ++target_bin_size[i];</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// Set the iterators corresponding to the bin boundaries</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      std::vector&lt;double&gt; bin_bounds (nbins+1);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      bin_iters.resize  (nbins+1, <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.begin());</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">// Set the minimum bin boundary iterator</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      bin_iters[0]  = <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.begin();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      bin_bounds[0] = <a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#afc715d5725049557cb14b6ffd28ce161">Parallel::Utils::to_double</a>(min);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="comment">// The current location in the histogram</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      IdxType current_histogram_bin = 0;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// How much above (+) or below (-) we are from the</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="comment">// target size for the last bin.</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="comment">// Note that when delta is (-) we will</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="comment">// accept a slightly larger size for the next bin,</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="comment">// the goal being to keep the whole mess average</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keywordtype">int</span> delta = 0;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="comment">// Set the internal bin boundary iterators</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">for</span> (IdxType b=0; b&lt;nbins; ++b)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;          <span class="comment">// The size of bin b.  We want this to</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;          <span class="comment">// be ~= target_bin_size[b]</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;          <span class="keywordtype">int</span> current_bin_size = 0;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;          <span class="comment">// Step through the histogram until we have the</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;          <span class="comment">// desired bin size</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;          <span class="keywordflow">while</span> ((current_bin_size + histogram[current_histogram_bin] + delta) &lt;= target_bin_size[b])</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;              <span class="comment">// Don&#39;t index out of the histogram!</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;              <span class="keywordflow">if</span> ((current_histogram_bin+1) == phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#ad2e1677467588b28f74339f40ebba71e">n_bins</a>())</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;              current_bin_size += histogram[current_histogram_bin++];</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Equally distribute the remainder</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">for</span> (IdxType i=0; i&lt;(global_data_size % nbins); i++)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      ++target_bin_size[i];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// Set the iterators corresponding to the bin boundaries</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      std::vector&lt;double&gt; bin_bounds (nbins+1);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      bin_iters.resize  (nbins+1, <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.begin());</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="comment">// Set the minimum bin boundary iterator</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      bin_iters[0]  = <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.begin();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      bin_bounds[0] = <a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#afc715d5725049557cb14b6ffd28ce161">Parallel::Utils::to_double</a>(min);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="comment">// The current location in the histogram</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      IdxType current_histogram_bin = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="comment">// How much above (+) or below (-) we are from the</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="comment">// target size for the last bin.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// Note that when delta is (-) we will</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="comment">// accept a slightly larger size for the next bin,</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="comment">// the goal being to keep the whole mess average</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordtype">int</span> delta = 0;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="comment">// Set the internal bin boundary iterators</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keywordflow">for</span> (IdxType b=0; b&lt;nbins; ++b)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;          <span class="comment">// The size of bin b.  We want this to</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;          <span class="comment">// be ~= target_bin_size[b]</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;          <span class="keywordtype">int</span> current_bin_size = 0;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;          <span class="comment">// Step through the histogram until we have the</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;          <span class="comment">// desired bin size</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;          <span class="keywordflow">while</span> ((current_bin_size + histogram[current_histogram_bin] + delta) &lt;= target_bin_size[b])</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;              <span class="comment">// Don&#39;t index out of the histogram!</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;              <span class="keywordflow">if</span> ((current_histogram_bin+1) == phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#ad2e1677467588b28f74339f40ebba71e">n_bins</a>())</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;              current_bin_size += histogram[current_histogram_bin++];</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          delta += current_bin_size - target_bin_size[b];</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          delta += current_bin_size - target_bin_size[b];</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          <span class="comment">// Set the upper bound of the bin</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;          bin_bounds[b+1] = phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#a42ed841142bca847d0d2935f948faf84">upper_bound</a> (current_histogram_bin);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;          bin_iters[b+1]  = std::lower_bound(bin_iters[b], <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.end(),</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                                             Parallel::Utils::to_key_type&lt;KeyType&gt;(bin_bounds[b+1]));</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          <span class="comment">// Set the upper bound of the bin</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;          bin_bounds[b+1] = phist.<a class="code" href="classlibMesh_1_1Parallel_1_1Histogram.html#a42ed841142bca847d0d2935f948faf84">upper_bound</a> (current_histogram_bin);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          bin_iters[b+1] =</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            std::lower_bound(bin_iters[b], <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>.end(),</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                             <a class="code" href="structlibMesh_1_1Parallel_1_1Utils_1_1Convert.html#a4dc455ba9e5eb8abbcaf395001dfc441">Parallel::Utils::Convert&lt;KeyType&gt;::to_key_type</a></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                               (bin_bounds[b+1]));</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="comment">// Just be sure the last boundary points to the right place</span></div>
@@ -245,34 +245,36 @@
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html">Parallel::BinSorter&lt;int, unsigned int&gt;</a>;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html">Parallel::BinSorter&lt;double, unsigned int&gt;</a>;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_LIBHILBERT</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html">Parallel::BinSorter&lt;Hilbert::HilbertIndices, unsigned int&gt;</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1Parallel_1_1BinSorter.html">Parallel::BinSorter&lt;Parallel::DofObjectKey, unsigned int&gt;</a>;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_ad2e1677467588b28f74339f40ebba71e"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#ad2e1677467588b28f74339f40ebba71e">libMesh::Parallel::Histogram::n_bins</a></div><div class="ttdeci">IdxType n_bins() const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00113">parallel_histogram.h:113</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html">libMesh::Parallel::Communicator</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00631">parallel.h:631</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_ad2e1677467588b28f74339f40ebba71e"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#ad2e1677467588b28f74339f40ebba71e">libMesh::Parallel::Histogram::n_bins</a></div><div class="ttdeci">IdxType n_bins() const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00112">parallel_histogram.h:112</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html">libMesh::Parallel::Communicator</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00606">parallel.h:606</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="namespacelibMesh_html_ac58d93c086340dd1c4e8071081728d18"><div class="ttname"><a href="namespacelibMesh.html#ac58d93c086340dd1c4e8071081728d18">libMesh::comm</a></div><div class="ttdeci">void PetscPreconditioner&lt; T &gt;::set_petsc_subpreconditioner_type(PCType type, PC &amp;pc) void PetscPreconditioner&lt; T &gt; Parallel::communicator comm</div><div class="ttdef"><b>Definition:</b> <a href="petsc__preconditioner_8C_source.html#l00261">petsc_preconditioner.C:261</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1BinSorter_html_a51c195c75a4f6cee290e8589bdd8b7e7"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1BinSorter.html#a51c195c75a4f6cee290e8589bdd8b7e7">libMesh::Parallel::BinSorter::BinSorter</a></div><div class="ttdeci">BinSorter(const Parallel::Communicator &amp;comm, const std::vector&lt; KeyType &gt; &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__bin__sorter_8C_source.html#l00040">parallel_bin_sorter.C:40</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1BinSorter_html_a51c195c75a4f6cee290e8589bdd8b7e7"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1BinSorter.html#a51c195c75a4f6cee290e8589bdd8b7e7">libMesh::Parallel::BinSorter::BinSorter</a></div><div class="ttdeci">BinSorter(const Parallel::Communicator &amp;comm, const std::vector&lt; KeyType &gt; &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__bin__sorter_8C_source.html#l00038">parallel_bin_sorter.C:38</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1BinSorter_html_a4fb3086c61dab4cabe9e4728a6b78113"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1BinSorter.html#a4fb3086c61dab4cabe9e4728a6b78113">libMesh::Parallel::BinSorter::data</a></div><div class="ttdeci">const std::vector&lt; KeyType &gt; &amp; data</div><div class="ttdef"><b>Definition:</b> <a href="parallel__bin__sorter_8h_source.html#l00068">parallel_bin_sorter.h:68</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_a42ed841142bca847d0d2935f948faf84"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#a42ed841142bca847d0d2935f948faf84">libMesh::Parallel::Histogram::upper_bound</a></div><div class="ttdeci">double upper_bound(const IdxType bin) const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00161">parallel_histogram.h:161</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_a42ed841142bca847d0d2935f948faf84"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#a42ed841142bca847d0d2935f948faf84">libMesh::Parallel::Histogram::upper_bound</a></div><div class="ttdeci">double upper_bound(const IdxType bin) const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00160">parallel_histogram.h:160</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_acf5128af9a399f9a4ad35a571512675e"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#acf5128af9a399f9a4ad35a571512675e">libMesh::Parallel::Histogram::build_histogram</a></div><div class="ttdeci">void build_histogram()</div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8C_source.html#l00092">parallel_histogram.C:92</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Parallel_1_1Utils_html_a1a148823d82abcf5e179095dc58bc15e"><div class="ttname"><a href="namespacelibMesh_1_1Parallel_1_1Utils.html#a1a148823d82abcf5e179095dc58bc15e">libMesh::Parallel::Utils::is_sorted</a></div><div class="ttdeci">bool is_sorted(const std::vector&lt; KeyType &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00050">parallel_conversion_utils.h:50</a></div></div>
 <div class="ttc" id="parallel_8h_html"><div class="ttname"><a href="parallel_8h.html">parallel.h</a></div></div>
 <div class="ttc" id="parallel__conversion__utils_8h_html"><div class="ttname"><a href="parallel__conversion__utils_8h.html">parallel_conversion_utils.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_aa67828354310f7e3ead1db7aa6331525"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#aa67828354310f7e3ead1db7aa6331525">libMesh::Parallel::Histogram::make_histogram</a></div><div class="ttdeci">void make_histogram(const IdxType nbins, KeyType max, KeyType min)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8C_source.html#l00048">parallel_histogram.C:48</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_aa67828354310f7e3ead1db7aa6331525"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#aa67828354310f7e3ead1db7aa6331525">libMesh::Parallel::Histogram::make_histogram</a></div><div class="ttdeci">void make_histogram(const IdxType nbins, KeyType max, KeyType min)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8C_source.html#l00046">parallel_histogram.C:46</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1BinSorter_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1BinSorter.html">libMesh::Parallel::BinSorter</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel__bin__sorter_8h_source.html#l00043">parallel_bin_sorter.h:43</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab3347ee25863a5deda233c8449a27cd4"><div class="ttname"><a href="namespacelibMesh.html#ab3347ee25863a5deda233c8449a27cd4">libMesh::comm</a></div><div class="ttdeci">void PetscPreconditioner&lt; T &gt;::set_petsc_subpreconditioner_type(PCType type, PC &amp;pc) void PetscPreconditioner&lt; T &gt; Parallel::communicator comm</div><div class="ttdef"><b>Definition:</b> <a href="petsc__preconditioner_8C_source.html#l00254">petsc_preconditioner.C:254</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ParallelObject_html"><div class="ttname"><a href="classlibMesh_1_1ParallelObject.html">libMesh::ParallelObject</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel__object_8h_source.html#l00048">parallel_object.h:48</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_ae720b2f2d8ecbac5b7ad6957deabd745"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#ae720b2f2d8ecbac5b7ad6957deabd745">libMesh::Parallel::Histogram::get_histogram</a></div><div class="ttdeci">const std::vector&lt; IdxType &gt; &amp; get_histogram() const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00104">parallel_histogram.h:104</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Parallel_html_a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e"><div class="ttname"><a href="namespacelibMesh_1_1Parallel.html#a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e">libMesh::Parallel::max</a></div><div class="ttdeci">void max(T &amp;r, const Communicator &amp;comm=Communicator_World)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00973">parallel_implementation.h:973</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html_ae720b2f2d8ecbac5b7ad6957deabd745"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html#ae720b2f2d8ecbac5b7ad6957deabd745">libMesh::Parallel::Histogram::get_histogram</a></div><div class="ttdeci">const std::vector&lt; IdxType &gt; &amp; get_histogram() const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00103">parallel_histogram.h:103</a></div></div>
+<div class="ttc" id="structlibMesh_1_1Parallel_1_1Utils_1_1Convert_html_a4dc455ba9e5eb8abbcaf395001dfc441"><div class="ttname"><a href="structlibMesh_1_1Parallel_1_1Utils_1_1Convert.html#a4dc455ba9e5eb8abbcaf395001dfc441">libMesh::Parallel::Utils::Convert::to_key_type</a></div><div class="ttdeci">static KeyType to_key_type(const double f)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00083">parallel_conversion_utils.h:83</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Parallel_html_a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e"><div class="ttname"><a href="namespacelibMesh_1_1Parallel.html#a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e">libMesh::Parallel::max</a></div><div class="ttdeci">void max(T &amp;r, const Communicator &amp;comm=Communicator_World)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00981">parallel_implementation.h:981</a></div></div>
+<div class="ttc" id="parallel__hilbert_8h_html"><div class="ttname"><a href="parallel__hilbert_8h.html">parallel_hilbert.h</a></div></div>
 <div class="ttc" id="parallel__bin__sorter_8h_html"><div class="ttname"><a href="parallel__bin__sorter_8h.html">parallel_bin_sorter.h</a></div></div>
 <div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1Histogram_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Histogram.html">libMesh::Parallel::Histogram</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel__histogram_8h_source.html#l00045">parallel_histogram.h:45</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Parallel_html_ac07b1aa13caefecc587d42f0036e3975"><div class="ttname"><a href="namespacelibMesh_1_1Parallel.html#ac07b1aa13caefecc587d42f0036e3975">libMesh::Parallel::min</a></div><div class="ttdeci">void min(T &amp;r, const Communicator &amp;comm=Communicator_World)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00962">parallel_implementation.h:962</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Parallel_html_ac07b1aa13caefecc587d42f0036e3975"><div class="ttname"><a href="namespacelibMesh_1_1Parallel.html#ac07b1aa13caefecc587d42f0036e3975">libMesh::Parallel::min</a></div><div class="ttdeci">void min(T &amp;r, const Communicator &amp;comm=Communicator_World)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00970">parallel_implementation.h:970</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Parallel_1_1Utils_html_afc715d5725049557cb14b6ffd28ce161"><div class="ttname"><a href="namespacelibMesh_1_1Parallel_1_1Utils.html#afc715d5725049557cb14b6ffd28ce161">libMesh::Parallel::Utils::to_double</a></div><div class="ttdeci">double to_double(const KeyType &amp;k)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00068">parallel_conversion_utils.h:68</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1BinSorter_html_a3a770577cb0c94e83d53dee2550a9425"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1BinSorter.html#a3a770577cb0c94e83d53dee2550a9425">libMesh::Parallel::BinSorter::binsort</a></div><div class="ttdeci">void binsort(const IdxType nbins, KeyType max, KeyType min)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__bin__sorter_8C_source.html#l00057">parallel_bin_sorter.C:57</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1BinSorter_html_a3a770577cb0c94e83d53dee2550a9425"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1BinSorter.html#a3a770577cb0c94e83d53dee2550a9425">libMesh::Parallel::BinSorter::binsort</a></div><div class="ttdeci">void binsort(const IdxType nbins, KeyType max, KeyType min)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__bin__sorter_8C_source.html#l00055">parallel_bin_sorter.C:55</a></div></div>
 <div class="ttc" id="parallel__histogram_8h_html"><div class="ttname"><a href="parallel__histogram_8h.html">parallel_histogram.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

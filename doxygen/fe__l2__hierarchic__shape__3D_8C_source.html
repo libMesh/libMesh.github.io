@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="fe__l2__hierarchic__shape__3D_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -130,7 +130,7 @@
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;Point get_min_point(<span class="keyword">const</span> Elem *elem,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;Point get_min_point(<span class="keyword">const</span> Elem * elem,</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a,</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c,</div>
@@ -140,13 +140,13 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                  <a class="code" href="namespacestd.html#a4444b32c7044d9b34125eaebd070a0e3">std::min</a>(elem-&gt;point(c),elem-&gt;point(d)));</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> cube_indices(<span class="keyword">const</span> Elem *elem,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> cube_indices(<span class="keyword">const</span> Elem * elem,</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> totalorder,</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp;xi, <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp;eta, <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp;zeta,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;i0,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;i1,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;i2)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; xi, <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; eta, <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; zeta,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp; i0,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp; i1,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp; i2)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">// The only way to make any sense of this</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// is to look at the mgflo/mg2/mgf documentation</span></div>
@@ -745,7 +745,7 @@
 <div class="line"><a name="l00645"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a5dbfadeecbf94d39ac78921022811569">  645</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,L2_HIERARCHIC&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                                <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp;)</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp;)</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;{</div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Hierarchic polynomials require the element type \nbecause edge and face orientation is needed.&quot;</span>);</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
@@ -754,10 +754,10 @@
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;</div>
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#afd6bccd6949efc653c2435f0b8edac5d">  657</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,L2_HIERARCHIC&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#afd6bccd6949efc653c2435f0b8edac5d">  657</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,L2_HIERARCHIC&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;                                <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;{</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="preprocessor">#if LIBMESH_DIM == 3</span></div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;</div>
@@ -807,7 +807,7 @@
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; )</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; )</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;{</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Hierarchic polynomials require the element type \nbecause edge and face orientation is needed.&quot;</span>);</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
@@ -816,11 +816,11 @@
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;</div>
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;</div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00719"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a6046b851c7d0309b2c8f5f850a48a6d1">  719</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,L2_HIERARCHIC&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00719"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a6046b851c7d0309b2c8f5f850a48a6d1">  719</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,L2_HIERARCHIC&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j,</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;{</div>
 <div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="preprocessor">#if LIBMESH_DIM == 3</span></div>
 <div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
@@ -876,7 +876,7 @@
 <div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
 <div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; )</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; )</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;{</div>
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Hierarchic polynomials require the element type \nbecause edge and face orientation is needed.&quot;</span>);</div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
@@ -885,11 +885,11 @@
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;</div>
 <div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00788"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a8e837521ff5ec93c92e5ad501b9dd83a">  788</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">FE&lt;3,L2_HIERARCHIC&gt;::shape_second_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00788"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a8e837521ff5ec93c92e5ad501b9dd83a">  788</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">FE&lt;3,L2_HIERARCHIC&gt;::shape_second_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j,</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;{</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;</div>
@@ -980,7 +980,7 @@
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2ab78e3815e3128908caf511b48dd451eb"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ab78e3815e3128908caf511b48dd451eb">libMesh::HEX8</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00044">enum_elem_type.h:44</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html"><div class="ttname"><a href="classlibMesh_1_1FE.html">libMesh::FE</a></div><div class="ttdef"><b>Definition:</b> <a href="fe_8h_source.html#l00088">fe.h:88</a></div></div>
 <div class="ttc" id="fe_8h_html"><div class="ttname"><a href="fe_8h.html">fe.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a965e7ab9d110cb4710b0813363a43566"><div class="ttname"><a href="namespacelibMesh.html#a965e7ab9d110cb4710b0813363a43566">libMesh::square_number_row</a></div><div class="ttdeci">const unsigned char square_number_row[]</div><div class="ttdef"><b>Definition:</b> <a href="number__lookups_8C_source.html#l00070">number_lookups.C:70</a></div></div>
 <div class="ttc" id="number__lookups_8h_html"><div class="ttname"><a href="number__lookups_8h.html">number_lookups.h</a></div></div>

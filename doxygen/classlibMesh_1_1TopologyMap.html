@@ -199,7 +199,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="topology__map_8h_source.html#l00107">_map</a>, <a class="el" href="dof__object_8h_source.html#l00619">libMesh::DofObject::id()</a>, <a class="el" href="dof__object_8h_source.html#l00335">libMesh::DofObject::invalid_id</a>, <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>, and <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00029">std::min()</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00103">libMesh::MeshRefinement::add_node()</a>, and <a class="el" href="topology__map_8C_source.html#l00143">fill()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00105">libMesh::MeshRefinement::add_node()</a>, and <a class="el" href="topology__map_8C_source.html#l00143">fill()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> mid_node_id = mid_node.id();</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
@@ -259,7 +259,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="topology__map_8h_source.html#l00107">_map</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00096">libMesh::MeshRefinement::clear()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00098">libMesh::MeshRefinement::clear()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{ <a class="code" href="classlibMesh_1_1TopologyMap.html#ab3fd7e6c4869fb40e123de1da069882a">_map</a>.clear(); }</div>
 <div class="ttc" id="classlibMesh_1_1TopologyMap_html_ab3fd7e6c4869fb40e123de1da069882a"><div class="ttname"><a href="classlibMesh_1_1TopologyMap.html#ab3fd7e6c4869fb40e123de1da069882a">libMesh::TopologyMap::_map</a></div><div class="ttdeci">map_type _map</div><div class="ttdef"><b>Definition:</b> <a href="topology__map_8h_source.html#l00107">topology_map.h:107</a></div></div>
 </div><!-- fragment -->
@@ -328,7 +328,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> = <a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>.elements_end();</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">for</span> (; it != <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>; ++it)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keyword">const</span> Elem* elem = *it;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keyword">const</span> Elem * elem = *it;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="comment">// We only need to add nodes which might be added during mesh</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="comment">// refinement; this means they need to be child nodes.</span></div>
@@ -351,7 +351,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
-<div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l00920">mesh_communication.C:920</a></div></div>
+<div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l00924">mesh_communication.C:924</a></div></div>
 <div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TopologyMap_html_a469db9c0543f0354732a9364bb921d58"><div class="ttname"><a href="classlibMesh_1_1TopologyMap.html#a469db9c0543f0354732a9364bb921d58">libMesh::TopologyMap::add_node</a></div><div class="ttdeci">void add_node(const Node &amp;mid_node, const std::vector&lt; std::pair&lt; dof_id_type, dof_id_type &gt; &gt; &amp;bracketing_nodes)</div><div class="ttdef"><b>Definition:</b> <a href="topology__map_8C_source.html#l00056">topology_map.C:56</a></div></div>
 </div><!-- fragment -->
@@ -385,7 +385,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="topology__map_8h_source.html#l00107">_map</a>, <a class="el" href="dof__object_8h_source.html#l00335">libMesh::DofObject::invalid_id</a>, <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>, and <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00029">std::min()</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00103">libMesh::MeshRefinement::add_node()</a>, and <a class="el" href="topology__map_8C_source.html#l00086">find()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00105">libMesh::MeshRefinement::add_node()</a>, and <a class="el" href="topology__map_8C_source.html#l00086">find()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> lower_id = <a class="code" href="namespacestd.html#a4444b32c7044d9b34125eaebd070a0e3">std::min</a>(bracket_node1, bracket_node2);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> upper_id = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a>(bracket_node1, bracket_node2);</div>
@@ -484,7 +484,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="topology__map_8h_source.html#l00107">_map</a>, <a class="el" href="parallel__object_8h_source.html#l00087">libMesh::ParallelObject::comm()</a>, <a class="el" href="topology__map_8C_source.html#l00143">fill()</a>, <a class="el" href="mesh__base_8h_source.html#l00134">libMesh::MeshBase::is_serial()</a>, <a class="el" href="namespacelibMesh.html#aba4e7b024f88416601a12d74a3ca2d26">libMesh::libmesh_parallel_only()</a>, <a class="el" href="namespacelibMesh.html#a7548a5faa85e5027223ef5c57d792445">libMesh::START_LOG()</a>, and <a class="el" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">libMesh::STOP_LOG()</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00335">libMesh::MeshRefinement::update_nodes_map()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l00336">libMesh::MeshRefinement::update_nodes_map()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">// This function must be run on all processors at once</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// for non-serial meshes</span></div>
@@ -501,7 +501,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">STOP_LOG</a>(<span class="stringliteral">&quot;init()&quot;</span>, <span class="stringliteral">&quot;TopologyMap&quot;</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_html_aefa921f501605f00f5881b914fca3eeb"><div class="ttname"><a href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">libMesh::STOP_LOG</a></div><div class="ttdeci">STOP_LOG(&quot;std::sqrt()&quot;,&quot;ExactErrorEstimator&quot;)</div></div>
-<div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l00920">mesh_communication.C:920</a></div></div>
+<div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l00924">mesh_communication.C:924</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TopologyMap_html_ad99ee1139106191dda825122924c9032"><div class="ttname"><a href="classlibMesh_1_1TopologyMap.html#ad99ee1139106191dda825122924c9032">libMesh::TopologyMap::fill</a></div><div class="ttdeci">void fill(const MeshBase &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="topology__map_8C_source.html#l00143">topology_map.C:143</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_aba4e7b024f88416601a12d74a3ca2d26"><div class="ttname"><a href="namespacelibMesh.html#aba4e7b024f88416601a12d74a3ca2d26">libMesh::libmesh_parallel_only</a></div><div class="ttdeci">libmesh_parallel_only(this-&gt;comm())</div></div>
 <div class="ttc" id="classlibMesh_1_1TopologyMap_html_ab3fd7e6c4869fb40e123de1da069882a"><div class="ttname"><a href="classlibMesh_1_1TopologyMap.html#ab3fd7e6c4869fb40e123de1da069882a">libMesh::TopologyMap::_map</a></div><div class="ttdeci">map_type _map</div><div class="ttdef"><b>Definition:</b> <a href="topology__map_8h_source.html#l00107">topology_map.h:107</a></div></div>

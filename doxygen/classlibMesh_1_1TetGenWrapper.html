@@ -265,7 +265,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00281">281</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00272">set_facet_numberofholes()</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00264">set_facet_numberofpolygons()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
+<p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00272">set_facet_numberofholes()</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00264">set_facet_numberofpolygons()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00163">libMesh::TetGenMeshInterface::triangulate_conformingDelaunayMesh_carvehole()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;{</div>
@@ -276,7 +276,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keywordflow">if</span> (numofpolygons &gt; 0)</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    {</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist != NULL)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
@@ -287,6 +287,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_af05b782a10095ca2b634d5df9934ebd5"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#af05b782a10095ca2b634d5df9934ebd5">libMesh::TetGenWrapper::set_facet_numberofpolygons</a></div><div class="ttdeci">void set_facet_numberofpolygons(unsigned i, int num)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00264">mesh_tetgen_wrapper.C:264</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_afce889bc686bafecca5768cba5d449b4"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#afce889bc686bafecca5768cba5d449b4">libMesh::TetGenWrapper::set_facet_numberofholes</a></div><div class="ttdeci">void set_facet_numberofholes(unsigned i, int num)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00272">mesh_tetgen_wrapper.C:272</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 </div><!-- fragment -->
@@ -319,7 +320,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00212">212</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00188">set_numberoffacets()</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00196">set_numberofholes()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
+<p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00188">set_numberoffacets()</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00196">set_numberofholes()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00163">libMesh::TetGenMeshInterface::triangulate_conformingDelaunayMesh_carvehole()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
@@ -331,7 +332,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberoffacets &gt; 0)</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    {</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist != NULL)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
@@ -346,12 +347,13 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofholes &gt; 0)</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    {</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist != NULL)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist = <span class="keyword">new</span> <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a>[this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofholes * 3];</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a758781798d73fb30a00f22887f2fa966"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a758781798d73fb30a00f22887f2fa966">libMesh::TetGenWrapper::set_numberoffacets</a></div><div class="ttdeci">void set_numberoffacets(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00188">mesh_tetgen_wrapper.C:188</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a1e82fa346933f46b0f2e09213e9ef039"><div class="ttname"><a href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">libMesh::REAL</a></div><div class="ttdeci">Real REAL</div><div class="ttdef"><b>Definition:</b> <a href="mesh__triangle__wrapper_8h_source.html#l00036">mesh_triangle_wrapper.h:36</a></div></div>
@@ -376,7 +378,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00140">140</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00072">set_numberofpoints()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
+<p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00072">set_numberofpoints()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00340">libMesh::TetGenMeshInterface::fill_pointlist()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
@@ -387,7 +389,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofpoints &gt; 0)</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist != NULL)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor will delete it.</span></div>
@@ -395,6 +397,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_aaaf98e413df6c813c2828ecc3a63cfae"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#aaaf98e413df6c813c2828ecc3a63cfae">libMesh::TetGenWrapper::set_numberofpoints</a></div><div class="ttdeci">void set_numberofpoints(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00072">mesh_tetgen_wrapper.C:72</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a1e82fa346933f46b0f2e09213e9ef039"><div class="ttname"><a href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">libMesh::REAL</a></div><div class="ttdeci">Real REAL</div><div class="ttdef"><b>Definition:</b> <a href="mesh__triangle__wrapper_8h_source.html#l00036">mesh_triangle_wrapper.h:36</a></div></div>
 </div><!-- fragment -->
@@ -433,7 +436,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00311">311</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00303">set_polygon_numberofvertices()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
+<p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00303">set_polygon_numberofvertices()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00163">libMesh::TetGenMeshInterface::triangulate_conformingDelaunayMesh_carvehole()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
@@ -443,7 +446,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keywordflow">if</span> (numofvertices &gt; 0)</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    {</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist[j].vertexlist != NULL)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist[j].vertexlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
@@ -451,6 +454,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a4d0c765c72d52d84a0991e3385671c97"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a4d0c765c72d52d84a0991e3385671c97">libMesh::TetGenWrapper::set_polygon_numberofvertices</a></div><div class="ttdeci">void set_polygon_numberofvertices(unsigned i, unsigned j, int num)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00303">mesh_tetgen_wrapper.C:303</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -472,7 +476,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00246">246</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00204">set_numberofregions()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
+<p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00204">set_numberofregions()</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>.</p>
 <div class="fragment"><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a363fd5acaef01783488d5ea5294f81d2">set_numberofregions</a>(numofregions);</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
@@ -480,7 +484,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofregions &gt; 0)</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist != NULL)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
@@ -488,6 +492,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a363fd5acaef01783488d5ea5294f81d2"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a363fd5acaef01783488d5ea5294f81d2">libMesh::TetGenWrapper::set_numberofregions</a></div><div class="ttdeci">void set_numberofregions(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00204">mesh_tetgen_wrapper.C:204</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a1e82fa346933f46b0f2e09213e9ef039"><div class="ttname"><a href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">libMesh::REAL</a></div><div class="ttdeci">Real REAL</div><div class="ttdef"><b>Definition:</b> <a href="mesh__triangle__wrapper_8h_source.html#l00036">mesh_triangle_wrapper.h:36</a></div></div>
 </div><!-- fragment -->
@@ -690,7 +695,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  y = <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a8fc408001057b9afa6a7117459d7a52e">tetgen_output</a>-&gt;pointlist[3*i+1];</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  z = <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a8fc408001057b9afa6a7117459d7a52e">tetgen_output</a>-&gt;pointlist[3*i+2];</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00143">petsc_diff_solver.C:143</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a8fc408001057b9afa6a7117459d7a52e"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a8fc408001057b9afa6a7117459d7a52e">libMesh::TetGenWrapper::tetgen_output</a></div><div class="ttdeci">tetgenio * tetgen_output</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00226">mesh_tetgen_wrapper.h:226</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -876,7 +881,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00062">62</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00143">libMesh::x</a>.</p>
+<p>References <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00142">libMesh::x</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00163">libMesh::TetGenMeshInterface::triangulate_conformingDelaunayMesh_carvehole()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
@@ -885,7 +890,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist[index++] = y;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist[index++] = z;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00143">petsc_diff_solver.C:143</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -929,7 +934,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00052">52</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00143">libMesh::x</a>.</p>
+<p>References <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00142">libMesh::x</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00340">libMesh::TetGenMeshInterface::fill_pointlist()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
@@ -938,7 +943,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist[index++] = y;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist[index++] = z;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00143">petsc_diff_solver.C:143</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1150,7 +1155,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00338">338</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00143">libMesh::x</a>.</p>
+<p>References <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00221">tetgen_data</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00142">libMesh::x</a>.</p>
 <div class="fragment"><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;{</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <span class="keywordtype">unsigned</span> index = i*5;</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>;</div>
@@ -1159,7 +1164,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = attribute;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = vol_constraint;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00143">petsc_diff_solver.C:143</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00221">mesh_tetgen_wrapper.h:221</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1181,12 +1186,12 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tetgen__wrapper_8C_source.html#l00159">159</a> of file <a class="el" href="mesh__tetgen__wrapper_8C_source.html">mesh_tetgen_wrapper.C</a>.</p>
 
-<p>References <a class="el" href="libmesh__common_8h_source.html#l00231">libMesh::out</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00236">tetgen_be</a>.</p>
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00234">libMesh::out</a>, and <a class="el" href="mesh__tetgen__wrapper_8h_source.html#l00236">tetgen_be</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tetgen__interface_8C_source.html#l00100">libMesh::TetGenMeshInterface::pointset_convexhull()</a>, <a class="el" href="mesh__tetgen__interface_8C_source.html#l00163">libMesh::TetGenMeshInterface::triangulate_conformingDelaunayMesh_carvehole()</a>, and <a class="el" href="mesh__tetgen__interface_8C_source.html#l00046">libMesh::TetGenMeshInterface::triangulate_pointset()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="comment">// A temporary buffer for passing to the C API, it requires</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="comment">// a char*, not a const char*...</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="comment">// a char *, not a const char *...</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="keywordtype">char</span> buffer[256];</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="comment">// Make sure char buffer has enough room</span></div>
@@ -1202,7 +1207,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;TetGen replies: Wrong switches!&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a945509dbfddbed16d2ab9b0d55416c53"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a945509dbfddbed16d2ab9b0d55416c53">libMesh::TetGenWrapper::tetgen_be</a></div><div class="ttdeci">tetgenbehavior tetgen_be</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00236">mesh_tetgen_wrapper.h:236</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00231">libmesh_common.h:231</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00234">libmesh_common.h:234</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

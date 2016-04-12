@@ -189,12 +189,12 @@ Static Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ab67efdc0b561afe8f44d1166c3fd8c73"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBThetaExpansion.html#ab67efdc0b561afe8f44d1166c3fd8c73">_A_theta_vector</a></td></tr>
-<tr class="separator:ab67efdc0b561afe8f44d1166c3fd8c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d04a275a710356928c4b1ec8a1aedde"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBThetaExpansion.html#a0d04a275a710356928c4b1ec8a1aedde">_F_theta_vector</a></td></tr>
-<tr class="separator:a0d04a275a710356928c4b1ec8a1aedde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c43f0435080eeeff34731ec580c192f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBThetaExpansion.html#a1c43f0435080eeeff34731ec580c192f">_output_theta_vector</a></td></tr>
-<tr class="separator:a1c43f0435080eeeff34731ec580c192f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92b602b055b79d3dffa4c9b4cbe3480a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBThetaExpansion.html#a92b602b055b79d3dffa4c9b4cbe3480a">_A_theta_vector</a></td></tr>
+<tr class="separator:a92b602b055b79d3dffa4c9b4cbe3480a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1c632d1fb3f724eaa0f9cd89968128"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBThetaExpansion.html#a5a1c632d1fb3f724eaa0f9cd89968128">_F_theta_vector</a></td></tr>
+<tr class="separator:a5a1c632d1fb3f724eaa0f9cd89968128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804dc7c1adb4581162aafba779c145ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBThetaExpansion.html#a804dc7c1adb4581162aafba779c145ca">_output_theta_vector</a></td></tr>
+<tr class="separator:a804dc7c1adb4581162aafba779c145ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class stores the set of <a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> functor objects that define the "parameter-dependent expansion" of a PDE.</p>
@@ -751,17 +751,17 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00159">159</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00048">libMesh::Threads::spin_mtx</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
 
 <p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00074">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::ReferenceCountedObject()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt;&amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  p.first++;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00048">threads.C:48</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00114">reference_counter.h:114</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -791,17 +791,17 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00172">172</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00048">libMesh::Threads::spin_mtx</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
 
 <p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00101">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::~ReferenceCountedObject()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt;&amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  p.second++;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00048">threads.C:48</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00114">reference_counter.h:114</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -871,7 +871,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab67efdc0b561afe8f44d1166c3fd8c73"></a>
+<a class="anchor" id="a92b602b055b79d3dffa4c9b4cbe3480a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -879,7 +879,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a>*&gt; libMesh::RBThetaExpansion::_A_theta_vector</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> *&gt; libMesh::RBThetaExpansion::_A_theta_vector</td>
         </tr>
       </table>
   </td>
@@ -944,7 +944,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0d04a275a710356928c4b1ec8a1aedde"></a>
+<a class="anchor" id="a5a1c632d1fb3f724eaa0f9cd89968128"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -952,7 +952,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a>*&gt; libMesh::RBThetaExpansion::_F_theta_vector</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> *&gt; libMesh::RBThetaExpansion::_F_theta_vector</td>
         </tr>
       </table>
   </td>
@@ -1015,7 +1015,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1c43f0435080eeeff34731ec580c192f"></a>
+<a class="anchor" id="a804dc7c1adb4581162aafba779c145ca"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1023,7 +1023,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::vector&lt;<a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a>*&gt; &gt; libMesh::RBThetaExpansion::_output_theta_vector</td>
+          <td class="memname">std::vector&lt; std::vector&lt;<a class="el" href="classlibMesh_1_1RBTheta.html">RBTheta</a> *&gt; &gt; libMesh::RBThetaExpansion::_output_theta_vector</td>
         </tr>
       </table>
   </td>

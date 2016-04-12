@@ -176,12 +176,12 @@ template&lt;class EdgeType , class ParentType &gt; </div>
 
 <p>References <a class="el" href="side_8h_source.html#l00154">libMesh::SideEdge&lt; EdgeType, ParentType &gt;::_edge_number</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00216">libMesh::dim</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, and <a class="el" href="tecplot__io_8C_source.html#l00067">n_nodes</a>.</p>
 <div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                        :</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    EdgeType(const_cast&lt;Elem*&gt;(my_parent)),</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    EdgeType(const_cast&lt;Elem *&gt;(my_parent)),</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="classlibMesh_1_1SideEdge.html#ac2c8d2f7b63fda8a32e8160d8a0347e9">_edge_number</a>(my_edge)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  {</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(my_parent);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    libmesh_assert_less (<a class="code" href="classlibMesh_1_1SideEdge.html#ac2c8d2f7b63fda8a32e8160d8a0347e9">_edge_number</a>, this-&gt;parent()-&gt;n_edges());</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    libmesh_assert_equal_to (this-&gt;<a class="code" href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">dim</a>(), 1);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    libmesh_assert_equal_to (this-&gt;<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>(), 1);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n=0; n != this-&gt;<a class="code" href="tecplot__io_8C.html#ae4aba5fa8c8579c6576b4f087aefb091">n_nodes</a>(); ++n)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      this-&gt;_nodes[n] = this-&gt;parent()-&gt;get_node</div>
@@ -189,8 +189,8 @@ template&lt;class EdgeType , class ParentType &gt; </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  }</div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="classlibMesh_1_1SideEdge_html_ac2c8d2f7b63fda8a32e8160d8a0347e9"><div class="ttname"><a href="classlibMesh_1_1SideEdge.html#ac2c8d2f7b63fda8a32e8160d8a0347e9">libMesh::SideEdge::_edge_number</a></div><div class="ttdeci">const unsigned int _edge_number</div><div class="ttdef"><b>Definition:</b> <a href="side_8h_source.html#l00154">side.h:154</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a9f6093a95a75383d32010e7f2fc5de2b"><div class="ttname"><a href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">libMesh::dim</a></div><div class="ttdeci">void ExactErrorEstimator::estimate_error(const System &amp;system, ErrorVector &amp;error_per_cell, const NumericVector&lt; Number &gt; *solution_vector, bool estimate_parent_error) void ExactErrorEstimator const unsigned in dim)</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8C_source.html#l00216">exact_error_estimator.C:216</a></div></div>
 <div class="ttc" id="tecplot__io_8C_html_ae4aba5fa8c8579c6576b4f087aefb091"><div class="ttname"><a href="tecplot__io_8C.html#ae4aba5fa8c8579c6576b4f087aefb091">n_nodes</a></div><div class="ttdeci">const dof_id_type n_nodes</div><div class="ttdef"><b>Definition:</b> <a href="tecplot__io_8C_source.html#l00067">tecplot_io.C:67</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aec85627a1c7c19f9378a065ba5a11b51"><div class="ttname"><a href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">libMesh::dim</a></div><div class="ttdeci">void ExactErrorEstimator::estimate_error(const System &amp;system, ErrorVector &amp;error_per_cell, const NumericVector&lt; Number &gt; *solution_vector, bool estimate_parent_error) void ExactErrorEstimator const unsigned in dim)</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8C_source.html#l00216">exact_error_estimator.C:216</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

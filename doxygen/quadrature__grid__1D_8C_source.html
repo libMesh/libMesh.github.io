@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="quadrature__grid__1D_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -127,7 +127,7 @@
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGrid.html#a6cdf51e0859b7ebb32f86a057999a833">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGrid.html#a6cdf51e0859b7ebb32f86a057999a833">QGrid::init_1D</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> QGrid::init_1D(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">//----------------------------------------------------------------------</span></div>
@@ -135,26 +135,22 @@
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// We ignore p - the grid rule is just for experimentation</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.resize(<a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a> + 1);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>.resize(<a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a> + 1);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> dx = <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>(2)/(<a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a>+1);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i != <a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a> + 1; ++i)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  _points.resize(_order + 1);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  _weights.resize(_order + 1);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> dx = <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>(2)/(_order+1);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i != _order + 1; ++i)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[i](0) = (i+0.5)*dx-1;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>[i] = dx;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      _points[i](0) = (i+0.5)*dx-1;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      _weights[i] = dx;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QGrid_html_a6cdf51e0859b7ebb32f86a057999a833"><div class="ttname"><a href="classlibMesh_1_1QGrid.html#a6cdf51e0859b7ebb32f86a057999a833">libMesh::QGrid::init_1D</a></div><div class="ttdeci">virtual void init_1D(const ElemType _type=INVALID_ELEM, unsigned int p_level=0) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__grid__1D_8C_source.html#l00030">quadrature_grid_1D.C:30</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a1441476b56fadfe883bc33bc4df93143"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">libMesh::QBase::_points</a></div><div class="ttdeci">std::vector&lt; Point &gt; _points</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00339">quadrature.h:339</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_aa77bcb5a61b21af01c0ebaca722631d1"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">libMesh::QBase::_weights</a></div><div class="ttdeci">std::vector&lt; Real &gt; _weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00344">quadrature.h:344</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="quadrature__grid_8h_html"><div class="ttname"><a href="quadrature__grid_8h.html">quadrature_grid.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a56351aa7f267b005de6b67f5cfc7f88f"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">libMesh::QBase::_order</a></div><div class="ttdeci">const Order _order</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00321">quadrature.h:321</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

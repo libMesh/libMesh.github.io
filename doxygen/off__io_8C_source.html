@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="off__io_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -132,7 +132,7 @@
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// OFFIO class members</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classlibMesh_1_1OFFIO.html#afef3df46e0a5acf57b385fc754eff4df">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1OFFIO.html#afef3df46e0a5acf57b385fc754eff4df">OFFIO::read</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classlibMesh_1_1OFFIO.html#afef3df46e0a5acf57b385fc754eff4df">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1OFFIO.html#afef3df46e0a5acf57b385fc754eff4df">OFFIO::read</a>(<span class="keyword">const</span> std::string &amp; <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  std::ifstream in (name.c_str());</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
@@ -141,7 +141,7 @@
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classlibMesh_1_1OFFIO.html#a3aaa917177d9c925207f2ff6988029fe">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1OFFIO.html#a3aaa917177d9c925207f2ff6988029fe">OFFIO::read_stream</a>(std::istream&amp; in)</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classlibMesh_1_1OFFIO.html#a3aaa917177d9c925207f2ff6988029fe">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1OFFIO.html#a3aaa917177d9c925207f2ff6988029fe">OFFIO::read_stream</a>(std::istream &amp; in)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">// This is a serial-only process for now;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">// the Mesh should be read on processor 0 and</span></div>
@@ -149,7 +149,7 @@
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  libmesh_assert_equal_to (this-&gt;<a class="code" href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">mesh</a>().<a class="code" href="namespacelibMesh.html#a63667b01401e7a85be16d57834b020ed">processor_id</a>(), 0);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">// Get a reference to the mesh</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="classlibMesh_1_1MeshBase.html">MeshBase</a>&amp; the_mesh = <a class="code" href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">MeshInput&lt;MeshBase&gt;::mesh</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp; the_mesh = <a class="code" href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">MeshInput&lt;MeshBase&gt;::mesh</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">// Clear any existing mesh data</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  the_mesh.<a class="code" href="classlibMesh_1_1MeshBase.html#a96d8f46093558e6c54de2743570c778d">clear</a>();</div>
@@ -206,7 +206,7 @@
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keywordflow">switch</span> (nv)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">case</span> 2:</div>
@@ -244,14 +244,14 @@
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a9361e2879e37831f80afb43b762d651f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">libMesh::MeshBase::add_point</a></div><div class="ttdeci">virtual Node * add_point(const Point &amp;p, const dof_id_type id=DofObject::invalid_id, const processor_id_type proc_id=DofObject::invalid_processor_id)=0</div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html">libMesh::MeshBase</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00067">mesh_base.h:67</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DofObject_html_a7efffd05f7f97d503c12c0cbf8fb9862"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#a7efffd05f7f97d503c12c0cbf8fb9862">libMesh::DofObject::set_id</a></div><div class="ttdeci">dof_id_type &amp; set_id()</div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00628">dof_object.h:628</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00143">petsc_diff_solver.C:143</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OFFIO_html_a3aaa917177d9c925207f2ff6988029fe"><div class="ttname"><a href="classlibMesh_1_1OFFIO.html#a3aaa917177d9c925207f2ff6988029fe">libMesh::OFFIO::read_stream</a></div><div class="ttdeci">void read_stream(std::istream &amp;in)</div><div class="ttdef"><b>Definition:</b> <a href="off__io_8C_source.html#l00044">off_io.C:44</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a5ab834283fa6bc335ad623d2b737ec5e"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a5ab834283fa6bc335ad623d2b737ec5e">libMesh::MeshBase::add_elem</a></div><div class="ttdeci">virtual Elem * add_elem(Elem *e)=0</div></div>
 <div class="ttc" id="edge__edge2_8h_html"><div class="ttname"><a href="edge__edge2_8h.html">edge_edge2.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a662ea30f731be915240dcf3be097336f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a662ea30f731be915240dcf3be097336f">libMesh::MeshBase::set_mesh_dimension</a></div><div class="ttdeci">void set_mesh_dimension(unsigned char d)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00165">mesh_base.h:165</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OFFIO_html_afef3df46e0a5acf57b385fc754eff4df"><div class="ttname"><a href="classlibMesh_1_1OFFIO.html#afef3df46e0a5acf57b385fc754eff4df">libMesh::OFFIO::read</a></div><div class="ttdeci">virtual void read(const std::string &amp;name) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="off__io_8C_source.html#l00035">off_io.C:35</a></div></div>
-<div class="ttc" id="classlibMesh_1_1MeshBase_html_a96d8f46093558e6c54de2743570c778d"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a96d8f46093558e6c54de2743570c778d">libMesh::MeshBase::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00203">mesh_base.C:203</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a96d8f46093558e6c54de2743570c778d"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a96d8f46093558e6c54de2743570c778d">libMesh::MeshBase::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00238">mesh_base.C:238</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Edge2_html"><div class="ttname"><a href="classlibMesh_1_1Edge2.html">libMesh::Edge2</a></div><div class="ttdef"><b>Definition:</b> <a href="edge__edge2_8h_source.html#l00043">edge_edge2.h:43</a></div></div>
 <div class="ttc" id="off__io_8h_html"><div class="ttname"><a href="off__io_8h.html">off_io.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_abc2fd76e7bf6c200f5e8849dfca9cd03"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">libMesh::MeshBase::node_ptr</a></div><div class="ttdeci">virtual const Node * node_ptr(const dof_id_type i) const =0</div></div>

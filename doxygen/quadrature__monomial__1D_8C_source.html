@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="quadrature__monomial__1D_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -126,29 +126,21 @@
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QMonomial.html#a3a9eb8de10a5f5c876850e2737f06aa5">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QMonomial.html#a3a9eb8de10a5f5c876850e2737f06aa5">QMonomial::init_1D</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> _elemtype,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> QMonomial::init_1D(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> _elemtype,</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classlibMesh_1_1QGauss.html">QGauss</a> gauss_rule(1, <a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  gauss_rule.<a class="code" href="classlibMesh_1_1QBase.html#a209fa2f26083d1256e389fe90176325a">init</a>(_elemtype, p);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  QGauss gauss_rule(1, _order);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  gauss_rule.init(_elemtype, p);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.swap(gauss_rule.<a class="code" href="classlibMesh_1_1QBase.html#ad8d49997a7441bc59f3a44f77fae4852">get_points</a>());</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>.swap(gauss_rule.<a class="code" href="classlibMesh_1_1QBase.html#a2edd6df821d4beabee5c354982b77ad7">get_weights</a>());</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  _points.swap(gauss_rule.get_points());</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  _weights.swap(gauss_rule.get_weights());</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a209fa2f26083d1256e389fe90176325a"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a209fa2f26083d1256e389fe90176325a">libMesh::QBase::init</a></div><div class="ttdeci">virtual void init(const ElemType type=INVALID_ELEM, unsigned int p_level=0)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8C_source.html#l00028">quadrature.C:28</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a1441476b56fadfe883bc33bc4df93143"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">libMesh::QBase::_points</a></div><div class="ttdeci">std::vector&lt; Point &gt; _points</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00339">quadrature.h:339</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_aa77bcb5a61b21af01c0ebaca722631d1"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">libMesh::QBase::_weights</a></div><div class="ttdeci">std::vector&lt; Real &gt; _weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00344">quadrature.h:344</a></div></div>
 <div class="ttc" id="quadrature__monomial_8h_html"><div class="ttname"><a href="quadrature__monomial_8h.html">quadrature_monomial.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a2edd6df821d4beabee5c354982b77ad7"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a2edd6df821d4beabee5c354982b77ad7">libMesh::QBase::get_weights</a></div><div class="ttdeci">const std::vector&lt; Real &gt; &amp; get_weights() const </div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00139">quadrature.h:139</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_ad8d49997a7441bc59f3a44f77fae4852"><div class="ttname"><a href="classlibMesh_1_1QBase.html#ad8d49997a7441bc59f3a44f77fae4852">libMesh::QBase::get_points</a></div><div class="ttdeci">const std::vector&lt; Point &gt; &amp; get_points() const </div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00128">quadrature.h:128</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QGauss_html"><div class="ttname"><a href="classlibMesh_1_1QGauss.html">libMesh::QGauss</a></div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss_8h_source.html#l00040">quadrature_gauss.h:40</a></div></div>
 <div class="ttc" id="quadrature__gauss_8h_html"><div class="ttname"><a href="quadrature__gauss_8h.html">quadrature_gauss.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QMonomial_html_a3a9eb8de10a5f5c876850e2737f06aa5"><div class="ttname"><a href="classlibMesh_1_1QMonomial.html#a3a9eb8de10a5f5c876850e2737f06aa5">libMesh::QMonomial::init_1D</a></div><div class="ttdeci">virtual void init_1D(const ElemType, unsigned int=0) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__monomial__1D_8C_source.html#l00029">quadrature_monomial_1D.C:29</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a56351aa7f267b005de6b67f5cfc7f88f"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">libMesh::QBase::_order</a></div><div class="ttdeci">const Order _order</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00321">quadrature.h:321</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

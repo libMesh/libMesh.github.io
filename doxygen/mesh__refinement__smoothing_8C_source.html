@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="mesh__refinement__smoothing_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -155,7 +155,7 @@
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> elem_level =</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;          cast_int&lt;unsigned char&gt;(elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>() +</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                  ((elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a174bfe5b3d22e2b79000bfc816f633e6">refinement_flag</a>() == <a class="code" href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b">Elem::REFINE</a>) ? 1 : 0));</div>
@@ -189,7 +189,7 @@
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> elem_level = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>();</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> elem_p_level = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">p_level</a>();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
@@ -256,7 +256,7 @@
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> elem_level =</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          cast_int&lt;unsigned char&gt;(elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>() +</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                                  ((elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a174bfe5b3d22e2b79000bfc816f633e6">refinement_flag</a>() == <a class="code" href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b">Elem::REFINE</a>) ? 1 : 0));</div>
@@ -273,7 +273,7 @@
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">if</span> (childnode1 &lt; childnode0)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;              <a class="code" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">std::swap</a>(childnode0, childnode1);</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *p = elem; p != NULL; p = p-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cdd994bb4245128f8617b62d7968e35">parent</a>())</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * p = elem; p != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>; p = p-&gt;parent())</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;              {</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> pedge = p-&gt;build_edge(n);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> node0 = pedge-&gt;node(0);</div>
@@ -324,7 +324,7 @@
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      {</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> elem_level = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>();</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> elem_p_level = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">p_level</a>();</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
@@ -390,7 +390,7 @@
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="comment">// If we don&#39;t have an interior_parent then there&#39;s nothing to</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="comment">// be mismatched with.</span></div>
@@ -406,15 +406,15 @@
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                                  ((elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a53a98cf29aef9af6292c812d7b905c18">p_refinement_flag</a>() == <a class="code" href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b">Elem::REFINE</a>) ? 1 : 0));</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="comment">// get all relevant interior elements</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        std::set&lt;const Elem*&gt; neighbor_set;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        std::set&lt;const Elem *&gt; neighbor_set;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a6180b7cae030fc18b139b02e9c3b7c4b">find_interior_neighbors</a>(neighbor_set);</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        std::set&lt;const Elem*&gt;::iterator n_it = neighbor_set.begin();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        std::set&lt;const Elem *&gt;::iterator n_it = neighbor_set.begin();</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">for</span> (; n_it != neighbor_set.end(); ++n_it)</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;          {</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <span class="comment">// FIXME - non-const versions of the Elem set methods</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <span class="comment">// would be nice</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* neighbor = <span class="keyword">const_cast&lt;</span><a class="code" href="classlibMesh_1_1Elem.html">Elem</a>*<span class="keyword">&gt;</span>(*n_it);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * neighbor = <span class="keyword">const_cast&lt;</span><a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *<span class="keyword">&gt;</span>(*n_it);</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="keywordflow">if</span> (max_mismatch &gt;= 0)</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;              {</div>
@@ -458,7 +458,7 @@
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="comment">// If we don&#39;t have an interior_parent then there&#39;s nothing to</span></div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        <span class="comment">// be mismatched with.</span></div>
@@ -467,15 +467,15 @@
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;          <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="comment">// get all relevant interior elements</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        std::set&lt;const Elem*&gt; neighbor_set;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        std::set&lt;const Elem *&gt; neighbor_set;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a6180b7cae030fc18b139b02e9c3b7c4b">find_interior_neighbors</a>(neighbor_set);</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        std::set&lt;const Elem*&gt;::iterator n_it = neighbor_set.begin();</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        std::set&lt;const Elem *&gt;::iterator n_it = neighbor_set.begin();</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordflow">for</span> (; n_it != neighbor_set.end(); ++n_it)</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;          {</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            <span class="comment">// FIXME - non-const versions of the Elem set methods</span></div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="comment">// would be nice</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* neighbor = *n_it;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * neighbor = *n_it;</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> neighbor_level =</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;              cast_int&lt;unsigned char&gt;(neighbor-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>() +</div>
@@ -527,7 +527,7 @@
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;  <span class="keywordflow">for</span> (; elem_it != elem_end; ++elem_it)</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    {</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem = *elem_it;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *elem_it;</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;      <span class="comment">// First assume that we&#39;ll have to flag this element for both h</span></div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      <span class="comment">// and p refinement, then change our minds if we see any</span></div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      <span class="comment">// neighbors that are as coarse or coarser than us.</span></div>
@@ -570,9 +570,9 @@
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;      <span class="comment">// Check all the element neighbors</span></div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n=0; n&lt;elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#adf36086a897fdef3a88deec071ca5dfd">n_neighbors</a>(); n++)</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        {</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *neighbor = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a06576c749e62f4a5962e112e5441c31b">neighbor</a>(n);</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * neighbor = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a06576c749e62f4a5962e112e5441c31b">neighbor</a>(n);</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;          <span class="comment">// Quit if the element is on a local boundary</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;          <span class="keywordflow">if</span> (neighbor == NULL || neighbor == <a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>)</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;          <span class="keywordflow">if</span> (neighbor == <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> || neighbor == <a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>)</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            {</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;              h_flag_me = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;              p_flag_me = <span class="keyword">false</span>;</div>
@@ -678,7 +678,7 @@
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;</div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;</div>
-<div class="line"><a name="l00581"></a><span class="lineno"><a class="line" href="classlibMesh_1_1MeshRefinement.html#a8651f3ae66141c3270f519d8bdd7efe5">  581</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1MeshRefinement.html#a4e18ee522c67a8eb52dd58f6374686d2">MeshRefinement::enforce_mismatch_limit_prior_to_refinement</a>(<a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00581"></a><span class="lineno"><a class="line" href="classlibMesh_1_1MeshRefinement.html#a8651f3ae66141c3270f519d8bdd7efe5">  581</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1MeshRefinement.html#a4e18ee522c67a8eb52dd58f6374686d2">MeshRefinement::enforce_mismatch_limit_prior_to_refinement</a>(<a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                                                                <a class="code" href="classlibMesh_1_1MeshRefinement.html#a3b5e2d673faf6f8d4db8b2da3e1f8824">NeighborType</a> nt,</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                                                                <span class="keywordtype">unsigned</span> max_mismatch)</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;{</div>
@@ -693,7 +693,7 @@
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    {</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;      <span class="comment">// get all the relevant neighbors since we may have to refine</span></div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;      <span class="comment">// elements off edges or corners as well</span></div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;      std::set&lt;const Elem*&gt; neighbor_set;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;      std::set&lt;const Elem *&gt; neighbor_set;</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">if</span> (nt == <a class="code" href="classlibMesh_1_1MeshRefinement.html#a3b5e2d673faf6f8d4db8b2da3e1f8824a39cf91b9450138e4d0a036a35d0b9a36">POINT</a>)</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a02d890fce9d8a745656be8caba0fb23f">find_point_neighbors</a>(neighbor_set);</div>
@@ -703,10 +703,10 @@
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Unrecognized NeighborType: &quot;</span> &lt;&lt; nt);</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;      <span class="comment">// Loop over the neighbors of element e</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      std::set&lt;const Elem*&gt;::iterator n_it = neighbor_set.begin();</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      std::set&lt;const Elem *&gt;::iterator n_it = neighbor_set.begin();</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      <span class="keywordflow">for</span> (; n_it != neighbor_set.end(); ++n_it)</div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        {</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* neighbor = *n_it;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * neighbor = *n_it;</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;          <span class="keywordflow">if</span> ((elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>() + 1 - max_mismatch) &gt; neighbor-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>())</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            {</div>
@@ -729,27 +729,28 @@
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a6726f2900feee33e74f571aa31a9d545"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a6726f2900feee33e74f571aa31a9d545">libMesh::MeshRefinement::limit_level_mismatch_at_edge</a></div><div class="ttdeci">bool limit_level_mismatch_at_edge(const unsigned int max_mismatch)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement__smoothing_8C_source.html#l00138">mesh_refinement_smoothing.C:138</a></div></div>
-<div class="ttc" id="structlibMesh_1_1MeshBase_1_1element__iterator_html"><div class="ttname"><a href="structlibMesh_1_1MeshBase_1_1element__iterator.html">libMesh::MeshBase::element_iterator</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l01102">mesh_base.h:1102</a></div></div>
+<div class="ttc" id="structlibMesh_1_1MeshBase_1_1element__iterator_html"><div class="ttname"><a href="structlibMesh_1_1MeshBase_1_1element__iterator.html">libMesh::MeshBase::element_iterator</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l01133">mesh_base.h:1133</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a4e18ee522c67a8eb52dd58f6374686d2"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a4e18ee522c67a8eb52dd58f6374686d2">libMesh::MeshRefinement::enforce_mismatch_limit_prior_to_refinement</a></div><div class="ttdeci">bool &amp; enforce_mismatch_limit_prior_to_refinement()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement_8h_source.html#l00927">mesh_refinement.h:927</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a0d132de7da15df7db92f8995cc234b87"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a0d132de7da15df7db92f8995cc234b87">libMesh::Elem::ancestor</a></div><div class="ttdeci">bool ancestor() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8C_source.html#l01441">elem.C:1441</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a5a64eb29d0df43150a3b87184fb56be4"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a5a64eb29d0df43150a3b87184fb56be4">libMesh::Elem::DO_NOTHING</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00906">elem.h:906</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a5a64eb29d0df43150a3b87184fb56be4"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a5a64eb29d0df43150a3b87184fb56be4">libMesh::Elem::DO_NOTHING</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00913">elem.h:913</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a3b5e2d673faf6f8d4db8b2da3e1f8824"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a3b5e2d673faf6f8d4db8b2da3e1f8824">libMesh::MeshRefinement::NeighborType</a></div><div class="ttdeci">NeighborType</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement_8h_source.html#l00833">mesh_refinement.h:833</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_ab426ef9274eb93de879fef28b027d602"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ab426ef9274eb93de879fef28b027d602">libMesh::Elem::active</a></div><div class="ttdeci">bool active() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01721">elem.h:1721</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_acbc5744304854c3ce239abced653624e"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#acbc5744304854c3ce239abced653624e">libMesh::MeshRefinement::limit_level_mismatch_at_node</a></div><div class="ttdeci">bool limit_level_mismatch_at_node(const unsigned int max_mismatch)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement__smoothing_8C_source.html#l00039">mesh_refinement_smoothing.C:39</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a7d9c31942b061618643ecf815f74dd2c"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a7d9c31942b061618643ecf815f74dd2c">libMesh::Elem::COARSEN</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00905">elem.h:905</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a7d9c31942b061618643ecf815f74dd2c"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a7d9c31942b061618643ecf815f74dd2c">libMesh::Elem::COARSEN</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00912">elem.h:912</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a2eef84fcf5c69894597662b16b8cf373"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a2eef84fcf5c69894597662b16b8cf373">libMesh::MeshRefinement::limit_underrefined_boundary</a></div><div class="ttdeci">bool limit_underrefined_boundary(const signed char max_mismatch)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement__smoothing_8C_source.html#l00347">mesh_refinement_smoothing.C:347</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a362aba1afba25a8417aa6d242e2f8d52"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">libMesh::Elem::p_level</a></div><div class="ttdeci">unsigned int p_level() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01886">elem.h:1886</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html_a0678ec9e5da5e78ec33e08c0259a77db"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html#a0678ec9e5da5e78ec33e08c0259a77db">libMesh::Parallel::Communicator::max</a></div><div class="ttdeci">void max(T &amp;r) const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l01702">parallel_implementation.h:1702</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html_a0678ec9e5da5e78ec33e08c0259a77db"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html#a0678ec9e5da5e78ec33e08c0259a77db">libMesh::Parallel::Communicator::max</a></div><div class="ttdeci">void max(T &amp;r) const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l01721">parallel_implementation.h:1721</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a6df23471791e621cfeb7a7828c8c73a2"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a6df23471791e621cfeb7a7828c8c73a2">libMesh::MeshRefinement::_mesh</a></div><div class="ttdeci">MeshBase &amp; _mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement_8h_source.html#l00721">mesh_refinement.h:721</a></div></div>
 <div class="ttc" id="mesh__refinement_8h_html"><div class="ttname"><a href="mesh__refinement_8h.html">mesh_refinement.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_adf36086a897fdef3a88deec071ca5dfd"><div class="ttname"><a href="classlibMesh_1_1Elem.html#adf36086a897fdef3a88deec071ca5dfd">libMesh::Elem::n_neighbors</a></div><div class="ttdeci">virtual unsigned int n_neighbors() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00492">elem.h:492</a></div></div>
 <div class="ttc" id="mesh__base_8h_html"><div class="ttname"><a href="mesh__base_8h.html">mesh_base.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54af7c2ef5bee86b20e0a4e1cebd140caef"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54af7c2ef5bee86b20e0a4e1cebd140caef">libMesh::Elem::INACTIVE</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00910">elem.h:910</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b">libMesh::Elem::REFINE</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00907">elem.h:907</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54af7c2ef5bee86b20e0a4e1cebd140caef"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54af7c2ef5bee86b20e0a4e1cebd140caef">libMesh::Elem::INACTIVE</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00917">elem.h:917</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a1511a7045e9a76eaa3b5b0f9511dd01b">libMesh::Elem::REFINE</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00914">elem.h:914</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a7cdd994bb4245128f8617b62d7968e35"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a7cdd994bb4245128f8617b62d7968e35">libMesh::Elem::parent</a></div><div class="ttdeci">const Elem * parent() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01810">elem.h:1810</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a71acd72e0de11af46af5dc7409d83951"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a71acd72e0de11af46af5dc7409d83951">libMesh::Elem::interior_parent</a></div><div class="ttdeci">const Elem * interior_parent() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8C_source.html#l00912">elem.C:912</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00091">elem.h:91</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_adb60ffafaf6ebf931978c9335d278b46"><div class="ttname"><a href="classlibMesh_1_1Elem.html#adb60ffafaf6ebf931978c9335d278b46">libMesh::Elem::set_refinement_flag</a></div><div class="ttdeci">void set_refinement_flag(const RefinementState rflag)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01946">elem.h:1946</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a3d051c8d27a2abc3ab879f2f982bbcb0"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a3d051c8d27a2abc3ab879f2f982bbcb0">libMesh::MeshRefinement::limit_overrefined_boundary</a></div><div class="ttdeci">bool limit_overrefined_boundary(const signed char max_mismatch)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement__smoothing_8C_source.html#l00279">mesh_refinement_smoothing.C:279</a></div></div>
 <div class="ttc" id="remote__elem_8h_html"><div class="ttname"><a href="remote__elem_8h.html">remote_elem.h</a></div></div>
@@ -768,7 +769,7 @@
 <div class="ttc" id="parallel_8h_html"><div class="ttname"><a href="parallel_8h.html">parallel.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a6180b7cae030fc18b139b02e9c3b7c4b"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a6180b7cae030fc18b139b02e9c3b7c4b">libMesh::Elem::find_interior_neighbors</a></div><div class="ttdeci">void find_interior_neighbors(std::set&lt; const Elem * &gt; &amp;neighbor_set) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8C_source.html#l00832">elem.C:832</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a53a98cf29aef9af6292c812d7b905c18"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a53a98cf29aef9af6292c812d7b905c18">libMesh::Elem::p_refinement_flag</a></div><div class="ttdeci">RefinementState p_refinement_flag() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01954">elem.h:1954</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a560ee64b3c009f94569a135dce55c8b6"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a560ee64b3c009f94569a135dce55c8b6">libMesh::Elem::COARSEN_INACTIVE</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00911">elem.h:911</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a674d499e6c104bc63a68ca7e9c7ccb54a560ee64b3c009f94569a135dce55c8b6"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a560ee64b3c009f94569a135dce55c8b6">libMesh::Elem::COARSEN_INACTIVE</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00918">elem.h:918</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
 <div class="ttc" id="classlibMesh_1_1MeshRefinement_html_a3b5e2d673faf6f8d4db8b2da3e1f8824a39cf91b9450138e4d0a036a35d0b9a36"><div class="ttname"><a href="classlibMesh_1_1MeshRefinement.html#a3b5e2d673faf6f8d4db8b2da3e1f8824a39cf91b9450138e4d0a036a35d0b9a36">libMesh::MeshRefinement::POINT</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__refinement_8h_source.html#l00833">mesh_refinement.h:833</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_adde1fccc9a1fc4b43485629cb6c4062b"><div class="ttname"><a href="classlibMesh_1_1Elem.html#adde1fccc9a1fc4b43485629cb6c4062b">libMesh::Elem::n_edges</a></div><div class="ttdeci">virtual unsigned int n_edges() const =0</div></div>

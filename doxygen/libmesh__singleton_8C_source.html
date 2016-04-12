@@ -137,16 +137,16 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// global list of runtime Singleton objects - created dynamically,</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// cleaned up in reverse order.</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">typedef</span> std::vector&lt;Singleton*&gt; SingletonList;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">typedef</span> std::vector&lt;Singleton *&gt; SingletonList;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;SingletonList&amp; get_singleton_cache()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;SingletonList &amp; get_singleton_cache()</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">static</span> SingletonList singleton_cache;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">return</span> singleton_cache;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> std::vector&lt;Singleton::Setup*&gt; SetupList;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;SetupList&amp; get_setup_cache()</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> std::vector&lt;Singleton::Setup *&gt; SetupList;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;SetupList &amp; get_setup_cache()</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">static</span> SetupList setup_cache;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> setup_cache;</div>
@@ -181,12 +181,12 @@
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  SingletonMutex::scoped_lock lock(setup_mtx);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  SetupList&amp; setup_cache = get_setup_cache();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  SetupList &amp; setup_cache = get_setup_cache();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordflow">for</span> (SetupList::iterator it = setup_cache.begin();</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;       it!=setup_cache.end(); ++it)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (*it != NULL);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (*it != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      (*it)-&gt;setup();</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
@@ -197,14 +197,14 @@
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  SingletonMutex::scoped_lock lock(singleton_mtx);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  SingletonList&amp; singleton_cache = get_singleton_cache();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  SingletonList &amp; singleton_cache = get_singleton_cache();</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordflow">for</span> (SingletonList::reverse_iterator it = singleton_cache.rbegin();</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;       it!=singleton_cache.rend(); ++it)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (*it != NULL);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (*it != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keyword">delete</span> *it;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      *it = NULL;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      *it = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  singleton_cache.clear();</div>
@@ -215,7 +215,8 @@
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="classlibMesh_1_1Singleton_html_af8bd1c26bee37a92d3286c9e702e9c25"><div class="ttname"><a href="classlibMesh_1_1Singleton.html#af8bd1c26bee37a92d3286c9e702e9c25">libMesh::Singleton::Singleton</a></div><div class="ttdeci">Singleton()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__singleton_8C_source.html#l00064">libmesh_singleton.C:64</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html">libMesh::Threads::spin_mutex</a></div><div class="ttdef"><b>Definition:</b> <a href="threads_8h_source.html#l00338">threads.h:338</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html">libMesh::Threads::spin_mutex</a></div><div class="ttdef"><b>Definition:</b> <a href="threads__none_8h_source.html#l00123">threads_none.h:123</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Singleton_html_ade0cc4fecf52c6ab4ba36f01b383a157"><div class="ttname"><a href="classlibMesh_1_1Singleton.html#ade0cc4fecf52c6ab4ba36f01b383a157">libMesh::Singleton::setup</a></div><div class="ttdeci">static void setup()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__singleton_8C_source.html#l00080">libmesh_singleton.C:80</a></div></div>
 <div class="ttc" id="threads_8h_html"><div class="ttname"><a href="threads_8h.html">threads.h</a></div></div>

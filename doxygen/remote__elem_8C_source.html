@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="remote__elem_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -154,28 +154,28 @@
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// Pointer to singleton Remote Element (to be created in</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// libMesh::init()</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">   57</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1RemoteElem.html">RemoteElem</a>* <a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">   57</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1RemoteElem.html">RemoteElem</a> * <a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classlibMesh_1_1RemoteElem.html#a3103eee5d19dfeab21ca4a96eb56fa29">   60</a></span>&#160;<a class="code" href="classlibMesh_1_1RemoteElem.html#a3103eee5d19dfeab21ca4a96eb56fa29">RemoteElem::~RemoteElem</a>()</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  RemoteElemMutex::scoped_lock lock(remote_elem_mtx);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  remote_elem = NULL;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  remote_elem = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classlibMesh_1_1RemoteElem.html#a1b6cc707dfb187e6c853e4448baa626d">   69</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> &amp; <a class="code" href="classlibMesh_1_1RemoteElem.html#a1b6cc707dfb187e6c853e4448baa626d">RemoteElem::create</a> ()</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">if</span> (remote_elem != NULL)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">if</span> (remote_elem != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> *<a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  RemoteElemMutex::scoped_lock lock(remote_elem_mtx);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">// check again - object could have been created while waiting</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">// for the lock to acquire!</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">if</span> (remote_elem == NULL)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">if</span> (remote_elem == <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    remote_elem = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1RemoteElem.html#a6ab57587df303e30a2a497ea1cc75655">RemoteElem</a>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">return</span> *<a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>;</div>
@@ -186,8 +186,9 @@
 <div class="ttc" id="classlibMesh_1_1RemoteElem_html"><div class="ttname"><a href="classlibMesh_1_1RemoteElem.html">libMesh::RemoteElem</a></div><div class="ttdef"><b>Definition:</b> <a href="remote__elem_8h_source.html#l00044">remote_elem.h:44</a></div></div>
 <div class="ttc" id="classlibMesh_1_1RemoteElem_html_a6ab57587df303e30a2a497ea1cc75655"><div class="ttname"><a href="classlibMesh_1_1RemoteElem.html#a6ab57587df303e30a2a497ea1cc75655">libMesh::RemoteElem::RemoteElem</a></div><div class="ttdeci">RemoteElem()</div><div class="ttdef"><b>Definition:</b> <a href="remote__elem_8h_source.html#l00058">remote_elem.h:58</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00091">elem.h:91</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="remote__elem_8h_html"><div class="ttname"><a href="remote__elem_8h.html">remote_elem.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html">libMesh::Threads::spin_mutex</a></div><div class="ttdef"><b>Definition:</b> <a href="threads_8h_source.html#l00338">threads.h:338</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html">libMesh::Threads::spin_mutex</a></div><div class="ttdef"><b>Definition:</b> <a href="threads__none_8h_source.html#l00123">threads_none.h:123</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1RemoteElem_html_a1b6cc707dfb187e6c853e4448baa626d"><div class="ttname"><a href="classlibMesh_1_1RemoteElem.html#a1b6cc707dfb187e6c853e4448baa626d">libMesh::RemoteElem::create</a></div><div class="ttdeci">static const Elem &amp; create()</div><div class="ttdef"><b>Definition:</b> <a href="remote__elem_8C_source.html#l00069">remote_elem.C:69</a></div></div>
 <div class="ttc" id="threads_8h_html"><div class="ttname"><a href="threads_8h.html">threads.h</a></div></div>

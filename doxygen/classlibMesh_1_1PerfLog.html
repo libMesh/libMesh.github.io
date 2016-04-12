@@ -213,19 +213,20 @@ Static Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="perf__log_8C_source.html#l00045">45</a> of file <a class="el" href="perf__log_8C_source.html">perf_log.C</a>.</p>
 
-<p>References <a class="el" href="perf__log_8C_source.html#l00067">clear()</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
+<p>References <a class="el" href="perf__log_8C_source.html#l00067">clear()</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
 <div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                :</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="classlibMesh_1_1PerfLog.html#abf62278a809f704951c95151158300a0">label_name</a>(ln),</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a>(le),</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="classlibMesh_1_1PerfLog.html#a2b198f5c72c73b5f21b394f16928f686">total_time</a>(0.)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  gettimeofday (&amp;<a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>, NULL);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  gettimeofday (&amp;<a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>, <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a>)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    this-&gt;<a class="code" href="classlibMesh_1_1PerfLog.html#a3d3d2147ad6667552663be7befdd35e1">clear</a>();</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a2b198f5c72c73b5f21b394f16928f686"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a2b198f5c72c73b5f21b394f16928f686">libMesh::PerfLog::total_time</a></div><div class="ttdeci">double total_time</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00266">perf_log.h:266</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_abf62278a809f704951c95151158300a0"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#abf62278a809f704951c95151158300a0">libMesh::PerfLog::label_name</a></div><div class="ttdeci">const std::string label_name</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00256">perf_log.h:256</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a3d3d2147ad6667552663be7befdd35e1"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a3d3d2147ad6667552663be7befdd35e1">libMesh::PerfLog::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8C_source.html#l00067">perf_log.C:67</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a809ef5f49c9c2df645b44ec61a92d471"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">libMesh::PerfLog::tstart</a></div><div class="ttdeci">struct timeval tstart</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00271">perf_log.h:271</a></div></div>
@@ -275,9 +276,9 @@ Static Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="perf__log_8C_source.html#l00067">67</a> of file <a class="el" href="perf__log_8C_source.html">perf_log.C</a>.</p>
 
-<p>References <a class="el" href="perf__log_8h_source.html#l00256">label_name</a>, <a class="el" href="perf__log_8h_source.html#l00278">log</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, <a class="el" href="perf__log_8h_source.html#l00283">log_stack</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
+<p>References <a class="el" href="perf__log_8h_source.html#l00256">label_name</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="perf__log_8h_source.html#l00278">log</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, <a class="el" href="perf__log_8h_source.html#l00283">log_stack</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00281">libMesh::libmesh_terminate_handler()</a>, and <a class="el" href="perf__log_8C_source.html#l00045">PerfLog()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00277">libMesh::libmesh_terminate_handler()</a>, and <a class="el" href="perf__log_8C_source.html#l00045">PerfLog()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a>)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
@@ -291,7 +292,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            &lt;&lt; pos-&gt;first.second                      \</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            &lt;&lt; <span class="stringliteral">&quot; is still being monitored!&quot;</span>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      gettimeofday (&amp;<a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>, NULL);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      gettimeofday (&amp;<a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>, <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <a class="code" href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">log</a>.clear();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
@@ -300,6 +301,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_af71948f5244492ec99c1634f05bda2db"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">libMesh::PerfLog::log</a></div><div class="ttdeci">std::map&lt; std::pair&lt; std::string, std::string &gt;, PerfData &gt; log</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00278">perf_log.h:278</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_afe9bd2cd566bb3728a4bc17047dfed01"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#afe9bd2cd566bb3728a4bc17047dfed01">libMesh::PerfLog::log_stack</a></div><div class="ttdeci">std::stack&lt; PerfData * &gt; log_stack</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00283">perf_log.h:283</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_abf62278a809f704951c95151158300a0"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#abf62278a809f704951c95151158300a0">libMesh::PerfLog::label_name</a></div><div class="ttdeci">const std::string label_name</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00256">perf_log.h:256</a></div></div>
@@ -332,8 +334,6 @@ Static Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="perf__log_8h_source.html#l00153">153</a> of file <a class="el" href="perf__log_8h_source.html">perf_log.h</a>.</p>
 
 <p>References <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>.</p>
-
-<p>Referenced by <a class="el" href="threads_8h_source.html#l00184">libMesh::Threads::parallel_for()</a>, and <a class="el" href="threads_8h_source.html#l00248">libMesh::Threads::parallel_reduce()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{ <a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a> = <span class="keyword">false</span>; }</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
 </div><!-- fragment -->
@@ -364,8 +364,6 @@ Static Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="perf__log_8h_source.html#l00158">158</a> of file <a class="el" href="perf__log_8h_source.html">perf_log.h</a>.</p>
 
 <p>References <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>.</p>
-
-<p>Referenced by <a class="el" href="threads_8h_source.html#l00184">libMesh::Threads::parallel_for()</a>, and <a class="el" href="threads_8h_source.html#l00248">libMesh::Threads::parallel_reduce()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{ <a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a> = <span class="keyword">true</span>; }</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
 </div><!-- fragment -->
@@ -427,16 +425,17 @@ Static Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="perf__log_8h_source.html#l00450">450</a> of file <a class="el" href="perf__log_8h_source.html">perf_log.h</a>.</p>
 
-<p>References <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
+<p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
 <div class="fragment"><div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;{</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;  <span class="keyword">struct </span>timeval tnow;</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;  gettimeofday (&amp;tnow, NULL);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;  gettimeofday (&amp;tnow, <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> elapsed_time = (<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(tnow.tv_sec  - <a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>.tv_sec) +</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                               static_cast&lt;double&gt;(tnow.tv_usec - <a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>.tv_usec)*1.e-6);</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;  <span class="keywordflow">return</span> elapsed_time;</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a809ef5f49c9c2df645b44ec61a92d471"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">libMesh::PerfLog::tstart</a></div><div class="ttdeci">struct timeval tstart</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00271">perf_log.h:271</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -482,7 +481,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <span class="comment">// on the backend.  Hence we have added a configure flag, --disable-getpwuid,</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="comment">// to manually turn this off.</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_GETPWUID</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keyword">struct </span>passwd* p = getpwuid(getuid());</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keyword">struct </span>passwd * p = getpwuid(getuid());</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      oss &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
@@ -714,7 +713,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="perf__log_8C_source.html#l00241">241</a> of file <a class="el" href="perf__log_8C_source.html">perf_log.C</a>.</p>
 
-<p>References <a class="el" href="perf__log_8h_source.html#l00089">libMesh::PerfData::count</a>, <a class="el" href="perf__log_8h_source.html#l00256">label_name</a>, <a class="el" href="perf__log_8h_source.html#l00278">log</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, <a class="el" href="libmesh__common_8h_source.html#l00128">libMesh::Real</a>, <a class="el" href="perf__log_8h_source.html#l00066">libMesh::PerfData::tot_time</a>, <a class="el" href="perf__log_8h_source.html#l00071">libMesh::PerfData::tot_time_incl_sub</a>, <a class="el" href="perf__log_8h_source.html#l00266">total_time</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
+<p>References <a class="el" href="perf__log_8h_source.html#l00089">libMesh::PerfData::count</a>, <a class="el" href="perf__log_8h_source.html#l00256">label_name</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="perf__log_8h_source.html#l00278">log</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>, <a class="el" href="perf__log_8h_source.html#l00066">libMesh::PerfData::tot_time</a>, <a class="el" href="perf__log_8h_source.html#l00071">libMesh::PerfData::tot_time_incl_sub</a>, <a class="el" href="perf__log_8h_source.html#l00266">total_time</a>, and <a class="el" href="perf__log_8h_source.html#l00271">tstart</a>.</p>
 
 <p>Referenced by <a class="el" href="perf__log_8C_source.html#l00556">get_log()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;{</div>
@@ -725,7 +724,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="comment">// Stop timing for this event.</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keyword">struct </span>timeval tstop;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      gettimeofday (&amp;tstop, NULL);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      gettimeofday (&amp;tstop, <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> elapsed_time = (<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(tstop.tv_sec  - <a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>.tv_sec) +</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                                   static_cast&lt;double&gt;(tstop.tv_usec - <a class="code" href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">tstart</a>.tv_usec)*1.e-6);</div>
@@ -861,7 +860,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      <span class="keywordflow">for</span> (pos = <a class="code" href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">log</a>.begin(); pos != <a class="code" href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">log</a>.end(); ++pos)</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        {</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;          <span class="keyword">const</span> PerfData&amp; perf_data = pos-&gt;second;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;          <span class="keyword">const</span> PerfData &amp; perf_data = pos-&gt;second;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;          <span class="comment">// Only print the event if the count is non-zero.</span></div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;          <span class="keywordflow">if</span> (perf_data.count != 0)</div>
@@ -1030,9 +1029,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a2b198f5c72c73b5f21b394f16928f686"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a2b198f5c72c73b5f21b394f16928f686">libMesh::PerfLog::total_time</a></div><div class="ttdeci">double total_time</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00266">perf_log.h:266</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_af71948f5244492ec99c1634f05bda2db"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">libMesh::PerfLog::log</a></div><div class="ttdeci">std::map&lt; std::pair&lt; std::string, std::string &gt;, PerfData &gt; log</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00278">perf_log.h:278</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_abf62278a809f704951c95151158300a0"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#abf62278a809f704951c95151158300a0">libMesh::PerfLog::label_name</a></div><div class="ttdeci">const std::string label_name</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00256">perf_log.h:256</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a809ef5f49c9c2df645b44ec61a92d471"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a809ef5f49c9c2df645b44ec61a92d471">libMesh::PerfLog::tstart</a></div><div class="ttdeci">struct timeval tstart</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00271">perf_log.h:271</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1062,8 +1062,6 @@ Static Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="perf__log_8h_source.html#l00163">163</a> of file <a class="el" href="perf__log_8h_source.html">perf_log.h</a>.</p>
 
 <p>References <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>.</p>
-
-<p>Referenced by <a class="el" href="threads_8h_source.html#l00184">libMesh::Threads::parallel_for()</a>, and <a class="el" href="threads_8h_source.html#l00248">libMesh::Threads::parallel_reduce()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
 </div><!-- fragment -->
@@ -1191,9 +1189,9 @@ Static Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="perf__log_8C_source.html#l00582">582</a> of file <a class="el" href="perf__log_8C_source.html">perf_log.C</a>.</p>
 
-<p>References <a class="el" href="perf__log_8C_source.html#l00556">get_log()</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, and <a class="el" href="libmesh__common_8h_source.html#l00231">libMesh::out</a>.</p>
+<p>References <a class="el" href="perf__log_8C_source.html#l00556">get_log()</a>, <a class="el" href="perf__log_8h_source.html#l00261">log_events</a>, and <a class="el" href="libmesh__common_8h_source.html#l00234">libMesh::out</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00281">libMesh::libmesh_terminate_handler()</a>, and <a class="el" href="perf__log_8C_source.html#l00059">~PerfLog()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00277">libMesh::libmesh_terminate_handler()</a>, and <a class="el" href="perf__log_8C_source.html#l00059">~PerfLog()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;{</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">log_events</a>)</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    {</div>
@@ -1206,7 +1204,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_aef3639eb47499b9f419d0d38aad3572d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#aef3639eb47499b9f419d0d38aad3572d">libMesh::PerfLog::log_events</a></div><div class="ttdeci">bool log_events</div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8h_source.html#l00261">perf_log.h:261</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PerfLog_html_a10a7a08834a985c382487b02a543d86d"><div class="ttname"><a href="classlibMesh_1_1PerfLog.html#a10a7a08834a985c382487b02a543d86d">libMesh::PerfLog::get_log</a></div><div class="ttdeci">std::string get_log() const </div><div class="ttdef"><b>Definition:</b> <a href="perf__log_8C_source.html#l00556">perf_log.C:556</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00231">libmesh_common.h:231</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00234">libmesh_common.h:234</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1298,7 +1296,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    {</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="comment">// Get a reference to the event data to avoid</span></div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      <span class="comment">// repeated map lookups</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      PerfData *perf_data = &amp;(<a class="code" href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">log</a>[std::make_pair(header,label)]);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      PerfData * perf_data = &amp;(<a class="code" href="classlibMesh_1_1PerfLog.html#af71948f5244492ec99c1634f05bda2db">log</a>[std::make_pair(header,label)]);</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      <span class="keywordflow">if</span> (!<a class="code" href="classlibMesh_1_1PerfLog.html#afe9bd2cd566bb3728a4bc17047dfed01">log_stack</a>.empty())</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <a class="code" href="classlibMesh_1_1PerfLog.html#a2b198f5c72c73b5f21b394f16928f686">total_time</a> +=</div>

@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="quadrature__clough__3D_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -124,7 +124,7 @@
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QClough.html#af153bf12235513512cefd42a79635ed9">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QClough.html#af153bf12235513512cefd42a79635ed9">QClough::init_3D</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> QClough::init_3D(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#if LIBMESH_DIM == 3</span></div>
@@ -135,7 +135,7 @@
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="comment">// Unsupported type</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <a class="code" href="classlibMesh_1_1QBase.html#aa2aeb79d51c064b456e9ef14e139fe85">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported type: &quot;</span> &lt;&lt; type_in);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported type: &quot;</span> &lt;&lt; type_in);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
@@ -144,8 +144,6 @@
 <div class="ttc" id="quadrature__clough_8h_html"><div class="ttname"><a href="quadrature__clough_8h.html">quadrature_clough.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QClough_html_af153bf12235513512cefd42a79635ed9"><div class="ttname"><a href="classlibMesh_1_1QClough.html#af153bf12235513512cefd42a79635ed9">libMesh::QClough::init_3D</a></div><div class="ttdeci">void init_3D(const ElemType _type=INVALID_ELEM, unsigned int p_level=0) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__clough__3D_8C_source.html#l00027">quadrature_clough_3D.C:27</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_aa2aeb79d51c064b456e9ef14e139fe85"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa2aeb79d51c064b456e9ef14e139fe85">libMesh::QBase::libmesh_error_msg</a></div><div class="ttdeci">libmesh_error_msg(&quot;ERROR: Seems as if this quadrature rule \nis not implemented for 2D.&quot;)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

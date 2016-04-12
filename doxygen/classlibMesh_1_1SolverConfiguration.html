@@ -128,6 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9162128478dce78d7d8befc22b326225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac35f377561c3436662e0efb8d8f97137"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolverConfiguration.html#ac35f377561c3436662e0efb8d8f97137">configure_solver</a> ()=0</td></tr>
 <tr class="separator:ac35f377561c3436662e0efb8d8f97137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba16f120885d8e44a1fd4d2d38c6256a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolverConfiguration.html#aba16f120885d8e44a1fd4d2d38c6256a">respond_to_solve_failure</a> (unsigned int)</td></tr>
+<tr class="separator:aba16f120885d8e44a1fd4d2d38c6256a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -438,17 +440,17 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00159">159</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00048">libMesh::Threads::spin_mtx</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
 
 <p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00074">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::ReferenceCountedObject()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt;&amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  p.first++;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00048">threads.C:48</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00114">reference_counter.h:114</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -478,17 +480,17 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00172">172</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00048">libMesh::Threads::spin_mtx</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00114">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
 
 <p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00101">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::~ReferenceCountedObject()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt;&amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  p.second++;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00048">threads.C:48</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00114">reference_counter.h:114</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -554,6 +556,34 @@ Static Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aba16f120885d8e44a1fd4d2d38c6256a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void libMesh::SolverConfiguration::respond_to_solve_failure </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This method can be called after the solver has failed (e.g. on catching an exception thrown by a solver). It allows an appropriate response to the failure, e.g. terminate the program, or change configuation options and try again. <code>solve_failure_count</code> specifies the number of times we've tried to recover from a failure. </p>
+
+<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00074">74</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -694,7 +724,7 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Store integer solver parameters in this map, e.g. iteration limits. </p>
 
-<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00074">74</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00084">84</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -709,7 +739,7 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Store real-valued solver parameters in this map, e.g. solver tolerances. </p>
 
-<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00069">69</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00079">79</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -724,7 +754,7 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Store string data in this map, e.g. "solver_type" : "gmres". </p>
 
-<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00079">79</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
+<p>Definition at line <a class="el" href="solver__configuration_8h_source.html#l00089">89</a> of file <a class="el" href="solver__configuration_8h_source.html">solver_configuration.h</a>.</p>
 
 </div>
 </div>

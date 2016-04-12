@@ -384,19 +384,17 @@ template&lt;typename Tp&gt; </div>
 
 <p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00265">265</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
-<p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>, <a class="el" href="libmesh__common_8h_source.html#l00231">libMesh::out</a>, and <a class="el" href="namespacelibMesh.html#a27a859c2c661c6945f90683fe578b7f6">libMesh::warned_about_auto_ptr</a>.</p>
+<p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>, and <a class="el" href="namespacelibMesh.html#a27a859c2c661c6945f90683fe578b7f6">libMesh::warned_about_auto_ptr</a>.</p>
 <div class="fragment"><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  {</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="namespacelibMesh.html#a27a859c2c661c6945f90683fe578b7f6">libMesh::warned_about_auto_ptr</a>)</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      {</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="namespacelibMesh.html#a27a859c2c661c6945f90683fe578b7f6">libMesh::warned_about_auto_ptr</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;*** Warning, AutoPtr is deprecated and will be removed in a future library version! &quot;</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                     &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;, line &quot;</span> &lt;&lt; __LINE__ &lt;&lt; <span class="stringliteral">&quot;, compiled &quot;</span> &lt;&lt; __DATE__ &lt;&lt; <span class="stringliteral">&quot; at &quot;</span> &lt;&lt; __TIME__ &lt;&lt; <span class="stringliteral">&quot; ***&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        libmesh_deprecated();</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  }</div>
 <div class="ttc" id="namespacelibMesh_html_a27a859c2c661c6945f90683fe578b7f6"><div class="ttname"><a href="namespacelibMesh.html#a27a859c2c661c6945f90683fe578b7f6">libMesh::warned_about_auto_ptr</a></div><div class="ttdeci">bool warned_about_auto_ptr</div></div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00231">libmesh_common.h:231</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -429,8 +427,8 @@ template&lt;typename Tp&gt; </div>
 <div class="line">...</div>
 <div class="line">AutoPtr&lt;Base&gt; ptr = func_returning_AutoPtr(.....);</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00356">356</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    : <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>(ref._ptr) {}</div>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00355">355</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    : <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>(ref._ptr) {}</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -460,10 +458,10 @@ template&lt;typename Tp&gt; </div>
 </div><div class="memdoc">
 <p>A "safe" replacement for operator bool () that behaves more like an explicit conversion operator even in C++98. This allows code like if (!foo) to work with <a class="el" href="classlibMesh_1_1AutoPtr.html" title="A simple smart pointer providing strict ownership semantics. ">AutoPtr</a>. </p>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00381">381</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  {</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">return</span> (this-&gt;<span class="keyword">get</span>() != NULL);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  }</div>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00380">380</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">return</span> (this-&gt;<span class="keyword">get</span>() != NULL);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -495,10 +493,10 @@ template&lt;typename Tp&gt; </div>
 <p>You can get a copy of the pointer that this object owns, for situations such as passing to a function which only accepts a raw pointer.</p>
 <dl class="section note"><dt>Note</dt><dd>This AutoPtr still owns the memory. </dd></dl>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00307">307</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00306">306</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
 <p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>.</p>
-<div class="fragment"><div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>; }</div>
+<div class="fragment"><div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -529,11 +527,11 @@ template&lt;typename Tp1 &gt; </div>
 </div><div class="memdoc">
 <p>op() for AutoPtr&lt;Tp1&gt;. Calls the release member. </p>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00397">397</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00396">396</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
-<p>References <a class="el" href="auto__ptr_8h_source.html#l00321">libMesh::AutoPtr&lt; Tp &gt;::release()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  { <span class="keywordflow">return</span> AutoPtr&lt;Tp1&gt;(this-&gt;<a class="code" href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">release</a>()); }</div>
-<div class="ttc" id="classlibMesh_1_1AutoPtr_html_a9aac56a85f0e34e52bd3ebf05f244526"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">libMesh::AutoPtr::release</a></div><div class="ttdeci">element_type * release()</div><div class="ttdoc">Bypassing the smart pointer. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00321">auto_ptr.h:321</a></div></div>
+<p>References <a class="el" href="auto__ptr_8h_source.html#l00320">libMesh::AutoPtr&lt; Tp &gt;::release()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  { <span class="keywordflow">return</span> AutoPtr&lt;Tp1&gt;(this-&gt;<a class="code" href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">release</a>()); }</div>
+<div class="ttc" id="classlibMesh_1_1AutoPtr_html_a9aac56a85f0e34e52bd3ebf05f244526"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">libMesh::AutoPtr::release</a></div><div class="ttdeci">element_type * release()</div><div class="ttdoc">Bypassing the smart pointer. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00320">auto_ptr.h:320</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -563,11 +561,11 @@ template&lt;typename Tp1 &gt; </div>
 </div><div class="memdoc">
 <p>op() for AutoPtrRef&lt;Tp1&gt;. Calls the release member. </p>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00390">390</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00389">389</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
-<p>References <a class="el" href="auto__ptr_8h_source.html#l00321">libMesh::AutoPtr&lt; Tp &gt;::release()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  { <span class="keywordflow">return</span> AutoPtrRef&lt;Tp1&gt;(this-&gt;<a class="code" href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">release</a>()); }</div>
-<div class="ttc" id="classlibMesh_1_1AutoPtr_html_a9aac56a85f0e34e52bd3ebf05f244526"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">libMesh::AutoPtr::release</a></div><div class="ttdeci">element_type * release()</div><div class="ttdoc">Bypassing the smart pointer. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00321">auto_ptr.h:321</a></div></div>
+<p>References <a class="el" href="auto__ptr_8h_source.html#l00320">libMesh::AutoPtr&lt; Tp &gt;::release()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  { <span class="keywordflow">return</span> AutoPtrRef&lt;Tp1&gt;(this-&gt;<a class="code" href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">release</a>()); }</div>
+<div class="ttc" id="classlibMesh_1_1AutoPtr_html_a9aac56a85f0e34e52bd3ebf05f244526"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a9aac56a85f0e34e52bd3ebf05f244526">libMesh::AutoPtr::release</a></div><div class="ttdeci">element_type * release()</div><div class="ttdoc">Bypassing the smart pointer. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00320">auto_ptr.h:320</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -596,7 +594,7 @@ template&lt;typename Tp1 &gt; </div>
 
 <p>References <a class="el" href="safe__bool_8h_source.html#l00048">libMesh::safe_bool_base::this_type_does_not_support_comparisons()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> (static_cast&lt;const T*&gt;(<span class="keyword">this</span>))-&gt;boolean_test()</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> (static_cast&lt;const T *&gt;(<span class="keyword">this</span>))-&gt;boolean_test()</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      ? &amp;safe_bool_base::this_type_does_not_support_comparisons : 0;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
 </div><!-- fragment -->
@@ -628,10 +626,10 @@ template&lt;typename Tp&gt; </div>
 <p>Smart pointer dereferencing. </p>
 <p>If this AutoPtr no longer owns anything, then this operation will crash. (For a smart pointer, "no longer owns anything" is the same as being a null pointer, and you know what happens when you dereference one of those...) </p>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00285">285</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00284">284</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
 <p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>.</p>
-<div class="fragment"><div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;{ <span class="keywordflow">return</span> *<a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>; }</div>
+<div class="fragment"><div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;{ <span class="keywordflow">return</span> *<a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -662,10 +660,10 @@ template&lt;typename Tp&gt; </div>
 <p>Smart pointer dereferencing. </p>
 <p>This returns the pointer itself, which the language then will automatically cause to be dereferenced. </p>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00294">294</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00293">293</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
 <p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>.</p>
-<div class="fragment"><div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>; }</div>
+<div class="fragment"><div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -705,12 +703,12 @@ template&lt;typename Tp&gt; </div>
 
 <p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00229">229</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
-<p>References <a class="el" href="auto__ptr_8h_source.html#l00321">libMesh::AutoPtr&lt; Tp &gt;::release()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00336">libMesh::AutoPtr&lt; Tp &gt;::reset()</a>.</p>
+<p>References <a class="el" href="auto__ptr_8h_source.html#l00320">libMesh::AutoPtr&lt; Tp &gt;::release()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00335">libMesh::AutoPtr&lt; Tp &gt;::reset()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  {</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <a class="code" href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">reset</a>(a.release());</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1AutoPtr_html_aca7dac34d00cd798c43629794345a09c"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">libMesh::AutoPtr::reset</a></div><div class="ttdeci">void reset(element_type *p=0)</div><div class="ttdoc">Forcibly deletes the managed object. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00336">auto_ptr.h:336</a></div></div>
+<div class="ttc" id="classlibMesh_1_1AutoPtr_html_aca7dac34d00cd798c43629794345a09c"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">libMesh::AutoPtr::reset</a></div><div class="ttdeci">void reset(element_type *p=0)</div><div class="ttdoc">Forcibly deletes the managed object. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00335">auto_ptr.h:335</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -752,12 +750,12 @@ template&lt;typename Tp1 &gt; </div>
 
 <p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00247">247</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
-<p>References <a class="el" href="auto__ptr_8h_source.html#l00321">libMesh::AutoPtr&lt; Tp &gt;::release()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00336">libMesh::AutoPtr&lt; Tp &gt;::reset()</a>.</p>
+<p>References <a class="el" href="auto__ptr_8h_source.html#l00320">libMesh::AutoPtr&lt; Tp &gt;::release()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00335">libMesh::AutoPtr&lt; Tp &gt;::reset()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  {</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <a class="code" href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">reset</a>(a.release());</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1AutoPtr_html_aca7dac34d00cd798c43629794345a09c"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">libMesh::AutoPtr::reset</a></div><div class="ttdeci">void reset(element_type *p=0)</div><div class="ttdoc">Forcibly deletes the managed object. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00336">auto_ptr.h:336</a></div></div>
+<div class="ttc" id="classlibMesh_1_1AutoPtr_html_aca7dac34d00cd798c43629794345a09c"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#aca7dac34d00cd798c43629794345a09c">libMesh::AutoPtr::reset</a></div><div class="ttdeci">void reset(element_type *p=0)</div><div class="ttdoc">Forcibly deletes the managed object. </div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00335">auto_ptr.h:335</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -786,17 +784,17 @@ template&lt;typename Tp&gt; </div>
 </div><div class="memdoc">
 <p>op= for <a class="el" href="classlibMesh_1_1AutoPtr.html" title="A simple smart pointer providing strict ownership semantics. ">AutoPtr</a>. Allows you to write: </p><div class="fragment"><div class="line">AutoPtr&lt;Base&gt; ptr = func_returning_AutoPtr(.....);</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00366">366</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00365">365</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
 <p>References <a class="el" href="auto__ptr_8h_source.html#l00084">libMesh::AutoPtrRef&lt; Tp1 &gt;::_ptr</a>, and <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>.</p>
-<div class="fragment"><div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  {</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">if</span> (ref._ptr != this-&gt;get())</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      {</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a> = ref._ptr;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      }</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  }</div>
+<div class="fragment"><div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;  {</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keywordflow">if</span> (ref._ptr != this-&gt;get())</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a> = ref._ptr;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -829,16 +827,16 @@ template&lt;typename Tp&gt; </div>
 <p>You can get a copy of the pointer that this object owns, for situations such as passing to a function which only accepts a raw pointer.</p>
 <dl class="section note"><dt>Note</dt><dd>This AutoPtr no longer owns the memory. When this object goes out of scope, nothing will happen. </dd></dl>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00321">321</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00320">320</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
 <p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>.</p>
 
-<p>Referenced by <a class="el" href="auto__ptr_8h_source.html#l00397">libMesh::AutoPtr&lt; Tp &gt;::operator AutoPtr&lt; Tp1 &gt;()</a>, <a class="el" href="auto__ptr_8h_source.html#l00390">libMesh::AutoPtr&lt; Tp &gt;::operator AutoPtrRef&lt; Tp1 &gt;()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00229">libMesh::AutoPtr&lt; Tp &gt;::operator=()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="classlibMesh_1_1AutoPtr.html#af7d6809e6bdb84d790ad2ef11afe3fa6">element_type</a>* tmp = <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a> = 0;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  }</div>
+<p>Referenced by <a class="el" href="auto__ptr_8h_source.html#l00396">libMesh::AutoPtr&lt; Tp &gt;::operator AutoPtr&lt; Tp1 &gt;()</a>, <a class="el" href="auto__ptr_8h_source.html#l00389">libMesh::AutoPtr&lt; Tp &gt;::operator AutoPtrRef&lt; Tp1 &gt;()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00229">libMesh::AutoPtr&lt; Tp &gt;::operator=()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <a class="code" href="classlibMesh_1_1AutoPtr.html#af7d6809e6bdb84d790ad2ef11afe3fa6">element_type</a> * tmp = <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a> = 0;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_af7d6809e6bdb84d790ad2ef11afe3fa6"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#af7d6809e6bdb84d790ad2ef11afe3fa6">libMesh::AutoPtr::element_type</a></div><div class="ttdeci">Tp element_type</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00176">auto_ptr.h:176</a></div></div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
@@ -877,18 +875,18 @@ template&lt;typename Tp&gt; </div>
 </dl>
 <p>This object now <em>owns</em> the object pointed to by <em>p</em>. The previous object has been deleted. </p>
 
-<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00336">336</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
+<p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00335">335</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
 <p>References <a class="el" href="auto__ptr_8h_source.html#l00170">libMesh::AutoPtr&lt; Tp &gt;::_ptr</a>.</p>
 
 <p>Referenced by <a class="el" href="auto__ptr_8h_source.html#l00229">libMesh::AutoPtr&lt; Tp &gt;::operator=()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  {</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span> (p != <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>)</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      {</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a> = p;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      }</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  }</div>
+<div class="fragment"><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">if</span> (p != <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <a class="code" href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">_ptr</a> = p;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      }</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1AutoPtr_html_a7e8340fb4f4326ce8496a49f52980374"><div class="ttname"><a href="classlibMesh_1_1AutoPtr.html#a7e8340fb4f4326ce8496a49f52980374">libMesh::AutoPtr::_ptr</a></div><div class="ttdeci">Tp * _ptr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00170">auto_ptr.h:170</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -917,7 +915,7 @@ template&lt;typename Tp&gt; </div>
 
 <p>Definition at line <a class="el" href="auto__ptr_8h_source.html#l00170">170</a> of file <a class="el" href="auto__ptr_8h_source.html">auto_ptr.h</a>.</p>
 
-<p>Referenced by <a class="el" href="auto__ptr_8h_source.html#l00307">libMesh::AutoPtr&lt; Tp &gt;::get()</a>, <a class="el" href="auto__ptr_8h_source.html#l00285">libMesh::AutoPtr&lt; Tp &gt;::operator*()</a>, <a class="el" href="auto__ptr_8h_source.html#l00294">libMesh::AutoPtr&lt; Tp &gt;::operator-&gt;()</a>, <a class="el" href="auto__ptr_8h_source.html#l00366">libMesh::AutoPtr&lt; Tp &gt;::operator=()</a>, <a class="el" href="auto__ptr_8h_source.html#l00321">libMesh::AutoPtr&lt; Tp &gt;::release()</a>, <a class="el" href="auto__ptr_8h_source.html#l00336">libMesh::AutoPtr&lt; Tp &gt;::reset()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00265">libMesh::AutoPtr&lt; Tp &gt;::~AutoPtr()</a>.</p>
+<p>Referenced by <a class="el" href="auto__ptr_8h_source.html#l00306">libMesh::AutoPtr&lt; Tp &gt;::get()</a>, <a class="el" href="auto__ptr_8h_source.html#l00284">libMesh::AutoPtr&lt; Tp &gt;::operator*()</a>, <a class="el" href="auto__ptr_8h_source.html#l00293">libMesh::AutoPtr&lt; Tp &gt;::operator-&gt;()</a>, <a class="el" href="auto__ptr_8h_source.html#l00365">libMesh::AutoPtr&lt; Tp &gt;::operator=()</a>, <a class="el" href="auto__ptr_8h_source.html#l00320">libMesh::AutoPtr&lt; Tp &gt;::release()</a>, <a class="el" href="auto__ptr_8h_source.html#l00335">libMesh::AutoPtr&lt; Tp &gt;::reset()</a>, and <a class="el" href="auto__ptr_8h_source.html#l00265">libMesh::AutoPtr&lt; Tp &gt;::~AutoPtr()</a>.</p>
 
 </div>
 </div>

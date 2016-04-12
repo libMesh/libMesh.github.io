@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="sum__shell__matrix_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -157,8 +157,8 @@
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SumShellMatrix.html#a409d5fa6142a3ba4ed2559ab6336e3fa">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1SumShellMatrix.html#a409d5fa6142a3ba4ed2559ab6336e3fa">SumShellMatrix&lt;T&gt;::vector_mult</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a>&amp; dest,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a>&amp; arg)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SumShellMatrix.html#a409d5fa6142a3ba4ed2559ab6336e3fa">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1SumShellMatrix.html#a409d5fa6142a3ba4ed2559ab6336e3fa">SumShellMatrix&lt;T&gt;::vector_mult</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a> &amp; dest,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a> &amp; arg)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  dest.<a class="code" href="classlibMesh_1_1NumericVector.html#a85b3d4a53413e3745e6ecf1c8b96ca65">zero</a>();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  this-&gt;vector_mult_add(dest,arg);</div>
@@ -167,8 +167,8 @@
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SumShellMatrix.html#a35c7efb2115023410924cec3382031b2">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1SumShellMatrix.html#a35c7efb2115023410924cec3382031b2">SumShellMatrix&lt;T&gt;::vector_mult_add</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a>&amp; dest,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                         <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a>&amp; arg)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SumShellMatrix.html#a35c7efb2115023410924cec3382031b2">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1SumShellMatrix.html#a35c7efb2115023410924cec3382031b2">SumShellMatrix&lt;T&gt;::vector_mult_add</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a> &amp; dest,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                         <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a> &amp; arg)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">for</span>(std::size_t i=matrices.size(); i--&gt;0; )</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
@@ -179,7 +179,7 @@
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SumShellMatrix.html#aa6cd0e34f75764d49a8a14defe31b5cb">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1SumShellMatrix.html#aa6cd0e34f75764d49a8a14defe31b5cb">SumShellMatrix&lt;T&gt;::get_diagonal</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a>&amp; dest)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SumShellMatrix.html#aa6cd0e34f75764d49a8a14defe31b5cb">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1SumShellMatrix.html#aa6cd0e34f75764d49a8a14defe31b5cb">SumShellMatrix&lt;T&gt;::get_diagonal</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a> &amp; dest)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;T&gt;</a> &gt; a = dest.<a class="code" href="classlibMesh_1_1NumericVector.html#ad9791f558667a7c3ca2f8cfe5933f9b0">clone</a>();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  dest.<a class="code" href="classlibMesh_1_1NumericVector.html#a85b3d4a53413e3745e6ecf1c8b96ca65">zero</a>();</div>

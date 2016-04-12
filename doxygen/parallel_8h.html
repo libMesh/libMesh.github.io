@@ -135,9 +135,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parallel_1_1Request.html">libMesh::Parallel::Request</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1BufferType.html">libMesh::Parallel::BufferType&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1BufferType_3_01T_01_5_01_4.html">libMesh::Parallel::BufferType&lt; T * &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parallel_1_1Packing.html">libMesh::Parallel::Packing&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">libMesh::Parallel::Communicator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,7 +143,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1PostWaitCopyBuffer.html">libMesh::Parallel::PostWaitCopyBuffer&lt; Container, OutputIter &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1PostWaitUnpackBuffer.html">libMesh::Parallel::PostWaitUnpackBuffer&lt; Container, Context, OutputIter &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1PostWaitUnpackBuffer.html">libMesh::Parallel::PostWaitUnpackBuffer&lt; Container, Context, OutputIter, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1PostWaitDeleteBuffer.html">libMesh::Parallel::PostWaitDeleteBuffer&lt; Container &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,21 +175,9 @@ Functions</h2></td></tr>
 <tr class="separator:a94da485af333624e0167bb84b9adaf84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea5278a91928fa4f33b74aa0786f3592"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aea5278a91928fa4f33b74aa0786f3592">libMesh::Parallel::wait</a> (std::vector&lt; Request &gt; &amp;r)</td></tr>
 <tr class="separator:aea5278a91928fa4f33b74aa0786f3592"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a965467d841b5130231437693e6505ad0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename buffertype , typename Context &gt; </td></tr>
-<tr class="memitem:a965467d841b5130231437693e6505ad0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a965467d841b5130231437693e6505ad0">libMesh::Parallel::pack</a> (const T *object, typename std::vector&lt; buffertype &gt; &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const Context *context)</td></tr>
-<tr class="separator:a965467d841b5130231437693e6505ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab91bf6943d14262608b8d82b11b875dc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Context &gt; </td></tr>
-<tr class="memitem:ab91bf6943d14262608b8d82b11b875dc"><td class="memTemplItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ab91bf6943d14262608b8d82b11b875dc">libMesh::Parallel::packable_size</a> (const T *, const Context *)</td></tr>
-<tr class="separator:ab91bf6943d14262608b8d82b11b875dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ecfda595dc9e5a855a070d1323fe87f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename BufferIter &gt; </td></tr>
-<tr class="memitem:a6ecfda595dc9e5a855a070d1323fe87f"><td class="memTemplItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a6ecfda595dc9e5a855a070d1323fe87f">libMesh::Parallel::packed_size</a> (const T *, BufferIter)</td></tr>
-<tr class="separator:a6ecfda595dc9e5a855a070d1323fe87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a531cf5a5b3de303ad21be9da93ca194d"><td class="memTemplParams" colspan="2">template&lt;typename T , typename BufferIter , typename Context &gt; </td></tr>
-<tr class="memitem:a531cf5a5b3de303ad21be9da93ca194d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a531cf5a5b3de303ad21be9da93ca194d">libMesh::Parallel::unpack</a> (BufferIter in, T **out, Context *ctx)</td></tr>
-<tr class="separator:a531cf5a5b3de303ad21be9da93ca194d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5b538da657a5d9300115b6f6d53c054"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename OutputIter &gt; </td></tr>
-<tr class="memitem:ae5b538da657a5d9300115b6f6d53c054"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ae5b538da657a5d9300115b6f6d53c054">libMesh::Parallel::unpack_range</a> (const typename std::vector&lt; buffertype &gt; &amp;buffer, Context *context, OutputIter out)</td></tr>
-<tr class="separator:ae5b538da657a5d9300115b6f6d53c054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0febfa97ceea582f719f62c437d146"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename OutputIter , typename T &gt; </td></tr>
+<tr class="memitem:a6d0febfa97ceea582f719f62c437d146"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a6d0febfa97ceea582f719f62c437d146">libMesh::Parallel::unpack_range</a> (const typename std::vector&lt; buffertype &gt; &amp;buffer, Context *context, OutputIter out, const T *output_type)</td></tr>
+<tr class="separator:a6d0febfa97ceea582f719f62c437d146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7747f4be4a6ac7488b04f07f02209e7"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename Iter &gt; </td></tr>
 <tr class="memitem:ab7747f4be4a6ac7488b04f07f02209e7"><td class="memTemplItemLeft" align="right" valign="top">Iter&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ab7747f4be4a6ac7488b04f07f02209e7">libMesh::Parallel::pack_range</a> (const Context *context, Iter range_begin, const Iter range_end, typename std::vector&lt; buffertype &gt; &amp;buffer)</td></tr>
 <tr class="separator:ab7747f4be4a6ac7488b04f07f02209e7"><td class="memSeparator" colspan="2">&#160;</td></tr>

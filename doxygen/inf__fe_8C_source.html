@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="inf__fe_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -137,16 +137,16 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// Constructor</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a3cdd21b19b1705ab3a5c1bc6a7dcbbab">   40</a></span>&#160;<a class="code" href="classlibMesh_1_1InfFE.html#ad698bc1a8138f91ab0ad12ee60f6b655">InfFE&lt;Dim,T_radial,T_map&gt;::InfFE</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1FEType.html">FEType</a>&amp; fet) :</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a3cdd21b19b1705ab3a5c1bc6a7dcbbab">   40</a></span>&#160;<a class="code" href="classlibMesh_1_1InfFE.html#ad698bc1a8138f91ab0ad12ee60f6b655">InfFE&lt;Dim,T_radial,T_map&gt;::InfFE</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1FEType.html">FEType</a> &amp; fet) :</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classlibMesh_1_1FEGenericBase.html">FEBase</a>       (Dim, fet),</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  _n_total_approx_sf (0),</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  _n_total_qp        (0),</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  base_qrule   (NULL),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  radial_qrule (NULL),</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  base_elem    (NULL),</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  base_fe      (NULL),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  base_qrule   (<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  radial_qrule (<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  base_elem    (<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  base_fe      (<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">// initialize the current_fe_type to all the same</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// values as \p fet (since the FE families and coordinate</span></div>
@@ -163,8 +163,8 @@
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Sanity checks</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  libmesh_assert_equal_to (T_radial, <a class="code" href="classlibMesh_1_1FEAbstract.html#ad19df9026d5d8a599a361c9aa1c7eb76">fe_type</a>.<a class="code" href="classlibMesh_1_1FEType.html#aa977e3f8f993257e1cc81896236ba366">radial_family</a>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  libmesh_assert_equal_to (T_map, <a class="code" href="classlibMesh_1_1FEAbstract.html#ad19df9026d5d8a599a361c9aa1c7eb76">fe_type</a>.<a class="code" href="classlibMesh_1_1FEType.html#a1fb32083c8ab884440a2beb333b5236e">inf_map</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  libmesh_assert_equal_to (T_radial, <a class="code" href="classlibMesh_1_1FEAbstract.html#a4db5af981efb5b180a50ea5190cd82bd">fe_type</a>.<a class="code" href="classlibMesh_1_1FEType.html#aa977e3f8f993257e1cc81896236ba366">radial_family</a>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  libmesh_assert_equal_to (T_map, <a class="code" href="classlibMesh_1_1FEAbstract.html#a4db5af981efb5b180a50ea5190cd82bd">fe_type</a>.<a class="code" href="classlibMesh_1_1FEType.html#a1fb32083c8ab884440a2beb333b5236e">inf_map</a>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// build the base_fe object, handle the UniquePtr</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordflow">if</span> (Dim != 1)</div>
@@ -183,16 +183,16 @@
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">// delete pointers, if necessary</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">delete</span> base_qrule;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  base_qrule = NULL;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  base_qrule = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">delete</span> radial_qrule;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  radial_qrule = NULL;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  radial_qrule = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">delete</span> base_elem;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  base_elem = NULL;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  base_elem = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">delete</span> base_fe;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  base_fe = NULL;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  base_fe = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
@@ -200,13 +200,13 @@
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a031e7b06337be1c0e11b8275febd9428">  103</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a031e7b06337be1c0e11b8275febd9428">InfFE&lt;Dim,T_radial,T_map&gt;:: attach_quadrature_rule</a> (<a class="code" href="classlibMesh_1_1QBase.html">QBase</a>* q)</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a031e7b06337be1c0e11b8275febd9428">  103</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a031e7b06337be1c0e11b8275febd9428">InfFE&lt;Dim,T_radial,T_map&gt;:: attach_quadrature_rule</a> (<a class="code" href="classlibMesh_1_1QBase.html">QBase</a> * q)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(q);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(base_fe);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> base_int_order   = q-&gt;<a class="code" href="classlibMesh_1_1QBase.html#a35cb2015566e5ab627e3af64519d4f03">get_order</a>();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> radial_int_order = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a><span class="keyword">&gt;</span>(2 * (<span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(fe_type.radial_order) + 1) +2);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> radial_int_order = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a><span class="keyword">&gt;</span>(2 * (<span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(fe_type.radial_order.get_order()) + 1) +2);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qrule_dim = q-&gt;<a class="code" href="classlibMesh_1_1QBase.html#a334ad6c046a65963406402fbdf13e748">get_dim</a>();</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span> (Dim != 1)</div>
@@ -220,7 +220,7 @@
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">// in radial direction, always use Gauss quadrature</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  radial_qrule = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1QGauss.html">QGauss</a>(1, radial_int_order);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">// currently not used. But maybe helpful to store the QBase*</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">// currently not used. But maybe helpful to store the QBase *</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="comment">// with which we initialized our own quadrature rules</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  qrule = q;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
@@ -230,9 +230,9 @@
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_base&gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#ab446eaf1bea81ca7a9f4676cccd48a6e">  133</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#ab446eaf1bea81ca7a9f4676cccd48a6e">InfFE&lt;Dim,T_radial,T_base&gt;::update_base_elem</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* inf_elem)</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#ab446eaf1bea81ca7a9f4676cccd48a6e">  133</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#ab446eaf1bea81ca7a9f4676cccd48a6e">InfFE&lt;Dim,T_radial,T_base&gt;::update_base_elem</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * inf_elem)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordflow">if</span> (base_elem != NULL)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordflow">if</span> (base_elem != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">delete</span> base_elem;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  base_elem = Base::build_elem(inf_elem);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
@@ -243,9 +243,9 @@
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a45a134b4c754ec1d1e3c5d2400b7b957">  146</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a45a134b4c754ec1d1e3c5d2400b7b957">InfFE&lt;Dim,T_radial,T_map&gt;::reinit</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* inf_elem,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;Point&gt;* <span class="keyword">const</span> pts,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;Real&gt;* <span class="keyword">const</span> weights)</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a4a44c6f75a4ff64ac3517d2174ef3489">  146</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a4a44c6f75a4ff64ac3517d2174ef3489">InfFE&lt;Dim,T_radial,T_map&gt;::reinit</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * inf_elem,</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;Point&gt; * <span class="keyword">const</span> pts,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;Real&gt; * <span class="keyword">const</span> weights)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;{</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(base_fe);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(base_fe-&gt;qrule);</div>
@@ -253,7 +253,7 @@
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(radial_qrule);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(inf_elem);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordflow">if</span> (pts == NULL)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordflow">if</span> (pts == <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    {</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordtype">bool</span> init_shape_functions_required = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
@@ -320,14 +320,14 @@
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="comment">// each and every new element), throw radial and base part together</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      this-&gt;combine_base_radial (inf_elem);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      this-&gt;_fe_map-&gt;compute_map (this-&gt;<a class="code" href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">dim</a>, _total_qrule_weights, inf_elem, this-&gt;calculate_d2phi);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      this-&gt;_fe_map-&gt;compute_map (this-&gt;<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>, _total_qrule_weights, inf_elem, this-&gt;calculate_d2phi);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="comment">// Compute the shape functions and the derivatives</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      <span class="comment">// at all quadrature points.</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      this-&gt;compute_shape_functions (inf_elem,base_fe-&gt;qrule-&gt;get_points());</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">else</span> <span class="comment">// if pts != NULL</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">else</span> <span class="comment">// if pts != libmesh_nullptr</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    {</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="comment">// update the elem_type</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      elem_type = inf_elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">type</a>();</div>
@@ -341,7 +341,7 @@
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      <span class="comment">// the finite element on the ifem base</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      {</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;FEBase&gt;</a> ap_fb(<a class="code" href="classlibMesh_1_1FEGenericBase.html#ac164873757896eec4a8e35d31395f921">FEBase::build</a>(Dim-1, this-&gt;fe_type));</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordflow">if</span> (base_fe != NULL)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordflow">if</span> (base_fe != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;          <span class="keyword">delete</span> base_fe;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        base_fe = ap_fb.release();</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      }</div>
@@ -356,14 +356,14 @@
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      this-&gt;combine_base_radial (inf_elem);</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      <span class="comment">// weights</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keywordflow">if</span> (weights != NULL)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keywordflow">if</span> (weights != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        {</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          this-&gt;_fe_map-&gt;compute_map (this-&gt;<a class="code" href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">dim</a>, *weights, inf_elem, this-&gt;calculate_d2phi);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          this-&gt;_fe_map-&gt;compute_map (this-&gt;<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>, *weights, inf_elem, this-&gt;calculate_d2phi);</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        }</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        {</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;          std::vector&lt;Real&gt; dummy_weights (pts-&gt;size(), 1.);</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;          this-&gt;_fe_map-&gt;compute_map (this-&gt;<a class="code" href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">dim</a>, dummy_weights, inf_elem, this-&gt;calculate_d2phi);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;          this-&gt;_fe_map-&gt;compute_map (this-&gt;<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>, dummy_weights, inf_elem, this-&gt;calculate_d2phi);</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        }</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="comment">// finally compute the ifem shapes</span></div>
@@ -377,7 +377,7 @@
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#aef42f87957900f537c9fa2d2e81c3c4c">  280</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#aef42f87957900f537c9fa2d2e81c3c4c">InfFE&lt;Dim,T_radial,T_map&gt;::init_radial_shape_functions</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(inf_elem))</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#aef42f87957900f537c9fa2d2e81c3c4c">  280</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#aef42f87957900f537c9fa2d2e81c3c4c">InfFE&lt;Dim,T_radial,T_map&gt;::init_radial_shape_functions</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(inf_elem))</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(radial_qrule);</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(inf_elem);</div>
@@ -402,7 +402,7 @@
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_radial_approx_shape_functions (Radial::n_dofs(radial_approx_order));</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>        n_radial_qp = radial_qrule-&gt;n_points();</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="keyword">const</span> std::vector&lt;Point&gt;&amp;   radial_qp = radial_qrule-&gt;get_points();</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="keyword">const</span> std::vector&lt;Point&gt; &amp;   radial_qp = radial_qrule-&gt;get_points();</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
@@ -467,7 +467,7 @@
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a310e88546990e4373110b2b340577dd3">  376</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a310e88546990e4373110b2b340577dd3">InfFE&lt;Dim,T_radial,T_map&gt;::init_shape_functions</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* inf_elem)</div>
+<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a310e88546990e4373110b2b340577dd3">  376</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a310e88546990e4373110b2b340577dd3">InfFE&lt;Dim,T_radial,T_map&gt;::init_shape_functions</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * inf_elem)</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;{</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(inf_elem);</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
@@ -652,28 +652,28 @@
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi_map = this-&gt;_fe_map-&gt;get_phi_map();</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphidxi_map = this-&gt;_fe_map-&gt;get_dphidxi_map();</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_map = this-&gt;_fe_map-&gt;get_phi_map();</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidxi_map = this-&gt;_fe_map-&gt;get_dphidxi_map();</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    phi_map.resize         (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    dphidxi_map.resize     (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_SECOND_DERIVATIVES</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidxi2_map = this-&gt;_fe_map-&gt;get_d2phidxi2_map();</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidxi2_map = this-&gt;_fe_map-&gt;get_d2phidxi2_map();</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    d2phidxi2_map.resize   (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="keywordflow">if</span> (Dim &gt; 1)</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;      {</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidxideta_map = this-&gt;_fe_map-&gt;get_d2phidxideta_map();</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phideta2_map = this-&gt;_fe_map-&gt;get_d2phideta2_map();</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidxideta_map = this-&gt;_fe_map-&gt;get_d2phidxideta_map();</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phideta2_map = this-&gt;_fe_map-&gt;get_d2phideta2_map();</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        d2phidxideta_map.resize   (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        d2phideta2_map.resize     (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;      }</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordflow">if</span> (Dim == 3)</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      {</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidxidzeta_map = this-&gt;_fe_map-&gt;get_d2phidxidzeta_map();</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidetadzeta_map = this-&gt;_fe_map-&gt;get_d2phidetadzeta_map();</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidzeta2_map = this-&gt;_fe_map-&gt;get_d2phidzeta2_map();</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidxidzeta_map = this-&gt;_fe_map-&gt;get_d2phidxidzeta_map();</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidetadzeta_map = this-&gt;_fe_map-&gt;get_d2phidetadzeta_map();</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidzeta2_map = this-&gt;_fe_map-&gt;get_d2phidzeta2_map();</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        d2phidxidzeta_map.resize  (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        d2phidetadzeta_map.resize (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        d2phidzeta2_map.resize    (n_total_mapping_shape_functions);</div>
@@ -682,13 +682,13 @@
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">if</span> (Dim &gt; 1)</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;      {</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphideta_map = this-&gt;_fe_map-&gt;get_dphideta_map();</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphideta_map = this-&gt;_fe_map-&gt;get_dphideta_map();</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        dphideta_map.resize  (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      }</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordflow">if</span> (Dim == 3)</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;      {</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphidzeta_map = this-&gt;_fe_map-&gt;get_dphidzeta_map();</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidzeta_map = this-&gt;_fe_map-&gt;get_dphidzeta_map();</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        dphidzeta_map.resize (n_total_mapping_shape_functions);</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      }</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  }</div>
@@ -740,26 +740,26 @@
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;</div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;n_total_mapping_shape_functions; i++)</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;      {</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi_map = this-&gt;_fe_map-&gt;get_phi_map();</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphidxi_map = this-&gt;_fe_map-&gt;get_dphidxi_map();</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_map = this-&gt;_fe_map-&gt;get_phi_map();</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidxi_map = this-&gt;_fe_map-&gt;get_dphidxi_map();</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        phi_map[i].resize         (n_total_qp);</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        dphidxi_map[i].resize     (n_total_qp);</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_SECOND_DERIVATIVES</span></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidxi2_map = this-&gt;_fe_map-&gt;get_d2phidxi2_map();</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidxi2_map = this-&gt;_fe_map-&gt;get_d2phidxi2_map();</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        d2phidxi2_map[i].resize   (n_total_qp);</div>
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        <span class="keywordflow">if</span> (Dim &gt; 1)</div>
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;          {</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidxideta_map = this-&gt;_fe_map-&gt;get_d2phidxideta_map();</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phideta2_map = this-&gt;_fe_map-&gt;get_d2phideta2_map();</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidxideta_map = this-&gt;_fe_map-&gt;get_d2phidxideta_map();</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phideta2_map = this-&gt;_fe_map-&gt;get_d2phideta2_map();</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;            d2phidxideta_map[i].resize   (n_total_qp);</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;            d2phideta2_map[i].resize     (n_total_qp);</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;          }</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;</div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="keywordflow">if</span> (Dim &gt; 2)</div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;          {</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidxidzeta_map = this-&gt;_fe_map-&gt;get_d2phidxidzeta_map();</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidetadzeta_map = this-&gt;_fe_map-&gt;get_d2phidetadzeta_map();</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; d2phidzeta2_map = this-&gt;_fe_map-&gt;get_d2phidzeta2_map();</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidxidzeta_map = this-&gt;_fe_map-&gt;get_d2phidxidzeta_map();</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidetadzeta_map = this-&gt;_fe_map-&gt;get_d2phidetadzeta_map();</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; d2phidzeta2_map = this-&gt;_fe_map-&gt;get_d2phidzeta2_map();</div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;            d2phidxidzeta_map[i].resize  (n_total_qp);</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;            d2phidetadzeta_map[i].resize (n_total_qp);</div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;            d2phidzeta2_map[i].resize    (n_total_qp);</div>
@@ -768,13 +768,13 @@
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="keywordflow">if</span> (Dim &gt; 1)</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;          {</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphideta_map = this-&gt;_fe_map-&gt;get_dphideta_map();</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphideta_map = this-&gt;_fe_map-&gt;get_dphideta_map();</div>
 <div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;            dphideta_map[i].resize  (n_total_qp);</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;          }</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        <span class="keywordflow">if</span> (Dim == 3)</div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;          {</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphidzeta_map = this-&gt;_fe_map-&gt;get_dphidzeta_map();</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;            std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidzeta_map = this-&gt;_fe_map-&gt;get_dphidzeta_map();</div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            dphidzeta_map[i].resize (n_total_qp);</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;          }</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;      }</div>
@@ -788,11 +788,11 @@
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="comment">//     access from the outside to these fields</span></div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="comment">// (b) form a std::vector&lt;Real&gt; which contains the appropriate weights</span></div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">//     of the combined quadrature rule!</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keyword">const</span> std::vector&lt;Point&gt;&amp;  radial_qp = radial_qrule-&gt;get_points();</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keyword">const</span> std::vector&lt;Point&gt; &amp;  radial_qp = radial_qrule-&gt;get_points();</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    libmesh_assert_equal_to (radial_qp.size(), n_radial_qp);</div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keyword">const</span> std::vector&lt;Real&gt;&amp;   radial_qw = radial_qrule-&gt;get_weights();</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keyword">const</span> std::vector&lt;Real&gt;&amp;   base_qw   = base_qrule-&gt;get_weights();</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keyword">const</span> std::vector&lt;Real&gt; &amp;   radial_qw = radial_qrule-&gt;get_weights();</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keyword">const</span> std::vector&lt;Real&gt; &amp;   base_qw   = base_qrule-&gt;get_weights();</div>
 <div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    libmesh_assert_equal_to (radial_qw.size(), n_radial_qp);</div>
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    libmesh_assert_equal_to (base_qw.size(), n_base_qp);</div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;</div>
@@ -816,7 +816,7 @@
 <div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;</div>
 <div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;</div>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00728"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a07964b091022a4b60b205053fe2fc8c0">  728</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a07964b091022a4b60b205053fe2fc8c0">InfFE&lt;Dim,T_radial,T_map&gt;::combine_base_radial</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* inf_elem)</div>
+<div class="line"><a name="l00728"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a07964b091022a4b60b205053fe2fc8c0">  728</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a07964b091022a4b60b205053fe2fc8c0">InfFE&lt;Dim,T_radial,T_map&gt;::combine_base_radial</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * inf_elem)</div>
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;{</div>
 <div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(inf_elem);</div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;  <span class="comment">// at least check whether the base element type is correct.</span></div>
@@ -870,12 +870,12 @@
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    <span class="keywordflow">case</span> 3:</div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;      {</div>
 <div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;        <span class="comment">// fast access to the approximation and mapping shapes of base_fe</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; S  = base_fe-&gt;phi;</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; Ss = base_fe-&gt;dphidxi;</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; St = base_fe-&gt;dphideta;</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; S_map  = (base_fe-&gt;get_fe_map()).get_phi_map();</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; Ss_map = (base_fe-&gt;get_fe_map()).get_dphidxi_map();</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; St_map = (base_fe-&gt;get_fe_map()).get_dphideta_map();</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; S  = base_fe-&gt;phi;</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; Ss = base_fe-&gt;dphidxi;</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; St = base_fe-&gt;dphideta;</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; S_map  = (base_fe-&gt;get_fe_map()).get_phi_map();</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; Ss_map = (base_fe-&gt;get_fe_map()).get_dphidxi_map();</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; St_map = (base_fe-&gt;get_fe_map()).get_dphideta_map();</div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;</div>
 <div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_radial_qp         = radial_qrule-&gt;n_points();</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_base_qp           = base_qrule-&gt;  n_points();</div>
@@ -928,10 +928,10 @@
 <div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                  * (dmodedv[ri][rp] * som[rp] + mode[ri][rp] * dsomdv[rp]);</div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;              }</div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi_map = this-&gt;_fe_map-&gt;get_phi_map();</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphidxi_map = this-&gt;_fe_map-&gt;get_dphidxi_map();</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphideta_map = this-&gt;_fe_map-&gt;get_dphideta_map();</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; dphidzeta_map = this-&gt;_fe_map-&gt;get_dphidzeta_map();</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_map = this-&gt;_fe_map-&gt;get_phi_map();</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidxi_map = this-&gt;_fe_map-&gt;get_dphidxi_map();</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphideta_map = this-&gt;_fe_map-&gt;get_dphideta_map();</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;        std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dphidzeta_map = this-&gt;_fe_map-&gt;get_dphidzeta_map();</div>
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;        libmesh_assert_equal_to (phi_map.size(), n_total_mapping_sf);</div>
 <div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;        libmesh_assert_equal_to (dphidxi_map.size(), n_total_mapping_sf);</div>
@@ -972,173 +972,175 @@
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;</div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;</div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l00890"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a8d0e62af6d13f100f19c888750ea25b2">  890</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a8d0e62af6d13f100f19c888750ea25b2">InfFE&lt;Dim,T_radial,T_map&gt;::compute_shape_functions</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>*, <span class="keyword">const</span> std::vector&lt;Point&gt;&amp;)</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;{</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(radial_qrule);</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;  <span class="comment">// Start logging the overall computation of shape functions</span></div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;  <a class="code" href="namespacelibMesh.html#a7548a5faa85e5027223ef5c57d792445">START_LOG</a>(<span class="stringliteral">&quot;compute_shape_functions()&quot;</span>, <span class="stringliteral">&quot;InfFE&quot;</span>);</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;</div>
+<div class="line"><a name="l00890"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a8d0e62af6d13f100f19c888750ea25b2">  890</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfFE.html#a8d0e62af6d13f100f19c888750ea25b2">InfFE&lt;Dim,T_radial,T_map&gt;::compute_shape_functions</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *,</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                                                        <span class="keyword">const</span> std::vector&lt;Point&gt; &amp;)</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;{</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(radial_qrule);</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;  <span class="comment">// Start logging the overall computation of shape functions</span></div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;  <a class="code" href="namespacelibMesh.html#a7548a5faa85e5027223ef5c57d792445">START_LOG</a>(<span class="stringliteral">&quot;compute_shape_functions()&quot;</span>, <span class="stringliteral">&quot;InfFE&quot;</span>);</div>
 <div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_total_qp  = _n_total_qp;</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_total_qp  = _n_total_qp;</div>
 <div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;  <span class="comment">//-------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;  <span class="comment">// Compute the shape function values (and derivatives)</span></div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;  <span class="comment">// at the Quadrature points.  Note that the actual values</span></div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;  <span class="comment">// have already been computed via init_shape_functions</span></div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;  <span class="comment">// Compute the value of the derivative shape function i at quadrature point p</span></div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;  <span class="keywordflow">switch</span> (<a class="code" href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">dim</a>)</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    {</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;    <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;      {</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;        libmesh_not_implemented();</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;      }</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;      {</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;        libmesh_not_implemented();</div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;      }</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;      {</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; dxidx_map = this-&gt;_fe_map-&gt;get_dxidx();</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; dxidy_map = this-&gt;_fe_map-&gt;get_dxidy();</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; dxidz_map = this-&gt;_fe_map-&gt;get_dxidz();</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; detadx_map = this-&gt;_fe_map-&gt;get_detadx();</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; detady_map = this-&gt;_fe_map-&gt;get_detady();</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; detadz_map = this-&gt;_fe_map-&gt;get_detadz();</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; dzetadx_map = this-&gt;_fe_map-&gt;get_dzetadx();</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; dzetady_map = this-&gt;_fe_map-&gt;get_dzetady();</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt;&amp; dzetadz_map = this-&gt;_fe_map-&gt;get_dzetadz();</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        <span class="comment">// These are _all_ shape functions of this infinite element</span></div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;phi.size(); i++)</div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;n_total_qp; p++)</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;            {</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;              <span class="comment">// dphi/dx    = (dphi/dxi)*(dxi/dx) + (dphi/deta)*(deta/dx) + (dphi/dzeta)*(dzeta/dx);</span></div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;              dphi[i][p](0) =</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;                dphidx[i][p] = (dphidxi[i][p]*dxidx_map[p] +</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;                                dphideta[i][p]*detadx_map[p] +</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;                                dphidzeta[i][p]*dzetadx_map[p]);</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;              <span class="comment">// dphi/dy    = (dphi/dxi)*(dxi/dy) + (dphi/deta)*(deta/dy) + (dphi/dzeta)*(dzeta/dy);</span></div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;              dphi[i][p](1) =</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;                dphidy[i][p] = (dphidxi[i][p]*dxidy_map[p] +</div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;                                dphideta[i][p]*detady_map[p] +</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;                                dphidzeta[i][p]*dzetady_map[p]);</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;              <span class="comment">// dphi/dz    = (dphi/dxi)*(dxi/dz) + (dphi/deta)*(deta/dz) + (dphi/dzeta)*(dzeta/dz);</span></div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;              dphi[i][p](2) =</div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;                dphidz[i][p] = (dphidxi[i][p]*dxidz_map[p] +</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;                                dphideta[i][p]*detadz_map[p] +</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;                                dphidzeta[i][p]*dzetadz_map[p]);</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;            }</div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;  <span class="comment">//-------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;  <span class="comment">// Compute the shape function values (and derivatives)</span></div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;  <span class="comment">// at the Quadrature points.  Note that the actual values</span></div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;  <span class="comment">// have already been computed via init_shape_functions</span></div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;  <span class="comment">// Compute the value of the derivative shape function i at quadrature point p</span></div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;  <span class="keywordflow">switch</span> (<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>)</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;    {</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;      {</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;        libmesh_not_implemented();</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;      }</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;      {</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;        libmesh_not_implemented();</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;      }</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;      {</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; dxidx_map = this-&gt;_fe_map-&gt;get_dxidx();</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; dxidy_map = this-&gt;_fe_map-&gt;get_dxidy();</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; dxidz_map = this-&gt;_fe_map-&gt;get_dxidz();</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; detadx_map = this-&gt;_fe_map-&gt;get_detadx();</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; detady_map = this-&gt;_fe_map-&gt;get_detady();</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; detadz_map = this-&gt;_fe_map-&gt;get_detadz();</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; dzetadx_map = this-&gt;_fe_map-&gt;get_dzetadx();</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; dzetady_map = this-&gt;_fe_map-&gt;get_dzetady();</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        <span class="keyword">const</span> std::vector&lt;Real&gt; &amp; dzetadz_map = this-&gt;_fe_map-&gt;get_dzetadz();</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        <span class="comment">// These are _all_ shape functions of this infinite element</span></div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;phi.size(); i++)</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;n_total_qp; p++)</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;            {</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;              <span class="comment">// dphi/dx    = (dphi/dxi)*(dxi/dx) + (dphi/deta)*(deta/dx) + (dphi/dzeta)*(dzeta/dx);</span></div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;              dphi[i][p](0) =</div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;                dphidx[i][p] = (dphidxi[i][p]*dxidx_map[p] +</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;                                dphideta[i][p]*detadx_map[p] +</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;                                dphidzeta[i][p]*dzetadx_map[p]);</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;              <span class="comment">// dphi/dy    = (dphi/dxi)*(dxi/dy) + (dphi/deta)*(deta/dy) + (dphi/dzeta)*(dzeta/dy);</span></div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;              dphi[i][p](1) =</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;                dphidy[i][p] = (dphidxi[i][p]*dxidy_map[p] +</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;                                dphideta[i][p]*detady_map[p] +</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;                                dphidzeta[i][p]*dzetady_map[p]);</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;              <span class="comment">// dphi/dz    = (dphi/dxi)*(dxi/dz) + (dphi/deta)*(deta/dz) + (dphi/dzeta)*(dzeta/dz);</span></div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;              dphi[i][p](2) =</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;                dphidz[i][p] = (dphidxi[i][p]*dxidz_map[p] +</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;                                dphideta[i][p]*detadz_map[p] +</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;                                dphidzeta[i][p]*dzetadz_map[p]);</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;            }</div>
 <div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;        <span class="comment">// This is the derivative of the phase term of this infinite element</span></div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;n_total_qp; p++)</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;          {</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;            <span class="comment">// the derivative of the phase term</span></div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;            dphase[p](0) = (dphasedxi[p]   * dxidx_map[p] +</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;                            dphasedeta[p]  * detadx_map[p] +</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;                            dphasedzeta[p] * dzetadx_map[p]);</div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;</div>
-<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;            dphase[p](1) = (dphasedxi[p]   * dxidy_map[p] +</div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;                            dphasedeta[p]  * detady_map[p] +</div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;                            dphasedzeta[p] * dzetady_map[p]);</div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;</div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;            dphase[p](2) = (dphasedxi[p]   * dxidz_map[p] +</div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;                            dphasedeta[p]  * detadz_map[p] +</div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;                            dphasedzeta[p] * dzetadz_map[p]);</div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;</div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;            <span class="comment">// the derivative of the radial weight - varies only in radial direction,</span></div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;            <span class="comment">// therefore dweightdxi = dweightdeta = 0.</span></div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;            dweight[p](0) = dweightdv[p] * dzetadx_map[p];</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;</div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;            dweight[p](1) = dweightdv[p] * dzetady_map[p];</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;            dweight[p](2) = dweightdv[p] * dzetadz_map[p];</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;          }</div>
-<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;</div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;      }</div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unsupported dim = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">dim</a>);</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;    }</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;  <span class="comment">// Stop logging the overall computation of shape functions</span></div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;  <a class="code" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">STOP_LOG</a>(<span class="stringliteral">&quot;compute_shape_functions()&quot;</span>, <span class="stringliteral">&quot;InfFE&quot;</span>);</div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;}</div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;        <span class="comment">// This is the derivative of the phase term of this infinite element</span></div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;n_total_qp; p++)</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;          {</div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;            <span class="comment">// the derivative of the phase term</span></div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;            dphase[p](0) = (dphasedxi[p]   * dxidx_map[p] +</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;                            dphasedeta[p]  * detadx_map[p] +</div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;                            dphasedzeta[p] * dzetadx_map[p]);</div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;</div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;            dphase[p](1) = (dphasedxi[p]   * dxidy_map[p] +</div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;                            dphasedeta[p]  * detady_map[p] +</div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;                            dphasedzeta[p] * dzetady_map[p]);</div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;</div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;            dphase[p](2) = (dphasedxi[p]   * dxidz_map[p] +</div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;                            dphasedeta[p]  * detadz_map[p] +</div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;                            dphasedzeta[p] * dzetadz_map[p]);</div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;</div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;            <span class="comment">// the derivative of the radial weight - varies only in radial direction,</span></div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;            <span class="comment">// therefore dweightdxi = dweightdeta = 0.</span></div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;            dweight[p](0) = dweightdv[p] * dzetadx_map[p];</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;            dweight[p](1) = dweightdv[p] * dzetady_map[p];</div>
+<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;</div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;            dweight[p](2) = dweightdv[p] * dzetadz_map[p];</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;</div>
+<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;          }</div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;      }</div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;</div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unsupported dim = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>);</div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;    }</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;</div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;  <span class="comment">// Stop logging the overall computation of shape functions</span></div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;  <a class="code" href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">STOP_LOG</a>(<span class="stringliteral">&quot;compute_shape_functions()&quot;</span>, <span class="stringliteral">&quot;InfFE&quot;</span>);</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;}</div>
 <div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;</div>
 <div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;</div>
-<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
-<div class="line"><a name="l01000"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a0591e4f4d0c4a18bf9107861077c4b8c"> 1000</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1InfFE.html#a0591e4f4d0c4a18bf9107861077c4b8c">InfFE&lt;Dim,T_radial,T_map&gt;::shapes_need_reinit</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;}</div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;</div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;</div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;</div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim, FEFamily T_radial, InfMapType T_map&gt;</div>
+<div class="line"><a name="l01001"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a0591e4f4d0c4a18bf9107861077c4b8c"> 1001</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1InfFE.html#a0591e4f4d0c4a18bf9107861077c4b8c">InfFE&lt;Dim,T_radial,T_map&gt;::shapes_need_reinit</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;}</div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;</div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;<span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;<span class="comment">// Explicit instantiations</span></div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inf__fe__instantiate__1D_8h.html">libmesh/inf_fe_instantiate_1D.h</a>&quot;</span></div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inf__fe__instantiate__2D_8h.html">libmesh/inf_fe_instantiate_2D.h</a>&quot;</span></div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inf__fe__instantiate__3D_8h.html">libmesh/inf_fe_instantiate_3D.h</a>&quot;</span></div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;</div>
+<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;<span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;<span class="comment">// Explicit instantiations</span></div>
+<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inf__fe__instantiate__1D_8h.html">libmesh/inf_fe_instantiate_1D.h</a>&quot;</span></div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inf__fe__instantiate__2D_8h.html">libmesh/inf_fe_instantiate_2D.h</a>&quot;</span></div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inf__fe__instantiate__3D_8h.html">libmesh/inf_fe_instantiate_3D.h</a>&quot;</span></div>
 <div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;</div>
 <div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;</div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;<span class="preprocessor">#endif //ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
-<div class="ttc" id="classlibMesh_1_1FEType_html"><div class="ttname"><a href="classlibMesh_1_1FEType.html">libMesh::FEType</a></div><div class="ttdef"><b>Definition:</b> <a href="fe__type_8h_source.html#l00043">fe_type.h:43</a></div></div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;</div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;<span class="preprocessor">#endif //ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
+<div class="ttc" id="classlibMesh_1_1FEType_html"><div class="ttname"><a href="classlibMesh_1_1FEType.html">libMesh::FEType</a></div><div class="ttdef"><b>Definition:</b> <a href="fe__type_8h_source.html#l00175">fe_type.h:175</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a310e88546990e4373110b2b340577dd3"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a310e88546990e4373110b2b340577dd3">libMesh::InfFE::init_shape_functions</a></div><div class="ttdeci">void init_shape_functions(const Elem *inf_elem)</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00376">inf_fe.C:376</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QBase_html_a35cb2015566e5ab627e3af64519d4f03"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a35cb2015566e5ab627e3af64519d4f03">libMesh::QBase::get_order</a></div><div class="ttdeci">Order get_order() const </div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00180">quadrature.h:180</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a9f3ee7f7f5b35b0ea06019fe3bceca21"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a9f3ee7f7f5b35b0ea06019fe3bceca21">libMesh::INVALID_ORDER</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00082">enum_order.h:82</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="namespacelibMesh_html_aefa921f501605f00f5881b914fca3eeb"><div class="ttname"><a href="namespacelibMesh.html#aefa921f501605f00f5881b914fca3eeb">libMesh::STOP_LOG</a></div><div class="ttdeci">STOP_LOG(&quot;std::sqrt()&quot;,&quot;ExactErrorEstimator&quot;)</div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a07964b091022a4b60b205053fe2fc8c0"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a07964b091022a4b60b205053fe2fc8c0">libMesh::InfFE::combine_base_radial</a></div><div class="ttdeci">void combine_base_radial(const Elem *inf_elem)</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00728">inf_fe.C:728</a></div></div>
-<div class="ttc" id="classlibMesh_1_1InfFE_html_a0591e4f4d0c4a18bf9107861077c4b8c"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a0591e4f4d0c4a18bf9107861077c4b8c">libMesh::InfFE::shapes_need_reinit</a></div><div class="ttdeci">virtual bool shapes_need_reinit() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l01000">inf_fe.C:1000</a></div></div>
-<div class="ttc" id="classlibMesh_1_1InfFE_html_a45a134b4c754ec1d1e3c5d2400b7b957"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a45a134b4c754ec1d1e3c5d2400b7b957">libMesh::InfFE::reinit</a></div><div class="ttdeci">virtual void reinit(const Elem *elem, const std::vector&lt; Point &gt; *const pts=NULL, const std::vector&lt; Real &gt; *const weights=NULL) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00146">inf_fe.C:146</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfFE_html_a0591e4f4d0c4a18bf9107861077c4b8c"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a0591e4f4d0c4a18bf9107861077c4b8c">libMesh::InfFE::shapes_need_reinit</a></div><div class="ttdeci">virtual bool shapes_need_reinit() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l01001">inf_fe.C:1001</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a48f25f4f991199320290cb2d06002dfa"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a48f25f4f991199320290cb2d06002dfa">libMesh::InfFE::eval_deriv</a></div><div class="ttdeci">static Real eval_deriv(Real v, Order o_radial, unsigned int i)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00091">elem.h:91</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="elem_8h_html"><div class="ttname"><a href="elem_8h.html">elem.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a9f6093a95a75383d32010e7f2fc5de2b"><div class="ttname"><a href="namespacelibMesh.html#a9f6093a95a75383d32010e7f2fc5de2b">libMesh::dim</a></div><div class="ttdeci">void ExactErrorEstimator::estimate_error(const System &amp;system, ErrorVector &amp;error_per_cell, const NumericVector&lt; Number &gt; *solution_vector, bool estimate_parent_error) void ExactErrorEstimator const unsigned in dim)</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8C_source.html#l00216">exact_error_estimator.C:216</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QBase_html_a580d1c4a57b7c9f6f1c8904f3c804373"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a580d1c4a57b7c9f6f1c8904f3c804373">libMesh::QBase::type</a></div><div class="ttdeci">virtual QuadratureType type() const =0</div></div>
 <div class="ttc" id="namespacelibMesh_html_af0a78fa0f592d2b8f515c69cabfaf529"><div class="ttname"><a href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">libMesh::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; T &gt; UniquePtr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00046">auto_ptr.h:46</a></div></div>
 <div class="ttc" id="inf__fe__instantiate__3D_8h_html"><div class="ttname"><a href="inf__fe__instantiate__3D_8h.html">inf_fe_instantiate_3D.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a96a2cd7f42aa64975f1edfb613c6ec42"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a96a2cd7f42aa64975f1edfb613c6ec42">libMesh::InfFE::base_fe</a></div><div class="ttdeci">FEBase * base_fe</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8h_source.html#l00776">inf_fe.h:776</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_ad698bc1a8138f91ab0ad12ee60f6b655"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#ad698bc1a8138f91ab0ad12ee60f6b655">libMesh::InfFE::InfFE</a></div><div class="ttdeci">friend class InfFE</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8h_source.html#l00821">inf_fe.h:821</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aec85627a1c7c19f9378a065ba5a11b51"><div class="ttname"><a href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">libMesh::dim</a></div><div class="ttdeci">void ExactErrorEstimator::estimate_error(const System &amp;system, ErrorVector &amp;error_per_cell, const NumericVector&lt; Number &gt; *solution_vector, bool estimate_parent_error) void ExactErrorEstimator const unsigned in dim)</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8C_source.html#l00216">exact_error_estimator.C:216</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1MeshTools_html_a0701de7f01fd5eced3da4a332ff5ae51"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools.html#a0701de7f01fd5eced3da4a332ff5ae51">libMesh::MeshTools::weight</a></div><div class="ttdeci">dof_id_type weight(const MeshBase &amp;mesh, const processor_id_type pid)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00338">mesh_tools.C:338</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfFE_html_a4a44c6f75a4ff64ac3517d2174ef3489"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a4a44c6f75a4ff64ac3517d2174ef3489">libMesh::InfFE::reinit</a></div><div class="ttdeci">virtual void reinit(const Elem *elem, const std::vector&lt; Point &gt; *const pts=libmesh_nullptr, const std::vector&lt; Real &gt; *const weights=libmesh_nullptr) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00146">inf_fe.C:146</a></div></div>
 <div class="ttc" id="libmesh__logging_8h_html"><div class="ttname"><a href="libmesh__logging_8h.html">libmesh_logging.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QBase_html_a255849d71e36c25bacb6e46398f41371"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a255849d71e36c25bacb6e46398f41371">libMesh::QBase::build</a></div><div class="ttdeci">static UniquePtr&lt; QBase &gt; build(const std::string &amp;name, const unsigned int _dim, const Order _order=INVALID_ORDER)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__build_8C_source.html#l00042">quadrature_build.C:42</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a19cad96947f71c92d429b0f043971ff5"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a19cad96947f71c92d429b0f043971ff5">libMesh::InfFE::eval</a></div><div class="ttdeci">static Real eval(Real v, Order o_radial, unsigned int i)</div></div>
-<div class="ttc" id="classlibMesh_1_1FEType_html_a1fb32083c8ab884440a2beb333b5236e"><div class="ttname"><a href="classlibMesh_1_1FEType.html#a1fb32083c8ab884440a2beb333b5236e">libMesh::FEType::inf_map</a></div><div class="ttdeci">InfMapType inf_map</div><div class="ttdef"><b>Definition:</b> <a href="fe__type_8h_source.html#l00125">fe_type.h:125</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a74e5bc8a72d210b3d87b0221b1f69db1"><div class="ttname"><a href="namespacelibMesh.html#a74e5bc8a72d210b3d87b0221b1f69db1">libMesh::err</a></div><div class="ttdeci">OStreamProxy err(std::cerr)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00232">libmesh_common.h:232</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEType_html_a1fb32083c8ab884440a2beb333b5236e"><div class="ttname"><a href="classlibMesh_1_1FEType.html#a1fb32083c8ab884440a2beb333b5236e">libMesh::FEType::inf_map</a></div><div class="ttdeci">InfMapType inf_map</div><div class="ttdef"><b>Definition:</b> <a href="fe__type_8h_source.html#l00256">fe_type.h:256</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a74e5bc8a72d210b3d87b0221b1f69db1"><div class="ttname"><a href="namespacelibMesh.html#a74e5bc8a72d210b3d87b0221b1f69db1">libMesh::err</a></div><div class="ttdeci">OStreamProxy err(std::cerr)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00235">libmesh_common.h:235</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a8d0e62af6d13f100f19c888750ea25b2"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a8d0e62af6d13f100f19c888750ea25b2">libMesh::InfFE::compute_shape_functions</a></div><div class="ttdeci">virtual void compute_shape_functions(const Elem *, const std::vector&lt; Point &gt; &amp;) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00890">inf_fe.C:890</a></div></div>
 <div class="ttc" id="inf__fe__instantiate__1D_8h_html"><div class="ttname"><a href="inf__fe__instantiate__1D_8h.html">inf_fe_instantiate_1D.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_af591f704edd63f707d8e884f95db4477"><div class="ttname"><a href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libMesh::libmesh_dbg_var</a></div><div class="ttdeci">PetscErrorCode Vec Mat libmesh_dbg_var(j)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">libMesh::EDGE2</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEType_html_aa977e3f8f993257e1cc81896236ba366"><div class="ttname"><a href="classlibMesh_1_1FEType.html#aa977e3f8f993257e1cc81896236ba366">libMesh::FEType::radial_family</a></div><div class="ttdeci">FEFamily radial_family</div><div class="ttdef"><b>Definition:</b> <a href="fe__type_8h_source.html#l00117">fe_type.h:117</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEType_html_aa977e3f8f993257e1cc81896236ba366"><div class="ttname"><a href="classlibMesh_1_1FEType.html#aa977e3f8f993257e1cc81896236ba366">libMesh::FEType::radial_family</a></div><div class="ttdeci">FEFamily radial_family</div><div class="ttdef"><b>Definition:</b> <a href="fe__type_8h_source.html#l00248">fe_type.h:248</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_aef42f87957900f537c9fa2d2e81c3c4c"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#aef42f87957900f537c9fa2d2e81c3c4c">libMesh::InfFE::init_radial_shape_functions</a></div><div class="ttdeci">void init_radial_shape_functions(const Elem *inf_elem)</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00280">inf_fe.C:280</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a4da21e127a2f2f1b35168b3cfd458b74"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a4da21e127a2f2f1b35168b3cfd458b74">libMesh::Elem::origin</a></div><div class="ttdeci">virtual Point origin() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01194">elem.h:1194</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEAbstract_html_ad19df9026d5d8a599a361c9aa1c7eb76"><div class="ttname"><a href="classlibMesh_1_1FEAbstract.html#ad19df9026d5d8a599a361c9aa1c7eb76">libMesh::FEAbstract::fe_type</a></div><div class="ttdeci">const FEType fe_type</div><div class="ttdef"><b>Definition:</b> <a href="fe__abstract_8h_source.html#l00556">fe_abstract.h:556</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QBase_html_a334ad6c046a65963406402fbdf13e748"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a334ad6c046a65963406402fbdf13e748">libMesh::QBase::get_dim</a></div><div class="ttdeci">unsigned int get_dim() const </div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00122">quadrature.h:122</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QGauss_html"><div class="ttname"><a href="classlibMesh_1_1QGauss.html">libMesh::QGauss</a></div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss_8h_source.html#l00040">quadrature_gauss.h:40</a></div></div>
 <div class="ttc" id="inf__fe_8h_html"><div class="ttname"><a href="inf__fe_8h.html">inf_fe.h</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
 <div class="ttc" id="quadrature__gauss_8h_html"><div class="ttname"><a href="quadrature__gauss_8h.html">quadrature_gauss.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEAbstract_html_a4db5af981efb5b180a50ea5190cd82bd"><div class="ttname"><a href="classlibMesh_1_1FEAbstract.html#a4db5af981efb5b180a50ea5190cd82bd">libMesh::FEAbstract::fe_type</a></div><div class="ttdeci">FEType fe_type</div><div class="ttdef"><b>Definition:</b> <a href="fe__abstract_8h_source.html#l00561">fe_abstract.h:561</a></div></div>
 <div class="ttc" id="classlibMesh_1_1InfFE_html_a30d276887bb6076968b6e42c9906f6af"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a30d276887bb6076968b6e42c9906f6af">libMesh::InfFE::~InfFE</a></div><div class="ttdeci">~InfFE()</div><div class="ttdef"><b>Definition:</b> <a href="inf__fe_8C_source.html#l00082">inf_fe.C:82</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_ad06f8ac22978144723179eed42d10bae"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">libMesh::Elem::type</a></div><div class="ttdeci">virtual ElemType type() const =0</div></div>
 <div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00039">point.h:39</a></div></div>

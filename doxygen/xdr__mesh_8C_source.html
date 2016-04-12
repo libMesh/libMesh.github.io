@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="xdr__mesh_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -125,7 +125,7 @@
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// XdrMESH members</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classlibMesh_1_1XdrMESH.html#a840da33262d0310cfcdf1368bdd5f924">   28</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1XdrMESH.html#a840da33262d0310cfcdf1368bdd5f924">XdrMESH::header</a>(<a class="code" href="classlibMesh_1_1XdrMHEAD.html">XdrMHEAD</a> *hd)</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classlibMesh_1_1XdrMESH.html#a840da33262d0310cfcdf1368bdd5f924">   28</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1XdrMESH.html#a840da33262d0310cfcdf1368bdd5f924">XdrMESH::header</a>(<a class="code" href="classlibMesh_1_1XdrMHEAD.html">XdrMHEAD</a> * hd)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// Temporary variables to facilitate stream reading</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> comm_len= 256;</div>
@@ -403,7 +403,7 @@
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="classlibMesh_1_1XdrMGF.html#a9461e634e9303e0de433c6eb87e7cd2aa2ec8f3f778710dc7c73bbf8e281bf8f9">XdrMGF::ENCODE</a>):</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="classlibMesh_1_1XdrMGF.html#a9461e634e9303e0de433c6eb87e7cd2aaefb4b8cc9561f347ea61ceebe669f3e4">XdrMGF::DECODE</a>):</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">char</span>* temp = hd-&gt;<a class="code" href="classlibMesh_1_1XdrHEAD.html#ab85203a79c4f71cf63efc194fa345955">cpyString</a>(hd-&gt;<a class="code" href="classlibMesh_1_1XdrHEAD.html#a2391d7d2017ddfe07c67894fac6d86d5">getId</a>());</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">char</span> * temp = hd-&gt;<a class="code" href="classlibMesh_1_1XdrHEAD.html#ab85203a79c4f71cf63efc194fa345955">cpyString</a>(hd-&gt;<a class="code" href="classlibMesh_1_1XdrHEAD.html#a2391d7d2017ddfe07c67894fac6d86d5">getId</a>());</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        xdr_string(<a class="code" href="classlibMesh_1_1XdrMGF.html#a9d12aaa335ef6c54784a6d539089207c">mp_xdr_handle</a>, &amp;temp,</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                   ((<a class="code" href="classlibMesh_1_1XdrMGF.html#a30506feb941b748dfaca0e8f666f5974">m_type</a> == <a class="code" href="classlibMesh_1_1XdrMGF.html#a9461e634e9303e0de433c6eb87e7cd2aa2ec8f3f778710dc7c73bbf8e281bf8f9">XdrMGF::ENCODE</a>) ?</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                    cast_int&lt;unsigned int&gt;(std::strlen(temp)) :</div>

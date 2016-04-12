@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="metis__csr__graph_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -166,7 +166,7 @@
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classlibMesh_1_1METIS__CSR__Graph.html#abcf91a75fb3f79fae76c6cab9e5ee795">   74</a></span>&#160;  IndexType&amp; <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#abcf91a75fb3f79fae76c6cab9e5ee795">operator()</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> row, <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> nonzero)</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classlibMesh_1_1METIS__CSR__Graph.html#abcf91a75fb3f79fae76c6cab9e5ee795">   74</a></span>&#160;  IndexType &amp; <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#abcf91a75fb3f79fae76c6cab9e5ee795">operator()</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> row, <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> nonzero)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  {</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (vals.size(), offsets[row]+nonzero);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
@@ -175,7 +175,7 @@
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classlibMesh_1_1METIS__CSR__Graph.html#a0330fbb9dd7b69453683cf3f28a4243b">   83</a></span>&#160;  <span class="keyword">const</span> IndexType&amp; <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a0330fbb9dd7b69453683cf3f28a4243b">operator()</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> row, <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> nonzero)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classlibMesh_1_1METIS__CSR__Graph.html#a0330fbb9dd7b69453683cf3f28a4243b">   83</a></span>&#160;  <span class="keyword">const</span> IndexType &amp; <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a0330fbb9dd7b69453683cf3f28a4243b">operator()</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> row, <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a> nonzero)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">  </span>{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (vals.size(), offsets[row]+nonzero);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>

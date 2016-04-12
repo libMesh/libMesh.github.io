@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="fe__l2__lagrange_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -134,10 +134,10 @@
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// Anonymous namespace for local helper functions</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> l2_lagrange_nodal_soln(<span class="keyword">const</span> Elem* elem,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> l2_lagrange_nodal_soln(<span class="keyword">const</span> Elem * elem,</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                            <span class="keyword">const</span> std::vector&lt;Number&gt;&amp; elem_soln,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                            std::vector&lt;Number&gt;&amp;       nodal_soln)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                            <span class="keyword">const</span> std::vector&lt;Number&gt; &amp; elem_soln,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                            std::vector&lt;Number&gt; &amp;       nodal_soln)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="tecplot__io_8C.html#ae4aba5fa8c8579c6576b4f087aefb091">n_nodes</a> = elem-&gt;n_nodes();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type        = elem-&gt;type();</div>
@@ -519,31 +519,31 @@
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;  <span class="comment">// of explicit instantiation at the end of this file.</span></div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  <span class="comment">// This could be macro-ified so that it fits on one line...</span></div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00422"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a1bc3deac049afabfd1eb4fb29febac8d">  422</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;0,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a1bc3deac049afabfd1eb4fb29febac8d">  422</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;0,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt;&amp; elem_soln,</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                                   std::vector&lt;Number&gt;&amp; nodal_soln)</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt; &amp; elem_soln,</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                                   std::vector&lt;Number&gt; &amp; nodal_soln)</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;{ l2_lagrange_nodal_soln(elem, order, elem_soln, nodal_soln); }</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00429"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a2f5d0e1fcb7feb3b4d32342cb57db07b">  429</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;1,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00429"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a2f5d0e1fcb7feb3b4d32342cb57db07b">  429</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;1,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt;&amp; elem_soln,</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                                   std::vector&lt;Number&gt;&amp; nodal_soln)</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt; &amp; elem_soln,</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                                   std::vector&lt;Number&gt; &amp; nodal_soln)</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;{ l2_lagrange_nodal_soln(elem, order, elem_soln, nodal_soln); }</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00436"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a25239cc22e3dba91bec75c9bfc8dec8b">  436</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;2,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00436"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a25239cc22e3dba91bec75c9bfc8dec8b">  436</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;2,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt;&amp; elem_soln,</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                                   std::vector&lt;Number&gt;&amp; nodal_soln)</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt; &amp; elem_soln,</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                                   std::vector&lt;Number&gt; &amp; nodal_soln)</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;{ l2_lagrange_nodal_soln(elem, order, elem_soln, nodal_soln); }</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00443"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a86778fa7515f2cb76e0ffcfaeed5091d">  443</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;3,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00443"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a86778fa7515f2cb76e0ffcfaeed5091d">  443</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">FE&lt;3,L2_LAGRANGE&gt;::nodal_soln</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt;&amp; elem_soln,</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                                   std::vector&lt;Number&gt;&amp; nodal_soln)</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                                   <span class="keyword">const</span> std::vector&lt;Number&gt; &amp; elem_soln,</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                                   std::vector&lt;Number&gt; &amp; nodal_soln)</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;{ l2_lagrange_nodal_soln(elem, order, elem_soln, nodal_soln); }</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
@@ -593,15 +593,15 @@
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00494"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a7abf514053c9d399cde1163d53342455">  494</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a74d8c7f8c1f590279b5270d887d5e946">FE&lt;2,L2_LAGRANGE&gt;::compute_constraints</a> (<a class="code" href="classlibMesh_1_1DofConstraints.html">DofConstraints</a> &amp;,</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                                             <a class="code" href="classlibMesh_1_1DofMap.html">DofMap</a> &amp;,</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ,</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* )</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *)</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;{ }</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00501"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#ac873bf50ef961d202fae9ff9efc01c55">  501</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a74d8c7f8c1f590279b5270d887d5e946">FE&lt;3,L2_LAGRANGE&gt;::compute_constraints</a> (<a class="code" href="classlibMesh_1_1DofConstraints.html">DofConstraints</a> &amp;,</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                                             <a class="code" href="classlibMesh_1_1DofMap.html">DofMap</a> &amp;,</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ,</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* )</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *)</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;{ }</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="preprocessor">#endif // LIBMESH_ENABLE_AMR</span></div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;</div>

@@ -114,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abd32643b963049ac008b778c7e30958f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b9c04cbd66e66a82cb513e3062133e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1BuildProjectionList.html#a2b9c04cbd66e66a82cb513e3062133e8">unique</a> ()</td></tr>
 <tr class="separator:a2b9c04cbd66e66a82cb513e3062133e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac721bbaf4875175328af02b7d9cfd65f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1BuildProjectionList.html#ac721bbaf4875175328af02b7d9cfd65f">operator()</a> (const <a class="el" href="namespacelibMesh.html#acabd15c3bba2b26daa7032e0b5e60e7f">ConstElemRange</a> &amp;range)</td></tr>
+<tr class="memitem:ac721bbaf4875175328af02b7d9cfd65f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1BuildProjectionList.html#ac721bbaf4875175328af02b7d9cfd65f">operator()</a> (const <a class="el" href="namespacelibMesh.html#a2c62e678c8ac27e51286fa5c38b0f3c9">ConstElemRange</a> &amp;range)</td></tr>
 <tr class="separator:ac721bbaf4875175328af02b7d9cfd65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ac84a3a23a1230600922c02a4d0ad4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1BuildProjectionList.html#a9ac84a3a23a1230600922c02a4d0ad4a">join</a> (const <a class="el" href="classlibMesh_1_1BuildProjectionList.html">BuildProjectionList</a> &amp;other)</td></tr>
 <tr class="separator:a9ac84a3a23a1230600922c02a4d0ad4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +132,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class builds the send_list of old dof indices whose coefficients are needed to perform a projection. This may be executed in parallel on multiple threads. The end result is a <code>send_list</code> vector which is unsorted and may contain duplicate elements. The <code><a class="el" href="classlibMesh_1_1BuildProjectionList.html#a2b9c04cbd66e66a82cb513e3062133e8">unique()</a></code> method can be used to sort and create a unique list. </p>
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00409">409</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00501">501</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5c5677c8be48eebb86d3d232cc1d3d11"></a>
 <div class="memitem">
@@ -156,13 +156,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00415">415</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                                                :</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">system</a>(system_in),</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>()</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  {}</div>
-<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_acb637634ea03c810f1f40b50d5832983"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">libMesh::BuildProjectionList::system</a></div><div class="ttdeci">const System &amp; system</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00412">system_projection.C:412</a></div></div>
-<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00428">system_projection.C:428</a></div></div>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00507">507</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                                                 :</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">system</a>(system_in),</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>()</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;  {}</div>
+<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_acb637634ea03c810f1f40b50d5832983"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">libMesh::BuildProjectionList::system</a></div><div class="ttdeci">const System &amp; system</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00504">system_projection.C:504</a></div></div>
+<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00520">system_projection.C:520</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,13 +198,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00420">420</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                                                                 :</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">system</a>(other.system),</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>()</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  {}</div>
-<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_acb637634ea03c810f1f40b50d5832983"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">libMesh::BuildProjectionList::system</a></div><div class="ttdeci">const System &amp; system</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00412">system_projection.C:412</a></div></div>
-<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00428">system_projection.C:428</a></div></div>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00512">512</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                                                                  :</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">system</a>(other.system),</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>()</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  {}</div>
+<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_acb637634ea03c810f1f40b50d5832983"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#acb637634ea03c810f1f40b50d5832983">libMesh::BuildProjectionList::system</a></div><div class="ttdeci">const System &amp; system</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00504">system_projection.C:504</a></div></div>
+<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00520">system_projection.C:520</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,16 +223,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l01979">1979</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l02062">2062</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
-<p>References <a class="el" href="system__projection_8C_source.html#l00428">send_list</a>.</p>
-<div class="fragment"><div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;{</div>
-<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;  <span class="comment">// Joining simply requires I add the dof indices from the other object</span></div>
-<div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.insert(this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.end(),</div>
-<div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;                         other.send_list.begin(),</div>
-<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;                         other.send_list.end());</div>
-<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00428">system_projection.C:428</a></div></div>
+<p>References <a class="el" href="system__projection_8C_source.html#l00520">send_list</a>.</p>
+<div class="fragment"><div class="line"><a name="l02063"></a><span class="lineno"> 2063</span>&#160;{</div>
+<div class="line"><a name="l02064"></a><span class="lineno"> 2064</span>&#160;  <span class="comment">// Joining simply requires I add the dof indices from the other object</span></div>
+<div class="line"><a name="l02065"></a><span class="lineno"> 2065</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.insert(this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.end(),</div>
+<div class="line"><a name="l02066"></a><span class="lineno"> 2066</span>&#160;                         other.send_list.begin(),</div>
+<div class="line"><a name="l02067"></a><span class="lineno"> 2067</span>&#160;                         other.send_list.end());</div>
+<div class="line"><a name="l02068"></a><span class="lineno"> 2068</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00520">system_projection.C:520</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -243,17 +243,17 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void libMesh::BuildProjectionList::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacelibMesh.html#acabd15c3bba2b26daa7032e0b5e60e7f">ConstElemRange</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelibMesh.html#a2c62e678c8ac27e51286fa5c38b0f3c9">ConstElemRange</a> &amp;&#160;</td>
           <td class="paramname"><em>range</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l01868">1868</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l01869"></a><span class="lineno"> 1869</span>&#160;{</div>
-<div class="line"><a name="l01870"></a><span class="lineno"> 1870</span>&#160;  libmesh_not_implemented();</div>
-<div class="line"><a name="l01871"></a><span class="lineno"> 1871</span>&#160;}</div>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l01964">1964</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l01965"></a><span class="lineno"> 1965</span>&#160;{</div>
+<div class="line"><a name="l01966"></a><span class="lineno"> 1966</span>&#160;  libmesh_not_implemented();</div>
+<div class="line"><a name="l01967"></a><span class="lineno"> 1967</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,28 +270,28 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l01847">1847</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l01943">1943</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
-<p>References <a class="el" href="system__projection_8C_source.html#l00428">send_list</a>, and <a class="el" href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">libMesh::swap()</a>.</p>
+<p>References <a class="el" href="system__projection_8C_source.html#l00520">send_list</a>, and <a class="el" href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">libMesh::swap()</a>.</p>
 
-<p>Referenced by <a class="el" href="system__projection_8C_source.html#l00511">libMesh::System::project_vector()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;{</div>
-<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;  <span class="comment">// Sort the send list.  After this duplicated</span></div>
-<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;  <span class="comment">// elements will be adjacent in the vector</span></div>
-<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;  std::sort(this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.begin(),</div>
-<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;            this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.end());</div>
-<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;</div>
-<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;  <span class="comment">// Now use std::unique to remove duplicate entries</span></div>
-<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;  std::vector&lt;dof_id_type&gt;::iterator new_end =</div>
-<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;    std::unique (this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.begin(),</div>
-<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;                 this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.end());</div>
-<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;</div>
-<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;  <span class="comment">// Remove the end of the send_list.  Use the &quot;swap trick&quot;</span></div>
-<div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160;  <span class="comment">// from Effective STL</span></div>
-<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;  std::vector&lt;dof_id_type&gt;</div>
-<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;    (this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.begin(), new_end).<a class="code" href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">swap</a> (this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>);</div>
-<div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00428">system_projection.C:428</a></div></div>
+<p>Referenced by <a class="el" href="system__projection_8C_source.html#l00603">libMesh::System::project_vector()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160;{</div>
+<div class="line"><a name="l01945"></a><span class="lineno"> 1945</span>&#160;  <span class="comment">// Sort the send list.  After this duplicated</span></div>
+<div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160;  <span class="comment">// elements will be adjacent in the vector</span></div>
+<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;  std::sort(this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.begin(),</div>
+<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;            this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.end());</div>
+<div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160;</div>
+<div class="line"><a name="l01950"></a><span class="lineno"> 1950</span>&#160;  <span class="comment">// Now use std::unique to remove duplicate entries</span></div>
+<div class="line"><a name="l01951"></a><span class="lineno"> 1951</span>&#160;  std::vector&lt;dof_id_type&gt;::iterator new_end =</div>
+<div class="line"><a name="l01952"></a><span class="lineno"> 1952</span>&#160;    std::unique (this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.begin(),</div>
+<div class="line"><a name="l01953"></a><span class="lineno"> 1953</span>&#160;                 this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.end());</div>
+<div class="line"><a name="l01954"></a><span class="lineno"> 1954</span>&#160;</div>
+<div class="line"><a name="l01955"></a><span class="lineno"> 1955</span>&#160;  <span class="comment">// Remove the end of the send_list.  Use the &quot;swap trick&quot;</span></div>
+<div class="line"><a name="l01956"></a><span class="lineno"> 1956</span>&#160;  <span class="comment">// from Effective STL</span></div>
+<div class="line"><a name="l01957"></a><span class="lineno"> 1957</span>&#160;  std::vector&lt;dof_id_type&gt;</div>
+<div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;    (this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>.begin(), new_end).<a class="code" href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">swap</a> (this-&gt;<a class="code" href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">send_list</a>);</div>
+<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1BuildProjectionList_html_ac1e7c0615d3605e2bb0e564a8e33bcdd"><div class="ttname"><a href="classlibMesh_1_1BuildProjectionList.html#ac1e7c0615d3605e2bb0e564a8e33bcdd">libMesh::BuildProjectionList::send_list</a></div><div class="ttdeci">std::vector&lt; dof_id_type &gt; send_list</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00520">system_projection.C:520</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a939f48b62497a98c1bcdc722204468b9"><div class="ttname"><a href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">libMesh::swap</a></div><div class="ttdeci">X_input swap(X_system)</div></div>
 </div><!-- fragment -->
 </div>
@@ -307,9 +307,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00428">428</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00520">520</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
-<p>Referenced by <a class="el" href="system__projection_8C_source.html#l01979">join()</a>, <a class="el" href="system__projection_8C_source.html#l00511">libMesh::System::project_vector()</a>, and <a class="el" href="system__projection_8C_source.html#l01847">unique()</a>.</p>
+<p>Referenced by <a class="el" href="system__projection_8C_source.html#l02062">join()</a>, <a class="el" href="system__projection_8C_source.html#l00603">libMesh::System::project_vector()</a>, and <a class="el" href="system__projection_8C_source.html#l01943">unique()</a>.</p>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00412">412</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00504">504</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
 </div>
 </div>

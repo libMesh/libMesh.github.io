@@ -174,7 +174,7 @@ Public Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>.</p>
 <div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">for</span> (std::map&lt;boundary_id_type, PeriodicBoundaryBase*&gt;::iterator it = begin(); it != <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>(); ++it)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">for</span> (std::map&lt;boundary_id_type, PeriodicBoundaryBase *&gt;::iterator it = begin(); it != <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>(); ++it)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">delete</span> it-&gt;second;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 <div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
@@ -198,15 +198,16 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="periodic__boundaries_8C_source.html#l00042">42</a> of file <a class="el" href="periodic__boundaries_8C_source.html">periodic_boundaries.C</a>.</p>
 
-<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>.</p>
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
 
 <p>Referenced by <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00931">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, <a class="el" href="periodic__boundaries_8C_source.html#l00063">neighbor()</a>, and <a class="el" href="elem_8C_source.html#l00986">libMesh::Elem::topological_neighbor()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  iterator i = this-&gt;find(<span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span> (i == this-&gt;<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>())</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> i-&gt;second;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -227,13 +228,14 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="periodic__boundaries_8C_source.html#l00052">52</a> of file <a class="el" href="periodic__boundaries_8C_source.html">periodic_boundaries.C</a>.</p>
 
-<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>.</p>
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
 <div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  const_iterator i = this-&gt;find(<span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">if</span> (i == this-&gt;<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>())</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> i-&gt;second;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -284,7 +286,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  Point p = e-&gt;build_side(<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>)-&gt;centroid();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">const</span> PeriodicBoundaryBase *b = this-&gt;<a class="code" href="classlibMesh_1_1PeriodicBoundaries.html#a9c596dd816ed7e363c5b340a4947b780">boundary</a>(boundary_id);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">const</span> PeriodicBoundaryBase * b = this-&gt;<a class="code" href="classlibMesh_1_1PeriodicBoundaries.html#a9c596dd816ed7e363c5b340a4947b780">boundary</a>(boundary_id);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (b);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  p = b-&gt;get_corresponding_pos(p);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>

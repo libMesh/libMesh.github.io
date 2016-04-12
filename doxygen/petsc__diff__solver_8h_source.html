@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="petsc__diff__solver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -129,59 +129,54 @@
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="petsc__macro_8h.html">libmesh/petsc_macro.h</a>&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// PETSc includes</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;EXTERN_C_FOR_PETSC_BEGIN</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"># include &lt;petscsnes.h&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="namespaceEXTERN__C__FOR__PETSC__END.html">EXTERN_C_FOR_PETSC_END</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// C++ includes</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PetscDiffSolver.html">   52</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1PetscDiffSolver.html">PetscDiffSolver</a> : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1DiffSolver.html">DiffSolver</a></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">explicit</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a6b9a0a462ff5ba5ea61791b0a80e56a9">PetscDiffSolver</a> (<a class="code" href="classlibMesh_1_1ImplicitSystem.html">sys_type</a>&amp; <a class="code" href="classlibMesh_1_1DiffSolver.html#a5409063e9676de368c09c023df7a92f8">system</a>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a9ec651efc44e423e8c3706f68144de5d">~PetscDiffSolver</a> ();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PetscDiffSolver.html#ac94d4d880c4804708add10b470fad524">   67</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classlibMesh_1_1DiffSolver.html">DiffSolver</a> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#ac94d4d880c4804708add10b470fad524">Parent</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#af1e185f56b39f5075d8e79a68ad17d61">reinit</a> () libmesh_override;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  virtual <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a79457e4bd1012ef395fd89e00c98b6fe">init</a> () libmesh_override;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a27066a9f8ec515125131a1420e03b9d1">clear</a> ();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  virtual <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#af7ead84b00e28b8fb281c0b5bf12d625">solve</a> () libmesh_override;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;protected:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PetscDiffSolver.html#a76688574da713d6b0177bfbb20a83a49">   99</a></span>&#160;  SNES <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a76688574da713d6b0177bfbb20a83a49">_snes</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"># include &lt;petscsnes.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PetscDiffSolver.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1PetscDiffSolver.html">PetscDiffSolver</a> : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1DiffSolver.html">DiffSolver</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">explicit</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a6b9a0a462ff5ba5ea61791b0a80e56a9">PetscDiffSolver</a> (<a class="code" href="classlibMesh_1_1ImplicitSystem.html">sys_type</a> &amp; <a class="code" href="classlibMesh_1_1DiffSolver.html#a5409063e9676de368c09c023df7a92f8">system</a>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a9ec651efc44e423e8c3706f68144de5d">~PetscDiffSolver</a> ();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PetscDiffSolver.html#ac94d4d880c4804708add10b470fad524">   63</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classlibMesh_1_1DiffSolver.html">DiffSolver</a> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#ac94d4d880c4804708add10b470fad524">Parent</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#af1e185f56b39f5075d8e79a68ad17d61">reinit</a> () libmesh_override;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  virtual <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a79457e4bd1012ef395fd89e00c98b6fe">init</a> () libmesh_override;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a27066a9f8ec515125131a1420e03b9d1">clear</a> ();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  virtual <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#af7ead84b00e28b8fb281c0b5bf12d625">solve</a> () libmesh_override;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;protected:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PetscDiffSolver.html#a76688574da713d6b0177bfbb20a83a49">   95</a></span>&#160;  SNES <a class="code" href="classlibMesh_1_1PetscDiffSolver.html#a76688574da713d6b0177bfbb20a83a49">_snes</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_PETSC</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_PETSC</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif // LIBMESH_PETSC_DIFF_SOLVER_H</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // LIBMESH_PETSC_DIFF_SOLVER_H</span></div>
 <div class="ttc" id="petsc__macro_8h_html"><div class="ttname"><a href="petsc__macro_8h.html">petsc_macro.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_af1e185f56b39f5075d8e79a68ad17d61"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#af1e185f56b39f5075d8e79a68ad17d61">libMesh::PetscDiffSolver::reinit</a></div><div class="ttdeci">virtual void reinit() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00280">petsc_diff_solver.C:280</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a27066a9f8ec515125131a1420e03b9d1"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a27066a9f8ec515125131a1420e03b9d1">libMesh::PetscDiffSolver::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00268">petsc_diff_solver.C:268</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_ac94d4d880c4804708add10b470fad524"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#ac94d4d880c4804708add10b470fad524">libMesh::PetscDiffSolver::Parent</a></div><div class="ttdeci">DiffSolver Parent</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8h_source.html#l00067">petsc_diff_solver.h:67</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a9ec651efc44e423e8c3706f68144de5d"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a9ec651efc44e423e8c3706f68144de5d">libMesh::PetscDiffSolver::~PetscDiffSolver</a></div><div class="ttdeci">virtual ~PetscDiffSolver()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00262">petsc_diff_solver.C:262</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a79457e4bd1012ef395fd89e00c98b6fe"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a79457e4bd1012ef395fd89e00c98b6fe">libMesh::PetscDiffSolver::init</a></div><div class="ttdeci">virtual void init() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00208">petsc_diff_solver.C:208</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_af1e185f56b39f5075d8e79a68ad17d61"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#af1e185f56b39f5075d8e79a68ad17d61">libMesh::PetscDiffSolver::reinit</a></div><div class="ttdeci">virtual void reinit() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00266">petsc_diff_solver.C:266</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a27066a9f8ec515125131a1420e03b9d1"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a27066a9f8ec515125131a1420e03b9d1">libMesh::PetscDiffSolver::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00254">petsc_diff_solver.C:254</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_ac94d4d880c4804708add10b470fad524"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#ac94d4d880c4804708add10b470fad524">libMesh::PetscDiffSolver::Parent</a></div><div class="ttdeci">DiffSolver Parent</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8h_source.html#l00063">petsc_diff_solver.h:63</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a9ec651efc44e423e8c3706f68144de5d"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a9ec651efc44e423e8c3706f68144de5d">libMesh::PetscDiffSolver::~PetscDiffSolver</a></div><div class="ttdeci">virtual ~PetscDiffSolver()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00248">petsc_diff_solver.C:248</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a79457e4bd1012ef395fd89e00c98b6fe"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a79457e4bd1012ef395fd89e00c98b6fe">libMesh::PetscDiffSolver::init</a></div><div class="ttdeci">virtual void init() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00209">petsc_diff_solver.C:209</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a6b9a0a462ff5ba5ea61791b0a80e56a9"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a6b9a0a462ff5ba5ea61791b0a80e56a9">libMesh::PetscDiffSolver::PetscDiffSolver</a></div><div class="ttdeci">PetscDiffSolver(sys_type &amp;system)</div></div>
 <div class="ttc" id="diff__solver_8h_html"><div class="ttname"><a href="diff__solver_8h.html">diff_solver.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DiffSolver_html"><div class="ttname"><a href="classlibMesh_1_1DiffSolver.html">libMesh::DiffSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="diff__solver_8h_source.html#l00066">diff_solver.h:66</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html">libMesh::PetscDiffSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8h_source.html#l00052">petsc_diff_solver.h:52</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DiffSolver_html"><div class="ttname"><a href="classlibMesh_1_1DiffSolver.html">libMesh::DiffSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="diff__solver_8h_source.html#l00070">diff_solver.h:70</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html">libMesh::PetscDiffSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8h_source.html#l00048">petsc_diff_solver.h:48</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
-<div class="ttc" id="namespaceEXTERN__C__FOR__PETSC__END_html"><div class="ttname"><a href="namespaceEXTERN__C__FOR__PETSC__END.html">EXTERN_C_FOR_PETSC_END</a></div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00080">libmesh.C:80</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DiffSolver_html_a5409063e9676de368c09c023df7a92f8"><div class="ttname"><a href="classlibMesh_1_1DiffSolver.html#a5409063e9676de368c09c023df7a92f8">libMesh::DiffSolver::system</a></div><div class="ttdeci">const sys_type &amp; system() const </div><div class="ttdef"><b>Definition:</b> <a href="diff__solver_8h_source.html#l00131">diff_solver.h:131</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_af7ead84b00e28b8fb281c0b5bf12d625"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#af7ead84b00e28b8fb281c0b5bf12d625">libMesh::PetscDiffSolver::solve</a></div><div class="ttdeci">virtual unsigned int solve() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00350">petsc_diff_solver.C:350</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a76688574da713d6b0177bfbb20a83a49"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a76688574da713d6b0177bfbb20a83a49">libMesh::PetscDiffSolver::_snes</a></div><div class="ttdeci">SNES _snes</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8h_source.html#l00099">petsc_diff_solver.h:99</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DiffSolver_html_a5409063e9676de368c09c023df7a92f8"><div class="ttname"><a href="classlibMesh_1_1DiffSolver.html#a5409063e9676de368c09c023df7a92f8">libMesh::DiffSolver::system</a></div><div class="ttdeci">const sys_type &amp; system() const </div><div class="ttdef"><b>Definition:</b> <a href="diff__solver_8h_source.html#l00135">diff_solver.h:135</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_af7ead84b00e28b8fb281c0b5bf12d625"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#af7ead84b00e28b8fb281c0b5bf12d625">libMesh::PetscDiffSolver::solve</a></div><div class="ttdeci">virtual unsigned int solve() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00332">petsc_diff_solver.C:332</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscDiffSolver_html_a76688574da713d6b0177bfbb20a83a49"><div class="ttname"><a href="classlibMesh_1_1PetscDiffSolver.html#a76688574da713d6b0177bfbb20a83a49">libMesh::PetscDiffSolver::_snes</a></div><div class="ttdeci">SNES _snes</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8h_source.html#l00095">petsc_diff_solver.h:95</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ImplicitSystem_html"><div class="ttname"><a href="classlibMesh_1_1ImplicitSystem.html">libMesh::ImplicitSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="implicit__system_8h_source.html#l00045">implicit_system.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

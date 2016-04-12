@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="face__quad4_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -254,7 +254,7 @@
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Quad4.html#a08eb72ca998a12fa10088cb2decd8226">  155</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Quad4.html#a08eb72ca998a12fa10088cb2decd8226">Quad4::connectivity</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(sf),</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                         <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">IOPackage</a> iop,</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                         std::vector&lt;dof_id_type&gt;&amp; conn)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                         std::vector&lt;dof_id_type&gt; &amp; conn)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  libmesh_assert_less (sf, this-&gt;<a class="code" href="classlibMesh_1_1Quad4.html#a445e0e67da14fddcccb25a8bc2859f65">n_sub_elem</a>());</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  libmesh_assert_not_equal_to (iop, <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">INVALID_IO_PACKAGE</a>);</div>
@@ -291,66 +291,41 @@
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
 <div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Quad4.html#a8ac93ff030e8da732049e7b696b584cf">  192</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1Quad4.html#a8ac93ff030e8da732049e7b696b584cf">Quad4::volume</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="comment">// The A,B,C,D naming scheme here corresponds exactly to the</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">// libmesh counter-clockwise numbering scheme.</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="comment">//        3           2        D           C</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="comment">// QUAD4: o-----------o        o-----------o</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="comment">//        |           |        |           |</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="comment">//        |           |        |           |</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="comment">//        |           |        |           |</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">//        |           |        |           |</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">//        |           |        |           |</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="comment">//        o-----------o        o-----------o</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="comment">//        0           1        A           B</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="comment">// Vector pointing from A to C</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> AC ( this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(2) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(0) );</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="comment">// Make copies of our points.  It makes the subsequent calculations a bit</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">// shorter and avoids dereferencing the same pointer multiple times.</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    x0 = <a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(0), x1 = <a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(1),</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    x2 = <a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(2), x3 = <a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(3);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="comment">// Construct constant data vectors.</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="comment">// \vec{x}_{\xi}  = \vec{a1}*eta + \vec{b1}</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">// \vec{x}_{\eta} = \vec{a2}*xi  + \vec{b2}</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">// This is copy-pasted directly from the output of a Python script.</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    a1 = x0/4 - x1/4 + x2/4 - x3/4,</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    b1 = -x0/4 + x1/4 + x2/4 - x3/4,</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    a2 = a1,</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    b2 = -x0/4 - x1/4 + x2/4 + x3/4;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="comment">// Vector pointing from A to B</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> AB ( this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(1) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(0) );</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="comment">// Vector pointing from A to D</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> AD ( this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(3) - this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(0) );</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="comment">// Check for quick return for parallelogram QUAD4.</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="keywordflow">if</span> (a1.<a class="code" href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">relative_fuzzy_equals</a>(<a class="code" href="classlibMesh_1_1Point.html">Point</a>(0,0,0)))</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">return</span> 4. * b1.<a class="code" href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">cross</a>(b2).norm();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="comment">// Otherwise, use 2x2 quadrature to approximate the surface area.</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="comment">// The diagonal vector minus the side vectors</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> AC_AB_AD (AC - AB - AD);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="comment">// Check for quick return for planar QUAD4.  This will</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">// be the most common case, occuring for all purely 2D meshes.</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keywordflow">if</span> (AC_AB_AD == <a class="code" href="classlibMesh_1_1Point.html">Point</a>(0.,0.,0.))</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">return</span> AB.<a class="code" href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">cross</a>(AD).size();</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      <span class="comment">// Use 2x2 quadrature to approximate the surface area.  (The</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      <span class="comment">// true integral is too difficult to compute analytically.)  The</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="comment">// accuracy here is exactly the same as would be obtained via a</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="comment">// call to Elem::volume(), however it is a bit more optimized to</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      <span class="comment">// do it this way.  The technique used is to integrate the magnitude</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="comment">// of the normal vector over the whole area.  See for example,</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="comment">//</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="comment">// Y. Zhang, C. Bajaj, G. Xu. Surface Smoothing and Quality</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="comment">// Improvement of Quadrilateral/Hexahedral Meshes with Geometric</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      <span class="comment">// Flow. The special issue of the Journal Communications in</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="comment">// Numerical Methods in Engineering (CNME), submitted as an</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <span class="comment">// invited paper, 2006.</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      <span class="comment">// http://www.ices.utexas.edu/~jessica/paper/quadhexgf/quadhex_geomflow_CNM.pdf</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      <span class="comment">// 4-point rule</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> q[2] = {0.5 - std::sqrt(3.) / 6.,</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                         0.5 + std::sqrt(3.) / 6.};</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> vol=0.;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;2; ++i)</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;2; ++j)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          vol += (AB + q[i]*AC_AB_AD).cross(AD + q[j]*AC_AB_AD).size();</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">return</span> 0.25*vol;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    }</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="comment">// 4-point rule, exact for bi-cubics.  The weights for this rule are</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="comment">// all equal to 1.</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> q[2] = {-std::sqrt(3.)/3, std::sqrt(3.)/3.};</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> vol=0.;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;2; ++i)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;2; ++j)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      vol += (q[j]*a1 + b1).cross(q[i]*a2 + b2).norm();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="keywordflow">return</span> vol;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a0d25454251fb8f3518211ccd9f467b91"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">libMesh::Elem::set_node</a></div><div class="ttdeci">virtual Node *&amp; set_node(const unsigned int i)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01554">elem.h:1554</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Quad4_html_acc4ed1657e36b005cd31d715be758145"><div class="ttname"><a href="classlibMesh_1_1Quad4.html#acc4ed1657e36b005cd31d715be758145">libMesh::Quad4::is_vertex</a></div><div class="ttdeci">virtual bool is_vertex(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8C_source.html#l00092">face_quad4.C:92</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Quad4_html_a08eb72ca998a12fa10088cb2decd8226"><div class="ttname"><a href="classlibMesh_1_1Quad4.html#a08eb72ca998a12fa10088cb2decd8226">libMesh::Quad4::connectivity</a></div><div class="ttdeci">virtual void connectivity(const unsigned int sf, const IOPackage iop, std::vector&lt; dof_id_type &gt; &amp;conn) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8C_source.html#l00155">face_quad4.C:155</a></div></div>
@@ -361,7 +336,7 @@
 <div class="ttc" id="classlibMesh_1_1Quad4_html_a853263c868c625d45290b0a27f5560c3"><div class="ttname"><a href="classlibMesh_1_1Quad4.html#a853263c868c625d45290b0a27f5560c3">libMesh::Quad4::build_side</a></div><div class="ttdeci">virtual UniquePtr&lt; Elem &gt; build_side(const unsigned int i, bool proxy) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8C_source.html#l00127">face_quad4.C:127</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368">libMesh::TECPLOT</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00036">enum_io_package.h:36</a></div></div>
-<div class="ttc" id="classlibMesh_1_1TypeVector_html_a2b8f70a62a56eaaf417359e929507ce5"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">libMesh::TypeVector::cross</a></div><div class="ttdeci">TypeVector&lt; typename CompareTypes&lt; T, T2 &gt;::supertype &gt; cross(const TypeVector&lt; T2 &gt; &amp;) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00842">type_vector.h:842</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TypeVector_html_a2b8f70a62a56eaaf417359e929507ce5"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a2b8f70a62a56eaaf417359e929507ce5">libMesh::TypeVector::cross</a></div><div class="ttdeci">TypeVector&lt; typename CompareTypes&lt; T, T2 &gt;::supertype &gt; cross(const TypeVector&lt; T2 &gt; &amp;) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00858">type_vector.h:858</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_af0a78fa0f592d2b8f515c69cabfaf529"><div class="ttname"><a href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">libMesh::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; T &gt; UniquePtr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00046">auto_ptr.h:46</a></div></div>
 <div class="ttc" id="side_8h_html"><div class="ttname"><a href="side_8h.html">side.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a3a1e00b1906b0f6cf0cc1760c9a7da1f"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes</a></div><div class="ttdeci">virtual unsigned int n_nodes() const =0</div></div>
@@ -375,7 +350,7 @@
 <div class="ttc" id="classlibMesh_1_1Elem_html_a7cffa0aae912cc004972c9ea34a22ad4"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">libMesh::Elem::node</a></div><div class="ttdeci">dof_id_type node(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01499">elem.h:1499</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Quad4_html_a784558e6d88092ee41e27f7795d96598"><div class="ttname"><a href="classlibMesh_1_1Quad4.html#a784558e6d88092ee41e27f7795d96598">libMesh::Quad4::is_node_on_side</a></div><div class="ttdeci">virtual bool is_node_on_side(const unsigned int n, const unsigned int s) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8C_source.html#l00107">face_quad4.C:107</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Side_html"><div class="ttname"><a href="classlibMesh_1_1Side.html">libMesh::Side</a></div><div class="ttdef"><b>Definition:</b> <a href="side_8h_source.html#l00050">side.h:50</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a2cb5212bd36caff163c65e3ccff273f0"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">libMesh::Elem::point</a></div><div class="ttdeci">const Point &amp; point(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01477">elem.h:1477</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Quad4_html_a7da5e28011282c6ddea2baa112daf51a"><div class="ttname"><a href="classlibMesh_1_1Quad4.html#a7da5e28011282c6ddea2baa112daf51a">libMesh::Quad4::is_edge</a></div><div class="ttdeci">virtual bool is_edge(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8C_source.html#l00097">face_quad4.C:97</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Quad_html_abadd881659b2cca5cd6ddfad03baa0b0"><div class="ttname"><a href="classlibMesh_1_1Quad.html#abadd881659b2cca5cd6ddfad03baa0b0">libMesh::Quad::n_sides</a></div><div class="ttdeci">virtual unsigned int n_sides() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad_8h_source.html#l00089">face_quad.h:89</a></div></div>
@@ -384,7 +359,7 @@
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">libMesh::IOPackage</a></div><div class="ttdeci">IOPackage</div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00034">enum_io_package.h:34</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Quad4_html_a8ac93ff030e8da732049e7b696b584cf"><div class="ttname"><a href="classlibMesh_1_1Quad4.html#a8ac93ff030e8da732049e7b696b584cf">libMesh::Quad4::volume</a></div><div class="ttdeci">virtual Real volume() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__quad4_8C_source.html#l00192">face_quad4.C:192</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00039">point.h:39</a></div></div>
-<div class="ttc" id="classlibMesh_1_1TypeVector_html_a510b7f78c908b4d0f2a1250bace34d88"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">libMesh::TypeVector::relative_fuzzy_equals</a></div><div class="ttdeci">bool relative_fuzzy_equals(const TypeVector&lt; T &gt; &amp;rhs, Real tol=TOLERANCE) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00926">type_vector.h:926</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TypeVector_html_a510b7f78c908b4d0f2a1250bace34d88"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a510b7f78c908b4d0f2a1250bace34d88">libMesh::TypeVector::relative_fuzzy_equals</a></div><div class="ttdeci">bool relative_fuzzy_equals(const TypeVector&lt; T &gt; &amp;rhs, Real tol=TOLERANCE) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00962">type_vector.h:962</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404af2db6ec37b808c93965ea31b2d152ce3"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404af2db6ec37b808c93965ea31b2d152ce3">libMesh::VTK</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00039">enum_io_package.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

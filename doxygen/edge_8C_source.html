@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="edge_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -128,8 +128,8 @@
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Edge.html#acb16c19f19184113c40c9a5448cbe097">   28</a></span>&#160;<a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="classlibMesh_1_1Edge.html#acb16c19f19184113c40c9a5448cbe097">Edge::side</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  libmesh_assert_less (i, 2);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* the_parent = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *nodeelem = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1NodeElem.html">NodeElem</a>(const_cast&lt;Elem*&gt;(the_parent));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * the_parent = <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * nodeelem = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1NodeElem.html">NodeElem</a>(const_cast&lt;Elem *&gt;(the_parent));</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  nodeelem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(0) = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ac190df363bef9fc5eed46b8d86b756d6">get_node</a>(i);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(nodeelem);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
@@ -138,8 +138,8 @@
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Edge.html#a2e7a4fb77ece840798f6327153fd9e9e">   38</a></span>&#160;<a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="classlibMesh_1_1Edge.html#a2e7a4fb77ece840798f6327153fd9e9e">Edge::build_side</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">bool</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  libmesh_assert_less (i, 2);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* the_parent = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *nodeelem = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1NodeElem.html">NodeElem</a>(const_cast&lt;Elem*&gt;(the_parent));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * the_parent = <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * nodeelem = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1NodeElem.html">NodeElem</a>(const_cast&lt;Elem *&gt;(the_parent));</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  nodeelem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(0) = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ac190df363bef9fc5eed46b8d86b756d6">get_node</a>(i);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(nodeelem);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>

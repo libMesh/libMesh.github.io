@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="dense__matrix__base_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -128,9 +128,9 @@
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a97a0f61a31b72851e000af4f7b78a889">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a97a0f61a31b72851e000af4f7b78a889">DenseMatrixBase&lt;T&gt;::multiply</a> (<a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a>&amp; M1,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a>&amp; M2,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a>&amp; M3)</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a97a0f61a31b72851e000af4f7b78a889">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a97a0f61a31b72851e000af4f7b78a889">DenseMatrixBase&lt;T&gt;::multiply</a> (<a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a> &amp; M1,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a> &amp; M2,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html">DenseMatrixBase&lt;T&gt;</a> &amp; M3)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">// Assertions to make sure we have been</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// passed matrices of the correct dimension.</span></div>
@@ -158,7 +158,7 @@
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a0472bd2ec76bfa88657299b9d39ab399">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a0472bd2ec76bfa88657299b9d39ab399">DenseMatrixBase&lt;T&gt;::condense</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iv,</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> jv,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                  <span class="keyword">const</span> T val,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                  <a class="code" href="classlibMesh_1_1DenseVectorBase.html">DenseVectorBase&lt;T&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                  <a class="code" href="classlibMesh_1_1DenseVectorBase.html">DenseVectorBase&lt;T&gt;</a> &amp; rhs)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  libmesh_assert_equal_to (this-&gt;_m, rhs.<a class="code" href="classlibMesh_1_1DenseVectorBase.html#a4ec1ad50c02f01beea21df4c29ed9736">size</a>());</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  libmesh_assert_equal_to (iv, jv);</div>
@@ -183,7 +183,7 @@
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a1d4ad2f2166df67ecc47f3b172f92b55">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a1d4ad2f2166df67ecc47f3b172f92b55">DenseMatrixBase&lt;T&gt;::print_scientific</a> (std::ostream&amp; os, <span class="keywordtype">unsigned</span> precision)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a1d4ad2f2166df67ecc47f3b172f92b55">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a1d4ad2f2166df67ecc47f3b172f92b55">DenseMatrixBase&lt;T&gt;::print_scientific</a> (std::ostream &amp; os, <span class="keywordtype">unsigned</span> precision)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#ifndef LIBMESH_BROKEN_IOSTREAM</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
@@ -225,7 +225,7 @@
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a041c10a32db1f43eccfb86bdc9f63e60">  128</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a041c10a32db1f43eccfb86bdc9f63e60">DenseMatrixBase&lt;T&gt;::print</a> (std::ostream&amp; os)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classlibMesh_1_1DenseMatrixBase.html#a041c10a32db1f43eccfb86bdc9f63e60">  128</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a041c10a32db1f43eccfb86bdc9f63e60">DenseMatrixBase&lt;T&gt;::print</a> (std::ostream &amp; os)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;this-&gt;m(); i++)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>

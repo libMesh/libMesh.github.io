@@ -248,9 +248,11 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> duy_dx = grad(1,0);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> dux_dy = grad(0,1);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">return</span> VectorValue&lt;Number&gt;( duz_dy - duy_dz, dux_dz - duz_dx, duy_dx - dux_dy);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a8b17bf24a15bc292850c3a3894e2e8f9"><div class="ttname"><a href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">libMesh::Number</a></div><div class="ttdeci">Real Number</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00181">libmesh_common.h:181</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">return</span> VectorValue&lt;Number&gt;(duz_dy - duy_dz,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                             dux_dz - duz_dx,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                             duy_dx - dux_dy);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_html_a8b17bf24a15bc292850c3a3894e2e8f9"><div class="ttname"><a href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">libMesh::Number</a></div><div class="ttdeci">Real Number</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00184">libmesh_common.h:184</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -269,10 +271,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Place holder needed for <a class="el" href="classlibMesh_1_1ExactSolution.html">ExactSolution</a> to compile. Will compute the curl of a tensor given the gradient of that tensor. </p>
 
-<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00046">46</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  libmesh_not_implemented();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00048">48</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  libmesh_not_implemented();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -292,12 +294,12 @@ Functions</h2></td></tr>
 
 <p>Dummy. Divgerence of a scalar not defined, but is needed for <a class="el" href="classlibMesh_1_1ExactSolution.html">ExactSolution</a> to compile. </p>
 
-<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00052">52</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
+<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00054">54</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
 
 <p>Referenced by <a class="el" href="exact__solution_8C_source.html#l00508">libMesh::ExactSolution::_compute_error()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Operation not defined for scalar quantities.&quot;</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Operation not defined for scalar quantities.&quot;</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -317,15 +319,15 @@ Functions</h2></td></tr>
 
 <p>Computes the divergence of a vector given the gradient of that vector. </p>
 
-<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00057">57</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> dux_dx = grad(0,0);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> duy_dy = grad(1,1);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> duz_dz = grad(2,2);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">return</span> dux_dx + duy_dy + duz_dz;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a8b17bf24a15bc292850c3a3894e2e8f9"><div class="ttname"><a href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">libMesh::Number</a></div><div class="ttdeci">Real Number</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00181">libmesh_common.h:181</a></div></div>
+<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00059">59</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> dux_dx = grad(0,0);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> duy_dy = grad(1,1);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> duz_dz = grad(2,2);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">return</span> dux_dx + duy_dy + duz_dz;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_html_a8b17bf24a15bc292850c3a3894e2e8f9"><div class="ttname"><a href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">libMesh::Number</a></div><div class="ttdeci">Real Number</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00184">libmesh_common.h:184</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -344,10 +346,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Place holder needed for <a class="el" href="classlibMesh_1_1ExactSolution.html">ExactSolution</a> to compile. Will compute the divergence of a tensor given the gradient of that tensor. </p>
 
-<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00067">67</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  libmesh_not_implemented();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<p>Definition at line <a class="el" href="tensor__tools_8C_source.html#l00069">69</a> of file <a class="el" href="tensor__tools_8C_source.html">tensor_tools.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  libmesh_not_implemented();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -387,7 +389,7 @@ template&lt;typename T , typename T2 &gt; </div>
 
 <p>Definition at line <a class="el" href="tensor__tools_8h_source.html#l00047">47</a> of file <a class="el" href="tensor__tools_8h_source.html">tensor_tools.h</a>.</p>
 
-<p>Referenced by <a class="el" href="fe__base_8C_source.html#l00791">libMesh::FEGenericBase&lt; OutputType &gt;::coarsened_dof_values()</a>, <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, and <a class="el" href="fe__base_8C_source.html#l01371">libMesh::FEGenericBase&lt; OutputType &gt;::compute_proj_constraints()</a>.</p>
+<p>Referenced by <a class="el" href="fe__base_8C_source.html#l00789">libMesh::FEGenericBase&lt; OutputType &gt;::coarsened_dof_values()</a>, <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, and <a class="el" href="fe__base_8C_source.html#l01369">libMesh::FEGenericBase&lt; OutputType &gt;::compute_proj_constraints()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{ <span class="keywordflow">return</span> a * b; }</div>
 </div><!-- fragment -->
 </div>
@@ -539,7 +541,7 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="tensor__tools_8h_source.html#l00070">70</a> of file <a class="el" href="tensor__tools_8h_source.html">tensor_tools.h</a>.</p>
 
-<p>Referenced by <a class="el" href="exact__solution_8C_source.html#l00508">libMesh::ExactSolution::_compute_error()</a>, <a class="el" href="uniform__refinement__estimator_8C_source.html#l00086">libMesh::UniformRefinementEstimator::_estimate_error()</a>, <a class="el" href="discontinuity__measure_8C_source.html#l00115">libMesh::DiscontinuityMeasure::boundary_side_integration()</a>, <a class="el" href="kelly__error__estimator_8C_source.html#l00122">libMesh::KellyErrorEstimator::boundary_side_integration()</a>, <a class="el" href="system_8C_source.html#l01425">libMesh::System::calculate_norm()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00429">libMesh::ExactErrorEstimator::find_squared_element_error()</a>, <a class="el" href="fourth__error__estimators_8C_source.html#l00077">libMesh::LaplacianErrorEstimator::internal_side_integration()</a>, <a class="el" href="discontinuity__measure_8C_source.html#l00072">libMesh::DiscontinuityMeasure::internal_side_integration()</a>, <a class="el" href="kelly__error__estimator_8C_source.html#l00077">libMesh::KellyErrorEstimator::internal_side_integration()</a>, <a class="el" href="dense__subvector_8h_source.html#l00280">libMesh::DenseSubVector&lt; T &gt;::l2_norm()</a>, <a class="el" href="distributed__vector_8C_source.html#l00086">libMesh::DistributedVector&lt; T &gt;::l2_norm()</a>, <a class="el" href="dense__vector_8h_source.html#l00562">libMesh::DenseVector&lt; T &gt;::l2_norm()</a>, <a class="el" href="dense__subvector_8h_source.html#l00294">libMesh::DenseSubVector&lt; T &gt;::linfty_norm()</a>, <a class="el" href="dense__vector_8h_source.html#l00576">libMesh::DenseVector&lt; T &gt;::linfty_norm()</a>, <a class="el" href="weighted__patch__recovery__estimator_8C_source.html#l00103">libMesh::WeightedPatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="patch__recovery__error__estimator_8C_source.html#l00190">libMesh::PatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="hp__coarsentest_8C_source.html#l00145">libMesh::HPCoarsenTest::select_refinement()</a>, <a class="el" href="type__vector_8h_source.html#l00879">libMesh::TypeVector&lt; T &gt;::size_sq()</a>, <a class="el" href="type__tensor_8h_source.html#l01133">libMesh::TypeTensor&lt; T &gt;::size_sq()</a>, and <a class="el" href="numeric__vector_8C_source.html#l00342">libMesh::NumericVector&lt; T &gt;::subset_l2_norm()</a>.</p>
+<p>Referenced by <a class="el" href="exact__solution_8C_source.html#l00508">libMesh::ExactSolution::_compute_error()</a>, <a class="el" href="uniform__refinement__estimator_8C_source.html#l00100">libMesh::UniformRefinementEstimator::_estimate_error()</a>, <a class="el" href="discontinuity__measure_8C_source.html#l00115">libMesh::DiscontinuityMeasure::boundary_side_integration()</a>, <a class="el" href="kelly__error__estimator_8C_source.html#l00122">libMesh::KellyErrorEstimator::boundary_side_integration()</a>, <a class="el" href="system_8C_source.html#l01424">libMesh::System::calculate_norm()</a>, <a class="el" href="cell__tet_8C_source.html#l00144">libMesh::Tet::choose_diagonal()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00429">libMesh::ExactErrorEstimator::find_squared_element_error()</a>, <a class="el" href="fourth__error__estimators_8C_source.html#l00077">libMesh::LaplacianErrorEstimator::internal_side_integration()</a>, <a class="el" href="discontinuity__measure_8C_source.html#l00072">libMesh::DiscontinuityMeasure::internal_side_integration()</a>, <a class="el" href="kelly__error__estimator_8C_source.html#l00077">libMesh::KellyErrorEstimator::internal_side_integration()</a>, <a class="el" href="dense__subvector_8h_source.html#l00280">libMesh::DenseSubVector&lt; T &gt;::l2_norm()</a>, <a class="el" href="dense__vector_8h_source.html#l00562">libMesh::DenseVector&lt; T &gt;::l2_norm()</a>, <a class="el" href="dense__subvector_8h_source.html#l00294">libMesh::DenseSubVector&lt; T &gt;::linfty_norm()</a>, <a class="el" href="dense__vector_8h_source.html#l00576">libMesh::DenseVector&lt; T &gt;::linfty_norm()</a>, <a class="el" href="type__vector_8h_source.html#l00886">libMesh::TypeVector&lt; T &gt;::norm()</a>, <a class="el" href="type__tensor_8h_source.html#l01102">libMesh::TypeTensor&lt; T &gt;::norm()</a>, <a class="el" href="type__vector_8h_source.html#l00915">libMesh::TypeVector&lt; T &gt;::norm_sq()</a>, <a class="el" href="type__tensor_8h_source.html#l01171">libMesh::TypeTensor&lt; T &gt;::norm_sq()</a>, <a class="el" href="weighted__patch__recovery__estimator_8C_source.html#l00103">libMesh::WeightedPatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="patch__recovery__error__estimator_8C_source.html#l00190">libMesh::PatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="hp__coarsentest_8C_source.html#l00145">libMesh::HPCoarsenTest::select_refinement()</a>, <a class="el" href="type__vector_8h_source.html#l00905">libMesh::TypeVector&lt; T &gt;::size_sq()</a>, <a class="el" href="type__tensor_8h_source.html#l01161">libMesh::TypeTensor&lt; T &gt;::size_sq()</a>, and <a class="el" href="numeric__vector_8C_source.html#l00341">libMesh::NumericVector&lt; T &gt;::subset_l2_norm()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{ <span class="keywordflow">return</span> a*a; }</div>
 </div><!-- fragment -->
 </div>
@@ -599,8 +601,8 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="tensor__tools_8h_source.html#l00078">78</a> of file <a class="el" href="tensor__tools_8h_source.html">tensor_tools.h</a>.</p>
 
-<p>References <a class="el" href="type__vector_8h_source.html#l00879">libMesh::TypeVector&lt; T &gt;::size_sq()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{<span class="keywordflow">return</span> a.size_sq();}</div>
+<p>References <a class="el" href="type__vector_8h_source.html#l00915">libMesh::TypeVector&lt; T &gt;::norm_sq()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{<span class="keywordflow">return</span> a.norm_sq();}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -630,8 +632,8 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="tensor__tools_8h_source.html#l00083">83</a> of file <a class="el" href="tensor__tools_8h_source.html">tensor_tools.h</a>.</p>
 
-<p>References <a class="el" href="type__vector_8h_source.html#l00879">libMesh::TypeVector&lt; T &gt;::size_sq()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{<span class="keywordflow">return</span> a.size_sq();}</div>
+<p>References <a class="el" href="type__vector_8h_source.html#l00915">libMesh::TypeVector&lt; T &gt;::norm_sq()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{<span class="keywordflow">return</span> a.norm_sq();}</div>
 </div><!-- fragment -->
 </div>
 </div>

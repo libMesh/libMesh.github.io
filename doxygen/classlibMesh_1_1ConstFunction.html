@@ -135,6 +135,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2630355abfe856f5eb047da0396b67ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b78b2741fc53ce08497153e3458ec78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a5b78b2741fc53ce08497153e3458ec78">initialized</a> () const </td></tr>
 <tr class="separator:a5b78b2741fc53ce08497153e3458ec78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f708893d7ce9e6943a288e8be13b159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a6f708893d7ce9e6943a288e8be13b159">set_is_time_dependent</a> (bool <a class="el" href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">is_time_dependent</a>)</td></tr>
+<tr class="separator:a6f708893d7ce9e6943a288e8be13b159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a18e7938ed9d64d926fe86e51440976"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">is_time_dependent</a> () const </td></tr>
+<tr class="separator:a0a18e7938ed9d64d926fe86e51440976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -142,6 +146,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a45c9ff6d9ac715e5b567855bdd2c659d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60dce9ec59c7e8fc68ad067372529858"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a></td></tr>
 <tr class="separator:a60dce9ec59c7e8fc68ad067372529858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ae0fe70cde587824e70d65124f7586"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a></td></tr>
+<tr class="separator:ac7ae0fe70cde587824e70d65124f7586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -181,10 +187,12 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Definition at line <a class="el" href="const__function_8h_source.html#l00037">37</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
 
-<p>References <a class="el" href="function__base_8h_source.html#l00165">libMesh::FunctionBase&lt; Output &gt;::_initialized</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;: <a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>(c) { this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a> = <span class="keyword">true</span>; }</div>
-<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00165">function_base.h:165</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00059">const_function.h:59</a></div></div>
+<p>References <a class="el" href="function__base_8h_source.html#l00178">libMesh::FunctionBase&lt; Output &gt;::_initialized</a>, and <a class="el" href="function__base_8h_source.html#l00183">libMesh::FunctionBase&lt; Output &gt;::_is_time_dependent</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                   : <a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>(c) { this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                             this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a> = <span class="keyword">false</span>;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00178">function_base.h:178</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00060">const_function.h:60</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_ac7ae0fe70cde587824e70d65124f7586"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">libMesh::FunctionBase::_is_time_dependent</a></div><div class="ttdeci">bool _is_time_dependent</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00183">function_base.h:183</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -248,14 +256,14 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1ZeroFunction.html#af01ac617840df50c2c3c18c3416491aa">libMesh::ZeroFunction&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="const__function_8h_source.html#l00052">52</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__function_8h_source.html#l00053">53</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
 
-<p>References <a class="el" href="const__function_8h_source.html#l00059">libMesh::ConstFunction&lt; Output &gt;::_c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;FunctionBase&lt;Output&gt; &gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      (<span class="keyword">new</span> ConstFunction&lt;Output&gt;(<a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00059">const_function.h:59</a></div></div>
+<p>References <a class="el" href="const__function_8h_source.html#l00060">libMesh::ConstFunction&lt; Output &gt;::_c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;FunctionBase&lt;Output&gt; &gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      (<span class="keyword">new</span> ConstFunction&lt;Output&gt;(<a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>));</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00060">const_function.h:60</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -302,14 +310,12 @@ template&lt;typename Output &gt; </div>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1CompositeFunction.html#aaecaabdf04c4d37c11240df51cad55ee">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#aedc01ed3411acf2132e54f228d2952ad">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#acf31b81352fe755f945a35505e279a30">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, and <a class="el" href="classlibMesh_1_1ParsedFunction.html#acf31b81352fe755f945a35505e279a30">libMesh::ParsedFunction&lt; T &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00202">202</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-
-<p>Referenced by <a class="el" href="system__projection_8C_source.html#l01989">libMesh::BoundaryProjectSolution::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  (*this)(p, time, outvec);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00234">234</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;{</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  (*this)(p, time, outvec);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -368,13 +374,47 @@ template&lt;typename Output &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> when this object is properly initialized and ready for use, <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00193">193</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00212">212</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 <p>Referenced by <a class="el" href="analytic__function_8h_source.html#l00121">libMesh::AnalyticFunction&lt; Output &gt;::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;{</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a>);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00165">function_base.h:165</a></div></div>
+<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a>);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00178">function_base.h:178</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0a18e7938ed9d64d926fe86e51440976"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::is_time_dependent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> when the function this object represents is actually time-dependent, <code>false</code> otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00226">226</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="composite__function_8h_source.html#l00051">libMesh::CompositeFunction&lt; Output &gt;::attach_subfunction()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;{</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a>);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_ac7ae0fe70cde587824e70d65124f7586"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">libMesh::FunctionBase::_is_time_dependent</a></div><div class="ttdeci">bool _is_time_dependent</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00183">function_base.h:183</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -415,11 +455,11 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">libMesh::FunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="const__function_8h_source.html#l00039">39</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__function_8h_source.html#l00040">40</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
 
-<p>References <a class="el" href="const__function_8h_source.html#l00059">libMesh::ConstFunction&lt; Output &gt;::_c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>; }</div>
-<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00059">const_function.h:59</a></div></div>
+<p>References <a class="el" href="const__function_8h_source.html#l00060">libMesh::ConstFunction&lt; Output &gt;::_c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>; }</div>
+<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00060">const_function.h:60</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -466,15 +506,15 @@ template&lt;typename Output  = Number&gt; </div>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FunctionBase.html#a2ee1c4d3b0e784b6f0e160f77e88ae09">libMesh::FunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="const__function_8h_source.html#l00043">43</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__function_8h_source.html#l00044">44</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
 
-<p>References <a class="el" href="const__function_8h_source.html#l00059">libMesh::ConstFunction&lt; Output &gt;::_c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size = output.size();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != size; ++i)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      output(i) = <a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00059">const_function.h:59</a></div></div>
+<p>References <a class="el" href="const__function_8h_source.html#l00060">libMesh::ConstFunction&lt; Output &gt;::_c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size = output.size();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != size; ++i)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      output(i) = <a class="code" href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">_c</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1ConstFunction_html_a55f3968bb03f77072f0b0a14312b438e"><div class="ttname"><a href="classlibMesh_1_1ConstFunction.html#a55f3968bb03f77072f0b0a14312b438e">libMesh::ConstFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__function_8h_source.html#l00060">const_function.h:60</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -513,12 +553,46 @@ template&lt;typename Output&gt; </div>
 </div><div class="memdoc">
 <p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code>. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00215">215</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">operator()</a>(p, 0., output);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00247">247</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;{</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">operator()</a>(p, 0., output);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1FunctionBase_html_af15cc1cd251c8c60f4ed0acb91bc3b50"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">libMesh::FunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const Point &amp;p, const Real time=0.)=0</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6f708893d7ce9e6943a288e8be13b159"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::set_is_time_dependent </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_time_dependent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function to set whether this is a time-dependent function or not. This is intended to be only used by subclasses who cannot natively determine time-dependence. In such a case, this function should be used immediately following construction. </p>
+
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00219">219</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a> = <a class="code" href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">is_time_dependent</a>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a0a18e7938ed9d64d926fe86e51440976"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">libMesh::FunctionBase::is_time_dependent</a></div><div class="ttdeci">bool is_time_dependent() const </div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00226">function_base.h:226</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_ac7ae0fe70cde587824e70d65124f7586"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">libMesh::FunctionBase::_is_time_dependent</a></div><div class="ttdeci">bool _is_time_dependent</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00183">function_base.h:183</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -543,9 +617,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="const__function_8h_source.html#l00059">59</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__function_8h_source.html#l00060">60</a> of file <a class="el" href="const__function_8h_source.html">const_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="const__function_8h_source.html#l00052">libMesh::ConstFunction&lt; Output &gt;::clone()</a>, and <a class="el" href="const__function_8h_source.html#l00039">libMesh::ConstFunction&lt; Output &gt;::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="const__function_8h_source.html#l00053">libMesh::ConstFunction&lt; Output &gt;::clone()</a>, and <a class="el" href="const__function_8h_source.html#l00040">libMesh::ConstFunction&lt; Output &gt;::operator()()</a>.</p>
 
 </div>
 </div>
@@ -570,9 +644,36 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <p>When <code><a class="el" href="classlibMesh_1_1FunctionBase.html#a04d2170f70d86db71bb4c76e312fcfe6">init()</a></code> was called so that everything is ready for calls to <code>operator()</code> (...), then this <code>bool</code> is true. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00165">165</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00178">178</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
-<p>Referenced by <a class="el" href="analytic__function_8h_source.html#l00144">libMesh::AnalyticFunction&lt; Output &gt;::AnalyticFunction()</a>, <a class="el" href="const__function_8h_source.html#l00037">libMesh::ConstFunction&lt; Output &gt;::ConstFunction()</a>, <a class="el" href="parsed__function_8h_source.html#l00155">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;::ParsedFunction()</a>, and <a class="el" href="wrapped__function_8h_source.html#l00053">libMesh::WrappedFunction&lt; Output &gt;::WrappedFunction()</a>.</p>
+<p>Referenced by <a class="el" href="analytic__function_8h_source.html#l00144">libMesh::AnalyticFunction&lt; Output &gt;::AnalyticFunction()</a>, <a class="el" href="const__function_8h_source.html#l00037">libMesh::ConstFunction&lt; Output &gt;::ConstFunction()</a>, <a class="el" href="parsed__function_8h_source.html#l00159">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;::ParsedFunction()</a>, and <a class="el" href="wrapped__function_8h_source.html#l00053">libMesh::WrappedFunction&lt; Output &gt;::WrappedFunction()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7ae0fe70cde587824e70d65124f7586"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output = Number&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::_is_time_dependent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Cache whether or not this function is actually time-dependent. </p>
+
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00183">183</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="composite__function_8h_source.html#l00051">libMesh::CompositeFunction&lt; Output &gt;::attach_subfunction()</a>, and <a class="el" href="const__function_8h_source.html#l00037">libMesh::ConstFunction&lt; Output &gt;::ConstFunction()</a>.</p>
 
 </div>
 </div>
@@ -597,7 +698,7 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <p>Const pointer to our master, initialized to <code>NULL</code>. There may be cases where multiple functions are required, but to save memory, one master handles some centralized data. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00159">159</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00172">172</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 </div>
 </div>

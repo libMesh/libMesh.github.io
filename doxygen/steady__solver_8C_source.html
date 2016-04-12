@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="steady__solver_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -132,7 +132,7 @@
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SteadySolver.html#a9056b2ddf23eb00b7b8d8d82e61f57c0">   34</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1SteadySolver.html#a9056b2ddf23eb00b7b8d8d82e61f57c0">SteadySolver::element_residual</a>(<span class="keywordtype">bool</span> request_jacobian,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                    <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a>&amp; context)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                    <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a> &amp; context)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordflow">return</span> this-&gt;<a class="code" href="classlibMesh_1_1SteadySolver.html#a9f31c252d1fc79c176f6f6b555f59fc9">_general_residual</a>(request_jacobian,</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                 context,</div>
@@ -143,7 +143,7 @@
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SteadySolver.html#a463e5b985f6756bae7fd4d2ba7c175a5">   45</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1SteadySolver.html#a463e5b985f6756bae7fd4d2ba7c175a5">SteadySolver::side_residual</a>(<span class="keywordtype">bool</span> request_jacobian,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                 <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a>&amp; context)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                 <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a> &amp; context)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">return</span> this-&gt;<a class="code" href="classlibMesh_1_1SteadySolver.html#a9f31c252d1fc79c176f6f6b555f59fc9">_general_residual</a>(request_jacobian,</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                 context,</div>
@@ -154,7 +154,7 @@
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SteadySolver.html#a95baea0557cf792fac7fa552932491ab">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1SteadySolver.html#a95baea0557cf792fac7fa552932491ab">SteadySolver::nonlocal_residual</a>(<span class="keywordtype">bool</span> request_jacobian,</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                     <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a>&amp; context)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                     <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a> &amp; context)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> this-&gt;<a class="code" href="classlibMesh_1_1SteadySolver.html#a9f31c252d1fc79c176f6f6b555f59fc9">_general_residual</a>(request_jacobian,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                 context,</div>
@@ -165,7 +165,7 @@
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classlibMesh_1_1SteadySolver.html#a9f31c252d1fc79c176f6f6b555f59fc9">   67</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1SteadySolver.html#a9f31c252d1fc79c176f6f6b555f59fc9">SteadySolver::_general_residual</a>(<span class="keywordtype">bool</span> request_jacobian,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                     <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a>&amp; context,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                     <a class="code" href="classlibMesh_1_1DiffContext.html">DiffContext</a> &amp; context,</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                     ResFuncType time_deriv,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                     ResFuncType constraint)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
@@ -209,7 +209,7 @@
 <div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a8ffc6b599db2eda744da5af375548ee6"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a8ffc6b599db2eda744da5af375548ee6">libMesh::DifferentiablePhysics::nonlocal_constraint</a></div><div class="ttdeci">virtual bool nonlocal_constraint(bool request_jacobian, DiffContext &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00227">diff_physics.h:227</a></div></div>
 <div class="ttc" id="diff__solver_8h_html"><div class="ttname"><a href="diff__solver_8h.html">diff_solver.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TimeSolver_html_a0cf14c8b81127d014c49c45d88dfaf46"><div class="ttname"><a href="classlibMesh_1_1TimeSolver.html#a0cf14c8b81127d014c49c45d88dfaf46">libMesh::TimeSolver::_system</a></div><div class="ttdeci">sys_type &amp; _system</div><div class="ttdef"><b>Definition:</b> <a href="time__solver_8h_source.html#l00256">time_solver.h:256</a></div></div>
-<div class="ttc" id="classlibMesh_1_1System_html_a1fd435eb5b5e949702d92f28df85ea6b"><div class="ttname"><a href="classlibMesh_1_1System.html#a1fd435eb5b5e949702d92f28df85ea6b">libMesh::System::use_fixed_solution</a></div><div class="ttdeci">bool use_fixed_solution</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l01483">system.h:1483</a></div></div>
+<div class="ttc" id="classlibMesh_1_1System_html_a1fd435eb5b5e949702d92f28df85ea6b"><div class="ttname"><a href="classlibMesh_1_1System.html#a1fd435eb5b5e949702d92f28df85ea6b">libMesh::System::use_fixed_solution</a></div><div class="ttdeci">bool use_fixed_solution</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l01482">system.h:1482</a></div></div>
 <div class="ttc" id="steady__solver_8h_html"><div class="ttname"><a href="steady__solver_8h.html">steady_solver.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1SteadySolver_html_a9056b2ddf23eb00b7b8d8d82e61f57c0"><div class="ttname"><a href="classlibMesh_1_1SteadySolver.html#a9056b2ddf23eb00b7b8d8d82e61f57c0">libMesh::SteadySolver::element_residual</a></div><div class="ttdeci">virtual bool element_residual(bool request_jacobian, DiffContext &amp;) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="steady__solver_8C_source.html#l00034">steady_solver.C:34</a></div></div>
 <div class="ttc" id="classlibMesh_1_1SteadySolver_html_a9f31c252d1fc79c176f6f6b555f59fc9"><div class="ttname"><a href="classlibMesh_1_1SteadySolver.html#a9f31c252d1fc79c176f6f6b555f59fc9">libMesh::SteadySolver::_general_residual</a></div><div class="ttdeci">virtual bool _general_residual(bool request_jacobian, DiffContext &amp;, ResFuncType time_deriv, ResFuncType constraint)</div><div class="ttdef"><b>Definition:</b> <a href="steady__solver_8C_source.html#l00067">steady_solver.C:67</a></div></div>

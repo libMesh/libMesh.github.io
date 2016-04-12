@@ -161,6 +161,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8fde64ce1d33b70088b4152fa63558ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa55cf2531796c6c677cae4d99b2b9edc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1TypeNTensor.html#aa55cf2531796c6c677cae4d99b2b9edc">size_sq</a> () const </td></tr>
 <tr class="separator:aa55cf2531796c6c677cae4d99b2b9edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7a19eded295c7156092ada521add69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1TypeNTensor.html#a9d7a19eded295c7156092ada521add69">norm_sq</a> () const </td></tr>
+<tr class="separator:a9d7a19eded295c7156092ada521add69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ce28298a816f78f62df00a2cb1b16da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1TypeNTensor.html#a4ce28298a816f78f62df00a2cb1b16da">operator==</a> (const <a class="el" href="classlibMesh_1_1TypeNTensor.html">TypeNTensor</a>&lt; N, T &gt; &amp;) const </td></tr>
 <tr class="separator:a4ce28298a816f78f62df00a2cb1b16da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b28e34f7ebbd43d21cbc1eb46cd2c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1TypeNTensor.html#a06b28e34f7ebbd43d21cbc1eb46cd2c7">operator&lt;</a> (const <a class="el" href="classlibMesh_1_1TypeNTensor.html">TypeNTensor</a>&lt; N, T &gt; &amp;) const </td></tr>
@@ -361,6 +363,35 @@ template&lt;typename T2 &gt; </div>
 
 <p>Referenced by <a class="el" href="tensor__tools_8h_source.html#l00065">libMesh::TensorTools::inner_product()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{ <span class="keywordflow">return</span> 0; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9d7a19eded295c7156092ada521add69"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int N, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="el" href="classlibMesh_1_1TypeNTensor.html">libMesh::TypeNTensor</a>&lt; N, T &gt;::norm_sq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the Frobenius norm of the tensor squared, i.e. sum of the element magnitudes squared. </p>
+
+<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00164">164</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{ <span class="keywordflow">return</span> 0.;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -784,8 +815,8 @@ template&lt;unsigned int N, typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if this tensor is "less" than another. Useful for sorting. </dd></dl>
 
-<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00170">170</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00176">176</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -814,8 +845,8 @@ template&lt;unsigned int N, typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if two tensors are equal valued. </dd></dl>
 
-<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00163">163</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00169">169</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -844,8 +875,8 @@ template&lt;unsigned int N, typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if this tensor is "greater" than another. </dd></dl>
 
-<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00177">177</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00183">183</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -874,8 +905,8 @@ template&lt;unsigned int N, typename T&gt; </div>
 </div><div class="memdoc">
 <p>Formatted print, by default to <code><a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></code>. </p>
 
-<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00183">183</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{}</div>
+<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00189">189</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -904,7 +935,7 @@ template&lt;unsigned int N, typename T&gt; </div>
 <p>Returns the Frobenius norm of the tensor squared, i.e. sum of the element magnitudes squared. </p>
 
 <p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00158">158</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{ <span class="keywordflow">return</span> 0.;}</div>
+<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{ libmesh_deprecated(); <span class="keywordflow">return</span> 0.;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1006,11 +1037,11 @@ template&lt;unsigned int N, typename T&gt; </div>
 </div><div class="memdoc">
 <p>Formatted print as above but allows you to do std::cout &lt;&lt; t &lt;&lt; std::endl; </p>
 
-<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00189">189</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    t.print(os);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }</div>
+<p>Definition at line <a class="el" href="type__n__tensor_8h_source.html#l00195">195</a> of file <a class="el" href="type__n__tensor_8h_source.html">type_n_tensor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    t.print(os);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>

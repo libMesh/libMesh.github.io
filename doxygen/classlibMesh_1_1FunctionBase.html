@@ -135,11 +135,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2630355abfe856f5eb047da0396b67ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b78b2741fc53ce08497153e3458ec78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a5b78b2741fc53ce08497153e3458ec78">initialized</a> () const </td></tr>
 <tr class="separator:a5b78b2741fc53ce08497153e3458ec78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f708893d7ce9e6943a288e8be13b159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a6f708893d7ce9e6943a288e8be13b159">set_is_time_dependent</a> (bool <a class="el" href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">is_time_dependent</a>)</td></tr>
+<tr class="separator:a6f708893d7ce9e6943a288e8be13b159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a18e7938ed9d64d926fe86e51440976"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">is_time_dependent</a> () const </td></tr>
+<tr class="separator:a0a18e7938ed9d64d926fe86e51440976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa7dfbd2b8bb01076139d2067e40c4b13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#aa7dfbd2b8bb01076139d2067e40c4b13">FunctionBase</a> (const <a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a> *master=NULL)</td></tr>
-<tr class="separator:aa7dfbd2b8bb01076139d2067e40c4b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2c763e389bf244bd495182fe6fba21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a2c2c763e389bf244bd495182fe6fba21">FunctionBase</a> (const <a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a> *master=<a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</td></tr>
+<tr class="separator:a2c2c763e389bf244bd495182fe6fba21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -147,18 +151,20 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a45c9ff6d9ac715e5b567855bdd2c659d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60dce9ec59c7e8fc68ad067372529858"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a></td></tr>
 <tr class="separator:a60dce9ec59c7e8fc68ad067372529858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ae0fe70cde587824e70d65124f7586"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a></td></tr>
+<tr class="separator:ac7ae0fe70cde587824e70d65124f7586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Output = Number&gt;<br />
 class libMesh::FunctionBase&lt; Output &gt;</h3>
 
-<p>This is the base class for functor-like classes. These entities are functions (in the mathematical sense) of time and space, <img class="formulaInl" alt="$ f(\mathbf{x},t) = \mbox{\texttt{v}} $" src="form_68.png"/>, where <code>v</code> may be either a <code>Number</code> or a <code><a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector&lt;Number&gt;</a></code>. Children of this base class implement different styles of data retrieval for these functions. Use the constructors of the derived classes for creating new objects. The required input of each derived class thwarts the effective use of the commonly used <code>build()</code> member. But afterwards the virtual members allow the convenient and libMesh-common usage through a <code>FunctionBase*</code>. Note that for functor objects for vector-valued variables, it is assumed each component is indexed contiguously; i.e. if u_var is index 3, then <a class="el" href="namespacelibMesh.html">libMesh</a> expects the x-component of u_var is index 3, the y-component is index 4, and the z-component is index 5. Note that for 2-D elements in 3 spatial dimensions, <a class="el" href="namespacelibMesh.html">libMesh</a> is expecting 2 components (i.e. mesh_dimension() number of components).</p>
+<p>This is the base class for functor-like classes. These entities are functions (in the mathematical sense) of time and space, <img class="formulaInl" alt="$ f(\mathbf{x},t) = \mbox{\texttt{v}} $" src="form_68.png"/>, where <code>v</code> may be either a <code>Number</code> or a <code><a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector&lt;Number&gt;</a></code>. Children of this base class implement different styles of data retrieval for these functions. Use the constructors of the derived classes for creating new objects. The required input of each derived class thwarts the effective use of the commonly used <code>build()</code> member. But afterwards the virtual members allow the convenient and libMesh-common usage through a <code><a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a></code> *. Note that for functor objects for vector-valued variables, it is assumed each component is indexed contiguously; i.e. if u_var is index 3, then <a class="el" href="namespacelibMesh.html">libMesh</a> expects the x-component of u_var is index 3, the y-component is index 4, and the z-component is index 5. Note that for 2-D elements in 3 spatial dimensions, <a class="el" href="namespacelibMesh.html">libMesh</a> is expecting 2 components (i.e. mesh_dimension() number of components).</p>
 <dl class="section author"><dt>Author</dt><dd>Daniel Dreyer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2003 </dd></dl>
 
 <p>Definition at line <a class="el" href="exact__solution_8h_source.html#l00039">39</a> of file <a class="el" href="exact__solution_8h_source.html">exact_solution.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa7dfbd2b8bb01076139d2067e40c4b13"></a>
+<a class="anchor" id="a2c2c763e389bf244bd495182fe6fba21"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -171,7 +177,7 @@ template&lt;typename Output &gt; </div>
           <td class="memname"><a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::<a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a>&lt; Output &gt; *&#160;</td>
-          <td class="paramname"><em>master</em> = <code>NULL</code></td><td>)</td>
+          <td class="paramname"><em>master</em> = <code><a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -183,14 +189,16 @@ template&lt;typename Output &gt; </div>
 </div><div class="memdoc">
 <p>Constructor. Optionally takes a master. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00175">175</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                                              :</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <a class="code" href="classlibMesh_1_1FunctionBase.html#a45c9ff6d9ac715e5b567855bdd2c659d">_master</a>             (master),</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a>        (<span class="keyword">false</span>)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;{</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a45c9ff6d9ac715e5b567855bdd2c659d"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a45c9ff6d9ac715e5b567855bdd2c659d">libMesh::FunctionBase::_master</a></div><div class="ttdeci">const FunctionBase * _master</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00159">function_base.h:159</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00165">function_base.h:165</a></div></div>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00193">193</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                                                               :</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <a class="code" href="classlibMesh_1_1FunctionBase.html#a45c9ff6d9ac715e5b567855bdd2c659d">_master</a>             (master),</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a>        (<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <a class="code" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a>  (<span class="keyword">true</span>) <span class="comment">// Assume we are time-dependent until the user says otherwise</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a45c9ff6d9ac715e5b567855bdd2c659d"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a45c9ff6d9ac715e5b567855bdd2c659d">libMesh::FunctionBase::_master</a></div><div class="ttdeci">const FunctionBase * _master</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00172">function_base.h:172</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00178">function_base.h:178</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_ac7ae0fe70cde587824e70d65124f7586"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">libMesh::FunctionBase::_is_time_dependent</a></div><div class="ttdeci">bool _is_time_dependent</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00183">function_base.h:183</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -218,9 +226,9 @@ template&lt;typename Output &gt; </div>
 </div><div class="memdoc">
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00185">185</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;{</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00204">204</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -280,9 +288,9 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <p>Returns a new copy of the function. The new copy should be as ``deep'' as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFunction.html#ac7ed203757eef4c31c7e23bdd53f5995">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ac7ed203757eef4c31c7e23bdd53f5995">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFunction.html#a9e8153540b0f42a53385e1d146593718">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1MeshFunction.html#a102d0742ef100f552211e32150246246">libMesh::MeshFunction</a>, <a class="el" href="classlibMesh_1_1AnalyticFunction.html#a7330902cc4c8d86f60f65c40346dbc69">libMesh::AnalyticFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab4474926fffd811d61676aff69f8531f">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab4474926fffd811d61676aff69f8531f">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#aef7cbba140230858dbeeb828d97f9bb7">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ConstFunction.html#a9b0fc90c98dc4a4fff3764c62fc03abc">libMesh::ConstFunction&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ZeroFunction.html#af01ac617840df50c2c3c18c3416491aa">libMesh::ZeroFunction&lt; Output &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFunction.html#ac7ed203757eef4c31c7e23bdd53f5995">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ac7ed203757eef4c31c7e23bdd53f5995">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1MeshTools_1_1Generation_1_1Private_1_1GaussLobattoRedistributionFunction.html#a0ba639a9e4c57d77c9696e460d5d880d">libMesh::MeshTools::Generation::Private::GaussLobattoRedistributionFunction</a>, <a class="el" href="classlibMesh_1_1CompositeFunction.html#a9e8153540b0f42a53385e1d146593718">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1MeshFunction.html#a102d0742ef100f552211e32150246246">libMesh::MeshFunction</a>, <a class="el" href="classlibMesh_1_1AnalyticFunction.html#a7330902cc4c8d86f60f65c40346dbc69">libMesh::AnalyticFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab4474926fffd811d61676aff69f8531f">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab4474926fffd811d61676aff69f8531f">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#aef7cbba140230858dbeeb828d97f9bb7">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ConstFunction.html#a9b0fc90c98dc4a4fff3764c62fc03abc">libMesh::ConstFunction&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ZeroFunction.html#af01ac617840df50c2c3c18c3416491aa">libMesh::ZeroFunction&lt; Output &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="exact__solution_8C_source.html#l00196">libMesh::ExactSolution::attach_exact_deriv()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00127">libMesh::ExactErrorEstimator::attach_exact_deriv()</a>, <a class="el" href="exact__solution_8C_source.html#l00250">libMesh::ExactSolution::attach_exact_hessian()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00175">libMesh::ExactErrorEstimator::attach_exact_hessian()</a>, <a class="el" href="exact__solution_8C_source.html#l00142">libMesh::ExactSolution::attach_exact_value()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00081">libMesh::ExactErrorEstimator::attach_exact_value()</a>, <a class="el" href="composite__function_8h_source.html#l00051">libMesh::CompositeFunction&lt; Output &gt;::attach_subfunction()</a>, and <a class="el" href="mesh__modification_8C_source.html#l00137">libMesh::MeshTools::Modification::redistribute()</a>.</p>
+<p>Referenced by <a class="el" href="exact__solution_8C_source.html#l00196">libMesh::ExactSolution::attach_exact_deriv()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00127">libMesh::ExactErrorEstimator::attach_exact_deriv()</a>, <a class="el" href="exact__solution_8C_source.html#l00250">libMesh::ExactSolution::attach_exact_hessian()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00175">libMesh::ExactErrorEstimator::attach_exact_hessian()</a>, <a class="el" href="exact__solution_8C_source.html#l00142">libMesh::ExactSolution::attach_exact_value()</a>, <a class="el" href="exact__error__estimator_8C_source.html#l00081">libMesh::ExactErrorEstimator::attach_exact_value()</a>, <a class="el" href="composite__function_8h_source.html#l00051">libMesh::CompositeFunction&lt; Output &gt;::attach_subfunction()</a>, and <a class="el" href="mesh__modification_8C_source.html#l00155">libMesh::MeshTools::Modification::redistribute()</a>.</p>
 
 </div>
 </div>
@@ -329,14 +337,12 @@ template&lt;typename Output &gt; </div>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1CompositeFunction.html#aaecaabdf04c4d37c11240df51cad55ee">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#aedc01ed3411acf2132e54f228d2952ad">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#acf31b81352fe755f945a35505e279a30">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, and <a class="el" href="classlibMesh_1_1ParsedFunction.html#acf31b81352fe755f945a35505e279a30">libMesh::ParsedFunction&lt; T &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00202">202</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-
-<p>Referenced by <a class="el" href="system__projection_8C_source.html#l01989">libMesh::BoundaryProjectSolution::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  (*this)(p, time, outvec);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00234">234</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;{</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  (*this)(p, time, outvec);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -395,13 +401,47 @@ template&lt;typename Output &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> when this object is properly initialized and ready for use, <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00193">193</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00212">212</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 <p>Referenced by <a class="el" href="analytic__function_8h_source.html#l00121">libMesh::AnalyticFunction&lt; Output &gt;::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;{</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a>);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00165">function_base.h:165</a></div></div>
+<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">_initialized</a>);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a60dce9ec59c7e8fc68ad067372529858"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a60dce9ec59c7e8fc68ad067372529858">libMesh::FunctionBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00178">function_base.h:178</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0a18e7938ed9d64d926fe86e51440976"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::is_time_dependent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> when the function this object represents is actually time-dependent, <code>false</code> otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00226">226</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="composite__function_8h_source.html#l00051">libMesh::CompositeFunction&lt; Output &gt;::attach_subfunction()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;{</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a>);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_ac7ae0fe70cde587824e70d65124f7586"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">libMesh::FunctionBase::_is_time_dependent</a></div><div class="ttdeci">bool _is_time_dependent</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00183">function_base.h:183</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -440,7 +480,7 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the scalar value at coordinate <code>p</code> and time <code>time</code>, which defaults to zero. Purely virtual, so you have to overload it. Note that this cannot be a const method, check <code><a class="el" href="classlibMesh_1_1MeshFunction.html">MeshFunction</a></code>. </dd></dl>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFunction.html#a6e42e76f0ec79a5c60b8631a6fe55eea">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a6e42e76f0ec79a5c60b8631a6fe55eea">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1MeshFunction.html#a122618d29d962e55b10c8b418716b54f">libMesh::MeshFunction</a>, <a class="el" href="classlibMesh_1_1AnalyticFunction.html#aace44a44e741c2b94b17adb5a736a09a">libMesh::AnalyticFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFunction.html#af123681e6a2e4678c4dce0450f7662ad">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#a248570b64f072e51a0e6e6b5637e69ea">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a1d9985d40a5e5e172220bea46467f460">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a1d9985d40a5e5e172220bea46467f460">libMesh::ParsedFunction&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFunction.html#af24ac7f1cf7865f68afde5d94138c74e">libMesh::ConstFunction&lt; Output &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFunction.html#a6e42e76f0ec79a5c60b8631a6fe55eea">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a6e42e76f0ec79a5c60b8631a6fe55eea">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1MeshTools_1_1Generation_1_1Private_1_1GaussLobattoRedistributionFunction.html#a5df1ef7460ed839ff9c324d4eb2fdc08">libMesh::MeshTools::Generation::Private::GaussLobattoRedistributionFunction</a>, <a class="el" href="classlibMesh_1_1MeshFunction.html#a122618d29d962e55b10c8b418716b54f">libMesh::MeshFunction</a>, <a class="el" href="classlibMesh_1_1AnalyticFunction.html#aace44a44e741c2b94b17adb5a736a09a">libMesh::AnalyticFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFunction.html#af123681e6a2e4678c4dce0450f7662ad">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#a248570b64f072e51a0e6e6b5637e69ea">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a1d9985d40a5e5e172220bea46467f460">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a1d9985d40a5e5e172220bea46467f460">libMesh::ParsedFunction&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFunction.html#af24ac7f1cf7865f68afde5d94138c74e">libMesh::ConstFunction&lt; Output &gt;</a>.</p>
 
 </div>
 </div>
@@ -479,11 +519,11 @@ template&lt;typename Output&gt; </div>
 </div><div class="memdoc">
 <p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code>. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00215">215</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">operator()</a>(p, 0., output);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00247">247</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;{</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">operator()</a>(p, 0., output);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1FunctionBase_html_af15cc1cd251c8c60f4ed0acb91bc3b50"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">libMesh::FunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const Point &amp;p, const Real time=0.)=0</div></div>
 </div><!-- fragment -->
 </div>
@@ -529,8 +569,42 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code> and for time <code>time</code>. Purely virtual, so you have to overload it. Note that this cannot be a const method, check <code><a class="el" href="classlibMesh_1_1MeshFunction.html">MeshFunction</a></code>. Can optionally provide subdomain_ids which will restrict the function to operate on elements with subdomain id contained in the set. This is useful in cases where there are multiple dimensioned elements, for example. </p>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab1fa84c38a969f50d79203a73a2c8ea2">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab1fa84c38a969f50d79203a73a2c8ea2">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1MeshFunction.html#ad5933efa6441288dbf72dc4d82d6e3e1">libMesh::MeshFunction</a>, <a class="el" href="classlibMesh_1_1AnalyticFunction.html#a6e97f95ac42899ab970ef97c0b1b664f">libMesh::AnalyticFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFunction.html#aa39084664c8c8ee848f5f03abc91104a">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#a90c146526b538189e173ed309b9fcf7f">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a3e94e16723ca48c6e787bebbcf1b22b6">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a3e94e16723ca48c6e787bebbcf1b22b6">libMesh::ParsedFunction&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFunction.html#ac0eb894ca6f7bd86f8f489d4d3c8d1f2">libMesh::ConstFunction&lt; Output &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab1fa84c38a969f50d79203a73a2c8ea2">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#ab1fa84c38a969f50d79203a73a2c8ea2">libMesh::ParsedFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1MeshTools_1_1Generation_1_1Private_1_1GaussLobattoRedistributionFunction.html#af2d84c472d8968650563a88b0b4be961">libMesh::MeshTools::Generation::Private::GaussLobattoRedistributionFunction</a>, <a class="el" href="classlibMesh_1_1MeshFunction.html#ad5933efa6441288dbf72dc4d82d6e3e1">libMesh::MeshFunction</a>, <a class="el" href="classlibMesh_1_1AnalyticFunction.html#a6e97f95ac42899ab970ef97c0b1b664f">libMesh::AnalyticFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFunction.html#aa39084664c8c8ee848f5f03abc91104a">libMesh::CompositeFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunction.html#a90c146526b538189e173ed309b9fcf7f">libMesh::WrappedFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a3e94e16723ca48c6e787bebbcf1b22b6">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunction.html#a3e94e16723ca48c6e787bebbcf1b22b6">libMesh::ParsedFunction&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFunction.html#ac0eb894ca6f7bd86f8f489d4d3c8d1f2">libMesh::ConstFunction&lt; Output &gt;</a>.</p>
 
+</div>
+</div>
+<a class="anchor" id="a6f708893d7ce9e6943a288e8be13b159"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::set_is_time_dependent </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_time_dependent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function to set whether this is a time-dependent function or not. This is intended to be only used by subclasses who cannot natively determine time-dependence. In such a case, this function should be used immediately following construction. </p>
+
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00219">219</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">_is_time_dependent</a> = <a class="code" href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">is_time_dependent</a>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_a0a18e7938ed9d64d926fe86e51440976"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#a0a18e7938ed9d64d926fe86e51440976">libMesh::FunctionBase::is_time_dependent</a></div><div class="ttdeci">bool is_time_dependent() const </div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00226">function_base.h:226</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FunctionBase_html_ac7ae0fe70cde587824e70d65124f7586"><div class="ttname"><a href="classlibMesh_1_1FunctionBase.html#ac7ae0fe70cde587824e70d65124f7586">libMesh::FunctionBase::_is_time_dependent</a></div><div class="ttdeci">bool _is_time_dependent</div><div class="ttdef"><b>Definition:</b> <a href="function__base_8h_source.html#l00183">function_base.h:183</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -555,9 +629,36 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <p>When <code><a class="el" href="classlibMesh_1_1FunctionBase.html#a04d2170f70d86db71bb4c76e312fcfe6">init()</a></code> was called so that everything is ready for calls to <code>operator()</code> (...), then this <code>bool</code> is true. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00165">165</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00178">178</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
-<p>Referenced by <a class="el" href="analytic__function_8h_source.html#l00144">libMesh::AnalyticFunction&lt; Output &gt;::AnalyticFunction()</a>, <a class="el" href="const__function_8h_source.html#l00037">libMesh::ConstFunction&lt; Output &gt;::ConstFunction()</a>, <a class="el" href="parsed__function_8h_source.html#l00155">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;::ParsedFunction()</a>, and <a class="el" href="wrapped__function_8h_source.html#l00053">libMesh::WrappedFunction&lt; Output &gt;::WrappedFunction()</a>.</p>
+<p>Referenced by <a class="el" href="analytic__function_8h_source.html#l00144">libMesh::AnalyticFunction&lt; Output &gt;::AnalyticFunction()</a>, <a class="el" href="const__function_8h_source.html#l00037">libMesh::ConstFunction&lt; Output &gt;::ConstFunction()</a>, <a class="el" href="parsed__function_8h_source.html#l00159">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;::ParsedFunction()</a>, and <a class="el" href="wrapped__function_8h_source.html#l00053">libMesh::WrappedFunction&lt; Output &gt;::WrappedFunction()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7ae0fe70cde587824e70d65124f7586"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output = Number&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlibMesh_1_1FunctionBase.html">libMesh::FunctionBase</a>&lt; Output &gt;::_is_time_dependent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Cache whether or not this function is actually time-dependent. </p>
+
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00183">183</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="composite__function_8h_source.html#l00051">libMesh::CompositeFunction&lt; Output &gt;::attach_subfunction()</a>, and <a class="el" href="const__function_8h_source.html#l00037">libMesh::ConstFunction&lt; Output &gt;::ConstFunction()</a>.</p>
 
 </div>
 </div>
@@ -582,7 +683,7 @@ template&lt;typename Output = Number&gt; </div>
 </div><div class="memdoc">
 <p>Const pointer to our master, initialized to <code>NULL</code>. There may be cases where multiple functions are required, but to save memory, one master handles some centralized data. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00159">159</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00172">172</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 </div>
 </div>

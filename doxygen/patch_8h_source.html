@@ -100,7 +100,7 @@
 <div class="contents">
 <a href="patch_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -159,15 +159,15 @@
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Patch.html#ab9dd23f06067aa3c0aa06a526893ed28">  105</a></span>&#160;  <span class="keyword">typedef</span> void (<a class="code" href="classlibMesh_1_1Patch.html">Patch</a>::*<a class="code" href="classlibMesh_1_1Patch.html#ab9dd23f06067aa3c0aa06a526893ed28">PMF</a>)();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Patch.html#ac4c8cdb3d027e4c895cd66cf39ab0247">build_around_element</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Patch.html#ac4c8cdb3d027e4c895cd66cf39ab0247">build_around_element</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> target_patch_size = 10,</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                            <a class="code" href="classlibMesh_1_1Patch.html#ab9dd23f06067aa3c0aa06a526893ed28">PMF</a> patchtype = &amp;<a class="code" href="classlibMesh_1_1Patch.html#a5a0fcd13cfe4dff3036af054cb548500">Patch::add_local_face_neighbors</a>);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Patch.html#a45fb72b1f70f52bb361e3c0f1a3cee06">find_face_neighbors</a>(std::set&lt;const Elem *&gt; &amp;neighbor_set);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Patch.html#a45fb72b1f70f52bb361e3c0f1a3cee06">find_face_neighbors</a>(std::set&lt;const Elem *&gt; &amp; neighbor_set);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Patch.html#a39122bba3dc1ac5591ae81f2febaf957">find_point_neighbors</a>(std::set&lt;const Elem *&gt; &amp;neighbor_set);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1Patch.html#a39122bba3dc1ac5591ae81f2febaf957">find_point_neighbors</a>(std::set&lt;const Elem *&gt; &amp; neighbor_set);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Patch.html#ae9db4c0dd673c566c0b4cce2b47476b1">  132</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#afebcb3616f8c81cda531dec404f2420d">processor_id_type</a> <a class="code" href="classlibMesh_1_1Patch.html#ae9db4c0dd673c566c0b4cce2b47476b1">_my_procid</a>;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;};</div>

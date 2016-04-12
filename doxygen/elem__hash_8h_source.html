@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="elem__hash_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -123,7 +123,7 @@
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include LIBMESH_INCLUDE_UNORDERED_SET</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// This header defines some typedefs that are useful for working with</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// &quot;unordered&quot; containers of Elem* that use Elem::key() as a hash</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// &quot;unordered&quot; containers of Elem * that use Elem::key() as a hash</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// function.</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
@@ -143,7 +143,7 @@
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// used with the &quot;unordered&quot; container types.  Simply returns</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">// elem-&gt;key() as the hash.</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">inline</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structlibMesh_1_1ElemHashUtils.html#ad9133788ebcdba764bf2dd44e0be1579">   46</a></span>&#160;  std::size_t <a class="code" href="structlibMesh_1_1ElemHashUtils.html#ad9133788ebcdba764bf2dd44e0be1579">operator()</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structlibMesh_1_1ElemHashUtils.html#ad9133788ebcdba764bf2dd44e0be1579">   46</a></span>&#160;  std::size_t <a class="code" href="structlibMesh_1_1ElemHashUtils.html#ad9133788ebcdba764bf2dd44e0be1579">operator()</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">  </span>{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> cast_int&lt;std::size_t&gt;(elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">key</a>());</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
@@ -159,8 +159,8 @@
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// A convenient type for working with unordered_multiset&lt;Elem*&gt;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a549a9da9cd72abc7f36becbec72bc3f2">   63</a></span>&#160;<span class="keyword">typedef</span> LIBMESH_BEST_UNORDERED_MULTISET&lt;Elem*, ElemHashUtils, ElemHashUtils&gt; <a class="code" href="namespacelibMesh.html#a549a9da9cd72abc7f36becbec72bc3f2">unordered_multiset_elem</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// A convenient type for working with unordered_multiset&lt;Elem *&gt;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#aaccea15950c8fe4f00a046fee4cc8d7c">   63</a></span>&#160;<span class="keyword">typedef</span> LIBMESH_BEST_UNORDERED_MULTISET&lt;Elem *, ElemHashUtils, ElemHashUtils&gt; <a class="code" href="namespacelibMesh.html#aaccea15950c8fe4f00a046fee4cc8d7c">unordered_multiset_elem</a>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
@@ -172,7 +172,7 @@
 <div class="ttc" id="structlibMesh_1_1ElemHashUtils_html_ad9133788ebcdba764bf2dd44e0be1579"><div class="ttname"><a href="structlibMesh_1_1ElemHashUtils.html#ad9133788ebcdba764bf2dd44e0be1579">libMesh::ElemHashUtils::operator()</a></div><div class="ttdeci">std::size_t operator()(const Elem *elem) const </div><div class="ttdef"><b>Definition:</b> <a href="elem__hash_8h_source.html#l00046">elem_hash.h:46</a></div></div>
 <div class="ttc" id="structlibMesh_1_1ElemHashUtils_html_a12b39537c58fb0520f693b11ce7b3b14"><div class="ttname"><a href="structlibMesh_1_1ElemHashUtils.html#a12b39537c58fb0520f693b11ce7b3b14">libMesh::ElemHashUtils::operator()</a></div><div class="ttdeci">bool operator()(const Elem *lhs, const Elem *rhs) const </div><div class="ttdef"><b>Definition:</b> <a href="elem__hash_8h_source.html#l00056">elem_hash.h:56</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_ab8a15c938cd671df55681c53a26ed780"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">libMesh::Elem::key</a></div><div class="ttdeci">virtual dof_id_type key(const unsigned int s) const =0</div></div>
-<div class="ttc" id="namespacelibMesh_html_a549a9da9cd72abc7f36becbec72bc3f2"><div class="ttname"><a href="namespacelibMesh.html#a549a9da9cd72abc7f36becbec72bc3f2">libMesh::unordered_multiset_elem</a></div><div class="ttdeci">LIBMESH_BEST_UNORDERED_MULTISET&lt; Elem *, ElemHashUtils, ElemHashUtils &gt; unordered_multiset_elem</div><div class="ttdef"><b>Definition:</b> <a href="elem__hash_8h_source.html#l00063">elem_hash.h:63</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aaccea15950c8fe4f00a046fee4cc8d7c"><div class="ttname"><a href="namespacelibMesh.html#aaccea15950c8fe4f00a046fee4cc8d7c">libMesh::unordered_multiset_elem</a></div><div class="ttdeci">LIBMESH_BEST_UNORDERED_MULTISET&lt; Elem *, ElemHashUtils, ElemHashUtils &gt; unordered_multiset_elem</div><div class="ttdef"><b>Definition:</b> <a href="elem__hash_8h_source.html#l00063">elem_hash.h:63</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

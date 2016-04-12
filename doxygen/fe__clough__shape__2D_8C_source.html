@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="fe__clough__shape__2D_8C.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -150,17 +150,17 @@
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> clough_raw_shape_second_deriv(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basis_num,</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> deriv_type,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> clough_raw_shape_deriv(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basis_num,</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> deriv_type,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> clough_raw_shape(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basis_num,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> subtriangle_lookup(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> subtriangle_lookup(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// Compute the static coefficients for an element</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> clough_compute_coefs(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> clough_compute_coefs(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Using static globals for old_elem_id, etc. will fail</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// horribly with more than one thread.</span></div>
@@ -614,7 +614,7 @@
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;}</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> subtriangle_lookup(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> subtriangle_lookup(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;{</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;  <span class="keywordflow">if</span> ((p(0) &gt;= p(1)) &amp;&amp; (p(0) + 2 * p(1) &lt;= 1))</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordflow">return</span> 0;</div>
@@ -627,7 +627,7 @@
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">// triangle</span></div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> clough_raw_shape_second_deriv(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basis_num,</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                                   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> deriv_type,</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;{</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> xi = p(0), eta = p(1);</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;</div>
@@ -1182,7 +1182,7 @@
 <div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;</div>
 <div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> clough_raw_shape_deriv(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basis_num,</div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> deriv_type,</div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;{</div>
 <div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> xi = p(0), eta = p(1);</div>
 <div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;</div>
@@ -1619,7 +1619,7 @@
 <div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;}</div>
 <div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;</div>
 <div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> clough_raw_shape(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basis_num,</div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;{</div>
 <div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> xi = p(0), eta = p(1);</div>
 <div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;</div>
@@ -1863,7 +1863,7 @@
 <div class="line"><a name="l01763"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#ac1edfdde61d25ee17ce13c12f401bbe2"> 1763</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;2,CLOUGH&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
 <div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;                         <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
-<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;                         <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp;)</div>
+<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;                         <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp;)</div>
 <div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;{</div>
 <div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Clough-Tocher elements require the real element \nto construct gradient-based degrees of freedom.&quot;</span>);</div>
 <div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
@@ -1872,10 +1872,10 @@
 <div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;</div>
 <div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;</div>
 <div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l01775"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a50c8d8d062704fc96a961566a26ec156"> 1775</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;2,CLOUGH&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l01775"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a50c8d8d062704fc96a961566a26ec156"> 1775</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;2,CLOUGH&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l01776"></a><span class="lineno"> 1776</span>&#160;                         <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l01777"></a><span class="lineno"> 1777</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
-<div class="line"><a name="l01778"></a><span class="lineno"> 1778</span>&#160;                         <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l01778"></a><span class="lineno"> 1778</span>&#160;                         <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l01779"></a><span class="lineno"> 1779</span>&#160;{</div>
 <div class="line"><a name="l01780"></a><span class="lineno"> 1780</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;</div>
@@ -2059,7 +2059,7 @@
 <div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;                               <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
 <div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
-<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp;)</div>
+<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp;)</div>
 <div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160;{</div>
 <div class="line"><a name="l01964"></a><span class="lineno"> 1964</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Clough-Tocher elements require the real element \nto construct gradient-based degrees of freedom.&quot;</span>);</div>
 <div class="line"><a name="l01965"></a><span class="lineno"> 1965</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
@@ -2068,11 +2068,11 @@
 <div class="line"><a name="l01968"></a><span class="lineno"> 1968</span>&#160;</div>
 <div class="line"><a name="l01969"></a><span class="lineno"> 1969</span>&#160;</div>
 <div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l01971"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a47e2e147ff9d774c2c443ccdce016019"> 1971</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;2,CLOUGH&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l01971"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a47e2e147ff9d774c2c443ccdce016019"> 1971</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;2,CLOUGH&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;                               <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j,</div>
-<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;{</div>
 <div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160;</div>
@@ -2252,11 +2252,11 @@
 <div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;</div>
 <div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;</div>
 <div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l02155"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a8ffb80053d2abb03fdc64497856c5523"> 2155</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">FE&lt;2,CLOUGH&gt;::shape_second_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a>* elem,</div>
+<div class="line"><a name="l02155"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a8ffb80053d2abb03fdc64497856c5523"> 2155</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">FE&lt;2,CLOUGH&gt;::shape_second_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j,</div>
-<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a>&amp; p)</div>
+<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;                                      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;{</div>
 <div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;</div>
@@ -2441,10 +2441,10 @@
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634aeb83a6d8d35afd605729a0b8827e7102"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634aeb83a6d8d35afd605729a0b8827e7102">libMesh::SECOND</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00034">enum_order.h:34</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966">libMesh::THIRD</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00035">enum_order.h:35</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aa0f4de68ccdcce5079daad35630fd886"><div class="ttname"><a href="namespacelibMesh.html#aa0f4de68ccdcce5079daad35630fd886">libMesh::n_threads</a></div><div class="ttdeci">n_threads[0]</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00361">libmesh.C:361</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aa0f4de68ccdcce5079daad35630fd886"><div class="ttname"><a href="namespacelibMesh.html#aa0f4de68ccdcce5079daad35630fd886">libMesh::n_threads</a></div><div class="ttdeci">n_threads[0]</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00357">libmesh.C:357</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DofObject_html_adf3b0ebe7fcc0c41bced4c9f17bf4822"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#adf3b0ebe7fcc0c41bced4c9f17bf4822">libMesh::DofObject::invalid_id</a></div><div class="ttdeci">static const dof_id_type invalid_id</div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00335">dof_object.h:335</a></div></div>
 <div class="ttc" id="fe_8h_html"><div class="ttname"><a href="fe_8h.html">fe.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00128">libmesh_common.h:128</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a2cb5212bd36caff163c65e3ccff273f0"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">libMesh::Elem::point</a></div><div class="ttdeci">const Point &amp; point(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01477">elem.h:1477</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_ad81488d2e3cf77427008934b738f8d5d"><div class="ttname"><a href="classlibMesh_1_1FE.html#ad81488d2e3cf77427008934b738f8d5d">libMesh::FE::n_shape_functions</a></div><div class="ttdeci">virtual unsigned int n_shape_functions() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="fe_8C_source.html#l00036">fe.C:36</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>

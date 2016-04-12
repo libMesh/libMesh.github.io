@@ -99,7 +99,7 @@
 </div><!--header-->
 <div class="contents">
 <a href="eigen__core__support_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The libMesh Finite Element Library.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2015 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2002-2016 Benjamin S. Kirk, John W. Peterson, Roy H. Stogner</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// modify it under the terms of the GNU Lesser General Public</span></div>
@@ -139,47 +139,52 @@
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// #  undef  MatType</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// #endif</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// Eigen includes</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;Eigen/Sparse&gt;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// #ifdef libMeshSaveMatType</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// #  define libMeshSaveMatType MatType</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// #  undef  libMeshSaveMatType</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// #endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// Eigen uses deprecated std::binder1st/2nd classes, which GCC warns about.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#pragma GCC diagnostic ignored &quot;-Wdeprecated-declarations&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// Eigen includes</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;Eigen/Sparse&gt;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#pragma GCC diagnostic warning &quot;-Wdeprecated-declarations&quot;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// must be a signed type!!</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#if LIBMESH_DOF_ID_BYTES == 1</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">// Workaround for Eigen bug</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// typedef int8_t eigen_idx_type;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">   59</a></span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#elif LIBMESH_DOF_ID_BYTES == 2</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">// Workaround for Eigen bug</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// typedef int16_t eigen_idx_type;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#elif LIBMESH_DOF_ID_BYTES == 8</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">typedef</span> int64_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#else // LIBMESH_DOF_ID_BYTES = 4 (default)</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">// We have to use RowMajor SparseMatrix storage for our preallocation to work</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74">   71</a></span>&#160;<span class="keyword">typedef</span> Eigen::SparseMatrix&lt;Number, Eigen::RowMajor, eigen_idx_type&gt; <a class="code" href="namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74">EigenSM</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb">   72</a></span>&#160;<span class="keyword">typedef</span> Eigen::Matrix&lt;Number, Eigen::Dynamic, 1&gt; <a class="code" href="namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb">EigenSV</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// #ifdef libMeshSaveMatType</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// #  define libMeshSaveMatType MatType</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// #  undef  libMeshSaveMatType</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// #endif</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">// must be a signed type!!</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#if LIBMESH_DOF_ID_BYTES == 1</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// Workaround for Eigen bug</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">// typedef int8_t eigen_idx_type;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">   64</a></span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#elif LIBMESH_DOF_ID_BYTES == 2</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">// Workaround for Eigen bug</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">// typedef int16_t eigen_idx_type;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#elif LIBMESH_DOF_ID_BYTES == 8</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">typedef</span> int64_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#else // LIBMESH_DOF_ID_BYTES = 4 (default)</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">typedef</span> int32_t <a class="code" href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">eigen_idx_type</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_EIGEN</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif // LIBMESH_EIGEN_CORE_SUPPORT_H</span></div>
-<div class="ttc" id="namespacelibMesh_html_a5bba3a6825455d7d834c9206112128a3"><div class="ttname"><a href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">libMesh::eigen_idx_type</a></div><div class="ttdeci">int32_t eigen_idx_type</div><div class="ttdef"><b>Definition:</b> <a href="eigen__core__support_8h_source.html#l00059">eigen_core_support.h:59</a></div></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// We have to use RowMajor SparseMatrix storage for our preallocation to work</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74">   76</a></span>&#160;<span class="keyword">typedef</span> Eigen::SparseMatrix&lt;Number, Eigen::RowMajor, eigen_idx_type&gt; <a class="code" href="namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74">EigenSM</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb">   77</a></span>&#160;<span class="keyword">typedef</span> Eigen::Matrix&lt;Number, Eigen::Dynamic, 1&gt; <a class="code" href="namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb">EigenSV</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_EIGEN</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif // LIBMESH_EIGEN_CORE_SUPPORT_H</span></div>
+<div class="ttc" id="namespacelibMesh_html_a5bba3a6825455d7d834c9206112128a3"><div class="ttname"><a href="namespacelibMesh.html#a5bba3a6825455d7d834c9206112128a3">libMesh::eigen_idx_type</a></div><div class="ttdeci">int32_t eigen_idx_type</div><div class="ttdef"><b>Definition:</b> <a href="eigen__core__support_8h_source.html#l00064">eigen_core_support.h:64</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a9353c1eb2158a7435d1bbe53824d7beb"><div class="ttname"><a href="namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb">libMesh::EigenSV</a></div><div class="ttdeci">Eigen::Matrix&lt; Number, Eigen::Dynamic, 1 &gt; EigenSV</div><div class="ttdef"><b>Definition:</b> <a href="eigen__core__support_8h_source.html#l00072">eigen_core_support.h:72</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a60b1337ad05ab2561dca6fe2cff9cf74"><div class="ttname"><a href="namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74">libMesh::EigenSM</a></div><div class="ttdeci">Eigen::SparseMatrix&lt; Number, Eigen::RowMajor, eigen_idx_type &gt; EigenSM</div><div class="ttdef"><b>Definition:</b> <a href="eigen__core__support_8h_source.html#l00071">eigen_core_support.h:71</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a9353c1eb2158a7435d1bbe53824d7beb"><div class="ttname"><a href="namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb">libMesh::EigenSV</a></div><div class="ttdeci">Eigen::Matrix&lt; Number, Eigen::Dynamic, 1 &gt; EigenSV</div><div class="ttdef"><b>Definition:</b> <a href="eigen__core__support_8h_source.html#l00077">eigen_core_support.h:77</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a60b1337ad05ab2561dca6fe2cff9cf74"><div class="ttname"><a href="namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74">libMesh::EigenSM</a></div><div class="ttdeci">Eigen::SparseMatrix&lt; Number, Eigen::RowMajor, eigen_idx_type &gt; EigenSM</div><div class="ttdef"><b>Definition:</b> <a href="eigen__core__support_8h_source.html#l00076">eigen_core_support.h:76</a></div></div>
 <div class="ttc" id="id__types_8h_html"><div class="ttname"><a href="id__types_8h.html">id_types.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

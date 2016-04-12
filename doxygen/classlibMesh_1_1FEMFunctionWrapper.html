@@ -117,6 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a388a6a2387f606ab25c9cfd5df9afaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7baec37b2cf79a80effd19759f8b6c3c"><td class="memItemLeft" align="right" valign="top">Output&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html#a7baec37b2cf79a80effd19759f8b6c3c">eval_at_point</a> (const <a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> &amp;c, unsigned int i, const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;n, const <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> time)</td></tr>
 <tr class="separator:a7baec37b2cf79a80effd19759f8b6c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c6ff8448bddd3b53423716cdddeac0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html#a7c6ff8448bddd3b53423716cdddeac0c">is_grid_projection</a> ()</td></tr>
+<tr class="separator:a7c6ff8448bddd3b53423716cdddeac0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46fafbc4b43b8448312bb268e5ecd544"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html#a46fafbc4b43b8448312bb268e5ecd544">eval_old_dofs</a> (const <a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> &amp;, unsigned int, std::vector&lt; Output &gt;)</td></tr>
+<tr class="separator:a46fafbc4b43b8448312bb268e5ecd544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -156,7 +160,7 @@ template&lt;typename Output&gt; </div>
 
 <p>Definition at line <a class="el" href="system__projection_8C_source.html#l00147">147</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 <div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;: <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>(f.clone()) {}</div>
-<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00167">system_projection.C:167</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00174">system_projection.C:174</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,9 +189,9 @@ template&lt;typename Output&gt; </div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="system__projection_8C_source.html#l00149">149</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                                           :</div>
+<div class="fragment"><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                                            :</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>(fw._f-&gt;clone()) {}</div>
-<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00167">system_projection.C:167</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00174">system_projection.C:174</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,9 +244,9 @@ template&lt;typename Output&gt; </div>
 
 <p>Definition at line <a class="el" href="system__projection_8C_source.html#l00154">154</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
-<p>References <a class="el" href="system__projection_8C_source.html#l00167">libMesh::FEMFunctionWrapper&lt; Output &gt;::_f</a>.</p>
+<p>References <a class="el" href="system__projection_8C_source.html#l00174">libMesh::FEMFunctionWrapper&lt; Output &gt;::_f</a>.</p>
 <div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>-&gt;component(c, i, n, time); }</div>
-<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00167">system_projection.C:167</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00174">system_projection.C:174</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -294,9 +298,54 @@ template&lt;typename Output&gt; </div>
 
 <p>Definition at line <a class="el" href="system__projection_8C_source.html#l00160">160</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
-<p>References <a class="el" href="system__projection_8C_source.html#l00167">libMesh::FEMFunctionWrapper&lt; Output &gt;::_f</a>.</p>
+<p>References <a class="el" href="system__projection_8C_source.html#l00174">libMesh::FEMFunctionWrapper&lt; Output &gt;::_f</a>.</p>
 <div class="fragment"><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>-&gt;component(c, i, n, time); }</div>
-<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00167">system_projection.C:167</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00174">system_projection.C:174</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a46fafbc4b43b8448312bb268e5ecd544"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html">libMesh::FEMFunctionWrapper</a>&lt; Output &gt;::eval_old_dofs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; Output &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00168">168</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  { libmesh_error(); }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -326,9 +375,37 @@ template&lt;typename Output&gt; </div>
 
 <p>Definition at line <a class="el" href="system__projection_8C_source.html#l00152">152</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
-<p>References <a class="el" href="system__projection_8C_source.html#l00167">libMesh::FEMFunctionWrapper&lt; Output &gt;::_f</a>.</p>
+<p>References <a class="el" href="system__projection_8C_source.html#l00174">libMesh::FEMFunctionWrapper&lt; Output &gt;::_f</a>.</p>
 <div class="fragment"><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{ <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>-&gt;init_context(c); }</div>
-<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00167">system_projection.C:167</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00174">system_projection.C:174</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7c6ff8448bddd3b53423716cdddeac0c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Output&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html">libMesh::FEMFunctionWrapper</a>&lt; Output &gt;::is_grid_projection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00166">166</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -353,7 +430,7 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00167">167</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00174">174</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
 
 <p>Referenced by <a class="el" href="system__projection_8C_source.html#l00154">libMesh::FEMFunctionWrapper&lt; Output &gt;::eval_at_node()</a>, <a class="el" href="system__projection_8C_source.html#l00160">libMesh::FEMFunctionWrapper&lt; Output &gt;::eval_at_point()</a>, and <a class="el" href="system__projection_8C_source.html#l00152">libMesh::FEMFunctionWrapper&lt; Output &gt;::init_context()</a>.</p>
 
