@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>libMesh - A C++ Finite Element Library</title>
-  <meta name="author" content="Benjamin S. Kirk">
+  <meta name="author" content="libMesh development team">
   <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
 </head>
@@ -66,7 +66,7 @@
         #include "libmesh/elem.h"
         #include "libmesh/tensor_value.h"
         #include "libmesh/perf_log.h"
-        
+
 </pre>
 </div>
 <div class = "comment">
@@ -82,17 +82,17 @@ Bring in everything from the libMesh namespace
 <div class = "comment">
 Function prototype.  This is the function that will assemble
 the linear system for our Biharmonic problem.  Note that the
-function will take the \p EquationSystems object and the
+function will take the EquationSystems object and the
 name of the system we are assembling as input.  From the
-\p EquationSystems object we have acess to the \p Mesh and
+EquationSystems object we have acess to the Mesh and
 other objects we might need.
 </div>
 
 <div class ="fragment">
 <pre>
-        void assemble_biharmonic(EquationSystems& es,
-                                 const std::string& system_name);
-        
+        void assemble_biharmonic(EquationSystems & es,
+                                 const std::string & system_name);
+
         
 </pre>
 </div>
@@ -103,13 +103,15 @@ for setting boundary conditions.
 
 <div class ="fragment">
 <pre>
-        Number exact_2D_solution(const Point& p,
-                                 const Parameters&,   // parameters, not needed
-                                 const std::string&,  // sys_name, not needed
-                                 const std::string&); // unk_name, not needed);
+        Number exact_2D_solution(const Point & p,
+                                 const Parameters &,   // parameters, not needed
+                                 const std::string &,  // sys_name, not needed
+                                 const std::string &); // unk_name, not needed);
         
-        Number exact_3D_solution(const Point& p,
-                                 const Parameters&, const std::string&, const std::string&);
+        Number exact_3D_solution(const Point & p,
+                                 const Parameters &,
+                                 const std::string &,
+                                 const std::string &);
         
 </pre>
 </div>
@@ -121,21 +123,29 @@ H^1 convergence of the solution
 
 <div class ="fragment">
 <pre>
-        Gradient exact_2D_derivative(const Point& p,
-                                     const Parameters&, const std::string&, const std::string&);
+        Gradient exact_2D_derivative(const Point & p,
+                                     const Parameters &,
+                                     const std::string &,
+                                     const std::string &);
         
-        Gradient exact_3D_derivative(const Point& p,
-                                     const Parameters&, const std::string&, const std::string&);
+        Gradient exact_3D_derivative(const Point & p,
+                                     const Parameters &,
+                                     const std::string &,
+                                     const std::string &);
         
-        Tensor exact_2D_hessian(const Point& p,
-                                const Parameters&, const std::string&, const std::string&);
+        Tensor exact_2D_hessian(const Point & p,
+                                const Parameters &,
+                                const std::string &,
+                                const std::string &);
         
-        Tensor exact_3D_hessian(const Point& p,
-                                const Parameters&, const std::string&, const std::string&);
+        Tensor exact_3D_hessian(const Point & p,
+                                const Parameters &,
+                                const std::string &,
+                                const std::string &);
         
-        Number forcing_function_2D(const Point& p);
+        Number forcing_function_2D(const Point & p);
         
-        Number forcing_function_3D(const Point& p);
+        Number forcing_function_3D(const Point & p);
         
 </pre>
 </div>
@@ -145,17 +155,26 @@ Pointers to dimension-independent functions
 
 <div class ="fragment">
 <pre>
-        Number (*exact_solution)(const Point& p,
-                                 const Parameters&, const std::string&, const std::string&);
-        Gradient (*exact_derivative)(const Point& p,
-                                     const Parameters&, const std::string&, const std::string&);
-        Tensor (*exact_hessian)(const Point& p,
-                                const Parameters&, const std::string&, const std::string&);
-        Number (*forcing_function)(const Point& p);
+        Number (*exact_solution)(const Point & p,
+                                 const Parameters &,
+                                 const std::string &,
+                                 const std::string &);
         
+        Gradient (*exact_derivative)(const Point & p,
+                                     const Parameters &,
+                                     const std::string &,
+                                     const std::string &);
         
+        Tensor (*exact_hessian)(const Point & p,
+                                const Parameters &,
+                                const std::string &,
+                                const std::string &);
         
-        int main(int argc, char** argv)
+        Number (*forcing_function)(const Point & p);
+
+
+
+        int main(int argc, char ** argv)
         {
 </pre>
 </div>
@@ -224,18 +243,12 @@ Read in parameters from the input file
 <pre>
           const unsigned int max_r_level = input_file("max_r_level", 10);
           const unsigned int max_r_steps = input_file("max_r_steps", 4);
-          const std::string approx_type  = input_file("approx_type",
-                                                      "HERMITE");
-          const unsigned int uniform_refine =
-            input_file("uniform_refine", 0);
-          const Real refine_percentage =
-            input_file("refine_percentage", 0.5);
-          const Real coarsen_percentage =
-            input_file("coarsen_percentage", 0.5);
-          const unsigned int dim =
-            input_file("dimension", 2);
-          const unsigned int max_linear_iterations =
-            input_file("max_linear_iterations", 10000);
+          const std::string approx_type  = input_file("approx_type", "HERMITE");
+          const unsigned int uniform_refine = input_file("uniform_refine", 0);
+          const Real refine_percentage = input_file("refine_percentage", 0.5);
+          const Real coarsen_percentage = input_file("coarsen_percentage", 0.5);
+          const unsigned int dim = input_file("dimension", 2);
+          const unsigned int max_linear_iterations = input_file("max_linear_iterations", 10000);
         
 </pre>
 </div>
@@ -406,7 +419,7 @@ Create a system named "Biharmonic"
 
 <div class ="fragment">
 <pre>
-          LinearImplicitSystem& system =
+          LinearImplicitSystem & system =
             equation_systems.add_system&lt;LinearImplicitSystem&gt; ("Biharmonic");
         
 </pre>
@@ -518,7 +531,7 @@ A refinement loop.
               mesh.print_info();
               equation_systems.print_info();
         
-              std::cout &lt;&lt; "Beginning Solve " &lt;&lt; r_step &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "Beginning Solve " &lt;&lt; r_step &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -530,11 +543,11 @@ Solve the system "Biharmonic", just like example 2.
 <pre>
               system.solve();
         
-              std::cout &lt;&lt; "Linear solver converged at step: "
-                        &lt;&lt; system.n_linear_iterations()
-                        &lt;&lt; ", final residual: "
-                        &lt;&lt; system.final_linear_residual()
-                        &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "Linear solver converged at step: "
+                           &lt;&lt; system.n_linear_iterations()
+                           &lt;&lt; ", final residual: "
+                           &lt;&lt; system.final_linear_residual()
+                           &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -563,26 +576,26 @@ Print out the error values
 
 <div class ="fragment">
 <pre>
-              std::cout &lt;&lt; "L2-Norm is: "
-                        &lt;&lt; zero_sol.l2_error("Biharmonic", "u")
-                        &lt;&lt; std::endl;
-              std::cout &lt;&lt; "H1-Norm is: "
-                        &lt;&lt; zero_sol.h1_error("Biharmonic", "u")
-                        &lt;&lt; std::endl;
-              std::cout &lt;&lt; "H2-Norm is: "
-                        &lt;&lt; zero_sol.h2_error("Biharmonic", "u")
-                        &lt;&lt; std::endl
-                        &lt;&lt; std::endl;
-              std::cout &lt;&lt; "L2-Error is: "
-                        &lt;&lt; exact_sol.l2_error("Biharmonic", "u")
-                        &lt;&lt; std::endl;
-              std::cout &lt;&lt; "H1-Error is: "
-                        &lt;&lt; exact_sol.h1_error("Biharmonic", "u")
-                        &lt;&lt; std::endl;
-              std::cout &lt;&lt; "H2-Error is: "
-                        &lt;&lt; exact_sol.h2_error("Biharmonic", "u")
-                        &lt;&lt; std::endl
-                        &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "L2-Norm is: "
+                           &lt;&lt; zero_sol.l2_error("Biharmonic", "u")
+                           &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "H1-Norm is: "
+                           &lt;&lt; zero_sol.h1_error("Biharmonic", "u")
+                           &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "H2-Norm is: "
+                           &lt;&lt; zero_sol.h2_error("Biharmonic", "u")
+                           &lt;&lt; std::endl
+                           &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "L2-Error is: "
+                           &lt;&lt; exact_sol.l2_error("Biharmonic", "u")
+                           &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "H1-Error is: "
+                           &lt;&lt; exact_sol.h1_error("Biharmonic", "u")
+                           &lt;&lt; std::endl;
+              libMesh::out &lt;&lt; "H2-Error is: "
+                           &lt;&lt; exact_sol.h2_error("Biharmonic", "u")
+                           &lt;&lt; std::endl
+                           &lt;&lt; std::endl;
         
 </pre>
 </div>
@@ -607,7 +620,7 @@ Possibly refine the mesh
 <pre>
               if (r_step+1 != max_r_steps)
                 {
-                  std::cout &lt;&lt; "  Refining the mesh..." &lt;&lt; std::endl;
+                  libMesh::out &lt;&lt; "  Refining the mesh..." &lt;&lt; std::endl;
         
                   if (uniform_refine == 0)
                     {
@@ -617,10 +630,8 @@ Possibly refine the mesh
                       error_estimator.estimate_error(system, error);
                       mesh_refinement.flag_elements_by_elem_fraction (error);
         
-                      std::cout &lt;&lt; "Mean Error: " &lt;&lt; error.mean() &lt;&lt;
-                        std::endl;
-                      std::cout &lt;&lt; "Error Variance: " &lt;&lt; error.variance() &lt;&lt;
-                        std::endl;
+                      libMesh::out &lt;&lt; "Mean Error: " &lt;&lt; error.mean() &lt;&lt; std::endl;
+                      libMesh::out &lt;&lt; "Error Variance: " &lt;&lt; error.variance() &lt;&lt; std::endl;
         
                       mesh_refinement.refine_and_coarsen_elements();
                     }
@@ -632,10 +643,10 @@ Possibly refine the mesh
 </pre>
 </div>
 <div class = "comment">
-This call reinitializes the \p EquationSystems object for
+This call reinitializes the EquationSystems object for
 the newly refined mesh.  One of the steps in the
-reinitialization is projecting the \p solution,
-\p old_solution, etc... vectors from the old mesh to
+reinitialization is projecting the solution,
+old_solution, etc... vectors from the old mesh to
 the current one.
 </div>
 
@@ -676,7 +687,7 @@ Close up the output file.
               &lt;&lt; "ylabel('log(error)');\n"
               &lt;&lt; "title('C1 " &lt;&lt; approx_type &lt;&lt; " elements');\n"
               &lt;&lt; "legend('L2-error', 'H1-error', 'H2-error');\n";
-        
+
 </pre>
 </div>
 <div class = "comment">
@@ -692,10 +703,10 @@ All done.
         
         
         
-        Number exact_2D_solution(const Point& p,
-                                 const Parameters&,  // parameters, not needed
-                                 const std::string&, // sys_name, not needed
-                                 const std::string&) // unk_name, not needed
+        Number exact_2D_solution(const Point & p,
+                                 const Parameters &,  // parameters, not needed
+                                 const std::string &, // sys_name, not needed
+                                 const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -728,10 +739,10 @@ We now define the gradient of the exact solution
 
 <div class ="fragment">
 <pre>
-        Gradient exact_2D_derivative(const Point& p,
-                                     const Parameters&,  // parameters, not needed
-                                     const std::string&, // sys_name, not needed
-                                     const std::string&) // unk_name, not needed
+        Gradient exact_2D_derivative(const Point & p,
+                                     const Parameters &,  // parameters, not needed
+                                     const std::string &, // sys_name, not needed
+                                     const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -769,10 +780,10 @@ We now define the hessian of the exact solution
 
 <div class ="fragment">
 <pre>
-        Tensor exact_2D_hessian(const Point& p,
-                                const Parameters&,  // parameters, not needed
-                                const std::string&, // sys_name, not needed
-                                const std::string&) // unk_name, not needed
+        Tensor exact_2D_hessian(const Point & p,
+                                const Parameters &,  // parameters, not needed
+                                const std::string &, // sys_name, not needed
+                                const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -813,7 +824,7 @@ Hessians are always symmetric
         
         
         
-        Number forcing_function_2D(const Point& p)
+        Number forcing_function_2D(const Point & p)
         {
 </pre>
 </div>
@@ -840,10 +851,10 @@ Equals laplacian(laplacian(u))
         
         
         
-        Number exact_3D_solution(const Point& p,
-                                 const Parameters&,  // parameters, not needed
-                                 const std::string&, // sys_name, not needed
-                                 const std::string&) // unk_name, not needed
+        Number exact_3D_solution(const Point & p,
+                                 const Parameters &,  // parameters, not needed
+                                 const std::string &, // sys_name, not needed
+                                 const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -869,10 +880,10 @@ analytic solution value
         }
         
         
-        Gradient exact_3D_derivative(const Point& p,
-                                     const Parameters&,  // parameters, not needed
-                                     const std::string&, // sys_name, not needed
-                                     const std::string&) // unk_name, not needed
+        Gradient exact_3D_derivative(const Point & p,
+                                     const Parameters &,  // parameters, not needed
+                                     const std::string &, // sys_name, not needed
+                                     const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -912,10 +923,10 @@ We now define the hessian of the exact solution
 
 <div class ="fragment">
 <pre>
-        Tensor exact_3D_hessian(const Point& p,
-                                const Parameters&,  // parameters, not needed
-                                const std::string&, // sys_name, not needed
-                                const std::string&) // unk_name, not needed
+        Tensor exact_3D_hessian(const Point & p,
+                                const Parameters &,  // parameters, not needed
+                                const std::string &, // sys_name, not needed
+                                const std::string &) // unk_name, not needed
         {
 </pre>
 </div>
@@ -963,7 +974,7 @@ Hessians are always symmetric
         
         
         
-        Number forcing_function_3D(const Point& p)
+        Number forcing_function_3D(const Point & p)
         {
 </pre>
 </div>
@@ -1007,8 +1018,8 @@ via a penalty method.
 
 <div class ="fragment">
 <pre>
-        void assemble_biharmonic(EquationSystems& es,
-                                 const std::string& system_name)
+        void assemble_biharmonic(EquationSystems & es,
+                                 const std::string & system_name)
         {
         #ifdef LIBMESH_ENABLE_AMR
         #ifdef LIBMESH_ENABLE_SECOND_DERIVATIVES
@@ -1035,7 +1046,7 @@ application.
 
 <div class ="fragment">
 <pre>
-          PerfLog perf_log ("Matrix Assembly",false);
+          PerfLog perf_log ("Matrix Assembly", false);
         
 </pre>
 </div>
@@ -1045,7 +1056,7 @@ Get a constant reference to the mesh object.
 
 <div class ="fragment">
 <pre>
-          const MeshBase& mesh = es.get_mesh();
+          const MeshBase & mesh = es.get_mesh();
         
 </pre>
 </div>
@@ -1065,20 +1076,20 @@ Get a reference to the LinearImplicitSystem we are solving
 
 <div class ="fragment">
 <pre>
-          LinearImplicitSystem& system = es.get_system&lt;LinearImplicitSystem&gt;("Biharmonic");
+          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt;("Biharmonic");
         
 </pre>
 </div>
 <div class = "comment">
-A reference to the \p DofMap object for this system.  The \p DofMap
+A reference to the DofMap object for this system.  The DofMap
 object handles the index translation from node and element numbers
-to degree of freedom numbers.  We will talk more about the \p DofMap
+to degree of freedom numbers.  We will talk more about the DofMap
 in future examples.
 </div>
 
 <div class ="fragment">
 <pre>
-          const DofMap& dof_map = system.get_dof_map();
+          const DofMap & dof_map = system.get_dof_map();
         
 </pre>
 </div>
@@ -1095,14 +1106,14 @@ for the first (and only) variable in the system.
 </div>
 <div class = "comment">
 Build a Finite Element object of the specified type.  Since the
-\p FEBase::build() member dynamically creates memory we will
-store the object as an \p AutoPtr<FEBase>.  This can be thought
+FEBase::build() member dynamically creates memory we will
+store the object as an UniquePtr<FEBase>.  This can be thought
 of as a pointer that will clean up after itself.
 </div>
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
@@ -1114,7 +1125,7 @@ quadrature rule on each of the 3 subelements
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(dim));
+          UniquePtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(dim));
         
 </pre>
 </div>
@@ -1135,7 +1146,7 @@ boundary integration.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
         
 </pre>
 </div>
@@ -1148,7 +1159,7 @@ In 1D, the Clough and Gauss quadrature rules are identical.
 
 <div class ="fragment">
 <pre>
-          AutoPtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(dim-1));
+          UniquePtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(dim-1));
         
 </pre>
 </div>
@@ -1172,7 +1183,7 @@ integration point.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Real&gt;& JxW = fe-&gt;get_JxW();
+          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1184,7 +1195,7 @@ properties at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;Point&gt;& q_point = fe-&gt;get_xyz();
+          const std::vector&lt;Point&gt; & q_point = fe-&gt;get_xyz();
         
 </pre>
 </div>
@@ -1194,7 +1205,7 @@ The element shape functions evaluated at the quadrature points.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt;& phi = fe-&gt;get_phi();
+          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
         
 </pre>
 </div>
@@ -1206,7 +1217,7 @@ function first derivatives are unnecessary.
 
 <div class ="fragment">
 <pre>
-          const std::vector&lt;std::vector&lt;RealTensor&gt; &gt;& d2phi = fe-&gt;get_d2phi();
+          const std::vector&lt;std::vector&lt;RealTensor&gt; &gt; & d2phi = fe-&gt;get_d2phi();
         
 </pre>
 </div>
@@ -1283,7 +1294,7 @@ working on.  This allows for nicer syntax later.
 
 <div class ="fragment">
 <pre>
-              const Elem* elem = *el;
+              const Elem * elem = *el;
         
 </pre>
 </div>
@@ -1437,7 +1448,7 @@ side MUST live on a boundary of the domain.
 <div class ="fragment">
 <pre>
                 for (unsigned int s=0; s&lt;elem-&gt;n_sides(); s++)
-                  if (elem-&gt;neighbor(s) == NULL)
+                  if (elem-&gt;neighbor(s) == libmesh_nullptr)
                     {
 </pre>
 </div>
@@ -1448,7 +1459,7 @@ points.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;std::vector&lt;Real&gt; &gt;&  phi_face =
+                      const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi_face =
                         fe_face-&gt;get_phi();
         
 </pre>
@@ -1460,7 +1471,7 @@ quadrature points.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;std::vector&lt;RealGradient&gt; &gt;& dphi_face =
+                      const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi_face =
                         fe_face-&gt;get_dphi();
         
 </pre>
@@ -1472,7 +1483,7 @@ points on the face.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;Real&gt;& JxW_face = fe_face-&gt;get_JxW();
+                      const std::vector&lt;Real&gt; & JxW_face = fe_face-&gt;get_JxW();
         
 </pre>
 </div>
@@ -1484,10 +1495,8 @@ we will interpolate the boundary value function.
 
 <div class ="fragment">
 <pre>
-                      const std::vector&lt;Point&gt;& qface_point = fe_face-&gt;get_xyz();
-        
-                      const std::vector&lt;Point&gt;& face_normals =
-                        fe_face-&gt;get_normals();
+                      const std::vector&lt;Point&gt; & qface_point = fe_face-&gt;get_xyz();
+                      const std::vector&lt;Point&gt; & face_normals = fe_face-&gt;get_normals();
         
 </pre>
 </div>
@@ -1587,8 +1596,8 @@ Stop logging the boundary condition computation
 <div class = "comment">
 The element matrix and right-hand-side are now built
 for this element.  Add them to the global matrix and
-right-hand-side vector.  The \p SparseMatrix::add_matrix()
-and \p NumericVector::add_vector() members do this for us.
+right-hand-side vector.  The SparseMatrix::add_matrix()
+and NumericVector::add_vector() members do this for us.
 Start logging the insertion of the local (element)
 matrix and vector into the global matrix and vector
 </div>
@@ -1660,45 +1669,64 @@ it will print its log to the screen. Pretty easy, huh?
   
   using namespace libMesh;
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_biharmonic(EquationSystems&amp; es,
-                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name);
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_biharmonic(EquationSystems &amp; es,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
   
   
-  Number exact_2D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,   <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;,  <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;); <I><FONT COLOR="#B22222">// unk_name, not needed);
+  Number exact_2D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,   <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,  <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;); <I><FONT COLOR="#B22222">// unk_name, not needed);
 </FONT></I>  
-  Number exact_3D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
+  Number exact_3D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
+
+  Gradient exact_2D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
+
+  Gradient exact_3D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
+
+  Tensor exact_2D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
   
-  Gradient exact_2D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
+  Tensor exact_3D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
   
-  Gradient exact_3D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
+  Number forcing_function_2D(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p);
   
-  Tensor exact_2D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
+  Number forcing_function_3D(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p);
   
-  Tensor exact_3D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
+  Number (*exact_solution)(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
   
-  Number forcing_function_2D(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p);
+  Gradient (*exact_derivative)(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
   
-  Number forcing_function_3D(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p);
+  Tensor (*exact_hessian)(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,
+                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;,
+                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;);
   
-  Number (*exact_solution)(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
-  Gradient (*exact_derivative)(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
-  Tensor (*exact_hessian)(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;);
-  Number (*forcing_function)(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p);
+  Number (*forcing_function)(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p);
   
   
   
-  <B><FONT COLOR="#228B22">int</FONT></B> main(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B>** argv)
+  <B><FONT COLOR="#228B22">int</FONT></B> main(<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
   {
     LibMeshInit init (argc, argv);
   
@@ -1718,18 +1746,12 @@ it will print its log to the screen. Pretty easy, huh?
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> max_r_level = input_file(<B><FONT COLOR="#BC8F8F">&quot;max_r_level&quot;</FONT></B>, 10);
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> max_r_steps = input_file(<B><FONT COLOR="#BC8F8F">&quot;max_r_steps&quot;</FONT></B>, 4);
-    <B><FONT COLOR="#228B22">const</FONT></B> std::string approx_type  = input_file(<B><FONT COLOR="#BC8F8F">&quot;approx_type&quot;</FONT></B>,
-                                                <B><FONT COLOR="#BC8F8F">&quot;HERMITE&quot;</FONT></B>);
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> uniform_refine =
-      input_file(<B><FONT COLOR="#BC8F8F">&quot;uniform_refine&quot;</FONT></B>, 0);
-    <B><FONT COLOR="#228B22">const</FONT></B> Real refine_percentage =
-      input_file(<B><FONT COLOR="#BC8F8F">&quot;refine_percentage&quot;</FONT></B>, 0.5);
-    <B><FONT COLOR="#228B22">const</FONT></B> Real coarsen_percentage =
-      input_file(<B><FONT COLOR="#BC8F8F">&quot;coarsen_percentage&quot;</FONT></B>, 0.5);
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim =
-      input_file(<B><FONT COLOR="#BC8F8F">&quot;dimension&quot;</FONT></B>, 2);
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> max_linear_iterations =
-      input_file(<B><FONT COLOR="#BC8F8F">&quot;max_linear_iterations&quot;</FONT></B>, 10000);
+    <B><FONT COLOR="#228B22">const</FONT></B> std::string approx_type  = input_file(<B><FONT COLOR="#BC8F8F">&quot;approx_type&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;HERMITE&quot;</FONT></B>);
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> uniform_refine = input_file(<B><FONT COLOR="#BC8F8F">&quot;uniform_refine&quot;</FONT></B>, 0);
+    <B><FONT COLOR="#228B22">const</FONT></B> Real refine_percentage = input_file(<B><FONT COLOR="#BC8F8F">&quot;refine_percentage&quot;</FONT></B>, 0.5);
+    <B><FONT COLOR="#228B22">const</FONT></B> Real coarsen_percentage = input_file(<B><FONT COLOR="#BC8F8F">&quot;coarsen_percentage&quot;</FONT></B>, 0.5);
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = input_file(<B><FONT COLOR="#BC8F8F">&quot;dimension&quot;</FONT></B>, 2);
+    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> max_linear_iterations = input_file(<B><FONT COLOR="#BC8F8F">&quot;max_linear_iterations&quot;</FONT></B>, 10000);
   
     libmesh_example_requires(dim &lt;= LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;2D/3D support&quot;</FONT></B>);
   
@@ -1798,7 +1820,7 @@ it will print its log to the screen. Pretty easy, huh?
   
     EquationSystems equation_systems (mesh);
   
-    LinearImplicitSystem&amp; system =
+    LinearImplicitSystem &amp; system =
       equation_systems.add_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>);
   
     <B><FONT COLOR="#A020F0">if</FONT></B> (approx_type == <B><FONT COLOR="#BC8F8F">&quot;HERMITE&quot;</FONT></B>)
@@ -1834,39 +1856,39 @@ it will print its log to the screen. Pretty easy, huh?
         mesh.print_info();
         equation_systems.print_info();
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Beginning Solve &quot;</FONT></B> &lt;&lt; r_step &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Beginning Solve &quot;</FONT></B> &lt;&lt; r_step &lt;&lt; std::endl;
   
         system.solve();
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Linear solver converged at step: &quot;</FONT></B>
-                  &lt;&lt; system.n_linear_iterations()
-                  &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, final residual: &quot;</FONT></B>
-                  &lt;&lt; system.final_linear_residual()
-                  &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Linear solver converged at step: &quot;</FONT></B>
+                     &lt;&lt; system.n_linear_iterations()
+                     &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;, final residual: &quot;</FONT></B>
+                     &lt;&lt; system.final_linear_residual()
+                     &lt;&lt; std::endl;
   
         exact_sol.compute_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>);
         zero_sol.compute_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>);
   
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;L2-Norm is: &quot;</FONT></B>
-                  &lt;&lt; zero_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl;
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1-Norm is: &quot;</FONT></B>
-                  &lt;&lt; zero_sol.h1_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl;
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H2-Norm is: &quot;</FONT></B>
-                  &lt;&lt; zero_sol.h2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl
-                  &lt;&lt; std::endl;
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;L2-Error is: &quot;</FONT></B>
-                  &lt;&lt; exact_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl;
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1-Error is: &quot;</FONT></B>
-                  &lt;&lt; exact_sol.h1_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl;
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H2-Error is: &quot;</FONT></B>
-                  &lt;&lt; exact_sol.h2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
-                  &lt;&lt; std::endl
-                  &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;L2-Norm is: &quot;</FONT></B>
+                     &lt;&lt; zero_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1-Norm is: &quot;</FONT></B>
+                     &lt;&lt; zero_sol.h1_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H2-Norm is: &quot;</FONT></B>
+                     &lt;&lt; zero_sol.h2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl
+                     &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;L2-Error is: &quot;</FONT></B>
+                     &lt;&lt; exact_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H1-Error is: &quot;</FONT></B>
+                     &lt;&lt; exact_sol.h1_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl;
+        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;H2-Error is: &quot;</FONT></B>
+                     &lt;&lt; exact_sol.h2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>)
+                     &lt;&lt; std::endl
+                     &lt;&lt; std::endl;
   
         out &lt;&lt; equation_systems.n_active_dofs() &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B>
             &lt;&lt; exact_sol.l2_error(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>) &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B>
@@ -1875,7 +1897,7 @@ it will print its log to the screen. Pretty easy, huh?
   
         <B><FONT COLOR="#A020F0">if</FONT></B> (r_step+1 != max_r_steps)
           {
-            <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Refining the mesh...&quot;</FONT></B> &lt;&lt; std::endl;
+            <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;  Refining the mesh...&quot;</FONT></B> &lt;&lt; std::endl;
   
             <B><FONT COLOR="#A020F0">if</FONT></B> (uniform_refine == 0)
               {
@@ -1885,10 +1907,8 @@ it will print its log to the screen. Pretty easy, huh?
                 error_estimator.estimate_error(system, error);
                 mesh_refinement.flag_elements_by_elem_fraction (error);
   
-                <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Mean Error: &quot;</FONT></B> &lt;&lt; error.mean() &lt;&lt;
-                  <B><FONT COLOR="#5F9EA0">std</FONT></B>::endl;
-                <B><FONT COLOR="#5F9EA0">std</FONT></B>::cout &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Error Variance: &quot;</FONT></B> &lt;&lt; error.variance() &lt;&lt;
-                  <B><FONT COLOR="#5F9EA0">std</FONT></B>::endl;
+                <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Mean Error: &quot;</FONT></B> &lt;&lt; error.mean() &lt;&lt; std::endl;
+                <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Error Variance: &quot;</FONT></B> &lt;&lt; error.variance() &lt;&lt; std::endl;
   
                 mesh_refinement.refine_and_coarsen_elements();
               }
@@ -1923,10 +1943,10 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  Number exact_2D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Number exact_2D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     <B><FONT COLOR="#228B22">const</FONT></B> Real x = p(0);
     <B><FONT COLOR="#228B22">const</FONT></B> Real y = p(1);
@@ -1935,10 +1955,10 @@ it will print its log to the screen. Pretty easy, huh?
   }
   
   
-  Gradient exact_2D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Gradient exact_2D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     <B><FONT COLOR="#228B22">const</FONT></B> Real x = p(0);
     <B><FONT COLOR="#228B22">const</FONT></B> Real y = p(1);
@@ -1952,10 +1972,10 @@ it will print its log to the screen. Pretty easy, huh?
   }
   
   
-  Tensor exact_2D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Tensor exact_2D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     Tensor hessu;
   
@@ -1972,7 +1992,7 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  Number forcing_function_2D(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p)
+  Number forcing_function_2D(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p)
   {
     <B><FONT COLOR="#228B22">const</FONT></B> Real x = p(0);
     <B><FONT COLOR="#228B22">const</FONT></B> Real y = p(1);
@@ -1983,10 +2003,10 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  Number exact_3D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Number exact_3D_solution(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                           <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     <B><FONT COLOR="#228B22">const</FONT></B> Real x = p(0);
     <B><FONT COLOR="#228B22">const</FONT></B> Real y = p(1);
@@ -1996,10 +2016,10 @@ it will print its log to the screen. Pretty easy, huh?
   }
   
   
-  Gradient exact_3D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Gradient exact_3D_derivative(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                               <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                               <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     Gradient gradu;
   
@@ -2015,10 +2035,10 @@ it will print its log to the screen. Pretty easy, huh?
   }
   
   
-  Tensor exact_3D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p,
-                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters&amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
-</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
-</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
+  Tensor exact_3D_hessian(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
+                          <B><FONT COLOR="#228B22">const</FONT></B> Parameters &amp;,  <I><FONT COLOR="#B22222">// parameters, not needed
+</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;, <I><FONT COLOR="#B22222">// sys_name, not needed
+</FONT></I>                          <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp;) <I><FONT COLOR="#B22222">// unk_name, not needed
 </FONT></I>  {
     Tensor hessu;
   
@@ -2042,7 +2062,7 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  Number forcing_function_3D(<B><FONT COLOR="#228B22">const</FONT></B> Point&amp; p)
+  Number forcing_function_3D(<B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p)
   {
     <B><FONT COLOR="#228B22">const</FONT></B> Real x = p(0);
     <B><FONT COLOR="#228B22">const</FONT></B> Real y = p(1);
@@ -2058,45 +2078,45 @@ it will print its log to the screen. Pretty easy, huh?
   
   
   
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_biharmonic(EquationSystems&amp; es,
-                           <B><FONT COLOR="#228B22">const</FONT></B> std::string&amp; system_name)
+  <B><FONT COLOR="#228B22">void</FONT></B> assemble_biharmonic(EquationSystems &amp; es,
+                           <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
   {
   #ifdef LIBMESH_ENABLE_AMR
   #ifdef LIBMESH_ENABLE_SECOND_DERIVATIVES
   
     libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>);
   
-    PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Matrix Assembly&quot;</FONT></B>,false);
+    PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Matrix Assembly&quot;</FONT></B>, false);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase&amp; mesh = es.get_mesh();
+    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
   
     <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
   
-    LinearImplicitSystem&amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>);
+    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Biharmonic&quot;</FONT></B>);
   
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap&amp; dof_map = system.get_dof_map();
+    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
   
     FEType fe_type = dof_map.variable_type(0);
   
-    AutoPtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
   
-    AutoPtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(dim));
+    UniquePtr&lt;QBase&gt; qrule(fe_type.default_quadrature_rule(dim));
   
     fe-&gt;attach_quadrature_rule (qrule.get());
   
-    AutoPtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
+    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
   
-    AutoPtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(dim-1));
+    UniquePtr&lt;QBase&gt; qface(fe_type.default_quadrature_rule(dim-1));
   
     fe_face-&gt;attach_quadrature_rule (qface.get());
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW = fe-&gt;get_JxW();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; q_point = fe-&gt;get_xyz();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; q_point = fe-&gt;get_xyz();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp; phi = fe-&gt;get_phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
   
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealTensor&gt; &gt;&amp; d2phi = fe-&gt;get_d2phi();
+    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealTensor&gt; &gt; &amp; d2phi = fe-&gt;get_d2phi();
   
     <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;Real&gt; shape_laplacian;
   
@@ -2113,7 +2133,7 @@ it will print its log to the screen. Pretty easy, huh?
       {
         perf_log.push(<B><FONT COLOR="#BC8F8F">&quot;elem init&quot;</FONT></B>);
   
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem* elem = *el;
+        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
   
         dof_map.dof_indices (elem, dof_indices);
   
@@ -2154,20 +2174,18 @@ it will print its log to the screen. Pretty easy, huh?
           <B><FONT COLOR="#228B22">const</FONT></B> Real penalty2 = 1e10;
   
           <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> s=0; s&lt;elem-&gt;n_sides(); s++)
-            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == NULL)
+            <B><FONT COLOR="#A020F0">if</FONT></B> (elem-&gt;neighbor(s) == libmesh_nullptr)
               {
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt;&amp;  phi_face =
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi_face =
                   fe_face-&gt;get_phi();
   
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt;&amp; dphi_face =
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi_face =
                   fe_face-&gt;get_dphi();
   
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt;&amp; JxW_face = fe_face-&gt;get_JxW();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW_face = fe_face-&gt;get_JxW();
   
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; qface_point = fe_face-&gt;get_xyz();
-  
-                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt;&amp; face_normals =
-                  fe_face-&gt;get_normals();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; qface_point = fe_face-&gt;get_xyz();
+                <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; face_normals = fe_face-&gt;get_normals();
   
                 fe_face-&gt;reinit(elem, s);
   
@@ -2227,6 +2245,8 @@ it will print its log to the screen. Pretty easy, huh?
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
+  CXX      example_dbg-adaptivity_ex4.o
+  CXXLD    example-dbg
 ***************************************************************
 * Running Example adaptivity_ex4:
 *   example-opt  
@@ -2253,11 +2273,10 @@ it will print its log to the screen. Pretty easy, huh?
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=25
     n_local_nodes()=25
   n_elem()=4
@@ -2290,7 +2309,6 @@ it will print its log to the screen. Pretty easy, huh?
       Maximum Off-Processor Bandwidth <= 0
     DofMap Constraints
       Number of DoF Constraints = 0
-      Number of Node Constraints = 0
 
 Beginning Solve 0
 Linear solver converged at step: 5, final residual: 2.30574e-13
@@ -2306,8 +2324,8 @@ H2-Error is: 3.51162
 Mean Error: 4.54516e-13
 Error Variance: 5.31276e-26
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=41
     n_local_nodes()=41
   n_elem()=8
@@ -2341,12 +2359,9 @@ Error Variance: 5.31276e-26
     DofMap Constraints
       Number of DoF Constraints = 8
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 9
-      Maximum Node Constraint Length= 5
-      Average Node Constraint Length= 3.22222
 
 Beginning Solve 1
-Linear solver converged at step: 5, final residual: 4.33824e-12
+Linear solver converged at step: 5, final residual: 4.32422e-12
 L2-Norm is: 0.385688
 H1-Norm is: 1.99188
 H2-Norm is: 14.3773
@@ -2359,8 +2374,8 @@ H2-Error is: 3.36347
 Mean Error: 0.904773
 Error Variance: 0.231378
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=69
     n_local_nodes()=69
   n_elem()=16
@@ -2394,12 +2409,9 @@ Error Variance: 0.231378
     DofMap Constraints
       Number of DoF Constraints = 8
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 9
-      Maximum Node Constraint Length= 5
-      Average Node Constraint Length= 3.22222
 
 Beginning Solve 2
-Linear solver converged at step: 8, final residual: 4.96967e-12
+Linear solver converged at step: 8, final residual: 4.96983e-12
 L2-Norm is: 0.39603
 H1-Norm is: 2.01114
 H2-Norm is: 14.5761
@@ -2412,8 +2424,8 @@ H2-Error is: 2.36714
 Mean Error: 1.07284
 Error Variance: 1.26032
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=125
     n_local_nodes()=125
   n_elem()=32
@@ -2447,9 +2459,6 @@ Error Variance: 1.26032
     DofMap Constraints
       Number of DoF Constraints = 32
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 32
-      Maximum Node Constraint Length= 5
-      Average Node Constraint Length= 3.5
 
 Beginning Solve 3
 Linear solver converged at step: 12, final residual: 1.95735e-12
@@ -2465,8 +2474,8 @@ H2-Error is: 0.71977
 Mean Error: 0.210827
 Error Variance: 0.0183284
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=249
     n_local_nodes()=249
   n_elem()=68
@@ -2500,12 +2509,9 @@ Error Variance: 0.0183284
     DofMap Constraints
       Number of DoF Constraints = 72
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 75
-      Maximum Node Constraint Length= 9
-      Average Node Constraint Length= 3.4
 
 Beginning Solve 4
-Linear solver converged at step: 23, final residual: 2.14482e-12
+Linear solver converged at step: 23, final residual: 2.1448e-12
 L2-Norm is: 0.405907
 H1-Norm is: 2.03286
 H2-Norm is: 14.7613
@@ -2518,8 +2524,8 @@ H2-Error is: 0.482316
 Mean Error: 0.108787
 Error Variance: 0.00898017
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=485
     n_local_nodes()=485
   n_elem()=140
@@ -2553,12 +2559,9 @@ Error Variance: 0.00898017
     DofMap Constraints
       Number of DoF Constraints = 120
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 120
-      Maximum Node Constraint Length= 9
-      Average Node Constraint Length= 3.5
 
 Beginning Solve 5
-Linear solver converged at step: 37, final residual: 2.03611e-11
+Linear solver converged at step: 37, final residual: 2.04494e-11
 L2-Norm is: 0.406259
 H1-Norm is: 2.03204
 H2-Norm is: 14.7673
@@ -2571,8 +2574,8 @@ H2-Error is: 0.227619
 Mean Error: 0.0264705
 Error Variance: 0.00117171
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=957
     n_local_nodes()=957
   n_elem()=280
@@ -2606,12 +2609,9 @@ Error Variance: 0.00117171
     DofMap Constraints
       Number of DoF Constraints = 304
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 303
-      Maximum Node Constraint Length= 9
-      Average Node Constraint Length= 3.50825
 
 Beginning Solve 6
-Linear solver converged at step: 294, final residual: 8.25442e-11
+Linear solver converged at step: 294, final residual: 8.22354e-11
 L2-Norm is: 0.406309
 H1-Norm is: 2.03185
 H2-Norm is: 14.7684
@@ -2624,8 +2624,8 @@ H2-Error is: 0.13224
 Mean Error: 0.0109873
 Error Variance: 0.000156803
  Mesh Information:
-  mesh_dimension()=2
-  spatial_dimension()=3
+  elem_dimensions()={2}
+  spatial_dimension()=2
   n_nodes()=1885
     n_local_nodes()=1885
   n_elem()=560
@@ -2659,38 +2659,53 @@ Error Variance: 0.000156803
     DofMap Constraints
       Number of DoF Constraints = 616
       Average DoF Constraint Length= 4
-      Number of Node Constraints = 609
-      Maximum Node Constraint Length= 9
-      Average Node Constraint Length= 3.52874
 
 Beginning Solve 7
-Linear solver converged at step: 1000, final residual: 1.56268e-07
+Linear solver converged at step: 1000, final residual: 2.62662e-07
 L2-Norm is: 0.406333
 H1-Norm is: 2.03181
 H2-Norm is: 14.7688
 
-L2-Error is: 5.02609e-05
-H1-Error is: 0.00140301
+L2-Error is: 5.02524e-05
+H1-Error is: 0.00140302
 H2-Error is: 0.082078
 
 
- --------------------------------------------------------------------
-| Time:           Wed Oct 22 13:39:24 2014                           |
-| OS:             Linux                                              |
-| HostName:       benkirk                                            |
-| OS Release:     2.6.32-431.3.1.el6.centos.plus.x86_64              |
-| OS Version:     #1 SMP Fri Jan 3 19:15:22 UTC 2014                 |
-| Machine:        x86_64                                             |
-| Username:       benkirk                                            |
-| Configuration:  ../configure  '--prefix=/aerolab/benkirk/libmesh/gcc-4.6/_inst'|
-|  '--enable-everything'                                             |
-|  'libmesh_CPPFLAGS=-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX'         |
-|  'PETSC_DIR=/software/x86_64/petsc/3.5.2'                          |
-|  'PETSC_ARCH=aerolab_workstations-openmpi-1.7-gcc-4.6'             |
-|  'TRILINOS_DIR=/software/x86_64/trilinos/11.6.1-openmpi-1.7-gcc-4.6'|
- --------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+| Time:           Tue Apr 12 13:48:37 2016                                                                          |
+| OS:             Darwin                                                                                            |
+| HostName:       peterson-laptop.local                                                                             |
+| OS Release:     15.0.0                                                                                            |
+| OS Version:     Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64  |
+| Machine:        x86_64                                                                                            |
+| Username:       petejw                                                                                            |
+| Configuration:  ../configure  'INSTALL=/usr/bin/install -C'                                                       |
+|  '--with-methods=opt dbg'                                                                                         |
+|  '--prefix=/Users/petejw/projects/libmesh_git/installed'                                                          |
+|  '--enable-perflog'                                                                                               |
+|  '--enable-tracefiles'                                                                                            |
+|  '--disable-blocked-storage'                                                                                      |
+|  '--enable-default-comm-world'                                                                                    |
+|  '--enable-tecio'                                                                                                 |
+|  '--enable-unique-ptr'                                                                                            |
+|  '--enable-ifem'                                                                                                  |
+|  'PETSC_DIR=/opt/moose/petsc/mpich_petsc-3.6.1/clang-opt-superlu'                                                 |
+|  'SLEPC_DIR=/opt/petejw/slepc/3.6.1'                                                                              |
+|  'CPPFLAGS= '                                                                                                     |
+|  'LIBS= '                                                                                                         |
+|  'CPPFLAGS=  '                                                                                                    |
+|  'LIBS=  '                                                                                                        |
+|  '--disable-netcdf-4'                                                                                             |
+|  '--disable-testsets'                                                                                             |
+|  'CXX=mpicxx'                                                                                                     |
+|  'CC=mpicc'                                                                                                       |
+|  'F77=mpif77'                                                                                                     |
+|  'FC=mpif90'                                                                                                      |
+|  'CPPFLAGS=   '                                                                                                   |
+|  'LIBS=   '                                                                                                       |
+ -------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=2.65232, Active time=2.52141                                                    |
+| libMesh Performance: Alive time=3.20518, Active time=2.87949                                                    |
  -----------------------------------------------------------------------------------------------------------------
 | Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -2698,83 +2713,95 @@ H2-Error is: 0.082078
 |                                                                                                                 |
 |                                                                                                                 |
 | DofMap                                                                                                          |
-|   add_neighbors_to_send_list()     8          0.0005      0.000065    0.0005      0.000065    0.02     0.02     |
-|   build_constraint_matrix()        835        0.0047      0.000006    0.0047      0.000006    0.19     0.19     |
-|   build_sparsity()                 8          0.0117      0.001467    0.0126      0.001578    0.47     0.50     |
-|   cnstrn_elem_mat_vec()            835        0.0057      0.000007    0.0057      0.000007    0.23     0.23     |
-|   create_dof_constraints()         8          0.0243      0.003040    0.3880      0.048501    0.96     15.39    |
-|   distribute_dofs()                8          0.0007      0.000090    0.0027      0.000333    0.03     0.11     |
-|   dof_indices()                    7444       0.0090      0.000001    0.0090      0.000001    0.36     0.36     |
-|   enforce_constraints_exactly()    7          0.0006      0.000090    0.0006      0.000090    0.03     0.03     |
-|   old_dof_indices()                1670       0.0015      0.000001    0.0015      0.000001    0.06     0.06     |
-|   prepare_send_list()              8          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   reinit()                         8          0.0019      0.000242    0.0019      0.000242    0.08     0.08     |
+|   add_neighbors_to_send_list()     8          0.0004      0.000049    0.0004      0.000049    0.01     0.01     |
+|   build_constraint_matrix()        835        0.0025      0.000003    0.0025      0.000003    0.09     0.09     |
+|   build_sparsity()                 8          0.0078      0.000972    0.0082      0.001027    0.27     0.29     |
+|   cnstrn_elem_mat_vec()            835        0.0045      0.000005    0.0045      0.000005    0.16     0.16     |
+|   create_dof_constraints()         8          0.0216      0.002695    0.2657      0.033210    0.75     9.23     |
+|   distribute_dofs()                8          0.0005      0.000065    0.0022      0.000281    0.02     0.08     |
+|   dof_indices()                    9115       0.0035      0.000000    0.0035      0.000000    0.12     0.12     |
+|   enforce_constraints_exactly()    7          0.0004      0.000058    0.0004      0.000058    0.01     0.01     |
+|   old_dof_indices()                3617       0.0016      0.000000    0.0016      0.000000    0.05     0.05     |
+|   prepare_send_list()              9          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         8          0.0017      0.000215    0.0017      0.000215    0.06     0.06     |
 |                                                                                                                 |
 | EquationSystems                                                                                                 |
-|   build_solution_vector()          1          0.0897      0.089708    0.0902      0.090156    3.56     3.58     |
+|   build_solution_vector()          1          0.0579      0.057938    0.0581      0.058091    2.01     2.02     |
 |                                                                                                                 |
 | ErrorVector                                                                                                     |
 |   mean()                           14         0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
 |   variance()                       7          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
 |                                                                                                                 |
 | ExodusII_IO                                                                                                     |
-|   write_nodal_data()               1          0.0031      0.003067    0.0031      0.003067    0.12     0.12     |
+|   write_nodal_data()               1          0.0016      0.001648    0.0016      0.001648    0.06     0.06     |
 |                                                                                                                 |
 | FE                                                                                                              |
-|   compute_shape_functions()        4240       0.5949      0.000140    0.5949      0.000140    23.59    23.59    |
-|   init_shape_functions()           4240       1.2739      0.000300    1.2739      0.000300    50.52    50.52    |
-|   inverse_map()                    22692      0.0403      0.000002    0.0403      0.000002    1.60     1.60     |
+|   compute_shape_functions()        12104      0.3005      0.000025    0.3005      0.000025    10.44    10.44    |
+|   init_shape_functions()           12104      2.0267      0.000167    2.0267      0.000167    70.39    70.39    |
+|   inverse_map()                    31968      0.0208      0.000001    0.0208      0.000001    0.72     0.72     |
 |                                                                                                                 |
 | FEMap                                                                                                           |
-|   compute_affine_map()             6643       0.0089      0.000001    0.0089      0.000001    0.35     0.35     |
-|   compute_face_map()               1598       0.0085      0.000005    0.0214      0.000013    0.34     0.85     |
-|   init_face_shape_functions()      1598       0.0015      0.000001    0.0015      0.000001    0.06     0.06     |
-|   init_reference_to_physical_map() 4240       0.0396      0.000009    0.0396      0.000009    1.57     1.57     |
+|   compute_affine_map()             14507      0.0171      0.000001    0.0171      0.000001    0.59     0.59     |
+|   compute_face_map()               3134       0.0066      0.000002    0.0160      0.000005    0.23     0.56     |
+|   init_face_shape_functions()      3134       0.0015      0.000000    0.0015      0.000000    0.05     0.05     |
+|   init_reference_to_physical_map() 12104      0.0417      0.000003    0.0417      0.000003    1.45     1.45     |
+|                                                                                                                 |
+| GenericProjector                                                                                                |
+|   copy_dofs                        279        0.0002      0.000001    0.0008      0.000003    0.01     0.03     |
+|   operator()                       7          0.0018      0.000261    1.0848      0.154976    0.06     37.67    |
+|   project_edges                    556        0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   project_interior                 556        0.0001      0.000000    0.0001      0.000000    0.00     0.00     |
+|   project_nodes                    556        0.0043      0.000008    1.0807      0.001944    0.15     37.53    |
+|   project_sides                    556        0.0006      0.000001    0.0006      0.000001    0.02     0.02     |
 |                                                                                                                 |
 | JumpErrorEstimator                                                                                              |
-|   estimate_error()                 7          0.0155      0.002217    0.8532      0.121887    0.62     33.84    |
-|                                                                                                                 |
-| LocationMap                                                                                                     |
-|   find()                           2780       0.0021      0.000001    0.0021      0.000001    0.08     0.08     |
-|   init()                           14         0.0009      0.000066    0.0009      0.000066    0.04     0.04     |
+|   estimate_error()                 7          0.0138      0.001965    1.0863      0.155185    0.48     37.73    |
 |                                                                                                                 |
 | Mesh                                                                                                            |
-|   all_second_order()               1          0.0001      0.000124    0.0001      0.000124    0.00     0.00     |
-|   contract()                       7          0.0000      0.000007    0.0002      0.000023    0.00     0.01     |
-|   find_neighbors()                 9          0.0020      0.000217    0.0020      0.000217    0.08     0.08     |
-|   renumber_nodes_and_elem()        25         0.0003      0.000014    0.0003      0.000014    0.01     0.01     |
+|   all_second_order()               1          0.0001      0.000063    0.0001      0.000063    0.00     0.00     |
+|   contract()                       7          0.0000      0.000005    0.0001      0.000011    0.00     0.00     |
+|   find_neighbors()                 9          0.0025      0.000273    0.0025      0.000273    0.09     0.09     |
+|   renumber_nodes_and_elem()        25         0.0001      0.000005    0.0001      0.000005    0.00     0.00     |
 |                                                                                                                 |
 | MeshOutput                                                                                                      |
-|   write_equation_systems()         1          0.0001      0.000052    0.0933      0.093275    0.00     3.70     |
+|   write_equation_systems()         1          0.0000      0.000013    0.0598      0.059753    0.00     2.08     |
 |                                                                                                                 |
 | MeshRefinement                                                                                                  |
 |   _coarsen_elements()              14         0.0000      0.000003    0.0000      0.000003    0.00     0.00     |
-|   _refine_elements()               14         0.0027      0.000193    0.0072      0.000517    0.11     0.29     |
-|   add_point()                      2780       0.0020      0.000001    0.0043      0.000002    0.08     0.17     |
-|   make_coarsening_compatible()     15         0.0006      0.000041    0.0006      0.000041    0.02     0.02     |
-|   make_flags_parallel_consistent() 21         0.0003      0.000014    0.0003      0.000014    0.01     0.01     |
-|   make_refinement_compatible()     15         0.0001      0.000004    0.0001      0.000004    0.00     0.00     |
+|   _refine_elements()               14         0.0021      0.000152    0.0038      0.000269    0.07     0.13     |
+|   add_node()                       5004       0.0013      0.000000    0.0013      0.000000    0.04     0.04     |
+|   make_coarsening_compatible()     15         0.0006      0.000038    0.0006      0.000038    0.02     0.02     |
+|   make_flags_parallel_consistent() 21         0.0003      0.000012    0.0003      0.000012    0.01     0.01     |
+|   make_refinement_compatible()     15         0.0001      0.000006    0.0001      0.000006    0.00     0.00     |
 |                                                                                                                 |
 | MeshTools::Generation                                                                                           |
-|   build_cube()                     1          0.0001      0.000147    0.0001      0.000147    0.01     0.01     |
+|   build_cube()                     1          0.0001      0.000060    0.0001      0.000060    0.00     0.00     |
+|                                                                                                                 |
+| OldSolutionValue                                                                                                |
+|   Gradient eval_at_node()          2224       0.0004      0.000000    0.0004      0.000000    0.01     0.01     |
+|   Number eval_at_node()            2224       0.0002      0.000000    0.0002      0.000000    0.01     0.01     |
+|   check_old_context(c)             279        0.0002      0.000001    0.0005      0.000002    0.01     0.02     |
+|   check_old_context(c,p)           7440       0.0042      0.000001    0.0100      0.000001    0.15     0.35     |
+|   eval_at_point()                  7440       0.1754      0.000024    1.0749      0.000144    6.09     37.33    |
+|   eval_old_dofs()                  279        0.0001      0.000000    0.0006      0.000002    0.00     0.02     |
 |                                                                                                                 |
 | Parallel                                                                                                        |
 |   allgather()                      8          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                 |
 | Partitioner                                                                                                     |
-|   single_partition()               9          0.0001      0.000014    0.0001      0.000014    0.00     0.00     |
+|   single_partition()               9          0.0001      0.000010    0.0001      0.000010    0.00     0.00     |
 |                                                                                                                 |
 | PetscLinearSolver                                                                                               |
-|   solve()                          8          0.3319      0.041493    0.3319      0.041493    13.16    13.16    |
-|                                                                                                                 |
-| ProjectVector                                                                                                   |
-|   operator()                       7          0.0160      0.002280    0.4760      0.068003    0.63     18.88    |
+|   solve()                          8          0.1353      0.016915    0.1353      0.016915    4.70     4.70     |
 |                                                                                                                 |
 | System                                                                                                          |
-|   assemble()                       8          0.0240      0.003003    0.1798      0.022481    0.95     7.13     |
-|   project_vector()                 7          0.0012      0.000175    0.4787      0.068381    0.05     18.98    |
+|   assemble()                       8          0.0122      0.001521    0.1183      0.014790    0.42     4.11     |
+|   project_vector(old,new)          7          0.0012      0.000177    1.0869      0.155273    0.04     37.75    |
+|                                                                                                                 |
+| TopologyMap                                                                                                     |
+|   init()                           14         0.0036      0.000256    0.0036      0.000256    0.12     0.12     |
  -----------------------------------------------------------------------------------------------------------------
-| Totals:                            61864      2.5214                                          100.00            |
+| Totals:                            131120     2.8795                                          100.00            |
  -----------------------------------------------------------------------------------------------------------------
 
  
