@@ -38,242 +38,8 @@
 
 <div id="content">
 
-<a name="comments"></a> 
-<br><br><br> <h1> The source file introduction_ex1.C with comments: </h1> 
-<div class = "comment">
-</div>
-
-<div class ="fragment">
-<pre>
-        #include &lt;iostream&gt;
-</pre>
-</div>
-<div class = "comment">
-Functions to initialize the library.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/libmesh.h"
-</pre>
-</div>
-<div class = "comment">
-Basic include files needed for the mesh functionality.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/mesh.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Bring in everything from the libMesh namespace
-</div>
-
-<div class ="fragment">
-<pre>
-        using namespace libMesh;
-        
-        int main (int argc, char ** argv)
-        {
-</pre>
-</div>
-<div class = "comment">
-Initialize the library.  This is necessary because the library
-may depend on a number of other libraries (i.e. MPI and PETSc)
-that require initialization before use.  When the LibMeshInit
-object goes out of scope, other libraries and resources are
-finalized.
-</div>
-
-<div class ="fragment">
-<pre>
-          LibMeshInit init (argc, argv);
-        
-</pre>
-</div>
-<div class = "comment">
-Check for proper usage. The program is designed to be run
-as follows:
-./ex1 -d DIM input_mesh_name [-o output_mesh_name]
-where [output_mesh_name] is an optional parameter giving
-a filename to write the mesh into.
-</div>
-
-<div class ="fragment">
-<pre>
-          if (argc &lt; 4)
-            {
-</pre>
-</div>
-<div class = "comment">
-This handy function will print the file name, line number,
-specified message, and then throw an exception.
-</div>
-
-<div class ="fragment">
-<pre>
-              libmesh_error_msg("Usage: " &lt;&lt; argv[0] &lt;&lt; " -d 2 in.mesh [-o out.mesh]");
-            }
-        
-</pre>
-</div>
-<div class = "comment">
-Get the dimensionality of the mesh from argv[2]
-</div>
-
-<div class ="fragment">
-<pre>
-          const unsigned int dim = std::atoi(argv[2]);
-        
-</pre>
-</div>
-<div class = "comment">
-Skip higher-dimensional examples on a lower-dimensional libMesh build
-</div>
-
-<div class ="fragment">
-<pre>
-          libmesh_example_requires(dim &lt;= LIBMESH_DIM, "2D/3D support");
-        
-</pre>
-</div>
-<div class = "comment">
-Create a mesh, with dimension to be overridden later, on the
-default MPI communicator.
-</div>
-
-<div class ="fragment">
-<pre>
-          Mesh mesh(init.comm());
-        
-</pre>
-</div>
-<div class = "comment">
-We may need XDR support compiled in to read binary .xdr files
-</div>
-
-<div class ="fragment">
-<pre>
-          std::string input_filename = argv[3];
-        #ifndef LIBMESH_HAVE_XDR
-          libmesh_example_requires(input_filename.rfind(".xdr") &gt;=
-                                   input_filename.size(), "XDR support");
-        #endif
-        
-</pre>
-</div>
-<div class = "comment">
-Read the input mesh.
-</div>
-
-<div class ="fragment">
-<pre>
-          mesh.read (argv[3]);
-        
-</pre>
-</div>
-<div class = "comment">
-Print information about the mesh to the screen.
-</div>
-
-<div class ="fragment">
-<pre>
-          mesh.print_info();
-        
-</pre>
-</div>
-<div class = "comment">
-Write the output mesh if the user specified an
-output file name.
-</div>
-
-<div class ="fragment">
-<pre>
-          if (argc &gt;= 6 && std::string("-o") == argv[4])
-            {
-</pre>
-</div>
-<div class = "comment">
-We may need XDR support compiled in to read binary .xdr files
-</div>
-
-<div class ="fragment">
-<pre>
-              std::string output_filename = argv[5];
-        #ifndef LIBMESH_HAVE_XDR
-              libmesh_example_requires(output_filename.rfind(".xdr") &gt;=
-                                       output_filename.size(), "XDR support");
-        #endif
-        
-              mesh.write (argv[5]);
-            }
-        
-</pre>
-</div>
-<div class = "comment">
-All done.  libMesh objects are destroyed here.  Because the
-LibMeshInit object was created first, its destruction occurs
-last, and it's destructor finalizes any external libraries and
-checks for leaked memory.
-</div>
-
-<div class ="fragment">
-<pre>
-          return 0;
-        }
-</pre>
-</div>
-
-<a name="nocomments"></a> 
-<br><br><br> <h1> The source file introduction_ex1.C without comments: </h1> 
-<pre> 
-  #include &lt;iostream&gt;
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/libmesh.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/mesh.h&quot;</FONT></B>
-  
-  using namespace libMesh;
-  
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
-  {
-    LibMeshInit init (argc, argv);
-  
-    <B><FONT COLOR="#A020F0">if</FONT></B> (argc &lt; 4)
-      {
-        libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Usage: &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -d 2 in.mesh [-o out.mesh]&quot;</FONT></B>);
-      }
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = std::atoi(argv[2]);
-  
-    libmesh_example_requires(dim &lt;= LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;2D/3D support&quot;</FONT></B>);
-  
-    Mesh mesh(init.comm());
-  
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::string input_filename = argv[3];
-  #ifndef LIBMESH_HAVE_XDR
-    libmesh_example_requires(input_filename.rfind(<B><FONT COLOR="#BC8F8F">&quot;.xdr&quot;</FONT></B>) &gt;=
-                             input_filename.size(), <B><FONT COLOR="#BC8F8F">&quot;XDR support&quot;</FONT></B>);
-  #endif
-  
-    mesh.read (argv[3]);
-  
-    mesh.print_info();
-  
-    <B><FONT COLOR="#A020F0">if</FONT></B> (argc &gt;= 6 &amp;&amp; std::string(<B><FONT COLOR="#BC8F8F">&quot;-o&quot;</FONT></B>) == argv[4])
-      {
-        <B><FONT COLOR="#5F9EA0">std</FONT></B>::string output_filename = argv[5];
-  #ifndef LIBMESH_HAVE_XDR
-        libmesh_example_requires(output_filename.rfind(<B><FONT COLOR="#BC8F8F">&quot;.xdr&quot;</FONT></B>) &gt;=
-                                 output_filename.size(), <B><FONT COLOR="#BC8F8F">&quot;XDR support&quot;</FONT></B>);
-  #endif
-  
-        mesh.write (argv[5]);
-      }
-  
-    <B><FONT COLOR="#A020F0">return</FONT></B> 0;
-  }
-</pre> 
+<br> <h1> Link to the source code for this example: </h1>
+<a href="https://github.com/libMesh/libmesh/tree/master/examples/introduction/introduction_ex1" target="_blank">Open introduction_ex1 in new tab.</a>
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
@@ -298,7 +64,7 @@ checks for leaked memory.
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:31:03 2016                                                                          |
+| Time:           Wed Apr 13 09:50:29 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -331,7 +97,7 @@ checks for leaked memory.
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.004331, Active time=0.000186                                             |
+| libMesh Performance: Alive time=0.362843, Active time=0.000411                                             |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -339,17 +105,17 @@ checks for leaked memory.
 |                                                                                                            |
 |                                                                                                            |
 | Mesh                                                                                                       |
-|   find_neighbors()            1          0.0000      0.000029    0.0000      0.000029    15.59    15.59    |
-|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.54     0.54     |
+|   find_neighbors()            1          0.0001      0.000062    0.0001      0.000062    15.09    15.09    |
+|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.24     0.24     |
 |                                                                                                            |
 | Partitioner                                                                                                |
-|   set_node_processor_ids()    1          0.0000      0.000019    0.0000      0.000019    10.22    10.22    |
-|   single_partition()          1          0.0000      0.000003    0.0000      0.000003    1.61     1.61     |
+|   set_node_processor_ids()    1          0.0000      0.000039    0.0000      0.000039    9.49     9.49     |
+|   single_partition()          1          0.0000      0.000006    0.0000      0.000006    1.46     1.46     |
 |                                                                                                            |
 | XdrIO                                                                                                      |
-|   read()                      1          0.0001      0.000134    0.0001      0.000134    72.04    72.04    |
+|   read()                      1          0.0003      0.000303    0.0003      0.000303    73.72    73.72    |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       6          0.0002                                          100.00            |
+| Totals:                       6          0.0004                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  
@@ -378,7 +144,7 @@ checks for leaked memory.
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:31:03 2016                                                                          |
+| Time:           Wed Apr 13 09:50:29 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -411,7 +177,7 @@ checks for leaked memory.
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.004659, Active time=0.000456                                             |
+| libMesh Performance: Alive time=0.004875, Active time=0.000422                                             |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -419,19 +185,19 @@ checks for leaked memory.
 |                                                                                                            |
 |                                                                                                            |
 | Mesh                                                                                                       |
-|   find_neighbors()            1          0.0000      0.000039    0.0000      0.000039    8.55     8.55     |
-|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.22     0.22     |
-|   write()                     1          0.0001      0.000101    0.0002      0.000237    22.15    51.97    |
+|   find_neighbors()            1          0.0000      0.000029    0.0000      0.000029    6.87     6.87     |
+|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   write()                     1          0.0001      0.000101    0.0002      0.000237    23.93    56.16    |
 |                                                                                                            |
 | Partitioner                                                                                                |
-|   set_node_processor_ids()    1          0.0000      0.000024    0.0000      0.000024    5.26     5.26     |
-|   single_partition()          1          0.0000      0.000003    0.0000      0.000003    0.66     0.66     |
+|   set_node_processor_ids()    1          0.0000      0.000021    0.0000      0.000021    4.98     4.98     |
+|   single_partition()          1          0.0000      0.000002    0.0000      0.000002    0.47     0.47     |
 |                                                                                                            |
 | XdrIO                                                                                                      |
-|   read()                      1          0.0002      0.000152    0.0002      0.000152    33.33    33.33    |
-|   write()                     1          0.0001      0.000136    0.0001      0.000136    29.82    29.82    |
+|   read()                      1          0.0001      0.000134    0.0001      0.000134    31.75    31.75    |
+|   write()                     1          0.0001      0.000135    0.0001      0.000135    31.99    31.99    |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       8          0.0005                                          100.00            |
+| Totals:                       8          0.0004                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  
@@ -460,7 +226,7 @@ checks for leaked memory.
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:31:03 2016                                                                          |
+| Time:           Wed Apr 13 09:50:29 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -493,7 +259,7 @@ checks for leaked memory.
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.006694, Active time=0.002691                                             |
+| libMesh Performance: Alive time=0.004442, Active time=0.000402                                             |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -501,19 +267,19 @@ checks for leaked memory.
 |                                                                                                            |
 |                                                                                                            |
 | Mesh                                                                                                       |
-|   find_neighbors()            1          0.0000      0.000030    0.0000      0.000030    1.11     1.11     |
-|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
-|   write()                     1          0.0024      0.002383    0.0025      0.002501    88.55    92.94    |
+|   find_neighbors()            1          0.0000      0.000029    0.0000      0.000029    7.21     7.21     |
+|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   write()                     1          0.0001      0.000098    0.0002      0.000209    24.38    51.99    |
 |                                                                                                            |
 | Partitioner                                                                                                |
-|   set_node_processor_ids()    1          0.0000      0.000019    0.0000      0.000019    0.71     0.71     |
-|   single_partition()          1          0.0000      0.000003    0.0000      0.000003    0.11     0.11     |
+|   set_node_processor_ids()    1          0.0000      0.000019    0.0000      0.000019    4.73     4.73     |
+|   single_partition()          1          0.0000      0.000002    0.0000      0.000002    0.50     0.50     |
 |                                                                                                            |
 | XdrIO                                                                                                      |
-|   read()                      1          0.0001      0.000137    0.0001      0.000137    5.09     5.09     |
-|   write()                     1          0.0001      0.000118    0.0001      0.000118    4.38     4.38     |
+|   read()                      1          0.0001      0.000143    0.0001      0.000143    35.57    35.57    |
+|   write()                     1          0.0001      0.000111    0.0001      0.000111    27.61    27.61    |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       8          0.0027                                          100.00            |
+| Totals:                       8          0.0004                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  
@@ -542,7 +308,7 @@ checks for leaked memory.
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:31:03 2016                                                                          |
+| Time:           Wed Apr 13 09:50:30 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -575,7 +341,7 @@ checks for leaked memory.
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.004216, Active time=0.000193                                             |
+| libMesh Performance: Alive time=0.004243, Active time=0.000189                                             |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -583,15 +349,15 @@ checks for leaked memory.
 |                                                                                                            |
 |                                                                                                            |
 | Mesh                                                                                                       |
-|   find_neighbors()            1          0.0000      0.000029    0.0000      0.000029    15.03    15.03    |
+|   find_neighbors()            1          0.0000      0.000028    0.0000      0.000028    14.81    14.81    |
 |   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                            |
 | Partitioner                                                                                                |
-|   set_node_processor_ids()    1          0.0000      0.000019    0.0000      0.000019    9.84     9.84     |
-|   single_partition()          1          0.0000      0.000002    0.0000      0.000002    1.04     1.04     |
+|   set_node_processor_ids()    1          0.0000      0.000018    0.0000      0.000018    9.52     9.52     |
+|   single_partition()          1          0.0000      0.000003    0.0000      0.000003    1.59     1.59     |
 |                                                                                                            |
 | XdrIO                                                                                                      |
-|   read()                      1          0.0001      0.000143    0.0001      0.000143    74.09    74.09    |
+|   read()                      1          0.0001      0.000140    0.0001      0.000140    74.07    74.07    |
  ------------------------------------------------------------------------------------------------------------
 | Totals:                       6          0.0002                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
@@ -622,7 +388,7 @@ checks for leaked memory.
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:31:03 2016                                                                          |
+| Time:           Wed Apr 13 09:50:30 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -655,7 +421,7 @@ checks for leaked memory.
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.004912, Active time=0.000134                                             |
+| libMesh Performance: Alive time=0.003693, Active time=0.00013                                              |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -663,15 +429,15 @@ checks for leaked memory.
 |                                                                                                            |
 |                                                                                                            |
 | Mesh                                                                                                       |
-|   find_neighbors()            1          0.0000      0.000032    0.0000      0.000032    23.88    23.88    |
-|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.75     0.75     |
+|   find_neighbors()            1          0.0000      0.000030    0.0000      0.000030    23.08    23.08    |
+|   renumber_nodes_and_elem()   2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                            |
 | Partitioner                                                                                                |
-|   set_node_processor_ids()    1          0.0000      0.000019    0.0000      0.000019    14.18    14.18    |
-|   single_partition()          1          0.0000      0.000002    0.0000      0.000002    1.49     1.49     |
+|   set_node_processor_ids()    1          0.0000      0.000019    0.0000      0.000019    14.62    14.62    |
+|   single_partition()          1          0.0000      0.000003    0.0000      0.000003    2.31     2.31     |
 |                                                                                                            |
 | XdrIO                                                                                                      |
-|   read()                      1          0.0001      0.000080    0.0001      0.000080    59.70    59.70    |
+|   read()                      1          0.0001      0.000078    0.0001      0.000078    60.00    60.00    |
  ------------------------------------------------------------------------------------------------------------
 | Totals:                       6          0.0001                                          100.00            |
  ------------------------------------------------------------------------------------------------------------

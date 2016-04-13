@@ -38,1456 +38,11 @@
 
 <div id="content">
 
-<a name="comments"></a> 
-<br><br><br> <h1> The source file introduction_ex4.C with comments: </h1> 
-<div class = "comment">
-</div>
-
-<div class ="fragment">
-<pre>
-        #include &lt;iostream&gt;
-        #include &lt;algorithm&gt;
-        #include &lt;math.h&gt;
-        #include &lt;set&gt;
-        
-</pre>
-</div>
-<div class = "comment">
-Basic include file needed for the mesh functionality.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/libmesh.h"
-        #include "libmesh/mesh.h"
-        #include "libmesh/mesh_generation.h"
-        #include "libmesh/exodusII_io.h"
-        #include "libmesh/gnuplot_io.h"
-        #include "libmesh/linear_implicit_system.h"
-        #include "libmesh/equation_systems.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Define the Finite Element object.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/fe.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Define Gauss quadrature rules.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/quadrature_gauss.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Define the DofMap, which handles degree of freedom
-indexing.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/dof_map.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Define useful datatypes for finite element
-matrix and vector components.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/sparse_matrix.h"
-        #include "libmesh/numeric_vector.h"
-        #include "libmesh/dense_matrix.h"
-        #include "libmesh/dense_vector.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Define the PerfLog, a performance logging utility.
-It is useful for timing events in a code and giving
-you an idea where bottlenecks lie.
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/perf_log.h"
-        
-</pre>
-</div>
-<div class = "comment">
-The definition of a geometric element
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/elem.h"
-        
-</pre>
-</div>
-<div class = "comment">
-To impose Dirichlet boundary conditions
-</div>
-
-<div class ="fragment">
-<pre>
-        #include "libmesh/dirichlet_boundaries.h"
-        #include "libmesh/analytic_function.h"
-        
-        #include "libmesh/string_to_enum.h"
-        #include "libmesh/getpot.h"
-        
-</pre>
-</div>
-<div class = "comment">
-Bring in everything from the libMesh namespace
-</div>
-
-<div class ="fragment">
-<pre>
-        using namespace libMesh;
-        
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Function prototype.  This is the function that will assemble
-the linear system for our Poisson problem.  Note that the
-function will take the EquationSystems object and the
-name of the system we are assembling as input.  From the
-EquationSystems object we have acess to the Mesh and
-other objects we might need.
-</div>
-
-<div class ="fragment">
-<pre>
-        void assemble_poisson(EquationSystems & es,
-                              const std::string & system_name);
-        
-</pre>
-</div>
-<div class = "comment">
-Exact solution function prototype.
-</div>
-
-<div class ="fragment">
-<pre>
-        Real exact_solution (const Real x,
-                             const Real y,
-                             const Real z = 0.);
-        
-</pre>
-</div>
-<div class = "comment">
-Define a wrapper for exact_solution that will be needed below
-</div>
-
-<div class ="fragment">
-<pre>
-        void exact_solution_wrapper (DenseVector&lt;Number&gt; & output,
-                                     const Point & p,
-                                     const Real)
-        {
-          output(0) = exact_solution(p(0),
-                                     (LIBMESH_DIM&gt;1)?p(1):0,
-                                     (LIBMESH_DIM&gt;2)?p(2):0);
-        }
-        
-</pre>
-</div>
-<div class = "comment">
-Begin the main program.
-</div>
-
-<div class ="fragment">
-<pre>
-        int main (int argc, char ** argv)
-        {
-</pre>
-</div>
-<div class = "comment">
-Initialize libMesh and any dependent libaries, like in example 2.
-</div>
-
-<div class ="fragment">
-<pre>
-          LibMeshInit init (argc, argv);
-        
-</pre>
-</div>
-<div class = "comment">
-Declare a performance log for the main program
-PerfLog perf_main("Main Program");
-
-
-<br><br>Create a GetPot object to parse the command line
-</div>
-
-<div class ="fragment">
-<pre>
-          GetPot command_line (argc, argv);
-        
-</pre>
-</div>
-<div class = "comment">
-Check for proper calling arguments.
-</div>
-
-<div class ="fragment">
-<pre>
-          if (argc &lt; 3)
-            {
-</pre>
-</div>
-<div class = "comment">
-This handy function will print the file name, line number,
-specified message, and then throw an exception.
-</div>
-
-<div class ="fragment">
-<pre>
-              libmesh_error_msg("Usage:\n" &lt;&lt; "\t " &lt;&lt; argv[0] &lt;&lt; " -d 2(3)" &lt;&lt; " -n 15");
-            }
-        
-</pre>
-</div>
-<div class = "comment">
-Brief message to the user regarding the program name
-and command line arguments.
-</div>
-
-<div class ="fragment">
-<pre>
-          else
-            {
-              libMesh::out &lt;&lt; "Running " &lt;&lt; argv[0];
-        
-              for (int i=1; i&lt;argc; i++)
-                libMesh::out &lt;&lt; " " &lt;&lt; argv[i];
-        
-              libMesh::out &lt;&lt; std::endl &lt;&lt; std::endl;
-            }
-        
-</pre>
-</div>
-<div class = "comment">
-Read problem dimension from command line.  Use int
-instead of unsigned since the GetPot overload is ambiguous
-otherwise.
-</div>
-
-<div class ="fragment">
-<pre>
-          int dim = 2;
-          if (command_line.search(1, "-d"))
-            dim = command_line.next(dim);
-        
-</pre>
-</div>
-<div class = "comment">
-Skip higher-dimensional examples on a lower-dimensional libMesh build
-</div>
-
-<div class ="fragment">
-<pre>
-          libmesh_example_requires(dim &lt;= LIBMESH_DIM, "2D/3D support");
-        
-</pre>
-</div>
-<div class = "comment">
-Create a mesh with user-defined dimension.
-Read number of elements from command line
-</div>
-
-<div class ="fragment">
-<pre>
-          int ps = 15;
-          if (command_line.search(1, "-n"))
-            ps = command_line.next(ps);
-        
-</pre>
-</div>
-<div class = "comment">
-Read FE order from command line
-</div>
-
-<div class ="fragment">
-<pre>
-          std::string order = "SECOND";
-          if (command_line.search(2, "-Order", "-o"))
-            order = command_line.next(order);
-        
-</pre>
-</div>
-<div class = "comment">
-Read FE Family from command line
-</div>
-
-<div class ="fragment">
-<pre>
-          std::string family = "LAGRANGE";
-          if (command_line.search(2, "-FEFamily", "-f"))
-            family = command_line.next(family);
-        
-</pre>
-</div>
-<div class = "comment">
-Cannot use discontinuous basis.
-</div>
-
-<div class ="fragment">
-<pre>
-          if ((family == "MONOMIAL") || (family == "XYZ"))
-            libmesh_error_msg("ex4 currently requires a C^0 (or higher) FE basis.");
-        
-</pre>
-</div>
-<div class = "comment">
-Create a mesh, with dimension to be overridden later, distributed
-across the default MPI communicator.
-</div>
-
-<div class ="fragment">
-<pre>
-          Mesh mesh(init.comm());
-        
-</pre>
-</div>
-<div class = "comment">
-Use the MeshTools::Generation mesh generator to create a uniform
-grid on the square [-1,1]^D.  We instruct the mesh generator
-to build a mesh of 8x8 Quad9 elements in 2D, or Hex27
-elements in 3D.  Building these higher-order elements allows
-us to use higher-order approximation, as in example 3.
-
-
-<br><br></div>
-
-<div class ="fragment">
-<pre>
-          Real halfwidth = dim &gt; 1 ? 1. : 0.;
-          Real halfheight = dim &gt; 2 ? 1. : 0.;
-        
-          if ((family == "LAGRANGE") && (order == "FIRST"))
-            {
-</pre>
-</div>
-<div class = "comment">
-No reason to use high-order geometric elements if we are
-solving with low-order finite elements.
-</div>
-
-<div class ="fragment">
-<pre>
-              MeshTools::Generation::build_cube (mesh,
-                                                 ps,
-                                                 (dim&gt;1) ? ps : 0,
-                                                 (dim&gt;2) ? ps : 0,
-                                                 -1., 1.,
-                                                 -halfwidth, halfwidth,
-                                                 -halfheight, halfheight,
-                                                 (dim==1)    ? EDGE2 :
-                                                 ((dim == 2) ? QUAD4 : HEX8));
-            }
-        
-          else
-            {
-              MeshTools::Generation::build_cube (mesh,
-                                                 ps,
-                                                 (dim&gt;1) ? ps : 0,
-                                                 (dim&gt;2) ? ps : 0,
-                                                 -1., 1.,
-                                                 -halfwidth, halfwidth,
-                                                 -halfheight, halfheight,
-                                                 (dim==1)    ? EDGE3 :
-                                                 ((dim == 2) ? QUAD9 : HEX27));
-            }
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Print information about the mesh to the screen.
-</div>
-
-<div class ="fragment">
-<pre>
-          mesh.print_info();
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Create an equation systems object.
-</div>
-
-<div class ="fragment">
-<pre>
-          EquationSystems equation_systems (mesh);
-        
-</pre>
-</div>
-<div class = "comment">
-Declare the system and its variables.
-Create a system named "Poisson"
-</div>
-
-<div class ="fragment">
-<pre>
-          LinearImplicitSystem & system =
-            equation_systems.add_system&lt;LinearImplicitSystem&gt; ("Poisson");
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Add the variable "u" to "Poisson".  "u"
-will be approximated using second-order approximation.
-</div>
-
-<div class ="fragment">
-<pre>
-          unsigned int u_var = system.add_variable("u",
-                                                   Utility::string_to_enum&lt;Order&gt;   (order),
-                                                   Utility::string_to_enum&lt;FEFamily&gt;(family));
-        
-</pre>
-</div>
-<div class = "comment">
-Give the system a pointer to the matrix assembly
-function.
-</div>
-
-<div class ="fragment">
-<pre>
-          system.attach_assemble_function (assemble_poisson);
-        
-</pre>
-</div>
-<div class = "comment">
-Construct a Dirichlet boundary condition object
-
-
-<br><br>Indicate which boundary IDs we impose the BC on
-We either build a line, a square or a cube, and
-here we indicate the boundaries IDs in each case
-</div>
-
-<div class ="fragment">
-<pre>
-          std::set&lt;boundary_id_type&gt; boundary_ids;
-</pre>
-</div>
-<div class = "comment">
-the dim==1 mesh has two boundaries with IDs 0 and 1
-</div>
-
-<div class ="fragment">
-<pre>
-          boundary_ids.insert(0);
-          boundary_ids.insert(1);
-</pre>
-</div>
-<div class = "comment">
-the dim==2 mesh has four boundaries with IDs 0, 1, 2 and 3
-</div>
-
-<div class ="fragment">
-<pre>
-          if (dim&gt;=2)
-            {
-              boundary_ids.insert(2);
-              boundary_ids.insert(3);
-            }
-</pre>
-</div>
-<div class = "comment">
-the dim==3 mesh has four boundaries with IDs 0, 1, 2, 3, 4 and 5
-</div>
-
-<div class ="fragment">
-<pre>
-          if (dim==3)
-            {
-              boundary_ids.insert(4);
-              boundary_ids.insert(5);
-            }
-        
-</pre>
-</div>
-<div class = "comment">
-Create a vector storing the variable numbers which the BC applies to
-</div>
-
-<div class ="fragment">
-<pre>
-          std::vector&lt;unsigned int&gt; variables(1);
-          variables[0] = u_var;
-        
-</pre>
-</div>
-<div class = "comment">
-Create an AnalyticFunction object that we use to project the BC
-This function just calls the function exact_solution via exact_solution_wrapper
-</div>
-
-<div class ="fragment">
-<pre>
-          AnalyticFunction&lt;&gt; exact_solution_object(exact_solution_wrapper);
-        
-          DirichletBoundary dirichlet_bc(boundary_ids,
-                                         variables,
-                                         &exact_solution_object);
-        
-</pre>
-</div>
-<div class = "comment">
-We must add the Dirichlet boundary condition _before_
-we call equation_systems.init()
-</div>
-
-<div class ="fragment">
-<pre>
-          system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Initialize the data structures for the equation system.
-</div>
-
-<div class ="fragment">
-<pre>
-          equation_systems.init();
-        
-</pre>
-</div>
-<div class = "comment">
-Print information about the system to the screen.
-</div>
-
-<div class ="fragment">
-<pre>
-          equation_systems.print_info();
-          mesh.print_info();
-        
-</pre>
-</div>
-<div class = "comment">
-Solve the system "Poisson", just like example 2.
-</div>
-
-<div class ="fragment">
-<pre>
-          system.solve();
-        
-</pre>
-</div>
-<div class = "comment">
-After solving the system write the solution
-to a GMV-formatted plot file.
-</div>
-
-<div class ="fragment">
-<pre>
-          if (dim == 1)
-            {
-              GnuPlotIO plot(mesh, "Introduction Example 4, 1D", GnuPlotIO::GRID_ON);
-              plot.write_equation_systems("gnuplot_script", equation_systems);
-            }
-        #ifdef LIBMESH_HAVE_EXODUS_API
-          else
-            {
-              ExodusII_IO (mesh).write_equation_systems ((dim == 3) ?
-                                                         "out_3.e" : "out_2.e", equation_systems);
-            }
-        #endif // #ifdef LIBMESH_HAVE_EXODUS_API
-        
-</pre>
-</div>
-<div class = "comment">
-All done.
-</div>
-
-<div class ="fragment">
-<pre>
-          return 0;
-        }
-        
-        
-        
-        
-</pre>
-</div>
-<div class = "comment">
-We now define the matrix assembly function for the
-Poisson system.  We need to first compute element
-matrices and right-hand sides, and then take into
-account the boundary conditions.
-</div>
-
-<div class ="fragment">
-<pre>
-        void assemble_poisson(EquationSystems & es,
-                              const std::string & system_name)
-        {
-</pre>
-</div>
-<div class = "comment">
-It is a good idea to make sure we are assembling
-the proper system.
-</div>
-
-<div class ="fragment">
-<pre>
-          libmesh_assert_equal_to (system_name, "Poisson");
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Declare a performance log.  Give it a descriptive
-string to identify what part of the code we are
-logging, since there may be many PerfLogs in an
-application.
-</div>
-
-<div class ="fragment">
-<pre>
-          PerfLog perf_log ("Matrix Assembly");
-        
-</pre>
-</div>
-<div class = "comment">
-Get a constant reference to the mesh object.
-</div>
-
-<div class ="fragment">
-<pre>
-          const MeshBase & mesh = es.get_mesh();
-        
-</pre>
-</div>
-<div class = "comment">
-The dimension that we are running
-</div>
-
-<div class ="fragment">
-<pre>
-          const unsigned int dim = mesh.mesh_dimension();
-        
-</pre>
-</div>
-<div class = "comment">
-Get a reference to the LinearImplicitSystem we are solving
-</div>
-
-<div class ="fragment">
-<pre>
-          LinearImplicitSystem & system = es.get_system&lt;LinearImplicitSystem&gt;("Poisson");
-        
-</pre>
-</div>
-<div class = "comment">
-A reference to the DofMap object for this system.  The DofMap
-object handles the index translation from node and element numbers
-to degree of freedom numbers.  We will talk more about the DofMap
-in future examples.
-</div>
-
-<div class ="fragment">
-<pre>
-          const DofMap & dof_map = system.get_dof_map();
-        
-</pre>
-</div>
-<div class = "comment">
-Get a constant reference to the Finite Element type
-for the first (and only) variable in the system.
-</div>
-
-<div class ="fragment">
-<pre>
-          FEType fe_type = dof_map.variable_type(0);
-        
-</pre>
-</div>
-<div class = "comment">
-Build a Finite Element object of the specified type.  Since the
-FEBase::build() member dynamically creates memory we will
-store the object as a UniquePtr<FEBase>.  This can be thought
-of as a pointer that will clean up after itself.
-</div>
-
-<div class ="fragment">
-<pre>
-          UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
-        
-</pre>
-</div>
-<div class = "comment">
-A 5th order Gauss quadrature rule for numerical integration.
-</div>
-
-<div class ="fragment">
-<pre>
-          QGauss qrule (dim, FIFTH);
-        
-</pre>
-</div>
-<div class = "comment">
-Tell the finite element object to use our quadrature rule.
-</div>
-
-<div class ="fragment">
-<pre>
-          fe-&gt;attach_quadrature_rule (&qrule);
-        
-</pre>
-</div>
-<div class = "comment">
-Declare a special finite element object for
-boundary integration.
-</div>
-
-<div class ="fragment">
-<pre>
-          UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
-        
-</pre>
-</div>
-<div class = "comment">
-Boundary integration requires one quadraure rule,
-with dimensionality one less than the dimensionality
-of the element.
-</div>
-
-<div class ="fragment">
-<pre>
-          QGauss qface(dim-1, FIFTH);
-        
-</pre>
-</div>
-<div class = "comment">
-Tell the finte element object to use our
-quadrature rule.
-</div>
-
-<div class ="fragment">
-<pre>
-          fe_face-&gt;attach_quadrature_rule (&qface);
-        
-</pre>
-</div>
-<div class = "comment">
-Here we define some references to cell-specific data that
-will be used to assemble the linear system.
-We begin with the element Jacobian * quadrature weight at each
-integration point.
-</div>
-
-<div class ="fragment">
-<pre>
-          const std::vector&lt;Real&gt; & JxW = fe-&gt;get_JxW();
-        
-</pre>
-</div>
-<div class = "comment">
-The physical XY locations of the quadrature points on the element.
-These might be useful for evaluating spatially varying material
-properties at the quadrature points.
-</div>
-
-<div class ="fragment">
-<pre>
-          const std::vector&lt;Point&gt; & q_point = fe-&gt;get_xyz();
-        
-</pre>
-</div>
-<div class = "comment">
-The element shape functions evaluated at the quadrature points.
-</div>
-
-<div class ="fragment">
-<pre>
-          const std::vector&lt;std::vector&lt;Real&gt; &gt; & phi = fe-&gt;get_phi();
-        
-</pre>
-</div>
-<div class = "comment">
-The element shape function gradients evaluated at the quadrature
-points.
-</div>
-
-<div class ="fragment">
-<pre>
-          const std::vector&lt;std::vector&lt;RealGradient&gt; &gt; & dphi = fe-&gt;get_dphi();
-        
-</pre>
-</div>
-<div class = "comment">
-Define data structures to contain the element matrix
-and right-hand-side vector contribution.  Following
-basic finite element terminology we will denote these
-"Ke" and "Fe". More detail is in example 3.
-</div>
-
-<div class ="fragment">
-<pre>
-          DenseMatrix&lt;Number&gt; Ke;
-          DenseVector&lt;Number&gt; Fe;
-        
-</pre>
-</div>
-<div class = "comment">
-This vector will hold the degree of freedom indices for
-the element.  These define where in the global system
-the element degrees of freedom get mapped.
-</div>
-
-<div class ="fragment">
-<pre>
-          std::vector&lt;dof_id_type&gt; dof_indices;
-        
-</pre>
-</div>
-<div class = "comment">
-Now we will loop over all the elements in the mesh.
-We will compute the element matrix and right-hand-side
-contribution.  See example 3 for a discussion of the
-element iterators.
-</div>
-
-<div class ="fragment">
-<pre>
-          MeshBase::const_element_iterator       el     = mesh.active_local_elements_begin();
-          const MeshBase::const_element_iterator end_el = mesh.active_local_elements_end();
-        
-          for ( ; el != end_el; ++el)
-            {
-</pre>
-</div>
-<div class = "comment">
-Start logging the shape function initialization.
-This is done through a simple function call with
-the name of the event to log.
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.push("elem init");
-        
-</pre>
-</div>
-<div class = "comment">
-Store a pointer to the element we are currently
-working on.  This allows for nicer syntax later.
-</div>
-
-<div class ="fragment">
-<pre>
-              const Elem * elem = *el;
-        
-</pre>
-</div>
-<div class = "comment">
-Get the degree of freedom indices for the
-current element.  These define where in the global
-matrix and right-hand-side this element will
-contribute to.
-</div>
-
-<div class ="fragment">
-<pre>
-              dof_map.dof_indices (elem, dof_indices);
-        
-</pre>
-</div>
-<div class = "comment">
-Compute the element-specific data for the current
-element.  This involves computing the location of the
-quadrature points (q_point) and the shape functions
-(phi, dphi) for the current element.
-</div>
-
-<div class ="fragment">
-<pre>
-              fe-&gt;reinit (elem);
-        
-</pre>
-</div>
-<div class = "comment">
-Zero the element matrix and right-hand side before
-summing them.  We use the resize member here because
-the number of degrees of freedom might have changed from
-the last element.  Note that this will be the case if the
-element type is different (i.e. the last element was a
-triangle, now we are on a quadrilateral).
-</div>
-
-<div class ="fragment">
-<pre>
-              Ke.resize (dof_indices.size(),
-                         dof_indices.size());
-        
-              Fe.resize (dof_indices.size());
-        
-</pre>
-</div>
-<div class = "comment">
-Stop logging the shape function initialization.
-If you forget to stop logging an event the PerfLog
-object will probably catch the error and abort.
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.pop("elem init");
-        
-</pre>
-</div>
-<div class = "comment">
-Now we will build the element matrix.  This involves
-a double loop to integrate the test funcions (i) against
-the trial functions (j).
-
-<br><br>We have split the numeric integration into two loops
-so that we can log the matrix and right-hand-side
-computation seperately.
-
-<br><br>Now start logging the element matrix computation
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.push ("Ke");
-        
-              for (unsigned int qp=0; qp&lt;qrule.n_points(); qp++)
-                for (unsigned int i=0; i&lt;phi.size(); i++)
-                  for (unsigned int j=0; j&lt;phi.size(); j++)
-                    Ke(i,j) += JxW[qp]*(dphi[i][qp]*dphi[j][qp]);
-        
-        
-</pre>
-</div>
-<div class = "comment">
-Stop logging the matrix computation
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.pop ("Ke");
-        
-</pre>
-</div>
-<div class = "comment">
-Now we build the element right-hand-side contribution.
-This involves a single loop in which we integrate the
-"forcing function" in the PDE against the test functions.
-
-<br><br>Start logging the right-hand-side computation
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.push ("Fe");
-        
-              for (unsigned int qp=0; qp&lt;qrule.n_points(); qp++)
-                {
-</pre>
-</div>
-<div class = "comment">
-fxy is the forcing function for the Poisson equation.
-In this case we set fxy to be a finite difference
-Laplacian approximation to the (known) exact solution.
-
-<br><br>We will use the second-order accurate FD Laplacian
-approximation, which in 2D on a structured grid is
-
-<br><br>u_xx + u_yy = (u(i-1,j) + u(i+1,j) +
-u(i,j-1) + u(i,j+1) +
--4*u(i,j))/h^2
-
-<br><br>Since the value of the forcing function depends only
-on the location of the quadrature point (q_point[qp])
-we will compute it here, outside of the i-loop
-</div>
-
-<div class ="fragment">
-<pre>
-                  const Real x = q_point[qp](0);
-        #if LIBMESH_DIM &gt; 1
-                  const Real y = q_point[qp](1);
-        #else
-                  const Real y = 0.;
-        #endif
-        #if LIBMESH_DIM &gt; 2
-                  const Real z = q_point[qp](2);
-        #else
-                  const Real z = 0.;
-        #endif
-                  const Real eps = 1.e-3;
-        
-                  const Real uxx = (exact_solution(x-eps, y, z) +
-                                    exact_solution(x+eps, y, z) +
-                                    -2.*exact_solution(x, y, z))/eps/eps;
-        
-                  const Real uyy = (exact_solution(x, y-eps, z) +
-                                    exact_solution(x, y+eps, z) +
-                                    -2.*exact_solution(x, y, z))/eps/eps;
-        
-                  const Real uzz = (exact_solution(x, y, z-eps) +
-                                    exact_solution(x, y, z+eps) +
-                                    -2.*exact_solution(x, y, z))/eps/eps;
-        
-                  Real fxy;
-                  if (dim==1)
-                    {
-</pre>
-</div>
-<div class = "comment">
-In 1D, compute the rhs by differentiating the
-exact solution twice.
-</div>
-
-<div class ="fragment">
-<pre>
-                      const Real pi = libMesh::pi;
-                      fxy = (0.25*pi*pi)*sin(.5*pi*x);
-                    }
-                  else
-                    {
-                      fxy = - (uxx + uyy + ((dim==2) ? 0. : uzz));
-                    }
-        
-</pre>
-</div>
-<div class = "comment">
-Add the RHS contribution
-</div>
-
-<div class ="fragment">
-<pre>
-                  for (unsigned int i=0; i&lt;phi.size(); i++)
-                    Fe(i) += JxW[qp]*fxy*phi[i][qp];
-                }
-        
-</pre>
-</div>
-<div class = "comment">
-Stop logging the right-hand-side computation
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.pop ("Fe");
-        
-</pre>
-</div>
-<div class = "comment">
-If this assembly program were to be used on an adaptive mesh,
-we would have to apply any hanging node constraint equations
-Also, note that here we call heterogenously_constrain_element_matrix_and_vector
-to impose a inhomogeneous Dirichlet boundary conditions.
-</div>
-
-<div class ="fragment">
-<pre>
-              dof_map.heterogenously_constrain_element_matrix_and_vector (Ke, Fe, dof_indices);
-        
-</pre>
-</div>
-<div class = "comment">
-The element matrix and right-hand-side are now built
-for this element.  Add them to the global matrix and
-right-hand-side vector.  The SparseMatrix::add_matrix()
-and NumericVector::add_vector() members do this for us.
-Start logging the insertion of the local (element)
-matrix and vector into the global matrix and vector
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.push ("matrix insertion");
-        
-              system.matrix-&gt;add_matrix (Ke, dof_indices);
-              system.rhs-&gt;add_vector    (Fe, dof_indices);
-        
-</pre>
-</div>
-<div class = "comment">
-Start logging the insertion of the local (element)
-matrix and vector into the global matrix and vector
-</div>
-
-<div class ="fragment">
-<pre>
-              perf_log.pop ("matrix insertion");
-            }
-        
-</pre>
-</div>
-<div class = "comment">
-That's it.  We don't need to do anything else to the
-PerfLog.  When it goes out of scope (at this function return)
-it will print its log to the screen. Pretty easy, huh?
-</div>
-
-<div class ="fragment">
-<pre>
-        }
-</pre>
-</div>
-
-<a name="nocomments"></a> 
-<br><br><br> <h1> The source file introduction_ex4.C without comments: </h1> 
-<pre> 
-  #include &lt;iostream&gt;
-  #include &lt;algorithm&gt;
-  #include &lt;math.h&gt;
-  #include &lt;set&gt;
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/libmesh.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/mesh.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/mesh_generation.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/exodusII_io.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/gnuplot_io.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/linear_implicit_system.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/equation_systems.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/fe.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/quadrature_gauss.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dof_map.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/sparse_matrix.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/numeric_vector.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_matrix.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dense_vector.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/perf_log.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/elem.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/dirichlet_boundaries.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/analytic_function.h&quot;</FONT></B>
-  
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/string_to_enum.h&quot;</FONT></B>
-  #include <B><FONT COLOR="#BC8F8F">&quot;libmesh/getpot.h&quot;</FONT></B>
-  
-  using namespace libMesh;
-  
-  
-  
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name);
-  
-  Real exact_solution (<B><FONT COLOR="#228B22">const</FONT></B> Real x,
-                       <B><FONT COLOR="#228B22">const</FONT></B> Real y,
-                       <B><FONT COLOR="#228B22">const</FONT></B> Real z = 0.);
-  
-  <B><FONT COLOR="#228B22">void</FONT></B> exact_solution_wrapper (DenseVector&lt;Number&gt; &amp; output,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Point &amp; p,
-                               <B><FONT COLOR="#228B22">const</FONT></B> Real)
-  {
-    output(0) = exact_solution(p(0),
-                               (LIBMESH_DIM&gt;1)?p(1):0,
-                               (LIBMESH_DIM&gt;2)?p(2):0);
-  }
-  
-  <B><FONT COLOR="#228B22">int</FONT></B> main (<B><FONT COLOR="#228B22">int</FONT></B> argc, <B><FONT COLOR="#228B22">char</FONT></B> ** argv)
-  {
-    LibMeshInit init (argc, argv);
-  
-  
-    GetPot command_line (argc, argv);
-  
-    <B><FONT COLOR="#A020F0">if</FONT></B> (argc &lt; 3)
-      {
-        libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;Usage:\n&quot;</FONT></B> &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;\t &quot;</FONT></B> &lt;&lt; argv[0] &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -d 2(3)&quot;</FONT></B> &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; -n 15&quot;</FONT></B>);
-      }
-  
-    <B><FONT COLOR="#A020F0">else</FONT></B>
-      {
-        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot;Running &quot;</FONT></B> &lt;&lt; argv[0];
-  
-        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">int</FONT></B> i=1; i&lt;argc; i++)
-          <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; <B><FONT COLOR="#BC8F8F">&quot; &quot;</FONT></B> &lt;&lt; argv[i];
-  
-        <B><FONT COLOR="#5F9EA0">libMesh</FONT></B>::out &lt;&lt; std::endl &lt;&lt; std::endl;
-      }
-  
-    <B><FONT COLOR="#228B22">int</FONT></B> dim = 2;
-    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(1, <B><FONT COLOR="#BC8F8F">&quot;-d&quot;</FONT></B>))
-      dim = command_line.next(dim);
-  
-    libmesh_example_requires(dim &lt;= LIBMESH_DIM, <B><FONT COLOR="#BC8F8F">&quot;2D/3D support&quot;</FONT></B>);
-  
-    <B><FONT COLOR="#228B22">int</FONT></B> ps = 15;
-    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(1, <B><FONT COLOR="#BC8F8F">&quot;-n&quot;</FONT></B>))
-      ps = command_line.next(ps);
-  
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::string order = <B><FONT COLOR="#BC8F8F">&quot;SECOND&quot;</FONT></B>;
-    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(2, <B><FONT COLOR="#BC8F8F">&quot;-Order&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;-o&quot;</FONT></B>))
-      order = command_line.next(order);
-  
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::string family = <B><FONT COLOR="#BC8F8F">&quot;LAGRANGE&quot;</FONT></B>;
-    <B><FONT COLOR="#A020F0">if</FONT></B> (command_line.search(2, <B><FONT COLOR="#BC8F8F">&quot;-FEFamily&quot;</FONT></B>, <B><FONT COLOR="#BC8F8F">&quot;-f&quot;</FONT></B>))
-      family = command_line.next(family);
-  
-    <B><FONT COLOR="#A020F0">if</FONT></B> ((family == <B><FONT COLOR="#BC8F8F">&quot;MONOMIAL&quot;</FONT></B>) || (family == <B><FONT COLOR="#BC8F8F">&quot;XYZ&quot;</FONT></B>))
-      libmesh_error_msg(<B><FONT COLOR="#BC8F8F">&quot;ex4 currently requires a C^0 (or higher) FE basis.&quot;</FONT></B>);
-  
-    Mesh mesh(init.comm());
-  
-  
-    Real halfwidth = dim &gt; 1 ? 1. : 0.;
-    Real halfheight = dim &gt; 2 ? 1. : 0.;
-  
-    <B><FONT COLOR="#A020F0">if</FONT></B> ((family == <B><FONT COLOR="#BC8F8F">&quot;LAGRANGE&quot;</FONT></B>) &amp;&amp; (order == <B><FONT COLOR="#BC8F8F">&quot;FIRST&quot;</FONT></B>))
-      {
-        <B><FONT COLOR="#5F9EA0">MeshTools</FONT></B>::Generation::build_cube (mesh,
-                                           ps,
-                                           (dim&gt;1) ? ps : 0,
-                                           (dim&gt;2) ? ps : 0,
-                                           -1., 1.,
-                                           -halfwidth, halfwidth,
-                                           -halfheight, halfheight,
-                                           (dim==1)    ? EDGE2 :
-                                           ((dim == 2) ? QUAD4 : HEX8));
-      }
-  
-    <B><FONT COLOR="#A020F0">else</FONT></B>
-      {
-        <B><FONT COLOR="#5F9EA0">MeshTools</FONT></B>::Generation::build_cube (mesh,
-                                           ps,
-                                           (dim&gt;1) ? ps : 0,
-                                           (dim&gt;2) ? ps : 0,
-                                           -1., 1.,
-                                           -halfwidth, halfwidth,
-                                           -halfheight, halfheight,
-                                           (dim==1)    ? EDGE3 :
-                                           ((dim == 2) ? QUAD9 : HEX27));
-      }
-  
-  
-    mesh.print_info();
-  
-  
-    EquationSystems equation_systems (mesh);
-  
-    LinearImplicitSystem &amp; system =
-      equation_systems.add_system&lt;LinearImplicitSystem&gt; (<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
-  
-  
-    <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> u_var = system.add_variable(<B><FONT COLOR="#BC8F8F">&quot;u&quot;</FONT></B>,
-                                             <B><FONT COLOR="#5F9EA0">Utility</FONT></B>::string_to_enum&lt;Order&gt;   (order),
-                                             <B><FONT COLOR="#5F9EA0">Utility</FONT></B>::string_to_enum&lt;FEFamily&gt;(family));
-  
-    system.attach_assemble_function (assemble_poisson);
-  
-  
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::set&lt;boundary_id_type&gt; boundary_ids;
-    boundary_ids.insert(0);
-    boundary_ids.insert(1);
-    <B><FONT COLOR="#A020F0">if</FONT></B> (dim&gt;=2)
-      {
-        boundary_ids.insert(2);
-        boundary_ids.insert(3);
-      }
-    <B><FONT COLOR="#A020F0">if</FONT></B> (dim==3)
-      {
-        boundary_ids.insert(4);
-        boundary_ids.insert(5);
-      }
-  
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B>&gt; variables(1);
-    variables[0] = u_var;
-  
-    AnalyticFunction&lt;&gt; exact_solution_object(exact_solution_wrapper);
-  
-    DirichletBoundary dirichlet_bc(boundary_ids,
-                                   variables,
-                                   &amp;exact_solution_object);
-  
-    system.get_dof_map().add_dirichlet_boundary(dirichlet_bc);
-  
-  
-    equation_systems.init();
-  
-    equation_systems.print_info();
-    mesh.print_info();
-  
-    system.solve();
-  
-    <B><FONT COLOR="#A020F0">if</FONT></B> (dim == 1)
-      {
-        GnuPlotIO plot(mesh, <B><FONT COLOR="#BC8F8F">&quot;Introduction Example 4, 1D&quot;</FONT></B>, GnuPlotIO::GRID_ON);
-        plot.write_equation_systems(<B><FONT COLOR="#BC8F8F">&quot;gnuplot_script&quot;</FONT></B>, equation_systems);
-      }
-  #ifdef LIBMESH_HAVE_EXODUS_API
-    <B><FONT COLOR="#A020F0">else</FONT></B>
-      {
-        ExodusII_IO (mesh).write_equation_systems ((dim == 3) ?
-                                                   <B><FONT COLOR="#BC8F8F">&quot;out_3.e&quot;</FONT></B> : <B><FONT COLOR="#BC8F8F">&quot;out_2.e&quot;</FONT></B>, equation_systems);
-      }
-  #endif <I><FONT COLOR="#B22222">// #ifdef LIBMESH_HAVE_EXODUS_API
-</FONT></I>  
-    <B><FONT COLOR="#A020F0">return</FONT></B> 0;
-  }
-  
-  
-  
-  
-  <B><FONT COLOR="#228B22">void</FONT></B> assemble_poisson(EquationSystems &amp; es,
-                        <B><FONT COLOR="#228B22">const</FONT></B> std::string &amp; system_name)
-  {
-    libmesh_assert_equal_to (system_name, <B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
-  
-  
-    PerfLog perf_log (<B><FONT COLOR="#BC8F8F">&quot;Matrix Assembly&quot;</FONT></B>);
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase &amp; mesh = es.get_mesh();
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> <B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> dim = mesh.mesh_dimension();
-  
-    LinearImplicitSystem &amp; system = es.get_system&lt;LinearImplicitSystem&gt;(<B><FONT COLOR="#BC8F8F">&quot;Poisson&quot;</FONT></B>);
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> DofMap &amp; dof_map = system.get_dof_map();
-  
-    FEType fe_type = dof_map.variable_type(0);
-  
-    UniquePtr&lt;FEBase&gt; fe (FEBase::build(dim, fe_type));
-  
-    QGauss qrule (dim, FIFTH);
-  
-    fe-&gt;attach_quadrature_rule (&amp;qrule);
-  
-    UniquePtr&lt;FEBase&gt; fe_face (FEBase::build(dim, fe_type));
-  
-    QGauss qface(dim-1, FIFTH);
-  
-    fe_face-&gt;attach_quadrature_rule (&amp;qface);
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Real&gt; &amp; JxW = fe-&gt;get_JxW();
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;Point&gt; &amp; q_point = fe-&gt;get_xyz();
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; phi = fe-&gt;get_phi();
-  
-    <B><FONT COLOR="#228B22">const</FONT></B> std::vector&lt;std::vector&lt;RealGradient&gt; &gt; &amp; dphi = fe-&gt;get_dphi();
-  
-    DenseMatrix&lt;Number&gt; Ke;
-    DenseVector&lt;Number&gt; Fe;
-  
-    <B><FONT COLOR="#5F9EA0">std</FONT></B>::vector&lt;dof_id_type&gt; dof_indices;
-  
-    <B><FONT COLOR="#5F9EA0">MeshBase</FONT></B>::const_element_iterator       el     = mesh.active_local_elements_begin();
-    <B><FONT COLOR="#228B22">const</FONT></B> MeshBase::const_element_iterator end_el = mesh.active_local_elements_end();
-  
-    <B><FONT COLOR="#A020F0">for</FONT></B> ( ; el != end_el; ++el)
-      {
-        perf_log.push(<B><FONT COLOR="#BC8F8F">&quot;elem init&quot;</FONT></B>);
-  
-        <B><FONT COLOR="#228B22">const</FONT></B> Elem * elem = *el;
-  
-        dof_map.dof_indices (elem, dof_indices);
-  
-        fe-&gt;reinit (elem);
-  
-        Ke.resize (dof_indices.size(),
-                   dof_indices.size());
-  
-        Fe.resize (dof_indices.size());
-  
-        perf_log.pop(<B><FONT COLOR="#BC8F8F">&quot;elem init&quot;</FONT></B>);
-  
-        perf_log.push (<B><FONT COLOR="#BC8F8F">&quot;Ke&quot;</FONT></B>);
-  
-        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule.n_points(); qp++)
-          <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
-            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> j=0; j&lt;phi.size(); j++)
-              Ke(i,j) += JxW[qp]*(dphi[i][qp]*dphi[j][qp]);
-  
-  
-        perf_log.pop (<B><FONT COLOR="#BC8F8F">&quot;Ke&quot;</FONT></B>);
-  
-        perf_log.push (<B><FONT COLOR="#BC8F8F">&quot;Fe&quot;</FONT></B>);
-  
-        <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> qp=0; qp&lt;qrule.n_points(); qp++)
-          {
-            <B><FONT COLOR="#228B22">const</FONT></B> Real x = q_point[qp](0);
-  #<B><FONT COLOR="#A020F0">if</FONT></B> LIBMESH_DIM &gt; 1
-            <B><FONT COLOR="#228B22">const</FONT></B> Real y = q_point[qp](1);
-  #<B><FONT COLOR="#A020F0">else</FONT></B>
-            <B><FONT COLOR="#228B22">const</FONT></B> Real y = 0.;
-  #endif
-  #<B><FONT COLOR="#A020F0">if</FONT></B> LIBMESH_DIM &gt; 2
-            <B><FONT COLOR="#228B22">const</FONT></B> Real z = q_point[qp](2);
-  #<B><FONT COLOR="#A020F0">else</FONT></B>
-            <B><FONT COLOR="#228B22">const</FONT></B> Real z = 0.;
-  #endif
-            <B><FONT COLOR="#228B22">const</FONT></B> Real eps = 1.e-3;
-  
-            <B><FONT COLOR="#228B22">const</FONT></B> Real uxx = (exact_solution(x-eps, y, z) +
-                              exact_solution(x+eps, y, z) +
-                              -2.*exact_solution(x, y, z))/eps/eps;
-  
-            <B><FONT COLOR="#228B22">const</FONT></B> Real uyy = (exact_solution(x, y-eps, z) +
-                              exact_solution(x, y+eps, z) +
-                              -2.*exact_solution(x, y, z))/eps/eps;
-  
-            <B><FONT COLOR="#228B22">const</FONT></B> Real uzz = (exact_solution(x, y, z-eps) +
-                              exact_solution(x, y, z+eps) +
-                              -2.*exact_solution(x, y, z))/eps/eps;
-  
-            Real fxy;
-            <B><FONT COLOR="#A020F0">if</FONT></B> (dim==1)
-              {
-                <B><FONT COLOR="#228B22">const</FONT></B> Real pi = libMesh::pi;
-                fxy = (0.25*pi*pi)*sin(.5*pi*x);
-              }
-            <B><FONT COLOR="#A020F0">else</FONT></B>
-              {
-                fxy = - (uxx + uyy + ((dim==2) ? 0. : uzz));
-              }
-  
-            <B><FONT COLOR="#A020F0">for</FONT></B> (<B><FONT COLOR="#228B22">unsigned</FONT></B> <B><FONT COLOR="#228B22">int</FONT></B> i=0; i&lt;phi.size(); i++)
-              Fe(i) += JxW[qp]*fxy*phi[i][qp];
-          }
-  
-        perf_log.pop (<B><FONT COLOR="#BC8F8F">&quot;Fe&quot;</FONT></B>);
-  
-        dof_map.heterogenously_constrain_element_matrix_and_vector (Ke, Fe, dof_indices);
-  
-        perf_log.push (<B><FONT COLOR="#BC8F8F">&quot;matrix insertion&quot;</FONT></B>);
-  
-        system.matrix-&gt;add_matrix (Ke, dof_indices);
-        system.rhs-&gt;add_vector    (Fe, dof_indices);
-  
-        perf_log.pop (<B><FONT COLOR="#BC8F8F">&quot;matrix insertion&quot;</FONT></B>);
-      }
-  
-  }
-</pre> 
+<br> <h1> Link to the source code for this example: </h1>
+<a href="https://github.com/libMesh/libmesh/tree/master/examples/introduction/introduction_ex4" target="_blank">Open introduction_ex4 in new tab.</a>
 <a name="output"></a> 
 <br><br><br> <h1> The console output of the program: </h1> 
 <pre>
-  CXX      example_dbg-introduction_ex4.o
-  CXXLD    example-dbg
 ***************************************************************
 * Running Example introduction_ex4:
 *   example-opt -d 1 -n 20 
@@ -1548,7 +103,7 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:38:47 2016                                                                          |
+| Time:           Wed Apr 13 09:51:24 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -1581,22 +136,22 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| Matrix Assembly Performance: Alive time=0.001174, Active time=0.000185                                     |
+| Matrix Assembly Performance: Alive time=0.000655, Active time=0.000101                                     |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
 |------------------------------------------------------------------------------------------------------------|
 |                                                                                                            |
-| Fe                            20         0.0000      0.000001    0.0000      0.000001    13.51    13.51    |
-| Ke                            20         0.0000      0.000000    0.0000      0.000000    3.24     3.24     |
-| elem init                     20         0.0001      0.000007    0.0001      0.000007    70.27    70.27    |
-| matrix insertion              20         0.0000      0.000001    0.0000      0.000001    12.97    12.97    |
+| Fe                            20         0.0000      0.000001    0.0000      0.000001    11.88    11.88    |
+| Ke                            20         0.0000      0.000000    0.0000      0.000000    3.96     3.96     |
+| elem init                     20         0.0001      0.000004    0.0001      0.000004    72.28    72.28    |
+| matrix insertion              20         0.0000      0.000001    0.0000      0.000001    11.88    11.88    |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       80         0.0002                                          100.00            |
+| Totals:                       80         0.0001                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  ---------------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.321172, Active time=0.002638                                                      |
+| libMesh Performance: Alive time=0.009218, Active time=0.001618                                                      |
  ---------------------------------------------------------------------------------------------------------------------
 | Event                                  nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                                   w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1604,53 +159,53 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 |                                                                                                                     |
 |                                                                                                                     |
 | DofMap                                                                                                              |
-|   add_neighbors_to_send_list()         1          0.0000      0.000028    0.0000      0.000028    1.06     1.06     |
-|   build_constraint_matrix_and_vector() 20         0.0000      0.000001    0.0000      0.000001    0.42     0.42     |
-|   build_sparsity()                     1          0.0001      0.000091    0.0001      0.000100    3.45     3.79     |
-|   create_dof_constraints()             1          0.0001      0.000143    0.0002      0.000153    5.42     5.80     |
-|   distribute_dofs()                    1          0.0001      0.000064    0.0002      0.000164    2.43     6.22     |
-|   dof_indices()                        80         0.0000      0.000000    0.0000      0.000000    1.06     1.06     |
-|   hetero_cnstrn_elem_mat_vec()         20         0.0000      0.000002    0.0000      0.000002    1.52     1.52     |
-|   prepare_send_list()                  2          0.0000      0.000001    0.0000      0.000001    0.08     0.08     |
-|   reinit()                             1          0.0001      0.000099    0.0001      0.000099    3.75     3.75     |
+|   add_neighbors_to_send_list()         1          0.0000      0.000014    0.0000      0.000014    0.87     0.87     |
+|   build_constraint_matrix_and_vector() 20         0.0000      0.000000    0.0000      0.000000    0.25     0.25     |
+|   build_sparsity()                     1          0.0000      0.000049    0.0001      0.000051    3.03     3.15     |
+|   create_dof_constraints()             1          0.0001      0.000076    0.0001      0.000082    4.70     5.07     |
+|   distribute_dofs()                    1          0.0000      0.000036    0.0001      0.000087    2.22     5.38     |
+|   dof_indices()                        80         0.0000      0.000000    0.0000      0.000000    1.11     1.11     |
+|   hetero_cnstrn_elem_mat_vec()         20         0.0000      0.000001    0.0000      0.000001    1.55     1.55     |
+|   prepare_send_list()                  2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                             1          0.0001      0.000051    0.0001      0.000051    3.15     3.15     |
 |                                                                                                                     |
 | EquationSystems                                                                                                     |
-|   build_solution_vector()              1          0.0001      0.000077    0.0001      0.000085    2.92     3.22     |
+|   build_solution_vector()              1          0.0001      0.000059    0.0001      0.000066    3.65     4.08     |
 |                                                                                                                     |
 | FE                                                                                                                  |
-|   compute_shape_functions()            20         0.0000      0.000001    0.0000      0.000001    0.80     0.80     |
-|   init_shape_functions()               1          0.0000      0.000013    0.0000      0.000013    0.49     0.49     |
+|   compute_shape_functions()            20         0.0000      0.000001    0.0000      0.000001    0.62     0.62     |
+|   init_shape_functions()               1          0.0000      0.000007    0.0000      0.000007    0.43     0.43     |
 |                                                                                                                     |
 | FEMap                                                                                                               |
-|   compute_affine_map()                 20         0.0000      0.000001    0.0000      0.000001    0.68     0.68     |
-|   init_reference_to_physical_map()     1          0.0000      0.000010    0.0000      0.000010    0.38     0.38     |
+|   compute_affine_map()                 20         0.0000      0.000000    0.0000      0.000000    0.43     0.43     |
+|   init_reference_to_physical_map()     1          0.0000      0.000006    0.0000      0.000006    0.37     0.37     |
 |                                                                                                                     |
 | GnuPlotIO                                                                                                           |
-|   write_nodal_data()                   1          0.0003      0.000335    0.0003      0.000335    12.70    12.70    |
+|   write_nodal_data()                   1          0.0002      0.000236    0.0002      0.000236    14.59    14.59    |
 |                                                                                                                     |
 | Mesh                                                                                                                |
-|   find_neighbors()                     1          0.0001      0.000110    0.0001      0.000110    4.17     4.17     |
-|   renumber_nodes_and_elem()            2          0.0000      0.000001    0.0000      0.000001    0.08     0.08     |
+|   find_neighbors()                     1          0.0001      0.000058    0.0001      0.000058    3.58     3.58     |
+|   renumber_nodes_and_elem()            2          0.0000      0.000001    0.0000      0.000001    0.12     0.12     |
 |                                                                                                                     |
 | MeshOutput                                                                                                          |
-|   write_equation_systems()             1          0.0000      0.000017    0.0004      0.000438    0.64     16.60    |
+|   write_equation_systems()             1          0.0000      0.000013    0.0003      0.000315    0.80     19.47    |
 |                                                                                                                     |
 | MeshTools::Generation                                                                                               |
-|   build_cube()                         1          0.0001      0.000069    0.0001      0.000069    2.62     2.62     |
+|   build_cube()                         1          0.0000      0.000038    0.0000      0.000038    2.35     2.35     |
 |                                                                                                                     |
 | Parallel                                                                                                            |
-|   allgather()                          1          0.0000      0.000001    0.0000      0.000001    0.04     0.04     |
+|   allgather()                          1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                     |
 | Partitioner                                                                                                         |
-|   single_partition()                   1          0.0000      0.000006    0.0000      0.000006    0.23     0.23     |
+|   single_partition()                   1          0.0000      0.000004    0.0000      0.000004    0.25     0.25     |
 |                                                                                                                     |
 | PetscLinearSolver                                                                                                   |
-|   solve()                              1          0.0003      0.000340    0.0003      0.000340    12.89    12.89    |
+|   solve()                              1          0.0003      0.000265    0.0003      0.000265    16.38    16.38    |
 |                                                                                                                     |
 | System                                                                                                              |
-|   assemble()                           1          0.0011      0.001113    0.0012      0.001245    42.19    47.19    |
+|   assemble()                           1          0.0006      0.000640    0.0007      0.000715    39.56    44.19    |
  ---------------------------------------------------------------------------------------------------------------------
-| Totals:                                180        0.0026                                          100.00            |
+| Totals:                                180        0.0016                                          100.00            |
  ---------------------------------------------------------------------------------------------------------------------
 
  
@@ -1719,7 +274,7 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:38:47 2016                                                                          |
+| Time:           Wed Apr 13 09:51:24 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -1752,22 +307,22 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| Matrix Assembly Performance: Alive time=0.003187, Active time=0.001946                                     |
+| Matrix Assembly Performance: Alive time=0.003831, Active time=0.002201                                     |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
 |------------------------------------------------------------------------------------------------------------|
 |                                                                                                            |
-| Fe                            225        0.0005      0.000002    0.0005      0.000002    23.69    23.69    |
-| Ke                            225        0.0003      0.000001    0.0003      0.000001    16.19    16.19    |
-| elem init                     225        0.0010      0.000004    0.0010      0.000004    49.38    49.38    |
-| matrix insertion              225        0.0002      0.000001    0.0002      0.000001    10.74    10.74    |
+| Fe                            225        0.0005      0.000002    0.0005      0.000002    22.67    22.67    |
+| Ke                            225        0.0003      0.000002    0.0003      0.000002    15.40    15.40    |
+| elem init                     225        0.0011      0.000005    0.0011      0.000005    49.25    49.25    |
+| matrix insertion              225        0.0003      0.000001    0.0003      0.000001    12.68    12.68    |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       900        0.0019                                          100.00            |
+| Totals:                       900        0.0022                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  ---------------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.016105, Active time=0.010519                                                      |
+| libMesh Performance: Alive time=0.017531, Active time=0.011637                                                      |
  ---------------------------------------------------------------------------------------------------------------------
 | Event                                  nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                                   w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1775,56 +330,56 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 |                                                                                                                     |
 |                                                                                                                     |
 | DofMap                                                                                                              |
-|   add_neighbors_to_send_list()         1          0.0001      0.000063    0.0001      0.000063    0.60     0.60     |
-|   build_constraint_matrix_and_vector() 225        0.0001      0.000001    0.0001      0.000001    1.36     1.36     |
-|   build_sparsity()                     1          0.0006      0.000557    0.0006      0.000623    5.30     5.92     |
-|   create_dof_constraints()             1          0.0006      0.000586    0.0011      0.001138    5.57     10.82    |
-|   distribute_dofs()                    1          0.0001      0.000096    0.0005      0.000480    0.91     4.56     |
-|   dof_indices()                        900        0.0002      0.000000    0.0002      0.000000    1.72     1.72     |
-|   hetero_cnstrn_elem_mat_vec()         225        0.0002      0.000001    0.0002      0.000001    1.55     1.55     |
-|   prepare_send_list()                  2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   reinit()                             1          0.0004      0.000384    0.0004      0.000384    3.65     3.65     |
+|   add_neighbors_to_send_list()         1          0.0001      0.000062    0.0001      0.000062    0.53     0.53     |
+|   build_constraint_matrix_and_vector() 225        0.0001      0.000001    0.0001      0.000001    1.25     1.25     |
+|   build_sparsity()                     1          0.0005      0.000540    0.0006      0.000615    4.64     5.28     |
+|   create_dof_constraints()             1          0.0006      0.000583    0.0011      0.001125    5.01     9.67     |
+|   distribute_dofs()                    1          0.0001      0.000092    0.0005      0.000465    0.79     4.00     |
+|   dof_indices()                        900        0.0002      0.000000    0.0002      0.000000    1.99     1.99     |
+|   hetero_cnstrn_elem_mat_vec()         225        0.0002      0.000001    0.0002      0.000001    1.57     1.57     |
+|   prepare_send_list()                  2          0.0000      0.000000    0.0000      0.000000    0.01     0.01     |
+|   reinit()                             1          0.0004      0.000373    0.0004      0.000373    3.21     3.21     |
 |                                                                                                                     |
 | EquationSystems                                                                                                     |
-|   build_solution_vector()              1          0.0003      0.000260    0.0003      0.000320    2.47     3.04     |
+|   build_solution_vector()              1          0.0002      0.000246    0.0003      0.000327    2.11     2.81     |
 |                                                                                                                     |
 | ExodusII_IO                                                                                                         |
-|   write_nodal_data()                   1          0.0014      0.001358    0.0014      0.001358    12.91    12.91    |
+|   write_nodal_data()                   1          0.0014      0.001370    0.0014      0.001370    11.77    11.77    |
 |                                                                                                                     |
 | FE                                                                                                                  |
-|   compute_shape_functions()            285        0.0005      0.000002    0.0005      0.000002    4.63     4.63     |
-|   init_shape_functions()               61         0.0000      0.000000    0.0000      0.000000    0.18     0.18     |
-|   inverse_map()                        180        0.0001      0.000001    0.0001      0.000001    1.20     1.20     |
+|   compute_shape_functions()            285        0.0005      0.000002    0.0005      0.000002    4.65     4.65     |
+|   init_shape_functions()               61         0.0000      0.000000    0.0000      0.000000    0.17     0.17     |
+|   inverse_map()                        180        0.0001      0.000001    0.0001      0.000001    1.09     1.09     |
 |                                                                                                                     |
 | FEMap                                                                                                               |
-|   compute_affine_map()                 285        0.0002      0.000001    0.0002      0.000001    2.02     2.02     |
-|   compute_face_map()                   60         0.0001      0.000001    0.0002      0.000004    0.81     2.16     |
-|   init_face_shape_functions()          60         0.0000      0.000000    0.0000      0.000000    0.25     0.25     |
-|   init_reference_to_physical_map()     61         0.0001      0.000002    0.0001      0.000002    1.29     1.29     |
+|   compute_affine_map()                 285        0.0002      0.000001    0.0002      0.000001    2.00     2.00     |
+|   compute_face_map()                   60         0.0001      0.000001    0.0002      0.000004    0.70     1.89     |
+|   init_face_shape_functions()          60         0.0000      0.000000    0.0000      0.000000    0.18     0.18     |
+|   init_reference_to_physical_map()     61         0.0001      0.000002    0.0001      0.000002    1.13     1.13     |
 |                                                                                                                     |
 | Mesh                                                                                                                |
-|   find_neighbors()                     1          0.0004      0.000377    0.0004      0.000377    3.58     3.58     |
+|   find_neighbors()                     1          0.0004      0.000370    0.0004      0.000370    3.18     3.18     |
 |   renumber_nodes_and_elem()            2          0.0000      0.000008    0.0000      0.000008    0.15     0.15     |
 |                                                                                                                     |
 | MeshOutput                                                                                                          |
-|   write_equation_systems()             1          0.0000      0.000017    0.0017      0.001696    0.16     16.12    |
+|   write_equation_systems()             1          0.0000      0.000021    0.0017      0.001719    0.18     14.77    |
 |                                                                                                                     |
 | MeshTools::Generation                                                                                               |
-|   build_cube()                         1          0.0002      0.000183    0.0002      0.000183    1.74     1.74     |
+|   build_cube()                         1          0.0002      0.000179    0.0002      0.000179    1.54     1.54     |
 |                                                                                                                     |
 | Parallel                                                                                                            |
 |   allgather()                          1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                     |
 | Partitioner                                                                                                         |
-|   single_partition()                   1          0.0000      0.000016    0.0000      0.000016    0.15     0.15     |
+|   single_partition()                   1          0.0000      0.000016    0.0000      0.000016    0.14     0.14     |
 |                                                                                                                     |
 | PetscLinearSolver                                                                                                   |
-|   solve()                              1          0.0029      0.002893    0.0029      0.002893    27.50    27.50    |
+|   solve()                              1          0.0033      0.003337    0.0033      0.003337    28.68    28.68    |
 |                                                                                                                     |
 | System                                                                                                              |
-|   assemble()                           1          0.0021      0.002135    0.0032      0.003240    20.30    30.80    |
+|   assemble()                           1          0.0027      0.002715    0.0039      0.003937    23.33    33.83    |
  ---------------------------------------------------------------------------------------------------------------------
-| Totals:                                2360       0.0105                                          100.00            |
+| Totals:                                2360       0.0116                                          100.00            |
  ---------------------------------------------------------------------------------------------------------------------
 
  
@@ -1893,7 +448,7 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 
 
  -------------------------------------------------------------------------------------------------------------------
-| Time:           Tue Apr 12 14:38:47 2016                                                                          |
+| Time:           Wed Apr 13 09:51:24 2016                                                                          |
 | OS:             Darwin                                                                                            |
 | HostName:       peterson-laptop.local                                                                             |
 | OS Release:     15.0.0                                                                                            |
@@ -1926,22 +481,22 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 |  'LIBS=   '                                                                                                       |
  -------------------------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------------------
-| Matrix Assembly Performance: Alive time=0.021271, Active time=0.016741                                     |
+| Matrix Assembly Performance: Alive time=0.021352, Active time=0.016841                                     |
  ------------------------------------------------------------------------------------------------------------
 | Event                         nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                          w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
 |------------------------------------------------------------------------------------------------------------|
 |                                                                                                            |
-| Fe                            216        0.0017      0.000008    0.0017      0.000008    10.19    10.19    |
-| Ke                            216        0.0068      0.000031    0.0068      0.000031    40.61    40.61    |
-| elem init                     216        0.0056      0.000026    0.0056      0.000026    33.68    33.68    |
-| matrix insertion              216        0.0026      0.000012    0.0026      0.000012    15.51    15.51    |
+| Fe                            216        0.0017      0.000008    0.0017      0.000008    10.14    10.14    |
+| Ke                            216        0.0069      0.000032    0.0069      0.000032    40.71    40.71    |
+| elem init                     216        0.0056      0.000026    0.0056      0.000026    33.54    33.54    |
+| matrix insertion              216        0.0026      0.000012    0.0026      0.000012    15.61    15.61    |
  ------------------------------------------------------------------------------------------------------------
-| Totals:                       864        0.0167                                          100.00            |
+| Totals:                       864        0.0168                                          100.00            |
  ------------------------------------------------------------------------------------------------------------
 
  ---------------------------------------------------------------------------------------------------------------------
-| libMesh Performance: Alive time=0.084121, Active time=0.076697                                                      |
+| libMesh Performance: Alive time=0.078802, Active time=0.071735                                                      |
  ---------------------------------------------------------------------------------------------------------------------
 | Event                                  nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
 |                                                   w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
@@ -1949,58 +504,58 @@ Running /Users/petejw/projects/libmesh_git/build/examples/introduction/introduct
 |                                                                                                                     |
 |                                                                                                                     |
 | DofMap                                                                                                              |
-|   add_neighbors_to_send_list()         1          0.0001      0.000138    0.0001      0.000138    0.18     0.18     |
-|   build_constraint_matrix_and_vector() 216        0.0008      0.000004    0.0008      0.000004    1.04     1.04     |
-|   build_sparsity()                     1          0.0027      0.002673    0.0028      0.002803    3.49     3.65     |
-|   create_dof_constraints()             1          0.0057      0.005749    0.0410      0.041002    7.50     53.46    |
-|   distribute_dofs()                    1          0.0002      0.000176    0.0009      0.000936    0.23     1.22     |
-|   dof_indices()                        864        0.0005      0.000001    0.0005      0.000001    0.60     0.60     |
-|   hetero_cnstrn_elem_mat_vec()         216        0.0025      0.000012    0.0025      0.000012    3.29     3.29     |
+|   add_neighbors_to_send_list()         1          0.0001      0.000136    0.0001      0.000136    0.19     0.19     |
+|   build_constraint_matrix_and_vector() 216        0.0008      0.000004    0.0008      0.000004    1.11     1.11     |
+|   build_sparsity()                     1          0.0027      0.002655    0.0028      0.002758    3.70     3.84     |
+|   create_dof_constraints()             1          0.0049      0.004929    0.0357      0.035658    6.87     49.71    |
+|   distribute_dofs()                    1          0.0002      0.000171    0.0009      0.000947    0.24     1.32     |
+|   dof_indices()                        864        0.0005      0.000001    0.0005      0.000001    0.63     0.63     |
+|   hetero_cnstrn_elem_mat_vec()         216        0.0025      0.000012    0.0025      0.000012    3.53     3.53     |
 |   prepare_send_list()                  2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
-|   reinit()                             1          0.0008      0.000760    0.0008      0.000760    0.99     0.99     |
+|   reinit()                             1          0.0008      0.000776    0.0008      0.000776    1.08     1.08     |
 |                                                                                                                     |
 | EquationSystems                                                                                                     |
-|   build_solution_vector()              1          0.0004      0.000442    0.0006      0.000552    0.58     0.72     |
+|   build_solution_vector()              1          0.0005      0.000461    0.0006      0.000611    0.64     0.85     |
 |                                                                                                                     |
 | ExodusII_IO                                                                                                         |
-|   write_nodal_data()                   1          0.0022      0.002217    0.0022      0.002217    2.89     2.89     |
+|   write_nodal_data()                   1          0.0023      0.002268    0.0023      0.002268    3.16     3.16     |
 |                                                                                                                     |
 | FE                                                                                                                  |
-|   compute_shape_functions()            1224       0.0073      0.000006    0.0073      0.000006    9.51     9.51     |
-|   init_shape_functions()               1009       0.0003      0.000000    0.0003      0.000000    0.45     0.45     |
-|   inverse_map()                        2376       0.0080      0.000003    0.0080      0.000003    10.40    10.40    |
+|   compute_shape_functions()            1224       0.0069      0.000006    0.0069      0.000006    9.58     9.58     |
+|   init_shape_functions()               1009       0.0003      0.000000    0.0003      0.000000    0.40     0.40     |
+|   inverse_map()                        2376       0.0070      0.000003    0.0070      0.000003    9.77     9.77     |
 |                                                                                                                     |
 | FEMap                                                                                                               |
-|   compute_affine_map()                 1224       0.0027      0.000002    0.0027      0.000002    3.55     3.55     |
-|   compute_edge_map()                   792        0.0002      0.000000    0.0002      0.000000    0.31     0.31     |
-|   compute_face_map()                   216        0.0004      0.000002    0.0004      0.000002    0.51     0.51     |
-|   init_edge_shape_functions()          792        0.0005      0.000001    0.0005      0.000001    0.62     0.62     |
-|   init_face_shape_functions()          216        0.0014      0.000007    0.0014      0.000007    1.83     1.83     |
-|   init_reference_to_physical_map()     1009       0.0187      0.000019    0.0187      0.000019    24.34    24.34    |
+|   compute_affine_map()                 1224       0.0025      0.000002    0.0025      0.000002    3.53     3.53     |
+|   compute_edge_map()                   792        0.0002      0.000000    0.0002      0.000000    0.32     0.32     |
+|   compute_face_map()                   216        0.0003      0.000002    0.0003      0.000002    0.47     0.47     |
+|   init_edge_shape_functions()          792        0.0004      0.000000    0.0004      0.000000    0.54     0.54     |
+|   init_face_shape_functions()          216        0.0012      0.000006    0.0012      0.000006    1.72     1.72     |
+|   init_reference_to_physical_map()     1009       0.0162      0.000016    0.0162      0.000016    22.63    22.63    |
 |                                                                                                                     |
 | Mesh                                                                                                                |
-|   find_neighbors()                     1          0.0005      0.000541    0.0005      0.000541    0.71     0.71     |
-|   renumber_nodes_and_elem()            2          0.0000      0.000019    0.0000      0.000019    0.05     0.05     |
+|   find_neighbors()                     1          0.0005      0.000509    0.0005      0.000509    0.71     0.71     |
+|   renumber_nodes_and_elem()            2          0.0000      0.000021    0.0000      0.000021    0.06     0.06     |
 |                                                                                                                     |
 | MeshOutput                                                                                                          |
-|   write_equation_systems()             1          0.0000      0.000016    0.0028      0.002785    0.02     3.63     |
+|   write_equation_systems()             1          0.0000      0.000021    0.0029      0.002900    0.03     4.04     |
 |                                                                                                                     |
 | MeshTools::Generation                                                                                               |
-|   build_cube()                         1          0.0004      0.000405    0.0004      0.000405    0.53     0.53     |
+|   build_cube()                         1          0.0004      0.000381    0.0004      0.000381    0.53     0.53     |
 |                                                                                                                     |
 | Parallel                                                                                                            |
 |   allgather()                          1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
 |                                                                                                                     |
 | Partitioner                                                                                                         |
-|   single_partition()                   1          0.0000      0.000036    0.0000      0.000036    0.05     0.05     |
+|   single_partition()                   1          0.0000      0.000041    0.0000      0.000041    0.06     0.06     |
 |                                                                                                                     |
 | PetscLinearSolver                                                                                                   |
-|   solve()                              1          0.0076      0.007610    0.0076      0.007610    9.92     9.92     |
+|   solve()                              1          0.0078      0.007762    0.0078      0.007762    10.82    10.82    |
 |                                                                                                                     |
 | System                                                                                                              |
-|   assemble()                           1          0.0126      0.012596    0.0213      0.021322    16.42    27.80    |
+|   assemble()                           1          0.0127      0.012692    0.0214      0.021406    17.69    29.84    |
  ---------------------------------------------------------------------------------------------------------------------
-| Totals:                                10172      0.0767                                          100.00            |
+| Totals:                                10172      0.0717                                          100.00            |
  ---------------------------------------------------------------------------------------------------------------------
 
  
