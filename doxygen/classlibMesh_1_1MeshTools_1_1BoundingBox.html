@@ -258,38 +258,38 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l00284">284</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
+<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l00286">286</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tools_8C_source.html#l00239">libMesh::is_between()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
-<div class="fragment"><div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;{</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="comment">// Make local variables first to make thiings more clear in a moment</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> my_min_x = this-&gt;first(0);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> my_max_x = this-&gt;second(0);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordtype">bool</span> x_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_x, p(0), my_max_x);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keywordtype">bool</span> intersection_true = x_int;</div>
+<p>References <a class="el" href="mesh__tools_8C_source.html#l00241">libMesh::is_between()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">// Make local variables first to make thiings more clear in a moment</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> my_min_x = this-&gt;first(0);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> my_max_x = this-&gt;second(0);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keywordtype">bool</span> x_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_x, p(0), my_max_x);</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> my_min_y = this-&gt;first(1);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> my_max_y = this-&gt;second(1);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keywordtype">bool</span> y_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_y, p(1), my_max_y);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  intersection_true = intersection_true &amp;&amp; y_int;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> my_min_z = this-&gt;first(2);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> my_max_z = this-&gt;second(2);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keywordtype">bool</span> z_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_z, p(2), my_max_z);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  intersection_true = intersection_true &amp;&amp; z_int;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="keywordflow">return</span> intersection_true;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a19dce19dd9e0eece93901e8193b0cd39"><div class="ttname"><a href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">libMesh::is_between</a></div><div class="ttdeci">bool is_between(Real min, Real check, Real max)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00239">mesh_tools.C:239</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keywordtype">bool</span> intersection_true = x_int;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> my_min_y = this-&gt;first(1);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> my_max_y = this-&gt;second(1);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keywordtype">bool</span> y_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_y, p(1), my_max_y);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  intersection_true = intersection_true &amp;&amp; y_int;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> my_min_z = this-&gt;first(2);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> my_max_z = this-&gt;second(2);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keywordtype">bool</span> z_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_z, p(2), my_max_z);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  intersection_true = intersection_true &amp;&amp; z_int;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">return</span> intersection_true;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_html_a19dce19dd9e0eece93901e8193b0cd39"><div class="ttname"><a href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">libMesh::is_between</a></div><div class="ttdeci">bool is_between(Real min, Real check, Real max)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00241">mesh_tools.C:241</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -333,49 +333,49 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l00244">244</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
+<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l00246">246</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
 
-<p>References <a class="el" href="mesh__tools_8C_source.html#l00239">libMesh::is_between()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
-<div class="fragment"><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;{</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="comment">// Make local variables first to make thiings more clear in a moment</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; my_min_x = this-&gt;first(0);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; my_max_x = this-&gt;second(0);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; other_min_x = other_box.first(0);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; other_max_x = other_box.second(0);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> x_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_x, other_min_x, my_max_x) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_x, other_max_x, my_max_x) ||</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_x, my_min_x, other_max_x) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_x, my_max_x, other_max_x);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keywordtype">bool</span> intersection_true = x_int;</div>
+<p>References <a class="el" href="mesh__tools_8C_source.html#l00241">libMesh::is_between()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="comment">// Make local variables first to make thiings more clear in a moment</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; my_min_x = this-&gt;first(0);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; my_max_x = this-&gt;second(0);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; other_min_x = other_box.first(0);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; other_max_x = other_box.second(0);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> x_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_x, other_min_x, my_max_x) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_x, other_max_x, my_max_x) ||</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_x, my_min_x, other_max_x) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_x, my_max_x, other_max_x);</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; my_min_y = this-&gt;first(1);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; my_max_y = this-&gt;second(1);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; other_min_y = other_box.first(1);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; other_max_y = other_box.second(1);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> y_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_y, other_min_y, my_max_y) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_y, other_max_y, my_max_y) ||</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_y, my_min_y, other_max_y) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_y, my_max_y, other_max_y);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  intersection_true = intersection_true &amp;&amp; y_int;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; my_min_z = this-&gt;first(2);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; my_max_z = this-&gt;second(2);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; other_min_z = other_box.first(2);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &amp; other_max_z = other_box.second(2);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> z_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_z, other_min_z, my_max_z) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_z, other_max_z, my_max_z) ||</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_z, my_min_z, other_max_z) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_z, my_max_z, other_max_z);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  intersection_true = intersection_true &amp;&amp; z_int;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keywordflow">return</span> intersection_true;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_html_a19dce19dd9e0eece93901e8193b0cd39"><div class="ttname"><a href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">libMesh::is_between</a></div><div class="ttdeci">bool is_between(Real min, Real check, Real max)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00239">mesh_tools.C:239</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keywordtype">bool</span> intersection_true = x_int;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; my_min_y = this-&gt;first(1);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; my_max_y = this-&gt;second(1);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; other_min_y = other_box.first(1);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; other_max_y = other_box.second(1);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> y_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_y, other_min_y, my_max_y) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_y, other_max_y, my_max_y) ||</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_y, my_min_y, other_max_y) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_y, my_max_y, other_max_y);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  intersection_true = intersection_true &amp;&amp; y_int;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 2</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; my_min_z = this-&gt;first(2);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; my_max_z = this-&gt;second(2);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; other_min_z = other_box.first(2);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &amp; other_max_z = other_box.second(2);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> z_int = <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_z, other_min_z, my_max_z) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(my_min_z, other_max_z, my_max_z) ||</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_z, my_min_z, other_max_z) || <a class="code" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">is_between</a>(other_min_z, my_max_z, other_max_z);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  intersection_true = intersection_true &amp;&amp; z_int;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keywordflow">return</span> intersection_true;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_html_a19dce19dd9e0eece93901e8193b0cd39"><div class="ttname"><a href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">libMesh::is_between</a></div><div class="ttdeci">bool is_between(Real min, Real check, Real max)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00241">mesh_tools.C:241</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -402,17 +402,18 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mesh__tools_8h_source.html#l00085">85</a> of file <a class="el" href="mesh__tools_8h_source.html">mesh_tools.h</a>.</p>
 
-<p>References <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>.</p>
+<p>References <a class="el" href="libmesh__config_8h_source.html#l00175">LIBMESH_DIM</a>, and <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__tools_8h_source.html#l00080">BoundingBox()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;LIBMESH_DIM; i++)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="libmesh__config_8h.html#a140edde2c26b1ce83802b9158b110088">LIBMESH_DIM</a>; i++)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      {</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        this-&gt;first(i)  =  <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::numeric_limits&lt;Real&gt;::max</a>();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        this-&gt;second(i) = -<a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::numeric_limits&lt;Real&gt;::max</a>();</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
 <div class="ttc" id="namespacestd_html_a6987c84b7beab8b2ebdee7e2549d698f"><div class="ttname"><a href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a></div><div class="ttdeci">long double max(long double a, double b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00027">libmesh_augment_std_namespace.h:27</a></div></div>
+<div class="ttc" id="libmesh__config_8h_html_a140edde2c26b1ce83802b9158b110088"><div class="ttname"><a href="libmesh__config_8h.html#a140edde2c26b1ce83802b9158b110088">LIBMESH_DIM</a></div><div class="ttdeci">#define LIBMESH_DIM</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__config_8h_source.html#l00175">libmesh_config.h:175</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

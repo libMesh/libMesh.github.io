@@ -125,6 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aebd53152c48194ed96e71f176153762b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4e4b91867c63a57cf985147205d82cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1CouplingMatrix.html#aa4e4b91867c63a57cf985147205d82cd">empty</a> () const </td></tr>
 <tr class="separator:aa4e4b91867c63a57cf985147205d82cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6652332073762aca88652e8ffd9a5b06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1CouplingMatrix.html#a6652332073762aca88652e8ffd9a5b06">operator&amp;=</a> (const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> &amp;other)</td></tr>
+<tr class="separator:a6652332073762aca88652e8ffd9a5b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
@@ -177,7 +179,7 @@ Friends</h2></td></tr>
 <p>We store non-zeros as ranges: the first entry of each range pair is the location of the first non-zero, and the second is the location of the last subsequent non-zero (<em>not</em> the next subsequent zero; we drop empty ranges).</p>
 <p>We store locations (i,j) as long integers i*_size+j </p>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00113">113</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00115">115</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
 </div>
 </div>
@@ -199,7 +201,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00114">114</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00116">116</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
 </div>
 </div>
@@ -227,17 +229,17 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00549">549</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00551">551</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00592">resize()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                                                    :</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;  <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>(), <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>(n)</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;{</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">resize</a>(n);</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00120">coupling_matrix.h:120</a></div></div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a2b45a9ae0680364a6dab1e9945786ead"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">libMesh::CouplingMatrix::resize</a></div><div class="ttdeci">void resize(const unsigned int n)</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00592">coupling_matrix.h:592</a></div></div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a1d5c90aa05040706b3d518c3e00531b9"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">libMesh::CouplingMatrix::_ranges</a></div><div class="ttdeci">rc_type _ranges</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00115">coupling_matrix.h:115</a></div></div>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00594">resize()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                                                    :</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;  <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>(), <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>(n)</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;{</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">resize</a>(n);</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00122">coupling_matrix.h:122</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a2b45a9ae0680364a6dab1e9945786ead"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">libMesh::CouplingMatrix::resize</a></div><div class="ttdeci">void resize(const unsigned int n)</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00594">coupling_matrix.h:594</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a1d5c90aa05040706b3d518c3e00531b9"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">libMesh::CouplingMatrix::_ranges</a></div><div class="ttdeci">rc_type _ranges</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00117">coupling_matrix.h:117</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,13 +266,13 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Clears the matrix. </p>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00602">602</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00604">604</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00592">resize()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;{</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">resize</a>(0);</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a2b45a9ae0680364a6dab1e9945786ead"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">libMesh::CouplingMatrix::resize</a></div><div class="ttdeci">void resize(const unsigned int n)</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00592">coupling_matrix.h:592</a></div></div>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00594">resize()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;{</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">resize</a>(0);</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a2b45a9ae0680364a6dab1e9945786ead"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a2b45a9ae0680364a6dab1e9945786ead">libMesh::CouplingMatrix::resize</a></div><div class="ttdeci">void resize(const unsigned int n)</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00594">coupling_matrix.h:594</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -296,15 +298,141 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if the matrix is empty. </dd></dl>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00610">610</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00612">612</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00120">_size</a>.</p>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00122">_size</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map_8C_source.html#l02461">libMesh::SparsityPattern::Build::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;{</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> == 0);</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00120">coupling_matrix.h:120</a></div></div>
+<p>Referenced by <a class="el" href="default__coupling_8C_source.html#l00034">libMesh::DefaultCoupling::set_dof_coupling()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;{</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> == 0);</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00122">coupling_matrix.h:122</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6652332073762aca88652e8ffd9a5b06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> &amp; libMesh::CouplingMatrix::operator&amp;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="coupling__matrix_8C_source.html#l00024">24</a> of file <a class="el" href="coupling__matrix_8C_source.html">coupling_matrix.C</a>.</p>
+
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00117">_ranges</a>, <a class="el" href="libmesh__common_8h_source.html#l00347">libmesh_assert_greater</a>, <a class="el" href="libmesh__common_8h_source.html#l00348">libmesh_assert_less_equal</a>, <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>, and <a class="el" href="mesh__subdivision__support_8h_source.html#l00103">libMesh::MeshTools::Subdivision::next</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">const</span> std::size_t max_size = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::numeric_limits&lt;std::size_t&gt;::max</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  rc_type::iterator start_range = this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.begin();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  rc_type::const_iterator     other_range = other.<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.begin();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">const</span> rc_type::const_iterator other_end = other.<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">for</span> (; other_range != other_end; ++other_range)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      std::size_t other_range_start = other_range-&gt;first;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      std::size_t other_range_end = other_range-&gt;second;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="comment">// Find our range that might contain the start of the other</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="comment">// range.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="comment">// lower_bound isn&#39;t *quite* what we want.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">// Because the other._ranges is sorted, we can contract this</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="comment">// search as we proceed, beginning with lb rather than at</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">// begin() every time.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      rc_type::iterator lb =</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::upper_bound (start_range, this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end(),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                          std::make_pair(other_range_start, max_size));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">if</span> (lb!=start_range)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        --lb;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        lb=this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      start_range = lb;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="comment">// If no range might contain the start of the new range then</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">// we can just break out of here and start appending any</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="comment">// remaining ranges.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">if</span> (lb == this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end())</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="comment">// We did find a range which might contain the start of the new</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">// range.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> std::size_t firstloc = lb-&gt;first;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> std::size_t lastloc  = lb-&gt;second;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <a class="code" href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a>(firstloc, lastloc);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <a class="code" href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a>(firstloc, other_range_start);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        CouplingMatrix::rc_type::const_iterator <a class="code" href="namespacelibMesh_1_1MeshTools_1_1Subdivision.html#a9ddda19838f9b54edff4cb8970e7363c">next</a> = lb;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        next++;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span> (next != this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end())</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;          {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// Ranges should be sorted and should not touch</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a>(next-&gt;first, lastloc+1);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;          }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      CouplingMatrix::rc_type::iterator next = lb;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      next++;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="comment">// We might need to extend this range or add a new range.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="comment">// Merge contiguous ranges</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keywordflow">if</span> (other_range_start &lt;= lastloc)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        lb-&gt;second = other_range_end;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment">// Or insert a new range.  This invalidates existing iterators,</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="comment">// but that&#39;s okay; the only iterator we need is for the newly</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="comment">// inserted range.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        start_range = lb = this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.insert</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          (next, std::make_pair(other_range_start, other_range_end));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">// At this point we have a range lb that may potentially overlap</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="comment">// subsequent existing ranges, in which case we need to merge</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="comment">// some.</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="comment">// First expand our range as necessary while finding ranges</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="comment">// which will be redundant later</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> std::size_t nextloc =</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;             (next == this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end()) ?</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;               <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::numeric_limits&lt;std::size_t&gt;::max</a>() : next-&gt;first;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;           nextloc &lt;= lb-&gt;second; ++<a class="code" href="namespacelibMesh_1_1MeshTools_1_1Subdivision.html#a9ddda19838f9b54edff4cb8970e7363c">next</a>)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;          <span class="comment">// Ranges should be sorted and should not have been touching</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          <span class="comment">// initially</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;          <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a>(nextloc, lastloc+1);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;          lb-&gt;second = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a>(lb-&gt;second, next-&gt;second);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      CouplingMatrix::rc_type::iterator oldnext = lb;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      oldnext++;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="comment">// Finally remove the redundant ranges</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.erase(oldnext, next);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// If we broke out early but we still have more other_ranges then</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// we can safely just append them to our ranges.</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keywordflow">for</span> (; other_range != other_end; ++other_range)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.push_back(*other_range);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">// Behave like a standard modification operator</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="ttc" id="libmesh__common_8h_html_a9b5954491fc8a672e607175b23e44ed5"><div class="ttname"><a href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a></div><div class="ttdeci">#define libmesh_assert_less_equal(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00348">libmesh_common.h:348</a></div></div>
+<div class="ttc" id="namespacestd_html_a6987c84b7beab8b2ebdee7e2549d698f"><div class="ttname"><a href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a></div><div class="ttdeci">long double max(long double a, double b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00027">libmesh_augment_std_namespace.h:27</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_af799123aec103b0960ec3dd56dcab3f0"><div class="ttname"><a href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a></div><div class="ttdeci">#define libmesh_assert_greater(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00347">libmesh_common.h:347</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1MeshTools_1_1Subdivision_html_a9ddda19838f9b54edff4cb8970e7363c"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools_1_1Subdivision.html#a9ddda19838f9b54edff4cb8970e7363c">libMesh::MeshTools::Subdivision::next</a></div><div class="ttdeci">static const unsigned int next[3]</div><div class="ttdef"><b>Definition:</b> <a href="mesh__subdivision__support_8h_source.html#l00103">mesh_subdivision_support.h:103</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a1d5c90aa05040706b3d518c3e00531b9"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">libMesh::CouplingMatrix::_ranges</a></div><div class="ttdeci">rc_type _ranges</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00117">coupling_matrix.h:117</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -341,19 +469,20 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the (i,j) entry of the matrix. </dd></dl>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00558">558</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00560">560</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00120">_size</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00097">ConstCouplingAccessor</a>.</p>
-<div class="fragment"><div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;{</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  libmesh_assert_less (i, <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>);</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;  libmesh_assert_less (j, <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>);</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  <span class="keyword">const</span> std::size_t location = std::size_t(i)*<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> + j;</div>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00122">_size</a>, <a class="el" href="coupling__matrix_8h_source.html#l00099">ConstCouplingAccessor</a>, and <a class="el" href="libmesh__common_8h_source.html#l00346">libmesh_assert_less</a>.</p>
+<div class="fragment"><div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;{</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>);</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (j, <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>);</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  <span class="keywordflow">return</span> bool(<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a92e971902207fa4f382be04ce27770de">ConstCouplingAccessor</a>(location, *<span class="keyword">this</span>));</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00120">coupling_matrix.h:120</a></div></div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a92e971902207fa4f382be04ce27770de"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a92e971902207fa4f382be04ce27770de">libMesh::CouplingMatrix::ConstCouplingAccessor</a></div><div class="ttdeci">friend class ConstCouplingAccessor</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00097">coupling_matrix.h:97</a></div></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  <span class="keyword">const</span> std::size_t location = std::size_t(i)*<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> + j;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;  <span class="keywordflow">return</span> bool(<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a92e971902207fa4f382be04ce27770de">ConstCouplingAccessor</a>(location, *<span class="keyword">this</span>));</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;}</div>
+<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00122">coupling_matrix.h:122</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a92e971902207fa4f382be04ce27770de"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a92e971902207fa4f382be04ce27770de">libMesh::CouplingMatrix::ConstCouplingAccessor</a></div><div class="ttdeci">friend class ConstCouplingAccessor</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00099">coupling_matrix.h:99</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -390,16 +519,16 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the (i,j) entry of the matrix as a smart-reference. </dd></dl>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00573">573</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00575">575</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00120">_size</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00098">CouplingAccessor</a>.</p>
-<div class="fragment"><div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;{</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;  <span class="keyword">const</span> std::size_t location = std::size_t(i)*<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> + j;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1CouplingMatrix.html#ad66869e3c3403a25fd22c74f2ca8f661">CouplingAccessor</a>(location, *<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00120">coupling_matrix.h:120</a></div></div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_ad66869e3c3403a25fd22c74f2ca8f661"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#ad66869e3c3403a25fd22c74f2ca8f661">libMesh::CouplingMatrix::CouplingAccessor</a></div><div class="ttdeci">friend class CouplingAccessor</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00098">coupling_matrix.h:98</a></div></div>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00122">_size</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00100">CouplingAccessor</a>.</p>
+<div class="fragment"><div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;{</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  <span class="keyword">const</span> std::size_t location = std::size_t(i)*<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> + j;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1CouplingMatrix.html#ad66869e3c3403a25fd22c74f2ca8f661">CouplingAccessor</a>(location, *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00122">coupling_matrix.h:122</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_ad66869e3c3403a25fd22c74f2ca8f661"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#ad66869e3c3403a25fd22c74f2ca8f661">libMesh::CouplingMatrix::CouplingAccessor</a></div><div class="ttdeci">friend class CouplingAccessor</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00100">coupling_matrix.h:100</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -426,18 +555,18 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Resizes the matrix and initializes all entries to be 0. </p>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00592">592</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00594">594</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00115">_ranges</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00120">_size</a>.</p>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00117">_ranges</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00122">_size</a>.</p>
 
-<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00602">clear()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00549">CouplingMatrix()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;{</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;  <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> = n;</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;  <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.clear();</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00120">coupling_matrix.h:120</a></div></div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a1d5c90aa05040706b3d518c3e00531b9"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">libMesh::CouplingMatrix::_ranges</a></div><div class="ttdeci">rc_type _ranges</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00115">coupling_matrix.h:115</a></div></div>
+<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00604">clear()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00551">CouplingMatrix()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;{</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;  <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a> = n;</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;  <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.clear();</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00122">coupling_matrix.h:122</a></div></div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a1d5c90aa05040706b3d518c3e00531b9"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">libMesh::CouplingMatrix::_ranges</a></div><div class="ttdeci">rc_type _ranges</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00117">coupling_matrix.h:117</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -463,15 +592,15 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the size of the matrix, i.e. N for an NxN matrix. </dd></dl>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00584">584</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00586">586</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>References <a class="el" href="coupling__matrix_8h_source.html#l00120">_size</a>.</p>
+<p>References <a class="el" href="coupling__matrix_8h_source.html#l00122">_size</a>.</p>
 
-<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00131">libMesh::ConstCouplingAccessor::ConstCouplingAccessor()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00332">libMesh::ConstCouplingRow::ConstCouplingRow()</a>, <a class="el" href="dof__map_8C_source.html#l02461">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00467">libMesh::ConstCouplingRowConstIterator::operator*()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00474">libMesh::ConstCouplingRowConstIterator::operator++()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;{</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>;</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00120">coupling_matrix.h:120</a></div></div>
+<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00133">libMesh::ConstCouplingAccessor::ConstCouplingAccessor()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00334">libMesh::ConstCouplingRow::ConstCouplingRow()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00202">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00469">libMesh::ConstCouplingRowConstIterator::operator*()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00476">libMesh::ConstCouplingRowConstIterator::operator++()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;{</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">_size</a>;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a0e63cd0badc321431e234c1f43e76f62"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a0e63cd0badc321431e234c1f43e76f62">libMesh::CouplingMatrix::_size</a></div><div class="ttdeci">unsigned int _size</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00122">coupling_matrix.h:122</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -494,9 +623,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00097">97</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00099">99</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00558">operator()()</a>.</p>
+<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00560">operator()()</a>.</p>
 
 </div>
 </div>
@@ -518,7 +647,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00099">99</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00101">101</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
 </div>
 </div>
@@ -540,7 +669,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00100">100</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00102">102</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
 </div>
 </div>
@@ -562,9 +691,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00098">98</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00100">100</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00573">operator()()</a>.</p>
+<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00575">operator()()</a>.</p>
 
 </div>
 </div>
@@ -587,9 +716,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00115">115</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00117">117</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00332">libMesh::ConstCouplingRow::ConstCouplingRow()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00446">libMesh::ConstCouplingRowConstIterator::ConstCouplingRowConstIterator()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00538">libMesh::ConstCouplingRow::end()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00138">libMesh::ConstCouplingAccessor::operator bool()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00474">libMesh::ConstCouplingRowConstIterator::operator++()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00203">libMesh::CouplingAccessor::operator=()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00592">resize()</a>.</p>
+<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00334">libMesh::ConstCouplingRow::ConstCouplingRow()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00448">libMesh::ConstCouplingRowConstIterator::ConstCouplingRowConstIterator()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00540">libMesh::ConstCouplingRow::end()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00140">libMesh::ConstCouplingAccessor::operator bool()</a>, <a class="el" href="coupling__matrix_8C_source.html#l00024">operator&amp;=()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00476">libMesh::ConstCouplingRowConstIterator::operator++()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00205">libMesh::CouplingAccessor::operator=()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00594">resize()</a>.</p>
 
 </div>
 </div>
@@ -612,14 +741,15 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>The size of the matrix. </p>
 
-<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00120">120</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
+<p>Definition at line <a class="el" href="coupling__matrix_8h_source.html#l00122">122</a> of file <a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00610">empty()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00558">operator()()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00592">resize()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00584">size()</a>.</p>
+<p>Referenced by <a class="el" href="coupling__matrix_8h_source.html#l00612">empty()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00560">operator()()</a>, <a class="el" href="coupling__matrix_8h_source.html#l00594">resize()</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00586">size()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="coupling__matrix_8h_source.html">coupling_matrix.h</a></li>
+<li><a class="el" href="coupling__matrix_8C_source.html">coupling_matrix.C</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

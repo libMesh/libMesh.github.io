@@ -160,10 +160,13 @@ template&lt;class IndexType&gt; </div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="metis__csr__graph_8h_source.html#l00055">55</a> of file <a class="el" href="metis__csr__graph_8h_source.html">metis_csr_graph.h</a>.</p>
+
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00346">libmesh_assert_less</a>.</p>
 <div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    libmesh_assert_less (row+1, <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.size());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (row+1, <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.size());</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row+1] - <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
+<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a754fa003397f670e00c771b9716a3cb6"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">libMesh::METIS_CSR_Graph::offsets</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; offsets</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -204,14 +207,14 @@ template&lt;class IndexType&gt; </div>
 
 <p>Definition at line <a class="el" href="metis__csr__graph_8h_source.html#l00074">74</a> of file <a class="el" href="metis__csr__graph_8h_source.html">metis_csr_graph.h</a>.</p>
 
-<p>References <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>.</p>
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00347">libmesh_assert_greater</a>.</p>
 <div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.size(), <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]+nonzero);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a> (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.size(), <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]+nonzero);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>[<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]+nonzero];</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a754fa003397f670e00c771b9716a3cb6"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">libMesh::METIS_CSR_Graph::offsets</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; offsets</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
+<div class="ttc" id="libmesh__common_8h_html_af799123aec103b0960ec3dd56dcab3f0"><div class="ttname"><a href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a></div><div class="ttdeci">#define libmesh_assert_greater(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00347">libmesh_common.h:347</a></div></div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a5eea4189cacbaa8b70a18ba2c270cdee"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">libMesh::METIS_CSR_Graph::vals</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; vals</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -252,14 +255,14 @@ template&lt;class IndexType&gt; </div>
 
 <p>Definition at line <a class="el" href="metis__csr__graph_8h_source.html#l00083">83</a> of file <a class="el" href="metis__csr__graph_8h_source.html">metis_csr_graph.h</a>.</p>
 
-<p>References <a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater()</a>.</p>
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00347">libmesh_assert_greater</a>.</p>
 <div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.size(), <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]+nonzero);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a> (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.size(), <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]+nonzero);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>[<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row]+nonzero];</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a754fa003397f670e00c771b9716a3cb6"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">libMesh::METIS_CSR_Graph::offsets</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; offsets</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
+<div class="ttc" id="libmesh__common_8h_html_af799123aec103b0960ec3dd56dcab3f0"><div class="ttname"><a href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a></div><div class="ttdeci">#define libmesh_assert_greater(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00347">libmesh_common.h:347</a></div></div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a5eea4189cacbaa8b70a18ba2c270cdee"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">libMesh::METIS_CSR_Graph::vals</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; vals</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -300,11 +303,14 @@ template&lt;class IndexType&gt; </div>
 
 <p>Definition at line <a class="el" href="metis__csr__graph_8h_source.html#l00046">46</a> of file <a class="el" href="metis__csr__graph_8h_source.html">metis_csr_graph.h</a>.</p>
 
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00346">libmesh_assert_less</a>.</p>
+
 <p>Referenced by <a class="el" href="metis__partitioner_8C_source.html#l00062">libMesh::MetisPartitioner::_do_partition()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    libmesh_assert_less (row+1, <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.size());</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (row+1, <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.size());</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>[row+1] = n_nonzeros_in;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
+<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a754fa003397f670e00c771b9716a3cb6"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">libMesh::METIS_CSR_Graph::offsets</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; offsets</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -334,18 +340,18 @@ template&lt;class IndexType&gt; </div>
 
 <p>Definition at line <a class="el" href="metis__csr__graph_8h_source.html#l00062">62</a> of file <a class="el" href="metis__csr__graph_8h_source.html">metis_csr_graph.h</a>.</p>
 
-<p>References <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>.</p>
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00342">libmesh_assert</a>.</p>
 
 <p>Referenced by <a class="el" href="metis__partitioner_8C_source.html#l00062">libMesh::MetisPartitioner::_do_partition()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::partial_sum (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.begin(), <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.end(), <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.begin());</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (!<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.empty());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (!<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.empty());</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.resize(<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">offsets</a>.back());</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.empty())</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <a class="code" href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">vals</a>.push_back(0);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a754fa003397f670e00c771b9716a3cb6"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a754fa003397f670e00c771b9716a3cb6">libMesh::METIS_CSR_Graph::offsets</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; offsets</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
 <div class="ttc" id="classlibMesh_1_1METIS__CSR__Graph_html_a5eea4189cacbaa8b70a18ba2c270cdee"><div class="ttname"><a href="classlibMesh_1_1METIS__CSR__Graph.html#a5eea4189cacbaa8b70a18ba2c270cdee">libMesh::METIS_CSR_Graph::vals</a></div><div class="ttdeci">std::vector&lt; IndexType &gt; vals</div><div class="ttdef"><b>Definition:</b> <a href="metis__csr__graph_8h_source.html#l00044">metis_csr_graph.h:44</a></div></div>
 </div><!-- fragment -->

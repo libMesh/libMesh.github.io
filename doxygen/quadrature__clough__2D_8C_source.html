@@ -125,12 +125,12 @@
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> QClough::init_2D(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QClough.html#ae66eb0e930cb8f0df8229eeda1dd9019">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QClough.html#ae66eb0e930cb8f0df8229eeda1dd9019">QClough::init_2D</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &gt; 1</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  QGauss gauss_rule(2, _order);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  gauss_rule.init(<a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>, p);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classlibMesh_1_1QGauss.html">QGauss</a> gauss_rule(2, <a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  gauss_rule.<a class="code" href="classlibMesh_1_1QBase.html#a209fa2f26083d1256e389fe90176325a">init</a>(<a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>, p);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">//-----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// 2D quadrature rules</span></div>
@@ -142,26 +142,26 @@
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">TRI3</a>:</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::vector&lt;Point&gt; &amp; gausspoints = gauss_rule.get_points();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::vector&lt;Real&gt; &amp; gaussweights = gauss_rule.get_weights();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::vector&lt;Point&gt; &amp; gausspoints = gauss_rule.<a class="code" href="classlibMesh_1_1QBase.html#ad8d49997a7441bc59f3a44f77fae4852">get_points</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::vector&lt;Real&gt; &amp; gaussweights = gauss_rule.<a class="code" href="classlibMesh_1_1QBase.html#a2edd6df821d4beabee5c354982b77ad7">get_weights</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::size_t numgausspts = gausspoints.size();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        _points.resize(numgausspts*3);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        _weights.resize(numgausspts*3);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.resize(numgausspts*3);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>.resize(numgausspts*3);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i != numgausspts; ++i)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            _points[3*i](0) = gausspoints[i](0) +</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[3*i](0) = gausspoints[i](0) +</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;              gausspoints[i](1) / 3.;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            _points[3*i](1) = gausspoints[i](1) / 3.;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            _points[3*i+1](0) = gausspoints[i](1) / 3.;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            _points[3*i+1](1) = gausspoints[i](0) +</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[3*i](1) = gausspoints[i](1) / 3.;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[3*i+1](0) = gausspoints[i](1) / 3.;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[3*i+1](1) = gausspoints[i](0) +</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;              gausspoints[i](1) / 3.;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _points[3*i+2](0) = 1./3. +</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[3*i+2](0) = 1./3. +</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;              gausspoints[i](0) * 2./3. -</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;              gausspoints[i](1) / 3.;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            _points[3*i+2](1) = 1./3. -</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[3*i+2](1) = 1./3. -</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;              gausspoints[i](0) / 3. +</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;              gausspoints[i](1) * 2./3.;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            _weights[3*i] = gaussweights[i] / 3.;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>[3*i] = gaussweights[i] / 3.;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            _weights[3*i+1] = _weights[3*i];</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            _weights[3*i+2] = _weights[3*i];</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          }</div>
@@ -172,18 +172,27 @@
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="comment">//---------------------------------------------</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="comment">// Unsupported type</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Element type not supported!:&quot;</span> &lt;&lt; type_in);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Element type not supported!:&quot;</span> &lt;&lt; type_in);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a209fa2f26083d1256e389fe90176325a"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a209fa2f26083d1256e389fe90176325a">libMesh::QBase::init</a></div><div class="ttdeci">virtual void init(const ElemType type=INVALID_ELEM, unsigned int p_level=0)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8C_source.html#l00028">quadrature.C:28</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">libMesh::TRI6</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00035">enum_elem_type.h:35</a></div></div>
 <div class="ttc" id="quadrature__clough_8h_html"><div class="ttname"><a href="quadrature__clough_8h.html">quadrature_clough.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a1441476b56fadfe883bc33bc4df93143"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">libMesh::QBase::_points</a></div><div class="ttdeci">std::vector&lt; Point &gt; _points</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00339">quadrature.h:339</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_aa77bcb5a61b21af01c0ebaca722631d1"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">libMesh::QBase::_weights</a></div><div class="ttdeci">std::vector&lt; Real &gt; _weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00344">quadrature.h:344</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">libMesh::TRI3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00034">enum_elem_type.h:34</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QClough_html_ae66eb0e930cb8f0df8229eeda1dd9019"><div class="ttname"><a href="classlibMesh_1_1QClough.html#ae66eb0e930cb8f0df8229eeda1dd9019">libMesh::QClough::init_2D</a></div><div class="ttdeci">void init_2D(const ElemType _type=INVALID_ELEM, unsigned int p_level=0) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__clough__2D_8C_source.html#l00028">quadrature_clough_2D.C:28</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a2edd6df821d4beabee5c354982b77ad7"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a2edd6df821d4beabee5c354982b77ad7">libMesh::QBase::get_weights</a></div><div class="ttdeci">const std::vector&lt; Real &gt; &amp; get_weights() const </div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00139">quadrature.h:139</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_ad8d49997a7441bc59f3a44f77fae4852"><div class="ttname"><a href="classlibMesh_1_1QBase.html#ad8d49997a7441bc59f3a44f77fae4852">libMesh::QBase::get_points</a></div><div class="ttdeci">const std::vector&lt; Point &gt; &amp; get_points() const </div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00128">quadrature.h:128</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGauss_html"><div class="ttname"><a href="classlibMesh_1_1QGauss.html">libMesh::QGauss</a></div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss_8h_source.html#l00040">quadrature_gauss.h:40</a></div></div>
 <div class="ttc" id="quadrature__gauss_8h_html"><div class="ttname"><a href="quadrature__gauss_8h.html">quadrature_gauss.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a56351aa7f267b005de6b67f5cfc7f88f"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">libMesh::QBase::_order</a></div><div class="ttdeci">const Order _order</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00321">quadrature.h:321</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

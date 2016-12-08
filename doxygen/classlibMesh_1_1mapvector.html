@@ -150,10 +150,10 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Val, typename index_t = unsigned int&gt;<br />
 class libMesh::mapvector&lt; Val, index_t &gt;</h3>
 
-<p>This <code>mapvector</code> templated class is intended to provide the performance characteristics of a std::map with an interface more closely resembling that of a std::vector, for use with <a class="el" href="classlibMesh_1_1ParallelMesh.html">ParallelMesh</a>.</p>
+<p>This <code>mapvector</code> templated class is intended to provide the performance characteristics of a std::map with an interface more closely resembling that of a std::vector, for use with <a class="el" href="classlibMesh_1_1DistributedMesh.html">DistributedMesh</a>.</p>
 <dl class="section author"><dt>Author</dt><dd>Roy H. Stogner </dd></dl>
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00038">38</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00039">39</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="af61baa5e999c242cd064b1fa1e1a3377"></a>
 <div class="memitem">
@@ -167,7 +167,7 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00041">41</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00042">42</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
 
 </div>
 </div>
@@ -195,12 +195,12 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00124">124</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00125">125</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel__mesh_8C_source.html#l01325">libMesh::ParallelMesh::fix_broken_node_and_element_numbering()</a>, and <a class="el" href="parallel__mesh_8C_source.html#l01004">libMesh::ParallelMesh::renumber_dof_objects()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                           {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> veclike_iterator(maptype::begin());</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  }</div>
+<p>Referenced by <a class="el" href="distributed__mesh_8C_source.html#l01295">libMesh::DistributedMesh::fix_broken_node_and_element_numbering()</a>, and <a class="el" href="distributed__mesh_8C_source.html#l00977">libMesh::DistributedMesh::renumber_dof_objects()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                           {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> veclike_iterator(maptype::begin());</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -227,10 +227,10 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00128">128</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                                       {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">return</span> const_veclike_iterator(maptype::begin());</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  }</div>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00129">129</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                       {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> const_veclike_iterator(maptype::begin());</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -257,13 +257,12 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00132">132</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00133">133</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel__mesh_8C_source.html#l01325">libMesh::ParallelMesh::fix_broken_node_and_element_numbering()</a>, <a class="el" href="mapvector_8h_source.html#l00047">libMesh::mapvector&lt; libMesh::Elem *, dof_id_type &gt;::operator[]()</a>, and <a class="el" href="parallel__mesh_8C_source.html#l01004">libMesh::ParallelMesh::renumber_dof_objects()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                         {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> veclike_iterator(<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">maptype::end</a>());</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  }</div>
-<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<p>Referenced by <a class="el" href="distributed__mesh_8C_source.html#l01295">libMesh::DistributedMesh::fix_broken_node_and_element_numbering()</a>, <a class="el" href="mapvector_8h_source.html#l00048">libMesh::mapvector&lt; libMesh::Elem *, dof_id_type &gt;::operator[]()</a>, and <a class="el" href="distributed__mesh_8C_source.html#l00977">libMesh::DistributedMesh::renumber_dof_objects()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                         {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> veclike_iterator(maptype::end());</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -290,11 +289,10 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00136">136</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                                     {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> const_veclike_iterator(<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">maptype::end</a>());</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  }</div>
-<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00137">137</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                                     {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">return</span> const_veclike_iterator(maptype::end());</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -322,12 +320,12 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00116">116</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00117">117</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel__mesh_8C_source.html#l01004">libMesh::ParallelMesh::renumber_dof_objects()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                        {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    maptype::erase(i);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  }</div>
+<p>Referenced by <a class="el" href="distributed__mesh_8C_source.html#l00977">libMesh::DistributedMesh::renumber_dof_objects()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                        {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    maptype::erase(i);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -355,10 +353,10 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00120">120</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                                           {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    maptype::erase(pos.it);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00121">121</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                           {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    maptype::erase(pos.it);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -386,10 +384,10 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00043">43</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> maptype::operator[](k);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00044">44</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> maptype::operator[](k);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -417,13 +415,13 @@ template&lt;typename Val, typename index_t = unsigned int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00047">47</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">typename</span> maptype::const_iterator it = this-&gt;find(k);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> it == this-&gt;<a class="code" href="classlibMesh_1_1mapvector.html#ada6e1cc68e866bde8d900fbcca737674">end</a>().<a class="code" href="classlibMesh_1_1mapvector_1_1veclike__iterator.html#af599435b6ea939285486ea28e831bcb3">it</a>? Val() : it-&gt;second;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1mapvector_1_1veclike__iterator_html_af599435b6ea939285486ea28e831bcb3"><div class="ttname"><a href="classlibMesh_1_1mapvector_1_1veclike__iterator.html#af599435b6ea939285486ea28e831bcb3">libMesh::mapvector::veclike_iterator::it</a></div><div class="ttdeci">maptype::iterator it</div><div class="ttdef"><b>Definition:</b> <a href="mapvector_8h_source.html#l00080">mapvector.h:80</a></div></div>
-<div class="ttc" id="classlibMesh_1_1mapvector_html_ada6e1cc68e866bde8d900fbcca737674"><div class="ttname"><a href="classlibMesh_1_1mapvector.html#ada6e1cc68e866bde8d900fbcca737674">libMesh::mapvector::end</a></div><div class="ttdeci">veclike_iterator end()</div><div class="ttdef"><b>Definition:</b> <a href="mapvector_8h_source.html#l00132">mapvector.h:132</a></div></div>
+<p>Definition at line <a class="el" href="mapvector_8h_source.html#l00048">48</a> of file <a class="el" href="mapvector_8h_source.html">mapvector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">typename</span> maptype::const_iterator it = this-&gt;find(k);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> it == this-&gt;<a class="code" href="classlibMesh_1_1mapvector.html#ada6e1cc68e866bde8d900fbcca737674">end</a>().<a class="code" href="classlibMesh_1_1mapvector_1_1veclike__iterator.html#af599435b6ea939285486ea28e831bcb3">it</a>? Val() : it-&gt;second;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1mapvector_1_1veclike__iterator_html_af599435b6ea939285486ea28e831bcb3"><div class="ttname"><a href="classlibMesh_1_1mapvector_1_1veclike__iterator.html#af599435b6ea939285486ea28e831bcb3">libMesh::mapvector::veclike_iterator::it</a></div><div class="ttdeci">maptype::iterator it</div><div class="ttdef"><b>Definition:</b> <a href="mapvector_8h_source.html#l00081">mapvector.h:81</a></div></div>
+<div class="ttc" id="classlibMesh_1_1mapvector_html_ada6e1cc68e866bde8d900fbcca737674"><div class="ttname"><a href="classlibMesh_1_1mapvector.html#ada6e1cc68e866bde8d900fbcca737674">libMesh::mapvector::end</a></div><div class="ttdeci">veclike_iterator end()</div><div class="ttdef"><b>Definition:</b> <a href="mapvector_8h_source.html#l00133">mapvector.h:133</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

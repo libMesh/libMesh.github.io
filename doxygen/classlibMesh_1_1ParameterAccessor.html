@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e57515a50ebe2bb94a13dc9ef9931f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11671dbe7f9b4e9cddf760a1805501ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1ConstParameterProxy.html">ConstParameterProxy</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParameterAccessor.html#a11671dbe7f9b4e9cddf760a1805501ec">operator*</a> () const </td></tr>
 <tr class="separator:a11671dbe7f9b4e9cddf760a1805501ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3b29d473d09a87deb26b398e4ce31f3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParameterAccessor.html#ac3b29d473d09a87deb26b398e4ce31f3">clone</a> () const =0</td></tr>
+<tr class="memitem:ac3b29d473d09a87deb26b398e4ce31f3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParameterAccessor.html#ac3b29d473d09a87deb26b398e4ce31f3">clone</a> () const =0</td></tr>
 <tr class="separator:ac3b29d473d09a87deb26b398e4ce31f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -179,7 +179,7 @@ template&lt;typename T = Number&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt;T&gt; &gt; <a class="el" href="classlibMesh_1_1ParameterAccessor.html">libMesh::ParameterAccessor</a>&lt; T &gt;::clone </td>
+          <td class="memname">virtual <a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt;T&gt; &gt; <a class="el" href="classlibMesh_1_1ParameterAccessor.html">libMesh::ParameterAccessor</a>&lt; T &gt;::clone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -252,7 +252,8 @@ template&lt;typename T = Number&gt; </div>
 <p>Proxy: for backward compatibility, we allow codes to treat a <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a> as if it were a simple pointer-to-value. We can't safely allow "Number * n = parameter_vector[p]" to compile, but we can allow "*parameter_vector[p] += deltap" to work. </p>
 
 <p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00082">82</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{ <span class="keywordflow">return</span> ParameterProxy&lt;T&gt;(*this); }</div>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ParameterProxy.html">ParameterProxy&lt;T&gt;</a>(*this); }</div>
+<div class="ttc" id="classlibMesh_1_1ParameterProxy_html"><div class="ttname"><a href="classlibMesh_1_1ParameterProxy.html">libMesh::ParameterProxy</a></div><div class="ttdef"><b>Definition:</b> <a href="parameter__accessor_8h_source.html#l00034">parameter_accessor.h:34</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -280,7 +281,8 @@ template&lt;typename T = Number&gt; </div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00084">84</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{ <span class="keywordflow">return</span> ConstParameterProxy&lt;T&gt;(*this); }</div>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ConstParameterProxy.html">ConstParameterProxy&lt;T&gt;</a>(*this); }</div>
+<div class="ttc" id="classlibMesh_1_1ConstParameterProxy_html"><div class="ttname"><a href="classlibMesh_1_1ConstParameterProxy.html">libMesh::ConstParameterProxy</a></div><div class="ttdef"><b>Definition:</b> <a href="parameter__accessor_8h_source.html#l00037">parameter_accessor.h:37</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -312,7 +314,10 @@ template&lt;typename T = Number&gt; </div>
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1ParameterMultiAccessor.html#acf904c56546598a17c59e7fcf931ddc4">libMesh::ParameterMultiAccessor&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#ae8252055d263b8a91ddaf15e4dc34b99">libMesh::ParsedFEMFunctionParameter&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1ParameterPointer.html#a9ee95e9883dcf2936a50f8f86a75ee37">libMesh::ParameterPointer&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFunctionParameter.html#a4e96933444b12063329761e5caae72f1">libMesh::ParsedFunctionParameter&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1ParameterMultiPointer.html#a1d75878ed7520f03957fe96038ffb411">libMesh::ParameterMultiPointer&lt; T &gt;</a>.</p>
 
 <p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00074">74</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{ libmesh_error(); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+
+<p>References <a class="el" href="libmesh__common_8h_source.html#l00369">libmesh_error</a>.</p>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{ <a class="code" href="libmesh__common_8h.html#a22c643f05c68ba6f8c105f8a03ed3d61">libmesh_error</a>(); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="ttc" id="libmesh__common_8h_html_a22c643f05c68ba6f8c105f8a03ed3d61"><div class="ttname"><a href="libmesh__common_8h.html#a22c643f05c68ba6f8c105f8a03ed3d61">libmesh_error</a></div><div class="ttdeci">#define libmesh_error()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00369">libmesh_common.h:369</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

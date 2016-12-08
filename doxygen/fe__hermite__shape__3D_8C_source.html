@@ -160,11 +160,11 @@
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i != n_mapping_shape_functions; ++i)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> ddxi = <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,LAGRANGE&gt;::shape_deriv</a></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> ddxi = <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,LAGRANGE&gt;::shape_deriv</a></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            (mapping_elem_type, mapping_order, i, 0, dofpt[p]);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> ddeta = <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,LAGRANGE&gt;::shape_deriv</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> ddeta = <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,LAGRANGE&gt;::shape_deriv</a></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            (mapping_elem_type, mapping_order, i, 1, dofpt[p]);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> ddzeta = <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,LAGRANGE&gt;::shape_deriv</a></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> ddzeta = <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,LAGRANGE&gt;::shape_deriv</a></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            (mapping_elem_type, mapping_order, i, 2, dofpt[p]);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          <span class="comment">// dxdeta, dxdzeta, dydxi, dydzeta, dzdxi, dzdeta should all</span></div>
@@ -184,31 +184,31 @@
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment">// No singular elements!</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(dxdxi[0][p]);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(dxdxi[1][p]);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(dxdxi[2][p]);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(dxdxi[0][p]);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(dxdxi[1][p]);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(dxdxi[2][p]);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="comment">// No non-rectilinear or non-axis-aligned elements!</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      libmesh_assert_less (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dydxi[p]), <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      libmesh_assert_less (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dzdeta[p]), <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      libmesh_assert_less (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dxdzeta[p]), <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      libmesh_assert_less (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dzdxi[p]), <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      libmesh_assert_less (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dxdeta[p]), <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      libmesh_assert_less (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dydzeta[p]), <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (std::abs(dydxi[p]), <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (std::abs(dzdeta[p]), <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (std::abs(dxdzeta[p]), <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (std::abs(dzdxi[p]), <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (std::abs(dxdeta[p]), <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (std::abs(dydzeta[p]), <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> hermite_bases_3D (std::vector&lt;unsigned int&gt; &amp; bases1D,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> hermite_bases_3D (std::vector&lt;unsigned int&gt; &amp; bases1D,</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                       <span class="keyword">const</span> std::vector&lt;std::vector&lt;Real&gt; &gt; &amp; dxdxi,</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> &amp; o,</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                       <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  bases1D.clear();</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  bases1D.resize(3,0);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> coef = 1.0;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> coef = 1.0;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e = o-2;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
@@ -246,7 +246,7 @@
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          bases1D[2] = 1;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid basis node = &quot;</span> &lt;&lt; i/8);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid basis node = &quot;</span> &lt;&lt; i/8);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> basisnum = i%8;</div>
@@ -277,7 +277,7 @@
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          coef = dxdxi[0][bases1D[0]] * dxdxi[1][bases1D[1]] * dxdxi[2][bases1D[2]];</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          bases1D[0] += 2; bases1D[1] += 2; bases1D[2] += 2; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid basisnum = &quot;</span> &lt;&lt; basisnum);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid basisnum = &quot;</span> &lt;&lt; basisnum);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="comment">// Edges</span></div>
@@ -395,7 +395,7 @@
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            coef *= dxdxi[2][1];</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid basis node = &quot;</span> &lt;&lt; (i - 64) / (4*e));</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid basis node = &quot;</span> &lt;&lt; (i - 64) / (4*e));</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        }</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="comment">// Faces</span></div>
@@ -447,7 +447,7 @@
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            coef *= dxdxi[2][1];</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid basis node = &quot;</span> &lt;&lt; (i - 64 - 12*4*e) / (2*e*e));</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid basis node = &quot;</span> &lt;&lt; (i - 64 - 12*4*e) / (2*e*e));</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        }</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    }</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="comment">// Interior</span></div>
@@ -460,7 +460,7 @@
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    }</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  <span class="comment">// No singular elements</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(coef);</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(coef);</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  <span class="keywordflow">return</span> coef;</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;}</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
@@ -473,24 +473,24 @@
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a9a3778f9694ae9a73c6ba801cb776336">  376</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,HERMITE&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
+<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a9a3778f9694ae9a73c6ba801cb776336">  376</a></span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,HERMITE&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp;)</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;{</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Hermite elements require the real element \nto construct gradient-based degrees of freedom.&quot;</span>);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Hermite elements require the real element \nto construct gradient-based degrees of freedom.&quot;</span>);</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;}</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a53e81ef0a27409f1d415f9afb5399f3e">  388</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,HERMITE&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
+<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a53e81ef0a27409f1d415f9afb5399f3e">  388</a></span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> <a class="code" href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">FE&lt;3,HERMITE&gt;::shape</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                          <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;{</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  std::vector&lt;std::vector&lt;Real&gt; &gt; dxdxi(3, std::vector&lt;Real&gt;(2, 0));</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
@@ -520,11 +520,11 @@
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">HEX20</a>:</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60">HEX27</a>:</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            {</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;              libmesh_assert_less (i, 64);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;              <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, 64);</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;              std::vector&lt;unsigned int&gt; bases1D;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;              <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> coef = hermite_bases_3D(bases1D, dxdxi, totalorder, i);</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;              <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> coef = hermite_bases_3D(bases1D, dxdxi, totalorder, i);</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;              <span class="keywordflow">return</span> coef *</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                <a class="code" href="classlibMesh_1_1FEHermite.html#a6f0abdeeaa596a55f6e2fd75c2f28793">FEHermite&lt;1&gt;::hermite_raw_shape</a>(bases1D[0],p(0)) *</div>
@@ -532,42 +532,42 @@
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                <a class="code" href="classlibMesh_1_1FEHermite.html#a6f0abdeeaa596a55f6e2fd75c2f28793">FEHermite&lt;1&gt;::hermite_raw_shape</a>(bases1D[2],p(2));</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            }</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported element type &quot;</span> &lt;&lt; type);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported element type &quot;</span> &lt;&lt; type);</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;          }</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      }</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;      <span class="comment">// by default throw an error</span></div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported polynomial order &quot;</span> &lt;&lt; totalorder);</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported polynomial order &quot;</span> &lt;&lt; totalorder);</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    }</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;}</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00450"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a01cc63e4d9e205fcacd01e23819bda8e">  450</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,HERMITE&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
+<div class="line"><a name="l00450"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a01cc63e4d9e205fcacd01e23819bda8e">  450</a></span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,HERMITE&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a>,</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                                <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a>,</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp;)</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;{</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;Hermite elements require the real element \nto construct gradient-based degrees of freedom.&quot;</span>);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Hermite elements require the real element \nto construct gradient-based degrees of freedom.&quot;</span>);</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;}</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a721bc38a56c896cd99a31301b7571704">  463</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,HERMITE&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a721bc38a56c896cd99a31301b7571704">  463</a></span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> <a class="code" href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">FE&lt;3,HERMITE&gt;::shape_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                                <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j,</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;                                <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;{</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (j == 0 || j == 1 || j == 2);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(elem);</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (j == 0 || j == 1 || j == 2);</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  std::vector&lt;std::vector&lt;Real&gt; &gt; dxdxi(3, std::vector&lt;Real&gt;(2, 0));</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;</div>
@@ -597,11 +597,11 @@
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">HEX20</a>:</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60">HEX27</a>:</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;            {</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;              libmesh_assert_less (i, 64);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;              <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, 64);</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;              std::vector&lt;unsigned int&gt; bases1D;</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;              <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> coef = hermite_bases_3D(bases1D, dxdxi, totalorder, i);</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;              <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> coef = hermite_bases_3D(bases1D, dxdxi, totalorder, i);</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;              <span class="keywordflow">switch</span> (j) <span class="comment">// Derivative type</span></div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                {</div>
@@ -624,33 +624,33 @@
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                    <a class="code" href="classlibMesh_1_1FEHermite.html#a7ee5b665d389361ec7673a1cb622fa68">FEHermite&lt;1&gt;::hermite_raw_shape_deriv</a>(bases1D[2],p(2));</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                  <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                  libmesh_error_msg(<span class="stringliteral">&quot;Invalid shape function derivative j = &quot;</span> &lt;&lt; j);</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid shape function derivative j = &quot;</span> &lt;&lt; j);</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                }</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            }</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported element type &quot;</span> &lt;&lt; type);</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported element type &quot;</span> &lt;&lt; type);</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;          }</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      }</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      <span class="comment">// by default throw an error</span></div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported polynomial order &quot;</span> &lt;&lt; totalorder);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported polynomial order &quot;</span> &lt;&lt; totalorder);</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    }</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;}</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00547"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#ada6d9d57fb83031a7d9be5b175639901">  547</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">FE&lt;3,HERMITE&gt;::shape_second_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
+<div class="line"><a name="l00547"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#ada6d9d57fb83031a7d9be5b175639901">  547</a></span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> <a class="code" href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">FE&lt;3,HERMITE&gt;::shape_second_deriv</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                                       <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                                       <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                                       <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j,</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                                       <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; p)</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;{</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;  std::vector&lt;std::vector&lt;Real&gt; &gt; dxdxi(3, std::vector&lt;Real&gt;(2, 0));</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;</div>
@@ -680,11 +680,11 @@
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">HEX20</a>:</div>
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60">HEX27</a>:</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            {</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;              libmesh_assert_less (i, 64);</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;              <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, 64);</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;              std::vector&lt;unsigned int&gt; bases1D;</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;              <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> coef = hermite_bases_3D(bases1D, dxdxi, totalorder, i);</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;              <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> coef = hermite_bases_3D(bases1D, dxdxi, totalorder, i);</div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;              <span class="keywordflow">switch</span> (j) <span class="comment">// Derivative type</span></div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                {</div>
@@ -725,54 +725,55 @@
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                    <a class="code" href="classlibMesh_1_1FEHermite.html#a8512f4698232e6fde9262b0ad1b272a2">FEHermite&lt;1&gt;::hermite_raw_shape_second_deriv</a>(bases1D[2],p(2));</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                  <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                  libmesh_error_msg(<span class="stringliteral">&quot;Invalid shape function derivative j = &quot;</span> &lt;&lt; j);</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid shape function derivative j = &quot;</span> &lt;&lt; j);</div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                }</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;            }</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported element type &quot;</span> &lt;&lt; type);</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported element type &quot;</span> &lt;&lt; type);</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;          }</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;      }</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;      <span class="comment">// by default throw an error</span></div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported polynomial order &quot;</span> &lt;&lt; totalorder);</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported polynomial order &quot;</span> &lt;&lt; totalorder);</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    }</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="namespacestd_html_a267975f6c8fdf9f989e14d438036706a"><div class="ttname"><a href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a></div><div class="ttdeci">double abs(double a)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00059">libmesh_augment_std_namespace.h:59</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_a14fc764dcdf832a73be18dccdeea2057"><div class="ttname"><a href="classlibMesh_1_1FE.html#a14fc764dcdf832a73be18dccdeea2057">libMesh::FE::shape</a></div><div class="ttdeci">static OutputShape shape(const ElemType t, const Order o, const unsigned int i, const Point &amp;p)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60">libMesh::HEX27</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00046">enum_elem_type.h:46</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a362aba1afba25a8417aa6d242e2f8d52"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">libMesh::Elem::p_level</a></div><div class="ttdeci">unsigned int p_level() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01886">elem.h:1886</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a362aba1afba25a8417aa6d242e2f8d52"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">libMesh::Elem::p_level</a></div><div class="ttdeci">unsigned int p_level() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l02141">elem.h:2141</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00091">elem.h:91</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a89b107ed0e100e4616f74b44b57d791d"><div class="ttname"><a href="namespacelibMesh.html#a89b107ed0e100e4616f74b44b57d791d">libMesh::cube_number_column</a></div><div class="ttdeci">const unsigned char cube_number_column[]</div><div class="ttdef"><b>Definition:</b> <a href="number__lookups_8C_source.html#l00085">number_lookups.C:85</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_ad379da500141852ba60830143c63cd43"><div class="ttname"><a href="classlibMesh_1_1FE.html#ad379da500141852ba60830143c63cd43">libMesh::FE::shape_deriv</a></div><div class="ttdeci">static OutputShape shape_deriv(const ElemType t, const Order o, const unsigned int i, const unsigned int j, const Point &amp;p)</div></div>
 <div class="ttc" id="elem_8h_html"><div class="ttname"><a href="elem_8h.html">elem.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ac935f799caf032c4008c5aa8facebaae"><div class="ttname"><a href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00139">libmesh_common.h:139</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEHermite_html_a8512f4698232e6fde9262b0ad1b272a2"><div class="ttname"><a href="classlibMesh_1_1FEHermite.html#a8512f4698232e6fde9262b0ad1b272a2">libMesh::FEHermite::hermite_raw_shape_second_deriv</a></div><div class="ttdeci">static Real hermite_raw_shape_second_deriv(const unsigned int basis_num, const Real xi)</div></div>
 <div class="ttc" id="classlibMesh_1_1FEHermite_html_a6f0abdeeaa596a55f6e2fd75c2f28793"><div class="ttname"><a href="classlibMesh_1_1FEHermite.html#a6f0abdeeaa596a55f6e2fd75c2f28793">libMesh::FEHermite::hermite_raw_shape</a></div><div class="ttdeci">static Real hermite_raw_shape(const unsigned int basis_num, const Real xi)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a6a98ddb5341c1a8eb7c5517d89db62d8"><div class="ttname"><a href="namespacelibMesh.html#a6a98ddb5341c1a8eb7c5517d89db62d8">libMesh::cube_number_row</a></div><div class="ttdeci">const unsigned char cube_number_row[]</div><div class="ttdef"><b>Definition:</b> <a href="number__lookups_8C_source.html#l00197">number_lookups.C:197</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_aa440e1e8b909592056f7f2c923aa43f1"><div class="ttname"><a href="namespacelibMesh.html#aa440e1e8b909592056f7f2c923aa43f1">libMesh::square_number_column</a></div><div class="ttdeci">const unsigned char square_number_column[]</div><div class="ttdef"><b>Definition:</b> <a href="number__lookups_8C_source.html#l00057">number_lookups.C:57</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a6c2acecfb9abd9fd0cff680913ba1447"><div class="ttname"><a href="namespacelibMesh.html#a6c2acecfb9abd9fd0cff680913ba1447">libMesh::cube_number_page</a></div><div class="ttdeci">const unsigned char cube_number_page[]</div><div class="ttdef"><b>Definition:</b> <a href="number__lookups_8C_source.html#l00309">number_lookups.C:309</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2ab78e3815e3128908caf511b48dd451eb"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ab78e3815e3128908caf511b48dd451eb">libMesh::HEX8</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00044">enum_elem_type.h:44</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_adccf009154cc053a5614ce132a2b153a"><div class="ttname"><a href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00142">libmesh_common.h:142</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966">libMesh::THIRD</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00035">enum_order.h:35</a></div></div>
 <div class="ttc" id="fe_8h_html"><div class="ttname"><a href="fe_8h.html">fe.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a2cb5212bd36caff163c65e3ccff273f0"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">libMesh::Elem::point</a></div><div class="ttdeci">const Point &amp; point(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01477">elem.h:1477</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a2cb5212bd36caff163c65e3ccff273f0"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">libMesh::Elem::point</a></div><div class="ttdeci">const Point &amp; point(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01593">elem.h:1593</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_ad81488d2e3cf77427008934b738f8d5d"><div class="ttname"><a href="classlibMesh_1_1FE.html#ad81488d2e3cf77427008934b738f8d5d">libMesh::FE::n_shape_functions</a></div><div class="ttdeci">virtual unsigned int n_shape_functions() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="fe_8C_source.html#l00036">fe.C:36</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a965e7ab9d110cb4710b0813363a43566"><div class="ttname"><a href="namespacelibMesh.html#a965e7ab9d110cb4710b0813363a43566">libMesh::square_number_row</a></div><div class="ttdeci">const unsigned char square_number_row[]</div><div class="ttdef"><b>Definition:</b> <a href="number__lookups_8C_source.html#l00070">number_lookups.C:70</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEHermite_html_a7ee5b665d389361ec7673a1cb622fa68"><div class="ttname"><a href="classlibMesh_1_1FEHermite.html#a7ee5b665d389361ec7673a1cb622fa68">libMesh::FEHermite::hermite_raw_shape_deriv</a></div><div class="ttdeci">static Real hermite_raw_shape_deriv(const unsigned int basis_num, const Real xi)</div></div>
 <div class="ttc" id="number__lookups_8h_html"><div class="ttname"><a href="number__lookups_8h.html">number_lookups.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a68d37810df08b5e3357d1f0f229a0759"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a68d37810df08b5e3357d1f0f229a0759">libMesh::Elem::default_order</a></div><div class="ttdeci">virtual Order default_order() const =0</div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_ad06f8ac22978144723179eed42d10bae"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">libMesh::Elem::type</a></div><div class="ttdeci">virtual ElemType type() const =0</div></div>
-<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00039">point.h:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdoc">A geometric point in (x,y,z) space. </div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00040">point.h:40</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">libMesh::HEX20</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00045">enum_elem_type.h:45</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_acd27c16c6639bf086a356a28ee443d4a"><div class="ttname"><a href="classlibMesh_1_1FE.html#acd27c16c6639bf086a356a28ee443d4a">libMesh::FE::shape_second_deriv</a></div><div class="ttdeci">static OutputShape shape_second_deriv(const ElemType t, const Order o, const unsigned int i, const unsigned int j, const Point &amp;p)</div></div>
 </div><!-- fragment --></div><!-- contents -->

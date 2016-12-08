@@ -180,23 +180,23 @@
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#ifdef LIBMESH_USE_COMPLEX_NUMBERS</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a6d4e6e8b690b770d64817bd6c7f7d14b">   83</a></span>&#160;std::string <a class="code" href="namespacelibMesh_1_1Utility.html#a6d4e6e8b690b770d64817bd6c7f7d14b">Utility::complex_filename</a> (<span class="keyword">const</span> std::string &amp; basename,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;std::string Utility::complex_filename (<span class="keyword">const</span> std::string &amp; basename,</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                       <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> r_o_c)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  std::string <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>(basename);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordflow">if</span> (r_o_c == 0)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    name.append(<span class="stringliteral">&quot;.real&quot;</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>.append(<span class="stringliteral">&quot;.real&quot;</span>);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    name.append(<span class="stringliteral">&quot;.imag&quot;</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>.append(<span class="stringliteral">&quot;.imag&quot;</span>);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#af5e69ae30b8a867ecb476d1b1e09384c">   99</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh_1_1Utility.html#af5e69ae30b8a867ecb476d1b1e09384c">Utility::prepare_complex_data</a>(<span class="keyword">const</span> std::vector&lt;Complex&gt; &amp; source,</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">void</span> Utility::prepare_complex_data(<span class="keyword">const</span> std::vector&lt;Complex&gt; &amp; source,</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                   std::vector&lt;Real&gt; &amp; real_part,</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                   std::vector&lt;Real&gt; &amp; imag_part)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
@@ -216,12 +216,10 @@
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Utility_html_a6d4e6e8b690b770d64817bd6c7f7d14b"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a6d4e6e8b690b770d64817bd6c7f7d14b">libMesh::Utility::complex_filename</a></div><div class="ttdeci">std::string complex_filename(const std::string &amp;basename, unsigned int r_o_c=0)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8C_source.html#l00083">utility.C:83</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a0e4485920eb5de9a47b6f8760a11361d"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a0e4485920eb5de9a47b6f8760a11361d">libMesh::Utility::get_timestamp</a></div><div class="ttdeci">std::string get_timestamp()</div><div class="ttdef"><b>Definition:</b> <a href="timestamp_8C_source.html#l00037">timestamp.C:37</a></div></div>
 <div class="ttc" id="timestamp_8h_html"><div class="ttname"><a href="timestamp_8h.html">timestamp.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_abfbbf7ee55c32d70de987564589f9924"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#abfbbf7ee55c32d70de987564589f9924">libMesh::Utility::system_info</a></div><div class="ttdeci">std::string system_info()</div><div class="ttdef"><b>Definition:</b> <a href="utility_8C_source.html#l00045">utility.C:45</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Utility_html_af5e69ae30b8a867ecb476d1b1e09384c"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#af5e69ae30b8a867ecb476d1b1e09384c">libMesh::Utility::prepare_complex_data</a></div><div class="ttdeci">void prepare_complex_data(const std::vector&lt; Complex &gt; &amp;source, std::vector&lt; Real &gt; &amp;real_part, std::vector&lt; Real &gt; &amp;imag_part)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8C_source.html#l00099">utility.C:99</a></div></div>
 <div class="ttc" id="utility_8h_html"><div class="ttname"><a href="utility_8h.html">utility.h</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

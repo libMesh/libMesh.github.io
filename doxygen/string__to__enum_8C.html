@@ -95,12 +95,42 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">string_to_enum.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="string__to__enum_8h_source.html">libmesh/string_to_enum.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__convergence__flags_8h_source.html">libmesh/enum_convergence_flags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__elem__quality_8h_source.html">libmesh/enum_elem_quality.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__elem__type_8h_source.html">libmesh/enum_elem_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__eigen__solver__type_8h_source.html">libmesh/enum_eigen_solver_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__fe__family_8h_source.html">libmesh/enum_fe_family.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__inf__map__type_8h_source.html">libmesh/enum_inf_map_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__io__package_8h_source.html">libmesh/enum_io_package.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__norm__type_8h_source.html">libmesh/enum_norm_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__order_8h_source.html">libmesh/enum_order.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__parallel__type_8h_source.html">libmesh/enum_parallel_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__point__locator__type_8h_source.html">libmesh/enum_point_locator_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__preconditioner__type_8h_source.html">libmesh/enum_preconditioner_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__quadrature__type_8h_source.html">libmesh/enum_quadrature_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__solver__package_8h_source.html">libmesh/enum_solver_package.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__solver__type_8h_source.html">libmesh/enum_solver_type.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__subset__solve__mode_8h_source.html">libmesh/enum_subset_solve_mode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__xdr__mode_8h_source.html">libmesh/enum_xdr_mode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for string_to_enum.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="string__to__enum_8C__incl.png" border="0" usemap="#string__to__enum_8C" alt=""/></div>
+<map name="string__to__enum_8C" id="string__to__enum_8C">
+<area shape="rect" id="node4" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1071,584,1258,611"/><area shape="rect" id="node18" href="string__to__enum_8h.html" title="libmesh/string_to_enum.h" alt="" coords="2169,427,2343,453"/><area shape="rect" id="node20" href="enum__convergence__flags_8h.html" title="libmesh/enum_convergence\l_flags.h" alt="" coords="330,81,519,122"/><area shape="rect" id="node21" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="45,179,243,205"/><area shape="rect" id="node22" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="268,179,453,205"/><area shape="rect" id="node23" href="enum__eigen__solver__type_8h.html" title="libmesh/enum_eigen\l_solver_type.h" alt="" coords="645,81,790,122"/><area shape="rect" id="node24" href="enum__fe__family_8h.html" title="libmesh/enum_fe_family.h" alt="" coords="815,88,991,115"/><area shape="rect" id="node25" href="enum__inf__map__type_8h.html" title="libmesh/enum_inf_map\l_type.h" alt="" coords="1017,81,1177,122"/><area shape="rect" id="node26" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="478,179,670,205"/><area shape="rect" id="node27" href="enum__norm__type_8h.html" title="libmesh/enum_norm_type.h" alt="" coords="1337,88,1523,115"/><area shape="rect" id="node28" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="694,179,849,205"/><area shape="rect" id="node29" href="enum__parallel__type_8h.html" title="libmesh/enum_parallel\l_type.h" alt="" coords="1599,81,1754,122"/><area shape="rect" id="node30" href="enum__point__locator__type_8h.html" title="libmesh/enum_point\l_locator_type.h" alt="" coords="1779,81,1921,122"/><area shape="rect" id="node31" href="enum__preconditioner__type_8h.html" title="libmesh/enum_preconditioner\l_type.h" alt="" coords="1945,81,2142,122"/><area shape="rect" id="node32" href="enum__quadrature__type_8h.html" title="libmesh/enum_quadrature\l_type.h" alt="" coords="2167,81,2343,122"/><area shape="rect" id="node33" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="1645,577,1793,618"/><area shape="rect" id="node34" href="enum__solver__type_8h.html" title="libmesh/enum_solver\l_type.h" alt="" coords="2420,81,2567,122"/><area shape="rect" id="node35" href="enum__subset__solve__mode_8h.html" title="libmesh/enum_subset\l_solve_mode.h" alt="" coords="2593,81,2745,122"/><area shape="rect" id="node36" href="enum__xdr__mode_8h.html" title="libmesh/enum_xdr_mode.h" alt="" coords="2769,88,2951,115"/><area shape="rect" id="node37" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="1201,88,1313,115"/><area shape="rect" id="node5" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="1405,816,1577,843"/><area shape="rect" id="node9" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="1645,667,1810,693"/><area shape="rect" id="node13" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="1181,741,1381,768"/><area shape="rect" id="node14" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="1088,667,1273,693"/><area shape="rect" id="node15" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="1399,667,1570,693"/><area shape="rect" id="node17" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="1405,741,1577,768"/><area shape="rect" id="node10" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="1699,741,1830,768"/><area shape="rect" id="node38" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="1675,261,1819,288"/><area shape="rect" id="node41" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2111,337,2293,378"/><area shape="rect" id="node44" href="node_8h.html" title="libmesh/node.h" alt="" coords="1598,179,1710,205"/><area shape="rect" id="node45" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="811,344,942,371"/><area shape="rect" id="node46" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="1167,261,1346,288"/><area shape="rect" id="node47" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="1025,171,1169,213"/><area shape="rect" id="node48" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="913,501,1053,528"/><area shape="rect" id="node39" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="1700,501,1829,528"/><area shape="rect" id="node42" href="reference__counter_8h.html" title="libmesh/reference_counter.h" alt="" coords="1852,427,2042,453"/></map>
+</div>
+</div>
 <p><a href="string__to__enum_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -109,7 +139,118 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelibMesh_1_1Utility"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Utility.html">libMesh::Utility</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1d9ddb7572e30d9313057d05416979fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string__to__enum_8C.html#a1d9ddb7572e30d9313057d05416979fe">INSTANTIATE_ENUM_MAPS</a>(ENUM_NAME,  VAR_NAME)</td></tr>
+<tr class="separator:a1d9ddb7572e30d9313057d05416979fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae831239ad878f84b7cbe19e90965ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string__to__enum_8C.html#a2ae831239ad878f84b7cbe19e90965ed">INSTANTIATE_STRING_TO_ENUM</a>(ENUM_NAME,  VAR_NAME)</td></tr>
+<tr class="separator:a2ae831239ad878f84b7cbe19e90965ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a1d9ddb7572e30d9313057d05416979fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INSTANTIATE_ENUM_MAPS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ENUM_NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">VAR_NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">std::map&lt;std::string, ENUM_NAME&gt; VAR_NAME##_to_enum;          \</div>
+<div class="line">                                                                \</div>
+<div class="line">  std::map&lt;ENUM_NAME, std::string&gt; enum_to_##VAR_NAME;          \</div>
+<div class="line">                                                                \</div>
+<div class="line">  void init_##VAR_NAME##_to_enum ();                            \</div>
+<div class="line">                                                                \</div>
+<div class="line">  <span class="comment">/* Initialize the enum_to_elem_type on first call */</span>          \</div>
+<div class="line">  void init_enum_to_##VAR_NAME ()                               \</div>
+<div class="line">  {                                                             \</div>
+<div class="line">    <span class="comment">/* Build reverse map */</span>                                     \</div>
+<div class="line">    if (enum_to_##VAR_NAME .empty())                            \</div>
+<div class="line">      {                                                         \</div>
+<div class="line">        <span class="comment">/* Initialize elem_type_to_enum on first call */</span>        \</div>
+<div class="line">        init_##VAR_NAME##_to_enum();                            \</div>
+<div class="line">                                                                \</div>
+<div class="line">        build_reverse_map (VAR_NAME##_to_enum.begin(),          \</div>
+<div class="line">                           VAR_NAME##_to_enum.end(),            \</div>
+<div class="line">                           enum_to_##VAR_NAME);                 \</div>
+<div class="line">      }                                                         \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="string__to__enum_8C_source.html#l00076">76</a> of file <a class="el" href="string__to__enum_8C_source.html">string_to_enum.C</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ae831239ad878f84b7cbe19e90965ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INSTANTIATE_STRING_TO_ENUM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ENUM_NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">VAR_NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;&gt;                                                           \</div>
+<div class="line">  ENUM_NAME string_to_enum&lt;ENUM_NAME&gt; (<span class="keyword">const</span> std::string &amp; s)           \</div>
+<div class="line">  {                                                                     \</div>
+<div class="line">    init_##VAR_NAME##_to_enum();                                        \</div>
+<div class="line">                                                                        \</div>
+<div class="line">    std::string upper(s);                                               \</div>
+<div class="line">    std::transform(upper.begin(), upper.end(), upper.begin(), ::toupper); \</div>
+<div class="line">                                                                        \</div>
+<div class="line">    if (!VAR_NAME##_to_enum.count(upper))                               \</div>
+<div class="line">      {                                                                 <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">\</a></div>
+<div class="line"><a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">        libmesh_error_msg</a>(<span class="stringliteral">&quot;No &quot;</span> #ENUM_NAME <span class="stringliteral">&quot; named &quot;</span> + s + <span class="stringliteral">&quot; found.&quot;</span>);  \</div>
+<div class="line">      }                                                                 \</div>
+<div class="line">                                                                        \</div>
+<div class="line">    return VAR_NAME##_to_enum[upper];                                   \</div>
+<div class="line">  }                                                                     \</div>
+<div class="line">                                                                        \</div>
+<div class="line">  template &lt;&gt;                                                           \</div>
+<div class="line">  std::string enum_to_string&lt;ENUM_NAME&gt; (<span class="keyword">const</span> ENUM_NAME e)             \</div>
+<div class="line">  {                                                                     \</div>
+<div class="line">    init_enum_to_##VAR_NAME ();                                         \</div>
+<div class="line">                                                                        \</div>
+<div class="line">    if (!enum_to_##VAR_NAME .count(e))                                  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">\</a></div>
+<div class="line"><a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">      libmesh_error_msg</a>(<span class="stringliteral">&quot;No &quot;</span> #ENUM_NAME <span class="stringliteral">&quot; with enumeration &quot;</span> &lt;&lt; e &lt;&lt; <span class="stringliteral">&quot; found.&quot;</span>); \</div>
+<div class="line">                                                                        \</div>
+<div class="line">    return enum_to_##VAR_NAME [e];                                      \</div>
+<div class="line">  }</div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="string__to__enum_8C_source.html#l00607">607</a> of file <a class="el" href="string__to__enum_8C_source.html">string_to_enum.C</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

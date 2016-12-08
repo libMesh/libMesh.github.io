@@ -95,19 +95,151 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">mesh_iterators.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="distributed__mesh_8h_source.html">libmesh/distributed_mesh.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="replicated__mesh_8h_source.html">libmesh/replicated_mesh.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ignore__warnings_8h_source.html">libmesh/ignore_warnings.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for mesh_iterators.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="mesh__iterators_8C__incl.png" border="0" usemap="#mesh__iterators_8C" alt=""/></div>
+<map name="mesh__iterators_8C" id="mesh__iterators_8C">
+<area shape="rect" id="node2" href="distributed__mesh_8h.html" title="libmesh/distributed\l_mesh.h" alt="" coords="1167,81,1300,122"/><area shape="rect" id="node40" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2281,179,2393,205"/><area shape="rect" id="node49" href="replicated__mesh_8h.html" title="libmesh/replicated\l_mesh.h" alt="" coords="587,81,716,122"/><area shape="rect" id="node50" href="ignore__warnings_8h.html" title="libmesh/ignore_warnings.h" alt="" coords="14,88,193,115"/><area shape="rect" id="node3" href="mapvector_8h.html" title="libmesh/mapvector.h" alt="" coords="1322,179,1467,205"/><area shape="rect" id="node5" href="unstructured__mesh_8h.html" title="libmesh/unstructured\l_mesh.h" alt="" coords="677,171,821,213"/><area shape="rect" id="node6" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="868,261,1020,288"/><area shape="rect" id="node7" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="795,435,927,461"/><area shape="rect" id="node9" href="libmesh__common_8h.html" title="libmesh_common.h" alt="" coords="1447,667,1584,693"/><area shape="rect" id="node23" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="226,344,392,371"/><area shape="rect" id="node24" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="347,435,516,461"/><area shape="rect" id="node28" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="2160,344,2304,371"/><area shape="rect" id="node32" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="1611,517,1796,544"/><area shape="rect" id="node33" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="1869,344,2048,371"/><area shape="rect" id="node35" href="partitioner_8h.html" title="libmesh/partitioner.h" alt="" coords="1002,344,1144,371"/><area shape="rect" id="node36" href="point__locator__base_8h.html" title="libmesh/point_locator\l_base.h" alt="" coords="626,337,773,378"/><area shape="rect" id="node37" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="1432,337,1576,378"/><area shape="rect" id="node8" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="1367,891,1539,917"/><area shape="rect" id="node22" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="791,517,931,544"/><area shape="rect" id="node13" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="1884,741,2049,768"/><area shape="rect" id="node17" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="759,816,959,843"/><area shape="rect" id="node18" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="1146,741,1331,768"/><area shape="rect" id="node19" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="1553,741,1724,768"/><area shape="rect" id="node21" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="1306,816,1477,843"/><area shape="rect" id="node14" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="1961,816,2092,843"/><area shape="rect" id="node29" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="2273,592,2401,619"/><area shape="rect" id="node30" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2430,427,2612,469"/><area shape="rect" id="node31" href="reference__counter_8h.html" title="libmesh/reference_counter.h" alt="" coords="2395,517,2585,544"/><area shape="rect" id="node34" href="single__predicates_8h.html" title="libmesh/single_predicates.h" alt="" coords="1864,435,2051,461"/><area shape="rect" id="node41" href="node_8h.html" title="libmesh/node.h" alt="" coords="2328,261,2440,288"/><area shape="rect" id="node43" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="2667,261,2865,288"/><area shape="rect" id="node44" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="2891,261,3045,288"/><area shape="rect" id="node45" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="3069,261,3261,288"/><area shape="rect" id="node46" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="2782,592,2921,619"/><area shape="rect" id="node42" href="point_8h.html" title="libmesh/point.h" alt="" coords="2328,344,2440,371"/></map>
+</div>
+</div>
 <p><a href="mesh__iterators_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a16588d385aaf886d8cd133d203762069"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesh__iterators_8C.html#a16588d385aaf886d8cd133d203762069">INSTANTIATE_ELEM_ACCESSORS</a>(FUNC_PREFIX,  PRED,  FUNC_ARG, ...)</td></tr>
+<tr class="separator:a16588d385aaf886d8cd133d203762069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce86562d79b4aa5ed43b3acfd0614e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesh__iterators_8C.html#a6ce86562d79b4aa5ed43b3acfd0614e1">INSTANTIATE_NODE_ACCESSORS</a>(FUNC_PREFIX,  PRED,  FUNC_ARG, ...)</td></tr>
+<tr class="separator:a6ce86562d79b4aa5ed43b3acfd0614e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7cf2a3641be7b89138615764d60ba3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesh__iterators_8C.html#a2b7cf2a3641be7b89138615764d60ba3">EMPTY</a></td></tr>
+<tr class="separator:a2b7cf2a3641be7b89138615764d60ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eeaf5fcd858556b5c56785624e9f0d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mesh__iterators_8C.html#a6eeaf5fcd858556b5c56785624e9f0d4">LIBMESH_COMMA</a>&#160;&#160;&#160;,</td></tr>
+<tr class="separator:a6eeaf5fcd858556b5c56785624e9f0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a2b7cf2a3641be7b89138615764d60ba3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMPTY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mesh__iterators_8C_source.html#l00129">129</a> of file <a class="el" href="mesh__iterators_8C_source.html">mesh_iterators.C</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16588d385aaf886d8cd133d203762069"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INSTANTIATE_ELEM_ACCESSORS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC_PREFIX, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PRED, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC_ARG, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mesh__iterators_8C_source.html#l00039">39</a> of file <a class="el" href="mesh__iterators_8C_source.html">mesh_iterators.C</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ce86562d79b4aa5ed43b3acfd0614e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INSTANTIATE_NODE_ACCESSORS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC_PREFIX, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PRED, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC_ARG, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mesh__iterators_8C_source.html#l00085">85</a> of file <a class="el" href="mesh__iterators_8C_source.html">mesh_iterators.C</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6eeaf5fcd858556b5c56785624e9f0d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIBMESH_COMMA&#160;&#160;&#160;,</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mesh__iterators_8C_source.html#l00133">133</a> of file <a class="el" href="mesh__iterators_8C_source.html">mesh_iterators.C</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

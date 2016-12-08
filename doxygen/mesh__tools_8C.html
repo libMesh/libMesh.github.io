@@ -101,31 +101,73 @@
 <div class="title">mesh_tools.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="elem__range_8h_source.html">libmesh/elem_range.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh__base_8h_source.html">libmesh/mesh_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh__communication_8h_source.html">libmesh/mesh_communication.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh__tools_8h_source.html">libmesh/mesh_tools.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="node__range_8h_source.html">libmesh/node_range.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="parallel_8h_source.html">libmesh/parallel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="parallel__ghost__sync_8h_source.html">libmesh/parallel_ghost_sync.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sphere_8h_source.html">libmesh/sphere.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="threads_8h_source.html">libmesh/threads.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="string__to__enum_8h_source.html">libmesh/string_to_enum.h</a>&quot;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for mesh_tools.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="mesh__tools_8C__incl.png" border="0" usemap="#mesh__tools_8C" alt=""/></div>
+<map name="mesh__tools_8C" id="mesh__tools_8C">
+<area shape="rect" id="node2" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="1288,171,1400,197"/><area shape="rect" id="node9" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="2405,509,2530,536"/><area shape="rect" id="node34" href="elem__range_8h.html" title="libmesh/elem_range.h" alt="" coords="216,171,369,197"/><area shape="rect" id="node35" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="1672,245,1824,272"/><area shape="rect" id="node41" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="52,328,178,355"/><area shape="rect" id="node42" href="mesh__communication_8h.html" title="libmesh/mesh_communication.h" alt="" coords="3174,88,3385,115"/><area shape="rect" id="node43" href="mesh__tools_8h.html" title="libmesh/mesh_tools.h" alt="" coords="2816,171,2966,197"/><area shape="rect" id="node44" href="node__range_8h.html" title="libmesh/node_range.h" alt="" coords="39,171,192,197"/><area shape="rect" id="node45" href="parallel__ghost__sync_8h.html" title="libmesh/parallel_ghost\l_sync.h" alt="" coords="2222,81,2377,122"/><area shape="rect" id="node47" href="sphere_8h.html" title="libmesh/sphere.h" alt="" coords="3142,171,3265,197"/><area shape="rect" id="node49" href="string__to__enum_8h.html" title="libmesh/string_to_enum.h" alt="" coords="3164,509,3338,536"/><area shape="rect" id="node3" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1014,757,1201,784"/><area shape="rect" id="node5" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="1274,328,1418,355"/><area shape="rect" id="node6" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="2244,419,2376,445"/><area shape="rect" id="node11" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="692,600,824,627"/><area shape="rect" id="node21" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="724,411,906,453"/><area shape="rect" id="node22" href="node_8h.html" title="libmesh/node.h" alt="" coords="576,245,688,272"/><area shape="rect" id="node25" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="2210,328,2394,355"/><area shape="rect" id="node26" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="712,245,910,272"/><area shape="rect" id="node27" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="936,245,1090,272"/><area shape="rect" id="node28" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="1114,245,1306,272"/><area shape="rect" id="node29" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="1544,328,1724,355"/><area shape="rect" id="node30" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="252,502,396,543"/><area shape="rect" id="node32" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="970,509,1109,536"/><area shape="rect" id="node8" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="2568,419,2697,445"/><area shape="rect" id="node10" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="2016,683,2194,709"/><area shape="rect" id="node20" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="2066,600,2290,627"/><area shape="rect" id="node23" href="point_8h.html" title="libmesh/point.h" alt="" coords="2724,328,2836,355"/><area shape="rect" id="node40" href="stored__range_8h.html" title="libmesh/stored_range.h" alt="" coords="35,245,196,272"/><area shape="rect" id="node36" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="1748,328,1914,355"/><area shape="rect" id="node37" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="1996,419,2165,445"/><area shape="rect" id="node38" href="partitioner_8h.html" title="libmesh/partitioner.h" alt="" coords="1991,328,2133,355"/><area shape="rect" id="node39" href="point__locator__base_8h.html" title="libmesh/point_locator\l_base.h" alt="" coords="1000,321,1148,362"/><area shape="rect" id="node46" href="location__maps_8h.html" title="libmesh/location_maps.h" alt="" coords="2608,245,2777,272"/><area shape="rect" id="node48" href="surface_8h.html" title="libmesh/surface.h" alt="" coords="3056,245,3182,272"/></map>
+</div>
+</div>
 <p><a href="mesh__tools_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacelibMesh_1_1MeshTools"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1MeshTools.html">libMesh::MeshTools</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a19dce19dd9e0eece93901e8193b0cd39"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">libMesh::is_between</a> (Real min, Real check, Real max)</td></tr>
+<tr class="memitem:a19dce19dd9e0eece93901e8193b0cd39"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a19dce19dd9e0eece93901e8193b0cd39">libMesh::is_between</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> min, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> check, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> max)</td></tr>
 <tr class="separator:a19dce19dd9e0eece93901e8193b0cd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ad3b0fec5e69d40de03f53f127ae02b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1MeshTools.html#a0ad3b0fec5e69d40de03f53f127ae02b">libMesh::MeshTools::libmesh_assert_valid_dof_ids</a> (const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__refinement_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>)</td></tr>
-<tr class="separator:a0ad3b0fec5e69d40de03f53f127ae02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a142e1fe334582a7ed6d433def10bf30d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1MeshTools.html#a142e1fe334582a7ed6d433def10bf30d">libMesh::MeshTools::libmesh_assert_valid_unique_ids</a> (const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__refinement_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>)</td></tr>
-<tr class="separator:a142e1fe334582a7ed6d433def10bf30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1151c429a474e79bace57e4a51e681"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:aac1151c429a474e79bace57e4a51e681"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1MeshTools.html#aac1151c429a474e79bace57e4a51e681">libMesh::MeshTools::libmesh_assert_valid_procids&lt; Elem &gt;</a> (const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__refinement_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>)</td></tr>
-<tr class="separator:aac1151c429a474e79bace57e4a51e681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65026c84e7e4bf699da968195de1fbf"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:aa65026c84e7e4bf699da968195de1fbf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1MeshTools.html#aa65026c84e7e4bf699da968195de1fbf">libMesh::MeshTools::libmesh_assert_valid_procids&lt; Node &gt;</a> (const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__refinement_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>)</td></tr>
-<tr class="separator:aa65026c84e7e4bf699da968195de1fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="afaa03b874c297f4693d9cdef7f50f3c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a>&amp; mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l01793">1793</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
+
+<p>Referenced by <a class="el" href="mesh__tools_8C_source.html#l01836">libMesh::MeshTools::correct_node_proc_ids()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a628bde8a67ea6189f333666d709c8d8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const proc_id_map_type&amp; new_proc_ids</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l01791">1791</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
+
+<p>Referenced by <a class="el" href="mesh__tools_8C_source.html#l01836">libMesh::MeshTools::correct_node_proc_ids()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

@@ -96,12 +96,25 @@
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">dense_matrix.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="dense__matrix_8h_source.html">libmesh/dense_matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dense__vector_8h_source.html">libmesh/dense_vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="libmesh_8h_source.html">libmesh/libmesh.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for dense_matrix.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="dense__matrix_8C__incl.png" border="0" usemap="#dense__matrix_8C" alt=""/></div>
+<map name="dense__matrix_8C" id="dense__matrix_8C">
+<area shape="rect" id="node4" href="dense__matrix_8h.html" title="libmesh/dense_matrix.h" alt="" coords="411,336,573,363"/><area shape="rect" id="node22" href="dense__vector_8h.html" title="libmesh/dense_vector.h" alt="" coords="597,336,760,363"/><area shape="rect" id="node25" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="1391,80,1520,107"/><area shape="rect" id="node5" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="697,501,884,528"/><area shape="rect" id="node18" href="dense__matrix__base_8h.html" title="libmesh/dense_matrix\l_base.h" alt="" coords="195,411,347,453"/><area shape="rect" id="node6" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="917,725,1088,752"/><area shape="rect" id="node9" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="1269,576,1435,603"/><area shape="rect" id="node13" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="765,651,965,677"/><area shape="rect" id="node14" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="698,576,883,603"/><area shape="rect" id="node15" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="359,576,529,603"/><area shape="rect" id="node17" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="569,651,740,677"/><area shape="rect" id="node10" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="1286,651,1417,677"/><area shape="rect" id="node19" href="compare__types_8h.html" title="libmesh/compare_types.h" alt="" coords="199,501,372,528"/><area shape="rect" id="node23" href="dense__vector__base_8h.html" title="libmesh/dense_vector\l_base.h" alt="" coords="603,411,755,453"/><area shape="rect" id="node24" href="tensor__tools_8h.html" title="libmesh/tensor_tools.h" alt="" coords="371,419,527,445"/><area shape="rect" id="node26" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="657,155,804,197"/><area shape="rect" id="node27" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="1393,163,1519,189"/><area shape="rect" id="node28" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1060,336,1239,363"/><area shape="rect" id="node35" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="986,419,1117,445"/><area shape="rect" id="node41" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="1115,253,1339,280"/><area shape="rect" id="node29" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="1461,419,1592,445"/><area shape="rect" id="node36" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="1091,501,1231,528"/></map>
+</div>
+</div>
 <p><a href="dense__matrix_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -109,45 +122,63 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a890ee0379ee4960f105fe73c87329daf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dense__matrix_8C.html#a890ee0379ee4960f105fe73c87329daf">LIBMESH_VMA_INSTANTIATE</a>(T1,  T2,  T3)</td></tr>
+<tr class="separator:a890ee0379ee4960f105fe73c87329daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aed2af4e936c1f999f08dceb68658528c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aed2af4e936c1f999f08dceb68658528c">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, int, Real)</td></tr>
+<tr class="memitem:aed2af4e936c1f999f08dceb68658528c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aed2af4e936c1f999f08dceb68658528c">libMesh::LIBMESH_VMA_INSTANTIATE</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>, int, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>)</td></tr>
 <tr class="separator:aed2af4e936c1f999f08dceb68658528c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9773ae813c3b7a92e32dc5718153a564"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a9773ae813c3b7a92e32dc5718153a564">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, float, Real)</td></tr>
+<tr class="memitem:a9773ae813c3b7a92e32dc5718153a564"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a9773ae813c3b7a92e32dc5718153a564">libMesh::LIBMESH_VMA_INSTANTIATE</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>, float, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>)</td></tr>
 <tr class="separator:a9773ae813c3b7a92e32dc5718153a564"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8364d8dadd9e3199f6b7ffcbf3c8ced2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a8364d8dadd9e3199f6b7ffcbf3c8ced2">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, double, Real)</td></tr>
+<tr class="memitem:a8364d8dadd9e3199f6b7ffcbf3c8ced2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a8364d8dadd9e3199f6b7ffcbf3c8ced2">libMesh::LIBMESH_VMA_INSTANTIATE</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>, double, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>)</td></tr>
 <tr class="separator:a8364d8dadd9e3199f6b7ffcbf3c8ced2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b14a18c9bdd86097cd3a12d34e049a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a1b14a18c9bdd86097cd3a12d34e049a0">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, int, Complex)</td></tr>
-<tr class="separator:a1b14a18c9bdd86097cd3a12d34e049a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62cafcf3aeee5f4612a3bfee05e31fd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a62cafcf3aeee5f4612a3bfee05e31fd1">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, int, Complex)</td></tr>
-<tr class="separator:a62cafcf3aeee5f4612a3bfee05e31fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cfdbf2fddd5567a62567fba6938e3a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a7cfdbf2fddd5567a62567fba6938e3a4">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, int, Real)</td></tr>
-<tr class="separator:a7cfdbf2fddd5567a62567fba6938e3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2105504d8847d3223ec81cf99699f2e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a2105504d8847d3223ec81cf99699f2e2">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, float, Complex)</td></tr>
-<tr class="separator:a2105504d8847d3223ec81cf99699f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca8b51759d4333558e1b564710b37f35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aca8b51759d4333558e1b564710b37f35">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, float, Complex)</td></tr>
-<tr class="separator:aca8b51759d4333558e1b564710b37f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d3c90f2b3cd378f2dfebf6035c5df55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a7d3c90f2b3cd378f2dfebf6035c5df55">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, float, Real)</td></tr>
-<tr class="separator:a7d3c90f2b3cd378f2dfebf6035c5df55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fdef63c5050ea47c80fca4a7a975a41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a7fdef63c5050ea47c80fca4a7a975a41">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, std::complex&lt; float &gt;, Complex)</td></tr>
-<tr class="separator:a7fdef63c5050ea47c80fca4a7a975a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55f104e9eada9533f733ef6e68842dba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a55f104e9eada9533f733ef6e68842dba">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, std::complex&lt; float &gt;, Complex)</td></tr>
-<tr class="separator:a55f104e9eada9533f733ef6e68842dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2254d735886ac7c7be336f8b61bd4a83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a2254d735886ac7c7be336f8b61bd4a83">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, std::complex&lt; float &gt;, Real)</td></tr>
-<tr class="separator:a2254d735886ac7c7be336f8b61bd4a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3aa30efa6bb2b26f76b27281baac8dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad3aa30efa6bb2b26f76b27281baac8dd">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, double, Complex)</td></tr>
-<tr class="separator:ad3aa30efa6bb2b26f76b27281baac8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d1768a5a3f5c87b33dbbbf56ff1c807"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a6d1768a5a3f5c87b33dbbbf56ff1c807">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, double, Complex)</td></tr>
-<tr class="separator:a6d1768a5a3f5c87b33dbbbf56ff1c807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc86eedf77abdc829c8b1616ff59524b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#afc86eedf77abdc829c8b1616ff59524b">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, double, Real)</td></tr>
-<tr class="separator:afc86eedf77abdc829c8b1616ff59524b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4093908c3df78f5b085a6e9e0600128b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a4093908c3df78f5b085a6e9e0600128b">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Real, std::complex&lt; double &gt;, Complex)</td></tr>
-<tr class="separator:a4093908c3df78f5b085a6e9e0600128b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2ca5c563fcf9c843c9d195247a769a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ae2ca5c563fcf9c843c9d195247a769a4">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, std::complex&lt; double &gt;, Complex)</td></tr>
-<tr class="separator:ae2ca5c563fcf9c843c9d195247a769a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c6c4dafc3a1c28348d15cf06eb1c21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a81c6c4dafc3a1c28348d15cf06eb1c21">libMesh::LIBMESH_VMA_INSTANTIATE</a> (Complex, std::complex&lt; double &gt;, Real)</td></tr>
-<tr class="separator:a81c6c4dafc3a1c28348d15cf06eb1c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a890ee0379ee4960f105fe73c87329daf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIBMESH_VMA_INSTANTIATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T3&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> <span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1DenseMatrix.html">DenseMatrix&lt;T1&gt;::vector_mult_add</a>        \</div>
+<div class="line">  (<a class="code" href="classlibMesh_1_1DenseVector.html">DenseVector</a>&lt;                                         \</div>
+<div class="line">   CompareTypes&lt;T1,                                     \</div>
+<div class="line">   CompareTypes&lt;T2,T3&gt;::supertype&gt;::supertype&gt; &amp; dest,  \</div>
+<div class="line">   const T2 factor,                                     \</div>
+<div class="line">   const <a class="code" href="classlibMesh_1_1DenseVector.html">DenseVector&lt;T3&gt;</a> &amp; arg) const</div>
+<div class="ttc" id="classlibMesh_1_1DenseVector_html"><div class="ttname"><a href="classlibMesh_1_1DenseVector.html">libMesh::DenseVector</a></div><div class="ttdef"><b>Definition:</b> <a href="analytic__function_8h_source.html#l00034">analytic_function.h:34</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DenseMatrix_html"><div class="ttname"><a href="classlibMesh_1_1DenseMatrix.html">libMesh::DenseMatrix</a></div><div class="ttdef"><b>Definition:</b> <a href="dense__matrix_8h_source.html#l00046">dense_matrix.h:46</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="dense__matrix_8C_source.html#l01080">1080</a> of file <a class="el" href="dense__matrix_8C_source.html">dense_matrix.C</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

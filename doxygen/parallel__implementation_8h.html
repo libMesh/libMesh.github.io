@@ -97,13 +97,31 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">parallel_implementation.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="parallel_8h_source.html">parallel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="libmesh__logging_8h_source.html">libmesh_logging.h</a>&quot;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for parallel_implementation.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="parallel__implementation_8h__incl.png" border="0" usemap="#parallel__implementation_8h" alt=""/></div>
+<map name="parallel__implementation_8h" id="parallel__implementation_8h">
+<area shape="rect" id="node2" href="parallel_8h.html" title="parallel.h" alt="" coords="522,80,597,107"/><area shape="rect" id="node17" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="209,163,388,189"/><area shape="rect" id="node3" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="868,320,1055,347"/><area shape="rect" id="node25" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="1325,245,1456,272"/><area shape="rect" id="node4" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="1367,544,1539,571"/><area shape="rect" id="node8" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="556,395,721,421"/><area shape="rect" id="node12" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="1491,469,1691,496"/><area shape="rect" id="node13" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="1021,395,1205,421"/><area shape="rect" id="node14" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="1281,395,1452,421"/><area shape="rect" id="node16" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="1146,469,1317,496"/><area shape="rect" id="node9" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="573,469,704,496"/><area shape="rect" id="node18" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="227,245,357,272"/><area shape="rect" id="node26" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="1766,320,1905,347"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="parallel__implementation_8h__dep__incl.png" border="0" usemap="#parallel__implementation_8hdep" alt=""/></div>
+<map name="parallel__implementation_8hdep" id="parallel__implementation_8hdep">
+<area shape="rect" id="node2" href="parallel_8h.html" title="parallel.h" alt="" coords="2326,80,2401,107"/><area shape="rect" id="node3" href="dof__map_8C.html" title="dof_map.C" alt="" coords="101,155,187,181"/><area shape="rect" id="node4" href="dof__map__constraints_8C.html" title="dof_map_constraints.C" alt="" coords="5,229,163,256"/><area shape="rect" id="node5" href="libmesh_8C.html" title="libmesh.C" alt="" coords="942,229,1023,256"/><area shape="rect" id="node6" href="error__estimator_8C.html" title="error_estimator.C" alt="" coords="1049,229,1175,256"/><area shape="rect" id="node7" href="exact__solution_8C.html" title="exact_solution.C" alt="" coords="1199,155,1319,181"/><area shape="rect" id="node8" href="boundary__info_8C.html" title="boundary_info.C" alt="" coords="1343,155,1463,181"/><area shape="rect" id="node9" href="checkpoint__io_8C.html" title="checkpoint_io.C" alt="" coords="1487,155,1604,181"/><area shape="rect" id="node10" href="distributed__mesh_8C.html" title="distributed_mesh.C" alt="" coords="1629,155,1765,181"/><area shape="rect" id="node11" href="mesh__base_8C.html" title="mesh_base.C" alt="" coords="1791,155,1895,181"/><area shape="rect" id="node12" href="mesh__communication_8C.html" title="mesh_communication.C" alt="" coords="392,229,557,256"/><area shape="rect" id="node13" href="mesh__communication__global__indices_8C.html" title="mesh_communication\l_global_indices.C" alt="" coords="1879,305,2031,346"/><area shape="rect" id="node14" href="mesh__modification_8C.html" title="mesh_modification.C" alt="" coords="2215,155,2361,181"/><area shape="rect" id="node15" href="mesh__output_8C.html" title="mesh_output.C" alt="" coords="2385,155,2497,181"/><area shape="rect" id="node16" href="mesh__serializer_8C.html" title="mesh_serializer.C" alt="" coords="2522,155,2651,181"/><area shape="rect" id="node17" href="mesh__smoother__laplace_8C.html" title="mesh_smoother_laplace.C" alt="" coords="187,229,367,256"/><area shape="rect" id="node18" href="mesh__tools_8C.html" title="mesh_tools.C" alt="" coords="813,229,917,256"/><area shape="rect" id="node19" href="nemesis__io_8C.html" title="nemesis_io.C" alt="" coords="2675,155,2777,181"/><area shape="rect" id="node20" href="nemesis__io__helper_8C.html" title="nemesis_io_helper.C" alt="" coords="2803,155,2949,181"/><area shape="rect" id="node21" href="tecplot__io_8C.html" title="tecplot_io.C" alt="" coords="2974,155,3065,181"/><area shape="rect" id="node22" href="unstructured__mesh_8C.html" title="unstructured_mesh.C" alt="" coords="3091,155,3240,181"/><area shape="rect" id="node23" href="xdr__io_8C.html" title="xdr_io.C" alt="" coords="3264,155,3336,181"/><area shape="rect" id="node24" href="distributed__vector_8C.html" title="distributed_vector.C" alt="" coords="3303,229,3443,256"/><area shape="rect" id="node25" href="sparse__matrix_8C.html" title="sparse_matrix.C" alt="" coords="3574,155,3692,181"/><area shape="rect" id="node26" href="parallel__bin__sorter_8C.html" title="parallel_bin_sorter.C" alt="" coords="3717,155,3861,181"/><area shape="rect" id="node27" href="parallel__elem_8C.html" title="parallel_elem.C" alt="" coords="3887,155,4001,181"/><area shape="rect" id="node28" href="parallel__histogram_8C.html" title="parallel_histogram.C" alt="" coords="4025,155,4169,181"/><area shape="rect" id="node29" href="parallel__node_8C.html" title="parallel_node.C" alt="" coords="4194,155,4309,181"/><area shape="rect" id="node30" href="parallel__sort_8C.html" title="parallel_sort.C" alt="" coords="2101,312,2208,339"/><area shape="rect" id="node31" href="parmetis__partitioner_8C.html" title="parmetis_partitioner.C" alt="" coords="4334,155,4487,181"/><area shape="rect" id="node32" href="partitioner_8C.html" title="partitioner.C" alt="" coords="4511,155,4605,181"/><area shape="rect" id="node33" href="equation__systems_8C.html" title="equation_systems.C" alt="" coords="4630,155,4772,181"/><area shape="rect" id="node34" href="equation__systems__io_8C.html" title="equation_systems_io.C" alt="" coords="4797,155,4957,181"/><area shape="rect" id="node35" href="fem__system_8C.html" title="fem_system.C" alt="" coords="581,229,688,256"/><area shape="rect" id="node36" href="system_8C.html" title="system.C" alt="" coords="712,229,789,256"/><area shape="rect" id="node37" href="system__io_8C.html" title="system_io.C" alt="" coords="4981,155,5077,181"/><area shape="rect" id="node38" href="system__subset__by__subdomain_8C.html" title="system_subset_by_subdomain.C" alt="" coords="5101,155,5320,181"/><area shape="rect" id="node39" href="location__maps_8C.html" title="location_maps.C" alt="" coords="5345,155,5465,181"/><area shape="rect" id="node40" href="topology__map_8C.html" title="topology_map.C" alt="" coords="5490,155,5608,181"/><area shape="rect" id="node41" href="diff__qoi_8h.html" title="diff_qoi.h" alt="" coords="5633,155,5708,181"/><area shape="rect" id="node43" href="distributed__vector_8h.html" title="distributed_vector.h" alt="" coords="3411,155,3549,181"/><area shape="rect" id="node45" href="error__estimator_8h.html" title="error_estimator.h" alt="" coords="1050,155,1173,181"/><area shape="rect" id="node46" href="libmesh_8h.html" title="libmesh.h" alt="" coords="895,155,973,181"/><area shape="rect" id="node47" href="parallel__algebra_8h.html" title="parallel_algebra.h" alt="" coords="313,155,441,181"/><area shape="rect" id="node48" href="parallel__ghost__sync_8h.html" title="parallel_ghost_sync.h" alt="" coords="517,155,667,181"/><area shape="rect" id="node49" href="parallel__object_8h.html" title="parallel_object.h" alt="" coords="2021,155,2139,181"/><area shape="rect" id="node50" href="parallel__sort_8h.html" title="parallel_sort.h" alt="" coords="1999,229,2104,256"/><area shape="rect" id="node42" href="diff__system_8h.html" title="diff_system.h" alt="" coords="5621,229,5720,256"/><area shape="rect" id="node44" href="numeric__vector_8C.html" title="numeric_vector.C" alt="" coords="3467,229,3593,256"/></map>
+</div>
+</div>
 <p><a href="parallel__implementation_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -120,49 +138,58 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh_1_1Parallel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html">libMesh::Parallel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aafa3300d9dfed732dfafcfef51a111b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parallel__implementation_8h.html#aafa3300d9dfed732dfafcfef51a111b7">LIBMESH_STANDARD_TYPE</a>(cxxtype,  mpitype)</td></tr>
+<tr class="separator:aafa3300d9dfed732dfafcfef51a111b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b1b67f448449610185ed61ca22cafc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parallel__implementation_8h.html#a0b1b67f448449610185ed61ca22cafc9">LIBMESH_INT_TYPE</a>(cxxtype,  mpitype)</td></tr>
+<tr class="separator:a0b1b67f448449610185ed61ca22cafc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd012905c126fc4eeac903b469ed0a2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parallel__implementation_8h.html#abd012905c126fc4eeac903b469ed0a2d">LIBMESH_FLOAT_TYPE</a>(cxxtype,  mpitype)</td></tr>
+<tr class="separator:abd012905c126fc4eeac903b469ed0a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a2505c88316778a09f76b5d46cc488"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parallel__implementation_8h.html#a83a2505c88316778a09f76b5d46cc488">LIBMESH_CONTAINER_TYPE</a>(cxxtype)</td></tr>
+<tr class="separator:a83a2505c88316778a09f76b5d46cc488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9e10150effaf44f32743e0a078800f93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a9e10150effaf44f32743e0a078800f93">libMesh::Parallel::INT_TYPE</a> (char, MPI_CHAR)</td></tr>
-<tr class="separator:a9e10150effaf44f32743e0a078800f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7fb750bf1cc8afcf9edc111f97d0e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a9a7fb750bf1cc8afcf9edc111f97d0e8">libMesh::Parallel::INT_TYPE</a> (signed char, MPI_SIGNED_CHAR)</td></tr>
-<tr class="separator:a9a7fb750bf1cc8afcf9edc111f97d0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad906ddbf72b5cf04ebfb452e73e2188e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ad906ddbf72b5cf04ebfb452e73e2188e">libMesh::Parallel::INT_TYPE</a> (unsigned char, MPI_UNSIGNED_CHAR)</td></tr>
-<tr class="separator:ad906ddbf72b5cf04ebfb452e73e2188e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6476b0b62c1032251ecba9f99bc7059b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a6476b0b62c1032251ecba9f99bc7059b">libMesh::Parallel::INT_TYPE</a> (short int, MPI_SHORT)</td></tr>
-<tr class="separator:a6476b0b62c1032251ecba9f99bc7059b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72b5b1a9c0f51f4b5acf531a705db370"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a72b5b1a9c0f51f4b5acf531a705db370">libMesh::Parallel::INT_TYPE</a> (unsigned short int, MPI_UNSIGNED_SHORT)</td></tr>
-<tr class="separator:a72b5b1a9c0f51f4b5acf531a705db370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec77abdcc7a0fc17b52b0ff2ee5cbd49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aec77abdcc7a0fc17b52b0ff2ee5cbd49">libMesh::Parallel::INT_TYPE</a> (int, MPI_INT)</td></tr>
-<tr class="separator:aec77abdcc7a0fc17b52b0ff2ee5cbd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57044bb637a0bc9c5a84b5e797bb775c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a57044bb637a0bc9c5a84b5e797bb775c">libMesh::Parallel::INT_TYPE</a> (unsigned int, MPI_UNSIGNED)</td></tr>
-<tr class="separator:a57044bb637a0bc9c5a84b5e797bb775c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05328419b9606cb1212f2eb148233ae5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a05328419b9606cb1212f2eb148233ae5">libMesh::Parallel::INT_TYPE</a> (long, MPI_LONG)</td></tr>
-<tr class="separator:a05328419b9606cb1212f2eb148233ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad23f46aa0aca6e4d9726795fa9e85178"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ad23f46aa0aca6e4d9726795fa9e85178">libMesh::Parallel::INT_TYPE</a> (long long, MPI_LONG_LONG_INT)</td></tr>
-<tr class="separator:ad23f46aa0aca6e4d9726795fa9e85178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdd174ed2670b10439d86d17f31dfcf9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#afdd174ed2670b10439d86d17f31dfcf9">libMesh::Parallel::INT_TYPE</a> (unsigned long, MPI_UNSIGNED_LONG)</td></tr>
-<tr class="separator:afdd174ed2670b10439d86d17f31dfcf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57a15fdc17eb8b6f9a467177e7846fbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a57a15fdc17eb8b6f9a467177e7846fbd">libMesh::Parallel::INT_TYPE</a> (unsigned long long, MPI_LONG_LONG_INT)</td></tr>
-<tr class="separator:a57a15fdc17eb8b6f9a467177e7846fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10e5d2a1f71ffbb369a222a7e0786207"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a10e5d2a1f71ffbb369a222a7e0786207">libMesh::Parallel::FLOAT_TYPE</a> (float, MPI_FLOAT)</td></tr>
-<tr class="separator:a10e5d2a1f71ffbb369a222a7e0786207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a194a013f5e3456d6e01eb13a99ac99d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a194a013f5e3456d6e01eb13a99ac99d9">libMesh::Parallel::FLOAT_TYPE</a> (double, MPI_DOUBLE)</td></tr>
-<tr class="separator:a194a013f5e3456d6e01eb13a99ac99d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5244561429014f0fb62e5c92c2385f8c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a5244561429014f0fb62e5c92c2385f8c">libMesh::Parallel::FLOAT_TYPE</a> (long double, MPI_LONG_DOUBLE)</td></tr>
-<tr class="separator:a5244561429014f0fb62e5c92c2385f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a913d9e66d6d083e372ab245a75fcab1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a913d9e66d6d083e372ab245a75fcab1a">libMesh::Parallel::CONTAINER_TYPE</a> (std::set)</td></tr>
-<tr class="separator:a913d9e66d6d083e372ab245a75fcab1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9feb80ad58be5c50af240fdb05194ee6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a9feb80ad58be5c50af240fdb05194ee6">libMesh::Parallel::CONTAINER_TYPE</a> (std::vector)</td></tr>
-<tr class="separator:a9feb80ad58be5c50af240fdb05194ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4225aac463b4de24a8fc7e77a7f62d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aa4225aac463b4de24a8fc7e77a7f62d3">libMesh::Parallel::LIBMESH_INT_TYPE</a> (char, MPI_CHAR)</td></tr>
+<tr class="separator:aa4225aac463b4de24a8fc7e77a7f62d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b796f4823d58c63d8738c51175fa3ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a7b796f4823d58c63d8738c51175fa3ed">libMesh::Parallel::LIBMESH_INT_TYPE</a> (unsigned char, MPI_UNSIGNED_CHAR)</td></tr>
+<tr class="separator:a7b796f4823d58c63d8738c51175fa3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d08239e5fd8c2240feb081be69be213"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a2d08239e5fd8c2240feb081be69be213">libMesh::Parallel::LIBMESH_INT_TYPE</a> (short int, MPI_SHORT)</td></tr>
+<tr class="separator:a2d08239e5fd8c2240feb081be69be213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33abef38428aa968f4274a63836f35f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ac33abef38428aa968f4274a63836f35f">libMesh::Parallel::LIBMESH_INT_TYPE</a> (unsigned short int, MPI_UNSIGNED_SHORT)</td></tr>
+<tr class="separator:ac33abef38428aa968f4274a63836f35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef6d6de3fcf0f8da18c5dbef084c8e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#afef6d6de3fcf0f8da18c5dbef084c8e3">libMesh::Parallel::LIBMESH_INT_TYPE</a> (int, MPI_INT)</td></tr>
+<tr class="separator:afef6d6de3fcf0f8da18c5dbef084c8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeda51b48aaa2dc26d4efeab22f873c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aaeda51b48aaa2dc26d4efeab22f873c8">libMesh::Parallel::LIBMESH_INT_TYPE</a> (unsigned int, MPI_UNSIGNED)</td></tr>
+<tr class="separator:aaeda51b48aaa2dc26d4efeab22f873c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac742f6363856e83baad033f0a0f8f7e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ac742f6363856e83baad033f0a0f8f7e3">libMesh::Parallel::LIBMESH_INT_TYPE</a> (long, MPI_LONG)</td></tr>
+<tr class="separator:ac742f6363856e83baad033f0a0f8f7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c19bc817700b4ebe609445254f43ce6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a2c19bc817700b4ebe609445254f43ce6">libMesh::Parallel::LIBMESH_INT_TYPE</a> (long long, MPI_LONG_LONG_INT)</td></tr>
+<tr class="separator:a2c19bc817700b4ebe609445254f43ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8e2fa01eac58990a1a044a741d653e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aef8e2fa01eac58990a1a044a741d653e">libMesh::Parallel::LIBMESH_INT_TYPE</a> (unsigned long, MPI_UNSIGNED_LONG)</td></tr>
+<tr class="separator:aef8e2fa01eac58990a1a044a741d653e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c316bce92c047c6c3546067c1dcb7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a44c316bce92c047c6c3546067c1dcb7f">libMesh::Parallel::LIBMESH_INT_TYPE</a> (unsigned long long, MPI_UNSIGNED_LONG_LONG)</td></tr>
+<tr class="separator:a44c316bce92c047c6c3546067c1dcb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa4ac309723f65b6675a90ce8b3a9fda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#afa4ac309723f65b6675a90ce8b3a9fda">libMesh::Parallel::LIBMESH_FLOAT_TYPE</a> (float, MPI_FLOAT)</td></tr>
+<tr class="separator:afa4ac309723f65b6675a90ce8b3a9fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e4de9bab2c6e963e0172235aafe564"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a61e4de9bab2c6e963e0172235aafe564">libMesh::Parallel::LIBMESH_FLOAT_TYPE</a> (double, MPI_DOUBLE)</td></tr>
+<tr class="separator:a61e4de9bab2c6e963e0172235aafe564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e0078c746cf4728e9b8dc2a33ef541"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a64e0078c746cf4728e9b8dc2a33ef541">libMesh::Parallel::LIBMESH_FLOAT_TYPE</a> (long double, MPI_LONG_DOUBLE)</td></tr>
+<tr class="separator:a64e0078c746cf4728e9b8dc2a33ef541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a37168c39512f6ae73030fb4fcb578a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a8a37168c39512f6ae73030fb4fcb578a">libMesh::Parallel::LIBMESH_CONTAINER_TYPE</a> (std::set)</td></tr>
+<tr class="separator:a8a37168c39512f6ae73030fb4fcb578a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7013ef98ebe03ca2a4f7f944192e1654"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a7013ef98ebe03ca2a4f7f944192e1654">libMesh::Parallel::LIBMESH_CONTAINER_TYPE</a> (std::vector)</td></tr>
+<tr class="separator:a7013ef98ebe03ca2a4f7f944192e1654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ac96c8ed3881c25d394f6e65eabf6b2"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename Iter &gt; </td></tr>
 <tr class="memitem:a5ac96c8ed3881c25d394f6e65eabf6b2"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a5ac96c8ed3881c25d394f6e65eabf6b2">libMesh::Parallel::packed_range_size</a> (const Context *context, Iter range_begin, const Iter range_end)</td></tr>
 <tr class="separator:a5ac96c8ed3881c25d394f6e65eabf6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7747f4be4a6ac7488b04f07f02209e7"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename Iter &gt; </td></tr>
-<tr class="memitem:ab7747f4be4a6ac7488b04f07f02209e7"><td class="memTemplItemLeft" align="right" valign="top">Iter&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ab7747f4be4a6ac7488b04f07f02209e7">libMesh::Parallel::pack_range</a> (const Context *context, Iter range_begin, const Iter range_end, typename std::vector&lt; buffertype &gt; &amp;buffer)</td></tr>
-<tr class="separator:ab7747f4be4a6ac7488b04f07f02209e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cde110b3a11b27459e86ac9eb324951"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename OutputIter , typename T &gt; </td></tr>
-<tr class="memitem:a7cde110b3a11b27459e86ac9eb324951"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a7cde110b3a11b27459e86ac9eb324951">libMesh::Parallel::unpack_range</a> (const std::vector&lt; buffertype &gt; &amp;buffer, Context *context, OutputIter out, const T *)</td></tr>
-<tr class="separator:a7cde110b3a11b27459e86ac9eb324951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbff8955d0081e65a953e8076d7bfe94"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename Iter &gt; </td></tr>
+<tr class="memitem:abbff8955d0081e65a953e8076d7bfe94"><td class="memTemplItemLeft" align="right" valign="top">Iter&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#abbff8955d0081e65a953e8076d7bfe94">libMesh::Parallel::pack_range</a> (const Context *context, Iter range_begin, const Iter range_end, typename std::vector&lt; buffertype &gt; &amp;buffer, std::size_t approx_buffer_size=1000000)</td></tr>
+<tr class="separator:abbff8955d0081e65a953e8076d7bfe94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa43a801737716802b40c784a6a13ad63"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename buffertype , typename OutputIter , typename T &gt; </td></tr>
+<tr class="memitem:aa43a801737716802b40c784a6a13ad63"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aa43a801737716802b40c784a6a13ad63">libMesh::Parallel::unpack_range</a> (const std::vector&lt; buffertype &gt; &amp;buffer, Context *context, OutputIter out_iter, const T *)</td></tr>
+<tr class="separator:aa43a801737716802b40c784a6a13ad63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95416053432ed0ab6d1231070bfebeff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a95416053432ed0ab6d1231070bfebeff">libMesh::Parallel::barrier</a> (const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a95416053432ed0ab6d1231070bfebeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b9f56f58762ca1bd89f8a3f414778ff"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -184,25 +211,25 @@ Functions</h2></td></tr>
 <tr class="memitem:acda50585473464e291ffc6c0e3d73a7d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#acda50585473464e291ffc6c0e3d73a7d">libMesh::Parallel::sum</a> (T &amp;r, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:acda50585473464e291ffc6c0e3d73a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bd391c6ce7c9d369cad837b7dad761e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6bd391c6ce7c9d369cad837b7dad761e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a6bd391c6ce7c9d369cad837b7dad761e">libMesh::Parallel::set_union</a> (T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const unsigned int root_id, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="memitem:a6bd391c6ce7c9d369cad837b7dad761e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a6bd391c6ce7c9d369cad837b7dad761e">libMesh::Parallel::set_union</a> (T &amp;data, const unsigned int root_id, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a6bd391c6ce7c9d369cad837b7dad761e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a173954c5cc85c6ca546318f3d1346f97"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a173954c5cc85c6ca546318f3d1346f97"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a173954c5cc85c6ca546318f3d1346f97">libMesh::Parallel::set_union</a> (T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="memitem:a173954c5cc85c6ca546318f3d1346f97"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a173954c5cc85c6ca546318f3d1346f97">libMesh::Parallel::set_union</a> (T &amp;data, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a173954c5cc85c6ca546318f3d1346f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9512b38ebc805b74b6300ff97dba1177"><td class="memItemLeft" align="right" valign="top">status&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a9512b38ebc805b74b6300ff97dba1177">libMesh::Parallel::probe</a> (const unsigned int src_processor_id, const MessageTag &amp;tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a9512b38ebc805b74b6300ff97dba1177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a244bc73d348712b02dff166f1019acaf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a244bc73d348712b02dff166f1019acaf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a244bc73d348712b02dff166f1019acaf">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:a244bc73d348712b02dff166f1019acaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f44325369ce72ed227577262326e996"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3f44325369ce72ed227577262326e996"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a3f44325369ce72ed227577262326e996">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, Request &amp;req, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:a3f44325369ce72ed227577262326e996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8394bc6016a50fec6ab93156f70331fb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a8394bc6016a50fec6ab93156f70331fb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a8394bc6016a50fec6ab93156f70331fb">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const DataType &amp;type, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:a8394bc6016a50fec6ab93156f70331fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad83b472882a8d7584a677566a1925118"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad83b472882a8d7584a677566a1925118"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ad83b472882a8d7584a677566a1925118">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const DataType &amp;type, Request &amp;req, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:ad83b472882a8d7584a677566a1925118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ac074c5face65e98c6d53db052a6d8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa6ac074c5face65e98c6d53db052a6d8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aa6ac074c5face65e98c6d53db052a6d8">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, const T &amp;data, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:aa6ac074c5face65e98c6d53db052a6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a825d907c1c0d057ee9e247b966e29e54"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a825d907c1c0d057ee9e247b966e29e54"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a825d907c1c0d057ee9e247b966e29e54">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, const T &amp;data, Request &amp;req, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a825d907c1c0d057ee9e247b966e29e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12cd6f51c1f4143aa54e9646444df7af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a12cd6f51c1f4143aa54e9646444df7af"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a12cd6f51c1f4143aa54e9646444df7af">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, const T &amp;data, const DataType &amp;type, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a12cd6f51c1f4143aa54e9646444df7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8349829eea33deff3cca09e5d55093"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8e8349829eea33deff3cca09e5d55093"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a8e8349829eea33deff3cca09e5d55093">libMesh::Parallel::send</a> (const unsigned int dest_processor_id, const T &amp;data, const DataType &amp;type, Request &amp;req, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a8e8349829eea33deff3cca09e5d55093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa330b84f790b83c75bee687135143311"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename Iter &gt; </td></tr>
 <tr class="memitem:aa330b84f790b83c75bee687135143311"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aa330b84f790b83c75bee687135143311">libMesh::Parallel::send_packed_range</a> (const unsigned int dest_processor_id, const Context *context, Iter range_begin, const Iter range_end, const MessageTag &amp;tag=no_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:aa330b84f790b83c75bee687135143311"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,9 +254,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afa3e69df1ff7b1c9773288fbf293320e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afa3e69df1ff7b1c9773288fbf293320e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#afa3e69df1ff7b1c9773288fbf293320e">libMesh::Parallel::receive</a> (const unsigned int src_processor_id, T &amp;buf, const DataType &amp;type, Request &amp;req, const MessageTag &amp;tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:afa3e69df1ff7b1c9773288fbf293320e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a06547eb04fe6f930bf1e7c5df9a0c"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename OutputIter , typename T &gt; </td></tr>
-<tr class="memitem:ad9a06547eb04fe6f930bf1e7c5df9a0c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ad9a06547eb04fe6f930bf1e7c5df9a0c">libMesh::Parallel::receive_packed_range</a> (const unsigned int src_processor_id, Context *context, OutputIter out, const T *output_type, const MessageTag &amp;tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:ad9a06547eb04fe6f930bf1e7c5df9a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a393c191e22f25b549a11dc788e502e08"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename OutputIter , typename T &gt; </td></tr>
+<tr class="memitem:a393c191e22f25b549a11dc788e502e08"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a393c191e22f25b549a11dc788e502e08">libMesh::Parallel::receive_packed_range</a> (const unsigned int src_processor_id, Context *context, OutputIter out_iter, const T *output_type, const MessageTag &amp;tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a393c191e22f25b549a11dc788e502e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c927a856fffc2f35499eabb465c128b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6c927a856fffc2f35499eabb465c128b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a6c927a856fffc2f35499eabb465c128b">libMesh::Parallel::nonblocking_receive</a> (const unsigned int src_processor_id, T &amp;buf, const DataType &amp;type, Request &amp;r, const MessageTag &amp;tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a6c927a856fffc2f35499eabb465c128b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -239,9 +266,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab82dceef2d2dfd35338cd14adff03ffd"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
 <tr class="memitem:ab82dceef2d2dfd35338cd14adff03ffd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ab82dceef2d2dfd35338cd14adff03ffd">libMesh::Parallel::send_receive</a> (const unsigned int dest_processor_id, T1 &amp;send, const unsigned int source_processor_id, T2 &amp;recv, const MessageTag &amp;send_tag=no_tag, const MessageTag &amp;recv_tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:ab82dceef2d2dfd35338cd14adff03ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad437724b8c8b2aaed6c0210f0e62e0c"><td class="memTemplParams" colspan="2">template&lt;typename Context1 , typename RangeIter , typename Context2 , typename OutputIter , typename T &gt; </td></tr>
-<tr class="memitem:aad437724b8c8b2aaed6c0210f0e62e0c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#aad437724b8c8b2aaed6c0210f0e62e0c">libMesh::Parallel::send_receive_packed_range</a> (const unsigned int dest_processor_id, const Context1 *context1, RangeIter send_begin, const RangeIter send_end, const unsigned int source_processor_id, Context2 *context2, OutputIter out, const T *output_type, const MessageTag &amp;send_tag=no_tag, const MessageTag &amp;recv_tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:aad437724b8c8b2aaed6c0210f0e62e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0212baf7e0305ef6dfe07aa47f595cb4"><td class="memTemplParams" colspan="2">template&lt;typename Context1 , typename RangeIter , typename Context2 , typename OutputIter , typename T &gt; </td></tr>
+<tr class="memitem:a0212baf7e0305ef6dfe07aa47f595cb4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a0212baf7e0305ef6dfe07aa47f595cb4">libMesh::Parallel::send_receive_packed_range</a> (const unsigned int dest_processor_id, const Context1 *context1, RangeIter send_begin, const RangeIter send_end, const unsigned int source_processor_id, Context2 *context2, OutputIter out_iter, const T *output_type, const MessageTag &amp;send_tag=no_tag, const MessageTag &amp;recv_tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a0212baf7e0305ef6dfe07aa47f595cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a99f2840cdc43aafb4e03b920bf6f42"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
 <tr class="memitem:a7a99f2840cdc43aafb4e03b920bf6f42"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a7a99f2840cdc43aafb4e03b920bf6f42">libMesh::Parallel::send_receive</a> (const unsigned int dest_processor_id, T1 &amp;send, const DataType &amp;type1, const unsigned int source_processor_id, T2 &amp;recv, const DataType &amp;type2, const MessageTag &amp;send_tag=no_tag, const MessageTag &amp;recv_tag=any_tag, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a7a99f2840cdc43aafb4e03b920bf6f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,45 +284,171 @@ Functions</h2></td></tr>
 <tr class="memitem:a02df7be7b27e4abe112ff9a63f043ad6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a02df7be7b27e4abe112ff9a63f043ad6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a02df7be7b27e4abe112ff9a63f043ad6">libMesh::Parallel::allgather</a> (std::vector&lt; T &gt; &amp;r, const bool identical_buffer_sizes=false, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a02df7be7b27e4abe112ff9a63f043ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f672fe42ff312d2e907ebf71dad705"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename Iter , typename OutputIter &gt; </td></tr>
-<tr class="memitem:a84f672fe42ff312d2e907ebf71dad705"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a84f672fe42ff312d2e907ebf71dad705">libMesh::Parallel::gather_packed_range</a> (const unsigned int root_id, Context *context, Iter range_begin, const Iter range_end, OutputIter out, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:a84f672fe42ff312d2e907ebf71dad705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62cd579578a9877eb2d42956687a7403"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename Iter , typename OutputIter &gt; </td></tr>
-<tr class="memitem:a62cd579578a9877eb2d42956687a7403"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a62cd579578a9877eb2d42956687a7403">libMesh::Parallel::allgather_packed_range</a> (Context *context, Iter range_begin, const Iter range_end, OutputIter out, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:a62cd579578a9877eb2d42956687a7403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5202fbe49e215e815cd66fe0ba9d4d50"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename Iter , typename OutputIter &gt; </td></tr>
+<tr class="memitem:a5202fbe49e215e815cd66fe0ba9d4d50"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a5202fbe49e215e815cd66fe0ba9d4d50">libMesh::Parallel::gather_packed_range</a> (const unsigned int root_id, Context *context, Iter range_begin, const Iter range_end, OutputIter out_iter, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a5202fbe49e215e815cd66fe0ba9d4d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50a80ece5881c15dfaf1d8f2042a2edc"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename Iter , typename OutputIter &gt; </td></tr>
+<tr class="memitem:a50a80ece5881c15dfaf1d8f2042a2edc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a50a80ece5881c15dfaf1d8f2042a2edc">libMesh::Parallel::allgather_packed_range</a> (Context *context, Iter range_begin, const Iter range_end, OutputIter out_iter, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:a50a80ece5881c15dfaf1d8f2042a2edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad56117c700394a4e3f285288e9792b85"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad56117c700394a4e3f285288e9792b85"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ad56117c700394a4e3f285288e9792b85">libMesh::Parallel::alltoall</a> (std::vector&lt; T &gt; &amp;r, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:ad56117c700394a4e3f285288e9792b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a493b466dc409dc504e247cb14d818dd7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a493b466dc409dc504e247cb14d818dd7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a493b466dc409dc504e247cb14d818dd7">libMesh::Parallel::broadcast</a> (T &amp;<a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>, const unsigned int root_id=0, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="memitem:a493b466dc409dc504e247cb14d818dd7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a493b466dc409dc504e247cb14d818dd7">libMesh::Parallel::broadcast</a> (T &amp;data, const unsigned int root_id=0, const Communicator &amp;comm=Communicator_World)</td></tr>
 <tr class="separator:a493b466dc409dc504e247cb14d818dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae51b9cec25d85bd94a486f11df523ea7"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename OutputContext , typename Iter , typename OutputIter &gt; </td></tr>
-<tr class="memitem:ae51b9cec25d85bd94a486f11df523ea7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ae51b9cec25d85bd94a486f11df523ea7">libMesh::Parallel::broadcast_packed_range</a> (const Context *context1, Iter range_begin, const Iter range_end, OutputContext *context2, OutputIter out, const unsigned int root_id=0, const Communicator &amp;comm=Communicator_World)</td></tr>
-<tr class="separator:ae51b9cec25d85bd94a486f11df523ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26377566e6a1e104a0a422b729bdbcb"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:af26377566e6a1e104a0a422b729bdbcb"><td class="memTemplItemLeft" align="right" valign="top">data_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#af26377566e6a1e104a0a422b729bdbcb">libMesh::Parallel::dataplusint_type&lt; short int &gt;</a> ()</td></tr>
-<tr class="separator:af26377566e6a1e104a0a422b729bdbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a880ceb4da5c93366b56ca941b1a53762"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a880ceb4da5c93366b56ca941b1a53762"><td class="memTemplItemLeft" align="right" valign="top">data_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a880ceb4da5c93366b56ca941b1a53762">libMesh::Parallel::dataplusint_type&lt; int &gt;</a> ()</td></tr>
-<tr class="separator:a880ceb4da5c93366b56ca941b1a53762"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6924048a1af82d47ce0582d20059623"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:ae6924048a1af82d47ce0582d20059623"><td class="memTemplItemLeft" align="right" valign="top">data_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ae6924048a1af82d47ce0582d20059623">libMesh::Parallel::dataplusint_type&lt; long &gt;</a> ()</td></tr>
-<tr class="separator:ae6924048a1af82d47ce0582d20059623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af870d7629b079291ef0e6f5c32bee7e4"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:af870d7629b079291ef0e6f5c32bee7e4"><td class="memTemplItemLeft" align="right" valign="top">data_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#af870d7629b079291ef0e6f5c32bee7e4">libMesh::Parallel::dataplusint_type&lt; float &gt;</a> ()</td></tr>
-<tr class="separator:af870d7629b079291ef0e6f5c32bee7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fed53973e584f967f78277b4f2337e0"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a1fed53973e584f967f78277b4f2337e0"><td class="memTemplItemLeft" align="right" valign="top">data_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a1fed53973e584f967f78277b4f2337e0">libMesh::Parallel::dataplusint_type&lt; double &gt;</a> ()</td></tr>
-<tr class="separator:a1fed53973e584f967f78277b4f2337e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0f953b15c8f57983385cddd6bbf8311"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:ac0f953b15c8f57983385cddd6bbf8311"><td class="memTemplItemLeft" align="right" valign="top">data_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ac0f953b15c8f57983385cddd6bbf8311">libMesh::Parallel::dataplusint_type&lt; long double &gt;</a> ()</td></tr>
-<tr class="separator:ac0f953b15c8f57983385cddd6bbf8311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1cb8b4daf508f2f02e9a4d344e82708"><td class="memTemplParams" colspan="2">template&lt;typename Context , typename OutputContext , typename Iter , typename OutputIter &gt; </td></tr>
+<tr class="memitem:ae1cb8b4daf508f2f02e9a4d344e82708"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#ae1cb8b4daf508f2f02e9a4d344e82708">libMesh::Parallel::broadcast_packed_range</a> (const Context *context1, Iter range_begin, const Iter range_end, OutputContext *context2, OutputIter out_iter, const unsigned int root_id=0, const Communicator &amp;comm=Communicator_World)</td></tr>
+<tr class="separator:ae1cb8b4daf508f2f02e9a4d344e82708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4e914d501b5ef56d61a542ceb55c52c2"><td class="memItemLeft" align="right" valign="top">FakeCommunicator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a4e914d501b5ef56d61a542ceb55c52c2">libMesh::Parallel::Communicator_World</a> = CommWorld</td></tr>
-<tr class="separator:a4e914d501b5ef56d61a542ceb55c52c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966f2a636d46158a2680596470dc8687"><td class="memItemLeft" align="right" valign="top">Communicator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel.html#a966f2a636d46158a2680596470dc8687">libMesh::Parallel::Communicator_World</a> = CommWorld</td></tr>
+<tr class="separator:a966f2a636d46158a2680596470dc8687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a83a2505c88316778a09f76b5d46cc488"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIBMESH_CONTAINER_TYPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cxxtype</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;                                                  \</div>
+<div class="line">  struct Attributes&lt;cxxtype&lt;T&gt; &gt;                                        \</div>
+<div class="line">  {                                                                     \</div>
+<div class="line">    static <span class="keyword">const</span> <span class="keywordtype">bool</span> has_min_max = Attributes&lt;T&gt;::has_min_max;         \</div>
+<div class="line">    static <span class="keywordtype">void</span> set_lowest(cxxtype&lt;T&gt; &amp; x) {                            \</div>
+<div class="line">      for (<span class="keyword">typename</span> cxxtype&lt;T&gt;::iterator i = x.begin(); i != x.end(); ++i) \</div>
+<div class="line">        Attributes&lt;T&gt;::set_lowest(*i); }                                \</div>
+<div class="line">    static <span class="keywordtype">void</span> set_highest(cxxtype&lt;T&gt; &amp; x) {                           \</div>
+<div class="line">      for (<span class="keyword">typename</span> cxxtype&lt;T&gt;::iterator i = x.begin(); i != x.end(); ++i) \</div>
+<div class="line">        Attributes&lt;T&gt;::set_highest(*i); }                               \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00081">81</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd012905c126fc4eeac903b469ed0a2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIBMESH_FLOAT_TYPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cxxtype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">mpitype&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="parallel__implementation_8h.html#aafa3300d9dfed732dfafcfef51a111b7">LIBMESH_STANDARD_TYPE</a>(cxxtype,mpitype);                                       \</div>
+<div class="line">                                                                        \</div>
+<div class="line">  template&lt;&gt;                                                            \</div>
+<div class="line">  struct Attributes&lt;cxxtype&gt;                                            \</div>
+<div class="line">  {                                                                     \</div>
+<div class="line">    static <span class="keyword">const</span> <span class="keywordtype">bool</span> has_min_max = <span class="keyword">true</span>;                               \</div>
+<div class="line">    static <span class="keywordtype">void</span> set_lowest(cxxtype &amp; x) { x = -std::numeric_limits&lt;cxxtype&gt;::infinity(); } \</div>
+<div class="line">    static <span class="keywordtype">void</span> set_highest(cxxtype &amp; x) { x = std::numeric_limits&lt;cxxtype&gt;::infinity(); } \</div>
+<div class="line">  }</div>
+<div class="ttc" id="parallel__implementation_8h_html_aafa3300d9dfed732dfafcfef51a111b7"><div class="ttname"><a href="parallel__implementation_8h.html#aafa3300d9dfed732dfafcfef51a111b7">LIBMESH_STANDARD_TYPE</a></div><div class="ttdeci">#define LIBMESH_STANDARD_TYPE(cxxtype, mpitype)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00048">parallel_implementation.h:48</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00070">70</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b1b67f448449610185ed61ca22cafc9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIBMESH_INT_TYPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cxxtype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">mpitype&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="parallel__implementation_8h.html#aafa3300d9dfed732dfafcfef51a111b7">LIBMESH_STANDARD_TYPE</a>(cxxtype,mpitype);                                       \</div>
+<div class="line">                                                                        \</div>
+<div class="line">  template&lt;&gt;                                                            \</div>
+<div class="line">  struct Attributes&lt;cxxtype&gt;                                            \</div>
+<div class="line">  {                                                                     \</div>
+<div class="line">    static <span class="keyword">const</span> <span class="keywordtype">bool</span> has_min_max = <span class="keyword">true</span>;                               \</div>
+<div class="line">    static <span class="keywordtype">void</span> set_lowest(cxxtype &amp; x) { x = <a class="code" href="namespacelibMesh_1_1Parallel.html#ac07b1aa13caefecc587d42f0036e3975">std::numeric_limits&lt;cxxtype&gt;::min</a>(); } \</div>
+<div class="line">    static <span class="keywordtype">void</span> set_highest(cxxtype &amp; x) { x = <a class="code" href="namespacelibMesh_1_1Parallel.html#a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e">std::numeric_limits&lt;cxxtype&gt;::max</a>(); } \</div>
+<div class="line">  }</div>
+<div class="ttc" id="parallel__implementation_8h_html_aafa3300d9dfed732dfafcfef51a111b7"><div class="ttname"><a href="parallel__implementation_8h.html#aafa3300d9dfed732dfafcfef51a111b7">LIBMESH_STANDARD_TYPE</a></div><div class="ttdeci">#define LIBMESH_STANDARD_TYPE(cxxtype, mpitype)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00048">parallel_implementation.h:48</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Parallel_html_a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e"><div class="ttname"><a href="namespacelibMesh_1_1Parallel.html#a9b0cf20ad1cbbdeeff3dd4b99bb2bf7e">libMesh::Parallel::max</a></div><div class="ttdeci">void max(T &amp;r, const Communicator &amp;comm=Communicator_World)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00996">parallel_implementation.h:996</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Parallel_html_ac07b1aa13caefecc587d42f0036e3975"><div class="ttname"><a href="namespacelibMesh_1_1Parallel.html#ac07b1aa13caefecc587d42f0036e3975">libMesh::Parallel::min</a></div><div class="ttdeci">void min(T &amp;r, const Communicator &amp;comm=Communicator_World)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__implementation_8h_source.html#l00985">parallel_implementation.h:985</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00059">59</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aafa3300d9dfed732dfafcfef51a111b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIBMESH_STANDARD_TYPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cxxtype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">mpitype&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;&gt;                                                            \</div>
+<div class="line">  class StandardType&lt;cxxtype&gt; : <span class="keyword">public</span> DataType                         \</div>
+<div class="line">  {                                                                     \</div>
+<div class="line">  public:                                                               \</div>
+<div class="line">    explicit                                                            \</div>
+<div class="line">      StandardType(<span class="keyword">const</span> cxxtype * = <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>) : DataType() {}   \</div>
+<div class="line">  }</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00048">48</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

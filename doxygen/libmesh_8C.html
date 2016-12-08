@@ -102,7 +102,26 @@
 <div class="title">libmesh.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="libmesh_8h_source.html">libmesh/libmesh.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="auto__ptr_8h_source.html">libmesh/auto_ptr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="getpot_8h_source.html">libmesh/getpot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="parallel_8h_source.html">libmesh/parallel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="reference__counter_8h_source.html">libmesh/reference_counter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="libmesh__singleton_8h_source.html">libmesh/libmesh_singleton.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="remote__elem_8h_source.html">libmesh/remote_elem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="threads_8h_source.html">libmesh/threads.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="print__trace_8h_source.html">libmesh/print_trace.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &quot;signal.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for libmesh.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="libmesh_8C__incl.png" border="0" usemap="#libmesh_8C" alt=""/></div>
+<map name="libmesh_8C" id="libmesh_8C">
+<area shape="rect" id="node2" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="2193,544,2321,571"/><area shape="rect" id="node17" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="1788,627,1913,653"/><area shape="rect" id="node24" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="799,717,931,744"/><area shape="rect" id="node31" href="getpot_8h.html" title="libmesh/getpot.h" alt="" coords="647,800,767,827"/><area shape="rect" id="node40" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="78,875,204,901"/><area shape="rect" id="node42" href="reference__counter_8h.html" title="libmesh/reference_counter.h" alt="" coords="2295,469,2485,496"/><area shape="rect" id="node43" href="libmesh__singleton_8h.html" title="libmesh/libmesh_singleton.h" alt="" coords="692,155,881,181"/><area shape="rect" id="node44" href="remote__elem_8h.html" title="libmesh/remote_elem.h" alt="" coords="2576,80,2736,107"/><area shape="rect" id="node49" href="print__trace_8h.html" title="libmesh/print_trace.h" alt="" coords="3119,1024,3264,1051"/><area shape="rect" id="node3" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1163,949,1349,976"/><area shape="rect" id="node8" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="2777,1024,2943,1051"/><area shape="rect" id="node16" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="2053,619,2200,661"/><area shape="rect" id="node4" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="958,1173,1129,1200"/><area shape="rect" id="node11" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="1205,1099,1405,1125"/><area shape="rect" id="node12" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="1353,1024,1537,1051"/><area shape="rect" id="node13" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="1563,1024,1733,1051"/><area shape="rect" id="node15" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="958,1099,1129,1125"/><area shape="rect" id="node9" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="3234,1099,3365,1125"/><area shape="rect" id="node18" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1820,800,1999,827"/><area shape="rect" id="node30" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="1673,717,1897,744"/><area shape="rect" id="node19" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="1969,875,2100,901"/><area shape="rect" id="node25" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="842,800,981,827"/><area shape="rect" id="node41" href="threads__none_8h.html" title="libmesh/threads_none.h" alt="" coords="94,949,257,976"/><area shape="rect" id="node45" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2600,155,2712,181"/><area shape="rect" id="node46" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="2491,304,2635,331"/><area shape="rect" id="node47" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2626,379,2808,421"/><area shape="rect" id="node48" href="node_8h.html" title="libmesh/node.h" alt="" coords="2600,229,2712,256"/></map>
+</div>
+</div>
 <p><a href="libmesh_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -114,42 +133,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0b1612607b04ee3b46b8dfe4845103b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmesh_8C.html#a0b1612607b04ee3b46b8dfe4845103b7">libMesh_MPI_Handler</a> (MPI_Comm *, int *,...)</td></tr>
-<tr class="separator:a0b1612607b04ee3b46b8dfe4845103b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a835413e198a07fdf2b5049012b6ba1b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a835413e198a07fdf2b5049012b6ba1b1">libMesh::warned_about_auto_ptr</a> (false)</td></tr>
 <tr class="separator:a835413e198a07fdf2b5049012b6ba1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05b7b732191a49def51f64c15b8fb096"><td class="memItemLeft" align="right" valign="top">const Number&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a05b7b732191a49def51f64c15b8fb096">libMesh::imaginary</a> (0., 1.)</td></tr>
-<tr class="separator:a05b7b732191a49def51f64c15b8fb096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad2e4639e47d92a7d34c80bf2e936cba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">libMesh::initialized</a> ()</td></tr>
 <tr class="separator:aad2e4639e47d92a7d34c80bf2e936cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dc0a134260371bd023e0d0f632399e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a3dc0a134260371bd023e0d0f632399e1">libMesh::closed</a> ()</td></tr>
 <tr class="separator:a3dc0a134260371bd023e0d0f632399e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac42cc9a668f69fbf3514c2585986dcbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac42cc9a668f69fbf3514c2585986dcbe">libMesh::libmesh_terminate_handler</a> ()</td></tr>
-<tr class="separator:ac42cc9a668f69fbf3514c2585986dcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a770beb206f93fb35c22fcf75abede982"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a770beb206f93fb35c22fcf75abede982">libMesh::if</a> (libMesh::libMeshPrivateData::_n_threads!=1)</td></tr>
-<tr class="separator:a770beb206f93fb35c22fcf75abede982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fa590786dcc283cea97352950d75e6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a0fa590786dcc283cea97352950d75e6f">libMesh::omp_set_num_threads</a> (<a class="el" href="namespacelibMesh_1_1libMeshPrivateData.html#abb33d60acc5132dd768659948ebd279a">libMesh::libMeshPrivateData::_n_threads</a>)</td></tr>
-<tr class="separator:a0fa590786dcc283cea97352950d75e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c2cdcc231092bd7cfd62118bbd55b33"><td class="memItemLeft" align="right" valign="top">task_scheduler&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a8c2cdcc231092bd7cfd62118bbd55b33">libMesh::reset</a> (new Threads::task_scheduler_init(<a class="el" href="namespacelibMesh.html#aa0f4de68ccdcce5079daad35630fd886">libMesh::n_threads</a>()))</td></tr>
-<tr class="separator:a8c2cdcc231092bd7cfd62118bbd55b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03a5d846eeb24a13168f6b5358f86e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a> (remote_elem)</td></tr>
-<tr class="separator:ac03a5d846eeb24a13168f6b5358f86e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af345eb3172f596cbf4ad90d46a08c280"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#af345eb3172f596cbf4ad90d46a08c280">libMesh::if</a> (!<a class="el" href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a>(&quot;--disable-mpi&quot;))</td></tr>
-<tr class="separator:af345eb3172f596cbf4ad90d46a08c280"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3b630fc9d82a03a756cd376df033fea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a> (libMeshPrivateData::_n_processors, 0)</td></tr>
-<tr class="separator:ad3b630fc9d82a03a756cd376df033fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba4e7b024f88416601a12d74a3ca2d26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aba4e7b024f88416601a12d74a3ca2d26">libMesh::libmesh_parallel_only</a> (this-&gt;comm())</td></tr>
-<tr class="separator:aba4e7b024f88416601a12d74a3ca2d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e8594f5e410ac9d4bf29b8a9466c9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a73e8594f5e410ac9d4bf29b8a9466c9a">libMesh::if</a> (!<a class="el" href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a>(&quot;--disable-petsc&quot;)#if defined(LIBMESH_HAVE_MPI)&amp;&amp;!<a class="el" href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a>(&quot;--disable-mpi&quot;)#endif)</td></tr>
-<tr class="separator:a73e8594f5e410ac9d4bf29b8a9466c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a675fcfd20ab9ac6b63879dcfff8c792a"><td class="memItemLeft" align="right" valign="top">command_line&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a675fcfd20ab9ac6b63879dcfff8c792a">libMesh::parse_command_line</a> (argc, argv)</td></tr>
-<tr class="separator:a675fcfd20ab9ac6b63879dcfff8c792a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86826577d517bb5c6ce8cfc4dd8a806c"><td class="memItemLeft" align="right" valign="top">if(!<a class="el" href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a>(&quot;--sync-with-stdio&quot;)) std&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a86826577d517bb5c6ce8cfc4dd8a806c">libMesh::if</a> (<a class="el" href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a>(&quot;--separate-libmeshout&quot;))</td></tr>
-<tr class="separator:a86826577d517bb5c6ce8cfc4dd8a806c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a600d2ef7debc55549db68340423c531c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a600d2ef7debc55549db68340423c531c">libMesh::if</a> (<a class="el" href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a>(&quot;--redirect-stdout&quot;))</td></tr>
-<tr class="separator:a600d2ef7debc55549db68340423c531c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5302f5c1f794aaf431a0909fa573c65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#af5302f5c1f794aaf431a0909fa573c65">libMesh::if</a> (<a class="el" href="namespacelibMesh.html#a2604f6993cd2ac42b6fa951aac45c447">libMesh::global_processor_id</a>()!=0)</td></tr>
-<tr class="separator:af5302f5c1f794aaf431a0909fa573c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a839d1f06786047b61aa72cc4c17a9d43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a839d1f06786047b61aa72cc4c17a9d43">libMesh::enableFPE</a> (bool on)</td></tr>
 <tr class="separator:a839d1f06786047b61aa72cc4c17a9d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7c3b648f27515ee0bea648223465f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#af7c3b648f27515ee0bea648223465f02">libMesh::enableSEGV</a> (bool on)</td></tr>
@@ -168,7 +157,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a102e69c5142005e1accdc3a8eb670cd8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a102e69c5142005e1accdc3a8eb670cd8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a102e69c5142005e1accdc3a8eb670cd8">libMesh::command_line_vector</a> (const std::string &amp;name, std::vector&lt; T &gt; &amp;vec)</td></tr>
 <tr class="separator:a102e69c5142005e1accdc3a8eb670cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a496c62248223cd940c7715932dd0dc2d"><td class="memItemLeft" align="right" valign="top">SolverPackage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a496c62248223cd940c7715932dd0dc2d">libMesh::default_solver_package</a> ()</td></tr>
+<tr class="memitem:a496c62248223cd940c7715932dd0dc2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#a17745da36305535897ef6f57df9f6e01">SolverPackage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a496c62248223cd940c7715932dd0dc2d">libMesh::default_solver_package</a> ()</td></tr>
 <tr class="separator:a496c62248223cd940c7715932dd0dc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5baf43a3eecc75ba2ecdf15d2090e301"><td class="memItemLeft" align="right" valign="top">template int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a5baf43a3eecc75ba2ecdf15d2090e301">libMesh::command_line_value&lt; int &gt;</a> (const std::string &amp;, int)</td></tr>
 <tr class="separator:a5baf43a3eecc75ba2ecdf15d2090e301"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,77 +202,21 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ab8b7115ea57ced35ec86d1fdfa0ab853"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">libMesh::libMeshPrivateData::_is_initialized</a> = false</td></tr>
 <tr class="separator:ab8b7115ea57ced35ec86d1fdfa0ab853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5595417b69d598a65c439048450f6d02"><td class="memItemLeft" align="right" valign="top">SolverPackage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1libMeshPrivateData.html#a5595417b69d598a65c439048450f6d02">libMesh::libMeshPrivateData::_solver_package</a></td></tr>
+<tr class="memitem:a5595417b69d598a65c439048450f6d02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#a17745da36305535897ef6f57df9f6e01">SolverPackage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1libMeshPrivateData.html#a5595417b69d598a65c439048450f6d02">libMesh::libMeshPrivateData::_solver_package</a></td></tr>
 <tr class="separator:a5595417b69d598a65c439048450f6d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad20e070f68f2ad06eda5608a05c35e4f"><td class="memItemLeft" align="right" valign="top">MPI_Comm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad20e070f68f2ad06eda5608a05c35e4f">libMesh::COMM_WORLD</a> = MPI_COMM_NULL</td></tr>
+<tr class="memitem:ad20e070f68f2ad06eda5608a05c35e4f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad20e070f68f2ad06eda5608a05c35e4f">libMesh::COMM_WORLD</a> = 0</td></tr>
 <tr class="separator:ad20e070f68f2ad06eda5608a05c35e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5035e5cf7bcf37f7880d7549a19b7f9"><td class="memItemLeft" align="right" valign="top">MPI_Comm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad5035e5cf7bcf37f7880d7549a19b7f9">libMesh::GLOBAL_COMM_WORLD</a> = MPI_COMM_NULL</td></tr>
+<tr class="memitem:ad5035e5cf7bcf37f7880d7549a19b7f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad5035e5cf7bcf37f7880d7549a19b7f9">libMesh::GLOBAL_COMM_WORLD</a> = 0</td></tr>
 <tr class="separator:ad5035e5cf7bcf37f7880d7549a19b7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a575a93e390fe40f95bc719b57f16aced"><td class="memItemLeft" align="right" valign="top">Parallel::FakeCommunicator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a575a93e390fe40f95bc719b57f16aced">libMesh::CommWorld</a></td></tr>
+<tr class="memitem:a575a93e390fe40f95bc719b57f16aced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a575a93e390fe40f95bc719b57f16aced">libMesh::CommWorld</a></td></tr>
 <tr class="separator:a575a93e390fe40f95bc719b57f16aced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63e3c3158308e2184c12b55ab9ea9a35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#a408927c7f3c1c5f38947ba08b02ed05a">OStreamProxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> (std::cout)</td></tr>
 <tr class="separator:a63e3c3158308e2184c12b55ab9ea9a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74e5bc8a72d210b3d87b0221b1f69db1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#a408927c7f3c1c5f38947ba08b02ed05a">OStreamProxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a74e5bc8a72d210b3d87b0221b1f69db1">libMesh::err</a> (std::cerr)</td></tr>
 <tr class="separator:a74e5bc8a72d210b3d87b0221b1f69db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a898fabb4e2a583bf30bf4bd46f4c032d"><td class="memItemLeft" align="right" valign="top">PerfLog&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a898fabb4e2a583bf30bf4bd46f4c032d">libMesh::perflog</a> (&quot;libMesh&quot;,#ifdef LIBMESH_ENABLE_PERFORMANCE_LOGGING true#else false#endif)</td></tr>
-<tr class="separator:a898fabb4e2a583bf30bf4bd46f4c032d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9f3a40640bf2469017d95d78363b39"><td class="memItemLeft" align="right" valign="top">MPI_Errhandler&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a4e9f3a40640bf2469017d95d78363b39">libMesh::libmesh_errhandler</a></td></tr>
-<tr class="separator:a4e9f3a40640bf2469017d95d78363b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa27e267f495ee0599f7cd8981c0cf7ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aa27e267f495ee0599f7cd8981c0cf7ad">libMesh::TRILINOS_SOLVERS</a></td></tr>
-<tr class="separator:aa27e267f495ee0599f7cd8981c0cf7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae73defe502d02a0aa591555f4dd18dd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ae73defe502d02a0aa591555f4dd18dd4">libMesh::EIGEN_SOLVERS</a></td></tr>
-<tr class="separator:ae73defe502d02a0aa591555f4dd18dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb2a777af969e03421c99c4afe9d68a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aeb2a777af969e03421c99c4afe9d68a0">libMesh::LASPACK_SOLVERS</a></td></tr>
-<tr class="separator:aeb2a777af969e03421c99c4afe9d68a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc934dba6c6bb935bdd1a6788be67614"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#afc934dba6c6bb935bdd1a6788be67614">libMesh::INVALID_SOLVER_PACKAGE</a></td></tr>
-<tr class="separator:afc934dba6c6bb935bdd1a6788be67614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef003534ea46e6f9460aa684097ce272"><td class="memItemLeft" align="right" valign="top">std::terminate_handler&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aef003534ea46e6f9460aa684097ce272">libMesh::old_terminate_handler</a></td></tr>
-<tr class="separator:aef003534ea46e6f9460aa684097ce272"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07362f654132e9e2e05b89d691fdcdec"><td class="memItemLeft" align="right" valign="top">LibMeshInit::LibMeshInit(int argc, const char *const *argv) LibMeshInit command_lin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a07362f654132e9e2e05b89d691fdcdec">libMesh::reset</a> )(new GetPot(argc, argv))</td></tr>
-<tr class="separator:a07362f654132e9e2e05b89d691fdcdec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f4de68ccdcce5079daad35630fd886"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aa0f4de68ccdcce5079daad35630fd886">libMesh::n_threads</a> [0] = &quot;--n_threads&quot;</td></tr>
-<tr class="separator:aa0f4de68ccdcce5079daad35630fd886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60faadda3b8c49b0bce822fbf5657163"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1PerfLog.html">PerfLog</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a60faadda3b8c49b0bce822fbf5657163">libMesh::perflog</a> (&quot;libMesh&quot;, false)</td></tr>
+<tr class="separator:a60faadda3b8c49b0bce822fbf5657163"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a0b1612607b04ee3b46b8dfe4845103b7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void libMesh_MPI_Handler </td>
-          <td>(</td>
-          <td class="paramtype">MPI_Comm *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="libmesh_8C_source.html#l00149">149</a> of file <a class="el" href="libmesh_8C_source.html">libmesh.C</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00390">libMesh::if()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;{</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  libmesh_not_implemented();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

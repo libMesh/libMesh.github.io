@@ -182,7 +182,7 @@
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">bool</span> InfPrism6::is_node_on_side(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  libmesh_assert_less (s, n_sides());</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (s, n_sides());</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i != 4; ++i)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (side_nodes_map[s][i] == n)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -192,7 +192,7 @@
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">bool</span> InfPrism6::is_node_on_edge(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  libmesh_assert_less (e, n_edges());</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (e, n_edges());</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i != 2; ++i)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span> (edge_nodes_map[e][i] == n)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -200,10 +200,10 @@
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;UniquePtr&lt;Elem&gt; InfPrism6::build_side (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                       <span class="keywordtype">bool</span> proxy)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  libmesh_assert_less (i, this-&gt;n_sides());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;UniquePtr&lt;Elem&gt; InfPrism6::build_side_ptr (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                           <span class="keywordtype">bool</span> proxy)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, this-&gt;n_sides());</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">if</span> (proxy)</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
@@ -220,14 +220,14 @@
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;          <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(<span class="keyword">new</span> Side&lt;InfQuad4,InfPrism6&gt;(<span class="keyword">this</span>,i));</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="comment">// Create NULL pointer to be initialized, returned later.</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      Elem * face = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      Elem * face = <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="keywordflow">switch</span> (i)</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        {</div>
@@ -246,26 +246,26 @@
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          }</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      face-&gt;subdomain_id() = this-&gt;subdomain_id();</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="comment">// Set the nodes</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> n=0; n&lt;face-&gt;n_nodes(); ++n)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        face-&gt;set_node(n) = this-&gt;get_node(InfPrism6::side_nodes_map[i][n]);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        face-&gt;set_node(n) = this-&gt;node_ptr(InfPrism6::side_nodes_map[i][n]);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(face);</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;();</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;UniquePtr&lt;Elem&gt; InfPrism6::build_edge (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  libmesh_assert_less (i, n_edges());</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;UniquePtr&lt;Elem&gt; InfPrism6::build_edge_ptr (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, n_edges());</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keywordflow">if</span> (i &lt; 3)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(<span class="keyword">new</span> SideEdge&lt;Edge2,InfPrism6&gt;(<span class="keyword">this</span>,i));</div>
@@ -273,7 +273,7 @@
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">bool</span> InfPrism6::contains_point (<span class="keyword">const</span> Point &amp; p, <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> tol)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">bool</span> InfPrism6::contains_point (<span class="keyword">const</span> Point &amp; p, <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> tol)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">   * For infinite elements with linear base interpolation:</span></div>
@@ -293,18 +293,18 @@
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">   * determine the minimal distance of the base from the origin</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">   * use size_sq(), it is faster than size() and produces</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">   * use norm_sq(), it is faster than norm() and produces</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">   * the same behavior</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> min_distance_sq = <a class="code" href="namespacestd.html#a4444b32c7044d9b34125eaebd070a0e3">std::min</a>((Point(this-&gt;point(0)-my_origin)).size_sq(),</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                                        <a class="code" href="namespacestd.html#a4444b32c7044d9b34125eaebd070a0e3">std::min</a>((Point(this-&gt;point(1)-my_origin)).size_sq(),</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                                                 (Point(this-&gt;point(2)-my_origin)).size_sq()));</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> min_distance_sq = <a class="code" href="namespacestd.html#a4444b32c7044d9b34125eaebd070a0e3">std::min</a>((Point(this-&gt;point(0)-my_origin)).<a class="code" href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">norm_sq</a>(),</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                                        <a class="code" href="namespacestd.html#a4444b32c7044d9b34125eaebd070a0e3">std::min</a>((Point(this-&gt;point(1)-my_origin)).<a class="code" href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">norm_sq</a>(),</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                                                 (Point(this-&gt;point(2)-my_origin)).<a class="code" href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">norm_sq</a>()));</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">/*</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">   * work with 1% allowable deviation.  We can still fall</span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">   * back to the InfFE::inverse_map()</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> conservative_p_dist_sq = 1.01 * (Point(p-my_origin).size_sq());</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> conservative_p_dist_sq = 1.01 * (Point(p-my_origin).norm_sq());</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="keywordflow">if</span> (conservative_p_dist_sq &lt; min_distance_sq)</div>
@@ -322,7 +322,7 @@
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">       */</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      FEType fe_type(default_order());</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keyword">const</span> Point mapped_point = <a class="code" href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">FEInterface::inverse_map</a>(<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>(),</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keyword">const</span> Point mapped_point = <a class="code" href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">FEInterface::inverse_map</a>(dim(),</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                                                          fe_type,</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                                                          <span class="keyword">this</span>,</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                                                          p,</div>
@@ -336,32 +336,32 @@
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">void</span> InfPrism6::connectivity(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(sc),</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">void</span> InfPrism6::connectivity(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="libmesh__common_8h.html#a326d37ac239a28e84049328d1d13d961">libmesh_dbg_var</a>(sc),</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                             <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">IOPackage</a> iop,</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                             std::vector&lt;dof_id_type&gt; &amp; conn)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(_nodes);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  libmesh_assert_less (sc, this-&gt;n_sub_elem());</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  libmesh_assert_not_equal_to (iop, <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">INVALID_IO_PACKAGE</a>);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(_nodes);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (sc, this-&gt;n_sub_elem());</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <a class="code" href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a> (iop, <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">INVALID_IO_PACKAGE</a>);</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="keywordflow">switch</span> (iop)</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    {</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368">TECPLOT</a>:</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      {</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        conn.resize(8);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        conn[0] = this-&gt;node(0)+1;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        conn[1] = this-&gt;node(1)+1;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        conn[2] = this-&gt;node(2)+1;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        conn[3] = this-&gt;node(2)+1;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        conn[4] = this-&gt;node(3)+1;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        conn[5] = this-&gt;node(4)+1;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        conn[6] = this-&gt;node(5)+1;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        conn[7] = this-&gt;node(5)+1;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        conn[0] = this-&gt;node_id(0)+1;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        conn[1] = this-&gt;node_id(1)+1;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        conn[2] = this-&gt;node_id(2)+1;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        conn[3] = this-&gt;node_id(2)+1;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        conn[4] = this-&gt;node_id(3)+1;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        conn[5] = this-&gt;node_id(4)+1;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        conn[6] = this-&gt;node_id(5)+1;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        conn[7] = this-&gt;node_id(5)+1;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      }</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unsupported IO package &quot;</span> &lt;&lt; iop);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unsupported IO package &quot;</span> &lt;&lt; iop);</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
@@ -425,22 +425,25 @@
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif  // ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
 <div class="ttc" id="edge__inf__edge2_8h_html"><div class="ttname"><a href="edge__inf__edge2_8h.html">edge_inf_edge2.h</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="face__tri3_8h_html"><div class="ttname"><a href="face__tri3_8h.html">face_tri3.h</a></div></div>
 <div class="ttc" id="fe__interface_8h_html"><div class="ttname"><a href="fe__interface_8h.html">fe_interface.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_a8acb308b6fb64455af399b68145d1014"><div class="ttname"><a href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a></div><div class="ttdeci">#define libmesh_assert_not_equal_to(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00345">libmesh_common.h:345</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368">libMesh::TECPLOT</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00036">enum_io_package.h:36</a></div></div>
 <div class="ttc" id="side_8h_html"><div class="ttname"><a href="side_8h.html">side.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aec85627a1c7c19f9378a065ba5a11b51"><div class="ttname"><a href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">libMesh::dim</a></div><div class="ttdeci">void ExactErrorEstimator::estimate_error(const System &amp;system, ErrorVector &amp;error_per_cell, const NumericVector&lt; Number &gt; *solution_vector, bool estimate_parent_error) void ExactErrorEstimator const unsigned in dim)</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8C_source.html#l00216">exact_error_estimator.C:216</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">libMesh::INVALID_IO_PACKAGE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00044">enum_io_package.h:44</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEInterface_html_aa4cd7cde33c7f4b7f873d2fdad6fb635"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">libMesh::FEInterface::inverse_map</a></div><div class="ttdeci">static Point inverse_map(const unsigned int dim, const FEType &amp;fe_t, const Elem *elem, const Point &amp;p, const Real tolerance=TOLERANCE, const bool secure=true)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00552">fe_interface.C:552</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEInterface_html_aa4cd7cde33c7f4b7f873d2fdad6fb635"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">libMesh::FEInterface::inverse_map</a></div><div class="ttdeci">static Point inverse_map(const unsigned int dim, const FEType &amp;fe_t, const Elem *elem, const Point &amp;p, const Real tolerance=TOLERANCE, const bool secure=true)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00556">fe_interface.C:556</a></div></div>
 <div class="ttc" id="edge__edge2_8h_html"><div class="ttname"><a href="edge__edge2_8h.html">edge_edge2.h</a></div></div>
 <div class="ttc" id="face__inf__quad4_8h_html"><div class="ttname"><a href="face__inf__quad4_8h.html">face_inf_quad4.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_af591f704edd63f707d8e884f95db4477"><div class="ttname"><a href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libMesh::libmesh_dbg_var</a></div><div class="ttdeci">PetscErrorCode Vec Mat libmesh_dbg_var(j)</div></div>
-<div class="ttc" id="classlibMesh_1_1FEInterface_html_a5ed1b078cb472a00bf1b4cdb5cf28be7"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#a5ed1b078cb472a00bf1b4cdb5cf28be7">libMesh::FEInterface::on_reference_element</a></div><div class="ttdeci">static bool on_reference_element(const Point &amp;p, const ElemType t, const Real eps=TOLERANCE)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00614">fe_interface.C:614</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEInterface_html_a5ed1b078cb472a00bf1b4cdb5cf28be7"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#a5ed1b078cb472a00bf1b4cdb5cf28be7">libMesh::FEInterface::on_reference_element</a></div><div class="ttdeci">static bool on_reference_element(const Point &amp;p, const ElemType t, const Real eps=TOLERANCE)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00618">fe_interface.C:618</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1TensorTools_html_a04923dfce4c2b77e2d964c9733dcf034"><div class="ttname"><a href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">libMesh::TensorTools::norm_sq</a></div><div class="ttdeci">T norm_sq(T a)</div><div class="ttdef"><b>Definition:</b> <a href="tensor__tools_8h_source.html#l00070">tensor_tools.h:70</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_a326d37ac239a28e84049328d1d13d961"><div class="ttname"><a href="libmesh__common_8h.html#a326d37ac239a28e84049328d1d13d961">libmesh_dbg_var</a></div><div class="ttdeci">#define libmesh_dbg_var(var)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00264">libmesh_common.h:264</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">libMesh::IOPackage</a></div><div class="ttdeci">IOPackage</div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00034">enum_io_package.h:34</a></div></div>
 <div class="ttc" id="fe__type_8h_html"><div class="ttname"><a href="fe__type_8h.html">fe_type.h</a></div></div>

@@ -97,12 +97,35 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">xdr_cxx.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="libmesh_8h_source.html">libmesh/libmesh.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="enum__xdr__mode_8h_source.html">libmesh/enum_xdr_mode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="auto__ptr_8h_source.html">libmesh/auto_ptr.h</a>&quot;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
+<code>#include &lt;iosfwd&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for xdr_cxx.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="xdr__cxx_8h__incl.png" border="0" usemap="#xdr__cxx_8h" alt=""/></div>
+<map name="xdr__cxx_8h" id="xdr__cxx_8h">
+<area shape="rect" id="node2" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="276,485,463,512"/><area shape="rect" id="node16" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="787,80,916,107"/><area shape="rect" id="node27" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="127,253,259,280"/><area shape="rect" id="node34" href="enum__xdr__mode_8h.html" title="libmesh/enum_xdr_mode.h" alt="" coords="1618,80,1800,107"/><area shape="rect" id="node3" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="138,709,309,736"/><area shape="rect" id="node7" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="905,560,1071,587"/><area shape="rect" id="node11" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="124,635,324,661"/><area shape="rect" id="node12" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="450,560,635,587"/><area shape="rect" id="node13" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="711,560,881,587"/><area shape="rect" id="node15" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="455,635,627,661"/><area shape="rect" id="node8" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="922,635,1053,661"/><area shape="rect" id="node17" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="335,155,483,197"/><area shape="rect" id="node18" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="789,163,915,189"/><area shape="rect" id="node19" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="503,336,681,363"/><area shape="rect" id="node33" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="487,253,711,280"/><area shape="rect" id="node20" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="1001,411,1132,437"/><area shape="rect" id="node28" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="94,336,233,363"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="xdr__cxx_8h__dep__incl.png" border="0" usemap="#xdr__cxx_8hdep" alt=""/></div>
+<map name="xdr__cxx_8hdep" id="xdr__cxx_8hdep">
+<area shape="rect" id="node2" href="checkpoint__io_8C.html" title="checkpoint_io.C" alt="" coords="5,80,123,107"/><area shape="rect" id="node3" href="mesh__data__xdr__support_8C.html" title="mesh_data_xdr_support.C" alt="" coords="147,80,325,107"/><area shape="rect" id="node4" href="xdr__io_8C.html" title="xdr_io.C" alt="" coords="349,80,421,107"/><area shape="rect" id="node5" href="equation__systems__io_8C.html" title="equation_systems_io.C" alt="" coords="445,80,605,107"/><area shape="rect" id="node6" href="system__io_8C.html" title="system_io.C" alt="" coords="629,80,725,107"/><area shape="rect" id="node7" href="xdr__cxx_8C.html" title="xdr_cxx.C" alt="" coords="750,80,831,107"/></map>
+</div>
+</div>
 <p><a href="xdr__cxx_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -115,11 +138,31 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a4eeb61417f03d8fad7ddbeb67796c0ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xdr__cxx_8h.html#a4eeb61417f03d8fad7ddbeb67796c0ef">xdr_REAL</a>&#160;&#160;&#160;xdr_double</td></tr>
+<tr class="separator:a4eeb61417f03d8fad7ddbeb67796c0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ad31b36b8aab2d3c59bef243dbfde4a52"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xdr__cxx_8h.html#ad31b36b8aab2d3c59bef243dbfde4a52">xdr_MAX_STRING_LENGTH</a> =256</td></tr>
 <tr class="separator:ad31b36b8aab2d3c59bef243dbfde4a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a4eeb61417f03d8fad7ddbeb67796c0ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define xdr_REAL&#160;&#160;&#160;xdr_double</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="xdr__cxx_8h_source.html#l00049">49</a> of file <a class="el" href="xdr__cxx_8h_source.html">xdr_cxx.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="ad31b36b8aab2d3c59bef243dbfde4a52"></a>
 <div class="memitem">

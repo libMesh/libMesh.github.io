@@ -221,9 +221,9 @@
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> N, <span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow.html">  153</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html">do_pow</a> {</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">  154</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> T <a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">apply</a> (<span class="keyword">const</span> T &amp; <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>)</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">  154</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> T <a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">apply</a> (<span class="keyword">const</span> T &amp; x)</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(N&gt;1);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(N&gt;1);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span> (N%2) <span class="comment">// odd exponent</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">return</span> x * <a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">do_pow&lt;N-1,T&gt;::apply</a>(x);</div>
@@ -239,9 +239,9 @@
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">// T::operator*) might do worse, so we&#39;ll specialize here.</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4.html">  171</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html">do_pow</a>&lt;6,T&gt; {</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4.html#ae5fca98f12b37ff23ab90f5e5789d3f0">  172</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> T <a class="code" href="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4.html#ae5fca98f12b37ff23ab90f5e5789d3f0">apply</a> (<span class="keyword">const</span> T &amp; <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>)</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4.html#ae5fca98f12b37ff23ab90f5e5789d3f0">  172</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> T <a class="code" href="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4.html#ae5fca98f12b37ff23ab90f5e5789d3f0">apply</a> (<span class="keyword">const</span> T &amp; x)</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">const</span> T x2 = x*<a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">const</span> T x2 = x*x,</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      x4 = x2*x2;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">return</span> x4*x2;</div>
@@ -250,7 +250,7 @@
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4.html">  182</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html">do_pow</a>&lt;1,T&gt; {</div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4.html#a3abd214b272935c4f645a532e299e39e">  183</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> T <a class="code" href="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4.html#a3abd214b272935c4f645a532e299e39e">apply</a> (<span class="keyword">const</span> T &amp; <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>) { <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>; }</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4.html#a3abd214b272935c4f645a532e299e39e">  183</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> T <a class="code" href="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4.html#a3abd214b272935c4f645a532e299e39e">apply</a> (<span class="keyword">const</span> T &amp; x) { <span class="keywordflow">return</span> x; }</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;};</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -261,7 +261,7 @@
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> N, <span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a23504eb13cc55c8b5b41b2929c42fc9d">  194</a></span>&#160;T <a class="code" href="namespacelibMesh_1_1Utility.html#a23504eb13cc55c8b5b41b2929c42fc9d">pow</a>(<span class="keyword">const</span> T &amp; <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>)</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a23504eb13cc55c8b5b41b2929c42fc9d">  194</a></span>&#160;T <a class="code" href="namespacelibMesh_1_1Utility.html#a23504eb13cc55c8b5b41b2929c42fc9d">pow</a>(<span class="keyword">const</span> T &amp; x)</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">do_pow&lt;N,T&gt;::apply</a>(x);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
@@ -283,113 +283,129 @@
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a8336f9a9e7cae5cd03562dd4ce490aca">  224</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh_1_1Utility.html#a8336f9a9e7cae5cd03562dd4ce490aca">deallocate</a> (std::vector&lt;T&gt; &amp; vec)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;{</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  std::vector&lt;T&gt;().<a class="code" href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">swap</a>(vec);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;}</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">// Simple function to compute &quot;n choose k&quot;, aka the binomial coefficient.</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a01ba2702e4d7df0e65cf81b02874593b">  221</a></span>&#160;T <a class="code" href="namespacelibMesh_1_1Utility.html#a01ba2702e4d7df0e65cf81b02874593b">binomial</a>(T n, T k)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  T ret = 1;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="comment">// Binomial function is &quot;symmetric&quot; in k, C(n, k) = C(n, n-k).</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="keywordflow">if</span> (k &gt; n - k)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    k = n - k;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">// Utility functions useful when dealing with complex numbers.</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">#ifdef LIBMESH_USE_COMPLEX_NUMBERS</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;std::string <a class="code" href="namespacelibMesh_1_1Utility.html#a6d4e6e8b690b770d64817bd6c7f7d14b">complex_filename</a> (<span class="keyword">const</span> std::string &amp; basename,</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> r_o_c=0);</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh_1_1Utility.html#af5e69ae30b8a867ecb476d1b1e09384c">prepare_complex_data</a> (<span class="keyword">const</span> std::vector&lt;Complex&gt; &amp; source,</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                           std::vector&lt;Real&gt; &amp; real_part,</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                           std::vector&lt;Real&gt; &amp; imag_part);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="comment">// Compute n * (n-1) * ... * (n-k+1) / (k * (k-1) * ... * 1)</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">for</span> (T i = 0; i &lt; k; ++i)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      ret *= (n - i);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      ret /= (i + 1);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a8336f9a9e7cae5cd03562dd4ce490aca">  245</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh_1_1Utility.html#a8336f9a9e7cae5cd03562dd4ce490aca">deallocate</a> (std::vector&lt;T&gt; &amp; vec)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;{</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  std::vector&lt;T&gt;().swap(vec);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_USE_COMPLEX_NUMBERS</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">// Utility functions useful when dealing with complex numbers.</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html">  263</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html">ReverseBytes</a></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;{</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">explicit</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">ReverseBytes</a> (<span class="keyword">const</span> <span class="keywordtype">bool</span> dr);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="preprocessor">#ifdef LIBMESH_USE_COMPLEX_NUMBERS</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;std::string complex_filename (<span class="keyword">const</span> std::string &amp; basename,</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> r_o_c=0);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordtype">void</span> prepare_complex_data (<span class="keyword">const</span> std::vector&lt;Complex&gt; &amp; source,</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                           std::vector&lt;Real&gt; &amp; real_part,</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                           std::vector&lt;Real&gt; &amp; imag_part);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_USE_COMPLEX_NUMBERS</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  T <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">operator () </a>(T &amp; <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">  286</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">reverse</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">_do_reverse</a>; }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">//-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html">  284</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html">ReverseBytes</a></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;{</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">  291</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">_do_reverse</a>;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;};</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keyword">explicit</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">ReverseBytes</a> (<span class="keyword">const</span> <span class="keywordtype">bool</span> dr);</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">//---------------------------------------------------------</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">// ReverseBytes inline members</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">  299</a></span>&#160;<a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">ReverseBytes::ReverseBytes</a> (<span class="keyword">const</span> <span class="keywordtype">bool</span> rb) :</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  _do_reverse (rb)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{}</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  T <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">operator () </a>(T &amp; data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">  306</a></span>&#160;T <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">ReverseBytes::operator() </a>(T &amp; <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="comment">// Possibly reverse the byte ordering</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">reverse</a>())</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> * b = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *) &amp;data;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="keywordtype">int</span> i=0;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordtype">int</span> j=(<span class="keyword">sizeof</span>(T) - 1);</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">  307</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">reverse</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">_do_reverse</a>; }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">  312</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">_do_reverse</a>;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;};</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keywordflow">while</span> (i &lt; j)</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        {</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          <a class="code" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">std::swap</a> (b[i], b[j]);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;          i++; j--;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        }</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="preprocessor">#endif // LIBMESH_UTILITY_H</span></div>
-<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html">libMesh::Utility::ReverseBytes</a></div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00263">utility.h:263</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_ac8f23f9094799305badc05dc805bfe6b"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">libMesh::Utility::ReverseBytes::_do_reverse</a></div><div class="ttdeci">const bool _do_reverse</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00291">utility.h:291</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="namespacelibMesh_1_1Utility_html_a6d4e6e8b690b770d64817bd6c7f7d14b"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a6d4e6e8b690b770d64817bd6c7f7d14b">libMesh::Utility::complex_filename</a></div><div class="ttdeci">std::string complex_filename(const std::string &amp;basename, unsigned int r_o_c=0)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8C_source.html#l00083">utility.C:83</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Utility_html_a8336f9a9e7cae5cd03562dd4ce490aca"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a8336f9a9e7cae5cd03562dd4ce490aca">libMesh::Utility::deallocate</a></div><div class="ttdeci">void deallocate(std::vector&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00224">utility.h:224</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1MeshTools_1_1Subdivision_html_af372d2891a447b9b1dce614cdc488efe"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools_1_1Subdivision.html#af372d2891a447b9b1dce614cdc488efe">libMesh::MeshTools::Subdivision::prev</a></div><div class="ttdeci">static const unsigned int prev[3]</div><div class="ttdef"><b>Definition:</b> <a href="mesh__subdivision__support_8h_source.html#l00108">mesh_subdivision_support.h:108</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">//---------------------------------------------------------</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">// ReverseBytes inline members</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">  320</a></span>&#160;<a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">ReverseBytes::ReverseBytes</a> (<span class="keyword">const</span> <span class="keywordtype">bool</span> rb) :</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  _do_reverse (rb)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{}</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">  327</a></span>&#160;T <a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">ReverseBytes::operator() </a>(T &amp; data)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="comment">// Possibly reverse the byte ordering</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">reverse</a>())</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> * b = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *) &amp;data;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="keywordtype">int</span> i=0;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      <span class="keywordtype">int</span> j=(<span class="keyword">sizeof</span>(T) - 1);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      <span class="keywordflow">while</span> (i &lt; j)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;          std::swap (b[i], b[j]);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;          i++; j--;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        }</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;}</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;}</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="preprocessor">#endif // LIBMESH_UTILITY_H</span></div>
+<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html">libMesh::Utility::ReverseBytes</a></div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00284">utility.h:284</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_ac8f23f9094799305badc05dc805bfe6b"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#ac8f23f9094799305badc05dc805bfe6b">libMesh::Utility::ReverseBytes::_do_reverse</a></div><div class="ttdeci">const bool _do_reverse</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00312">utility.h:312</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Utility_html_a8336f9a9e7cae5cd03562dd4ce490aca"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a8336f9a9e7cae5cd03562dd4ce490aca">libMesh::Utility::deallocate</a></div><div class="ttdeci">void deallocate(std::vector&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00245">utility.h:245</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1MeshTools_1_1Subdivision_html_af372d2891a447b9b1dce614cdc488efe"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools_1_1Subdivision.html#af372d2891a447b9b1dce614cdc488efe">libMesh::MeshTools::Subdivision::prev</a></div><div class="ttdeci">static const unsigned int prev[3]</div><div class="ttdef"><b>Definition:</b> <a href="mesh__subdivision__support_8h_source.html#l00109">mesh_subdivision_support.h:109</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_abfbbf7ee55c32d70de987564589f9924"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#abfbbf7ee55c32d70de987564589f9924">libMesh::Utility::system_info</a></div><div class="ttdeci">std::string system_info()</div><div class="ttdef"><b>Definition:</b> <a href="utility_8C_source.html#l00045">utility.C:45</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a5bf73702428d6738e175c810554b96c9"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a5bf73702428d6738e175c810554b96c9">libMesh::Utility::iota</a></div><div class="ttdeci">void iota(ForwardIter first, ForwardIter last, T value)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00058">utility.h:58</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_a1311d9b8ba06ac6bdf9ac14353fb9df7"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">libMesh::Utility::ReverseBytes::operator()</a></div><div class="ttdeci">T operator()(T &amp;data) const </div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00306">utility.h:306</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_a1311d9b8ba06ac6bdf9ac14353fb9df7"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#a1311d9b8ba06ac6bdf9ac14353fb9df7">libMesh::Utility::ReverseBytes::operator()</a></div><div class="ttdeci">T operator()(T &amp;data) const </div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00327">utility.h:327</a></div></div>
 <div class="ttc" id="structlibMesh_1_1Utility_1_1do__pow_3_010_00_01T_01_4_html_a391cbff302831f5d594f0cda31f41ad9"><div class="ttname"><a href="structlibMesh_1_1Utility_1_1do__pow_3_010_00_01T_01_4.html#a391cbff302831f5d594f0cda31f41ad9">libMesh::Utility::do_pow&lt; 0, T &gt;::apply</a></div><div class="ttdeci">static T apply(const T &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00188">utility.h:188</a></div></div>
 <div class="ttc" id="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4_html_a3abd214b272935c4f645a532e299e39e"><div class="ttname"><a href="structlibMesh_1_1Utility_1_1do__pow_3_011_00_01T_01_4.html#a3abd214b272935c4f645a532e299e39e">libMesh::Utility::do_pow&lt; 1, T &gt;::apply</a></div><div class="ttdeci">static T apply(const T &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00183">utility.h:183</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a23504eb13cc55c8b5b41b2929c42fc9d"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a23504eb13cc55c8b5b41b2929c42fc9d">libMesh::Utility::pow</a></div><div class="ttdeci">T pow(const T &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00194">utility.h:194</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_abe90edd7ff01517e300072f17831be0a"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">libMesh::Utility::ReverseBytes::reverse</a></div><div class="ttdeci">bool reverse() const </div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00286">utility.h:286</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1Utility_html_af5e69ae30b8a867ecb476d1b1e09384c"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#af5e69ae30b8a867ecb476d1b1e09384c">libMesh::Utility::prepare_complex_data</a></div><div class="ttdeci">void prepare_complex_data(const std::vector&lt; Complex &gt; &amp;source, std::vector&lt; Real &gt; &amp;real_part, std::vector&lt; Real &gt; &amp;imag_part)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8C_source.html#l00099">utility.C:99</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_abe90edd7ff01517e300072f17831be0a"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#abe90edd7ff01517e300072f17831be0a">libMesh::Utility::ReverseBytes::reverse</a></div><div class="ttdeci">bool reverse() const </div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00307">utility.h:307</a></div></div>
 <div class="ttc" id="structlibMesh_1_1Utility_1_1do__pow_html"><div class="ttname"><a href="structlibMesh_1_1Utility_1_1do__pow.html">libMesh::Utility::do_pow</a></div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00153">utility.h:153</a></div></div>
 <div class="ttc" id="structlibMesh_1_1Utility_1_1do__pow_html_a1187ff110143bde7c7e201a624275d88"><div class="ttname"><a href="structlibMesh_1_1Utility_1_1do__pow.html#a1187ff110143bde7c7e201a624275d88">libMesh::Utility::do_pow::apply</a></div><div class="ttdeci">static T apply(const T &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00154">utility.h:154</a></div></div>
 <div class="ttc" id="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4_html_ae5fca98f12b37ff23ab90f5e5789d3f0"><div class="ttname"><a href="structlibMesh_1_1Utility_1_1do__pow_3_016_00_01T_01_4.html#ae5fca98f12b37ff23ab90f5e5789d3f0">libMesh::Utility::do_pow&lt; 6, T &gt;::apply</a></div><div class="ttdeci">static T apply(const T &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00172">utility.h:172</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a939f48b62497a98c1bcdc722204468b9"><div class="ttname"><a href="namespacelibMesh.html#a939f48b62497a98c1bcdc722204468b9">libMesh::swap</a></div><div class="ttdeci">X_input swap(X_system)</div></div>
-<div class="ttc" id="variant__filter__iterator_8h_html_a8e84acf9c8e70b7fa0b00795c4209f19"><div class="ttname"><a href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">swap</a></div><div class="ttdeci">void swap(Iterator &amp;lhs, Iterator &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00468">variant_filter_iterator.h:468</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a448493f3f6e7c8827127c19049a0273c"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a448493f3f6e7c8827127c19049a0273c">libMesh::Utility::factorial</a></div><div class="ttdeci">unsigned int factorial(unsigned int n)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00204">utility.h:204</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a5b595dcf34ea76c4ad175acdb6f9cdd1"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a5b595dcf34ea76c4ad175acdb6f9cdd1">libMesh::Utility::is_sorted</a></div><div class="ttdeci">bool is_sorted(InputIterator first, InputIterator last)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00075">utility.h:75</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a4e278b3935206e77afc2013ebcc0af37"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a4e278b3935206e77afc2013ebcc0af37">libMesh::Utility::binary_find</a></div><div class="ttdeci">ForwardIterator binary_find(ForwardIterator first, ForwardIterator last, const T &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00130">utility.h:130</a></div></div>
-<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_afb539462f77e5a4d4ea5c6c69afa885f"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">libMesh::Utility::ReverseBytes::ReverseBytes</a></div><div class="ttdeci">ReverseBytes(const bool dr)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00299">utility.h:299</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Utility_1_1ReverseBytes_html_afb539462f77e5a4d4ea5c6c69afa885f"><div class="ttname"><a href="classlibMesh_1_1Utility_1_1ReverseBytes.html#afb539462f77e5a4d4ea5c6c69afa885f">libMesh::Utility::ReverseBytes::ReverseBytes</a></div><div class="ttdeci">ReverseBytes(const bool dr)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00320">utility.h:320</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Utility_html_a01ba2702e4d7df0e65cf81b02874593b"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a01ba2702e4d7df0e65cf81b02874593b">libMesh::Utility::binomial</a></div><div class="ttdeci">T binomial(T n, T k)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8h_source.html#l00221">utility.h:221</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

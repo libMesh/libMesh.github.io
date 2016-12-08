@@ -123,40 +123,48 @@
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> QGaussLobatto::init_2D(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGaussLobatto.html#a62c19aaf46c30359bc92f7d813461dfa">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGaussLobatto.html#a62c19aaf46c30359bc92f7d813461dfa">QGaussLobatto::init_2D</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">switch</span> (type_in)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1">QUAD4</a>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">QUAD8</a>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">QUAD9</a>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// We compute the 2D quadrature rule as a tensor</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// product of the 1D quadrature rule.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        QGaussLobatto q1D(1, _order);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        q1D.init(<a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">EDGE2</a>, p);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        tensor_product_quad(q1D);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">// We *could* fall back to a Gauss type rule for other types</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="comment">// elements, but the assumption here is that the user has asked</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="comment">// for a Gauss-Lobatto rule, i.e. a rule with integration points</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// on the element boundary, for a reason.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Element type not supported!:&quot;</span> &lt;&lt; type_in);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64">QUADSHELL4</a>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">QUAD8</a>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">QUAD9</a>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// We compute the 2D quadrature rule as a tensor</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">// product of the 1D quadrature rule.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classlibMesh_1_1QGaussLobatto.html">QGaussLobatto</a> q1D(1, <a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        q1D.<a class="code" href="classlibMesh_1_1QBase.html#a209fa2f26083d1256e389fe90176325a">init</a>(<a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">EDGE2</a>, p);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classlibMesh_1_1QBase.html#a6e383f81dda95cc7b460bbbc43a91d71">tensor_product_quad</a>(q1D);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="comment">// We *could* fall back to a Gauss type rule for other types</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="comment">// elements, but the assumption here is that the user has asked</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// for a Gauss-Lobatto rule, i.e. a rule with integration points</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="comment">// on the element boundary, for a reason.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Element type not supported!:&quot;</span> &lt;&lt; type_in);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace libMesh</span></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a209fa2f26083d1256e389fe90176325a"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a209fa2f26083d1256e389fe90176325a">libMesh::QBase::init</a></div><div class="ttdeci">virtual void init(const ElemType type=INVALID_ELEM, unsigned int p_level=0)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8C_source.html#l00028">quadrature.C:28</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1">libMesh::QUAD4</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00037">enum_elem_type.h:37</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGaussLobatto_html_a62c19aaf46c30359bc92f7d813461dfa"><div class="ttname"><a href="classlibMesh_1_1QGaussLobatto.html#a62c19aaf46c30359bc92f7d813461dfa">libMesh::QGaussLobatto::init_2D</a></div><div class="ttdeci">virtual void init_2D(const ElemType _type=INVALID_ELEM, unsigned int p_level=0) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss__lobatto__2D_8C_source.html#l00026">quadrature_gauss_lobatto_2D.C:26</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGaussLobatto_html"><div class="ttname"><a href="classlibMesh_1_1QGaussLobatto.html">libMesh::QGaussLobatto</a></div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss__lobatto_8h_source.html#l00039">quadrature_gauss_lobatto.h:39</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">libMesh::EDGE2</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">libMesh::QUAD8</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00038">enum_elem_type.h:38</a></div></div>
 <div class="ttc" id="quadrature__gauss__lobatto_8h_html"><div class="ttname"><a href="quadrature__gauss__lobatto_8h.html">quadrature_gauss_lobatto.h</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64">libMesh::QUADSHELL4</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00074">enum_elem_type.h:74</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">libMesh::QUAD9</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00039">enum_elem_type.h:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a6e383f81dda95cc7b460bbbc43a91d71"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a6e383f81dda95cc7b460bbbc43a91d71">libMesh::QBase::tensor_product_quad</a></div><div class="ttdeci">void tensor_product_quad(const QBase &amp;q1D)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8C_source.html#l00127">quadrature.C:127</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a56351aa7f267b005de6b67f5cfc7f88f"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">libMesh::QBase::_order</a></div><div class="ttdeci">const Order _order</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00321">quadrature.h:321</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

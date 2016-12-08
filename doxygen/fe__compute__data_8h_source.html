@@ -129,8 +129,8 @@
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Forward declarations</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>EquationSystems;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>Point;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1EquationSystems.html">EquationSystems</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Point.html">Point</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FEComputeData.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1FEComputeData.html">FEComputeData</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
@@ -162,19 +162,19 @@
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#if defined(LIBMESH_ENABLE_INFINITE_ELEMENTS) &amp;&amp; !defined(LIBMESH_USE_COMPLEX_NUMBERS)</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FEComputeData.html#ad1bbba20949444c9a995733d2f599770">   92</a></span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FEComputeData.html#ad1bbba20949444c9a995733d2f599770">phase</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> phase;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FEComputeData.html#ad9aef672ac8a346ce0d1c8ec0873ae0b">  100</a></span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FEComputeData.html#ad9aef672ac8a346ce0d1c8ec0873ae0b">speed</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> speed;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#if defined LIBMESH_ENABLE_INFINITE_ELEMENTS &amp;&amp; defined(LIBMESH_USE_COMPLEX_NUMBERS)</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FEComputeData.html#a7311109aecee478a1ce9e4dd62b975db">  109</a></span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1FEComputeData.html#a7311109aecee478a1ce9e4dd62b975db">frequency</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> frequency;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
@@ -193,16 +193,13 @@
 <div class="ttc" id="classlibMesh_1_1FEComputeData_html_a0e4f158b965e866d8162f300bfc29af7"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#a0e4f158b965e866d8162f300bfc29af7">libMesh::FEComputeData::equation_systems</a></div><div class="ttdeci">const EquationSystems &amp; equation_systems</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00072">fe_compute_data.h:72</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEComputeData_html"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html">libMesh::FEComputeData</a></div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00046">fe_compute_data.h:46</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEComputeData_html_a23e7e761ccb626914ba41de94cfa9465"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#a23e7e761ccb626914ba41de94cfa9465">libMesh::FEComputeData::p</a></div><div class="ttdeci">const Point &amp; p</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00076">fe_compute_data.h:76</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEComputeData_html_ad1bbba20949444c9a995733d2f599770"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#ad1bbba20949444c9a995733d2f599770">libMesh::FEComputeData::phase</a></div><div class="ttdeci">Real phase</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00092">fe_compute_data.h:92</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEComputeData_html_ad9aef672ac8a346ce0d1c8ec0873ae0b"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#ad9aef672ac8a346ce0d1c8ec0873ae0b">libMesh::FEComputeData::speed</a></div><div class="ttdeci">Real speed</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00100">fe_compute_data.h:100</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEComputeData_html_ab22eac574d179abf36017c8b2237c917"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#ab22eac574d179abf36017c8b2237c917">libMesh::FEComputeData::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8C_source.html#l00026">fe_compute_data.C:26</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEComputeData_html_acd3497f2d3a00fd1ac670f0faaba9f2e"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#acd3497f2d3a00fd1ac670f0faaba9f2e">libMesh::FEComputeData::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8C_source.html#l00043">fe_compute_data.C:43</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FEComputeData_html_a7311109aecee478a1ce9e4dd62b975db"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#a7311109aecee478a1ce9e4dd62b975db">libMesh::FEComputeData::frequency</a></div><div class="ttdeci">Real frequency</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00109">fe_compute_data.h:109</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FEComputeData_html_acd3497f2d3a00fd1ac670f0faaba9f2e"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#acd3497f2d3a00fd1ac670f0faaba9f2e">libMesh::FEComputeData::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8C_source.html#l00044">fe_compute_data.C:44</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEComputeData_html_abcadcf6c89c2ca5258e5c1f53c321bfe"><div class="ttname"><a href="classlibMesh_1_1FEComputeData.html#abcadcf6c89c2ca5258e5c1f53c321bfe">libMesh::FEComputeData::shape</a></div><div class="ttdeci">std::vector&lt; Number &gt; shape</div><div class="ttdef"><b>Definition:</b> <a href="fe__compute__data_8h_source.html#l00085">fe_compute_data.h:85</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="libmesh_8h_html"><div class="ttname"><a href="libmesh_8h.html">libmesh.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00039">point.h:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdoc">A geometric point in (x,y,z) space. </div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00040">point.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

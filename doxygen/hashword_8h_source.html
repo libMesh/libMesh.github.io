@@ -141,7 +141,7 @@
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// \copyright Public Domain</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// http://burtleburtle.net/bob/hash/index.html</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;uint32_t rot(uint32_t <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, uint32_t k)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;uint32_t rot(uint32_t x, uint32_t k)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> (x&lt;&lt;k) | (x&gt;&gt;(32-k));</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
@@ -366,7 +366,7 @@
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      }</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unsupported length: &quot;</span> &lt;&lt; length);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unsupported length: &quot;</span> &lt;&lt; length);</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="comment">// Result is returned in c</span></div>
@@ -374,14 +374,24 @@
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(c);</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;} <span class="comment">// end Utility namespace</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;} <span class="comment">// end libMesh namespace</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor">#endif // LIBMESH_HASHWORD_H</span></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">// Calls function above with slightly more convenient std::vector interface.</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="namespacelibMesh_1_1Utility.html#a30687aa036b41428a229be4a655001f0">  280</a></span>&#160;uint16_t <a class="code" href="namespacelibMesh_1_1Utility.html#acb4db072802bcc26c08df6af104d1f06">hashword</a>(<span class="keyword">const</span> std::vector&lt;uint16_t&gt; &amp; keys)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh_1_1Utility.html#acb4db072802bcc26c08df6af104d1f06">hashword</a>(&amp;keys[0], keys.size());</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;} <span class="comment">// end Utility namespace</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;} <span class="comment">// end libMesh namespace</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor">#endif // LIBMESH_HASHWORD_H</span></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_acb4db072802bcc26c08df6af104d1f06"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#acb4db072802bcc26c08df6af104d1f06">libMesh::Utility::hashword</a></div><div class="ttdeci">uint32_t hashword(const uint32_t *k, size_t length, uint32_t initval=0)</div><div class="ttdef"><b>Definition:</b> <a href="hashword_8h_source.html#l00141">hashword.h:141</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_a439431b0d4654d6aaff6515868c6df37"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#a439431b0d4654d6aaff6515868c6df37">libMesh::Utility::hashword2</a></div><div class="ttdeci">uint32_t hashword2(const uint32_t &amp;first, const uint32_t &amp;second, uint32_t initval=0)</div><div class="ttdef"><b>Definition:</b> <a href="hashword_8h_source.html#l00189">hashword.h:189</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

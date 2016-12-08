@@ -120,10 +120,8 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a49c80b2ced17a3c61377fd9e6a196146"><td class="memTemplParams" colspan="2">template&lt;typename BidirectionalIterator &gt; </td></tr>
-<tr class="memitem:a49c80b2ced17a3c61377fd9e6a196146"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1SparsityPattern.html#a49c80b2ced17a3c61377fd9e6a196146">sort_row</a> (const BidirectionalIterator begin, BidirectionalIterator middle, const BidirectionalIterator <a class="el" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>)</td></tr>
+<tr class="memitem:a49c80b2ced17a3c61377fd9e6a196146"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1SparsityPattern.html#a49c80b2ced17a3c61377fd9e6a196146">sort_row</a> (const BidirectionalIterator begin, BidirectionalIterator middle, const BidirectionalIterator end)</td></tr>
 <tr class="separator:a49c80b2ced17a3c61377fd9e6a196146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a859cc7fecedbd239ca60ef57d33fd1d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1SparsityPattern.html#a859cc7fecedbd239ca60ef57d33fd1d0">_dummy_function</a> (void)</td></tr>
-<tr class="separator:a859cc7fecedbd239ca60ef57d33fd1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This defines the sparsity pattern, or graph, of a sparse matrix. The format is quite simple &ndash; the global indices of the nonzero entries in each row are packed into a vector. The global indices (i,j) of the nth nonzero entry of row i are given by j = sparsity_pattern[i][n]; </p>
@@ -143,27 +141,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a859cc7fecedbd239ca60ef57d33fd1d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void libMesh::SparsityPattern::_dummy_function </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Dummy function that does nothing but can be used to prohibit compiler optimization in some situations where some compilers have optimization bugs. </p>
-
-<p>Definition at line <a class="el" href="dof__map_8C_source.html#l02453">2453</a> of file <a class="el" href="dof__map_8C_source.html">dof_map.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l02454"></a><span class="lineno"> 2454</span>&#160;{</div>
-<div class="line"><a name="l02455"></a><span class="lineno"> 2455</span>&#160;}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a class="anchor" id="a49c80b2ced17a3c61377fd9e6a196146"></a>
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +182,7 @@ template&lt;typename BidirectionalIterator &gt; </div>
 </div><div class="memdoc">
 <p>Splices the two sorted ranges [begin,middle) and [middle,end) into one sorted range [begin,end). This method is much like std::inplace_merge except it assumes the intersection of the two sorted ranges is empty and that any element in each range occurs only once in that range. Additionally, this sort occurs in-place, while std::inplace_merge may use a temporary buffer. </p>
 
-<p>Referenced by <a class="el" href="dof__map_8C_source.html#l02461">libMesh::SparsityPattern::Build::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="sparsity__pattern_8C_source.html#l00082">libMesh::SparsityPattern::Build::handle_vi_vj()</a>.</p>
 
 </div>
 </div>

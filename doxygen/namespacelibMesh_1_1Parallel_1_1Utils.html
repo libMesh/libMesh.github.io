@@ -106,8 +106,6 @@
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1Utils_1_1Convert.html">Convert</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1Utils_1_1Convert_3_01Hilbert_1_1HilbertIndices_01_4.html">Convert&lt; Hilbert::HilbertIndices &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibMesh_1_1Parallel_1_1Utils_1_1Convert_3_01std_1_1pair_3_01FirstKeyType_00_01SecondKeyType_01_4_01_4.html">Convert&lt; std::pair&lt; FirstKeyType, SecondKeyType &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -122,9 +120,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a5dd384b5dec63150b6b35aa79c18b414"><td class="memTemplParams" colspan="2">template&lt;typename FirstKeyType , typename SecondKeyType &gt; </td></tr>
 <tr class="memitem:a5dd384b5dec63150b6b35aa79c18b414"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel_1_1Utils.html#a5dd384b5dec63150b6b35aa79c18b414">to_double</a> (const std::pair&lt; FirstKeyType, SecondKeyType &gt; &amp;k)</td></tr>
 <tr class="separator:a5dd384b5dec63150b6b35aa79c18b414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f7edd2a77944e21590973a0458f313"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:aa2f7edd2a77944e21590973a0458f313"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">to_double</a> (const Hilbert::HilbertIndices &amp;bvt)</td></tr>
-<tr class="separator:aa2f7edd2a77944e21590973a0458f313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a1a148823d82abcf5e179095dc58bc15e"></a>
@@ -231,40 +226,9 @@ template&lt;typename FirstKeyType , typename SecondKeyType &gt; </div>
 
 <p>References <a class="el" href="parallel__conversion__utils_8h_source.html#l00068">to_double()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">to_double</a>(k.first);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#a5dd384b5dec63150b6b35aa79c18b414">to_double</a>(k.first);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="ttc" id="namespacelibMesh_1_1Parallel_1_1Utils_html_aa2f7edd2a77944e21590973a0458f313"><div class="ttname"><a href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">libMesh::Parallel::Utils::to_double</a></div><div class="ttdeci">double to_double(const Hilbert::HilbertIndices &amp;bvt)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00120">parallel_conversion_utils.h:120</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="aa2f7edd2a77944e21590973a0458f313"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double libMesh::Parallel::Utils::to_double </td>
-          <td>(</td>
-          <td class="paramtype">const Hilbert::HilbertIndices &amp;&#160;</td>
-          <td class="paramname"><em>bvt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00120">120</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(bvt.rack2);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Parallel_1_1Utils_html_a5dd384b5dec63150b6b35aa79c18b414"><div class="ttname"><a href="namespacelibMesh_1_1Parallel_1_1Utils.html#a5dd384b5dec63150b6b35aa79c18b414">libMesh::Parallel::Utils::to_double</a></div><div class="ttdeci">double to_double(const std::pair&lt; FirstKeyType, SecondKeyType &gt; &amp;k)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00110">parallel_conversion_utils.h:110</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

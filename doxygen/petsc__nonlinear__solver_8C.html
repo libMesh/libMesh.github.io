@@ -94,32 +94,20 @@
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">petsc_nonlinear_solver.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for petsc_nonlinear_solver.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="petsc__nonlinear__solver_8C__incl.png" border="0" usemap="#petsc__nonlinear__solver_8C" alt=""/></div>
+<map name="petsc__nonlinear__solver_8C" id="petsc__nonlinear__solver_8C">
+<area shape="rect" id="node2" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="217,80,404,107"/><area shape="rect" id="node3" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="250,304,421,331"/><area shape="rect" id="node7" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="804,155,969,181"/><area shape="rect" id="node11" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="341,229,541,256"/><area shape="rect" id="node12" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="399,155,584,181"/><area shape="rect" id="node13" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="609,155,780,181"/><area shape="rect" id="node15" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="145,229,316,256"/><area shape="rect" id="node8" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="787,229,919,256"/></map>
+</div>
+</div>
 <p><a href="petsc__nonlinear__solver_8C_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a6991149c9bcc49b90fcc1575bcbc4564"><td class="memItemLeft" align="right" valign="top">PetscErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a6991149c9bcc49b90fcc1575bcbc4564">libMesh::__libmesh_petsc_snes_monitor</a> (SNES, PetscInt its, PetscReal fnorm, void *)</td></tr>
-<tr class="separator:a6991149c9bcc49b90fcc1575bcbc4564"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac542b2700cd32fa3293186920dd07b54"><td class="memItemLeft" align="right" valign="top">PetscErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac542b2700cd32fa3293186920dd07b54">libMesh::__libmesh_petsc_snes_residual</a> (SNES snes, Vec x, Vec r, void *ctx)</td></tr>
-<tr class="separator:ac542b2700cd32fa3293186920dd07b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa23b16f821eee634d057573024933532"><td class="memItemLeft" align="right" valign="top">PetscErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aa23b16f821eee634d057573024933532">libMesh::__libmesh_petsc_snes_jacobian</a> (#<a class="el" href="petscdmlibmeshimpl_8C.html#a20bb2b6c8e5a4056d62b641fbe38a0cd">if</a> PETSC_RELEASE_LESS_THAN(3, 5, 0) SNES snes, Vec x, Mat *jac, Mat *pc, MatStructure *msflag, void *ctx#else SNES snes, Vec x, Mat jac, Mat pc, void *ctx#endif)</td></tr>
-<tr class="separator:aa23b16f821eee634d057573024933532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affd58fdb9cb6709d91abdcd3e11938b7"><td class="memItemLeft" align="right" valign="top">PetscErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#affd58fdb9cb6709d91abdcd3e11938b7">libMesh::__libmesh_petsc_snes_postcheck</a> (#<a class="el" href="petscdmlibmeshimpl_8C.html#a20bb2b6c8e5a4056d62b641fbe38a0cd">if</a> PETSC_VERSION_LESS_THAN(3, 3, 0) SNES, Vec x, Vec y, Vec w, void *context, <a class="el" href="petsc__macro_8h.html#ae2ff00db32a1376e3b6dea97bc390076">PetscBool</a> *changed_y, <a class="el" href="petsc__macro_8h.html#ae2ff00db32a1376e3b6dea97bc390076">PetscBool</a> *changed_w#else SNESLineSearch, Vec x, Vec y, Vec w, <a class="el" href="petsc__macro_8h.html#ae2ff00db32a1376e3b6dea97bc390076">PetscBool</a> *changed_y, <a class="el" href="petsc__macro_8h.html#ae2ff00db32a1376e3b6dea97bc390076">PetscBool</a> *changed_w, void *context#endif)</td></tr>
-<tr class="separator:affd58fdb9cb6709d91abdcd3e11938b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

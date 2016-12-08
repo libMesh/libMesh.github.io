@@ -95,19 +95,56 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">fe_nedelec_one.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="dof__map_8h_source.html">libmesh/dof_map.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fe_8h_source.html">libmesh/fe.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fe__interface_8h_source.html">libmesh/fe_interface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="threads_8h_source.html">libmesh/threads.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tensor__value_8h_source.html">libmesh/tensor_value.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="string__to__enum_8h_source.html">libmesh/string_to_enum.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for fe_nedelec_one.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="fe__nedelec__one_8C__incl.png" border="0" usemap="#fe__nedelec__one_8C" alt=""/></div>
+<map name="fe__nedelec__one_8C" id="fe__nedelec__one_8C">
+<area shape="rect" id="node2" href="dof__map_8h.html" title="libmesh/dof_map.h" alt="" coords="1283,80,1417,107"/><area shape="rect" id="node20" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="253,328,379,355"/><area shape="rect" id="node32" href="fe_8h.html" title="libmesh/fe.h" alt="" coords="1199,163,1292,189"/><area shape="rect" id="node36" href="fe__interface_8h.html" title="libmesh/fe_interface.h" alt="" coords="1860,245,2012,272"/><area shape="rect" id="node38" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2397,80,2509,107"/><area shape="rect" id="node48" href="tensor__value_8h.html" title="libmesh/tensor_value.h" alt="" coords="3073,80,3231,107"/><area shape="rect" id="node50" href="string__to__enum_8h.html" title="libmesh/string_to_enum.h" alt="" coords="5,80,179,107"/><area shape="rect" id="node3" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="2779,411,2965,437"/><area shape="rect" id="node12" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="3186,328,3317,355"/><area shape="rect" id="node13" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="1756,163,1911,189"/><area shape="rect" id="node14" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2927,321,3109,362"/><area shape="rect" id="node15" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="954,328,1083,355"/><area shape="rect" id="node18" href="variable_8h.html" title="libmesh/variable.h" alt="" coords="647,328,776,355"/><area shape="rect" id="node22" href="threads__allocators_8h.html" title="libmesh/threads_allocators.h" alt="" coords="305,245,497,272"/><area shape="rect" id="node24" href="elem__range_8h.html" title="libmesh/elem_range.h" alt="" coords="623,245,776,272"/><area shape="rect" id="node25" href="ghosting__functor_8h.html" title="libmesh/ghosting_functor.h" alt="" coords="2612,245,2793,272"/><area shape="rect" id="node26" href="sparsity__pattern_8h.html" title="libmesh/sparsity_pattern.h" alt="" coords="738,163,915,189"/><area shape="rect" id="node27" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="853,245,1021,272"/><area shape="rect" id="node28" href="point_8h.html" title="libmesh/point.h" alt="" coords="1248,328,1360,355"/><area shape="rect" id="node4" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="2794,635,2965,661"/><area shape="rect" id="node8" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="2356,485,2521,512"/><area shape="rect" id="node10" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="2780,560,2980,587"/><area shape="rect" id="node11" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="2647,485,2832,512"/><area shape="rect" id="node9" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="2433,560,2564,587"/><area shape="rect" id="node21" href="threads__none_8h.html" title="libmesh/threads_none.h" alt="" coords="282,411,445,437"/><area shape="rect" id="node33" href="fe__base_8h.html" title="libmesh/fe_base.h" alt="" coords="1604,245,1735,272"/><area shape="rect" id="node34" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="1486,328,1671,355"/><area shape="rect" id="node35" href="vector__value_8h.html" title="libmesh/vector_value.h" alt="" coords="1695,328,1853,355"/><area shape="rect" id="node37" href="enum__fe__family_8h.html" title="libmesh/enum_fe_family.h" alt="" coords="2002,328,2179,355"/><area shape="rect" id="node39" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="2444,245,2588,272"/><area shape="rect" id="node40" href="node_8h.html" title="libmesh/node.h" alt="" coords="2444,163,2556,189"/><area shape="rect" id="node42" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="2951,163,3149,189"/><area shape="rect" id="node43" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="3175,163,3367,189"/><area shape="rect" id="node44" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="1986,163,2165,189"/><area shape="rect" id="node45" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="2631,155,2775,197"/><area shape="rect" id="node46" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="2357,328,2496,355"/><area shape="rect" id="node49" href="type__tensor_8h.html" title="libmesh/type_tensor.h" alt="" coords="3444,328,3596,355"/></map>
+</div>
+</div>
 <p><a href="fe__nedelec__one_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac19dd1bebd06c7f53b84e4d2e256f6da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fe__nedelec__one_8C.html#ac19dd1bebd06c7f53b84e4d2e256f6da">NEDELEC_LOW_D_ERROR_MESSAGE</a>&#160;&#160;&#160;<a class="el" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(&quot;ERROR: This method makes no sense for low-D elements!&quot;);</td></tr>
+<tr class="separator:ac19dd1bebd06c7f53b84e4d2e256f6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ac19dd1bebd06c7f53b84e4d2e256f6da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NEDELEC_LOW_D_ERROR_MESSAGE&#160;&#160;&#160;<a class="el" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(&quot;ERROR: This method makes no sense for low-D elements!&quot;);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="fe__nedelec__one_8C_source.html#l00490">490</a> of file <a class="el" href="fe__nedelec__one_8C_source.html">fe_nedelec_one.C</a>.</p>
+
+<p>Referenced by <a class="el" href="fe__nedelec__one_8C_source.html#l00550">libMesh::FE&lt; Dim, T &gt;::get_continuity()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00556">libMesh::FE&lt; Dim, T &gt;::is_hierarchic()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00528">libMesh::FE&lt; Dim, T &gt;::n_dofs()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00536">libMesh::FE&lt; Dim, T &gt;::n_dofs_at_node()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00544">libMesh::FE&lt; Dim, T &gt;::n_dofs_per_elem()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00497">libMesh::FE&lt; Dim, T &gt;::nodal_soln()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00599">libMesh::FE&lt; Dim, T &gt;::shape()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00605">libMesh::FE&lt; Dim, T &gt;::shape_deriv()</a>, <a class="el" href="fe__nedelec__one_8C_source.html#l00613">libMesh::FE&lt; Dim, T &gt;::shape_second_deriv()</a>, and <a class="el" href="fe__nedelec__one_8C_source.html#l00562">libMesh::FE&lt; Dim, T &gt;::shapes_need_reinit()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

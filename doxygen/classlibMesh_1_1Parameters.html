@@ -153,9 +153,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a06b2f9d9ec57980583bf9aad3c7e03f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1365364c595d4722704194785797bba4"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parameters.html#a1365364c595d4722704194785797bba4">n_parameters</a> () const </td></tr>
 <tr class="separator:a1365364c595d4722704194785797bba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad52d8284a2a832db08dc4e3403032953"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad52d8284a2a832db08dc4e3403032953"><td class="memTemplItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parameters.html#ad52d8284a2a832db08dc4e3403032953">n_parameters</a> () const </td></tr>
-<tr class="separator:ad52d8284a2a832db08dc4e3403032953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64b2d5b2367f03a30e7c37780b8c5047"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parameters.html#a64b2d5b2367f03a30e7c37780b8c5047">clear</a> ()</td></tr>
 <tr class="separator:a64b2d5b2367f03a30e7c37780b8c5047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69bdf0a000780829986785893a3b5793"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parameters.html#a69bdf0a000780829986785893a3b5793">print</a> (std::ostream &amp;os=<a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>) const </td></tr>
@@ -390,7 +387,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00321">321</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
-<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
+<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, and <a class="el" href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr</a>.</p>
 
 <p>Referenced by <a class="el" href="equation__systems_8C_source.html#l00073">libMesh::EquationSystems::clear()</a>, <a class="el" href="parameters_8h_source.html#l00337">operator=()</a>, and <a class="el" href="parameters_8h_source.html#l00368">~Parameters()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{                         <span class="comment">// before its first use (for some compilers)</span></div>
@@ -399,13 +396,13 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      <a class="code" href="classlibMesh_1_1Parameters.html#a7df21fe2ef7edbb07d9f93e77b36c500">Parameters::iterator</a> it = <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.begin();</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keyword">delete</span> it-&gt;second;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      it-&gt;second = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      it-&gt;second = <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.erase(it);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a7df21fe2ef7edbb07d9f93e77b36c500"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a7df21fe2ef7edbb07d9f93e77b36c500">libMesh::Parameters::iterator</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt;::iterator iterator</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00246">parameters.h:246</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a0f57331c9ce962a00e1f12d07f3b7c1d"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">libMesh::Parameters::_values</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt; _values</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00278">parameters.h:278</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -501,9 +498,9 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00430">430</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
-<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, <a class="el" href="print__trace_8C_source.html#l00233">libMesh::demangle()</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, <a class="el" href="print__trace_8C_source.html#l00252">libMesh::demangle()</a>, <a class="el" href="libmesh__common_8h_source.html#l00342">libmesh_assert</a>, <a class="el" href="libmesh__common_8h_source.html#l00362">libmesh_error_msg</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
 
-<p>Referenced by <a class="el" href="frequency__system_8C_source.html#l00097">libMesh::FrequencySystem::clear_all()</a>, <a class="el" href="implicit__system_8C_source.html#l01409">libMesh::ImplicitSystem::get_linear_solve_parameters()</a>, <a class="el" href="fe__compute__data_8C_source.html#l00043">libMesh::FEComputeData::init()</a>, <a class="el" href="frequency__system_8C_source.html#l00117">libMesh::FrequencySystem::init_data()</a>, <a class="el" href="frequency__system_8C_source.html#l00298">libMesh::FrequencySystem::n_frequencies()</a>, <a class="el" href="frequency__system_8C_source.html#l00393">libMesh::FrequencySystem::set_current_frequency()</a>, <a class="el" href="nonlinear__implicit__system_8C_source.html#l00095">libMesh::NonlinearImplicitSystem::set_solver_parameters()</a>, <a class="el" href="eigen__system_8C_source.html#l00206">libMesh::EigenSystem::solve()</a>, <a class="el" href="condensed__eigen__system_8C_source.html#l00102">libMesh::CondensedEigenSystem::solve()</a>, <a class="el" href="frequency__system_8C_source.html#l00316">libMesh::FrequencySystem::solve()</a>, and <a class="el" href="linear__implicit__system_8C_source.html#l00108">libMesh::LinearImplicitSystem::solve()</a>.</p>
+<p>Referenced by <a class="el" href="implicit__system_8C_source.html#l01408">libMesh::ImplicitSystem::get_linear_solve_parameters()</a>, <a class="el" href="fe__compute__data_8C_source.html#l00044">libMesh::FEComputeData::init()</a>, <a class="el" href="nonlinear__implicit__system_8C_source.html#l00095">libMesh::NonlinearImplicitSystem::set_solver_parameters()</a>, and <a class="el" href="linear__implicit__system_8C_source.html#l00108">libMesh::LinearImplicitSystem::solve()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;{</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <span class="keywordflow">if</span> (!this-&gt;have_parameter&lt;T&gt;(<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>))</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    {</div>
@@ -518,21 +515,22 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;Known parameters:\n&quot;</span></div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;          &lt;&lt; *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      libmesh_error_msg(oss.str());</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(oss.str());</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    }</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;  <a class="code" href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">Parameters::const_iterator</a> it = <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.find(name);</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(it != <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end());</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(it-&gt;second);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(it != <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end());</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(it-&gt;second);</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  <span class="keywordflow">return</span> cast_ptr&lt;Parameter&lt;T&gt; *&gt;(it-&gt;second)-&gt;<span class="keyword">get</span>();</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a3b3fcaf799e8b9a0d53ea7fbd87422ca"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">libMesh::Parameters::const_iterator</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt;::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00251">parameters.h:251</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="namespacelibMesh_html_a43425a7b4b79fd615553ed3131e74ab8"><div class="ttname"><a href="namespacelibMesh.html#a43425a7b4b79fd615553ed3131e74ab8">libMesh::demangle</a></div><div class="ttdeci">std::string demangle(const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="print__trace_8C_source.html#l00233">print_trace.C:233</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a43425a7b4b79fd615553ed3131e74ab8"><div class="ttname"><a href="namespacelibMesh.html#a43425a7b4b79fd615553ed3131e74ab8">libMesh::demangle</a></div><div class="ttdeci">std::string demangle(const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="print__trace_8C_source.html#l00252">print_trace.C:252</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a0f57331c9ce962a00e1f12d07f3b7c1d"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">libMesh::Parameters::_values</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt; _values</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00278">parameters.h:278</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -564,17 +562,17 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00411">411</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
-<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, <a class="el" href="libmesh__common_8h_source.html#l00504">libMesh::cast_ptr()</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
+<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, <a class="el" href="libmesh__common_8h_source.html#l00504">libMesh::cast_ptr()</a>, <a class="el" href="libmesh__config_8h_source.html#l00817">LIBMESH_HAVE_RTTI</a>, and <a class="el" href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr</a>.</p>
 
-<p>Referenced by <a class="el" href="frequency__system_8C_source.html#l00097">libMesh::FrequencySystem::clear_all()</a>, <a class="el" href="fe__compute__data_8C_source.html#l00043">libMesh::FEComputeData::init()</a>, <a class="el" href="frequency__system_8C_source.html#l00117">libMesh::FrequencySystem::init_data()</a>, <a class="el" href="eigen__system_8C_source.html#l00206">libMesh::EigenSystem::solve()</a>, and <a class="el" href="condensed__eigen__system_8C_source.html#l00102">libMesh::CondensedEigenSystem::solve()</a>.</p>
+<p>Referenced by <a class="el" href="fe__compute__data_8C_source.html#l00044">libMesh::FEComputeData::init()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;{</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <a class="code" href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">Parameters::const_iterator</a> it = <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.find(<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>);</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;  <span class="keywordflow">if</span> (it != <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end())</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;#ifdef LIBMESH_HAVE_RTTI</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span>Parameter&lt;T&gt; *<span class="keyword">&gt;</span>(it-&gt;second) != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;#ifdef <a class="code" href="libmesh__config_8h.html#a1ffdf02efb08b0a2c3b9c4122840df39">LIBMESH_HAVE_RTTI</a></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span>Parameter&lt;T&gt; *<span class="keyword">&gt;</span>(it-&gt;second) != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;#<span class="keywordflow">else</span> <span class="comment">// LIBMESH_HAVE_RTTI</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="namespacelibMesh.html#ad98b9eee08d9f848bc396d08846707b3">cast_ptr</a>&lt;<span class="keyword">const</span> Parameter&lt;T&gt; *&gt;(it-&gt;second) != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="namespacelibMesh.html#ad98b9eee08d9f848bc396d08846707b3">cast_ptr</a>&lt;<span class="keyword">const</span> Parameter&lt;T&gt; *&gt;(it-&gt;second) != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;#endif <span class="comment">// LIBMESH_HAVE_RTTI</span></div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
@@ -582,8 +580,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a3b3fcaf799e8b9a0d53ea7fbd87422ca"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">libMesh::Parameters::const_iterator</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt;::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00251">parameters.h:251</a></div></div>
+<div class="ttc" id="libmesh__config_8h_html_a1ffdf02efb08b0a2c3b9c4122840df39"><div class="ttname"><a href="libmesh__config_8h.html#a1ffdf02efb08b0a2c3b9c4122840df39">LIBMESH_HAVE_RTTI</a></div><div class="ttdeci">#define LIBMESH_HAVE_RTTI</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__config_8h_source.html#l00817">libmesh_config.h:817</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ad98b9eee08d9f848bc396d08846707b3"><div class="ttname"><a href="namespacelibMesh.html#ad98b9eee08d9f848bc396d08846707b3">libMesh::cast_ptr</a></div><div class="ttdeci">Tnew cast_ptr(Told *oldvar)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00504">libmesh_common.h:504</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a0f57331c9ce962a00e1f12d07f3b7c1d"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">libMesh::Parameters::_values</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt; _values</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00278">parameters.h:278</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -658,51 +657,6 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="ad52d8284a2a832db08dc4e3403032953"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int libMesh::Parameters::n_parameters </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the number of parameters of the requested type. </dd></dl>
-
-<p>Definition at line <a class="el" href="parameters_8h_source.html#l00498">498</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
-
-<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
-<div class="fragment"><div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;{</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cnt = 0;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <a class="code" href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">Parameters::const_iterator</a>       it  = <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.begin();</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">Parameters::const_iterator</a> vals_end = <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end();</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;  <span class="keywordflow">for</span> (; it != vals_end; ++it)</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span>Parameter&lt;T&gt; *<span class="keyword">&gt;</span>(it-&gt;second) != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;      cnt++;</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  <span class="keywordflow">return</span> cnt;</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1Parameters_html_a3b3fcaf799e8b9a0d53ea7fbd87422ca"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">libMesh::Parameters::const_iterator</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt;::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00251">parameters.h:251</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
-<div class="ttc" id="classlibMesh_1_1Parameters_html_a0f57331c9ce962a00e1f12d07f3b7c1d"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">libMesh::Parameters::_values</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt; _values</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00278">parameters.h:278</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a class="anchor" id="a922219e963753e3efb713308bcd5717c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -730,8 +684,8 @@ template&lt;typename T &gt; </div>
 
 <p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>.</p>
 <div class="fragment"><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;{</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keywordflow">for</span> (<a class="code" href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">Parameters::const_iterator</a> it = source._values.begin();</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;       it != source._values.end(); ++it)</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keywordflow">for</span> (<a class="code" href="classlibMesh_1_1Parameters.html#a3b3fcaf799e8b9a0d53ea7fbd87422ca">Parameters::const_iterator</a> it = source.<a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.begin();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;       it != source.<a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end(); ++it)</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    {</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.find(it-&gt;first) != <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end())</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>[it-&gt;first];</div>
@@ -856,23 +810,21 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00480">480</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
-<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
-
-<p>Referenced by <a class="el" href="frequency__system_8C_source.html#l00097">libMesh::FrequencySystem::clear_all()</a>.</p>
+<p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, and <a class="el" href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr</a>.</p>
 <div class="fragment"><div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;{</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <a class="code" href="classlibMesh_1_1Parameters.html#a7df21fe2ef7edbb07d9f93e77b36c500">Parameters::iterator</a> it = <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.find(<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>);</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  <span class="keywordflow">if</span> (it != <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.end())</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    {</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;      <span class="keyword">delete</span> it-&gt;second;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;      it-&gt;second = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;      it-&gt;second = <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;      <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>.erase(it);</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    }</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a7df21fe2ef7edbb07d9f93e77b36c500"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a7df21fe2ef7edbb07d9f93e77b36c500">libMesh::Parameters::iterator</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt;::iterator iterator</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00246">parameters.h:246</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parameters_html_a0f57331c9ce962a00e1f12d07f3b7c1d"><div class="ttname"><a href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">libMesh::Parameters::_values</a></div><div class="ttdeci">std::map&lt; std::string, Value * &gt; _values</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00278">parameters.h:278</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -906,7 +858,7 @@ template&lt;typename T &gt; </div>
 
 <p>References <a class="el" href="parameters_8h_source.html#l00278">_values</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="parameters_8h_source.html#l00133">set_attributes()</a>.</p>
 
-<p>Referenced by <a class="el" href="newmark__system_8C_source.html#l00105">libMesh::NewmarkSystem::clear()</a>, <a class="el" href="equation__systems_8C_source.html#l00054">libMesh::EquationSystems::EquationSystems()</a>, <a class="el" href="newmark__system_8C_source.html#l00045">libMesh::NewmarkSystem::NewmarkSystem()</a>, <a class="el" href="nonlinear__implicit__system_8C_source.html#l00035">libMesh::NonlinearImplicitSystem::NonlinearImplicitSystem()</a>, <a class="el" href="frequency__system_8C_source.html#l00393">libMesh::FrequencySystem::set_current_frequency()</a>, <a class="el" href="frequency__system_8C_source.html#l00261">libMesh::FrequencySystem::set_frequencies()</a>, <a class="el" href="frequency__system_8C_source.html#l00221">libMesh::FrequencySystem::set_frequencies_by_range()</a>, <a class="el" href="frequency__system_8C_source.html#l00185">libMesh::FrequencySystem::set_frequencies_by_steps()</a>, and <a class="el" href="newmark__system_8C_source.html#l00262">libMesh::NewmarkSystem::set_newmark_parameters()</a>.</p>
+<p>Referenced by <a class="el" href="newmark__system_8C_source.html#l00105">libMesh::NewmarkSystem::clear()</a>, <a class="el" href="equation__systems_8C_source.html#l00054">libMesh::EquationSystems::EquationSystems()</a>, <a class="el" href="newmark__system_8C_source.html#l00045">libMesh::NewmarkSystem::NewmarkSystem()</a>, <a class="el" href="nonlinear__implicit__system_8C_source.html#l00035">libMesh::NonlinearImplicitSystem::NonlinearImplicitSystem()</a>, and <a class="el" href="newmark__system_8C_source.html#l00254">libMesh::NewmarkSystem::set_newmark_parameters()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;{</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;  <span class="keywordflow">if</span> (!this-&gt;have_parameter&lt;T&gt;(<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>))</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <a class="code" href="classlibMesh_1_1Parameters.html#a0f57331c9ce962a00e1f12d07f3b7c1d">_values</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>] = <span class="keyword">new</span> Parameter&lt;T&gt;;</div>

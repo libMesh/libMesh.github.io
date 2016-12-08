@@ -125,13 +125,13 @@
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> QGrundmann_Moller::init_2D(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGrundmann__Moller.html#aea20b07e30a4bb9867e4379338b7e967">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#aea20b07e30a4bb9867e4379338b7e967">QGrundmann_Moller::init_2D</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type_in,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">// Nearly all GM rules contain negative weights, so if you are not</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">// allowing rules with negative weights, we cannot continue!</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">if</span> (!allow_rules_with_negative_weights)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;You requested a Grundmann-Moller rule but\n&quot;</span>        \</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="classlibMesh_1_1QBase.html#a6f1f4bb99c359f881b0b5b2695bb2cde">allow_rules_with_negative_weights</a>)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;You requested a Grundmann-Moller rule but\n&quot;</span>        \</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;are not allowing rules with negative weights!\n&quot;</span> \</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;Either select a different quadrature class or\n&quot;</span> \</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;set allow_rules_with_negative_weights==true.&quot;</span>);</div>
@@ -141,29 +141,34 @@
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">TRI3</a>:</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>:</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">switch</span>(_order + 2*p)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">switch</span>(<a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a> + 2*p)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;              <span class="comment">// Untested above _order=23 but should work...</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;              gm_rule((_order + 2*p)/2, <span class="comment">/*dim=*/</span>2);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;              <a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#af9f539f08243cf4ee1d53cfe6a4fc384">gm_rule</a>((<a class="code" href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">_order</a> + 2*p)/2, <span class="comment">/*dim=*/</span>2);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;              <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          } <span class="comment">// end switch (order)</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      } <span class="comment">// end case TRI3, TRI6</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Unsupported element type: &quot;</span> &lt;&lt; type_in);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Unsupported element type: &quot;</span> &lt;&lt; type_in);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    } <span class="comment">// end switch (type_in)</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">libMesh::TRI6</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00035">enum_elem_type.h:35</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGrundmann__Moller_html_aea20b07e30a4bb9867e4379338b7e967"><div class="ttname"><a href="classlibMesh_1_1QGrundmann__Moller.html#aea20b07e30a4bb9867e4379338b7e967">libMesh::QGrundmann_Moller::init_2D</a></div><div class="ttdeci">virtual void init_2D(const ElemType _type=INVALID_ELEM, unsigned int p_level=0) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gm__2D_8C_source.html#l00028">quadrature_gm_2D.C:28</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a6f1f4bb99c359f881b0b5b2695bb2cde"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a6f1f4bb99c359f881b0b5b2695bb2cde">libMesh::QBase::allow_rules_with_negative_weights</a></div><div class="ttdeci">bool allow_rules_with_negative_weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00226">quadrature.h:226</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">libMesh::TRI3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00034">enum_elem_type.h:34</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGrundmann__Moller_html_af9f539f08243cf4ee1d53cfe6a4fc384"><div class="ttname"><a href="classlibMesh_1_1QGrundmann__Moller.html#af9f539f08243cf4ee1d53cfe6a4fc384">libMesh::QGrundmann_Moller::gm_rule</a></div><div class="ttdeci">void gm_rule(unsigned int s, unsigned int dim)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gm_8C_source.html#l00047">quadrature_gm.C:47</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="quadrature__gm_8h_html"><div class="ttname"><a href="quadrature__gm_8h.html">quadrature_gm.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a56351aa7f267b005de6b67f5cfc7f88f"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a56351aa7f267b005de6b67f5cfc7f88f">libMesh::QBase::_order</a></div><div class="ttdeci">const Order _order</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00321">quadrature.h:321</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

@@ -123,16 +123,16 @@ Functions</h2></td></tr>
 <p>There is no reason for a user to ever call this function.</p>
 <p>This function determines partition-agnostic global indices for all nodes and elements in the mesh. Note that after this function is called the mesh will likely be in an inconsistent state, i.e. <code>mesh.nodes(i)-&gt;id()</code> != i in the nodes container. Direct node/element access via the <code>mesh.node(n)</code> or <code>mesh.elem(e)</code> functions will likely fail. The original numbering can (and should) be restored with a subsequent call to <code>fix_node_and_element_numbering()</code>. </p>
 
-<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l01640">1640</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
+<p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l01978">1978</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
 
-<p>References <a class="el" href="mesh__communication__global__indices_8C_source.html#l00171">libMesh::MeshCommunication::assign_global_indices()</a>.</p>
+<p>References <a class="el" href="mesh__communication__global__indices_8C_source.html#l00571">libMesh::MeshCommunication::assign_global_indices()</a>.</p>
 
-<p>Referenced by <a class="el" href="equation__systems__io_8C_source.html#l00154">libMesh::EquationSystems::_read_impl()</a>, and <a class="el" href="equation__systems__io_8C_source.html#l00389">libMesh::EquationSystems::write()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;{</div>
-<div class="line"><a name="l01642"></a><span class="lineno"> 1642</span>&#160;  <a class="code" href="classlibMesh_1_1MeshCommunication.html">MeshCommunication</a>().<a class="code" href="classlibMesh_1_1MeshCommunication.html#ac07c8ba8aee328c186d853666dca4aa0">assign_global_indices</a>(mesh);</div>
-<div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1MeshCommunication_html_ac07c8ba8aee328c186d853666dca4aa0"><div class="ttname"><a href="classlibMesh_1_1MeshCommunication.html#ac07c8ba8aee328c186d853666dca4aa0">libMesh::MeshCommunication::assign_global_indices</a></div><div class="ttdeci">void assign_global_indices(MeshBase &amp;) const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication__global__indices_8C_source.html#l00171">mesh_communication_global_indices.C:171</a></div></div>
-<div class="ttc" id="classlibMesh_1_1MeshCommunication_html"><div class="ttname"><a href="classlibMesh_1_1MeshCommunication.html">libMesh::MeshCommunication</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8h_source.html#l00046">mesh_communication.h:46</a></div></div>
+<p>Referenced by <a class="el" href="equation__systems__io_8C_source.html#l00143">libMesh::EquationSystems::_read_impl()</a>, and <a class="el" href="equation__systems__io_8C_source.html#l00378">libMesh::EquationSystems::write()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;{</div>
+<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;  <a class="code" href="classlibMesh_1_1MeshCommunication.html">MeshCommunication</a>().<a class="code" href="classlibMesh_1_1MeshCommunication.html#ac07c8ba8aee328c186d853666dca4aa0">assign_global_indices</a>(mesh);</div>
+<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1MeshCommunication_html_ac07c8ba8aee328c186d853666dca4aa0"><div class="ttname"><a href="classlibMesh_1_1MeshCommunication.html#ac07c8ba8aee328c186d853666dca4aa0">libMesh::MeshCommunication::assign_global_indices</a></div><div class="ttdeci">void assign_global_indices(MeshBase &amp;) const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication__global__indices_8C_source.html#l00571">mesh_communication_global_indices.C:571</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshCommunication_html"><div class="ttname"><a href="classlibMesh_1_1MeshCommunication.html">libMesh::MeshCommunication</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8h_source.html#l00050">mesh_communication.h:50</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

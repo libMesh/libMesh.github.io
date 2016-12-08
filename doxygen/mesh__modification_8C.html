@@ -100,7 +100,33 @@
 <div class="title">mesh_modification.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &quot;<a class="el" href="boundary__info_8h_source.html">libmesh/boundary_info.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="function__base_8h_source.html">libmesh/function_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cell__tet4_8h_source.html">libmesh/cell_tet4.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cell__tet10_8h_source.html">libmesh/cell_tet10.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="face__tri3_8h_source.html">libmesh/face_tri3.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="face__tri6_8h_source.html">libmesh/face_tri6.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="libmesh__logging_8h_source.html">libmesh/libmesh_logging.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh__communication_8h_source.html">libmesh/mesh_communication.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh__modification_8h_source.html">libmesh/mesh_modification.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mesh__tools_8h_source.html">libmesh/mesh_tools.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="parallel_8h_source.html">libmesh/parallel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="remote__elem_8h_source.html">libmesh/remote_elem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="string__to__enum_8h_source.html">libmesh/string_to_enum.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="unstructured__mesh_8h_source.html">libmesh/unstructured_mesh.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for mesh_modification.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="mesh__modification_8C__incl.png" border="0" usemap="#mesh__modification_8C" alt=""/></div>
+<map name="mesh__modification_8C" id="mesh__modification_8C">
+<area shape="rect" id="node7" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="2102,320,2268,347"/><area shape="rect" id="node19" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="1932,469,2057,496"/><area shape="rect" id="node20" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1581,635,1760,661"/><area shape="rect" id="node31" href="function__base_8h.html" title="libmesh/function_base.h" alt="" coords="923,635,1088,661"/><area shape="rect" id="node33" href="cell__tet4_8h.html" title="libmesh/cell_tet4.h" alt="" coords="3102,80,3233,107"/><area shape="rect" id="node35" href="cell__tet10_8h.html" title="libmesh/cell_tet10.h" alt="" coords="3258,80,3397,107"/><area shape="rect" id="node36" href="face__tri3_8h.html" title="libmesh/face_tri3.h" alt="" coords="456,635,589,661"/><area shape="rect" id="node38" href="face__tri6_8h.html" title="libmesh/face_tri6.h" alt="" coords="613,635,747,661"/><area shape="rect" id="node39" href="mesh__communication_8h.html" title="libmesh/mesh_communication.h" alt="" coords="1943,80,2155,107"/><area shape="rect" id="node40" href="mesh__tools_8h.html" title="libmesh/mesh_tools.h" alt="" coords="2055,163,2205,189"/><area shape="rect" id="node45" href="mesh__modification_8h.html" title="libmesh/mesh_modification.h" alt="" coords="43,709,236,736"/><area shape="rect" id="node46" href="remote__elem_8h.html" title="libmesh/remote_elem.h" alt="" coords="2901,552,3061,579"/><area shape="rect" id="node49" href="string__to__enum_8h.html" title="libmesh/string_to_enum.h" alt="" coords="2750,320,2924,347"/><area shape="rect" id="node50" href="unstructured__mesh_8h.html" title="libmesh/unstructured\l_mesh.h" alt="" coords="2779,155,2924,197"/><area shape="rect" id="node8" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="693,784,880,811"/><area shape="rect" id="node13" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="1214,933,1345,960"/><area shape="rect" id="node18" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="2101,395,2269,421"/><area shape="rect" id="node9" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="414,1008,585,1035"/><area shape="rect" id="node12" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="1197,859,1363,885"/><area shape="rect" id="node14" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="400,933,600,960"/><area shape="rect" id="node15" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="793,859,977,885"/><area shape="rect" id="node16" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="1003,859,1173,885"/><area shape="rect" id="node17" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="625,933,796,960"/><area shape="rect" id="node25" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="313,709,444,736"/><area shape="rect" id="node30" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="1632,552,1856,579"/><area shape="rect" id="node21" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="1771,709,1901,736"/><area shape="rect" id="node32" href="dense__vector_8h.html" title="libmesh/dense_vector.h" alt="" coords="925,709,1088,736"/><area shape="rect" id="node34" href="cell__tet_8h.html" title="libmesh/cell_tet.h" alt="" coords="3204,163,3329,189"/><area shape="rect" id="node37" href="face__tri_8h.html" title="libmesh/face_tri.h" alt="" coords="521,709,647,736"/><area shape="rect" id="node41" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="1075,395,1204,421"/><area shape="rect" id="node42" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="2179,709,2364,736"/><area shape="rect" id="node43" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="2281,245,2433,272"/><area shape="rect" id="node44" href="point_8h.html" title="libmesh/point.h" alt="" coords="2075,245,2187,272"/><area shape="rect" id="node47" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2360,635,2472,661"/><area shape="rect" id="node48" href="libmesh__singleton_8h.html" title="libmesh/libmesh_singleton.h" alt="" coords="2147,635,2336,661"/></map>
+</div>
+</div>
 <p><a href="mesh__modification_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>

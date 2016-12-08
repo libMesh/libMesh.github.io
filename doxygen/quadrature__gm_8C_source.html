@@ -129,14 +129,14 @@
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Constructor</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;QGrundmann_Moller::QGrundmann_Moller(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> d,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o) : QBase(d,o)</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGrundmann__Moller.html#ac386583fbe0bd668d082cbafefc0258b">   32</a></span>&#160;<a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#ac386583fbe0bd668d082cbafefc0258b">QGrundmann_Moller::QGrundmann_Moller</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> d,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o) : <a class="code" href="classlibMesh_1_1QBase.html">QBase</a>(d,o)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// Destructor</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;QGrundmann_Moller::~QGrundmann_Moller()</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGrundmann__Moller.html#a7602ad974797c845a4533257d65bd035">   39</a></span>&#160;<a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#a7602ad974797c845a4533257d65bd035">QGrundmann_Moller::~QGrundmann_Moller</a>()</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
@@ -144,10 +144,10 @@
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> QGrundmann_Moller::gm_rule(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>)</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGrundmann__Moller.html#af9f539f08243cf4ee1d53cfe6a4fc384">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#af9f539f08243cf4ee1d53cfe6a4fc384">QGrundmann_Moller::gm_rule</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">// Only dim==2 or dim==3 is allowed</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(dim==2 || dim==3);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(dim==2 || dim==3);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// A GM rule of index s can integrate polynomials of degree 2*s+1 exactly</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> degree = 2*s+1;</div>
@@ -160,8 +160,8 @@
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">//libMesh::out &lt;&lt; &quot;n_pts=&quot; &lt;&lt; n_pts &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// Allocate space for points and weights</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  _points.resize(n_pts);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  _weights.resize(n_pts);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.resize(n_pts);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>.resize(n_pts);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// (-1)^i -&gt; This one flips sign at each iteration of the i-loop below.</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> one_pm=1;</div>
@@ -177,23 +177,23 @@
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="comment">// Get all the ordered compositions (and their permutations)</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="comment">// of |beta| = s-i into dim+1 parts</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      compose_all(s-i, dim+1, permutations);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#a0160bcfdc2a814182217e768a171f6a6">compose_all</a>(s-i, dim+1, permutations);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">//libMesh::out &lt;&lt; &quot;n. permutations=&quot; &lt;&lt; permutations.size() &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p=0; p&lt;permutations.size(); ++p)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          <span class="comment">// We use the first dim entries of each permutation to</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <span class="comment">// construct an integration point.</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;<a class="code" href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">dim</a>; ++j)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            _points[offset+p](j) =</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;              <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(2.*permutations[p][j] + 1.) /</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;              <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(  degree + dim - 2.*i     );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;dim; ++j)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset+p](j) =</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;              <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a><span class="keyword">&gt;</span>(2.*permutations[p][j] + 1.) /</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;              <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a><span class="keyword">&gt;</span>(  degree + dim - 2.*i     );</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">// Compute the weight for this i, being careful to avoid overflow.</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="comment">// This technique is borrowed from Burkardt&#39;s code as well.</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="comment">// Use once for each of the points obtained from the permutations array.</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="namespacelibMesh_1_1MeshTools.html#a0701de7f01fd5eced3da4a332ff5ae51">weight</a> = one_pm;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> <a class="code" href="namespacelibMesh_1_1MeshTools.html#a0701de7f01fd5eced3da4a332ff5ae51">weight</a> = one_pm;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="comment">// This for loop needs to run for dim, degree, or dim+degree-i iterations,</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="comment">// whichever is largest.</span></div>
@@ -203,21 +203,21 @@
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=1; j&lt;weight_loop_index; ++j)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          <span class="keywordflow">if</span> (j &lt;= degree) <span class="comment">// Accumulate (d+n-2i)^d term</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            weight *= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(degree+dim-2*i);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            weight *= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a><span class="keyword">&gt;</span>(degree+dim-2*i);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;          <span class="keywordflow">if</span> (j &lt;= 2*s) <span class="comment">// Accumulate 2^{-2s}</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            weight *= 0.5;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;          <span class="keywordflow">if</span> (j &lt;= i) <span class="comment">// Accumulate (i!)^{-1}</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            weight /= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(j);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            weight /= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a><span class="keyword">&gt;</span>(j);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;          <span class="keywordflow">if</span> (j &lt;= degree+dim-i) <span class="comment">// Accumulate ( (d+n-i)! )^{-1}</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            weight /= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a><span class="keyword">&gt;</span>(j);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            weight /= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a><span class="keyword">&gt;</span>(j);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="comment">// This is the weight for each of the points computed previously</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;permutations.size(); ++j)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        _weights[offset+j] = weight;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">_weights</a>[offset+j] = weight;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="comment">// Change sign for next iteration</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      one_pm = -one_pm;</div>
@@ -242,7 +242,7 @@
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">// The routine is deceptively simple: I still don&#39;t understand exactly</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">// why it works, but it does.</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keywordtype">void</span> QGrundmann_Moller::compose_all(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s, <span class="comment">// number to be compositioned</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGrundmann__Moller.html#a0160bcfdc2a814182217e768a171f6a6">  145</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGrundmann__Moller.html#a0160bcfdc2a814182217e768a171f6a6">QGrundmann_Moller::compose_all</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s, <span class="comment">// number to be compositioned</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p, <span class="comment">// # of partitions</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                                    std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &amp; result)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
@@ -296,7 +296,7 @@
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="comment">// The initial entry gets the current head value, minus 1.</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <span class="comment">// If head_value &gt; 1, the next loop iteration will start back</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="comment">// at workspace[0] again.</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a> (head_value, 0);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a> (head_value, 0);</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      workspace[0] = head_value - 1;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="comment">// Increment the head+1 value</span></div>
@@ -312,14 +312,20 @@
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a1441476b56fadfe883bc33bc4df93143"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">libMesh::QBase::_points</a></div><div class="ttdeci">std::vector&lt; Point &gt; _points</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00339">quadrature.h:339</a></div></div>
 <div class="ttc" id="namespacestd_html_a6987c84b7beab8b2ebdee7e2549d698f"><div class="ttname"><a href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a></div><div class="ttdeci">long double max(long double a, double b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00027">libmesh_augment_std_namespace.h:27</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_aec85627a1c7c19f9378a065ba5a11b51"><div class="ttname"><a href="namespacelibMesh.html#aec85627a1c7c19f9378a065ba5a11b51">libMesh::dim</a></div><div class="ttdeci">void ExactErrorEstimator::estimate_error(const System &amp;system, ErrorVector &amp;error_per_cell, const NumericVector&lt; Number &gt; *solution_vector, bool estimate_parent_error) void ExactErrorEstimator const unsigned in dim)</div><div class="ttdef"><b>Definition:</b> <a href="exact__error__estimator_8C_source.html#l00216">exact_error_estimator.C:216</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1MeshTools_html_a0701de7f01fd5eced3da4a332ff5ae51"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools.html#a0701de7f01fd5eced3da4a332ff5ae51">libMesh::MeshTools::weight</a></div><div class="ttdeci">dof_id_type weight(const MeshBase &amp;mesh, const processor_id_type pid)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00338">mesh_tools.C:338</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
-<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_aa77bcb5a61b21af01c0ebaca722631d1"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">libMesh::QBase::_weights</a></div><div class="ttdeci">std::vector&lt; Real &gt; _weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00344">quadrature.h:344</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGrundmann__Moller_html_a0160bcfdc2a814182217e768a171f6a6"><div class="ttname"><a href="classlibMesh_1_1QGrundmann__Moller.html#a0160bcfdc2a814182217e768a171f6a6">libMesh::QGrundmann_Moller::compose_all</a></div><div class="ttdeci">void compose_all(unsigned int s, unsigned int p, std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;result)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gm_8C_source.html#l00145">quadrature_gm.C:145</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGrundmann__Moller_html_af9f539f08243cf4ee1d53cfe6a4fc384"><div class="ttname"><a href="classlibMesh_1_1QGrundmann__Moller.html#af9f539f08243cf4ee1d53cfe6a4fc384">libMesh::QGrundmann_Moller::gm_rule</a></div><div class="ttdeci">void gm_rule(unsigned int s, unsigned int dim)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gm_8C_source.html#l00047">quadrature_gm.C:47</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_af799123aec103b0960ec3dd56dcab3f0"><div class="ttname"><a href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a></div><div class="ttdeci">#define libmesh_assert_greater(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00347">libmesh_common.h:347</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1MeshTools_html_a0701de7f01fd5eced3da4a332ff5ae51"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools.html#a0701de7f01fd5eced3da4a332ff5ae51">libMesh::MeshTools::weight</a></div><div class="ttdeci">dof_id_type weight(const MeshBase &amp;mesh, const processor_id_type pid)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00340">mesh_tools.C:340</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGrundmann__Moller_html_a7602ad974797c845a4533257d65bd035"><div class="ttname"><a href="classlibMesh_1_1QGrundmann__Moller.html#a7602ad974797c845a4533257d65bd035">libMesh::QGrundmann_Moller::~QGrundmann_Moller</a></div><div class="ttdeci">~QGrundmann_Moller()</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gm_8C_source.html#l00039">quadrature_gm.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html"><div class="ttname"><a href="classlibMesh_1_1QBase.html">libMesh::QBase</a></div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00053">quadrature.h:53</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QGrundmann__Moller_html_ac386583fbe0bd668d082cbafefc0258b"><div class="ttname"><a href="classlibMesh_1_1QGrundmann__Moller.html#ac386583fbe0bd668d082cbafefc0258b">libMesh::QGrundmann_Moller::QGrundmann_Moller</a></div><div class="ttdeci">QGrundmann_Moller(const unsigned int _dim, const Order _order=INVALID_ORDER)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gm_8C_source.html#l00032">quadrature_gm.C:32</a></div></div>
 <div class="ttc" id="quadrature__gm_8h_html"><div class="ttname"><a href="quadrature__gm_8h.html">quadrature_gm.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

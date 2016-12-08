@@ -129,15 +129,15 @@
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// PeriodicBoundaryBase member functions</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PeriodicBoundaryBase.html#ab56f6eb32ab656db2d1c4d3bf0c482c5">   32</a></span>&#160;<a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#ab56f6eb32ab656db2d1c4d3bf0c482c5">PeriodicBoundaryBase::PeriodicBoundaryBase</a>() :</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  myboundary(<a class="code" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a>::invalid_id),</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  pairedboundary(<a class="code" href="classlibMesh_1_1BoundaryInfo.html">BoundaryInfo</a>::invalid_id)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;PeriodicBoundaryBase::PeriodicBoundaryBase() :</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  myboundary(BoundaryInfo::invalid_id),</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  pairedboundary(BoundaryInfo::invalid_id)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PeriodicBoundaryBase.html#aef029887970a743aeca78d6b80b1eaca">   40</a></span>&#160;<a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#ab56f6eb32ab656db2d1c4d3bf0c482c5">PeriodicBoundaryBase::PeriodicBoundaryBase</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html">PeriodicBoundaryBase</a> &amp; o) :</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;PeriodicBoundaryBase::PeriodicBoundaryBase(<span class="keyword">const</span> PeriodicBoundaryBase &amp; o) :</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  myboundary(o.myboundary),</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  pairedboundary(o.pairedboundary),</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  variables(o.variables)</div>
@@ -146,23 +146,23 @@
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PeriodicBoundaryBase.html#abc5bac7a5dbbe2d20b9262e5ec4bd5b4">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#abc5bac7a5dbbe2d20b9262e5ec4bd5b4">PeriodicBoundaryBase::set_variable</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> var)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> PeriodicBoundaryBase::set_variable(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> var)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.insert(var);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  variables.insert(var);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PeriodicBoundaryBase.html#ae5706185efc36bd840b9ecbd38e74ecc">   56</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#ae5706185efc36bd840b9ecbd38e74ecc">PeriodicBoundaryBase::merge</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html">PeriodicBoundaryBase</a> &amp; pb)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> PeriodicBoundaryBase::merge(<span class="keyword">const</span> PeriodicBoundaryBase &amp; pb)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.insert(pb.<a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.begin(), pb.<a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.end());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  variables.insert(pb.variables.begin(), pb.variables.end());</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classlibMesh_1_1PeriodicBoundaryBase.html#a65d5412e11f27aaca4ea0753f08ca4ec">   63</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a65d5412e11f27aaca4ea0753f08ca4ec">PeriodicBoundaryBase::is_my_variable</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> var_num)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">bool</span> PeriodicBoundaryBase::is_my_variable(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> var_num)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">bool</span> a = <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.empty() || (!<a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.empty() &amp;&amp; <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.find(var_num) != <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.end());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">bool</span> a = variables.empty() || (!variables.empty() &amp;&amp; variables.find(var_num) != variables.end());</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">return</span> a;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
@@ -170,16 +170,9 @@
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif // LIBMESH_ENABLE_PERIODIC</span></div>
-<div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_ab56f6eb32ab656db2d1c4d3bf0c482c5"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#ab56f6eb32ab656db2d1c4d3bf0c482c5">libMesh::PeriodicBoundaryBase::PeriodicBoundaryBase</a></div><div class="ttdeci">PeriodicBoundaryBase()</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8C_source.html#l00032">periodic_boundary_base.C:32</a></div></div>
-<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l00049">dof_map.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_ae5706185efc36bd840b9ecbd38e74ecc"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#ae5706185efc36bd840b9ecbd38e74ecc">libMesh::PeriodicBoundaryBase::merge</a></div><div class="ttdeci">void merge(const PeriodicBoundaryBase &amp;pb)</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8C_source.html#l00056">periodic_boundary_base.C:56</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_abc5bac7a5dbbe2d20b9262e5ec4bd5b4"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#abc5bac7a5dbbe2d20b9262e5ec4bd5b4">libMesh::PeriodicBoundaryBase::set_variable</a></div><div class="ttdeci">void set_variable(unsigned int var)</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8C_source.html#l00049">periodic_boundary_base.C:49</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_a092c77bffe64d6feaafd3328929f51e9"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">libMesh::PeriodicBoundaryBase::variables</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; variables</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8h_source.html#l00101">periodic_boundary_base.h:101</a></div></div>
-<div class="ttc" id="classlibMesh_1_1BoundaryInfo_html"><div class="ttname"><a href="classlibMesh_1_1BoundaryInfo.html">libMesh::BoundaryInfo</a></div><div class="ttdef"><b>Definition:</b> <a href="boundary__info_8h_source.html#l00054">boundary_info.h:54</a></div></div>
+<div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="periodic__boundary__base_8h_html"><div class="ttname"><a href="periodic__boundary__base_8h.html">periodic_boundary_base.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_a65d5412e11f27aaca4ea0753f08ca4ec"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#a65d5412e11f27aaca4ea0753f08ca4ec">libMesh::PeriodicBoundaryBase::is_my_variable</a></div><div class="ttdeci">bool is_my_variable(unsigned int var_num) const </div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8C_source.html#l00063">periodic_boundary_base.C:63</a></div></div>
 <div class="ttc" id="boundary__info_8h_html"><div class="ttname"><a href="boundary__info_8h.html">boundary_info.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html">libMesh::PeriodicBoundaryBase</a></div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8h_source.html#l00043">periodic_boundary_base.h:43</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

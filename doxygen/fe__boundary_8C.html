@@ -96,12 +96,28 @@
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">fe_boundary.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fe_8h_source.html">libmesh/fe.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="quadrature_8h_source.html">libmesh/quadrature.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="libmesh__logging_8h_source.html">libmesh/libmesh_logging.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tensor__value_8h_source.html">libmesh/tensor_value.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for fe_boundary.C:</div>
+<div class="dyncontent">
+<div class="center"><img src="fe__boundary_8C__incl.png" border="0" usemap="#fe__boundary_8C" alt=""/></div>
+<map name="fe__boundary_8C" id="fe__boundary_8C">
+<area shape="rect" id="node4" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1928,419,2115,445"/><area shape="rect" id="node15" href="fe_8h.html" title="libmesh/fe.h" alt="" coords="1587,80,1680,107"/><area shape="rect" id="node32" href="quadrature_8h.html" title="libmesh/quadrature.h" alt="" coords="1040,237,1187,264"/><area shape="rect" id="node36" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2809,80,2921,107"/><area shape="rect" id="node47" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="685,155,864,181"/><area shape="rect" id="node49" href="tensor__value_8h.html" title="libmesh/tensor_value.h" alt="" coords="235,80,393,107"/><area shape="rect" id="node5" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="1931,651,2103,677"/><area shape="rect" id="node8" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="3081,501,3247,528"/><area shape="rect" id="node10" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="1987,576,2187,603"/><area shape="rect" id="node11" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="2038,501,2223,528"/><area shape="rect" id="node12" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="2248,501,2419,528"/><area shape="rect" id="node14" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="1739,576,1911,603"/><area shape="rect" id="node9" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="3586,576,3717,603"/><area shape="rect" id="node16" href="fe__base_8h.html" title="libmesh/fe_base.h" alt="" coords="1505,155,1636,181"/><area shape="rect" id="node29" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="2978,328,3107,355"/><area shape="rect" id="node17" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="571,328,703,355"/><area shape="rect" id="node18" href="compare__types_8h.html" title="libmesh/compare_types.h" alt="" coords="45,328,219,355"/><area shape="rect" id="node19" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="1479,328,1664,355"/><area shape="rect" id="node20" href="fe__abstract_8h.html" title="libmesh/fe_abstract.h" alt="" coords="1835,237,1984,264"/><area shape="rect" id="node21" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2363,321,2545,362"/><area shape="rect" id="node22" href="point_8h.html" title="libmesh/point.h" alt="" coords="1872,328,1984,355"/><area shape="rect" id="node23" href="vector__value_8h.html" title="libmesh/vector_value.h" alt="" coords="1689,328,1847,355"/><area shape="rect" id="node26" href="fe__transformation__base_8h.html" title="libmesh/fe_transformation\l_base.h" alt="" coords="1483,230,1659,271"/><area shape="rect" id="node27" href="tensor__tools_8h.html" title="libmesh/tensor_tools.h" alt="" coords="521,237,676,264"/><area shape="rect" id="node28" href="type__n__tensor_8h.html" title="libmesh/type_n_tensor.h" alt="" coords="1109,328,1275,355"/><area shape="rect" id="node30" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="2978,411,3125,453"/><area shape="rect" id="node33" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="1300,328,1455,355"/><area shape="rect" id="node34" href="enum__quadrature__type_8h.html" title="libmesh/enum_quadrature\l_type.h" alt="" coords="779,321,956,362"/><area shape="rect" id="node37" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="3036,237,3180,264"/><area shape="rect" id="node38" href="node_8h.html" title="libmesh/node.h" alt="" coords="3020,155,3132,181"/><area shape="rect" id="node39" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="2327,155,2525,181"/><area shape="rect" id="node40" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="2551,155,2743,181"/><area shape="rect" id="node41" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="3458,155,3637,181"/><area shape="rect" id="node42" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="2868,230,3012,271"/><area shape="rect" id="node44" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="2762,328,2901,355"/><area shape="rect" id="node48" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="2160,237,2291,264"/><area shape="rect" id="node50" href="type__tensor_8h.html" title="libmesh/type_tensor.h" alt="" coords="243,328,395,355"/></map>
+</div>
+</div>
 <p><a href="fe__boundary_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -109,11 +125,232 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac133b6e8caf8810c7f12c71f09eeaa47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fe__boundary_8C.html#ac133b6e8caf8810c7f12c71f09eeaa47">REINIT_ERROR</a>(_dim,  _type,  _func)</td></tr>
+<tr class="separator:ac133b6e8caf8810c7f12c71f09eeaa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b45678f1f4f28f7324d97923ac8957"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fe__boundary_8C.html#a43b45678f1f4f28f7324d97923ac8957">SIDEMAP_ERROR</a>(_dim,  _type,  _func)</td></tr>
+<tr class="separator:a43b45678f1f4f28f7324d97923ac8957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b1c14b74009583b3d224f5a88b06d6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fe__boundary_8C.html#a5b1c14b74009583b3d224f5a88b06d6f">FACE_EDGE_SHAPE_ERROR</a>(_dim,  _func)</td></tr>
+<tr class="separator:a5b1c14b74009583b3d224f5a88b06d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acb353431f7fdf81ec1b8e5c36b921fd2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#acb353431f7fdf81ec1b8e5c36b921fd2">libMesh::REINIT_ERROR</a> (REINIT_ERROR(0, REINIT_ERROR(CLOUGH, reinit)</td></tr>
-<tr class="separator:acb353431f7fdf81ec1b8e5c36b921fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b541b908e07136f3c88d0287c1bfdaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a1b541b908e07136f3c88d0287c1bfdaf">libMesh::REINIT_ERROR</a> (0, CLOUGH, reinit)</td></tr>
+<tr class="separator:a1b541b908e07136f3c88d0287c1bfdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7152ad00da03ff4d6d86d4b11b546474"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a7152ad00da03ff4d6d86d4b11b546474">libMesh::REINIT_ERROR</a> (0, CLOUGH, edge_reinit)</td></tr>
+<tr class="separator:a7152ad00da03ff4d6d86d4b11b546474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa08323217c29c8b322f51020bbda9a58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aa08323217c29c8b322f51020bbda9a58">libMesh::SIDEMAP_ERROR</a> (0, CLOUGH, side_map)</td></tr>
+<tr class="separator:aa08323217c29c8b322f51020bbda9a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15c798deeb2cec8892024e801c1eb71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac15c798deeb2cec8892024e801c1eb71">libMesh::REINIT_ERROR</a> (0, HERMITE, reinit)</td></tr>
+<tr class="separator:ac15c798deeb2cec8892024e801c1eb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3867fa40d084045760da4ff2eb98c41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad3867fa40d084045760da4ff2eb98c41">libMesh::REINIT_ERROR</a> (0, HERMITE, edge_reinit)</td></tr>
+<tr class="separator:ad3867fa40d084045760da4ff2eb98c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43378f2f2e6abf2c08c4fc0475ccf127"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a43378f2f2e6abf2c08c4fc0475ccf127">libMesh::SIDEMAP_ERROR</a> (0, HERMITE, side_map)</td></tr>
+<tr class="separator:a43378f2f2e6abf2c08c4fc0475ccf127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9061218174e905e8369cbd0f94542d11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a9061218174e905e8369cbd0f94542d11">libMesh::REINIT_ERROR</a> (0, HIERARCHIC, reinit)</td></tr>
+<tr class="separator:a9061218174e905e8369cbd0f94542d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dadcf89eb183168a24f3555ce982e36"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a4dadcf89eb183168a24f3555ce982e36">libMesh::REINIT_ERROR</a> (0, HIERARCHIC, edge_reinit)</td></tr>
+<tr class="separator:a4dadcf89eb183168a24f3555ce982e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab30def2f056a7b40665351af3a0672d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ab30def2f056a7b40665351af3a0672d3">libMesh::SIDEMAP_ERROR</a> (0, HIERARCHIC, side_map)</td></tr>
+<tr class="separator:ab30def2f056a7b40665351af3a0672d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1412cd13969930c976559550fd312546"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a1412cd13969930c976559550fd312546">libMesh::REINIT_ERROR</a> (0, L2_HIERARCHIC, reinit)</td></tr>
+<tr class="separator:a1412cd13969930c976559550fd312546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad061c6d97bdfbc301a18f99a34504cf1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ad061c6d97bdfbc301a18f99a34504cf1">libMesh::REINIT_ERROR</a> (0, L2_HIERARCHIC, edge_reinit)</td></tr>
+<tr class="separator:ad061c6d97bdfbc301a18f99a34504cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528d98ecf94a580a5b0600fb5d893eac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a528d98ecf94a580a5b0600fb5d893eac">libMesh::SIDEMAP_ERROR</a> (0, L2_HIERARCHIC, side_map)</td></tr>
+<tr class="separator:a528d98ecf94a580a5b0600fb5d893eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12d122bcb80a59dd10d8156f5d565b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac12d122bcb80a59dd10d8156f5d565b6">libMesh::REINIT_ERROR</a> (0, LAGRANGE, reinit)</td></tr>
+<tr class="separator:ac12d122bcb80a59dd10d8156f5d565b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa964e2d78aea1d84b6ba8b8dcf158881"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aa964e2d78aea1d84b6ba8b8dcf158881">libMesh::REINIT_ERROR</a> (0, LAGRANGE, edge_reinit)</td></tr>
+<tr class="separator:aa964e2d78aea1d84b6ba8b8dcf158881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f944887349385066b8e50540a588c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aa1f944887349385066b8e50540a588c5">libMesh::SIDEMAP_ERROR</a> (0, LAGRANGE, side_map)</td></tr>
+<tr class="separator:aa1f944887349385066b8e50540a588c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd61886dde93bf5a2dc0f422f50985f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a1bd61886dde93bf5a2dc0f422f50985f">libMesh::REINIT_ERROR</a> (0, LAGRANGE_VEC, reinit)</td></tr>
+<tr class="separator:a1bd61886dde93bf5a2dc0f422f50985f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f8653648f5ee018a41638575c4f5e16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a0f8653648f5ee018a41638575c4f5e16">libMesh::REINIT_ERROR</a> (0, LAGRANGE_VEC, edge_reinit)</td></tr>
+<tr class="separator:a0f8653648f5ee018a41638575c4f5e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a515317a28fad9c21b1f6c608867e3495"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a515317a28fad9c21b1f6c608867e3495">libMesh::SIDEMAP_ERROR</a> (0, LAGRANGE_VEC, side_map)</td></tr>
+<tr class="separator:a515317a28fad9c21b1f6c608867e3495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14a6b06062bb6bb80815f8950be05e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ae14a6b06062bb6bb80815f8950be05e7">libMesh::REINIT_ERROR</a> (0, L2_LAGRANGE, reinit)</td></tr>
+<tr class="separator:ae14a6b06062bb6bb80815f8950be05e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc29e21af41c6e16cbb9e73ddc58ee48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#afc29e21af41c6e16cbb9e73ddc58ee48">libMesh::REINIT_ERROR</a> (0, L2_LAGRANGE, edge_reinit)</td></tr>
+<tr class="separator:afc29e21af41c6e16cbb9e73ddc58ee48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78f08bde348c57b747e2fcee916252e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a78f08bde348c57b747e2fcee916252e6">libMesh::SIDEMAP_ERROR</a> (0, L2_LAGRANGE, side_map)</td></tr>
+<tr class="separator:a78f08bde348c57b747e2fcee916252e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201d75e4519add245b626dc3ab28beea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a201d75e4519add245b626dc3ab28beea">libMesh::REINIT_ERROR</a> (0, MONOMIAL, reinit)</td></tr>
+<tr class="separator:a201d75e4519add245b626dc3ab28beea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda165d4698e33a800d35de7b3c3864a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#adda165d4698e33a800d35de7b3c3864a">libMesh::REINIT_ERROR</a> (0, MONOMIAL, edge_reinit)</td></tr>
+<tr class="separator:adda165d4698e33a800d35de7b3c3864a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1bd189c49b387f56e9c051a16850ecb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ab1bd189c49b387f56e9c051a16850ecb">libMesh::SIDEMAP_ERROR</a> (0, MONOMIAL, side_map)</td></tr>
+<tr class="separator:ab1bd189c49b387f56e9c051a16850ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cddf4913612cfa13942279efe641f0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a6cddf4913612cfa13942279efe641f0c">libMesh::REINIT_ERROR</a> (0, SCALAR, reinit)</td></tr>
+<tr class="separator:a6cddf4913612cfa13942279efe641f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3db9f1027552b7206fc06d15fd23f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#abd3db9f1027552b7206fc06d15fd23f7">libMesh::REINIT_ERROR</a> (0, SCALAR, edge_reinit)</td></tr>
+<tr class="separator:abd3db9f1027552b7206fc06d15fd23f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc790ae01bb12cbd6435afa767928bf0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#adc790ae01bb12cbd6435afa767928bf0">libMesh::SIDEMAP_ERROR</a> (0, SCALAR, side_map)</td></tr>
+<tr class="separator:adc790ae01bb12cbd6435afa767928bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9bca5c7f571e42dfbe950744288423"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a7c9bca5c7f571e42dfbe950744288423">libMesh::REINIT_ERROR</a> (0, XYZ, reinit)</td></tr>
+<tr class="separator:a7c9bca5c7f571e42dfbe950744288423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c3e22cb8b915c5bf44f8f8282dbd36b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a2c3e22cb8b915c5bf44f8f8282dbd36b">libMesh::REINIT_ERROR</a> (0, XYZ, edge_reinit)</td></tr>
+<tr class="separator:a2c3e22cb8b915c5bf44f8f8282dbd36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b5224a3e51dcd57468d00797a903e2a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a2b5224a3e51dcd57468d00797a903e2a">libMesh::SIDEMAP_ERROR</a> (0, XYZ, side_map)</td></tr>
+<tr class="separator:a2b5224a3e51dcd57468d00797a903e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edd5de0f2be8b7b5c1061236d04c02f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a4edd5de0f2be8b7b5c1061236d04c02f">libMesh::REINIT_ERROR</a> (0, NEDELEC_ONE, reinit)</td></tr>
+<tr class="separator:a4edd5de0f2be8b7b5c1061236d04c02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a890406a41f47434712f06f3c3b4b2306"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a890406a41f47434712f06f3c3b4b2306">libMesh::REINIT_ERROR</a> (0, NEDELEC_ONE, edge_reinit)</td></tr>
+<tr class="separator:a890406a41f47434712f06f3c3b4b2306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae215acceee61b1ac135d2004b8d1694f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ae215acceee61b1ac135d2004b8d1694f">libMesh::SIDEMAP_ERROR</a> (0, NEDELEC_ONE, side_map)</td></tr>
+<tr class="separator:ae215acceee61b1ac135d2004b8d1694f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e714b42f88faed943950c4b327df91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ab7e714b42f88faed943950c4b327df91">libMesh::REINIT_ERROR</a> (1, CLOUGH, edge_reinit)</td></tr>
+<tr class="separator:ab7e714b42f88faed943950c4b327df91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af281286a752996bd054baef8ea24fd02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#af281286a752996bd054baef8ea24fd02">libMesh::REINIT_ERROR</a> (1, HERMITE, edge_reinit)</td></tr>
+<tr class="separator:af281286a752996bd054baef8ea24fd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866751096d64d9232f363cc3e6be7e75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a866751096d64d9232f363cc3e6be7e75">libMesh::REINIT_ERROR</a> (1, HIERARCHIC, edge_reinit)</td></tr>
+<tr class="separator:a866751096d64d9232f363cc3e6be7e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afadd07d0f8b0971898f917925f4cd40c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#afadd07d0f8b0971898f917925f4cd40c">libMesh::REINIT_ERROR</a> (1, L2_HIERARCHIC, edge_reinit)</td></tr>
+<tr class="separator:afadd07d0f8b0971898f917925f4cd40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b01b40326d5f747db3080b9e6d797d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a23b01b40326d5f747db3080b9e6d797d">libMesh::REINIT_ERROR</a> (1, LAGRANGE, edge_reinit)</td></tr>
+<tr class="separator:a23b01b40326d5f747db3080b9e6d797d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ac0d808c029b5e37b6e94a7b931ac60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a8ac0d808c029b5e37b6e94a7b931ac60">libMesh::REINIT_ERROR</a> (1, LAGRANGE_VEC, edge_reinit)</td></tr>
+<tr class="separator:a8ac0d808c029b5e37b6e94a7b931ac60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697f664ef68ff7ec4da9ce1c6e2240b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a697f664ef68ff7ec4da9ce1c6e2240b2">libMesh::REINIT_ERROR</a> (1, L2_LAGRANGE, edge_reinit)</td></tr>
+<tr class="separator:a697f664ef68ff7ec4da9ce1c6e2240b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903c9836340cc497e9f6dd5a97f49224"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a903c9836340cc497e9f6dd5a97f49224">libMesh::REINIT_ERROR</a> (1, XYZ, edge_reinit)</td></tr>
+<tr class="separator:a903c9836340cc497e9f6dd5a97f49224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a700cb80dc5f9769b85d862661695ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a7a700cb80dc5f9769b85d862661695ef">libMesh::REINIT_ERROR</a> (1, MONOMIAL, edge_reinit)</td></tr>
+<tr class="separator:a7a700cb80dc5f9769b85d862661695ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a504b34bcc1036b395ced54693a834bc9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a504b34bcc1036b395ced54693a834bc9">libMesh::REINIT_ERROR</a> (1, SCALAR, edge_reinit)</td></tr>
+<tr class="separator:a504b34bcc1036b395ced54693a834bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f3c58d686a84e046c2c6753e378038"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a01f3c58d686a84e046c2c6753e378038">libMesh::REINIT_ERROR</a> (1, NEDELEC_ONE, reinit)</td></tr>
+<tr class="separator:a01f3c58d686a84e046c2c6753e378038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac824d37de4eaad38f1b6b9ed991497b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac824d37de4eaad38f1b6b9ed991497b3">libMesh::REINIT_ERROR</a> (1, NEDELEC_ONE, edge_reinit)</td></tr>
+<tr class="separator:ac824d37de4eaad38f1b6b9ed991497b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec33b0a23f09c8cd393cee63031c5cdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#aec33b0a23f09c8cd393cee63031c5cdc">libMesh::SIDEMAP_ERROR</a> (1, NEDELEC_ONE, side_map)</td></tr>
+<tr class="separator:aec33b0a23f09c8cd393cee63031c5cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a5b1c14b74009583b3d224f5a88b06d6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FACE_EDGE_SHAPE_ERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_dim, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;&gt;                                                           \</div>
+<div class="line">  void FEMap::_func&lt;_dim&gt;(<span class="keyword">const</span> std::vector&lt;Point&gt; &amp;,                   \</div>
+<div class="line">                          const <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *)                                 \</div>
+<div class="line">  {                                                                     <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">\</a></div>
+<div class="line"><a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">    libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: This method makes no sense for low-D elements!&quot;</span>); \</div>
+<div class="line">  }</div>
+<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
+<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="fe__boundary_8C_source.html#l00055">55</a> of file <a class="el" href="fe__boundary_8C_source.html">fe_boundary.C</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac133b6e8caf8810c7f12c71f09eeaa47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REINIT_ERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_dim, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;&gt;                                                   \</div>
+<div class="line">  void <a class="code" href="classlibMesh_1_1FE.html">FE&lt;_dim,_type&gt;::_func</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *,                      \</div>
+<div class="line">                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,                \</div>
+<div class="line">                             <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>,                        \</div>
+<div class="line">                             <span class="keyword">const</span> std::vector&lt;Point&gt; * <span class="keyword">const</span>,  \</div>
+<div class="line">                             <span class="keyword">const</span> std::vector&lt;Real&gt; * <span class="keyword">const</span>)</div>
+<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FE_html"><div class="ttname"><a href="classlibMesh_1_1FE.html">libMesh::FE</a></div><div class="ttdef"><b>Definition:</b> <a href="fe_8h_source.html#l00088">fe.h:88</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="fe__boundary_8C_source.html#l00039">39</a> of file <a class="el" href="fe__boundary_8C_source.html">fe_boundary.C</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43b45678f1f4f28f7324d97923ac8957"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SIDEMAP_ERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_dim, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;&gt;                                                   \</div>
+<div class="line">  void <a class="code" href="classlibMesh_1_1FE.html">FE&lt;_dim,_type&gt;::_func</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *,                      \</div>
+<div class="line">                             <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *,                      \</div>
+<div class="line">                             <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,                \</div>
+<div class="line">                             <span class="keyword">const</span> std::vector&lt;Point&gt; &amp;,        \</div>
+<div class="line">                             std::vector&lt;Point&gt; &amp;)</div>
+<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FE_html"><div class="ttname"><a href="classlibMesh_1_1FE.html">libMesh::FE</a></div><div class="ttdef"><b>Definition:</b> <a href="fe_8h_source.html#l00088">fe.h:88</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="fe__boundary_8C_source.html#l00047">47</a> of file <a class="el" href="fe__boundary_8C_source.html">fe_boundary.C</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->
