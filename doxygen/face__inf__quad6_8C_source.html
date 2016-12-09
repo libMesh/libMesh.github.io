@@ -136,7 +136,7 @@
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// InfQuad6 class static member initializations</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> InfQuad6::side_nodes_map[3][3] =</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#ad640d8e81299baf8e247a829d4363350">InfQuad6::side_nodes_map</a>[3][3] =</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {0, 1, 4}, <span class="comment">// Side 0</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {1, 3},    <span class="comment">// Side 1</span></div>
@@ -147,38 +147,38 @@
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// ------------------------------------------------------------</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// InfQuad6 class member functions</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">bool</span> InfQuad6::is_vertex(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#a48d2e57b8a1f1313b27e43a795042920">   50</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#a48d2e57b8a1f1313b27e43a795042920">InfQuad6::is_vertex</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">if</span> (i &lt; 2)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> InfQuad6::is_edge(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#a8e86d6637875cb5919ed7fa3300328fc">   57</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#a8e86d6637875cb5919ed7fa3300328fc">InfQuad6::is_edge</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">if</span> (i &lt; 2)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">bool</span> InfQuad6::is_face(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#a515687990f17555ed7754ec0b7d31aed">   64</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#a515687990f17555ed7754ec0b7d31aed">InfQuad6::is_face</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">bool</span> InfQuad6::is_node_on_side(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#af0dc574e35c71bd17b75cfdd335de148">   69</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#af0dc574e35c71bd17b75cfdd335de148">InfQuad6::is_node_on_side</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (s, n_sides());</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  libmesh_assert_less (s, <a class="code" href="classlibMesh_1_1InfQuad.html#a70cdbf76a69bc5a062e4ce03744ccd08">n_sides</a>());</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i != 3; ++i)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (side_nodes_map[s][i] == n)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1InfQuad6.html#ad640d8e81299baf8e247a829d4363350">side_nodes_map</a>[s][i] == n)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_AMR</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">const</span> <span class="keywordtype">float</span> InfQuad6::_embedding_matrix[2][6][6] =</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#a0e10d47f30441e5bb6f57dc44be02cbe">InfQuad6::_embedding_matrix</a>[2][6][6] =</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// embedding matrix for child 0</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
@@ -208,32 +208,32 @@
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> InfQuad6::key (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#a31df95d13bf6d04eb787a5dabdd409f6">  111</a></span>&#160;<a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> <a class="code" href="classlibMesh_1_1Elem.html#a457b879a3e3fbdc308eb28f8cb73e3b8">InfQuad6::key</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (s, this-&gt;n_sides());</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  libmesh_assert_less (s, this-&gt;<a class="code" href="classlibMesh_1_1InfQuad.html#a70cdbf76a69bc5a062e4ce03744ccd08">n_sides</a>());</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordflow">switch</span> (s)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="comment">// Edge3 side</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">return</span> this-&gt;compute_key (this-&gt;node_id(4));</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">return</span> this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#aa8dedcc2c4d243d926e51919ba31eb75">compute_key</a> (this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(4));</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="comment">// InfEdge</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keywordflow">return</span> InfQuad::key(s);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Elem.html#a457b879a3e3fbdc308eb28f8cb73e3b8">InfQuad::key</a>(s);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid side s = &quot;</span> &lt;&lt; s);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Invalid side s = &quot;</span> &lt;&lt; s);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;UniquePtr&lt;Elem&gt; InfQuad6::build_side_ptr (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#af13fafa4e7001b3dbcf7c678b8065b40">  136</a></span>&#160;<a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="classlibMesh_1_1InfQuad6.html#af13fafa4e7001b3dbcf7c678b8065b40">InfQuad6::build_side_ptr</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                                          <span class="keywordtype">bool</span> proxy)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="comment">// libmesh_assert_less (i, this-&gt;n_sides());</span></div>
@@ -243,27 +243,27 @@
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="keywordflow">switch</span> (i)</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        {</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(<span class="keyword">new</span> Side&lt;Edge3,InfQuad6&gt;(<span class="keyword">this</span>,i));</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Side.html">Side&lt;Edge3,InfQuad6&gt;</a>(<span class="keyword">this</span>,i));</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;          <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(<span class="keyword">new</span> Side&lt;InfEdge2,InfQuad6&gt;(<span class="keyword">this</span>,i));</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Side.html">Side&lt;InfEdge2,InfQuad6&gt;</a>(<span class="keyword">this</span>,i));</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    {</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="comment">// Create NULL pointer to be initialized, returned later.</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      Elem * edge = <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * edge = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">switch</span> (i)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        {</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">case</span> 0:</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;          {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            edge = <span class="keyword">new</span> Edge3;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            edge = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1Edge3.html">Edge3</a>;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
@@ -271,36 +271,36 @@
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">case</span> 2:</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;          {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            edge = <span class="keyword">new</span> InfEdge2;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            edge = <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfEdge2.html">InfEdge2</a>;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Invalid side i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        }</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      edge-&gt;subdomain_id() = this-&gt;subdomain_id();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      edge-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a96faae17e7ede5aa89c687d54cefb4b3">subdomain_id</a>() = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a96faae17e7ede5aa89c687d54cefb4b3">subdomain_id</a>();</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="comment">// Set the nodes</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> n=0; n&lt;edge-&gt;n_nodes(); ++n)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        edge-&gt;set_node(n) = this-&gt;node_ptr(InfQuad6::side_nodes_map[i][n]);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> n=0; n&lt;edge-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">n_nodes</a>(); ++n)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        edge-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(n) = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a8af3280d9eb50ef05f43ceea5bcb8cf8">node_ptr</a>(InfQuad6::side_nodes_map[i][n]);</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;(edge);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>(edge);</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keywordflow">return</span> UniquePtr&lt;Elem&gt;();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a>();</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keywordtype">void</span> InfQuad6::connectivity(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sf,</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#a0ab8bc30b4762430fd95cefc142972f4">  198</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#a0ab8bc30b4762430fd95cefc142972f4">InfQuad6::connectivity</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sf,</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">IOPackage</a> iop,</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                            std::vector&lt;dof_id_type&gt; &amp; conn)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (sf, this-&gt;n_sub_elem());</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <a class="code" href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a> (iop, <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">INVALID_IO_PACKAGE</a>);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  libmesh_assert_less (sf, this-&gt;<a class="code" href="classlibMesh_1_1InfQuad6.html#a90f7c1d422fb5f286fedf4f203dd5909">n_sub_elem</a>());</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  libmesh_assert_not_equal_to (iop, <a class="code" href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">INVALID_IO_PACKAGE</a>);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  conn.resize(4);</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
@@ -312,47 +312,47 @@
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;          {</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;          <span class="keywordflow">case</span> 0:</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="comment">// linear sub-quad 0</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            conn[0] = this-&gt;node_id(0)+1;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            conn[1] = this-&gt;node_id(4)+1;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            conn[2] = this-&gt;node_id(5)+1;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            conn[3] = this-&gt;node_id(2)+1;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            conn[0] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(0)+1;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            conn[1] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(4)+1;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            conn[2] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(5)+1;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            conn[3] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(2)+1;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="comment">// linear sub-quad 1</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            conn[0] = this-&gt;node_id(4)+1;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            conn[1] = this-&gt;node_id(1)+1;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            conn[2] = this-&gt;node_id(3)+1;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            conn[3] = this-&gt;node_id(5)+1;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            conn[0] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(4)+1;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            conn[1] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(1)+1;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            conn[2] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(3)+1;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            conn[3] = this-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">node_id</a>(5)+1;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid sf = &quot;</span> &lt;&lt; sf);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;Invalid sf = &quot;</span> &lt;&lt; sf);</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;          }</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      }</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unsupported IO package &quot;</span> &lt;&lt; iop);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unsupported IO package &quot;</span> &lt;&lt; iop);</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> InfQuad6::second_order_adjacent_vertex (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#ac044cea5f0655bb20751a570653f0a58">  244</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#ac044cea5f0655bb20751a570653f0a58">InfQuad6::second_order_adjacent_vertex</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                                                           <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <a class="code" href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a> (n, this-&gt;n_vertices());</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (n, this-&gt;<a class="code" href="namespacelibMesh_1_1MeshTools.html#a2c80534e24b606b4a4e825ab9e9887d8">n_nodes</a>());</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (v, 2);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keywordflow">return</span> _second_order_adjacent_vertices[n-this-&gt;n_vertices()][v];</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  libmesh_assert_greater_equal (n, this-&gt;<a class="code" href="classlibMesh_1_1InfQuad.html#ad5677d2087ff5b3f4a23176a30f39300">n_vertices</a>());</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  libmesh_assert_less (n, this-&gt;<a class="code" href="classlibMesh_1_1InfQuad6.html#a5eb163144441ef6b2ef8f573758ab4f7">n_nodes</a>());</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  libmesh_assert_less (v, 2);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#af2137cdb5ee0ce0e3b3970ece1606b3d">_second_order_adjacent_vertices</a>[n-this-&gt;<a class="code" href="classlibMesh_1_1InfQuad.html#ad5677d2087ff5b3f4a23176a30f39300">n_vertices</a>()][v];</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> InfQuad6::_second_order_adjacent_vertices[2][2] =</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1InfQuad6.html#af2137cdb5ee0ce0e3b3970ece1606b3d">InfQuad6::_second_order_adjacent_vertices</a>[2][2] =</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  {</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    {0, 1}, <span class="comment">// vertices adjacent to node 4</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    {2, 3}  <span class="comment">// vertices adjacent to node 5</span></div>
@@ -361,10 +361,10 @@
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;std::pair&lt;unsigned short int, unsigned short int&gt;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;InfQuad6::second_order_child_vertex (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfQuad6.html#a9a854caf0cb1716acafa33f3eb3d2a1e">  264</a></span>&#160;<a class="code" href="classlibMesh_1_1InfQuad6.html#a9a854caf0cb1716acafa33f3eb3d2a1e">InfQuad6::second_order_child_vertex</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <a class="code" href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a> (n, this-&gt;n_vertices());</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (n, this-&gt;<a class="code" href="namespacelibMesh_1_1MeshTools.html#a2c80534e24b606b4a4e825ab9e9887d8">n_nodes</a>());</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  libmesh_assert_greater_equal (n, this-&gt;<a class="code" href="classlibMesh_1_1InfQuad.html#ad5677d2087ff5b3f4a23176a30f39300">n_vertices</a>());</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  libmesh_assert_less (n, this-&gt;<a class="code" href="classlibMesh_1_1InfQuad6.html#a5eb163144441ef6b2ef8f573758ab4f7">n_nodes</a>());</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keywordflow">return</span> std::pair&lt;unsigned short int, unsigned short int&gt;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    (0, 2*n-7);</div>
@@ -376,22 +376,44 @@
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#endif // ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
-<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1MeshTools_html_a2c80534e24b606b4a4e825ab9e9887d8"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools.html#a2c80534e24b606b4a4e825ab9e9887d8">libMesh::MeshTools::n_nodes</a></div><div class="ttdeci">dof_id_type n_nodes(const MeshBase::const_node_iterator &amp;begin, const MeshBase::const_node_iterator &amp;end)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00677">mesh_tools.C:677</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a0d25454251fb8f3518211ccd9f467b91"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">libMesh::Elem::set_node</a></div><div class="ttdeci">virtual Node *&amp; set_node(const unsigned int i)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01719">elem.h:1719</a></div></div>
 <div class="ttc" id="edge__inf__edge2_8h_html"><div class="ttname"><a href="edge__inf__edge2_8h.html">edge_inf_edge2.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_a8acb308b6fb64455af399b68145d1014"><div class="ttname"><a href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a></div><div class="ttdeci">#define libmesh_assert_not_equal_to(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00345">libmesh_common.h:345</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a0e10d47f30441e5bb6f57dc44be02cbe"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a0e10d47f30441e5bb6f57dc44be02cbe">libMesh::InfQuad6::_embedding_matrix</a></div><div class="ttdeci">static const float _embedding_matrix[2][6][6]</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8h_source.html#l00198">face_inf_quad6.h:198</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a0ab8bc30b4762430fd95cefc142972f4"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a0ab8bc30b4762430fd95cefc142972f4">libMesh::InfQuad6::connectivity</a></div><div class="ttdeci">virtual void connectivity(const unsigned int sf, const IOPackage iop, std::vector&lt; dof_id_type &gt; &amp;conn) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00198">face_inf_quad6.C:198</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="classlibMesh_1_1InfEdge2_html"><div class="ttname"><a href="classlibMesh_1_1InfEdge2.html">libMesh::InfEdge2</a></div><div class="ttdoc">A 1D infinite element with 2 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="edge__inf__edge2_8h_source.html#l00055">edge_inf_edge2.h:55</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_ad640d8e81299baf8e247a829d4363350"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#ad640d8e81299baf8e247a829d4363350">libMesh::InfQuad6::side_nodes_map</a></div><div class="ttdeci">static const unsigned int side_nodes_map[3][3]</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8h_source.html#l00171">face_inf_quad6.h:171</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a515687990f17555ed7754ec0b7d31aed"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a515687990f17555ed7754ec0b7d31aed">libMesh::InfQuad6::is_face</a></div><div class="ttdeci">virtual bool is_face(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00064">face_inf_quad6.C:64</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404aaf385e36ac78c8bc947262a29b0cc368">libMesh::TECPLOT</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00036">enum_io_package.h:36</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a9a854caf0cb1716acafa33f3eb3d2a1e"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a9a854caf0cb1716acafa33f3eb3d2a1e">libMesh::InfQuad6::second_order_child_vertex</a></div><div class="ttdeci">virtual std::pair&lt; unsigned short int, unsigned short int &gt; second_order_child_vertex(const unsigned int n) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00264">face_inf_quad6.C:264</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_af0a78fa0f592d2b8f515c69cabfaf529"><div class="ttname"><a href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">libMesh::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; T &gt; UniquePtr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00046">auto_ptr.h:46</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a5eb163144441ef6b2ef8f573758ab4f7"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a5eb163144441ef6b2ef8f573758ab4f7">libMesh::InfQuad6::n_nodes</a></div><div class="ttdeci">virtual unsigned int n_nodes() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8h_source.html#l00072">face_inf_quad6.h:72</a></div></div>
 <div class="ttc" id="edge__edge3_8h_html"><div class="ttname"><a href="edge__edge3_8h.html">edge_edge3.h</a></div></div>
 <div class="ttc" id="side_8h_html"><div class="ttname"><a href="side_8h.html">side.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a457b879a3e3fbdc308eb28f8cb73e3b8"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a457b879a3e3fbdc308eb28f8cb73e3b8">libMesh::Elem::key</a></div><div class="ttdeci">virtual dof_id_type key() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8C_source.html#l00494">elem.C:494</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a8af3280d9eb50ef05f43ceea5bcb8cf8"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a8af3280d9eb50ef05f43ceea5bcb8cf8">libMesh::Elem::node_ptr</a></div><div class="ttdeci">const Node * node_ptr(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01655">elem.h:1655</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a3a1e00b1906b0f6cf0cc1760c9a7da1f"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes</a></div><div class="ttdeci">virtual unsigned int n_nodes() const =0</div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a48d2e57b8a1f1313b27e43a795042920"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a48d2e57b8a1f1313b27e43a795042920">libMesh::InfQuad6::is_vertex</a></div><div class="ttdeci">virtual bool is_vertex(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00050">face_inf_quad6.C:50</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404a56de3f96c0688cc7b8525202daa1bdf0">libMesh::INVALID_IO_PACKAGE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00044">enum_io_package.h:44</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_af0dc574e35c71bd17b75cfdd335de148"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#af0dc574e35c71bd17b75cfdd335de148">libMesh::InfQuad6::is_node_on_side</a></div><div class="ttdeci">virtual bool is_node_on_side(const unsigned int n, const unsigned int s) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00069">face_inf_quad6.C:69</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a96faae17e7ede5aa89c687d54cefb4b3"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a96faae17e7ede5aa89c687d54cefb4b3">libMesh::Elem::subdomain_id</a></div><div class="ttdeci">subdomain_id_type subdomain_id() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01729">elem.h:1729</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_af2137cdb5ee0ce0e3b3970ece1606b3d"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#af2137cdb5ee0ce0e3b3970ece1606b3d">libMesh::InfQuad6::_second_order_adjacent_vertices</a></div><div class="ttdeci">static const unsigned short int _second_order_adjacent_vertices[2][2]</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8h_source.html#l00210">face_inf_quad6.h:210</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Edge3_html"><div class="ttname"><a href="classlibMesh_1_1Edge3.html">libMesh::Edge3</a></div><div class="ttdoc">A 1D geometric element with 3 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="edge__edge3_8h_source.html#l00049">edge_edge3.h:49</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Side_html"><div class="ttname"><a href="classlibMesh_1_1Side.html">libMesh::Side</a></div><div class="ttdoc">Proxy class for efficiently representing an Elem&#39;s side. </div><div class="ttdef"><b>Definition:</b> <a href="side_8h_source.html#l00052">side.h:52</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_ac044cea5f0655bb20751a570653f0a58"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#ac044cea5f0655bb20751a570653f0a58">libMesh::InfQuad6::second_order_adjacent_vertex</a></div><div class="ttdeci">virtual unsigned short int second_order_adjacent_vertex(const unsigned int n, const unsigned int v) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00244">face_inf_quad6.C:244</a></div></div>
 <div class="ttc" id="face__inf__quad6_8h_html"><div class="ttname"><a href="face__inf__quad6_8h.html">face_inf_quad6.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a90f7c1d422fb5f286fedf4f203dd5909"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a90f7c1d422fb5f286fedf4f203dd5909">libMesh::InfQuad6::n_sub_elem</a></div><div class="ttdeci">virtual unsigned int n_sub_elem() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8h_source.html#l00082">face_inf_quad6.h:82</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a792647935b7b7e80b2ddb5aeb4c562f1"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a792647935b7b7e80b2ddb5aeb4c562f1">libMesh::Elem::node_id</a></div><div class="ttdeci">dof_id_type node_id(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01615">elem.h:1615</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_aa8dedcc2c4d243d926e51919ba31eb75"><div class="ttname"><a href="classlibMesh_1_1Elem.html#aa8dedcc2c4d243d926e51919ba31eb75">libMesh::Elem::compute_key</a></div><div class="ttdeci">static dof_id_type compute_key(dof_id_type n0)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l02327">elem.h:2327</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a0f8ade5a0166ed8126d10b0a34c50404"><div class="ttname"><a href="namespacelibMesh.html#a0f8ade5a0166ed8126d10b0a34c50404">libMesh::IOPackage</a></div><div class="ttdeci">IOPackage</div><div class="ttdef"><b>Definition:</b> <a href="enum__io__package_8h_source.html#l00034">enum_io_package.h:34</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_acdead500615f318f379c66f7268b5f6c"><div class="ttname"><a href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a></div><div class="ttdeci">#define libmesh_assert_greater_equal(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00349">libmesh_common.h:349</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint32_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00070">id_types.h:70</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad_html_ad5677d2087ff5b3f4a23176a30f39300"><div class="ttname"><a href="classlibMesh_1_1InfQuad.html#ad5677d2087ff5b3f4a23176a30f39300">libMesh::InfQuad::n_vertices</a></div><div class="ttdeci">virtual unsigned int n_vertices() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad_8h_source.html#l00102">face_inf_quad.h:102</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_a8e86d6637875cb5919ed7fa3300328fc"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#a8e86d6637875cb5919ed7fa3300328fc">libMesh::InfQuad6::is_edge</a></div><div class="ttdeci">virtual bool is_edge(const unsigned int i) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00057">face_inf_quad6.C:57</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html_af13fafa4e7001b3dbcf7c678b8065b40"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html#af13fafa4e7001b3dbcf7c678b8065b40">libMesh::InfQuad6::build_side_ptr</a></div><div class="ttdeci">virtual UniquePtr&lt; Elem &gt; build_side_ptr(const unsigned int i, bool proxy) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8C_source.html#l00136">face_inf_quad6.C:136</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad_html_a70cdbf76a69bc5a062e4ce03744ccd08"><div class="ttname"><a href="classlibMesh_1_1InfQuad.html#a70cdbf76a69bc5a062e4ce03744ccd08">libMesh::InfQuad::n_sides</a></div><div class="ttdeci">virtual unsigned int n_sides() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad_8h_source.html#l00097">face_inf_quad.h:97</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint8_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00064">id_types.h:64</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

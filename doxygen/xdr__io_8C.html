@@ -100,30 +100,7 @@
 <div class="title">xdr_io.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;cstdio&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &quot;<a class="el" href="xdr__io_8h_source.html">libmesh/xdr_io.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="xdr__cxx_8h_source.html">libmesh/xdr_cxx.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="enum__xdr__mode_8h_source.html">libmesh/enum_xdr_mode.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__base_8h_source.html">libmesh/mesh_base.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="node_8h_source.html">libmesh/node.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="boundary__info_8h_source.html">libmesh/boundary_info.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="parallel_8h_source.html">libmesh/parallel.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__tools_8h_source.html">libmesh/mesh_tools.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="partitioner_8h_source.html">libmesh/partitioner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="libmesh__logging_8h_source.html">libmesh/libmesh_logging.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for xdr_io.C:</div>
-<div class="dyncontent">
-<div class="center"><img src="xdr__io_8C__incl.png" border="0" usemap="#xdr__io_8C" alt=""/></div>
-<map name="xdr__io_8C" id="xdr__io_8C">
-<area shape="rect" id="node7" href="xdr__io_8h.html" title="libmesh/xdr_io.h" alt="" coords="1307,80,1425,107"/><area shape="rect" id="node14" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="1255,493,1380,520"/><area shape="rect" id="node15" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1492,667,1671,693"/><area shape="rect" id="node26" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="1809,229,1961,256"/><area shape="rect" id="node27" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="1139,312,1305,339"/><area shape="rect" id="node33" href="partitioner_8h.html" title="libmesh/partitioner.h" alt="" coords="2349,312,2491,339"/><area shape="rect" id="node39" href="xdr__cxx_8h.html" title="libmesh/xdr_cxx.h" alt="" coords="2981,312,3109,339"/><area shape="rect" id="node40" href="enum__xdr__mode_8h.html" title="libmesh/enum_xdr_mode.h" alt="" coords="3349,403,3531,429"/><area shape="rect" id="node42" href="node_8h.html" title="libmesh/node.h" alt="" coords="4116,229,4228,256"/><area shape="rect" id="node44" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="3716,155,3828,181"/><area shape="rect" id="node50" href="mesh__tools_8h.html" title="libmesh/mesh_tools.h" alt="" coords="2978,155,3128,181"/><area shape="rect" id="node8" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="2519,403,2648,429"/><area shape="rect" id="node25" href="mesh__input_8h.html" title="libmesh/mesh_input.h" alt="" coords="425,155,577,181"/><area shape="rect" id="node28" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="1311,403,1480,429"/><area shape="rect" id="node38" href="mesh__output_8h.html" title="libmesh/mesh_output.h" alt="" coords="899,155,1059,181"/><area shape="rect" id="node9" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="2259,816,2445,843"/><area shape="rect" id="node10" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="2579,891,2744,917"/><area shape="rect" id="node13" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="2450,486,2597,527"/><area shape="rect" id="node11" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="3605,965,3736,992"/><area shape="rect" id="node19" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="2441,584,2572,611"/><area shape="rect" id="node24" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="1469,584,1693,611"/><area shape="rect" id="node16" href="perf__log_8h.html" title="libmesh/perf_log.h" alt="" coords="1577,741,1708,768"/><area shape="rect" id="node29" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="3815,312,3959,339"/><area shape="rect" id="node31" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="2618,312,2803,339"/><area shape="rect" id="node32" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="3610,312,3789,339"/><area shape="rect" id="node34" href="point__locator__base_8h.html" title="libmesh/point_locator\l_base.h" alt="" coords="2125,305,2272,346"/><area shape="rect" id="node35" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="1956,305,2100,346"/><area shape="rect" id="node30" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="4013,395,4195,437"/><area shape="rect" id="node43" href="point_8h.html" title="libmesh/point.h" alt="" coords="4033,312,4145,339"/><area shape="rect" id="node45" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="4354,229,4552,256"/><area shape="rect" id="node46" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="4577,229,4732,256"/><area shape="rect" id="node47" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="3609,229,3801,256"/><area shape="rect" id="node48" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="3082,741,3221,768"/></map>
-</div>
-</div>
+
 <p><a href="xdr__io_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -137,14 +114,14 @@ Namespaces</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#a3f4d8a52b5ef6ff6156ca209e12b5564">boundary_id_type</a> bc_id</td>
+          <td class="memname">boundary_id_type bc_id</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="xdr__io_8C_source.html#l00050">50</a> of file <a class="el" href="xdr__io_8C_source.html">xdr_io.C</a>.</p>
 
-<p>Referenced by <a class="el" href="fro__io_8C_source.html#l00041">libMesh::FroIO::write()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__generation_8C_source.html#l02233">libMesh::MeshTools::Generation::build_delaunay_square()</a>, <a class="el" href="mesh__modification_8C_source.html#l01757">libMesh::MeshTools::Modification::flatten()</a>, and <a class="el" href="fro__io_8C_source.html#l00041">libMesh::FroIO::write()</a>.</p>
 
 </div>
 </div>
@@ -153,14 +130,14 @@ Namespaces</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> dof_id</td>
+          <td class="memname">dof_id_type dof_id</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="xdr__io_8C_source.html#l00048">48</a> of file <a class="el" href="xdr__io_8C_source.html">xdr_io.C</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map_8C_source.html#l02445">libMesh::DofMap::is_evaluable()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00330">libMesh::SparsityPattern::Build::join()</a>, and <a class="el" href="sparsity__pattern_8C_source.html#l00433">libMesh::SparsityPattern::Build::parallel_sync()</a>.</p>
+<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l01707">libMesh::DofMap::heterogenously_constrain_element_matrix_and_vector()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l01813">libMesh::DofMap::heterogenously_constrain_element_vector()</a>, <a class="el" href="dof__map_8C_source.html#l02445">libMesh::DofMap::is_evaluable()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00330">libMesh::SparsityPattern::Build::join()</a>, and <a class="el" href="sparsity__pattern_8C_source.html#l00433">libMesh::SparsityPattern::Build::parallel_sync()</a>.</p>
 
 </div>
 </div>
@@ -176,7 +153,7 @@ Namespaces</h2></td></tr>
 
 <p>Definition at line <a class="el" href="xdr__io_8C_source.html#l00049">49</a> of file <a class="el" href="xdr__io_8C_source.html">xdr_io.C</a>.</p>
 
-<p>Referenced by <a class="el" href="boundary__info_8C_source.html#l02236">libMesh::BoundaryInfo::_find_id_maps()</a>, <a class="el" href="boundary__info_8C_source.html#l00334">libMesh::BoundaryInfo::add_elements()</a>, <a class="el" href="boundary__info_8C_source.html#l00837">libMesh::BoundaryInfo::add_side()</a>, <a class="el" href="mesh__subdivision__support_8C_source.html#l00090">libMesh::MeshTools::Subdivision::all_subdivision()</a>, <a class="el" href="abaqus__io_8C_source.html#l00889">libMesh::AbaqusIO::assign_sideset_ids()</a>, <a class="el" href="boundary__info_8C_source.html#l01214">libMesh::BoundaryInfo::boundary_ids()</a>, <a class="el" href="mesh__generation_8C_source.html#l00283">libMesh::MeshTools::Generation::build_cube()</a>, <a class="el" href="boundary__info_8C_source.html#l01798">libMesh::BoundaryInfo::build_node_list_from_side_list()</a>, <a class="el" href="boundary__info_8C_source.html#l01832">libMesh::BoundaryInfo::build_side_list_from_node_list()</a>, <a class="el" href="mesh__modification_8C_source.html#l01895">libMesh::MeshTools::Modification::change_boundary_id()</a>, <a class="el" href="boundary__info_8C_source.html#l00989">libMesh::BoundaryInfo::edge_boundary_ids()</a>, <a class="el" href="mesh__tools_8C_source.html#l00391">libMesh::MeshTools::find_boundary_nodes()</a>, <a class="el" href="boundary__info_8C_source.html#l00277">libMesh::BoundaryInfo::get_side_and_node_maps()</a>, <a class="el" href="unv__io_8C_source.html#l00420">libMesh::UNVIO::groups_in()</a>, <a class="el" href="mesh__smoother__laplace_8C_source.html#l00172">libMesh::LaplaceMeshSmoother::init()</a>, <a class="el" href="postscript__io_8C_source.html#l00237">libMesh::PostscriptIO::plot_quadratic_elem()</a>, <a class="el" href="gmsh__io_8C_source.html#l00145">libMesh::GmshIO::read_mesh()</a>, <a class="el" href="fe__boundary_8C_source.html#l00142">libMesh::FE&lt; Dim, T &gt;::reinit()</a>, <a class="el" href="fe__xyz__boundary_8C_source.html#l00067">libMesh::FEXYZ&lt; Dim &gt;::reinit()</a>, <a class="el" href="fe__boundary_8C_source.html#l00353">libMesh::FE&lt; Dim, T &gt;::side_map()</a>, <a class="el" href="boundary__info_8C_source.html#l01590">libMesh::BoundaryInfo::side_with_boundary_id()</a>, <a class="el" href="mesh__modification_8C_source.html#l01575">libMesh::MeshTools::Modification::smooth()</a>, <a class="el" href="replicated__mesh_8C_source.html#l00844">libMesh::ReplicatedMesh::stitching_helper()</a>, <a class="el" href="fro__io_8C_source.html#l00041">libMesh::FroIO::write()</a>, and <a class="el" href="gmsh__io_8C_source.html#l00664">libMesh::GmshIO::write_mesh()</a>.</p>
+<p>Referenced by <a class="el" href="boundary__info_8C_source.html#l02236">libMesh::BoundaryInfo::_find_id_maps()</a>, <a class="el" href="boundary__info_8C_source.html#l00334">libMesh::BoundaryInfo::add_elements()</a>, <a class="el" href="boundary__info_8C_source.html#l00837">libMesh::BoundaryInfo::add_side()</a>, <a class="el" href="mesh__subdivision__support_8C_source.html#l00090">libMesh::MeshTools::Subdivision::all_subdivision()</a>, <a class="el" href="abaqus__io_8C_source.html#l00889">libMesh::AbaqusIO::assign_sideset_ids()</a>, <a class="el" href="boundary__info_8C_source.html#l01214">libMesh::BoundaryInfo::boundary_ids()</a>, <a class="el" href="mesh__generation_8C_source.html#l00283">libMesh::MeshTools::Generation::build_cube()</a>, <a class="el" href="mesh__generation_8C_source.html#l02233">libMesh::MeshTools::Generation::build_delaunay_square()</a>, <a class="el" href="inf__elem__builder_8C_source.html#l00081">libMesh::InfElemBuilder::build_inf_elem()</a>, <a class="el" href="boundary__info_8C_source.html#l01798">libMesh::BoundaryInfo::build_node_list_from_side_list()</a>, <a class="el" href="boundary__info_8C_source.html#l01832">libMesh::BoundaryInfo::build_side_list_from_node_list()</a>, <a class="el" href="mesh__modification_8C_source.html#l01895">libMesh::MeshTools::Modification::change_boundary_id()</a>, <a class="el" href="boundary__info_8C_source.html#l00989">libMesh::BoundaryInfo::edge_boundary_ids()</a>, <a class="el" href="mesh__tools_8C_source.html#l00391">libMesh::MeshTools::find_boundary_nodes()</a>, <a class="el" href="boundary__info_8C_source.html#l00277">libMesh::BoundaryInfo::get_side_and_node_maps()</a>, <a class="el" href="unv__io_8C_source.html#l00420">libMesh::UNVIO::groups_in()</a>, <a class="el" href="mesh__smoother__laplace_8C_source.html#l00172">libMesh::LaplaceMeshSmoother::init()</a>, <a class="el" href="mesh__refinement_8C_source.html#l01181">libMesh::MeshRefinement::make_refinement_compatible()</a>, <a class="el" href="postscript__io_8C_source.html#l00237">libMesh::PostscriptIO::plot_quadratic_elem()</a>, <a class="el" href="gmsh__io_8C_source.html#l00145">libMesh::GmshIO::read_mesh()</a>, <a class="el" href="fe__boundary_8C_source.html#l00142">libMesh::FE&lt; Dim, T &gt;::reinit()</a>, <a class="el" href="inf__fe__boundary_8C_source.html#l00036">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::reinit()</a>, <a class="el" href="fe__xyz__boundary_8C_source.html#l00067">libMesh::FEXYZ&lt; Dim &gt;::reinit()</a>, <a class="el" href="fe__boundary_8C_source.html#l00353">libMesh::FE&lt; Dim, T &gt;::side_map()</a>, <a class="el" href="boundary__info_8C_source.html#l01590">libMesh::BoundaryInfo::side_with_boundary_id()</a>, <a class="el" href="mesh__modification_8C_source.html#l01575">libMesh::MeshTools::Modification::smooth()</a>, <a class="el" href="replicated__mesh_8C_source.html#l00844">libMesh::ReplicatedMesh::stitching_helper()</a>, <a class="el" href="fro__io_8C_source.html#l00041">libMesh::FroIO::write()</a>, <a class="el" href="gmsh__io_8C_source.html#l00664">libMesh::GmshIO::write_mesh()</a>, and <a class="el" href="exodusII__io__helper_8C_source.html#l01493">libMesh::ExodusII_IO_Helper::write_sidesets()</a>.</p>
 
 </div>
 </div>

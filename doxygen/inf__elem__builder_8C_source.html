@@ -137,32 +137,32 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">const</span> Point InfElemBuilder::build_inf_elem(<span class="keywordtype">bool</span> be_verbose)</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">   40</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> <a class="code" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">InfElemBuilder::build_inf_elem</a>(<span class="keywordtype">bool</span> be_verbose)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// determine origin automatically,</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// works only if the mesh has no symmetry planes.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">const</span> MeshTools::BoundingBox b_box = <a class="code" href="namespacelibMesh_1_1MeshTools.html#ab099ca10b8e0521017c6d28644b88135">MeshTools::bounding_box</a>(_mesh);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  Point origin = (b_box.first + b_box.second) / 2;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1MeshTools_1_1BoundingBox.html">MeshTools::BoundingBox</a> b_box = <a class="code" href="namespacelibMesh_1_1MeshTools.html#ab099ca10b8e0521017c6d28644b88135">MeshTools::bounding_box</a>(<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> origin = (b_box.first + b_box.second) / 2;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">if</span> (be_verbose &amp;&amp; _mesh.processor_id() == 0)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">if</span> (be_verbose &amp;&amp; <a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1ParallelObject.html#ae1e7d1a1118f63d9889a761c27433bbc">processor_id</a>() == 0)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot; Determined origin for Infinite Elements:&quot;</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                   &lt;&lt; std::endl</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                   &lt;&lt; <span class="stringliteral">&quot;  &quot;</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      origin.write_unformatted(<a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      origin.<a class="code" href="classlibMesh_1_1TypeVector.html#ab06b207d152da2cdc8dbf147f01b97cf">write_unformatted</a>(<a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// Call the protected implementation function with the</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="comment">// automatically determined origin.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  this-&gt;build_inf_elem(origin, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, be_verbose);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">build_inf_elem</a>(origin, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, be_verbose);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// when finished with building the Ifems,</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// it remains to prepare the mesh for use:</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// find neighbors (again), partition (if needed)...</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  this-&gt;_mesh.prepare_for_use (<span class="comment">/*skip_renumber =*/</span> <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a61ce1c1cdddaa68acd35c7fa49a8a45e">prepare_for_use</a> (<span class="comment">/*skip_renumber =*/</span> <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> origin;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
@@ -178,31 +178,31 @@
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">const</span> Point InfElemBuilder::build_inf_elem (<span class="keyword">const</span> InfElemOriginValue &amp; origin_x,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                            <span class="keyword">const</span> InfElemOriginValue &amp; origin_y,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                            <span class="keyword">const</span> InfElemOriginValue &amp; origin_z,</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfElemBuilder.html#ab393fac04e51979e664993bdf49926e9">   81</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> <a class="code" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">InfElemBuilder::build_inf_elem</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1InfElemBuilder.html#acf45bfe5ace01174cb8acfb54328a367">InfElemOriginValue</a> &amp; origin_x,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1InfElemBuilder.html#acf45bfe5ace01174cb8acfb54328a367">InfElemOriginValue</a> &amp; origin_y,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                            <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1InfElemBuilder.html#acf45bfe5ace01174cb8acfb54328a367">InfElemOriginValue</a> &amp; origin_z,</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                            <span class="keyword">const</span> <span class="keywordtype">bool</span> x_sym,</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                            <span class="keyword">const</span> <span class="keywordtype">bool</span> y_sym,</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                            <span class="keyword">const</span> <span class="keywordtype">bool</span> z_sym,</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                            <span class="keyword">const</span> <span class="keywordtype">bool</span> be_verbose,</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                            std::vector&lt;const Node *&gt; * inner_boundary_nodes)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="libmesh__logging_8h.html#a8778ed450ed13cc9191830e6905c5de6">START_LOG</a>(<span class="stringliteral">&quot;build_inf_elem()&quot;</span>, <span class="stringliteral">&quot;InfElemBuilder&quot;</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  START_LOG(<span class="stringliteral">&quot;build_inf_elem()&quot;</span>, <span class="stringliteral">&quot;InfElemBuilder&quot;</span>);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment">// first determine the origin of the</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment">// infinite elements.  For this, the</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">// origin defaults to the given values,</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="comment">// and may be overridden when the user</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// provided values</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  Point origin(origin_x.second, origin_y.second, origin_z.second);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="classlibMesh_1_1Point.html">Point</a> origin(origin_x.second, origin_y.second, origin_z.second);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="comment">// when only _one_ of the origin coordinates is _not_</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">// given, we have to determine it on our own</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">if</span> ( !origin_x.first || !origin_y.first || !origin_z.first)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="comment">// determine origin</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">const</span> MeshTools::BoundingBox b_box = <a class="code" href="namespacelibMesh_1_1MeshTools.html#ab099ca10b8e0521017c6d28644b88135">MeshTools::bounding_box</a>(_mesh);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keyword">const</span> Point auto_origin = (b_box.first+b_box.second)/2;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1MeshTools_1_1BoundingBox.html">MeshTools::BoundingBox</a> b_box = <a class="code" href="namespacelibMesh_1_1MeshTools.html#ab099ca10b8e0521017c6d28644b88135">MeshTools::bounding_box</a>(<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> auto_origin = (b_box.first+b_box.second)/2;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="comment">// override default values, if necessary</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">if</span> (!origin_x.first)</div>
@@ -224,7 +224,7 @@
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;  determined z-coordinate&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;          <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;  coordinates: &quot;</span>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          origin.write_unformatted(<a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          origin.<a class="code" href="classlibMesh_1_1TypeVector.html#ab06b207d152da2cdc8dbf147f01b97cf">write_unformatted</a>(<a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;          <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
@@ -234,7 +234,7 @@
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot; Origin for Infinite Elements:&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;  coordinates: &quot;</span>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      origin.write_unformatted(<a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      origin.<a class="code" href="classlibMesh_1_1TypeVector.html#ab06b207d152da2cdc8dbf147f01b97cf">write_unformatted</a>(<a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a>);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
@@ -244,7 +244,7 @@
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="comment">// inner_boundary_nodes.  If so, we pass a std::set to the actual</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="comment">// implementation of the build_inf_elem(), so that we can convert</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="comment">// this to the Node * vector</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">if</span> (inner_boundary_nodes != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">if</span> (inner_boundary_nodes != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="comment">// note that the std::set that we will get</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="comment">// from build_inf_elem() uses the index of</span></div>
@@ -266,14 +266,14 @@
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="comment">// build infinite elements</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      this-&gt;build_inf_elem(origin,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">build_inf_elem</a>(origin,</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                           x_sym, y_sym, z_sym,</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                           be_verbose,</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                           &amp;inner_faces);</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      <span class="keywordflow">if</span> (be_verbose)</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          this-&gt;_mesh.print_info();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a94180309af3081c9da2a0064e66040e6">print_info</a>();</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;Data pre-processing:&quot;</span> &lt;&lt; std::endl</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                       &lt;&lt; <span class="stringliteral">&quot; convert the &lt;int,int&gt; list to a Node * list...&quot;</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                       &lt;&lt; std::endl;</div>
@@ -303,7 +303,7 @@
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;          std::pair&lt;dof_id_type,unsigned int&gt; p = *face_it;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;          <span class="comment">// build a full-ordered side element to get _all_ the base nodes</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;          UniquePtr&lt;Elem&gt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(this-&gt;_mesh.elem_ref(p.first).build_side_ptr(p.second));</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;          <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a42b7a9f2869772ac1a7d072f45a8378d">elem_ref</a>(p.first).<a class="code" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">build_side_ptr</a>(p.second));</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;          <span class="comment">// insert all the node numbers in inner_boundary_node_numbers</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n=0; n&lt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;n_nodes(); n++)</div>
@@ -325,7 +325,7 @@
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        std::unique (inner_boundary_node_numbers.begin(), inner_boundary_node_numbers.end());</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      std::size_t unique_size = std::distance(inner_boundary_node_numbers.begin(), unique_end);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <a class="code" href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a> (unique_size, ibn_size_before);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      libmesh_assert_less_equal (unique_size, ibn_size_before);</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      <span class="comment">// Finally, create const Node * in the inner_boundary_nodes</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="comment">// vector.  Reserve, not resize (otherwise, the push_back</span></div>
@@ -338,7 +338,7 @@
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      std::vector&lt;dof_id_type&gt;::iterator pos_it = inner_boundary_node_numbers.begin();</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      <span class="keywordflow">for</span> (; pos_it != unique_end; ++pos_it)</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;          <span class="keyword">const</span> Node * node = this-&gt;_mesh.node_ptr(*pos_it);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Node.html">Node</a> * node = this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">node_ptr</a>(*pos_it);</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;          inner_boundary_nodes-&gt;push_back(node);</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        }</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
@@ -351,16 +351,16 @@
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="comment">// There are no inner boundary nodes, so simply build the infinite elements</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      this-&gt;build_inf_elem(origin, x_sym, y_sym, z_sym, be_verbose);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">build_inf_elem</a>(origin, x_sym, y_sym, z_sym, be_verbose);</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <a class="code" href="libmesh__logging_8h.html#a1adf709aed3290e1d26f89baf749e508">STOP_LOG</a>(<span class="stringliteral">&quot;build_inf_elem()&quot;</span>, <span class="stringliteral">&quot;InfElemBuilder&quot;</span>);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  STOP_LOG(<span class="stringliteral">&quot;build_inf_elem()&quot;</span>, <span class="stringliteral">&quot;InfElemBuilder&quot;</span>);</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="comment">// when finished with building the Ifems,</span></div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="comment">// it remains to prepare the mesh for use:</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="comment">// find neighbors again, partition (if needed)...</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  this-&gt;_mesh.prepare_for_use (<span class="comment">/*skip_renumber =*/</span> <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a61ce1c1cdddaa68acd35c7fa49a8a45e">prepare_for_use</a> (<span class="comment">/*skip_renumber =*/</span> <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordflow">return</span> origin;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
@@ -374,12 +374,12 @@
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">// The actual implementation of building elements.</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keywordtype">void</span> InfElemBuilder::build_inf_elem(<span class="keyword">const</span> Point &amp; origin,</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfElemBuilder.html#abfe5b4ac765578c4b9e0850f7c269647">  277</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">InfElemBuilder::build_inf_elem</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; origin,</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">bool</span> x_sym,</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">bool</span> y_sym,</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">bool</span> z_sym,</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">bool</span> be_verbose,</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                                    std::set&lt; std::pair&lt;dof_id_type,</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                                    std::set&lt; std::pair&lt;<a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a>,</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt; &gt; * inner_faces)</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;{</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keywordflow">if</span> (be_verbose)</div>
@@ -394,9 +394,9 @@
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="comment">// update element neighbors</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  this-&gt;_mesh.find_neighbors();</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a7edb2ad9b032287e750880883cdcf0f3">find_neighbors</a>();</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;build_inf_elem()&quot;</span>, <span class="stringliteral">&quot;InfElemBuilder&quot;</span>);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;build_inf_elem()&quot;</span>, <span class="stringliteral">&quot;InfElemBuilder&quot;</span>);</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="comment">// A set for storing element number, side number pairs.</span></div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="comment">// pair.first == element number, pair.second == side number</span></div>
@@ -407,7 +407,7 @@
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  std::set&lt;dof_id_type&gt; onodes;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="comment">// The distance to the farthest point in the mesh from the origin</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> max_r=0.;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> max_r=0.;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="comment">// The index of the farthest point in the mesh from the origin</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keywordtype">int</span> max_r_node = -1;</div>
@@ -427,21 +427,21 @@
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="comment">// boundary sides in the faces set. Skip sides which lie in symmetry planes.</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="comment">// Later, sides of the inner boundary will be sorted out.</span></div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    MeshBase::element_iterator       it  = this-&gt;_mesh.active_elements_begin();</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">const</span> MeshBase::element_iterator end = this-&gt;_mesh.active_elements_end();</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <a class="code" href="structlibMesh_1_1MeshBase_1_1element__iterator.html">MeshBase::element_iterator</a>       it  = this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#aefa4ded9eaf654a45ab593a0963ecbf3">active_elements_begin</a>();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">const</span> <a class="code" href="structlibMesh_1_1MeshBase_1_1element__iterator.html">MeshBase::element_iterator</a> <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a> = this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#ae3f09f1b7556aef88919249861728e23">active_elements_end</a>();</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">for</span>(; it != end; ++it)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">for</span>(; it != <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>; ++it)</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      {</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        Elem * elem = *it;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *it;</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;n_neighbors(); s++)</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#adf36086a897fdef3a88deec071ca5dfd">n_neighbors</a>(); s++)</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;          {</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            <span class="comment">// check if element e is on the boundary</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            <span class="keywordflow">if</span> (elem-&gt;neighbor(s) == <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            <span class="keywordflow">if</span> (elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a06576c749e62f4a5962e112e5441c31b">neighbor</a>(s) == <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;              {</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                <span class="comment">// note that it is safe to use the Elem::side() method,</span></div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                <span class="comment">// which gives a non-full-ordered element</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                UniquePtr&lt;Elem&gt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(elem-&gt;build_side_ptr(s));</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">build_side_ptr</a>(s));</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                <span class="comment">// bool flags for symmetry detection</span></div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                <span class="keywordtype">bool</span> sym_side=<span class="keyword">false</span>;</div>
@@ -454,19 +454,19 @@
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                <span class="comment">// and therefore sufficient to use a non-full-ordered side element</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n=0; n&lt;<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;n_nodes(); n++)</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                  {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                    <span class="keyword">const</span> Point dist_from_origin =</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                      this-&gt;_mesh.point(<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(n)) - origin;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                    <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> dist_from_origin =</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                      this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a00e863731129afaba604816c2db55aed">point</a>(<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(n)) - origin;</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                    <span class="keywordflow">if</span>(x_sym)</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                      <span class="keywordflow">if</span>( std::abs(dist_from_origin(0)) &gt; 1.e-3 )</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                      <span class="keywordflow">if</span>( <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dist_from_origin(0)) &gt; 1.e-3 )</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                        on_x_sym=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                    <span class="keywordflow">if</span>(y_sym)</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                      <span class="keywordflow">if</span>( std::abs(dist_from_origin(1)) &gt; 1.e-3 )</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                      <span class="keywordflow">if</span>( <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dist_from_origin(1)) &gt; 1.e-3 )</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                        on_y_sym=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                    <span class="keywordflow">if</span>(z_sym)</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                      <span class="keywordflow">if</span>( std::abs(dist_from_origin(2)) &gt; 1.e-3 )</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                      <span class="keywordflow">if</span>( <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(dist_from_origin(2)) &gt; 1.e-3 )</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                        on_z_sym=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    <span class="comment">//       if(x_sym)</span></div>
@@ -483,7 +483,7 @@
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                    <span class="comment">//find the node most distant from origin</span></div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                    <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> r = dist_from_origin.norm();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                    <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> r = dist_from_origin.<a class="code" href="classlibMesh_1_1TypeVector.html#a22b91161fa83bbb83a0bc1394bab794e">norm</a>();</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                    <span class="keywordflow">if</span> (r &gt; max_r)</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                      {</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                        max_r = r;</div>
@@ -495,7 +495,7 @@
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                sym_side = (x_sym &amp;&amp; on_x_sym) || (y_sym &amp;&amp; on_y_sym) || (z_sym &amp;&amp; on_z_sym);</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                <span class="keywordflow">if</span> (!sym_side)</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                  faces.insert( std::make_pair(elem-&gt;id(), s) );</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                  faces.insert( std::make_pair(elem-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#aeceebf9cd5d53b02df3cd1e9907139e2">id</a>(), s) );</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;              } <span class="comment">// neighbor(s) == libmesh_nullptr</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;          } <span class="comment">// sides</span></div>
@@ -531,7 +531,7 @@
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      <span class="comment">// This has to be a full-ordered side element,</span></div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      <span class="comment">// since we need the correct n_nodes,</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      UniquePtr&lt;Elem&gt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(this-&gt;_mesh.elem_ref(p.first).build_side_ptr(p.second));</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a42b7a9f2869772ac1a7d072f45a8378d">elem_ref</a>(p.first).<a class="code" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">build_side_ptr</a>(p.second));</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      <span class="keywordtype">bool</span> found=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sn=0; sn&lt;<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;n_nodes(); sn++)</div>
@@ -583,7 +583,7 @@
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  <span class="comment">// When the user provided a non-null pointer to</span></div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  <span class="comment">// inner_faces, that implies he wants to have</span></div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  <span class="comment">// this std::set.  For now, simply copy the data.</span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="keywordflow">if</span> (inner_faces != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="keywordflow">if</span> (inner_faces != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    *inner_faces = faces;</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  <span class="comment">// free memory, clear our local variable, no need</span></div>
@@ -595,35 +595,35 @@
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  std::map&lt;dof_id_type, Node *&gt; outer_nodes;</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  <span class="comment">// We may need to pick our own object ids in parallel</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  dof_id_type old_max_node_id = _mesh.max_node_id();</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  dof_id_type old_max_elem_id = _mesh.max_elem_id();</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> old_max_node_id = <a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a613704304440df6ceafa622096befe68">max_node_id</a>();</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> old_max_elem_id = <a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a807e5541b5e0608c8847daf6f3ffc1cf">max_elem_id</a>();</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;  <span class="comment">// for each boundary node, add an outer_node with</span></div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="comment">// double distance from origin.</span></div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  std::set&lt;dof_id_type&gt;::iterator on_it = onodes.begin();</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  <span class="keywordflow">for</span>( ; on_it != onodes.end(); ++on_it)</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    {</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;      Point p = (Point(this-&gt;_mesh.point(*on_it)) * 2) - origin;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;      <span class="keywordflow">if</span> (_mesh.is_serial())</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;      <a class="code" href="classlibMesh_1_1Point.html">Point</a> p = (<a class="code" href="classlibMesh_1_1Point.html">Point</a>(this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a00e863731129afaba604816c2db55aed">point</a>(*on_it)) * 2) - origin;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a3c7d22fed3feea4c9ebd1fb41e7dbb4f">is_serial</a>())</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        {</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;          <span class="comment">// Add with a default id in serial</span></div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;          outer_nodes[*on_it]=this-&gt;_mesh.add_point(p);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;          outer_nodes[*on_it]=this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">add_point</a>(p);</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        }</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        {</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;          <span class="comment">// Pick a unique id in parallel</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;          Node &amp; bnode = _mesh.node_ref(*on_it);</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;          dof_id_type new_id = bnode.id() + old_max_node_id;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;          <a class="code" href="classlibMesh_1_1Node.html">Node</a> &amp; bnode = <a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#af6e7cea860ccee9625012f9fcb0ae13b">node_ref</a>(*on_it);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;          <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> new_id = bnode.<a class="code" href="classlibMesh_1_1DofObject.html#aeceebf9cd5d53b02df3cd1e9907139e2">id</a>() + old_max_node_id;</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;          outer_nodes[*on_it] =</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            this-&gt;_mesh.add_point(p, new_id,</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                                  bnode.processor_id());</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">add_point</a>(p, new_id,</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                                  bnode.<a class="code" href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">processor_id</a>());</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        }</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    }</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;  <span class="comment">// for verbose, remember n_elem</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;  dof_id_type n_conventional_elem = this-&gt;_mesh.n_elem();</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;  <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> n_conventional_elem = this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a190e556d3be87f5ccd8d4fc98d1779d3">n_elem</a>();</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;</div>
@@ -635,55 +635,55 @@
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      std::pair&lt;dof_id_type,unsigned int&gt; p = *face_it;</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      <span class="comment">// build a full-ordered side element to get the base nodes</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;      UniquePtr&lt;Elem&gt; <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(this-&gt;_mesh.elem_ref(p.first).build_side_ptr(p.second));</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;      <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;Elem&gt;</a> <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>(this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a42b7a9f2869772ac1a7d072f45a8378d">elem_ref</a>(p.first).<a class="code" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">build_side_ptr</a>(p.second));</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      <span class="comment">// create cell depending on side type, assign nodes,</span></div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;      <span class="comment">// use braces to force scope.</span></div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;      <span class="keywordtype">bool</span> is_higher_order_elem = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      Elem * el;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * el;</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      <span class="keywordflow">switch</span>(<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;type())</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        {</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;          <span class="comment">// 3D infinite elements</span></div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;          <span class="comment">// TRIs</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">TRI3</a>:</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;          el=<span class="keyword">new</span> InfPrism6;</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfPrism6.html">InfPrism6</a>;</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>:</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;          el=<span class="keyword">new</span> InfPrism12;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfPrism12.html">InfPrism12</a>;</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;          is_higher_order_elem = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;          <span class="comment">// QUADs</span></div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1">QUAD4</a>:</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;          el=<span class="keyword">new</span> InfHex8;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfHex8.html">InfHex8</a>;</div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">QUAD8</a>:</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;          el=<span class="keyword">new</span> InfHex16;</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfHex16.html">InfHex16</a>;</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;          is_higher_order_elem = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">QUAD9</a>:</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;          el=<span class="keyword">new</span> InfHex18;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfHex18.html">InfHex18</a>;</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;          <span class="comment">// the method of assigning nodes (which follows below)</span></div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;          <span class="comment">// omits in the case of QUAD9 the bubble node; therefore</span></div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;          <span class="comment">// we assign these first by hand here.</span></div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;          el-&gt;set_node(16) = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(8);</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;          el-&gt;set_node(17) = outer_nodes[<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(8)];</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(16) = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(8);</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(17) = outer_nodes[<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(8)];</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;          is_higher_order_elem=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;          <span class="comment">// 2D infinite elements</span></div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">EDGE2</a>:</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;          el=<span class="keyword">new</span> InfQuad4;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfQuad4.html">InfQuad4</a>;</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59">EDGE3</a>:</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;          el=<span class="keyword">new</span> InfQuad6;</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;          el-&gt;set_node(4) = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(2);</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;          el=<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1InfQuad6.html">InfQuad6</a>;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(4) = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(2);</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;          <span class="comment">// 1D infinite elements not supported</span></div>
@@ -695,20 +695,20 @@
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        }</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;      <span class="comment">// In parallel, assign unique ids to the new element</span></div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">if</span> (!_mesh.is_serial())</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">if</span> (!<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a3c7d22fed3feea4c9ebd1fb41e7dbb4f">is_serial</a>())</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        {</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;          Elem &amp; belem = _mesh.elem_ref(p.first);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;          el-&gt;processor_id() = belem.processor_id();</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;          <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> &amp; belem = <a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a42b7a9f2869772ac1a7d072f45a8378d">elem_ref</a>(p.first);</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">processor_id</a>() = belem.<a class="code" href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">processor_id</a>();</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;          <span class="comment">// We&#39;d better not have elements with more than 6 sides</span></div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;          el-&gt;set_id (belem.id() * 6 + p.second + old_max_elem_id);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#a7efffd05f7f97d503c12c0cbf8fb9862">set_id</a> (belem.<a class="code" href="classlibMesh_1_1DofObject.html#aeceebf9cd5d53b02df3cd1e9907139e2">id</a>() * 6 + p.second + old_max_elem_id);</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        }</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      <span class="comment">// assign vertices to the new infinite element</span></div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_base_vertices = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;n_vertices();</div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;      <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;n_base_vertices; i++)</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        {</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;          el-&gt;set_node(i                ) = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(i);</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;          el-&gt;set_node(i+n_base_vertices) = outer_nodes[<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(i)];</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(i                ) = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(i);</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;          el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(i+n_base_vertices) = outer_nodes[<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(i)];</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        }</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;</div>
@@ -720,28 +720,28 @@
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;          <span class="comment">// that may be safely assigned using below for loop.</span></div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;          <span class="comment">// Actually, n_safe_base_nodes is _identical_ with el-&gt;n_vertices(),</span></div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;          <span class="comment">// since for QUAD9, the 9th node was already assigned above</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;          <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_safe_base_nodes   = el-&gt;n_vertices();</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;          <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_safe_base_nodes   = el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a27233687bfcc3f1988777fb8e2e514d1">n_vertices</a>();</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;          <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=n_base_vertices; i&lt;n_safe_base_nodes; i++)</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            {</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;              el-&gt;set_node(i+n_base_vertices)   = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(i);</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;              el-&gt;set_node(i+n_safe_base_nodes) =</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;              el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(i+n_base_vertices)   = <a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_ptr(i);</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;              el-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">set_node</a>(i+n_safe_base_nodes) =</div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                outer_nodes[<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>-&gt;node_id(i)];</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;            }</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;        }</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;      <span class="comment">// add infinite element to mesh</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;      this-&gt;_mesh.add_elem(el);</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a5ab834283fa6bc335ad623d2b737ec5e">add_elem</a>(el);</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    } <span class="comment">// for</span></div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  _mesh.libmesh_assert_valid_parallel_ids();</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#adda5cd6af09b7fcc88a890a71a07c1a8">libmesh_assert_valid_parallel_ids</a>();</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="keywordflow">if</span> (be_verbose)</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;  added &quot;</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                 &lt;&lt; this-&gt;_mesh.n_elem() - n_conventional_elem</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                 &lt;&lt; this-&gt;<a class="code" href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">_mesh</a>.<a class="code" href="classlibMesh_1_1MeshBase.html#a190e556d3be87f5ccd8d4fc98d1779d3">n_elem</a>() - n_conventional_elem</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot; infinite elements and &quot;</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                 &lt;&lt; onodes.size()</div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot; nodes to the mesh&quot;</span></div>
@@ -757,36 +757,77 @@
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="preprocessor">#endif // LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
+<div class="ttc" id="structlibMesh_1_1MeshBase_1_1element__iterator_html"><div class="ttname"><a href="structlibMesh_1_1MeshBase_1_1element__iterator.html">libMesh::MeshBase::element_iterator</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l01365">mesh_base.h:1365</a></div></div>
+<div class="ttc" id="namespacestd_html_a267975f6c8fdf9f989e14d438036706a"><div class="ttname"><a href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a></div><div class="ttdeci">double abs(double a)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00059">libmesh_augment_std_namespace.h:59</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_ab0a351f621dd01e540718ffc25bb2618"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">libMesh::Elem::build_side_ptr</a></div><div class="ttdeci">virtual UniquePtr&lt; Elem &gt; build_side_ptr(const unsigned int i, bool proxy=true)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1InfHex8_html"><div class="ttname"><a href="classlibMesh_1_1InfHex8.html">libMesh::InfHex8</a></div><div class="ttdoc">A 3D infinite hexahedral element with 8 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="cell__inf__hex8_8h_source.html#l00062">cell_inf_hex8.h:62</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">libMesh::TRI6</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00035">enum_elem_type.h:35</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a0d25454251fb8f3518211ccd9f467b91"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">libMesh::Elem::set_node</a></div><div class="ttdeci">virtual Node *&amp; set_node(const unsigned int i)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01719">elem.h:1719</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_adda5cd6af09b7fcc88a890a71a07c1a8"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#adda5cd6af09b7fcc88a890a71a07c1a8">libMesh::MeshBase::libmesh_assert_valid_parallel_ids</a></div><div class="ttdeci">virtual void libmesh_assert_valid_parallel_ids() const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00882">mesh_base.h:882</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Node_html"><div class="ttname"><a href="classlibMesh_1_1Node.html">libMesh::Node</a></div><div class="ttdoc">A geometric point in (x,y,z) space associated with a DOF. </div><div class="ttdef"><b>Definition:</b> <a href="node_8h_source.html#l00054">node.h:54</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a3c7d22fed3feea4c9ebd1fb41e7dbb4f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a3c7d22fed3feea4c9ebd1fb41e7dbb4f">libMesh::MeshBase::is_serial</a></div><div class="ttdeci">virtual bool is_serial() const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00137">mesh_base.h:137</a></div></div>
 <div class="ttc" id="cell__inf__prism12_8h_html"><div class="ttname"><a href="cell__inf__prism12_8h.html">cell_inf_prism12.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_a9b5954491fc8a672e607175b23e44ed5"><div class="ttname"><a href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a></div><div class="ttdeci">#define libmesh_assert_less_equal(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00348">libmesh_common.h:348</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad4_html"><div class="ttname"><a href="classlibMesh_1_1InfQuad4.html">libMesh::InfQuad4</a></div><div class="ttdoc">A 2D infinite quadrilateral element with 4 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad4_8h_source.html#l00055">face_inf_quad4.h:55</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_adf36086a897fdef3a88deec071ca5dfd"><div class="ttname"><a href="classlibMesh_1_1Elem.html#adf36086a897fdef3a88deec071ca5dfd">libMesh::Elem::n_neighbors</a></div><div class="ttdeci">virtual unsigned int n_neighbors() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00536">elem.h:536</a></div></div>
 <div class="ttc" id="mesh__base_8h_html"><div class="ttname"><a href="mesh__base_8h.html">mesh_base.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_af6e7cea860ccee9625012f9fcb0ae13b"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#af6e7cea860ccee9625012f9fcb0ae13b">libMesh::MeshBase::node_ref</a></div><div class="ttdeci">virtual const Node &amp; node_ref(const dof_id_type i) const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00375">mesh_base.h:375</a></div></div>
 <div class="ttc" id="inf__elem__builder_8h_html"><div class="ttname"><a href="inf__elem__builder_8h.html">inf_elem_builder.h</a></div></div>
 <div class="ttc" id="xdr__io_8C_html_a538c9c249908c84b07be8ce1400b82c9"><div class="ttname"><a href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a></div><div class="ttdeci">unsigned short int side</div><div class="ttdef"><b>Definition:</b> <a href="xdr__io_8C_source.html#l00049">xdr_io.C:49</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TypeVector_html_ab06b207d152da2cdc8dbf147f01b97cf"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#ab06b207d152da2cdc8dbf147f01b97cf">libMesh::TypeVector::write_unformatted</a></div><div class="ttdeci">void write_unformatted(std::ostream &amp;out, const bool newline=true) const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8C_source.html#l00092">type_vector.C:92</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TypeVector_html_a22b91161fa83bbb83a0bc1394bab794e"><div class="ttname"><a href="classlibMesh_1_1TypeVector.html#a22b91161fa83bbb83a0bc1394bab794e">libMesh::TypeVector::norm</a></div><div class="ttdeci">Real norm() const </div><div class="ttdef"><b>Definition:</b> <a href="type__vector_8h_source.html#l00887">type_vector.h:887</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59">libMesh::EDGE3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00031">enum_elem_type.h:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1">libMesh::QUAD4</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00037">enum_elem_type.h:37</a></div></div>
-<div class="ttc" id="libmesh__logging_8h_html_a1adf709aed3290e1d26f89baf749e508"><div class="ttname"><a href="libmesh__logging_8h.html#a1adf709aed3290e1d26f89baf749e508">STOP_LOG</a></div><div class="ttdeci">#define STOP_LOG(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__logging_8h_source.html#l00111">libmesh_logging.h:111</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
 <div class="ttc" id="cell__inf__hex18_8h_html"><div class="ttname"><a href="cell__inf__hex18_8h.html">cell_inf_hex18.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshTools_1_1BoundingBox_html"><div class="ttname"><a href="classlibMesh_1_1MeshTools_1_1BoundingBox.html">libMesh::MeshTools::BoundingBox</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8h_source.html#l00064">mesh_tools.h:64</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a9361e2879e37831f80afb43b762d651f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">libMesh::MeshBase::add_point</a></div><div class="ttdeci">virtual Node * add_point(const Point &amp;p, const dof_id_type id=DofObject::invalid_id, const processor_id_type proc_id=DofObject::invalid_processor_id)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1DofObject_html_a7efffd05f7f97d503c12c0cbf8fb9862"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#a7efffd05f7f97d503c12c0cbf8fb9862">libMesh::DofObject::set_id</a></div><div class="ttdeci">dof_id_type &amp; set_id()</div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00633">dof_object.h:633</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_af0a78fa0f592d2b8f515c69cabfaf529"><div class="ttname"><a href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">libMesh::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; T &gt; UniquePtr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00046">auto_ptr.h:46</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">libMesh::TRI3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00034">enum_elem_type.h:34</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1MeshTools_html_ab099ca10b8e0521017c6d28644b88135"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools.html#ab099ca10b8e0521017c6d28644b88135">libMesh::MeshTools::bounding_box</a></div><div class="ttdeci">BoundingBox bounding_box(const MeshBase &amp;mesh)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00423">mesh_tools.C:423</a></div></div>
-<div class="ttc" id="libmesh__logging_8h_html_ae5cbe34ceb1c018027d8dea96ca3f996"><div class="ttname"><a href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a></div><div class="ttdeci">#define LOG_SCOPE(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__logging_8h_source.html#l00114">libmesh_logging.h:114</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a7edb2ad9b032287e750880883cdcf0f3"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a7edb2ad9b032287e750880883cdcf0f3">libMesh::MeshBase::find_neighbors</a></div><div class="ttdeci">virtual void find_neighbors(const bool reset_remote_elements=false, const bool reset_current_list=true)=0</div></div>
 <div class="ttc" id="cell__inf__hex16_8h_html"><div class="ttname"><a href="cell__inf__hex16_8h.html">cell_inf_hex16.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfElemBuilder_html_acf45bfe5ace01174cb8acfb54328a367"><div class="ttname"><a href="classlibMesh_1_1InfElemBuilder.html#acf45bfe5ace01174cb8acfb54328a367">libMesh::InfElemBuilder::InfElemOriginValue</a></div><div class="ttdeci">std::pair&lt; bool, double &gt; InfElemOriginValue</div><div class="ttdef"><b>Definition:</b> <a href="inf__elem__builder_8h_source.html#l00065">inf_elem_builder.h:65</a></div></div>
 <div class="ttc" id="cell__inf__hex8_8h_html"><div class="ttname"><a href="cell__inf__hex8_8h.html">cell_inf_hex8.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfPrism12_html"><div class="ttname"><a href="classlibMesh_1_1InfPrism12.html">libMesh::InfPrism12</a></div><div class="ttdoc">A 3D infinite prismatic element with 12 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="cell__inf__prism12_8h_source.html#l00067">cell_inf_prism12.h:67</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfHex16_html"><div class="ttname"><a href="classlibMesh_1_1InfHex16.html">libMesh::InfHex16</a></div><div class="ttdoc">A 3D infinite hexahedral element with 16 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="cell__inf__hex16_8h_source.html#l00076">cell_inf_hex16.h:76</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a5ab834283fa6bc335ad623d2b737ec5e"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a5ab834283fa6bc335ad623d2b737ec5e">libMesh::MeshBase::add_elem</a></div><div class="ttdeci">virtual Elem * add_elem(Elem *e)=0</div></div>
 <div class="ttc" id="libmesh__logging_8h_html"><div class="ttname"><a href="libmesh__logging_8h.html">libmesh_logging.h</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a807e5541b5e0608c8847daf6f3ffc1cf"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a807e5541b5e0608c8847daf6f3ffc1cf">libMesh::MeshBase::max_elem_id</a></div><div class="ttdeci">virtual dof_id_type max_elem_id() const =0</div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a61ce1c1cdddaa68acd35c7fa49a8a45e"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a61ce1c1cdddaa68acd35c7fa49a8a45e">libMesh::MeshBase::prepare_for_use</a></div><div class="ttdeci">void prepare_for_use(const bool skip_renumber_nodes_and_elements=false, const bool skip_find_neighbors=false)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00172">mesh_base.C:172</a></div></div>
 <div class="ttc" id="face__inf__quad4_8h_html"><div class="ttname"><a href="face__inf__quad4_8h.html">face_inf_quad4.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfQuad6_html"><div class="ttname"><a href="classlibMesh_1_1InfQuad6.html">libMesh::InfQuad6</a></div><div class="ttdoc">A 2D infinite quadrilateral element with 6 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="face__inf__quad6_8h_source.html#l00058">face_inf_quad6.h:58</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa656f2b4aa8cff7ff974765c83a76820">libMesh::EDGE2</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_aefa4ded9eaf654a45ab593a0963ecbf3"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#aefa4ded9eaf654a45ab593a0963ecbf3">libMesh::MeshBase::active_elements_begin</a></div><div class="ttdeci">virtual element_iterator active_elements_begin()=0</div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_ae3f09f1b7556aef88919249861728e23"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#ae3f09f1b7556aef88919249861728e23">libMesh::MeshBase::active_elements_end</a></div><div class="ttdeci">virtual element_iterator active_elements_end()=0</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">libMesh::QUAD8</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00038">enum_elem_type.h:38</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a42b7a9f2869772ac1a7d072f45a8378d"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a42b7a9f2869772ac1a7d072f45a8378d">libMesh::MeshBase::elem_ref</a></div><div class="ttdeci">virtual const Elem &amp; elem_ref(const dof_id_type i) const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00439">mesh_base.h:439</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a27233687bfcc3f1988777fb8e2e514d1"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a27233687bfcc3f1988777fb8e2e514d1">libMesh::Elem::n_vertices</a></div><div class="ttdeci">virtual unsigned int n_vertices() const =0</div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfElemBuilder_html_ac6bf21d86621176b3497f089bef8a17a"><div class="ttname"><a href="classlibMesh_1_1InfElemBuilder.html#ac6bf21d86621176b3497f089bef8a17a">libMesh::InfElemBuilder::build_inf_elem</a></div><div class="ttdeci">const Point build_inf_elem(const bool be_verbose=false)</div><div class="ttdef"><b>Definition:</b> <a href="inf__elem__builder_8C_source.html#l00040">inf_elem_builder.C:40</a></div></div>
 <div class="ttc" id="face__inf__quad6_8h_html"><div class="ttname"><a href="face__inf__quad6_8h.html">face_inf_quad6.h</a></div></div>
 <div class="ttc" id="mesh__tools_8h_html"><div class="ttname"><a href="mesh__tools_8h.html">mesh_tools.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">libMesh::QUAD9</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00039">enum_elem_type.h:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfPrism6_html"><div class="ttname"><a href="classlibMesh_1_1InfPrism6.html">libMesh::InfPrism6</a></div><div class="ttdoc">A 3D infinite prismatic element with 6 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="cell__inf__prism6_8h_source.html#l00060">cell_inf_prism6.h:60</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a00e863731129afaba604816c2db55aed"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a00e863731129afaba604816c2db55aed">libMesh::MeshBase::point</a></div><div class="ttdeci">virtual const Point &amp; point(const dof_id_type i) const =0</div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a613704304440df6ceafa622096befe68"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a613704304440df6ceafa622096befe68">libMesh::MeshBase::max_node_id</a></div><div class="ttdeci">virtual dof_id_type max_node_id() const =0</div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a190e556d3be87f5ccd8d4fc98d1779d3"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a190e556d3be87f5ccd8d4fc98d1779d3">libMesh::MeshBase::n_elem</a></div><div class="ttdeci">virtual dof_id_type n_elem() const =0</div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_abc2fd76e7bf6c200f5e8849dfca9cd03"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">libMesh::MeshBase::node_ptr</a></div><div class="ttdeci">virtual const Node * node_ptr(const dof_id_type i) const =0</div></div>
+<div class="ttc" id="classlibMesh_1_1DofObject_html_aeceebf9cd5d53b02df3cd1e9907139e2"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#aeceebf9cd5d53b02df3cd1e9907139e2">libMesh::DofObject::id</a></div><div class="ttdeci">dof_id_type id() const </div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00624">dof_object.h:624</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfElemBuilder_html_afbdff790a0e4a9a08c06e178a4d585f5"><div class="ttname"><a href="classlibMesh_1_1InfElemBuilder.html#afbdff790a0e4a9a08c06e178a4d585f5">libMesh::InfElemBuilder::_mesh</a></div><div class="ttdeci">MeshBase &amp; _mesh</div><div class="ttdef"><b>Definition:</b> <a href="inf__elem__builder_8h_source.html#l00127">inf_elem_builder.h:127</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00234">libmesh_common.h:234</a></div></div>
-<div class="ttc" id="libmesh__logging_8h_html_a8778ed450ed13cc9191830e6905c5de6"><div class="ttname"><a href="libmesh__logging_8h.html#a8778ed450ed13cc9191830e6905c5de6">START_LOG</a></div><div class="ttdeci">#define START_LOG(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__logging_8h_source.html#l00110">libmesh_logging.h:110</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Elem_html_a06576c749e62f4a5962e112e5441c31b"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a06576c749e62f4a5962e112e5441c31b">libMesh::Elem::neighbor</a></div><div class="ttdeci">Elem * neighbor(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01765">elem.h:1765</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdoc">A geometric point in (x,y,z) space. </div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00040">point.h:40</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a94180309af3081c9da2a0064e66040e6"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a94180309af3081c9da2a0064e66040e6">libMesh::MeshBase::print_info</a></div><div class="ttdeci">void print_info(std::ostream &amp;os=libMesh::out) const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00443">mesh_base.C:443</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfHex18_html"><div class="ttname"><a href="classlibMesh_1_1InfHex18.html">libMesh::InfHex18</a></div><div class="ttdoc">A 3D infinite hexahedral element with 18 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="cell__inf__hex18_8h_source.html#l00076">cell_inf_hex18.h:76</a></div></div>
 <div class="ttc" id="cell__inf__prism6_8h_html"><div class="ttname"><a href="cell__inf__prism6_8h.html">cell_inf_prism6.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint32_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00070">id_types.h:70</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint8_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00064">id_types.h:64</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParallelObject_html_ae1e7d1a1118f63d9889a761c27433bbc"><div class="ttname"><a href="classlibMesh_1_1ParallelObject.html#ae1e7d1a1118f63d9889a761c27433bbc">libMesh::ParallelObject::processor_id</a></div><div class="ttdeci">processor_id_type processor_id() const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__object_8h_source.html#l00099">parallel_object.h:99</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DofObject_html_a0e8748b2c01f78902c9c432ad79cf546"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">libMesh::DofObject::processor_id</a></div><div class="ttdeci">processor_id_type processor_id() const </div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00686">dof_object.h:686</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

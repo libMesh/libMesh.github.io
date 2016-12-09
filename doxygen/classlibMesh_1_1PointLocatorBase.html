@@ -100,6 +100,7 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
@@ -115,7 +116,7 @@ Inheritance diagram for libMesh::PointLocatorBase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlibMesh_1_1PointLocatorBase__inherit__graph.png" border="0" usemap="#libMesh_1_1PointLocatorBase_inherit__map" alt="Inheritance graph"/></div>
 <map name="libMesh_1_1PointLocatorBase_inherit__map" id="libMesh_1_1PointLocatorBase_inherit__map">
-<area shape="rect" id="node4" href="classlibMesh_1_1PointLocatorTree.html" title="libMesh::PointLocatorTree" alt="" coords="11,245,188,272"/><area shape="rect" id="node2" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; PointLocatorBase \&gt;" alt="" coords="5,81,195,122"/><area shape="rect" id="node3" href="classlibMesh_1_1ReferenceCounter.html" title="libMesh::ReferenceCounter" alt="" coords="8,5,192,32"/></map>
+<area shape="rect" id="node4" href="classlibMesh_1_1PointLocatorTree.html" title="libMesh::PointLocatorTree" alt="" coords="11,245,188,272"/><area shape="rect" id="node2" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; PointLocatorBase \&gt;" alt="" coords="5,81,195,122"/><area shape="rect" id="node3" href="classlibMesh_1_1ReferenceCounter.html" title="Common base for all objects whose creations/destructions are counted. " alt="" coords="8,5,192,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -126,11 +127,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a91868c29e2c88b4779d3e1a0e86fae1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74373cd03dee74d47e62690c45f6eb4f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a74373cd03dee74d47e62690c45f6eb4f">init</a> ()=0</td></tr>
 <tr class="separator:a74373cd03dee74d47e62690c45f6eb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8bfcc41ec86c8d2c5a276b825378916"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#ad8bfcc41ec86c8d2c5a276b825378916">operator()</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;p, const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *allowed_subdomains=<a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>) const =0</td></tr>
+<tr class="memitem:ad8bfcc41ec86c8d2c5a276b825378916"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#ad8bfcc41ec86c8d2c5a276b825378916">operator()</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;p, const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *allowed_subdomains=<a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>) const =0</td></tr>
 <tr class="separator:ad8bfcc41ec86c8d2c5a276b825378916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6facb5bead73dd86ec873262ea25e95"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#ae6facb5bead73dd86ec873262ea25e95">operator()</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;p, std::set&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> * &gt; &amp;candidate_elements, const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *allowed_subdomains=<a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>) const =0</td></tr>
+<tr class="memitem:ae6facb5bead73dd86ec873262ea25e95"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#ae6facb5bead73dd86ec873262ea25e95">operator()</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;p, std::set&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> * &gt; &amp;candidate_elements, const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *allowed_subdomains=<a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>) const =0</td></tr>
 <tr class="separator:ae6facb5bead73dd86ec873262ea25e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a605de4f250cc9ed9053d5a20badb33e0"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classlibMesh_1_1Node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a605de4f250cc9ed9053d5a20badb33e0">locate_node</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;p, const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *allowed_subdomains=<a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> tol=<a class="el" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>) const </td></tr>
+<tr class="memitem:a605de4f250cc9ed9053d5a20badb33e0"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classlibMesh_1_1Node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a605de4f250cc9ed9053d5a20badb33e0">locate_node</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;p, const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *allowed_subdomains=<a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> tol=<a class="el" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>) const </td></tr>
 <tr class="separator:a605de4f250cc9ed9053d5a20badb33e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cf6fe451ab3467605911798f7b0e39d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a7cf6fe451ab3467605911798f7b0e39d">initialized</a> () const </td></tr>
 <tr class="separator:a7cf6fe451ab3467605911798f7b0e39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,14 +139,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5263b7467954ceda7d7de43cc1d76cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92d969e69a170f0883ebd96271a8b35a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a92d969e69a170f0883ebd96271a8b35a">disable_out_of_mesh_mode</a> ()=0</td></tr>
 <tr class="separator:a92d969e69a170f0883ebd96271a8b35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d049255317df6cbcdf8957df5582bff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a9d049255317df6cbcdf8957df5582bff">set_close_to_point_tol</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> close_to_point_tol)</td></tr>
+<tr class="memitem:a9d049255317df6cbcdf8957df5582bff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a9d049255317df6cbcdf8957df5582bff">set_close_to_point_tol</a> (<a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> close_to_point_tol)</td></tr>
 <tr class="separator:a9d049255317df6cbcdf8957df5582bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afca52df6ffcf27098add1c62ce152824"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#afca52df6ffcf27098add1c62ce152824">unset_close_to_point_tol</a> ()</td></tr>
 <tr class="separator:afca52df6ffcf27098add1c62ce152824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:add6bb67114638f33ff789a9c85e0bd08"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#add6bb67114638f33ff789a9c85e0bd08">build</a> (<a class="el" href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0b">PointLocatorType</a> t, const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__tools_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>, const <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> *master=<a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</td></tr>
+<tr class="memitem:add6bb67114638f33ff789a9c85e0bd08"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#add6bb67114638f33ff789a9c85e0bd08">build</a> (<a class="el" href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0b">PointLocatorType</a> t, const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__tools_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>, const <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> *master=<a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</td></tr>
 <tr class="separator:add6bb67114638f33ff789a9c85e0bd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a103b37125ae9eaaadf6f7854df17faa2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">get_info</a> ()</td></tr>
 <tr class="separator:a103b37125ae9eaaadf6f7854df17faa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,10 +164,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad241a453271b4d34f643a683eadf0a50"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#ad241a453271b4d34f643a683eadf0a50">_verbose</a></td></tr>
 <tr class="separator:ad241a453271b4d34f643a683eadf0a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, std::pair&lt; unsigned int, unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a></td></tr>
+<tr class="separator:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a9730077d0ab30f183110e853e86a2dcb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a9730077d0ab30f183110e853e86a2dcb">PointLocatorBase</a> (const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;<a class="el" href="mesh__tools_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>, const <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> *master)</td></tr>
 <tr class="separator:a9730077d0ab30f183110e853e86a2dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d69475c6ae8e441306e90e57d755ced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a4d69475c6ae8e441306e90e57d755ced">increment_constructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a4d69475c6ae8e441306e90e57d755ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a9f8ca3935940b9b1a60f7645e856f2e4">increment_destructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -178,14 +188,16 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a84e5ced6bd58643678b0faed4a7ba799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a969d03878ccb92ef1c7542200a23161b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a969d03878ccb92ef1c7542200a23161b">_use_close_to_point_tol</a></td></tr>
 <tr class="separator:a969d03878ccb92ef1c7542200a23161b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a441f908d5e18c934fc3814f6dc2cdc3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">_close_to_point_tol</a></td></tr>
+<tr class="memitem:a441f908d5e18c934fc3814f6dc2cdc3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">_close_to_point_tol</a></td></tr>
 <tr class="separator:a441f908d5e18c934fc3814f6dc2cdc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static Threads::atomic&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
+<tr class="memitem:a7c913252d05560f8bc7c75a63547c4c3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a></td></tr>
+<tr class="separator:a7c913252d05560f8bc7c75a63547c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
 <tr class="separator:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static Threads::spin_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
+<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
 <tr class="separator:abedbd3a4ce19686187449a8a0557b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = true</td></tr>
 <tr class="separator:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,7 +208,31 @@ Static Protected Attributes</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2003 </dd></dl>
 
 <p>Definition at line <a class="el" href="point__locator__base_8h_source.html#l00056">56</a> of file <a class="el" href="point__locator__base_8h_source.html">point_locator_base.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="adb5daadc989c1fe71ec8d173adf0ed1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, std::pair&lt;unsigned int, unsigned int&gt; &gt; <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">libMesh::ReferenceCounter::Counts</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Data structure to log the information. The log is identified by the class name. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00110">110</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9730077d0ab30f183110e853e86a2dcb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -234,16 +270,17 @@ Static Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                                     :</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#ad241a453271b4d34f643a683eadf0a50">_verbose</a>                 (<span class="keyword">false</span>),</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#afa51ddd6562a250bf23df16ade843f17">_master</a>                  (master),</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#ad9b6557329fc2c75f97a489e749dfdd8">_mesh</a>                    (mesh),</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#ad9b6557329fc2c75f97a489e749dfdd8">_mesh</a>                    (<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>),</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a84e5ced6bd58643678b0faed4a7ba799">_initialized</a>             (<span class="keyword">false</span>),</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a969d03878ccb92ef1c7542200a23161b">_use_close_to_point_tol</a>  (<span class="keyword">false</span>),</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">_close_to_point_tol</a>      (<a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">_close_to_point_tol</a>      (<a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_a969d03878ccb92ef1c7542200a23161b"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#a969d03878ccb92ef1c7542200a23161b">libMesh::PointLocatorBase::_use_close_to_point_tol</a></div><div class="ttdeci">bool _use_close_to_point_tol</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00190">point_locator_base.h:190</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_a441f908d5e18c934fc3814f6dc2cdc3e"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">libMesh::PointLocatorBase::_close_to_point_tol</a></div><div class="ttdeci">Real _close_to_point_tol</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00195">point_locator_base.h:195</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_a84e5ced6bd58643678b0faed4a7ba799"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#a84e5ced6bd58643678b0faed4a7ba799">libMesh::PointLocatorBase::_initialized</a></div><div class="ttdeci">bool _initialized</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00184">point_locator_base.h:184</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_adccf009154cc053a5614ce132a2b153a"><div class="ttname"><a href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00142">libmesh_common.h:142</a></div></div>
+<div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l01086">mesh_communication.C:1086</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac935f799caf032c4008c5aa8facebaae"><div class="ttname"><a href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00139">libmesh_common.h:139</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_ad9b6557329fc2c75f97a489e749dfdd8"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#ad9b6557329fc2c75f97a489e749dfdd8">libMesh::PointLocatorBase::_mesh</a></div><div class="ttdeci">const MeshBase &amp; _mesh</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00179">point_locator_base.h:179</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_ad241a453271b4d34f643a683eadf0a50"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#ad241a453271b4d34f643a683eadf0a50">libMesh::PointLocatorBase::_verbose</a></div><div class="ttdeci">bool _verbose</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00166">point_locator_base.h:166</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_afa51ddd6562a250bf23df16ade843f17"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#afa51ddd6562a250bf23df16ade843f17">libMesh::PointLocatorBase::_master</a></div><div class="ttdeci">const PointLocatorBase * _master</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00174">point_locator_base.h:174</a></div></div>
@@ -287,7 +324,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> &gt; libMesh::PointLocatorBase::build </td>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> &gt; libMesh::PointLocatorBase::build </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0b">PointLocatorType</a>&#160;</td>
           <td class="paramname"><em>t</em>, </td>
@@ -302,7 +339,7 @@ Static Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="classlibMesh_1_1PointLocatorBase.html">PointLocatorBase</a> *&#160;</td>
-          <td class="paramname"><em>master</em> = <code><a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></code>&#160;</td>
+          <td class="paramname"><em>master</em> = <code><a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -320,35 +357,34 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="point__locator__base_8C_source.html#l00065">65</a> of file <a class="el" href="point__locator__base_8C_source.html">point_locator_base.C</a>.</p>
 
-<p>References <a class="el" href="tree__base_8h_source.html#l00052">libMesh::Trees::ELEMENTS</a>, <a class="el" href="libmesh__common_8h_source.html#l00362">libmesh_error_msg</a>, <a class="el" href="tree__base_8h_source.html#l00053">libMesh::Trees::LOCAL_ELEMENTS</a>, <a class="el" href="enum__point__locator__type_8h_source.html#l00032">libMesh::TREE</a>, <a class="el" href="enum__point__locator__type_8h_source.html#l00033">libMesh::TREE_ELEMENTS</a>, and <a class="el" href="enum__point__locator__type_8h_source.html#l00034">libMesh::TREE_LOCAL_ELEMENTS</a>.</p>
+<p>References <a class="el" href="tree__base_8h_source.html#l00052">libMesh::Trees::ELEMENTS</a>, <a class="el" href="tree__base_8h_source.html#l00053">libMesh::Trees::LOCAL_ELEMENTS</a>, <a class="el" href="enum__point__locator__type_8h_source.html#l00032">libMesh::TREE</a>, <a class="el" href="enum__point__locator__type_8h_source.html#l00033">libMesh::TREE_ELEMENTS</a>, and <a class="el" href="enum__point__locator__type_8h_source.html#l00034">libMesh::TREE_LOCAL_ELEMENTS</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__base_8C_source.html#l00512">libMesh::MeshBase::point_locator()</a>, and <a class="el" href="mesh__base_8C_source.html#l00528">libMesh::MeshBase::sub_point_locator()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">switch</span> (t)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0ba546391c592e7af62bee0576f54241920">TREE</a>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1PointLocatorTree.html">PointLocatorTree</a>(mesh, <span class="comment">/*Trees::NODES,*/</span> master));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;(<span class="keyword">new</span> PointLocatorTree(<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>, <span class="comment">/*Trees::NODES,*/</span> master));</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0ba2de18a3b44c1b287878630bff63b8dfa">TREE_ELEMENTS</a>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1PointLocatorTree.html">PointLocatorTree</a>(mesh, <a class="code" href="namespacelibMesh_1_1Trees.html#aa445f2ee1b3f644fcc6ef02e5192dff9ade07fd9bcdcf0d49239569295014a4d1">Trees::ELEMENTS</a>, master));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;(<span class="keyword">new</span> PointLocatorTree(<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>, <a class="code" href="namespacelibMesh_1_1Trees.html#aa445f2ee1b3f644fcc6ef02e5192dff9ade07fd9bcdcf0d49239569295014a4d1">Trees::ELEMENTS</a>, master));</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0ba6733a9efcd8ba4ecb8cd9b16af8d2edf">TREE_LOCAL_ELEMENTS</a>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1PointLocatorTree.html">PointLocatorTree</a>(mesh, <a class="code" href="namespacelibMesh_1_1Trees.html#aa445f2ee1b3f644fcc6ef02e5192dff9a04e5399de3e08ad3c7c57691c5d2a055">Trees::LOCAL_ELEMENTS</a>, master));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;(<span class="keyword">new</span> PointLocatorTree(<a class="code" href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>, <a class="code" href="namespacelibMesh_1_1Trees.html#aa445f2ee1b3f644fcc6ef02e5192dff9a04e5399de3e08ad3c7c57691c5d2a055">Trees::LOCAL_ELEMENTS</a>, master));</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad PointLocatorType = &quot;</span> &lt;&lt; t);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad PointLocatorType = &quot;</span> &lt;&lt; t);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">return</span> UniquePtr&lt;PointLocatorBase&gt;();</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1PointLocatorTree_html"><div class="ttname"><a href="classlibMesh_1_1PointLocatorTree.html">libMesh::PointLocatorTree</a></div><div class="ttdef"><b>Definition:</b> <a href="point__locator__tree_8h_source.html#l00048">point_locator_tree.h:48</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Trees_html_aa445f2ee1b3f644fcc6ef02e5192dff9a04e5399de3e08ad3c7c57691c5d2a055"><div class="ttname"><a href="namespacelibMesh_1_1Trees.html#aa445f2ee1b3f644fcc6ef02e5192dff9a04e5399de3e08ad3c7c57691c5d2a055">libMesh::Trees::LOCAL_ELEMENTS</a></div><div class="ttdef"><b>Definition:</b> <a href="tree__base_8h_source.html#l00053">tree_base.h:53</a></div></div>
+<div class="ttc" id="mesh__communication_8C_html_afaa03b874c297f4693d9cdef7f50f3c6"><div class="ttname"><a href="mesh__communication_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a></div><div class="ttdeci">MeshBase &amp; mesh</div><div class="ttdef"><b>Definition:</b> <a href="mesh__communication_8C_source.html#l01086">mesh_communication.C:1086</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a92abef1b718a8567f60cfe943e7dda0ba6733a9efcd8ba4ecb8cd9b16af8d2edf"><div class="ttname"><a href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0ba6733a9efcd8ba4ecb8cd9b16af8d2edf">libMesh::TREE_LOCAL_ELEMENTS</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__point__locator__type_8h_source.html#l00034">enum_point_locator_type.h:34</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Trees_html_aa445f2ee1b3f644fcc6ef02e5192dff9ade07fd9bcdcf0d49239569295014a4d1"><div class="ttname"><a href="namespacelibMesh_1_1Trees.html#aa445f2ee1b3f644fcc6ef02e5192dff9ade07fd9bcdcf0d49239569295014a4d1">libMesh::Trees::ELEMENTS</a></div><div class="ttdef"><b>Definition:</b> <a href="tree__base_8h_source.html#l00052">tree_base.h:52</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a92abef1b718a8567f60cfe943e7dda0ba2de18a3b44c1b287878630bff63b8dfa"><div class="ttname"><a href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0ba2de18a3b44c1b287878630bff63b8dfa">libMesh::TREE_ELEMENTS</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__point__locator__type_8h_source.html#l00033">enum_point_locator_type.h:33</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a92abef1b718a8567f60cfe943e7dda0ba546391c592e7af62bee0576f54241920"><div class="ttname"><a href="namespacelibMesh.html#a92abef1b718a8567f60cfe943e7dda0ba546391c592e7af62bee0576f54241920">libMesh::TREE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__point__locator__type_8h_source.html#l00032">enum_point_locator_type.h:32</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -429,14 +465,12 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00106">106</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00343">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -464,7 +498,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classlibMesh_1_1PointLocatorTree.html#a7539fd7f0b29359138f01eee90f7091d">libMesh::PointLocatorTree</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__function_8C_source.html#l00737">libMesh::MeshFunction::enable_out_of_mesh_mode()</a>, <a class="el" href="system_8C_source.html#l02136">libMesh::System::point_gradient()</a>, and <a class="el" href="system_8C_source.html#l02024">libMesh::System::point_value()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__function_8C_source.html#l00737">libMesh::MeshFunction::enable_out_of_mesh_mode()</a>, <a class="el" href="system_8C_source.html#l02136">libMesh::System::point_gradient()</a>, <a class="el" href="system_8C_source.html#l02251">libMesh::System::point_hessian()</a>, and <a class="el" href="system_8C_source.html#l02024">libMesh::System::point_value()</a>.</p>
 
 </div>
 </div>
@@ -492,12 +526,12 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00100">100</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -525,7 +559,9 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00047">47</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if defined(LIBMESH_ENABLE_REFERENCE_COUNTING) &amp;&amp; defined(DEBUG)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -536,8 +572,8 @@ Static Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;| Reference count information                                                |\n&quot;</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      &lt;&lt; <span class="stringliteral">&quot; ---------------------------------------------------------------------------- \n&quot;</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = _counts.begin();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != _counts.end(); ++it)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.begin();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.end(); ++it)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">const</span> std::string <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>(it-&gt;first);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> creations    = it-&gt;second.first;</div>
@@ -559,6 +595,87 @@ Static Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4d69475c6ae8e441306e90e57d755ced"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_constructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the construction counter. Should be called in the constructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00160">160</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00074">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  p.first++;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9f8ca3935940b9b1a60f7645e856f2e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_destructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the destruction counter. Should be called in the destructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00173">173</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00101">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::~ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  p.second++;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -631,13 +748,13 @@ Static Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *&#160;</td>
-          <td class="paramname"><em>allowed_subdomains</em> = <code><a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></code>, </td>
+          <td class="paramname"><em>allowed_subdomains</em> = <code><a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td>
-          <td class="paramname"><em>tol</em> = <code><a class="el" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a></code>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td>
+          <td class="paramname"><em>tol</em> = <code><a class="el" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -658,7 +775,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="point__locator__base_8C_source.html#l00104">104</a> of file <a class="el" href="point__locator__base_8C_source.html">point_locator_base.C</a>.</p>
 
-<p>References <a class="el" href="elem_8C_source.html#l00466">libMesh::Elem::hmax()</a>, <a class="el" href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr</a>, <a class="el" href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes()</a>, <a class="el" href="elem_8h_source.html#l01655">libMesh::Elem::node_ptr()</a>, <a class="el" href="tensor__tools_8h_source.html#l00070">libMesh::TensorTools::norm_sq()</a>, and <a class="el" href="elem_8h_source.html#l01593">libMesh::Elem::point()</a>.</p>
+<p>References <a class="el" href="elem_8C_source.html#l00466">libMesh::Elem::hmax()</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, <a class="el" href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes()</a>, <a class="el" href="elem_8h_source.html#l01655">libMesh::Elem::node_ptr()</a>, <a class="el" href="tensor__tools_8h_source.html#l00070">libMesh::TensorTools::norm_sq()</a>, <a class="el" href="elem_8h_source.html#l01593">libMesh::Elem::point()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  std::set&lt;const Elem *&gt; candidate_elements;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1PointLocatorBase.html#ad8bfcc41ec86c8d2c5a276b825378916">operator()</a>(p, candidate_elements, allowed_subdomains);</div>
@@ -667,27 +784,22 @@ Static Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;         it = candidate_elements.begin();</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;         it != candidate_elements.end(); ++it)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem = *it;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> elem_n_nodes = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">n_nodes</a>();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> hmax = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#af238e5529e55b1c434b0a6ec923b5f47">hmax</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> dist_tol_sq = (tol * hmax) * (tol * hmax);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">const</span> Elem * elem = *it;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> elem_n_nodes = elem-&gt;n_nodes();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> hmax = elem-&gt;hmax();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> dist_tol_sq = (tol * hmax) * (tol * hmax);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n=0; n != elem_n_nodes; ++n)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> ((elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">point</a>(n) - p).<a class="code" href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">norm_sq</a>() &lt; dist_tol_sq)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;          <span class="keywordflow">return</span> elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a8af3280d9eb50ef05f43ceea5bcb8cf8">node_ptr</a>(n);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> ((elem-&gt;point(n) - p).<a class="code" href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">norm_sq</a>() &lt; dist_tol_sq)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;          <span class="keywordflow">return</span> elem-&gt;node_ptr(n);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_ad8bfcc41ec86c8d2c5a276b825378916"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#ad8bfcc41ec86c8d2c5a276b825378916">libMesh::PointLocatorBase::operator()</a></div><div class="ttdeci">virtual const Elem * operator()(const Point &amp;p, const std::set&lt; subdomain_id_type &gt; *allowed_subdomains=libmesh_nullptr) const =0</div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a8af3280d9eb50ef05f43ceea5bcb8cf8"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a8af3280d9eb50ef05f43ceea5bcb8cf8">libMesh::Elem::node_ptr</a></div><div class="ttdeci">const Node * node_ptr(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01655">elem.h:1655</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a3a1e00b1906b0f6cf0cc1760c9a7da1f"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes</a></div><div class="ttdeci">virtual unsigned int n_nodes() const =0</div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="namespacelibMesh_1_1TensorTools_html_a04923dfce4c2b77e2d964c9733dcf034"><div class="ttname"><a href="namespacelibMesh_1_1TensorTools.html#a04923dfce4c2b77e2d964c9733dcf034">libMesh::TensorTools::norm_sq</a></div><div class="ttdeci">T norm_sq(T a)</div><div class="ttdef"><b>Definition:</b> <a href="tensor__tools_8h_source.html#l00070">tensor_tools.h:70</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_af238e5529e55b1c434b0a6ec923b5f47"><div class="ttname"><a href="classlibMesh_1_1Elem.html#af238e5529e55b1c434b0a6ec923b5f47">libMesh::Elem::hmax</a></div><div class="ttdeci">virtual Real hmax() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8C_source.html#l00466">elem.C:466</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a2cb5212bd36caff163c65e3ccff273f0"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a2cb5212bd36caff163c65e3ccff273f0">libMesh::Elem::point</a></div><div class="ttdeci">const Point &amp; point(const unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01593">elem.h:1593</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -713,13 +825,11 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Prints the number of outstanding (created, but not yet destroyed) objects. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00075">75</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00076">76</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00122">libMesh::ReferenceCounter::_n_objects</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00122">reference_counter.h:122</a></div></div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00123">libMesh::ReferenceCounter::_n_objects</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00123">reference_counter.h:123</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -740,7 +850,7 @@ Static Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *&#160;</td>
-          <td class="paramname"><em>allowed_subdomains</em> = <code><a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></code>&#160;</td>
+          <td class="paramname"><em>allowed_subdomains</em> = <code><a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -783,7 +893,7 @@ Static Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; <a class="el" href="namespacelibMesh.html#a634d676f703fd1cf217d85d6794abcb3">subdomain_id_type</a> &gt; *&#160;</td>
-          <td class="paramname"><em>allowed_subdomains</em> = <code><a class="el" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></code>&#160;</td>
+          <td class="paramname"><em>allowed_subdomains</em> = <code><a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -826,10 +936,14 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Prints the reference information, by default to <code><a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></code>. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00095">95</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00088">88</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{}</div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>, and <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> ) out_stream &lt;&lt; <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">ReferenceCounter::get_info</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -843,7 +957,7 @@ Static Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void libMesh::PointLocatorBase::set_close_to_point_tol </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td>
           <td class="paramname"><em>close_to_point_tol</em></td><td>)</td>
           <td></td>
         </tr>
@@ -894,16 +1008,16 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="point__locator__base_8C_source.html#l00095">95</a> of file <a class="el" href="point__locator__base_8C_source.html">point_locator_base.C</a>.</p>
 
-<p>References <a class="el" href="point__locator__base_8h_source.html#l00195">_close_to_point_tol</a>, <a class="el" href="point__locator__base_8h_source.html#l00190">_use_close_to_point_tol</a>, and <a class="el" href="libmesh__common_8h_source.html#l00142">libMesh::TOLERANCE</a>.</p>
+<p>References <a class="el" href="point__locator__base_8h_source.html#l00195">_close_to_point_tol</a>, <a class="el" href="point__locator__base_8h_source.html#l00190">_use_close_to_point_tol</a>, and <a class="el" href="libmesh__common_8h_source.html#l00139">libMesh::TOLERANCE</a>.</p>
 
 <p>Referenced by <a class="el" href="mesh__function_8C_source.html#l00764">libMesh::MeshFunction::unset_point_locator_tolerance()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a969d03878ccb92ef1c7542200a23161b">_use_close_to_point_tol</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">_close_to_point_tol</a> = <a class="code" href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">TOLERANCE</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">_close_to_point_tol</a> = <a class="code" href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">TOLERANCE</a>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_a969d03878ccb92ef1c7542200a23161b"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#a969d03878ccb92ef1c7542200a23161b">libMesh::PointLocatorBase::_use_close_to_point_tol</a></div><div class="ttdeci">bool _use_close_to_point_tol</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00190">point_locator_base.h:190</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PointLocatorBase_html_a441f908d5e18c934fc3814f6dc2cdc3e"><div class="ttname"><a href="classlibMesh_1_1PointLocatorBase.html#a441f908d5e18c934fc3814f6dc2cdc3e">libMesh::PointLocatorBase::_close_to_point_tol</a></div><div class="ttdeci">Real _close_to_point_tol</div><div class="ttdef"><b>Definition:</b> <a href="point__locator__base_8h_source.html#l00195">point_locator_base.h:195</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_adccf009154cc053a5614ce132a2b153a"><div class="ttname"><a href="namespacelibMesh.html#adccf009154cc053a5614ce132a2b153a">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00142">libmesh_common.h:142</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac935f799caf032c4008c5aa8facebaae"><div class="ttname"><a href="namespacelibMesh.html#ac935f799caf032c4008c5aa8facebaae">libMesh::TOLERANCE</a></div><div class="ttdeci">static const Real TOLERANCE</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00139">libmesh_common.h:139</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -916,7 +1030,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> libMesh::PointLocatorBase::_close_to_point_tol</td>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> libMesh::PointLocatorBase::_close_to_point_tol</td>
         </tr>
       </table>
   </td>
@@ -930,6 +1044,31 @@ Static Protected Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="point__locator__base_8h_source.html#l00195">195</a> of file <a class="el" href="point__locator__base_8h_source.html">point_locator_base.h</a>.</p>
 
 <p>Referenced by <a class="el" href="point__locator__tree_8C_source.html#l00193">libMesh::PointLocatorTree::operator()()</a>, <a class="el" href="point__locator__base_8C_source.html#l00088">set_close_to_point_tol()</a>, and <a class="el" href="point__locator__base_8C_source.html#l00095">unset_close_to_point_tol()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c913252d05560f8bc7c75a63547c4c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">ReferenceCounter::Counts</a> libMesh::ReferenceCounter::_counts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Actually holds the data. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00115">115</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00160">libMesh::ReferenceCounter::increment_constructor_count()</a>, and <a class="el" href="reference__counter_8h_source.html#l00173">libMesh::ReferenceCounter::increment_destructor_count()</a>.</p>
 
 </div>
 </div>
@@ -952,9 +1091,9 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Flag to control whether reference count information is printed when print_info is called. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00133">133</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00134">134</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 
 </div>
 </div>
@@ -1041,7 +1180,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::spin_mutex libMesh::ReferenceCounter::_mutex</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a> libMesh::ReferenceCounter::_mutex</td>
         </tr>
       </table>
   </td>
@@ -1052,7 +1191,7 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Mutual exclusion object to enable thread-safe reference counting. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00127">127</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00128">128</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
 </div>
 </div>
@@ -1064,7 +1203,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::atomic&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
         </tr>
       </table>
   </td>
@@ -1075,9 +1214,9 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of objects. Print the reference count information when the number returns to 0. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00122">122</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00123">123</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00075">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00140">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00147">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00076">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00141">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00148">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
 
 </div>
 </div>

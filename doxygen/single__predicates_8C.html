@@ -96,24 +96,12 @@
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">single_predicates.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="single__predicates_8h_source.html">libmesh/single_predicates.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="boundary__info_8h_source.html">libmesh/boundary_info.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="dof__map_8h_source.html">libmesh/dof_map.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mapvector_8h_source.html">libmesh/mapvector.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for single_predicates.C:</div>
-<div class="dyncontent">
-<div class="center"><img src="single__predicates_8C__incl.png" border="0" usemap="#single__predicates_8C" alt=""/></div>
-<map name="single__predicates_8C" id="single__predicates_8C">
-<area shape="rect" id="node2" href="single__predicates_8h.html" title="libmesh/single_predicates.h" alt="" coords="263,552,450,579"/><area shape="rect" id="node20" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="911,395,1077,421"/><area shape="rect" id="node30" href="dof__map_8h.html" title="libmesh/dof_map.h" alt="" coords="1972,80,2106,107"/><area shape="rect" id="node50" href="mapvector_8h.html" title="libmesh/mapvector.h" alt="" coords="2572,80,2717,107"/><area shape="rect" id="node4" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="2005,709,2191,736"/><area shape="rect" id="node10" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="291,859,422,885"/><area shape="rect" id="node18" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="32,635,217,661"/><area shape="rect" id="node5" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="1640,933,1811,960"/><area shape="rect" id="node9" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="1015,784,1181,811"/><area shape="rect" id="node13" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="1626,859,1826,885"/><area shape="rect" id="node14" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="1975,784,2159,811"/><area shape="rect" id="node15" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="2249,784,2419,811"/><area shape="rect" id="node17" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="1851,859,2022,885"/><area shape="rect" id="node21" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="1508,469,1677,496"/><area shape="rect" id="node22" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="1538,552,1663,579"/><area shape="rect" id="node23" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1615,635,1794,661"/><area shape="rect" id="node24" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="1307,635,1438,661"/><area shape="rect" id="node25" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="1307,709,1446,736"/><area shape="rect" id="node31" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="1818,635,1973,661"/><area shape="rect" id="node32" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2521,305,2703,346"/><area shape="rect" id="node34" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="2285,469,2411,496"/><area shape="rect" id="node36" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="1777,469,1906,496"/><area shape="rect" id="node38" href="variable_8h.html" title="libmesh/variable.h" alt="" coords="1132,469,1261,496"/><area shape="rect" id="node40" href="threads__allocators_8h.html" title="libmesh/threads_allocators.h" alt="" coords="511,395,703,421"/><area shape="rect" id="node42" href="elem__range_8h.html" title="libmesh/elem_range.h" alt="" coords="1588,229,1741,256"/><area shape="rect" id="node45" href="ghosting__functor_8h.html" title="libmesh/ghosting_functor.h" alt="" coords="2215,229,2397,256"/><area shape="rect" id="node46" href="sparsity__pattern_8h.html" title="libmesh/sparsity_pattern.h" alt="" coords="1108,155,1285,181"/><area shape="rect" id="node47" href="point_8h.html" title="libmesh/point.h" alt="" coords="2861,155,2973,181"/><area shape="rect" id="node33" href="reference__counter_8h.html" title="libmesh/reference_counter.h" alt="" coords="2544,395,2734,421"/><area shape="rect" id="node35" href="threads__none_8h.html" title="libmesh/threads_none.h" alt="" coords="2267,552,2430,579"/><area shape="rect" id="node37" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="1739,545,1886,586"/><area shape="rect" id="node39" href="fe__type_8h.html" title="libmesh/fe_type.h" alt="" coords="1235,552,1361,579"/><area shape="rect" id="node43" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="1517,312,1669,339"/><area shape="rect" id="node44" href="stored__range_8h.html" title="libmesh/stored_range.h" alt="" coords="1764,395,1925,421"/><area shape="rect" id="node48" href="type__vector_8h.html" title="libmesh/type_vector.h" alt="" coords="2786,635,2938,661"/></map>
-</div>
-</div>
+
 <p><a href="single__predicates_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -123,88 +111,25 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh_1_1Predicates"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html">libMesh::Predicates</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a40b780069251e7e9b2faf34f92788cd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="single__predicates_8C.html#a40b780069251e7e9b2faf34f92788cd6">INSTANTIATE_NODAL_PREDICATES</a>(IterType)</td></tr>
-<tr class="separator:a40b780069251e7e9b2faf34f92788cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a803e662a7cacfaa02ce12f806f228ec3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="single__predicates_8C.html#a803e662a7cacfaa02ce12f806f228ec3">INSTANTIATE_ELEM_PREDICATES</a>(IterType)&#160;&#160;&#160;template bool evaluable&lt;IterType&gt;::operator()(const IterType &amp;) const</td></tr>
-<tr class="separator:a803e662a7cacfaa02ce12f806f228ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eeaf5fcd858556b5c56785624e9f0d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="single__predicates_8C.html#a6eeaf5fcd858556b5c56785624e9f0d4">LIBMESH_COMMA</a>&#160;&#160;&#160;,</td></tr>
-<tr class="separator:a6eeaf5fcd858556b5c56785624e9f0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa1409027ab126f171e9ad75482a66880"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#aa1409027ab126f171e9ad75482a66880">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (std::vector&lt; <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> * &gt;::iterator)</td></tr>
+<tr class="memitem:aa1409027ab126f171e9ad75482a66880"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#aa1409027ab126f171e9ad75482a66880">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (std::vector&lt; Elem * &gt;::iterator)</td></tr>
 <tr class="separator:aa1409027ab126f171e9ad75482a66880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8acdcfb70f667c1af23a536c8d1ca30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#ad8acdcfb70f667c1af23a536c8d1ca30">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (std::vector&lt; <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> * &gt;::const_iterator)</td></tr>
+<tr class="memitem:ad8acdcfb70f667c1af23a536c8d1ca30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#ad8acdcfb70f667c1af23a536c8d1ca30">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (std::vector&lt; Elem * &gt;::const_iterator)</td></tr>
 <tr class="separator:ad8acdcfb70f667c1af23a536c8d1ca30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea40ab533fb9ad5fa65ae342aca8ce3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#aea40ab533fb9ad5fa65ae342aca8ce3a">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (std::vector&lt; <a class="el" href="classlibMesh_1_1Node.html">Node</a> * &gt;::iterator)</td></tr>
+<tr class="memitem:aea40ab533fb9ad5fa65ae342aca8ce3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#aea40ab533fb9ad5fa65ae342aca8ce3a">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (std::vector&lt; Node * &gt;::iterator)</td></tr>
 <tr class="separator:aea40ab533fb9ad5fa65ae342aca8ce3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298816162f7b3fa6a5abc9b7ace40684"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a298816162f7b3fa6a5abc9b7ace40684">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (std::vector&lt; <a class="el" href="classlibMesh_1_1Node.html">Node</a> * &gt;::const_iterator)</td></tr>
+<tr class="memitem:a298816162f7b3fa6a5abc9b7ace40684"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a298816162f7b3fa6a5abc9b7ace40684">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (std::vector&lt; Node * &gt;::const_iterator)</td></tr>
 <tr class="separator:a298816162f7b3fa6a5abc9b7ace40684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2192dbc34c9c78d7fa65e7ebc3e4837c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a2192dbc34c9c78d7fa65e7ebc3e4837c">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (<a class="el" href="classlibMesh_1_1mapvector.html">mapvector</a>&lt; <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *<a class="el" href="mesh__iterators_8C.html#a6eeaf5fcd858556b5c56785624e9f0d4">LIBMESH_COMMA</a> <a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> &gt;::veclike_iterator)</td></tr>
+<tr class="memitem:a2192dbc34c9c78d7fa65e7ebc3e4837c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a2192dbc34c9c78d7fa65e7ebc3e4837c">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (mapvector&lt; Elem *LIBMESH_COMMA dof_id_type &gt;::veclike_iterator)</td></tr>
 <tr class="separator:a2192dbc34c9c78d7fa65e7ebc3e4837c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f79855ca43b80d028b0f17010615ff2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a6f79855ca43b80d028b0f17010615ff2">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (<a class="el" href="classlibMesh_1_1mapvector.html">mapvector</a>&lt; <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *<a class="el" href="mesh__iterators_8C.html#a6eeaf5fcd858556b5c56785624e9f0d4">LIBMESH_COMMA</a> <a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> &gt;::const_veclike_iterator)</td></tr>
+<tr class="memitem:a6f79855ca43b80d028b0f17010615ff2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a6f79855ca43b80d028b0f17010615ff2">libMesh::Predicates::INSTANTIATE_ELEM_PREDICATES</a> (mapvector&lt; Elem *LIBMESH_COMMA dof_id_type &gt;::const_veclike_iterator)</td></tr>
 <tr class="separator:a6f79855ca43b80d028b0f17010615ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33c452c7ed0f4d0af93b4abf96d3e271"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a33c452c7ed0f4d0af93b4abf96d3e271">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (<a class="el" href="classlibMesh_1_1mapvector.html">mapvector</a>&lt; <a class="el" href="classlibMesh_1_1Node.html">Node</a> *<a class="el" href="mesh__iterators_8C.html#a6eeaf5fcd858556b5c56785624e9f0d4">LIBMESH_COMMA</a> <a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> &gt;::veclike_iterator)</td></tr>
+<tr class="memitem:a33c452c7ed0f4d0af93b4abf96d3e271"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a33c452c7ed0f4d0af93b4abf96d3e271">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (mapvector&lt; Node *LIBMESH_COMMA dof_id_type &gt;::veclike_iterator)</td></tr>
 <tr class="separator:a33c452c7ed0f4d0af93b4abf96d3e271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a31931a5ef238df1f0a9926fe41fd46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a4a31931a5ef238df1f0a9926fe41fd46">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (<a class="el" href="classlibMesh_1_1mapvector.html">mapvector</a>&lt; <a class="el" href="classlibMesh_1_1Node.html">Node</a> *<a class="el" href="mesh__iterators_8C.html#a6eeaf5fcd858556b5c56785624e9f0d4">LIBMESH_COMMA</a> <a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> &gt;::const_veclike_iterator)</td></tr>
+<tr class="memitem:a4a31931a5ef238df1f0a9926fe41fd46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh_1_1Predicates.html#a4a31931a5ef238df1f0a9926fe41fd46">libMesh::Predicates::INSTANTIATE_NODAL_PREDICATES</a> (mapvector&lt; Node *LIBMESH_COMMA dof_id_type &gt;::const_veclike_iterator)</td></tr>
 <tr class="separator:a4a31931a5ef238df1f0a9926fe41fd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a803e662a7cacfaa02ce12f806f228ec3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INSTANTIATE_ELEM_PREDICATES</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">IterType</td><td>)</td>
-          <td>&#160;&#160;&#160;template bool evaluable&lt;IterType&gt;::operator()(const IterType &amp;) const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="single__predicates_8C_source.html#l00062">62</a> of file <a class="el" href="single__predicates_8C_source.html">single_predicates.C</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a40b780069251e7e9b2faf34f92788cd6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INSTANTIATE_NODAL_PREDICATES</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">IterType</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> <span class="keywordtype">bool</span> bid&lt;IterType&gt;::operator()(<span class="keyword">const</span> IterType &amp;) <span class="keyword">const</span>; \</div>
-<div class="line">template <span class="keywordtype">bool</span> bnd&lt;IterType&gt;::operator()(<span class="keyword">const</span> IterType &amp;) <span class="keyword">const</span>; \</div>
-<div class="line">template <span class="keywordtype">bool</span> evaluable&lt;IterType&gt;::operator()(<span class="keyword">const</span> IterType &amp;) const</div>
-</div><!-- fragment -->
-<p>Definition at line <a class="el" href="single__predicates_8C_source.html#l00057">57</a> of file <a class="el" href="single__predicates_8C_source.html">single_predicates.C</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6eeaf5fcd858556b5c56785624e9f0d4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIBMESH_COMMA&#160;&#160;&#160;,</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="single__predicates_8C_source.html#l00066">66</a> of file <a class="el" href="single__predicates_8C_source.html">single_predicates.C</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

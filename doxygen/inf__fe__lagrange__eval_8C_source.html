@@ -127,9 +127,9 @@
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// Anonymous namespace for local helper functions</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> lagrange_eval(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o_radial, <span class="keywordtype">unsigned</span> i)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> lagrange_eval(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o_radial, <span class="keywordtype">unsigned</span> i)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (-1.-1.e-5 &lt;= v &amp;&amp; v &lt; 1.);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (-1.-1.e-5 &lt;= v &amp;&amp; v &lt; 1.);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">switch</span> (o_radial)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
@@ -140,7 +140,7 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          <span class="keywordflow">return</span> 1.;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
@@ -154,7 +154,7 @@
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;          <span class="keywordflow">return</span> v+1.;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
@@ -171,7 +171,7 @@
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          <span class="keywordflow">return</span> -4.*(v+1.)*v;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
@@ -191,7 +191,7 @@
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          <span class="keywordflow">return</span> -13.5*(v+1.)*v*(v+.6666666666666667);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
@@ -214,7 +214,7 @@
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;          <span class="keywordflow">return</span> -42.66666666666667*(v+1.)*v*(v+.75)*(v+.5);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
@@ -240,7 +240,7 @@
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;          <span class="keywordflow">return</span> -130.2083333333333*(v+1.)*v*(v+.8)*(v+.6)*(v+.4);</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
@@ -269,7 +269,7 @@
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;          <span class="keywordflow">return</span> -388.8*(v+1.)*v*(v+.8333333333333333)*(v+.6666666666666667)*(v+.5)*(v+.3333333333333333);</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        }</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
@@ -350,7 +350,7 @@
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            (v+.2857142857142857);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        }</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
@@ -385,7 +385,7 @@
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;          <span class="keywordflow">return</span> -3328.812698412698*(v+1.)*v*(v+.875)*(v+.75)*(v+.625)*(v+.5)*(v+.375)*(v+.25);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        }</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
@@ -504,7 +504,7 @@
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            (v+.2222222222222222);</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        }</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
@@ -545,7 +545,7 @@
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;          <span class="keywordflow">return</span> -27557.31922398588*(v+1.)*v*(v+.9)*(v+.8)*(v+.7)*(v+.6)*(v+.5)*(v+.4)*(v+.3)*(v+.2);</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        }</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;</div>
@@ -710,7 +710,7 @@
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            (v+.1818181818181818);</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        }</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;</div>
@@ -901,7 +901,7 @@
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;            (v+.1666666666666667);</div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;</div>
 <div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;        }</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;</div>
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;</div>
@@ -1120,7 +1120,7 @@
 <div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;            (v+.1538461538461538);</div>
 <div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;</div>
 <div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;        }</div>
 <div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;</div>
 <div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;</div>
@@ -1369,25 +1369,25 @@
 <div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;            (v+.1428571428571429);</div>
 <div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;</div>
 <div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;        }</div>
 <div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;</div>
 <div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160;</div>
 <div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;      <span class="comment">// provided the constructor worked fine, we should never end up here.</span></div>
 <div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Lagrange polynomials only defined up to 15.&quot;</span>);</div>
+<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Lagrange polynomials only defined up to 15.&quot;</span>);</div>
 <div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;    } <span class="comment">// switch (o_radial)</span></div>
 <div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;</div>
-<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;} <span class="comment">// lagrange_eval()</span></div>
 <div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;</div>
 <div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;</div>
 <div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;</div>
 <div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;</div>
-<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> lagrange_eval_deriv(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o_radial, <span class="keywordtype">unsigned</span> i)</div>
+<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> lagrange_eval_deriv(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o_radial, <span class="keywordtype">unsigned</span> i)</div>
 <div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;{</div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (-1.-1.e-5 &lt;= v &amp;&amp; v &lt; 1.);</div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (-1.-1.e-5 &lt;= v &amp;&amp; v &lt; 1.);</div>
 <div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;</div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;  <span class="keywordflow">switch</span> (o_radial)</div>
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;    {</div>
@@ -1398,7 +1398,7 @@
 <div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;          <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;</div>
 <div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;        }</div>
 <div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;</div>
 <div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;</div>
@@ -1412,7 +1412,7 @@
 <div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;          <span class="keywordflow">return</span> 1.;</div>
 <div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;</div>
 <div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;        }</div>
 <div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;</div>
 <div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;</div>
@@ -1429,7 +1429,7 @@
 <div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;          <span class="keywordflow">return</span> -8.*v-4.;</div>
 <div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;</div>
 <div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;        }</div>
 <div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;</div>
 <div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;</div>
@@ -1449,7 +1449,7 @@
 <div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;          <span class="keywordflow">return</span> -9.+(-45.-40.5*v)*v;</div>
 <div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;</div>
 <div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;        }</div>
 <div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;</div>
 <div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;</div>
@@ -1472,7 +1472,7 @@
 <div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;          <span class="keywordflow">return</span> -16.+(-138.6666666666667+(-288.-170.6666666666667*v)*v)*v;</div>
 <div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;</div>
 <div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;        }</div>
 <div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;</div>
 <div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;</div>
@@ -1498,7 +1498,7 @@
 <div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;          <span class="keywordflow">return</span> -25.+(-320.8333333333333+(-1109.375+(-1458.333333333333-651.0416666666667*v)*v)*v)*v;</div>
 <div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;</div>
 <div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;        }</div>
 <div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;</div>
 <div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;</div>
@@ -1527,7 +1527,7 @@
 <div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;          <span class="keywordflow">return</span> -36.+(-626.4+(-3132.+(-6696.+(-6480.-2332.8*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;</div>
 <div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;        }</div>
 <div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;</div>
 <div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;</div>
@@ -1599,7 +1599,7 @@
 <div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;                (-26471.02500000002-8006.66805555556*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;</div>
 <div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;        }</div>
 <div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;</div>
 <div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;</div>
@@ -1688,7 +1688,7 @@
 <div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;                 (-101944.8888888889-26630.50158730159*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;</div>
 <div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;        }</div>
 <div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;</div>
 <div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;</div>
@@ -1796,7 +1796,7 @@
 <div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;                  (-375804.7071428573-86477.78772321433*v)*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;</div>
 <div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;        }</div>
 <div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;</div>
 <div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;</div>
@@ -1925,7 +1925,7 @@
 <div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;                   (-1339285.714285714-275573.1922398588*v)*v)*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;</div>
 <div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;        }</div>
 <div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160;</div>
 <div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;</div>
@@ -2077,7 +2077,7 @@
 <div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;                    (-4645978.282255849-864866.7263891657*v)*v)*v)*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160;</div>
 <div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;        }</div>
 <div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;</div>
 <div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;</div>
@@ -2254,7 +2254,7 @@
 <div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;                     (-15765995.52000002-2680405.377662341*v)*v)*v)*v)*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;</div>
 <div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;        }</div>
 <div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;</div>
 <div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;</div>
@@ -2458,7 +2458,7 @@
 <div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;                      (-52529953.82954764-8219964.997401437*v)*v)*v)*v)*v)*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160;</div>
 <div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;        }</div>
 <div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;</div>
 <div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160;</div>
@@ -2691,16 +2691,16 @@
 <div class="line"><a name="l02591"></a><span class="lineno"> 2591</span>&#160;                       (-172329980.5646387-24982748.66173757*v)*v)*v)*v)*v)*v)*v)*v)*v)*v)*v)*v)*v;</div>
 <div class="line"><a name="l02592"></a><span class="lineno"> 2592</span>&#160;</div>
 <div class="line"><a name="l02593"></a><span class="lineno"> 2593</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l02594"></a><span class="lineno"> 2594</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
+<div class="line"><a name="l02594"></a><span class="lineno"> 2594</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;bad index i = &quot;</span> &lt;&lt; i);</div>
 <div class="line"><a name="l02595"></a><span class="lineno"> 2595</span>&#160;        }</div>
 <div class="line"><a name="l02596"></a><span class="lineno"> 2596</span>&#160;</div>
 <div class="line"><a name="l02597"></a><span class="lineno"> 2597</span>&#160;</div>
 <div class="line"><a name="l02598"></a><span class="lineno"> 2598</span>&#160;      <span class="comment">// provided the constructor worked fine, we should never end up here.</span></div>
 <div class="line"><a name="l02599"></a><span class="lineno"> 2599</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l02600"></a><span class="lineno"> 2600</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Lagrange polynomials only defined up to 15.&quot;</span>);</div>
+<div class="line"><a name="l02600"></a><span class="lineno"> 2600</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Lagrange polynomials only defined up to 15.&quot;</span>);</div>
 <div class="line"><a name="l02601"></a><span class="lineno"> 2601</span>&#160;    } <span class="comment">// switch (o_radial)</span></div>
 <div class="line"><a name="l02602"></a><span class="lineno"> 2602</span>&#160;</div>
-<div class="line"><a name="l02603"></a><span class="lineno"> 2603</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l02603"></a><span class="lineno"> 2603</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l02604"></a><span class="lineno"> 2604</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
 <div class="line"><a name="l02605"></a><span class="lineno"> 2605</span>&#160;} <span class="comment">// lagrange_eval_deriv()</span></div>
 <div class="line"><a name="l02606"></a><span class="lineno"> 2606</span>&#160;</div>
@@ -2710,15 +2710,15 @@
 <div class="line"><a name="l02610"></a><span class="lineno"> 2610</span>&#160;</div>
 <div class="line"><a name="l02611"></a><span class="lineno"> 2611</span>&#160;  <span class="comment">// Specialize the eval() function for 1, 2, and 3 dimensions and the CARTESIAN mapping type</span></div>
 <div class="line"><a name="l02612"></a><span class="lineno"> 2612</span>&#160;  <span class="comment">// to call the local helper function from the anonymous namespace.</span></div>
-<div class="line"><a name="l02613"></a><span class="lineno"> 2613</span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> InfFE&lt;1,LAGRANGE,CARTESIAN&gt;::eval(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval(v, o, i); }</div>
-<div class="line"><a name="l02614"></a><span class="lineno"> 2614</span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> InfFE&lt;2,LAGRANGE,CARTESIAN&gt;::eval(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval(v, o, i); }</div>
-<div class="line"><a name="l02615"></a><span class="lineno"> 2615</span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> InfFE&lt;3,LAGRANGE,CARTESIAN&gt;::eval(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval(v, o, i); }</div>
+<div class="line"><a name="l02613"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#aefd42ae136fd3b5562bda09889d2f3a6"> 2613</a></span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1InfFE.html#a19cad96947f71c92d429b0f043971ff5">InfFE&lt;1,LAGRANGE,CARTESIAN&gt;::eval</a>(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval(v, o, i); }</div>
+<div class="line"><a name="l02614"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a72777a308e8fcb6b0479bf8f834146d3"> 2614</a></span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1InfFE.html#a19cad96947f71c92d429b0f043971ff5">InfFE&lt;2,LAGRANGE,CARTESIAN&gt;::eval</a>(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval(v, o, i); }</div>
+<div class="line"><a name="l02615"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#a75ad329af4b36422328ba762408ff444"> 2615</a></span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1InfFE.html#a19cad96947f71c92d429b0f043971ff5">InfFE&lt;3,LAGRANGE,CARTESIAN&gt;::eval</a>(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval(v, o, i); }</div>
 <div class="line"><a name="l02616"></a><span class="lineno"> 2616</span>&#160;</div>
 <div class="line"><a name="l02617"></a><span class="lineno"> 2617</span>&#160;<span class="comment">// Specialize the eval_deriv() function for 1, 2, and 3 dimensions and the CARTESIAN mapping type</span></div>
 <div class="line"><a name="l02618"></a><span class="lineno"> 2618</span>&#160;<span class="comment">// to call the local helper function from the anonymous namespace.</span></div>
-<div class="line"><a name="l02619"></a><span class="lineno"> 2619</span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> InfFE&lt;1,LAGRANGE,CARTESIAN&gt;::eval_deriv(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval_deriv(v, o, i); }</div>
-<div class="line"><a name="l02620"></a><span class="lineno"> 2620</span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> InfFE&lt;2,LAGRANGE,CARTESIAN&gt;::eval_deriv(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval_deriv(v, o, i); }</div>
-<div class="line"><a name="l02621"></a><span class="lineno"> 2621</span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> InfFE&lt;3,LAGRANGE,CARTESIAN&gt;::eval_deriv(<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval_deriv(v, o, i); }</div>
+<div class="line"><a name="l02619"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#ae3cb3ef9a13add36eab6f0f9aec5c104"> 2619</a></span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1InfFE.html#a48f25f4f991199320290cb2d06002dfa">InfFE&lt;1,LAGRANGE,CARTESIAN&gt;::eval_deriv</a>(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval_deriv(v, o, i); }</div>
+<div class="line"><a name="l02620"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#afcf09336b7326c0622fa09a1ea495286"> 2620</a></span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1InfFE.html#a48f25f4f991199320290cb2d06002dfa">InfFE&lt;2,LAGRANGE,CARTESIAN&gt;::eval_deriv</a>(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval_deriv(v, o, i); }</div>
+<div class="line"><a name="l02621"></a><span class="lineno"><a class="line" href="classlibMesh_1_1InfFE.html#aedc869fcb0b94467d96d72b820196894"> 2621</a></span>&#160;<span class="keyword">template</span> &lt;&gt; <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1InfFE.html#a48f25f4f991199320290cb2d06002dfa">InfFE&lt;3,LAGRANGE,CARTESIAN&gt;::eval_deriv</a>(<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> v, <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> o, <span class="keywordtype">unsigned</span> i) { <span class="keywordflow">return</span> lagrange_eval_deriv(v, o, i); }</div>
 <div class="line"><a name="l02622"></a><span class="lineno"> 2622</span>&#160;</div>
 <div class="line"><a name="l02623"></a><span class="lineno"> 2623</span>&#160;</div>
 <div class="line"><a name="l02624"></a><span class="lineno"> 2624</span>&#160;} <span class="comment">// namespace libMesh</span></div>
@@ -2727,20 +2727,21 @@
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634add9e8047abeeb3f03da26510eed68d7a"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634add9e8047abeeb3f03da26510eed68d7a">libMesh::FOURTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00036">enum_order.h:36</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634afabe77d6dab6a6a9e27d77070b1fc5ed"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634afabe77d6dab6a6a9e27d77070b1fc5ed">libMesh::ELEVENTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00044">enum_order.h:44</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634aafd4d8fbb7127592ef334eeb5df094ca"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634aafd4d8fbb7127592ef334eeb5df094ca">libMesh::FOURTEENTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00047">enum_order.h:47</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="classlibMesh_1_1InfFE_html_a48f25f4f991199320290cb2d06002dfa"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a48f25f4f991199320290cb2d06002dfa">libMesh::InfFE::eval_deriv</a></div><div class="ttdeci">static Real eval_deriv(Real v, Order o_radial, unsigned int i)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a9322e35043d812ce264430319cd4fe87"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a9322e35043d812ce264430319cd4fe87">libMesh::CONSTANT</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a24c3a1fe395a654f903680c55891d76d"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a24c3a1fe395a654f903680c55891d76d">libMesh::EIGHTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00040">enum_order.h:40</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634aeb83a6d8d35afd605729a0b8827e7102"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634aeb83a6d8d35afd605729a0b8827e7102">libMesh::SECOND</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00034">enum_order.h:34</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966">libMesh::THIRD</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00035">enum_order.h:35</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634aec70a3c29e324e0f778c5ec995c85d2d"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634aec70a3c29e324e0f778c5ec995c85d2d">libMesh::THIRTEENTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00046">enum_order.h:46</a></div></div>
+<div class="ttc" id="classlibMesh_1_1InfFE_html_a19cad96947f71c92d429b0f043971ff5"><div class="ttname"><a href="classlibMesh_1_1InfFE.html#a19cad96947f71c92d429b0f043971ff5">libMesh::InfFE::eval</a></div><div class="ttdeci">static Real eval(Real v, Order o_radial, unsigned int i)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a559610391db957c5a656cd74f2e73117"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a559610391db957c5a656cd74f2e73117">libMesh::FIFTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00037">enum_order.h:37</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a902cc7e83db25d65eb82b203af2fb18a"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a902cc7e83db25d65eb82b203af2fb18a">libMesh::TENTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00042">enum_order.h:42</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634abc2eaf64e6aacb8e9e51e97b0247d8f5"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634abc2eaf64e6aacb8e9e51e97b0247d8f5">libMesh::NINTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00041">enum_order.h:41</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3">libMesh::FIRST</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00033">enum_order.h:33</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a9797df93f7b4c1ec807f85580a099801"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a9797df93f7b4c1ec807f85580a099801">libMesh::SEVENTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00039">enum_order.h:39</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a955cf59d6d3b04d3cef85f3b4f84dca0"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a955cf59d6d3b04d3cef85f3b4f84dca0">libMesh::TWELFTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00045">enum_order.h:45</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634ae73ca7b7eb2980af358e80e3201472b1"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634ae73ca7b7eb2980af358e80e3201472b1">libMesh::SIXTH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00038">enum_order.h:38</a></div></div>

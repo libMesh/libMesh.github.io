@@ -1,0 +1,22 @@
+digraph "libMesh::UnstructuredMesh"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="libMesh::UnstructuredMesh",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="libMesh::MeshBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1MeshBase.html",tooltip="Base class for Mesh. "];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="libMesh::ParallelObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1ParallelObject.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="libMesh::DistributedMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1DistributedMesh.html"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="libMesh::Mesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1Mesh.html",tooltip="Manages a collection of Nodes and Elems. "];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="libMesh::BoundaryMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1BoundaryMesh.html",tooltip="Specialized mesh used for keeping track of boundary elements. "];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="libMesh::ParallelMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1ParallelMesh.html"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="libMesh::ReplicatedMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1ReplicatedMesh.html"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="libMesh::SerialMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1SerialMesh.html"];
+}

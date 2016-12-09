@@ -161,8 +161,8 @@
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">// range.</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> std::size_t firstloc = lb-&gt;first;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> std::size_t lastloc  = lb-&gt;second;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <a class="code" href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a>(firstloc, lastloc);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <a class="code" href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a>(firstloc, other_range_start);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      libmesh_assert_less_equal(firstloc, lastloc);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      libmesh_assert_less_equal(firstloc, other_range_start);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      {</div>
@@ -171,7 +171,7 @@
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span> (next != this-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">_ranges</a>.end())</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;          {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// Ranges should be sorted and should not touch</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a>(next-&gt;first, lastloc+1);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a>(next-&gt;first, lastloc+1);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;          }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -203,7 +203,7 @@
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;          <span class="comment">// Ranges should be sorted and should not have been touching</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          <span class="comment">// initially</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;          <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a>(nextloc, lastloc+1);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;          <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a>(nextloc, lastloc+1);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;          lb-&gt;second = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a>(lb-&gt;second, next-&gt;second);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
@@ -225,11 +225,10 @@
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="ttc" id="libmesh__common_8h_html_a9b5954491fc8a672e607175b23e44ed5"><div class="ttname"><a href="libmesh__common_8h.html#a9b5954491fc8a672e607175b23e44ed5">libmesh_assert_less_equal</a></div><div class="ttdeci">#define libmesh_assert_less_equal(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00348">libmesh_common.h:348</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="namespacestd_html_a6987c84b7beab8b2ebdee7e2549d698f"><div class="ttname"><a href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a></div><div class="ttdeci">long double max(long double a, double b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00027">libmesh_augment_std_namespace.h:27</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_af799123aec103b0960ec3dd56dcab3f0"><div class="ttname"><a href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a></div><div class="ttdeci">#define libmesh_assert_greater(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00347">libmesh_common.h:347</a></div></div>
 <div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a6652332073762aca88652e8ffd9a5b06"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a6652332073762aca88652e8ffd9a5b06">libMesh::CouplingMatrix::operator&amp;=</a></div><div class="ttdeci">CouplingMatrix &amp; operator&amp;=(const CouplingMatrix &amp;other)</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8C_source.html#l00024">coupling_matrix.C:24</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
 <div class="ttc" id="namespacelibMesh_1_1MeshTools_1_1Subdivision_html_a9ddda19838f9b54edff4cb8970e7363c"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools_1_1Subdivision.html#a9ddda19838f9b54edff4cb8970e7363c">libMesh::MeshTools::Subdivision::next</a></div><div class="ttdeci">static const unsigned int next[3]</div><div class="ttdef"><b>Definition:</b> <a href="mesh__subdivision__support_8h_source.html#l00103">mesh_subdivision_support.h:103</a></div></div>
 <div class="ttc" id="coupling__matrix_8h_html"><div class="ttname"><a href="coupling__matrix_8h.html">coupling_matrix.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_a1d5c90aa05040706b3d518c3e00531b9"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#a1d5c90aa05040706b3d518c3e00531b9">libMesh::CouplingMatrix::_ranges</a></div><div class="ttdeci">rc_type _ranges</div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00117">coupling_matrix.h:117</a></div></div>

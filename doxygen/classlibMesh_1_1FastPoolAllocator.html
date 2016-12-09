@@ -126,9 +126,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1f9c561a802053ddbfd73062ae5c7b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8e3f3c1720b84efb9b29042986072e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#ae8e3f3c1720b84efb9b29042986072e8">FastPoolAllocator</a> (const <a class="el" href="classlibMesh_1_1FastPoolAllocator.html">FastPoolAllocator</a> &amp;o)</td></tr>
 <tr class="separator:ae8e3f3c1720b84efb9b29042986072e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9c561a802053ddbfd73062ae5c7b6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#a1f9c561a802053ddbfd73062ae5c7b6c">FastPoolAllocator</a> ()</td></tr>
+<tr class="separator:a1f9c561a802053ddbfd73062ae5c7b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e3f3c1720b84efb9b29042986072e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#ae8e3f3c1720b84efb9b29042986072e8">FastPoolAllocator</a> (const <a class="el" href="classlibMesh_1_1FastPoolAllocator.html">FastPoolAllocator</a> &amp;o)</td></tr>
+<tr class="separator:ae8e3f3c1720b84efb9b29042986072e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8bbc28110074b940f2849ea2078c1bca"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#a8bbc28110074b940f2849ea2078c1bca">release_memory</a> ()</td></tr>
+<tr class="separator:a8bbc28110074b940f2849ea2078c1bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a30c38db52fcb24155a8e64ad169ca"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#a87a30c38db52fcb24155a8e64ad169ca">purge_memory</a> ()</td></tr>
+<tr class="separator:a87a30c38db52fcb24155a8e64ad169ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bbc28110074b940f2849ea2078c1bca"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#a8bbc28110074b940f2849ea2078c1bca">release_memory</a> ()</td></tr>
 <tr class="separator:a8bbc28110074b940f2849ea2078c1bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87a30c38db52fcb24155a8e64ad169ca"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html#a87a30c38db52fcb24155a8e64ad169ca">purge_memory</a> ()</td></tr>
@@ -138,10 +146,72 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class libMesh::FastPoolAllocator&lt; T &gt;</h3>
 
+<p>An allocator which can be used in standard containers. Uses pool-based memory allocation to efficiently allocate many small objects. Note that object destruction returns memory to the pool rather than deallocate it. It must be explicitly deallocated prior to program termination.</p>
 <p>An allocator which can be used in standard containers. A wrapper for <code>std::allocator&lt;&gt;</code> when Boost is not available. </p>
 
-<p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00186">186</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
+<p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00097">97</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1f9c561a802053ddbfd73062ae5c7b6c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html">libMesh::FastPoolAllocator</a>&lt; T &gt;::<a class="el" href="classlibMesh_1_1FastPoolAllocator.html">FastPoolAllocator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00110">110</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                      :</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    boost::fast_pool_allocator&lt;T&gt;()</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  {}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae8e3f3c1720b84efb9b29042986072e8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1FastPoolAllocator.html">libMesh::FastPoolAllocator</a>&lt; T &gt;::<a class="el" href="classlibMesh_1_1FastPoolAllocator.html">FastPoolAllocator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1FastPoolAllocator.html">FastPoolAllocator</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00114">114</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                          :</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    boost::fast_pool_allocator&lt;T&gt;(o)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  {}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a1f9c561a802053ddbfd73062ae5c7b6c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -228,8 +298,70 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Frees every memory block. This function invalidates any pointers previously returned by allocation functions. Returns true if at least one memory block was freed. </p>
 
+<p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00132">132</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> boost::singleton_pool&lt;boost::fast_pool_allocator_tag, sizeof(T)&gt;::purge_memory();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a87a30c38db52fcb24155a8e64ad169ca"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool <a class="el" href="classlibMesh_1_1FastPoolAllocator.html">libMesh::FastPoolAllocator</a>&lt; T &gt;::purge_memory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Frees every memory block. This function invalidates any pointers previously returned by allocation functions. Returns true if at least one memory block was freed. </p>
+
 <p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00216">216</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
 <div class="fragment"><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{ <span class="comment">/* no-op for std::allocator&lt;&gt; - already freed. */</span> <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8bbc28110074b940f2849ea2078c1bca"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool <a class="el" href="classlibMesh_1_1FastPoolAllocator.html">libMesh::FastPoolAllocator</a>&lt; T &gt;::release_memory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Frees every memory block that doesn't have any allocated chunks. Returns true if at least one memory block was freed. </p>
+
+<p>Definition at line <a class="el" href="pool__allocator_8h_source.html#l00123">123</a> of file <a class="el" href="pool__allocator_8h_source.html">pool_allocator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> boost::singleton_pool&lt;boost::fast_pool_allocator_tag, sizeof(T)&gt;::release_memory();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -94,38 +94,20 @@
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">uniform_refinement_estimator.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &quot;<a class="el" href="dof__map_8h_source.html">libmesh/dof_map.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="equation__systems_8h_source.html">libmesh/equation_systems.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="error__vector_8h_source.html">libmesh/error_vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="fe_8h_source.html">libmesh/fe.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="libmesh__logging_8h_source.html">libmesh/libmesh_logging.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__base_8h_source.html">libmesh/mesh_base.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__refinement_8h_source.html">libmesh/mesh_refinement.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="numeric__vector_8h_source.html">libmesh/numeric_vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="quadrature_8h_source.html">libmesh/quadrature.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="system_8h_source.html">libmesh/system.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="uniform__refinement__estimator_8h_source.html">libmesh/uniform_refinement_estimator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="partitioner_8h_source.html">libmesh/partitioner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tensor__tools_8h_source.html">libmesh/tensor_tools.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for uniform_refinement_estimator.C:</div>
-<div class="dyncontent">
-<div class="center"><img src="uniform__refinement__estimator_8C__incl.png" border="0" usemap="#uniform__refinement__estimator_8C" alt=""/></div>
-<map name="uniform__refinement__estimator_8C" id="uniform__refinement__estimator_8C">
-<area shape="rect" id="node6" href="dof__map_8h.html" title="libmesh/dof_map.h" alt="" coords="2837,96,2971,123"/><area shape="rect" id="node7" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1876,576,2063,603"/><area shape="rect" id="node21" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="2756,320,2908,347"/><area shape="rect" id="node25" href="partitioner_8h.html" title="libmesh/partitioner.h" alt="" coords="3015,403,3157,429"/><area shape="rect" id="node33" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="1615,245,1727,272"/><area shape="rect" id="node40" href="equation__systems_8h.html" title="libmesh/equation_systems.h" alt="" coords="4778,96,4968,123"/><area shape="rect" id="node42" href="system_8h.html" title="libmesh/system.h" alt="" coords="4051,171,4176,197"/><area shape="rect" id="node43" href="error__vector_8h.html" title="libmesh/error_vector.h" alt="" coords="5289,171,5444,197"/><area shape="rect" id="node44" href="fe_8h.html" title="libmesh/fe.h" alt="" coords="4303,403,4396,429"/><area shape="rect" id="node45" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="287,171,465,197"/><area shape="rect" id="node46" href="mesh__refinement_8h.html" title="libmesh/mesh_refinement.h" alt="" coords="5330,96,5515,123"/><area shape="rect" id="node47" href="numeric__vector_8h.html" title="libmesh/numeric_vector.h" alt="" coords="3705,320,3879,347"/><area shape="rect" id="node48" href="quadrature_8h.html" title="libmesh/quadrature.h" alt="" coords="523,320,669,347"/><area shape="rect" id="node49" href="uniform__refinement__estimator_8h.html" title="libmesh/uniform_refinement\l_estimator.h" alt="" coords="4623,395,4809,437"/><area shape="rect" id="node50" href="tensor__tools_8h.html" title="libmesh/tensor_tools.h" alt="" coords="5,96,160,123"/><area shape="rect" id="node8" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="1981,493,2112,520"/><area shape="rect" id="node9" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="684,403,839,429"/><area shape="rect" id="node10" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2503,486,2685,527"/><area shape="rect" id="node11" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="3730,493,3859,520"/><area shape="rect" id="node14" href="variable_8h.html" title="libmesh/variable.h" alt="" coords="4202,320,4331,347"/><area shape="rect" id="node17" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="2453,320,2579,347"/><area shape="rect" id="node18" href="threads__allocators_8h.html" title="libmesh/threads_allocators.h" alt="" coords="2737,245,2929,272"/><area shape="rect" id="node20" href="elem__range_8h.html" title="libmesh/elem_range.h" alt="" coords="3055,245,3208,272"/><area shape="rect" id="node28" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="3437,403,3605,429"/><area shape="rect" id="node29" href="ghosting__functor_8h.html" title="libmesh/ghosting_functor.h" alt="" coords="2532,245,2713,272"/><area shape="rect" id="node30" href="sparsity__pattern_8h.html" title="libmesh/sparsity_pattern.h" alt="" coords="2878,171,3055,197"/><area shape="rect" id="node31" href="point_8h.html" title="libmesh/point.h" alt="" coords="863,403,975,429"/><area shape="rect" id="node15" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="2993,493,3124,520"/><area shape="rect" id="node22" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="2135,403,2279,429"/><area shape="rect" id="node23" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="1050,403,1235,429"/><area shape="rect" id="node24" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="2405,403,2584,429"/><area shape="rect" id="node26" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="1561,395,1705,437"/><area shape="rect" id="node34" href="node_8h.html" title="libmesh/node.h" alt="" coords="1835,320,1947,347"/><area shape="rect" id="node36" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="953,320,1151,347"/><area shape="rect" id="node37" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="1227,320,1419,347"/><area shape="rect" id="node38" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="1362,493,1501,520"/><area shape="rect" id="node41" href="parameters_8h.html" title="libmesh/parameters.h" alt="" coords="4717,171,4867,197"/></map>
-</div>
-</div>
+
 <p><a href="uniform__refinement__estimator_8C_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

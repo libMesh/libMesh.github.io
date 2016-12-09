@@ -140,6 +140,10 @@
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>n()
 : <a class="el" href="classlibMesh_1_1DenseMatrixBase.html#a4fb8c524109fd5dff8c98855437544ee">libMesh::DenseMatrixBase&lt; T &gt;</a>
+, <a class="el" href="classlibMesh_1_1EigenSparseMatrix.html#ae1e8d16b244074b3d37d906e9ace6571">libMesh::EigenSparseMatrix&lt; T &gt;</a>
+, <a class="el" href="classlibMesh_1_1EpetraMatrix.html#a8f07de9500e9ac7929684072271d2bd9">libMesh::EpetraMatrix&lt; T &gt;</a>
+, <a class="el" href="classlibMesh_1_1LaspackMatrix.html#afe994acc05f1c158ecd68b62b03ce15e">libMesh::LaspackMatrix&lt; T &gt;</a>
+, <a class="el" href="classlibMesh_1_1PetscMatrix.html#aca84b9730ced33b2554754fdb6d90483">libMesh::PetscMatrix&lt; T &gt;</a>
 , <a class="el" href="classlibMesh_1_1ShellMatrix.html#a019c16a58f871435ea75956ad1aaf9b5">libMesh::ShellMatrix&lt; T &gt;</a>
 , <a class="el" href="classlibMesh_1_1SparseMatrix.html#a759bad4b67e66f75c5a2fdc0772b755b">libMesh::SparseMatrix&lt; T &gt;</a>
 , <a class="el" href="classlibMesh_1_1SparseShellMatrix.html#a2224e9d94b9139c88ece564ec3cf92aa">libMesh::SparseShellMatrix&lt; T &gt;</a>
@@ -178,6 +182,12 @@
 <li>n_backtrack_steps
 : <a class="el" href="classlibMesh_1_1ContinuationSystem.html#aecb2c9bf8e35299c02a1fb768082f8cb">libMesh::ContinuationSystem</a>
 </li>
+<li>n_base_mapping_sf()
+: <a class="el" href="classlibMesh_1_1InfFE_1_1Base.html#acf8759dd16d8c42964c95aa22f5d7e82">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Base</a>
+</li>
+<li>n_basis_vectors_to_use
+: <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#a71659dea1d48c57888b5086e8d9122ed">libMesh::EigenTimeSolver</a>
+</li>
 <li>n_bins()
 : <a class="el" href="classlibMesh_1_1Parallel_1_1Histogram.html#ad2e1677467588b28f74339f40ebba71e">libMesh::Parallel::Histogram&lt; KeyType, IdxType &gt;</a>
 </li>
@@ -191,6 +201,9 @@
 : <a class="el" href="classlibMesh_1_1Edge.html#a85fc24fe7999e7f120ef3952d4985991">libMesh::Edge</a>
 , <a class="el" href="classlibMesh_1_1Elem.html#ac9df9e0213d3ea1d2d8279892f6f1094">libMesh::Elem</a>
 , <a class="el" href="classlibMesh_1_1Hex.html#a2411e8922efe76cc2ebdd1209095bed3">libMesh::Hex</a>
+, <a class="el" href="classlibMesh_1_1InfHex.html#aaf8d5abffc8aaa64e730b396a9d56ffe">libMesh::InfHex</a>
+, <a class="el" href="classlibMesh_1_1InfPrism.html#afef98b35f92395cc54c815a662d1b41e">libMesh::InfPrism</a>
+, <a class="el" href="classlibMesh_1_1InfQuad.html#abaf5449f1c5bfde40ff6472bf239f8db">libMesh::InfQuad</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#a1bd5ccc8b57281601ce114f337bcc80e">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1Prism.html#aaf6689f528898d13ba56c3e9d886e8b8">libMesh::Prism</a>
 , <a class="el" href="classlibMesh_1_1Pyramid.html#a6856ba3d5e029a39f18e104cba236ba7">libMesh::Pyramid</a>
@@ -212,19 +225,30 @@
 , <a class="el" href="classlibMesh_1_1Variable.html#af4867a613b61e5ff9a19391a571b6055">libMesh::Variable</a>
 </li>
 <li>n_constrained_dofs()
-: <a class="el" href="classlibMesh_1_1System.html#a3244b511caa986cb90536628f4bf8eff">libMesh::System</a>
+: <a class="el" href="classlibMesh_1_1DofMap.html#ad83df6befb2ac64f657f874731ab03f1">libMesh::DofMap</a>
+, <a class="el" href="classlibMesh_1_1System.html#a3244b511caa986cb90536628f4bf8eff">libMesh::System</a>
+</li>
+<li>n_constrained_nodes()
+: <a class="el" href="classlibMesh_1_1DofMap.html#a2dc427af82815a5265de4e9c8ccd0fc6">libMesh::DofMap</a>
+</li>
+<li>n_converged_eigenpairs
+: <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#a1c94ac26c1dec52b039d731abf03475d">libMesh::EigenTimeSolver</a>
 </li>
 <li>n_dofs()
 : <a class="el" href="classlibMesh_1_1DofMap.html#a77f8d984574b1bf8886057799e9b0134">libMesh::DofMap</a>
 , <a class="el" href="classlibMesh_1_1DofObject.html#aea91b1b15fa8dd5d12b900ecd38711da">libMesh::DofObject</a>
 , <a class="el" href="classlibMesh_1_1EquationSystems.html#afcc6d00900d41a2583f8128d2a514163">libMesh::EquationSystems</a>
-, <a class="el" href="classlibMesh_1_1FE.html#acda1d48439eaf23f23a506990a3aeca3">libMesh::FE&lt; Dim, T &gt;</a>
+, <a class="el" href="classlibMesh_1_1FE.html#a42715a68e51e91901e0ec4f933a331e6">libMesh::FE&lt; Dim, T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEInterface.html#a8d6e670715080e79706ded0009742acc">libMesh::FEInterface</a>
+, <a class="el" href="classlibMesh_1_1InfFE.html#a3f1303f14c587b80140058f4652ea5c6">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;</a>
+, <a class="el" href="classlibMesh_1_1InfFE_1_1Radial.html#a1bf99c1d6fda549041598002570b4a85">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Radial</a>
 , <a class="el" href="classlibMesh_1_1System.html#a57de7c4f37f7ca24fbf185d3d07054cd">libMesh::System</a>
 </li>
 <li>n_dofs_at_node()
-: <a class="el" href="classlibMesh_1_1FE.html#a4f8abfc81f641342467d0db917155e61">libMesh::FE&lt; Dim, T &gt;</a>
+: <a class="el" href="classlibMesh_1_1FE.html#a83e8cc3f2ffe6ac131631f14d67d9604">libMesh::FE&lt; Dim, T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEInterface.html#a9d448e5766ac099a401541d191439d0b">libMesh::FEInterface</a>
+, <a class="el" href="classlibMesh_1_1InfFE.html#a197bf5ebd7b734cb9de463f714ed2293">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;</a>
+, <a class="el" href="classlibMesh_1_1InfFE_1_1Radial.html#a3ea0a9dc18f741f952216aedcf4bcf56">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Radial</a>
 </li>
 <li>n_dofs_on_processor()
 : <a class="el" href="classlibMesh_1_1DofMap.html#a765ac72717810e0a86f04ab8a938cd22">libMesh::DofMap</a>
@@ -232,6 +256,8 @@
 <li>n_dofs_per_elem()
 : <a class="el" href="classlibMesh_1_1FE.html#a474486efcba0c6f850d7ef3876102596">libMesh::FE&lt; Dim, T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEInterface.html#aaf96d4ec7921d2f2a1d4cdbdbc63656a">libMesh::FEInterface</a>
+, <a class="el" href="classlibMesh_1_1InfFE.html#ad970acd91b1df49608f75375a594df94">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;</a>
+, <a class="el" href="classlibMesh_1_1InfFE_1_1Radial.html#ac11fb035de4a2945e8fceaca82c138bb">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Radial</a>
 </li>
 <li>n_edge_boundary_ids()
 : <a class="el" href="classlibMesh_1_1BoundaryInfo.html#a74b7a8ed1c667b0e526181819808c093">libMesh::BoundaryInfo</a>
@@ -243,6 +269,9 @@
 : <a class="el" href="classlibMesh_1_1Edge.html#a7071f6c8798e7f9c0d08c185d7575231">libMesh::Edge</a>
 , <a class="el" href="classlibMesh_1_1Elem.html#adde1fccc9a1fc4b43485629cb6c4062b">libMesh::Elem</a>
 , <a class="el" href="classlibMesh_1_1Hex.html#a1ed73396cc3c83cbcf37c17c7828effa">libMesh::Hex</a>
+, <a class="el" href="classlibMesh_1_1InfHex.html#a3954471a108ff1bb886cb5abbe19e2df">libMesh::InfHex</a>
+, <a class="el" href="classlibMesh_1_1InfPrism.html#a437045c05b57421028c61f0105060f1c">libMesh::InfPrism</a>
+, <a class="el" href="classlibMesh_1_1InfQuad.html#aec7775a256357b92103137cfe58cb587">libMesh::InfQuad</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#a2254fa494da79cd8c8a86c84b2211958">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1Prism.html#a69bf66d3d832a3695fe6bc5bb4b7c948">libMesh::Prism</a>
 , <a class="el" href="classlibMesh_1_1Pyramid.html#a70022f69c8259ad555a1cb03a4813a12">libMesh::Pyramid</a>
@@ -250,6 +279,9 @@
 , <a class="el" href="classlibMesh_1_1RemoteElem.html#aa1d8e19bd41e735fb978d8d0e9f65cbc">libMesh::RemoteElem</a>
 , <a class="el" href="classlibMesh_1_1Tet.html#aba7c1399c0d5d95d40d5a54da0c240f2">libMesh::Tet</a>
 , <a class="el" href="classlibMesh_1_1Tri.html#ab3472a8f445c438150fb38d368ac0903">libMesh::Tri</a>
+</li>
+<li>n_eigenpairs_to_compute
+: <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#ae59854c481d35a3aedad2c5a32ce1614">libMesh::EigenTimeSolver</a>
 </li>
 <li>n_elem()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a1291dfbba31fa4db089e5a04847bb835">libMesh::DistributedMesh</a>
@@ -268,6 +300,9 @@
 , <a class="el" href="classlibMesh_1_1Elem.html#aa771d517cf54ef87047d30f8052a4986">libMesh::Elem</a>
 , <a class="el" href="classlibMesh_1_1Face.html#a1aa029a846c601ba8bd9da9295276de0">libMesh::Face</a>
 , <a class="el" href="classlibMesh_1_1Hex.html#a1e5e251e45421ecc74b890c95f0b6718">libMesh::Hex</a>
+, <a class="el" href="classlibMesh_1_1InfHex.html#a54bf031736b8242b7ba6a26d5bdb77fe">libMesh::InfHex</a>
+, <a class="el" href="classlibMesh_1_1InfPrism.html#ac0fd582f02296211ae4b47c3df5a303f">libMesh::InfPrism</a>
+, <a class="el" href="classlibMesh_1_1InfQuad.html#a868d8e8e6b8c7ee3ce4a5196f97098e0">libMesh::InfQuad</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#a17d91e041b0d8cb8db1fc71057120958">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1Prism.html#af45d89d4cc323dc47c8c13705d8802db">libMesh::Prism</a>
 , <a class="el" href="classlibMesh_1_1Pyramid.html#ab2caf791306b826b995e0d25e3af7ed8">libMesh::Pyramid</a>
@@ -277,6 +312,15 @@
 <li>n_field_variables()
 : <a class="el" href="classlibMesh_1_1MeshfreeInterpolation.html#acd387d55ff260c8b45c9e5c3601b3546">libMesh::MeshfreeInterpolation</a>
 </li>
+<li>n_frequencies()
+: <a class="el" href="classlibMesh_1_1FrequencySystem.html#a324922259a87c2a919191969195175ca">libMesh::FrequencySystem</a>
+</li>
+<li>n_global_non_condensed_dofs()
+: <a class="el" href="classlibMesh_1_1CondensedEigenSystem.html#a85893722f47ce8b2398308f4fe8a7e35">libMesh::CondensedEigenSystem</a>
+</li>
+<li>n_iterations_reqd
+: <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#ab61298b057785a0355c567c758f0504d">libMesh::EigenTimeSolver</a>
+</li>
 <li>n_levels()
 : <a class="el" href="classlibMesh_1_1DefaultCoupling.html#af7e2fba34e8c2a105414a0fc28633470">libMesh::DefaultCoupling</a>
 , <a class="el" href="classlibMesh_1_1PointNeighborCoupling.html#a521df24651ac857f7ee33256038b2e3f">libMesh::PointNeighborCoupling</a>
@@ -285,7 +329,8 @@
 : <a class="el" href="classlibMesh_1_1LinearImplicitSystem.html#af712dbf0e285c5ff4cc346daef05423c">libMesh::LinearImplicitSystem</a>
 </li>
 <li>n_local_constrained_dofs()
-: <a class="el" href="classlibMesh_1_1System.html#a17c0cdd1dc6cf29034cba6b4236fceec">libMesh::System</a>
+: <a class="el" href="classlibMesh_1_1DofMap.html#abd5ddb7a400e9f4afc942fcaff084860">libMesh::DofMap</a>
+, <a class="el" href="classlibMesh_1_1System.html#a17c0cdd1dc6cf29034cba6b4236fceec">libMesh::System</a>
 </li>
 <li>n_local_dofs()
 : <a class="el" href="classlibMesh_1_1DofMap.html#a8e8912a9fc6b900604ff23807edadd3b">libMesh::DofMap</a>
@@ -298,7 +343,8 @@
 : <a class="el" href="classlibMesh_1_1MeshBase.html#ad9e558a22aaff41745a2f8f4ef8abee9">libMesh::MeshBase</a>
 </li>
 <li>n_matrices()
-: <a class="el" href="classlibMesh_1_1ImplicitSystem.html#ac6857883876e217b9dc777d1f9457f26">libMesh::ImplicitSystem</a>
+: <a class="el" href="classlibMesh_1_1EigenSystem.html#a0e5a9f401937e9750f723985bea31865">libMesh::EigenSystem</a>
+, <a class="el" href="classlibMesh_1_1ImplicitSystem.html#ac6857883876e217b9dc777d1f9457f26">libMesh::ImplicitSystem</a>
 , <a class="el" href="classlibMesh_1_1System.html#a17680e6b4bf7abfb50c8d36e0c8bb59d">libMesh::System</a>
 </li>
 <li>n_neighbors()
@@ -316,6 +362,13 @@
 , <a class="el" href="classlibMesh_1_1Hex20.html#af8cc23660015a073178875e7d10b642a">libMesh::Hex20</a>
 , <a class="el" href="classlibMesh_1_1Hex27.html#a5e312712ecb731b774e492514f9a65bb">libMesh::Hex27</a>
 , <a class="el" href="classlibMesh_1_1Hex8.html#a55eba90be81c9d29065b0e71011acc73">libMesh::Hex8</a>
+, <a class="el" href="classlibMesh_1_1InfHex16.html#a026cfb8cd1d7f2ed7dc7ce5ad4091f03">libMesh::InfHex16</a>
+, <a class="el" href="classlibMesh_1_1InfHex18.html#aa2ffd06c86c26248a52a77c00d208992">libMesh::InfHex18</a>
+, <a class="el" href="classlibMesh_1_1InfHex8.html#aa7d5d298bbddf98bd5dcae94a9e7f13e">libMesh::InfHex8</a>
+, <a class="el" href="classlibMesh_1_1InfPrism12.html#a27a2d49093900e31a34b7ea1271c1203">libMesh::InfPrism12</a>
+, <a class="el" href="classlibMesh_1_1InfPrism6.html#ad04903a3d65b14968b95c7b30d204a83">libMesh::InfPrism6</a>
+, <a class="el" href="classlibMesh_1_1InfQuad4.html#a70e3b0707720c194669db57f48f45629">libMesh::InfQuad4</a>
+, <a class="el" href="classlibMesh_1_1InfQuad6.html#a5eb163144441ef6b2ef8f573758ab4f7">libMesh::InfQuad6</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#a5b76b109bc6bd087c981774897aa6167">libMesh::MeshBase</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#ae29726bf35557492f81877e15e24a421">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1PltLoader.html#ac92457857a5aff4b3c8a2ac0e984436a">libMesh::PltLoader</a>
@@ -356,6 +409,9 @@
 <li>n_objects()
 : <a class="el" href="classlibMesh_1_1ReferenceCounter.html#a50e74641afc6e2870c9e1ce412f8c44f">libMesh::ReferenceCounter</a>
 </li>
+<li>n_old_dofs()
+: <a class="el" href="classlibMesh_1_1DofMap.html#a1a5ccf3ea5ac20cd67ee29805c42d6c5">libMesh::DofMap</a>
+</li>
 <li>n_oz
 : <a class="el" href="classlibMesh_1_1SparsityPattern_1_1Build.html#af7805e48c78b15d9df8c618dd593a3bb">libMesh::SparsityPattern::Build</a>
 </li>
@@ -368,6 +424,9 @@
 </li>
 <li>n_points()
 : <a class="el" href="classlibMesh_1_1QBase.html#ac0395144dc0b41dd27689f303c1eba2b">libMesh::QBase</a>
+, <a class="el" href="classlibMesh_1_1TriangleInterface_1_1ArbitraryHole.html#aa3ba344935e67c108d2de89cb411cd4e">libMesh::TriangleInterface::ArbitraryHole</a>
+, <a class="el" href="classlibMesh_1_1TriangleInterface_1_1Hole.html#a413ec0a4932c1ebcb7332d97cae3cfea">libMesh::TriangleInterface::Hole</a>
+, <a class="el" href="classlibMesh_1_1TriangleInterface_1_1PolygonHole.html#a6218602039af169fb8532db28a721bde">libMesh::TriangleInterface::PolygonHole</a>
 </li>
 <li>n_processors()
 : <a class="el" href="classlibMesh_1_1ParallelObject.html#a50719f74165b613ab929afd29b6d5f4a">libMesh::ParallelObject</a>
@@ -375,6 +434,7 @@
 <li>n_quadrature_points()
 : <a class="el" href="classlibMesh_1_1FE.html#acd18e80e436359ffdb029f0f4e65b1e2">libMesh::FE&lt; Dim, T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEAbstract.html#a621286e4f4f0474c9367caeec9b6b305">libMesh::FEAbstract</a>
+, <a class="el" href="classlibMesh_1_1InfFE.html#add652a0bb7c187e597cd15d3f2f48e67">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;</a>
 </li>
 <li>n_SCALAR_dofs()
 : <a class="el" href="classlibMesh_1_1DofMap.html#a39feeb5bedb05e160b5190e26d433605">libMesh::DofMap</a>
@@ -385,6 +445,10 @@
 , <a class="el" href="classlibMesh_1_1Elem.html#a5175062272874a37befab4a16ce68eaf">libMesh::Elem</a>
 , <a class="el" href="classlibMesh_1_1Hex20.html#a15e34d080a9959eb3fcb2501988dd22e">libMesh::Hex20</a>
 , <a class="el" href="classlibMesh_1_1Hex27.html#a317fb85747e0ae353420e62b53e56281">libMesh::Hex27</a>
+, <a class="el" href="classlibMesh_1_1InfHex16.html#a7a4fccead94ec4a9c023daede4270f53">libMesh::InfHex16</a>
+, <a class="el" href="classlibMesh_1_1InfHex18.html#a7b79bb38e8b50c214ebef8a6c0076761">libMesh::InfHex18</a>
+, <a class="el" href="classlibMesh_1_1InfPrism12.html#af54136e7c115eb8bcb38b88cd7c2527d">libMesh::InfPrism12</a>
+, <a class="el" href="classlibMesh_1_1InfQuad6.html#a98df5d0e249fd6898d308c75978f6288">libMesh::InfQuad6</a>
 , <a class="el" href="classlibMesh_1_1Prism15.html#ad085743a1c0ebce2a920275341a33b1f">libMesh::Prism15</a>
 , <a class="el" href="classlibMesh_1_1Prism18.html#ab0d55c02421d64c422517e0096331654">libMesh::Prism18</a>
 , <a class="el" href="classlibMesh_1_1Pyramid13.html#a76cd513b57c7da15fee2c80827318b19">libMesh::Pyramid13</a>
@@ -398,6 +462,7 @@
 : <a class="el" href="classlibMesh_1_1FE.html#ad81488d2e3cf77427008934b738f8d5d">libMesh::FE&lt; Dim, T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEAbstract.html#ad550065cf958f892bc73612e9fad7c9c">libMesh::FEAbstract</a>
 , <a class="el" href="classlibMesh_1_1FEInterface.html#aee67c0b169a2cc43fa03724f5a8e92a5">libMesh::FEInterface</a>
+, <a class="el" href="classlibMesh_1_1InfFE.html#a5a9fd925cd569bd7ec10a44d315cfa29">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;</a>
 </li>
 <li>n_shellface_boundary_ids()
 : <a class="el" href="classlibMesh_1_1BoundaryInfo.html#ab470c265380afbc050349da33ceb543b">libMesh::BoundaryInfo</a>
@@ -409,6 +474,9 @@
 : <a class="el" href="classlibMesh_1_1Edge.html#abac96862bc4a6f00c019733c8b2d8f1a">libMesh::Edge</a>
 , <a class="el" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem</a>
 , <a class="el" href="classlibMesh_1_1Hex.html#a294578472d308076838e88386d86beee">libMesh::Hex</a>
+, <a class="el" href="classlibMesh_1_1InfHex.html#ad7bfca8dd81fb6ed15e65ec9586daf55">libMesh::InfHex</a>
+, <a class="el" href="classlibMesh_1_1InfPrism.html#a718a6daa79ed0b2daee9b96a5a776a66">libMesh::InfPrism</a>
+, <a class="el" href="classlibMesh_1_1InfQuad.html#a70cdbf76a69bc5a062e4ce03744ccd08">libMesh::InfQuad</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#a68eb15732b9ad1549ce2c6e14b032b5f">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1Prism.html#ad34fe57413707c6c09137b4999b7c09e">libMesh::Prism</a>
 , <a class="el" href="classlibMesh_1_1Pyramid.html#ae02cf02e6e18181f98bf0b975a6db706">libMesh::Pyramid</a>
@@ -427,6 +495,14 @@
 , <a class="el" href="classlibMesh_1_1Hex20.html#ab9d524892e754e051c0ddfdf818d8ccd">libMesh::Hex20</a>
 , <a class="el" href="classlibMesh_1_1Hex27.html#ac8ca6fcb3368ed3bf8e3fca97df1b576">libMesh::Hex27</a>
 , <a class="el" href="classlibMesh_1_1Hex8.html#a45d26daa50965fef4a6d7949d4fc6fc0">libMesh::Hex8</a>
+, <a class="el" href="classlibMesh_1_1InfEdge2.html#a8f723c397d47b4c4738ae5fec0bd6aac">libMesh::InfEdge2</a>
+, <a class="el" href="classlibMesh_1_1InfHex16.html#a6de836e3e60135c89f980e40aa3de3bd">libMesh::InfHex16</a>
+, <a class="el" href="classlibMesh_1_1InfHex18.html#ab21a27459904f2078dc489c2e04ebc6f">libMesh::InfHex18</a>
+, <a class="el" href="classlibMesh_1_1InfHex8.html#a5355354090fcdcb0f67d6678a10df1c9">libMesh::InfHex8</a>
+, <a class="el" href="classlibMesh_1_1InfPrism12.html#a137e5e7da9367a9e44215cad912c7c26">libMesh::InfPrism12</a>
+, <a class="el" href="classlibMesh_1_1InfPrism6.html#af928bfbeb7a102a3f443b0a1170abae3">libMesh::InfPrism6</a>
+, <a class="el" href="classlibMesh_1_1InfQuad4.html#ac73280962117cba74f83df2b409ffed9">libMesh::InfQuad4</a>
+, <a class="el" href="classlibMesh_1_1InfQuad6.html#a90f7c1d422fb5f286fedf4f203dd5909">libMesh::InfQuad6</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#a425ea62847c991952d77b9878024255b">libMesh::MeshBase</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#a9000b556607cbc7130f50ce9db351014">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1Prism15.html#ac9bdffac62a6e6a00a508891f7ec7ebf">libMesh::Prism15</a>
@@ -495,6 +571,9 @@
 : <a class="el" href="classlibMesh_1_1Edge.html#ae2e5ebb67d3ac490299c22c7c4ff3153">libMesh::Edge</a>
 , <a class="el" href="classlibMesh_1_1Elem.html#a27233687bfcc3f1988777fb8e2e514d1">libMesh::Elem</a>
 , <a class="el" href="classlibMesh_1_1Hex.html#afccedec035785c10f6f344f2ee62f7a6">libMesh::Hex</a>
+, <a class="el" href="classlibMesh_1_1InfHex.html#a288f32f84bf10094a01e97e57b5a2fb1">libMesh::InfHex</a>
+, <a class="el" href="classlibMesh_1_1InfPrism.html#a5f6e032958e3bbd4dff286f9526f51bf">libMesh::InfPrism</a>
+, <a class="el" href="classlibMesh_1_1InfQuad.html#ad5677d2087ff5b3f4a23176a30f39300">libMesh::InfQuad</a>
 , <a class="el" href="classlibMesh_1_1NodeElem.html#a3625fd9f019981cd29fa314047368f6b">libMesh::NodeElem</a>
 , <a class="el" href="classlibMesh_1_1Prism.html#a0e866d334a1f861740872968c0fe398b">libMesh::Prism</a>
 , <a class="el" href="classlibMesh_1_1Pyramid.html#a2bfa1c950ecb98211e01a8ef127487c6">libMesh::Pyramid</a>
@@ -507,13 +586,19 @@
 : <a class="el" href="classlibMesh_1_1PltLoader.html#ab9fb82f4250ac7a2d28ac95de765bbe2">libMesh::PltLoader</a>
 </li>
 <li>name
-: <a class="el" href="structGetPot_1_1variable.html#aafb48af9c71fbcd816917ee7ec25bed0">GetPot::variable</a>
+: <a class="el" href="structGETPOT__NAMESPACE_1_1GetPot_1_1variable.html#a54d5b0e6608a2847cd8938785bae0d8d">GETPOT_NAMESPACE::GetPot::variable</a>
 , <a class="el" href="classlibMesh_1_1System.html#af80f6b2e508821ebd9c8fcb78d443f18">libMesh::System</a>
 , <a class="el" href="classlibMesh_1_1Variable.html#a05070dc43e1e774a0c2843fe82d3f02d">libMesh::Variable</a>
 , <a class="el" href="classlibMesh_1_1VariableGroup.html#ab205b4743e9847a19e6abd5699f582fe">libMesh::VariableGroup</a>
 </li>
 <li>NameBasedIO()
-: <a class="el" href="classlibMesh_1_1NameBasedIO.html#a18223951762fcc9b9d0b012b043a010d">libMesh::NameBasedIO</a>
+: <a class="el" href="classlibMesh_1_1NameBasedIO.html#a1af89bfda32dff5fa34950dcbeaebd32">libMesh::NameBasedIO</a>
+</li>
+<li>NamesData()
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#aee0134ec0262335ba9e5afd808b14c61">libMesh::ExodusII_IO_Helper::NamesData</a>
+</li>
+<li>ncon
+: <a class="el" href="classlibMesh_1_1ParmetisHelper.html#afe51a022a02e6b326e593373b9f29c99">libMesh::ParmetisHelper</a>
 </li>
 <li>ncv_magic
 : <a class="el" href="classlibMesh_1_1DofObject.html#a8e14b2b1d10391f52232eb743534e38c">libMesh::DofObject</a>
@@ -532,11 +617,14 @@
 </li>
 <li>need_full_sparsity_pattern
 : <a class="el" href="classlibMesh_1_1DofMap.html#aa8ed6583656addff061ba113f0ca4347">libMesh::DofMap</a>
+, <a class="el" href="classlibMesh_1_1EpetraMatrix.html#a9fb53f9fd0779d58a6a167eb7293b8ba">libMesh::EpetraMatrix&lt; T &gt;</a>
+, <a class="el" href="classlibMesh_1_1LaspackMatrix.html#a76f9ca91962f11153ebf78caecc90e71">libMesh::LaspackMatrix&lt; T &gt;</a>
 , <a class="el" href="classlibMesh_1_1SparseMatrix.html#a0c3741f9333fde25de40eb921fb73f2d">libMesh::SparseMatrix&lt; T &gt;</a>
 , <a class="el" href="classlibMesh_1_1SparsityPattern_1_1Build.html#af61ba6f3d2d45a3cfacb0d32b4bfe428">libMesh::SparsityPattern::Build</a>
 </li>
 <li>neighbor()
 : <a class="el" href="classlibMesh_1_1Elem.html#a06576c749e62f4a5962e112e5441c31b">libMesh::Elem</a>
+, <a class="el" href="classlibMesh_1_1PeriodicBoundaries.html#ada86f81a6af1058f5b5149de5005634d">libMesh::PeriodicBoundaries</a>
 </li>
 <li>neighbor_ptr()
 : <a class="el" href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">libMesh::Elem</a>
@@ -544,8 +632,23 @@
 <li>neighbor_side_fe_reinit()
 : <a class="el" href="classlibMesh_1_1DGFEMContext.html#a9765c952c6920d8bfae6376f91ca9167">libMesh::DGFEMContext</a>
 </li>
+<li>NeighborType
+: <a class="el" href="classlibMesh_1_1MeshRefinement.html#a3b5e2d673faf6f8d4db8b2da3e1f8824">libMesh::MeshRefinement</a>
+</li>
+<li>nelem_target()
+: <a class="el" href="classlibMesh_1_1MeshRefinement.html#a8e38c68d99dd71d4c99756aa67f3d3f5">libMesh::MeshRefinement</a>
+</li>
+<li>nemesis_err_flag
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a8078de0cd66c3b280237f44d600bb3eb">libMesh::Nemesis_IO_Helper</a>
+</li>
 <li>Nemesis_IO()
 : <a class="el" href="classlibMesh_1_1Nemesis__IO.html#a30e6ce1faf841950310d5219e469374c">libMesh::Nemesis_IO</a>
+</li>
+<li>Nemesis_IO_Helper()
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a8b693cdb60fd0aba9769f11aee33bb94">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>nemhelper
+: <a class="el" href="classlibMesh_1_1Nemesis__IO.html#aab1d7a00ee5ab14794da5c29b4092d69">libMesh::Nemesis_IO</a>
 </li>
 <li>new_vector
 : <a class="el" href="classlibMesh_1_1BoundaryProjectSolution.html#a9779d4fbf7b56d53d6612504405fd0ab">libMesh::BoundaryProjectSolution</a>
@@ -575,14 +678,20 @@
 : <a class="el" href="classlibMesh_1_1PltLoader.html#a90bb660d66bf36b2b2c41c841127a88e">libMesh::PltLoader</a>
 </li>
 <li>next()
-: <a class="el" href="classGetPot.html#aeb04d1f09986028142a207b001043fdd">GetPot</a>
+: <a class="el" href="classGETPOT__NAMESPACE_1_1GetPot.html#a745f714b810a1f60556ec8cf369e0563">GETPOT_NAMESPACE::GetPot</a>
 , <a class="el" href="structtoken.html#ab58ee0c791a215865addb101d174b38a">token</a>
 </li>
 <li>next_nominus()
-: <a class="el" href="classGetPot.html#af2e290d253b1c20d9dffb995a5af4d4b">GetPot</a>
+: <a class="el" href="classGETPOT__NAMESPACE_1_1GetPot.html#a49b51d239ecd9093ab5cc9ad5dc17806">GETPOT_NAMESPACE::GetPot</a>
 </li>
 <li>next_nominus_string()
-: <a class="el" href="classGetPot.html#a6fc9f451024b3b77f353eadc4d229820">GetPot</a>
+: <a class="el" href="classGETPOT__NAMESPACE_1_1GetPot.html#a8e94c20b3a3e353af522b335d07942b4">GETPOT_NAMESPACE::GetPot</a>
+</li>
+<li>next_unique_id()
+: <a class="el" href="classlibMesh_1_1MeshBase.html#a0d99b3addf1d156f5db8b2b60c12da66">libMesh::MeshBase</a>
+</li>
+<li>NloptOptimizationSolver()
+: <a class="el" href="classlibMesh_1_1NloptOptimizationSolver.html#ade65d7c414b1802becdbee1a4ceda9e3">libMesh::NloptOptimizationSolver&lt; T &gt;</a>
 </li>
 <li>Nmax
 : <a class="el" href="classlibMesh_1_1RBConstruction.html#ae3409cab15027fcb662298b277ca8d72">libMesh::RBConstruction</a>
@@ -593,20 +702,51 @@
 <li>NNodes
 : <a class="el" href="classlibMesh_1_1PltLoader.html#a588d5b552d86c48761f4128b1d96cac0">libMesh::PltLoader</a>
 </li>
+<li>NODAL
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#aac41a93fd41f8e62813a8b3a37be19eda19f53c9a214d5827d2e2985562ea42d2">libMesh::ExodusII_IO_Helper</a>
+</li>
 <li>nodal_soln()
 : <a class="el" href="classlibMesh_1_1FE.html#ab6557d7f8fe9fcdd989b5b78f0f97e6b">libMesh::FE&lt; Dim, T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEInterface.html#ade4880e1fdaae814a22e1e1e5aece846">libMesh::FEInterface</a>
+, <a class="el" href="classlibMesh_1_1InfFE.html#af60a6f7d080591594db6e2736f55bcb7">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;</a>
+</li>
+<li>nodal_var_names
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a1ee8ea05ec89e89547c83f8005578ed1">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>nodal_var_values
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a0e41e15161c7a8dbf23a84cd792fa4af">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>node()
 : <a class="el" href="classlibMesh_1_1Elem.html#a7cffa0aae912cc004972c9ea34a22ad4">libMesh::Elem</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#a62ae30b0d7918239b4a15afa238bd8e9">libMesh::MeshBase</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#a4d050fbd2d75e50f49cc6a380812960d">libMesh::MeshBase</a>
 </li>
 <li>Node()
-: <a class="el" href="classlibMesh_1_1Node.html#a5e26a1d5679536ea0c5a92e98b7ff035">libMesh::Node</a>
+: <a class="el" href="classlibMesh_1_1Node.html#a44aba24bbb9c02c29de48057fb7c3ae1">libMesh::Node</a>
 , <a class="el" href="classlibMesh_1_1Point.html#a6db9d28bd448a131448276ee03de1e6d">libMesh::Point</a>
+</li>
+<li>NODE
+: <a class="el" href="classlibMesh_1_1VariationalMeshSmoother.html#aff4d1cfdc4bfaef5c1aad5ba765e2f51a08c3c572a598174eeb7332792e5561dd">libMesh::VariationalMeshSmoother</a>
 </li>
 <li>node_attributes
 : <a class="el" href="classlibMesh_1_1TetGenIO.html#a15f4b1ecb1e3dcd82bc7d4b67ede62c1">libMesh::TetGenIO</a>
+</li>
+<li>node_cmap_ids
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a921bd9e930cf7690d1f23590c893fb8b">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_cmap_node_cnts
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a901623ac3547b56de3fa23d50bff9109">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_cmap_node_ids
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#aec19670af4e2f47b1cc87a8dd4a4237c">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_cmap_proc_ids
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#aac75518dad6476eb415b0c445a457f8b">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_constraint_rows_begin()
+: <a class="el" href="classlibMesh_1_1DofMap.html#a5ad33eaeee9257b3935f06f602cdffd6">libMesh::DofMap</a>
+</li>
+<li>node_constraint_rows_end()
+: <a class="el" href="classlibMesh_1_1DofMap.html#a7733ca0e62963ab432b59141869d212f">libMesh::DofMap</a>
 </li>
 <li>node_data_begin()
 : <a class="el" href="classlibMesh_1_1MeshData.html#abca36322b1804f54cd4008ec810ff577">libMesh::MeshData</a>
@@ -630,16 +770,40 @@
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a9b27f9fb5cc23630891c176642c715bc">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a115e6a6e461b0e150da172f3604036df">libMesh::ReplicatedMesh</a>
 </li>
+<li>node_level_mismatch_limit()
+: <a class="el" href="classlibMesh_1_1MeshRefinement.html#a7c7508c29a7083069c0c4d325c3bb27a">libMesh::MeshRefinement</a>
+</li>
+<li>node_list
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a74e1c63a8f69ef3d248e0b2f500e8c0e">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>node_map
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper_1_1Conversion.html#a2c88b81b53da313b4800d0d2fae70a4b">libMesh::ExodusII_IO_Helper::Conversion</a>
+</li>
+<li>node_map_size
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper_1_1Conversion.html#abe24b78734a8f15d84e4bf63e0f3ee80">libMesh::ExodusII_IO_Helper::Conversion</a>
+</li>
+<li>node_mapb
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a8bf17e199cbffdcd89250476aec05084">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_mape
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a8adf1fe9838d266d02a589b715504e84">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_mapi
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#ad3c20099029b60abb4ba76b8b2e4b2ec">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>node_num_map
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a6e11f33dc102e99b12ed8ea9ac677231">libMesh::ExodusII_IO_Helper</a>
+</li>
 <li>node_ptr()
-: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a37fc81872d70e509db971ce43a7f433b">libMesh::DistributedMesh</a>
+: <a class="el" href="classlibMesh_1_1DistributedMesh.html#afa1d02ec1d8de6926e9ea01fb2649795">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1DofMap.html#a8f4c45c1d3d4de70b46e63063153c12a">libMesh::DofMap</a>
-, <a class="el" href="classlibMesh_1_1Elem.html#afd90b1b4d47a97fea674e8cb1868d72f">libMesh::Elem</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#a0e839f7b28c6252cfed51a862584ffbc">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#aee04577fe81c25bcb8ac1fe40bf4f10f">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1Elem.html#a8af3280d9eb50ef05f43ceea5bcb8cf8">libMesh::Elem</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">libMesh::MeshBase</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#aba03cbec940e7da35465dfb440b65542">libMesh::ReplicatedMesh</a>
 </li>
 <li>node_ref()
 : <a class="el" href="classlibMesh_1_1Elem.html#a5c1a6805f62442caa0dd127eb847c76d">libMesh::Elem</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#ac1b4858e081c7e2e8a5b7e5c4f716a6d">libMesh::MeshBase</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#af6e7cea860ccee9625012f9fcb0ae13b">libMesh::MeshBase</a>
 </li>
 <li>node_to_foreign_id()
 : <a class="el" href="classlibMesh_1_1MeshData.html#a61177caeb0fb845281a61e8f52a0bb5f">libMesh::MeshData</a>
@@ -647,19 +811,25 @@
 <li>NodeElem()
 : <a class="el" href="classlibMesh_1_1NodeElem.html#af17f870e7c5c9ccc029a8366b71f7d12">libMesh::NodeElem</a>
 </li>
+<li>nodeelem_node_map
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper_1_1ElementMaps.html#a9dd30d39b84d259757e100e938fdc09e">libMesh::ExodusII_IO_Helper::ElementMaps</a>
+</li>
 <li>nodes
 : <a class="el" href="structlibMesh_1_1GmshIO_1_1ElementDefinition.html#a627c2ec63f48df42aab12aa293ac9ab5">libMesh::GmshIO::ElementDefinition</a>
 , <a class="el" href="classlibMesh_1_1TreeNode.html#a9539ed3aa616ce9c17a350b88c45d681">libMesh::TreeNode&lt; N &gt;</a>
 </li>
+<li>nodes_attached_to_local_elems
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a6128ff23954012d976e56f0d258b31d8">libMesh::Nemesis_IO_Helper</a>
+</li>
 <li>nodes_begin()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a44a4429ce342529d2dd0eb410e4d6bf3">libMesh::DistributedMesh</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#a34db3245288c522b621e45f5a9979a2a">libMesh::MeshBase</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#a3ab1d28a6ea1e8028ce0c06e11cfb68d">libMesh::MeshBase</a>
 , <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a1438aa870f1a0ca6b1f430665f03c892">libMesh::ReplicatedMesh</a>
 </li>
 <li>nodes_end()
-: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a4a2b4a1639e74b18afe3655a499e18be">libMesh::DistributedMesh</a>
+: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a2c1c34ea80a707d5e1964ae215ec281d">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#a4254f85af0f8b1c5c1062866f385ea5b">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#abf70265c74fd5dde39f98490a01cd066">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a593ed4a1876200b4361904bdf3a6a5fd">libMesh::ReplicatedMesh</a>
 </li>
 <li>nodes_in()
 : <a class="el" href="classlibMesh_1_1UNVIO.html#aa3ae2cfc4d6c7aa1390c3e52ce2e2dbb">libMesh::UNVIO</a>
@@ -667,17 +837,23 @@
 <li>nodes_out()
 : <a class="el" href="classlibMesh_1_1UNVIO.html#a7543157bae41a96d6ed43b0ec7883d4b">libMesh::UNVIO</a>
 </li>
+<li>nodes_to_vtk()
+: <a class="el" href="classlibMesh_1_1VTKIO.html#a2774419418c60038560c30a66ea915f0">libMesh::VTKIO</a>
+</li>
+<li>nodeset_ids
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#acc3c2cf0e56ebc7d49fcc0ee378cec21">libMesh::ExodusII_IO_Helper</a>
+</li>
 <li>nodeset_name()
 : <a class="el" href="classlibMesh_1_1BoundaryInfo.html#a5f714fdaa53960635264ac4cc6b907d6">libMesh::BoundaryInfo</a>
 </li>
 <li>nominus_cursor
-: <a class="el" href="classGetPot.html#a1a9c5bf4bc324f13459a9ca99fdc72eb">GetPot</a>
+: <a class="el" href="classGETPOT__NAMESPACE_1_1GetPot.html#a25783e065a0a091eb5d30b38ad27f733">GETPOT_NAMESPACE::GetPot</a>
 </li>
 <li>nominus_size()
-: <a class="el" href="classGetPot.html#ab696e5463b8a7e1e5cbab563e406db60">GetPot</a>
+: <a class="el" href="classGETPOT__NAMESPACE_1_1GetPot.html#adaf85ee75c5527b5f53e66540362b939">GETPOT_NAMESPACE::GetPot</a>
 </li>
 <li>nominus_vector()
-: <a class="el" href="classGetPot.html#a2bb3ce06e8d8d1875722480254e8fc56">GetPot</a>
+: <a class="el" href="classGETPOT__NAMESPACE_1_1GetPot.html#a111e1cf40160c0226d2f16817994b547">GETPOT_NAMESPACE::GetPot</a>
 </li>
 <li>non_dirichlet_Aq_vector
 : <a class="el" href="classlibMesh_1_1RBConstruction.html#a4a25dfdffb1c70877dd88fa274ddd6cb">libMesh::RBConstruction</a>
@@ -706,6 +882,7 @@
 <li>NONE
 : <a class="el" href="classlibMesh_1_1DenseMatrix.html#af13624c3650ea77e588478fb683bf8d9ade1cc985e6ce6f751e958231d7f3ed3e">libMesh::DenseMatrix&lt; T &gt;</a>
 , <a class="el" href="classlibMesh_1_1FEMContext.html#a7b287771b068456ffd28d46868346f78a6e0566eaf28160a20a0fab3c15fd82d0">libMesh::FEMContext</a>
+, <a class="el" href="classlibMesh_1_1VariationalMeshSmoother.html#aff4d1cfdc4bfaef5c1aad5ba765e2f51a21ac017001fa7f03e2faa2d21d74c817">libMesh::VariationalMeshSmoother</a>
 </li>
 <li>nonlinear_solver
 : <a class="el" href="classlibMesh_1_1NonlinearImplicitSystem.html#adad07b1b0a169c59635b16bbee5ddc07">libMesh::NonlinearImplicitSystem</a>
@@ -734,6 +911,7 @@
 </li>
 <li>nonlocal_residual()
 : <a class="el" href="classlibMesh_1_1AdaptiveTimeSolver.html#acabec2e94de9cd1f256561f23f284f29">libMesh::AdaptiveTimeSolver</a>
+, <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#abd0a3e813119f66f22aba02823351fed">libMesh::EigenTimeSolver</a>
 , <a class="el" href="classlibMesh_1_1Euler2Solver.html#ae54e681f52a77aad2d817ff300f7ddda">libMesh::Euler2Solver</a>
 , <a class="el" href="classlibMesh_1_1EulerSolver.html#afb4ff64fb8631017a141354b2447d6f5">libMesh::EulerSolver</a>
 , <a class="el" href="classlibMesh_1_1NewmarkSolver.html#a00c4805ed542ae68e6259331be6cc3eb">libMesh::NewmarkSolver</a>
@@ -742,6 +920,15 @@
 </li>
 <li>nonlocal_time_derivative()
 : <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#abbe254dbb92afb6b42d83315e3b50b93">libMesh::DifferentiablePhysics</a>
+</li>
+<li>nonlocalCoefs_
+: <a class="el" href="classlibMesh_1_1EpetraVector.html#aa1e7328f1102266e20469f1fb8701d33">libMesh::EpetraVector&lt; T &gt;</a>
+</li>
+<li>nonlocalElementSize_
+: <a class="el" href="classlibMesh_1_1EpetraVector.html#ab608be0ceb08eee90124f50a7375fa01">libMesh::EpetraVector&lt; T &gt;</a>
+</li>
+<li>nonlocalIDs_
+: <a class="el" href="classlibMesh_1_1EpetraVector.html#a511d2648aecb01cf1c0afe44a5faf5e2">libMesh::EpetraVector&lt; T &gt;</a>
 </li>
 <li>nonzero_initialization
 : <a class="el" href="classlibMesh_1_1TransientRBConstruction.html#a9e1d749826721f7c458f9ee317a7a847">libMesh::TransientRBConstruction</a>
@@ -767,13 +954,16 @@
 <li>normals
 : <a class="el" href="classlibMesh_1_1FEMap.html#ada9dd3963293be08bf4cfafae803df69">libMesh::FEMap</a>
 </li>
+<li>NormInf()
+: <a class="el" href="classlibMesh_1_1TrilinosPreconditioner.html#a9ca8271f617a8b386d9b12503aa939d9">libMesh::TrilinosPreconditioner&lt; T &gt;</a>
+</li>
 <li>NoSolutionHistory()
 : <a class="el" href="classlibMesh_1_1NoSolutionHistory.html#a52212357493e74223a89a2a50d249f2c">libMesh::NoSolutionHistory</a>
 </li>
 <li>not_active_elements_begin()
-: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a848c2ba76134ff50f69af38b07b22722">libMesh::DistributedMesh</a>
+: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a1b4f06ccb31ea6891388fdcac16811d1">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#a7aa987b4cfe3b168aafa356582825a53">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a51c994800077033258e89bf7ffc382a5">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a1ee9c7c533c8e4d677ad5eb3d5bc3517">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_active_elements_end()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#af6bea3f3bd0de6384eae578bb31fc627">libMesh::DistributedMesh</a>
@@ -788,49 +978,52 @@
 <li>not_ancestor_elements_end()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a5338c9b8fd69720ecd8a19d1cc59f954">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#aa3c9b268c6ed79b4002539a586650b17">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a01881d817f835e57a0cfb27f2e3ef928">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a51842a5c4d756330dc6c748808ccfdae">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_level()
 : <a class="el" href="structlibMesh_1_1Predicates_1_1not__level.html#a260a59d36414cbac5e0f4e5120790190">libMesh::Predicates::not_level&lt; T &gt;</a>
 </li>
 <li>not_level_elements_begin()
-: <a class="el" href="classlibMesh_1_1DistributedMesh.html#ad3e1341860f4a44e3f8ffb23346f5576">libMesh::DistributedMesh</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#ae8feed69f226f347ed4dce4f09a87e30">libMesh::MeshBase</a>
+: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a5f7e58b1330c014e734fba1590681087">libMesh::DistributedMesh</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#a4496b75e94646730fd4f1478a66b2d01">libMesh::MeshBase</a>
 , <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a21407d4393c4fe836bec37fae7d919c5">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_level_elements_end()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a093f7a873bb81e59446b9f0edcea8e0a">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#ad896a3dc43f0919ee91a08a5f04b07ff">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a3331bffa8404ecf15a6fd67b03470ec7">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#ab4d641e3e5455c5e1bd77c82ce253cca">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_local_elements_begin()
-: <a class="el" href="classlibMesh_1_1DistributedMesh.html#af489ac19485f3c65006e50ea538e9a4a">libMesh::DistributedMesh</a>
+: <a class="el" href="classlibMesh_1_1DistributedMesh.html#a5e7c58335b7de936ae2cd49de4800766">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#a151e26d7ee601e24a57f4f18a1ddec2e">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a391391463f489649860de41f335f6d10">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a9e951dad3ea4d4539feb4ff900ea80d5">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_local_elements_end()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a34dbe20ce00c1ac1d302370ac2599880">libMesh::DistributedMesh</a>
 , <a class="el" href="classlibMesh_1_1MeshBase.html#af3c0f46e85758a5cdbcdba85b928e7ef">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a33e8d6e64d02e1d17665a3af4477a774">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a35ba38194ccaf5199776b27b44e8f075">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_pid()
 : <a class="el" href="structlibMesh_1_1Predicates_1_1not__pid.html#a821c3f920f9a0d365aa8a87d92df2815">libMesh::Predicates::not_pid&lt; T &gt;</a>
 </li>
 <li>not_subactive_elements_begin()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#ae43193dff9a6719403aa8355cbac66f0">libMesh::DistributedMesh</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#a7f76a6aea2cf8334b71fbb52b45f3dc0">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a86caf3edcdb61a8beb7b80a93192696a">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#a4ced52e75c2d2aba8fb0239ab0731691">libMesh::MeshBase</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a68236922c1e0f72888907cf6e0c131ac">libMesh::ReplicatedMesh</a>
 </li>
 <li>not_subactive_elements_end()
 : <a class="el" href="classlibMesh_1_1DistributedMesh.html#a3e4d031e96d8b798031181871387b0db">libMesh::DistributedMesh</a>
-, <a class="el" href="classlibMesh_1_1MeshBase.html#a5be7ae8e9f2ea0e3637f88114a50c45e">libMesh::MeshBase</a>
-, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a8e362cb088d00648cf28fb2fe700d2bd">libMesh::ReplicatedMesh</a>
+, <a class="el" href="classlibMesh_1_1MeshBase.html#a18afc9a42c573e2f2599ce36a308d4ab">libMesh::MeshBase</a>
+, <a class="el" href="classlibMesh_1_1ReplicatedMesh.html#a6d6857476cdbcf6ad3e9d5a3f4b3f8a3">libMesh::ReplicatedMesh</a>
 </li>
 <li>NotActive()
 : <a class="el" href="structlibMesh_1_1Predicates_1_1NotActive.html#aed4b1bf780ab8c1abd2b354c7ae56d68">libMesh::Predicates::NotActive&lt; T &gt;</a>
 </li>
 <li>NotAncestor()
 : <a class="el" href="structlibMesh_1_1Predicates_1_1NotAncestor.html#aab10f13285069a2c17937dc5bcb222b2">libMesh::Predicates::NotAncestor&lt; T &gt;</a>
+</li>
+<li>NotImplemented()
+: <a class="el" href="classlibMesh_1_1NotImplemented.html#a33bf5733f57b7d97282a989aa0a8e52b">libMesh::NotImplemented</a>
 </li>
 <li>NotLevel()
 : <a class="el" href="structlibMesh_1_1Predicates_1_1NotLevel.html#a08a272d22fd1a742021b574b007fa0df">libMesh::Predicates::NotLevel&lt; T &gt;</a>
@@ -847,6 +1040,18 @@
 <li>NotSubActive()
 : <a class="el" href="structlibMesh_1_1Predicates_1_1NotSubActive.html#a22220f82eb7af0687607b68badad40a1">libMesh::Predicates::NotSubActive&lt; T &gt;</a>
 </li>
+<li>now_assembling
+: <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#a482d3812eeeef09fe2b2699cb4b25787">libMesh::EigenTimeSolver</a>
+</li>
+<li>NowAssembling
+: <a class="el" href="classlibMesh_1_1EigenTimeSolver.html#a7ab6c5d69320a815c67e2a9eabd2add5">libMesh::EigenTimeSolver</a>
+</li>
+<li>NoxNonlinearSolver()
+: <a class="el" href="classlibMesh_1_1NoxNonlinearSolver.html#ac2cf4acf71c1be25c1c74a6dc0261402">libMesh::NoxNonlinearSolver&lt; T &gt;</a>
+</li>
+<li>nparts
+: <a class="el" href="classlibMesh_1_1ParmetisHelper.html#ac91ec0c06f0cb501c69c2f61d4741e5e">libMesh::ParmetisHelper</a>
+</li>
 <li>nset_var_tab
 : <a class="el" href="structex__var__params.html#a5dab33ceb49b298a05c64eeca61d7e4f">ex_var_params</a>
 </li>
@@ -858,6 +1063,9 @@
 </li>
 <li>nullspace_object
 : <a class="el" href="classlibMesh_1_1NonlinearSolver.html#a6cb0d5e4a7ff7e76f1ea3757d4f627f8">libMesh::NonlinearSolver&lt; T &gt;</a>
+</li>
+<li>num_attr
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#ad8f3b6956e73626540249882fb72b850">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>num_attr_edge
 : <a class="el" href="structex__block__params.html#a92c4cac5ccafda3d2d8f28bb7886de57">ex_block_params</a>
@@ -871,8 +1079,18 @@
 <li>num_attribute
 : <a class="el" href="structex__block.html#a246f71ae43b6502a1db60c5d081afa9d">ex_block</a>
 </li>
+<li>num_border_elems
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a06c94a0e522731c5c7d9aca265a1039d">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_border_nodes
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a438b6bc4e1c65aa7c46d880d2e9be65d">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_df_per_set
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a211df8d73a9b57399c61bdd1d778a26d">libMesh::ExodusII_IO_Helper</a>
+</li>
 <li>num_dim
 : <a class="el" href="structex__init__params.html#aab62ab1d8e6bd13f2db73bad2bcf82a2">ex_init_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a61acb9bb4d7ec8cf215bce77b582395e">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>num_dist_per_set
 : <a class="el" href="structex__set__specs.html#a26af7c745c163cc3e2e857255b3c5b11">ex_set_specs</a>
@@ -905,9 +1123,20 @@
 <li>num_elem
 : <a class="el" href="structex__init__params.html#ab67174ec5844bc969f21d2e91800b004">ex_init_params</a>
 , <a class="el" href="structex__var__params.html#a0072104cfdc1548c3747d219ae27a2a0">ex_var_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#af4bc089ec99edd6e62d67ed75a7d1a2a">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_elem_all_sidesets
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#ad7a95eb47d7c603f7f1f8d9232ccbb6a">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>num_elem_blk
 : <a class="el" href="structex__init__params.html#abc05bf41f384e6782b538b8aeb45a6d0">ex_init_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a752ec22fd9eca2dfd0b20461a6544fbc">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_elem_blks_global
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a805da8a5dc52de083338209cd399b704">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_elem_cmaps
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#ad47d0d6538010bd2c2aa358f7e518332">libMesh::Nemesis_IO_Helper</a>
 </li>
 <li>num_elem_maps
 : <a class="el" href="structex__init__params.html#aec78bf2e102cef6d90b955bfa1c29ba4">ex_init_params</a>
@@ -917,6 +1146,13 @@
 </li>
 <li>num_elem_this_blk
 : <a class="el" href="structex__block__params.html#abd4da0151d65c1569d84d7a4da587168">ex_block_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a60798106904a2036379dd4988e6ceaeb">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_elem_vars
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#ad233519540956178d2b1a4c5f41a35e0">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_elems_global
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a428c62b9b28577fb377d085b6cf3fbf3">libMesh::Nemesis_IO_Helper</a>
 </li>
 <li>num_elset
 : <a class="el" href="structex__var__params.html#a406eb2f1036d2e8bfb63fe2b3fa3ac50">ex_var_params</a>
@@ -930,6 +1166,9 @@
 </li>
 <li>num_eset
 : <a class="el" href="structex__var__params.html#aad235b7984a6acf27b547ce8e5cd78f1">ex_var_params</a>
+</li>
+<li>num_external_nodes
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a1c1bb85f02b8c95ef66cb7dc40330247">libMesh::Nemesis_IO_Helper</a>
 </li>
 <li>num_face
 : <a class="el" href="structex__init__params.html#a26e595cbac430872ce25b93fe0dff0d0">ex_init_params</a>
@@ -959,23 +1198,65 @@
 <li>num_glob
 : <a class="el" href="structex__var__params.html#ac9721a554e1456df9eaab75df0036796">ex_var_params</a>
 </li>
+<li>num_global_node_counts
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#ac3c8e99b92a3306e23b3c3ca4a433093">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_global_node_df_counts
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#aaaff44c34077b5c5e9fba35b5bcd6d5f">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_global_side_counts
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a7f5a5ba3ea3dc237cd0cb9a05dc1aef3">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_global_side_df_counts
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a76719fca83e9a986ee145599e3f5004b">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_global_vars
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#ace471411dd0c60724ca199ba1f80e6ad">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_internal_elems
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a319f0d1cac4b358ee634b888e6226927">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_internal_nodes
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a2c0c2908a3ed6a6f2efc3142db699d2b">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_local_nodes
+: <a class="el" href="classlibMesh_1_1DTKAdapter.html#af6db3d8d8e4e86d2e7931aba5bc934e5">libMesh::DTKAdapter</a>
+</li>
+<li>num_nodal_vars
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a778e11c94ca5764c5c408fef4a0b37bc">libMesh::ExodusII_IO_Helper</a>
+</li>
 <li>num_node
 : <a class="el" href="structex__var__params.html#a37eea396715752230866165fc3bd4518">ex_var_params</a>
+</li>
+<li>num_node_cmaps
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a599b22b7b3f80c3135f207a970b73ef6">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_node_df_per_set
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#aec30d2229aa8b7cde4163054b86cda2c">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>num_node_maps
 : <a class="el" href="structex__init__params.html#acc0db11d163afdc61fd8839664267803">ex_init_params</a>
 </li>
 <li>num_node_sets
 : <a class="el" href="structex__init__params.html#a1c5259554b298ab358f33ce5e7db1e78">ex_init_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a729156bcdd57603a31fb4b62ffbd37a5">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_node_sets_global
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#afc538b97549c6327366f45cb90b95fb3">libMesh::Nemesis_IO_Helper</a>
 </li>
 <li>num_nodes
 : <a class="el" href="structex__init__params.html#a413ddc90c850aca237fada9d9779dee3">ex_init_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a847ee7e0854676701e1b5205bb6ed743">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_nodes_global
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a98e66232b1d1a7af9aeb35a68e0ce7ef">libMesh::Nemesis_IO_Helper</a>
 </li>
 <li>num_nodes_per_edge
 : <a class="el" href="structex__block__params.html#a3e855370684a468786d86fe9e5234217">ex_block_params</a>
 </li>
 <li>num_nodes_per_elem
 : <a class="el" href="structex__block__params.html#aae9bf445a227d3a064d464ee3577e866">ex_block_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a850769b9bbd31c3825aeb967e076ba05">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>num_nodes_per_entry
 : <a class="el" href="structex__block.html#a16eaf07c0b9ee1ea671863e3b41092c6">ex_block</a>
@@ -983,19 +1264,46 @@
 <li>num_nodes_per_face
 : <a class="el" href="structex__block__params.html#a9a0c37d94e671eaf08a963f295e4f9ef">ex_block_params</a>
 </li>
+<li>num_nodes_per_set
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a4dbc53fc232766876c94fe90a67b57b0">libMesh::ExodusII_IO_Helper</a>
+</li>
 <li>num_nset
 : <a class="el" href="structex__var__params.html#ad883c3981acaa54b7c53e0552656cc7d">ex_var_params</a>
 </li>
+<li>num_proc
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#aedbf0f2fd37e3268ab66ba1b446d0388">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_proc_in_file
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#a49acded6135ff46cf2d0ba9a41350ae5">libMesh::Nemesis_IO_Helper</a>
+</li>
 <li>num_side_sets
 : <a class="el" href="structex__init__params.html#ae68164ff5be4928efb25f0a4173022b9">ex_init_params</a>
+, <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#abf7689bb0e540d2ed83d85e6f321c3c8">libMesh::ExodusII_IO_Helper</a>
+</li>
+<li>num_side_sets_global
+: <a class="el" href="classlibMesh_1_1Nemesis__IO__Helper.html#ad1cff73aa4746d8ca6b7cd578edddbd6">libMesh::Nemesis_IO_Helper</a>
+</li>
+<li>num_sides_per_set
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#aa1b6ac3ca42a05e4f577c8dc24faf68c">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>num_sset
 : <a class="el" href="structex__var__params.html#aefe319b017db1ae1a32f37b89edfd871">ex_var_params</a>
+</li>
+<li>num_time_steps
+: <a class="el" href="classlibMesh_1_1ExodusII__IO__Helper.html#a02727aa1e0f71bcc9e20dbae243c3b9d">libMesh::ExodusII_IO_Helper</a>
 </li>
 <li>number()
 : <a class="el" href="classlibMesh_1_1System.html#aee5caacb487b070842733f1c84b9a2fd">libMesh::System</a>
 , <a class="el" href="classlibMesh_1_1Variable.html#a5598a098153a64e0a62b49fbdd879c32">libMesh::Variable</a>
 , <a class="el" href="classlibMesh_1_1VariableGroup.html#a68eec9adc95632a79310f2f1c75e9cd7">libMesh::VariableGroup</a>
+</li>
+<li>number_h_refinements
+: <a class="el" href="classlibMesh_1_1AdjointRefinementEstimator.html#a4437c7888b7459952e06a9157bf61ffe">libMesh::AdjointRefinementEstimator</a>
+, <a class="el" href="classlibMesh_1_1UniformRefinementEstimator.html#a56a3616889bb1dd45d39bfea2bc90e71">libMesh::UniformRefinementEstimator</a>
+</li>
+<li>number_p_refinements
+: <a class="el" href="classlibMesh_1_1AdjointRefinementEstimator.html#abff7ac97985f693cd3cc7a8311a24558">libMesh::AdjointRefinementEstimator</a>
+, <a class="el" href="classlibMesh_1_1UniformRefinementEstimator.html#aacb05f92e83591d82273cf51df20c9a1">libMesh::UniformRefinementEstimator</a>
 </li>
 <li>numerical_elem_jacobian()
 : <a class="el" href="classlibMesh_1_1FEMSystem.html#a315de41d5b7826c38d6a653f6700837b">libMesh::FEMSystem</a>
@@ -1016,7 +1324,13 @@
 : <a class="el" href="classlibMesh_1_1FEMSystem.html#a33da347e7276cc3d789c566654a5e27c">libMesh::FEMSystem</a>
 </li>
 <li>NumericVector()
-: <a class="el" href="classlibMesh_1_1NumericVector.html#ac0f0389a01c94944f6a72a853a5254e6">libMesh::NumericVector&lt; T &gt;</a>
+: <a class="el" href="classlibMesh_1_1NumericVector.html#af22a27abb07b68f67baecd9a5ba74fa1">libMesh::NumericVector&lt; T &gt;</a>
+</li>
+<li>numflag
+: <a class="el" href="classlibMesh_1_1ParmetisHelper.html#a1ffab99c25075d0f12b24065be4fd492">libMesh::ParmetisHelper</a>
+</li>
+<li>numNonlocalIDs_
+: <a class="el" href="classlibMesh_1_1EpetraVector.html#a7d2aa132f0948b0ab9e27eaca79e9da3">libMesh::EpetraVector&lt; T &gt;</a>
 </li>
 <li>nvaldc
 : <a class="el" href="classlibMesh_1_1MeshDataUnvHeader.html#a0eb1ff0f56c66e0f951169537fe07ec6">libMesh::MeshDataUnvHeader</a>

@@ -130,7 +130,7 @@
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// for implementation of specific element types.</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGauss.html#aae03c6302651a828b86abe89ea85b32c">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGauss.html#aae03c6302651a828b86abe89ea85b32c">QGauss::keast_rule</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> rule_data[][4],</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGauss.html#aae03c6302651a828b86abe89ea85b32c">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGauss.html#aae03c6302651a828b86abe89ea85b32c">QGauss::keast_rule</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> rule_data[][4],</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_pts)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// Like the Dunavant rule, the input data should have 4 columns.  These columns</span></div>
@@ -149,10 +149,10 @@
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="comment">// There must always be a non-zero entry to start the row</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a> (rule_data[p][0], static_cast&lt;Real&gt;(0.0));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      libmesh_assert_not_equal_to (rule_data[p][0], static_cast&lt;Real&gt;(0.0));</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="comment">// A zero weight may imply you did not set up the raw data correctly</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <a class="code" href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a> (rule_data[p][3], static_cast&lt;Real&gt;(0.0));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      libmesh_assert_not_equal_to (rule_data[p][3], static_cast&lt;Real&gt;(0.0));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="comment">// What kind of point is this?</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="comment">// One non-zero entry in first 3 cols   ? 1-perm (centroid) point = 1</span></div>
@@ -180,9 +180,9 @@
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment">// Be sure we have enough space to insert this point</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 0, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            libmesh_assert_less (offset + 0, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> a = rule_data[p][0];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> a = rule_data[p][0];</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="comment">// The point has only a single permutation (the centroid!)</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset  + 0] = <a class="code" href="classlibMesh_1_1Point.html">Point</a>(a,a,a);</div>
@@ -197,11 +197,11 @@
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">case</span> 4:</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;          {</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="comment">// Be sure we have enough space to insert these points</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 3, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            libmesh_assert_less (offset + 3, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> a  = rule_data[p][0];</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> b  = rule_data[p][1];</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> wt = rule_data[p][3];</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> a  = rule_data[p][0];</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> b  = rule_data[p][1];</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> wt = rule_data[p][3];</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="comment">// Here it&#39;s understood the second entry is to be used twice, and</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="comment">// thus there are three possible permutations.</span></div>
@@ -220,11 +220,11 @@
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">case</span> 6:</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;          {</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="comment">// Be sure we have enough space to insert these points</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 5, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            libmesh_assert_less (offset + 5, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> a  = rule_data[p][0];</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> b  = rule_data[p][2];</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> wt = rule_data[p][3];</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> a  = rule_data[p][0];</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> b  = rule_data[p][2];</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> wt = rule_data[p][3];</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="comment">// Three individual entries with six permutations.</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset + 0] = <a class="code" href="classlibMesh_1_1Point.html">Point</a>(a,a,b);</div>
@@ -245,12 +245,12 @@
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">case</span> 12:</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          {</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="comment">// Be sure we have enough space to insert these points</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 11, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            libmesh_assert_less (offset + 11, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> a  = rule_data[p][0];</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> b  = rule_data[p][1];</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> c  = rule_data[p][2];</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> wt = rule_data[p][3];</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> a  = rule_data[p][0];</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> b  = rule_data[p][1];</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> c  = rule_data[p][2];</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> wt = rule_data[p][3];</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="comment">// Three individual entries with six permutations.</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset + 0] = <a class="code" href="classlibMesh_1_1Point.html">Point</a>(a,a,b);  <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset + 6]  = <a class="code" href="classlibMesh_1_1Point.html">Point</a>(a,b,c);</div>
@@ -268,7 +268,7 @@
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Don&#39;t know what to do with this many permutation points!&quot;</span>);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;          <a class="code" href="classlibMesh_1_1QBase.html#aa2aeb79d51c064b456e9ef14e139fe85">libmesh_error_msg</a>(<span class="stringliteral">&quot;Don&#39;t know what to do with this many permutation points!&quot;</span>);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
@@ -282,9 +282,9 @@
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">// II:   3-permutation, (a,a,1-2a)</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">// III:  6-permutation, (a,b,1-a-b)</span></div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">// The weights for a given set of permutations are all the same.</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGauss.html#a7d869c3ac9e372473d0acc76c82b10ca">  185</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGauss.html#a7d869c3ac9e372473d0acc76c82b10ca">QGauss::dunavant_rule2</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> * wts,</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> * a,</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> * b,</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGauss.html#a7d869c3ac9e372473d0acc76c82b10ca">  185</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGauss.html#a7d869c3ac9e372473d0acc76c82b10ca">QGauss::dunavant_rule2</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> * wts,</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> * a,</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                            <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> * b,</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> * permutation_ids,</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_wts)</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;{</div>
@@ -350,14 +350,14 @@
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          }</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unknown permutation id: &quot;</span> &lt;&lt; permutation_ids[p] &lt;&lt; <span class="stringliteral">&quot;!&quot;</span>);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          <a class="code" href="classlibMesh_1_1QBase.html#aa2aeb79d51c064b456e9ef14e139fe85">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unknown permutation id: &quot;</span> &lt;&lt; permutation_ids[p] &lt;&lt; <span class="stringliteral">&quot;!&quot;</span>);</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        }</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;}</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGauss.html#a0ded5d1a09592c2643f71ed00d74ca66">  260</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGauss.html#a0ded5d1a09592c2643f71ed00d74ca66">QGauss::dunavant_rule</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> rule_data[][4],</div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="classlibMesh_1_1QGauss.html#a0ded5d1a09592c2643f71ed00d74ca66">  260</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1QGauss.html#a0ded5d1a09592c2643f71ed00d74ca66">QGauss::dunavant_rule</a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> rule_data[][4],</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_pts)</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="comment">// The input data array has 4 columns.  The first 3 are the permutation points.</span></div>
@@ -374,10 +374,10 @@
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    {</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="comment">// There must always be a non-zero entry to start the row</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <a class="code" href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a> ( rule_data[p][0], static_cast&lt;Real&gt;(0.0) );</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      libmesh_assert_not_equal_to ( rule_data[p][0], static_cast&lt;Real&gt;(0.0) );</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="comment">// A zero weight may imply you did not set up the raw data correctly</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <a class="code" href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a> ( rule_data[p][3], static_cast&lt;Real&gt;(0.0) );</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      libmesh_assert_not_equal_to ( rule_data[p][3], static_cast&lt;Real&gt;(0.0) );</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="comment">// What kind of point is this?</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="comment">// One non-zero entry in first 3 cols   ? 1-perm (centroid) point = 1</span></div>
@@ -398,7 +398,7 @@
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;          {</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="comment">// Be sure we have enough space to insert this point</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 0, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            libmesh_assert_less (offset + 0, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="comment">// The point has only a single permutation (the centroid!)</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset  + 0] = <a class="code" href="classlibMesh_1_1Point.html">Point</a>(rule_data[p][0], rule_data[p][0]);</div>
@@ -413,7 +413,7 @@
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">case</span> 3:</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;          {</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <span class="comment">// Be sure we have enough space to insert these points</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 2, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            libmesh_assert_less (offset + 2, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            <span class="comment">// Here it&#39;s understood the second entry is to be used twice, and</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="comment">// thus there are three possible permutations.</span></div>
@@ -431,7 +431,7 @@
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">case</span> 6:</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;          {</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="comment">// Be sure we have enough space to insert these points</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (offset + 5, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            libmesh_assert_less (offset + 5, <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>.size());</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="comment">// Three individual entries with six permutations.</span></div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            <a class="code" href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">_points</a>[offset + 0] = <a class="code" href="classlibMesh_1_1Point.html">Point</a>(rule_data[p][0], rule_data[p][1]);</div>
@@ -449,22 +449,20 @@
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;          }</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Don&#39;t know what to do with this many permutation points!&quot;</span>);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          <a class="code" href="classlibMesh_1_1QBase.html#aa2aeb79d51c064b456e9ef14e139fe85">libmesh_error_msg</a>(<span class="stringliteral">&quot;Don&#39;t know what to do with this many permutation points!&quot;</span>);</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        }</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;}</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_a8acb308b6fb64455af399b68145d1014"><div class="ttname"><a href="libmesh__common_8h.html#a8acb308b6fb64455af399b68145d1014">libmesh_assert_not_equal_to</a></div><div class="ttdeci">#define libmesh_assert_not_equal_to(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00345">libmesh_common.h:345</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_a1441476b56fadfe883bc33bc4df93143"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">libMesh::QBase::_points</a></div><div class="ttdeci">std::vector&lt; Point &gt; _points</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00339">quadrature.h:339</a></div></div>
-<div class="ttc" id="classlibMesh_1_1QBase_html_aa77bcb5a61b21af01c0ebaca722631d1"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">libMesh::QBase::_weights</a></div><div class="ttdeci">std::vector&lt; Real &gt; _weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00344">quadrature.h:344</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_a1441476b56fadfe883bc33bc4df93143"><div class="ttname"><a href="classlibMesh_1_1QBase.html#a1441476b56fadfe883bc33bc4df93143">libMesh::QBase::_points</a></div><div class="ttdeci">std::vector&lt; Point &gt; _points</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00340">quadrature.h:340</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_aa77bcb5a61b21af01c0ebaca722631d1"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa77bcb5a61b21af01c0ebaca722631d1">libMesh::QBase::_weights</a></div><div class="ttdeci">std::vector&lt; Real &gt; _weights</div><div class="ttdef"><b>Definition:</b> <a href="quadrature_8h_source.html#l00345">quadrature.h:345</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QGauss_html_a7d869c3ac9e372473d0acc76c82b10ca"><div class="ttname"><a href="classlibMesh_1_1QGauss.html#a7d869c3ac9e372473d0acc76c82b10ca">libMesh::QGauss::dunavant_rule2</a></div><div class="ttdeci">void dunavant_rule2(const Real *wts, const Real *a, const Real *b, const unsigned int *permutation_ids, const unsigned int n_wts)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss_8C_source.html#l00185">quadrature_gauss.C:185</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QGauss_html_a0ded5d1a09592c2643f71ed00d74ca66"><div class="ttname"><a href="classlibMesh_1_1QGauss.html#a0ded5d1a09592c2643f71ed00d74ca66">libMesh::QGauss::dunavant_rule</a></div><div class="ttdeci">void dunavant_rule(const Real rule_data[][4], const unsigned int n_pts)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss_8C_source.html#l00260">quadrature_gauss.C:260</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1QBase_html_aa2aeb79d51c064b456e9ef14e139fe85"><div class="ttname"><a href="classlibMesh_1_1QBase.html#aa2aeb79d51c064b456e9ef14e139fe85">libMesh::QBase::libmesh_error_msg</a></div><div class="ttdeci">libmesh_error_msg(&quot;ERROR: Seems as if this quadrature rule \nis not implemented for 2D.&quot;)</div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="classlibMesh_1_1QGauss_html_aae03c6302651a828b86abe89ea85b32c"><div class="ttname"><a href="classlibMesh_1_1QGauss.html#aae03c6302651a828b86abe89ea85b32c">libMesh::QGauss::keast_rule</a></div><div class="ttdeci">void keast_rule(const Real rule_data[][4], const unsigned int n_pts)</div><div class="ttdef"><b>Definition:</b> <a href="quadrature__gauss_8C_source.html#l00033">quadrature_gauss.C:33</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="quadrature__gauss_8h_html"><div class="ttname"><a href="quadrature__gauss_8h.html">quadrature_gauss.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdoc">A geometric point in (x,y,z) space. </div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00040">point.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

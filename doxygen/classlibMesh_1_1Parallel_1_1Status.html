@@ -447,7 +447,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="parallel_8h_source.html#l00450">_status</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l00855">libMesh::Parallel::Request::wait()</a>.</p>
+<p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l02037">libMesh::Parallel::Communicator::packed_range_probe()</a>, <a class="el" href="parallel__implementation_8h_source.html#l02487">libMesh::Parallel::Communicator::receive()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00855">libMesh::Parallel::Request::wait()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;{ <span class="keywordflow">return</span> &amp;<a class="code" href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">_status</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1Status_html_aeeba81cb3921716e64d6b93b790a5bba"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">libMesh::Parallel::Status::_status</a></div><div class="ttdeci">status _status</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00450">parallel.h:450</a></div></div>
 </div><!-- fragment -->
@@ -504,14 +504,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00764">764</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00753">753</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
 
-<p>References <a class="el" href="libmesh__common_8h_source.html#l00387">libmesh_not_implemented</a>.</p>
-<div class="fragment"><div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;{</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;  <a class="code" href="libmesh__common_8h.html#ac15658b3cc7de2b6ee43aada9aa60b16">libmesh_not_implemented</a>();</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;}</div>
-<div class="ttc" id="libmesh__common_8h_html_ac15658b3cc7de2b6ee43aada9aa60b16"><div class="ttname"><a href="libmesh__common_8h.html#ac15658b3cc7de2b6ee43aada9aa60b16">libmesh_not_implemented</a></div><div class="ttdeci">#define libmesh_not_implemented()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00387">libmesh_common.h:387</a></div></div>
+<p>References <a class="el" href="parallel_8h_source.html#l00450">_status</a>.</p>
+
+<p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l02733">libMesh::Parallel::Communicator::nonblocking_receive_packed_range()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l02631">libMesh::Parallel::Communicator::receive()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;{</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;  <span class="keywordtype">int</span> msg_size;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;  libmesh_call_mpi</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    (MPI_Get_count (const_cast&lt;MPI_Status*&gt;(&amp;<a class="code" href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">_status</a>), type,</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;                    &amp;msg_size));</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;  libmesh_assert_greater_equal (msg_size, 0);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;  <span class="keywordflow">return</span> msg_size;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Status_html_aeeba81cb3921716e64d6b93b790a5bba"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">libMesh::Parallel::Status::_status</a></div><div class="ttdeci">status _status</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00450">parallel.h:450</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -570,7 +577,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="parallel_8h_source.html#l00450">_status</a>.</p>
 
-<p>Referenced by <a class="el" href="system__io_8C_source.html#l00784">libMesh::System::read_serialized_blocked_dof_objects()</a>, and <a class="el" href="system__io_8C_source.html#l01807">libMesh::System::write_serialized_blocked_dof_objects()</a>.</p>
+<p>Referenced by <a class="el" href="nemesis__io_8C_source.html#l00135">libMesh::Nemesis_IO::read()</a>, <a class="el" href="system__io_8C_source.html#l00784">libMesh::System::read_serialized_blocked_dof_objects()</a>, <a class="el" href="parallel__implementation_8h_source.html#l02631">libMesh::Parallel::Communicator::receive()</a>, <a class="el" href="parallel__implementation_8h_source.html#l02676">libMesh::Parallel::Communicator::receive_packed_range()</a>, and <a class="el" href="system__io_8C_source.html#l01807">libMesh::System::write_serialized_blocked_dof_objects()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;{</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">_status</a>.MPI_SOURCE;</div>
@@ -605,16 +612,17 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="parallel__implementation_8h_source.html#l00742">742</a> of file <a class="el" href="parallel__implementation_8h_source.html">parallel_implementation.h</a>.</p>
 
-<p>References <a class="el" href="parallel_8h_source.html#l00450">_status</a>, and <a class="el" href="libmesh__common_8h_source.html#l00387">libmesh_not_implemented</a>.</p>
+<p>References <a class="el" href="parallel_8h_source.html#l00450">_status</a>.</p>
+
+<p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l02631">libMesh::Parallel::Communicator::receive()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l02676">libMesh::Parallel::Communicator::receive_packed_range()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;{</div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div>
 <div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">_status</a>.MPI_TAG;</div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;  <a class="code" href="libmesh__common_8h.html#ac15658b3cc7de2b6ee43aada9aa60b16">libmesh_not_implemented</a>();</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;  libmesh_not_implemented();</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;}</div>
-<div class="ttc" id="libmesh__common_8h_html_ac15658b3cc7de2b6ee43aada9aa60b16"><div class="ttname"><a href="libmesh__common_8h.html#ac15658b3cc7de2b6ee43aada9aa60b16">libmesh_not_implemented</a></div><div class="ttdeci">#define libmesh_not_implemented()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00387">libmesh_common.h:387</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Parallel_1_1Status_html_aeeba81cb3921716e64d6b93b790a5bba"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Status.html#aeeba81cb3921716e64d6b93b790a5bba">libMesh::Parallel::Status::_status</a></div><div class="ttdeci">status _status</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00450">parallel.h:450</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -664,7 +672,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="parallel_8h_source.html#l00450">450</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel_8h_source.html#l00432">get()</a>, <a class="el" href="parallel__implementation_8h_source.html#l00733">source()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00742">tag()</a>.</p>
+<p>Referenced by <a class="el" href="parallel_8h_source.html#l00432">get()</a>, <a class="el" href="parallel__implementation_8h_source.html#l00753">size()</a>, <a class="el" href="parallel__implementation_8h_source.html#l00733">source()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00742">tag()</a>.</p>
 
 </div>
 </div>

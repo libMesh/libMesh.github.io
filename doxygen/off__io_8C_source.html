@@ -146,7 +146,7 @@
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">// This is a serial-only process for now;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">// the Mesh should be read on processor 0 and</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">// broadcast later</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (this-&gt;<a class="code" href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">mesh</a>().<a class="code" href="namespacelibMesh.html#a63667b01401e7a85be16d57834b020ed">processor_id</a>(), 0);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  libmesh_assert_equal_to (this-&gt;<a class="code" href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">mesh</a>().<a class="code" href="namespacelibMesh.html#a63667b01401e7a85be16d57834b020ed">processor_id</a>(), 0);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">// Get a reference to the mesh</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp; the_mesh = <a class="code" href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">MeshInput&lt;MeshBase&gt;::mesh</a>();</div>
@@ -155,7 +155,7 @@
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  the_mesh.<a class="code" href="classlibMesh_1_1MeshBase.html#a96d8f46093558e6c54de2743570c778d">clear</a>();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">// Check the input buffer</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (in.good());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (in.good());</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nn, ne, nf;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
@@ -164,18 +164,18 @@
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// Read the first string.  It should say &quot;OFF&quot;</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  in &gt;&gt; label;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (label, <span class="stringliteral">&quot;OFF&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  libmesh_assert_equal_to (label, <span class="stringliteral">&quot;OFF&quot;</span>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// read the number of nodes, faces, and edges</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  in &gt;&gt; nn &gt;&gt; nf &gt;&gt; ne;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> x=0., y=0., z=0.;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>=0., y=0., z=0.;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// Read the nodes</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n=0; n&lt;nn; n++)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (in.good());</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (in.good());</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      in &gt;&gt; x</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;         &gt;&gt; y</div>
@@ -189,19 +189,19 @@
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// Read the elements</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e=0; e&lt;nf; e++)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (in.good());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (in.good());</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="comment">// The number of vertices in the element</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      in &gt;&gt; nv;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(nv == 2 || nv == 3);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(nv == 2 || nv == 3);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keywordflow">if</span> (e == 0)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;          the_mesh.<a class="code" href="classlibMesh_1_1MeshBase.html#a662ea30f731be915240dcf3be097336f">set_mesh_dimension</a>(cast_int&lt;unsigned char&gt;(nv-1));</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;          <span class="keywordflow">if</span> (nv == 3)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#if LIBMESH_DIM &lt; 2</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;              <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot open dimension 2 mesh file when configured without 2D support.&quot;</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;              libmesh_error_msg(<span class="stringliteral">&quot;Cannot open dimension 2 mesh file when configured without 2D support.&quot;</span>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
@@ -218,7 +218,7 @@
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;          <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;          <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unsupported nv = &quot;</span> &lt;&lt; nv);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;          libmesh_error_msg(<span class="stringliteral">&quot;Unsupported nv = &quot;</span> &lt;&lt; nv);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      elem-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#a7efffd05f7f97d503c12c0cbf8fb9862">set_id</a>(e);</div>
@@ -234,26 +234,25 @@
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Tri3_html"><div class="ttname"><a href="classlibMesh_1_1Tri3.html">libMesh::Tri3</a></div><div class="ttdoc">A 2D triangular element with 3 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="face__tri3_8h_source.html#l00055">face_tri3.h:55</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Tri3_html"><div class="ttname"><a href="classlibMesh_1_1Tri3.html">libMesh::Tri3</a></div><div class="ttdoc">A 2D triangular element with 3 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="face__tri3_8h_source.html#l00057">face_tri3.h:57</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html_a0d25454251fb8f3518211ccd9f467b91"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a0d25454251fb8f3518211ccd9f467b91">libMesh::Elem::set_node</a></div><div class="ttdeci">virtual Node *&amp; set_node(const unsigned int i)</div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01719">elem.h:1719</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="mesh__base_8h_html"><div class="ttname"><a href="mesh__base_8h.html">mesh_base.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c"><div class="ttname"><a href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a></div><div class="ttdeci">#define libmesh_assert_equal_to(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00344">libmesh_common.h:344</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
 <div class="ttc" id="face__tri3_8h_html"><div class="ttname"><a href="face__tri3_8h.html">face_tri3.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a9361e2879e37831f80afb43b762d651f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a9361e2879e37831f80afb43b762d651f">libMesh::MeshBase::add_point</a></div><div class="ttdeci">virtual Node * add_point(const Point &amp;p, const dof_id_type id=DofObject::invalid_id, const processor_id_type proc_id=DofObject::invalid_processor_id)=0</div></div>
-<div class="ttc" id="classlibMesh_1_1MeshBase_html"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html">libMesh::MeshBase</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00068">mesh_base.h:68</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html">libMesh::MeshBase</a></div><div class="ttdoc">Base class for Mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00070">mesh_base.h:70</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DofObject_html_a7efffd05f7f97d503c12c0cbf8fb9862"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#a7efffd05f7f97d503c12c0cbf8fb9862">libMesh::DofObject::set_id</a></div><div class="ttdeci">dof_id_type &amp; set_id()</div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00633">dof_object.h:633</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OFFIO_html_a3aaa917177d9c925207f2ff6988029fe"><div class="ttname"><a href="classlibMesh_1_1OFFIO.html#a3aaa917177d9c925207f2ff6988029fe">libMesh::OFFIO::read_stream</a></div><div class="ttdeci">void read_stream(std::istream &amp;in)</div><div class="ttdef"><b>Definition:</b> <a href="off__io_8C_source.html#l00044">off_io.C:44</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a5ab834283fa6bc335ad623d2b737ec5e"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a5ab834283fa6bc335ad623d2b737ec5e">libMesh::MeshBase::add_elem</a></div><div class="ttdeci">virtual Elem * add_elem(Elem *e)=0</div></div>
 <div class="ttc" id="edge__edge2_8h_html"><div class="ttname"><a href="edge__edge2_8h.html">edge_edge2.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1MeshBase_html_a662ea30f731be915240dcf3be097336f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a662ea30f731be915240dcf3be097336f">libMesh::MeshBase::set_mesh_dimension</a></div><div class="ttdeci">void set_mesh_dimension(unsigned char d)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00166">mesh_base.h:166</a></div></div>
+<div class="ttc" id="classlibMesh_1_1MeshBase_html_a662ea30f731be915240dcf3be097336f"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a662ea30f731be915240dcf3be097336f">libMesh::MeshBase::set_mesh_dimension</a></div><div class="ttdeci">void set_mesh_dimension(unsigned char d)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l00168">mesh_base.h:168</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OFFIO_html_afef3df46e0a5acf57b385fc754eff4df"><div class="ttname"><a href="classlibMesh_1_1OFFIO.html#afef3df46e0a5acf57b385fc754eff4df">libMesh::OFFIO::read</a></div><div class="ttdeci">virtual void read(const std::string &amp;name) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="off__io_8C_source.html#l00035">off_io.C:35</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a96d8f46093558e6c54de2743570c778d"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a96d8f46093558e6c54de2743570c778d">libMesh::MeshBase::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00280">mesh_base.C:280</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Edge2_html"><div class="ttname"><a href="classlibMesh_1_1Edge2.html">libMesh::Edge2</a></div><div class="ttdoc">A 1D geometric element with 2 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="edge__edge2_8h_source.html#l00045">edge_edge2.h:45</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Edge2_html"><div class="ttname"><a href="classlibMesh_1_1Edge2.html">libMesh::Edge2</a></div><div class="ttdoc">A 1D geometric element with 2 nodes. </div><div class="ttdef"><b>Definition:</b> <a href="edge__edge2_8h_source.html#l00047">edge_edge2.h:47</a></div></div>
 <div class="ttc" id="off__io_8h_html"><div class="ttname"><a href="off__io_8h.html">off_io.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_abc2fd76e7bf6c200f5e8849dfca9cd03"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#abc2fd76e7bf6c200f5e8849dfca9cd03">libMesh::MeshBase::node_ptr</a></div><div class="ttdeci">virtual const Node * node_ptr(const dof_id_type i) const =0</div></div>
 <div class="ttc" id="classlibMesh_1_1MeshInput_html_ac18df20ac8c6a96bc404d08bae1e481b"><div class="ttname"><a href="classlibMesh_1_1MeshInput.html#ac18df20ac8c6a96bc404d08bae1e481b">libMesh::MeshInput&lt; MeshBase &gt;::mesh</a></div><div class="ttdeci">MeshBase &amp; mesh()</div></div>

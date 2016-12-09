@@ -126,40 +126,39 @@
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Cell.html">Cell</a> : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html#a6db7a1b23dc69c68eaa49b3de53a5c2a">   44</a></span>&#160;  <a class="code" href="classlibMesh_1_1Cell.html#a6db7a1b23dc69c68eaa49b3de53a5c2a">Cell</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nn,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ns,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * p,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> ** elemlinkdata,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classlibMesh_1_1Node.html">Node</a> ** nodelinkdata) :</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> (nn, ns, p, elemlinkdata, nodelinkdata) {}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html#a21406bd5c2cdb737f5710f79a0c088b8">   54</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1Cell.html#a21406bd5c2cdb737f5710f79a0c088b8">dim</a> () const <a class="code" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a> { <span class="keywordflow">return</span> 3; }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> infinite () const <a class="code" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a> { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibMesh_1_1Cell.html">Cell</a> : <span class="keyword">public</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html#a6db7a1b23dc69c68eaa49b3de53a5c2a">   45</a></span>&#160;  <a class="code" href="classlibMesh_1_1Cell.html#a6db7a1b23dc69c68eaa49b3de53a5c2a">Cell</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nn,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ns,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * p,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> ** elemlinkdata,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classlibMesh_1_1Node.html">Node</a> ** nodelinkdata) :</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> (nn, ns, p, elemlinkdata, nodelinkdata) {}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html#a21406bd5c2cdb737f5710f79a0c088b8">   55</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1Cell.html#a21406bd5c2cdb737f5710f79a0c088b8">dim</a> () const libmesh_override { <span class="keywordflow">return</span> 3; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_INFINITE_ELEMENTS</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classlibMesh_1_1Cell.html#ab0878bc042760a53ed2c2f648f0b7aaf">   63</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classlibMesh_1_1Cell.html#ab0878bc042760a53ed2c2f648f0b7aaf">infinite</a> () const libmesh_override { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // LIBMESH_CELL_H</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif // LIBMESH_CELL_H</span></div>
 <div class="ttc" id="classlibMesh_1_1Node_html"><div class="ttname"><a href="classlibMesh_1_1Node.html">libMesh::Node</a></div><div class="ttdoc">A geometric point in (x,y,z) space associated with a DOF. </div><div class="ttdef"><b>Definition:</b> <a href="node_8h_source.html#l00054">node.h:54</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_adb2446b067005358d01bd1f5c08f17a3"><div class="ttname"><a href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a></div><div class="ttdeci">#define libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00568">libmesh_common.h:568</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Cell_html_a21406bd5c2cdb737f5710f79a0c088b8"><div class="ttname"><a href="classlibMesh_1_1Cell.html#a21406bd5c2cdb737f5710f79a0c088b8">libMesh::Cell::dim</a></div><div class="ttdeci">virtual unsigned int dim() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00054">cell.h:54</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Cell_html_a21406bd5c2cdb737f5710f79a0c088b8"><div class="ttname"><a href="classlibMesh_1_1Cell.html#a21406bd5c2cdb737f5710f79a0c088b8">libMesh::Cell::dim</a></div><div class="ttdeci">virtual unsigned int dim() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00055">cell.h:55</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Cell_html_a6db7a1b23dc69c68eaa49b3de53a5c2a"><div class="ttname"><a href="classlibMesh_1_1Cell.html#a6db7a1b23dc69c68eaa49b3de53a5c2a">libMesh::Cell::Cell</a></div><div class="ttdeci">Cell(const unsigned int nn, const unsigned int ns, Elem *p, Elem **elemlinkdata, Node **nodelinkdata)</div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00044">cell.h:44</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Cell_html_a6db7a1b23dc69c68eaa49b3de53a5c2a"><div class="ttname"><a href="classlibMesh_1_1Cell.html#a6db7a1b23dc69c68eaa49b3de53a5c2a">libMesh::Cell::Cell</a></div><div class="ttdeci">Cell(const unsigned int nn, const unsigned int ns, Elem *p, Elem **elemlinkdata, Node **nodelinkdata)</div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00045">cell.h:45</a></div></div>
 <div class="ttc" id="elem_8h_html"><div class="ttname"><a href="elem_8h.html">elem.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Cell_html"><div class="ttname"><a href="classlibMesh_1_1Cell.html">libMesh::Cell</a></div><div class="ttdoc">The base class for all 3D geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00037">cell.h:37</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Cell_html_ab0878bc042760a53ed2c2f648f0b7aaf"><div class="ttname"><a href="classlibMesh_1_1Cell.html#ab0878bc042760a53ed2c2f648f0b7aaf">libMesh::Cell::infinite</a></div><div class="ttdeci">virtual bool infinite() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00063">cell.h:63</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Cell_html"><div class="ttname"><a href="classlibMesh_1_1Cell.html">libMesh::Cell</a></div><div class="ttdoc">The base class for all 3D geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="cell_8h_source.html#l00038">cell.h:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

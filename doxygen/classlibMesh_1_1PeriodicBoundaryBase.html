@@ -206,7 +206,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_ae13b4c2ab5ee3d245de1f0147adf0518"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#ae13b4c2ab5ee3d245de1f0147adf0518">libMesh::PeriodicBoundaryBase::pairedboundary</a></div><div class="ttdeci">boundary_id_type pairedboundary</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8h_source.html#l00053">periodic_boundary_base.h:53</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PeriodicBoundaryBase_html_a8a4f08f0de1b7be3dadb7f03a72e3c0e"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaryBase.html#a8a4f08f0de1b7be3dadb7f03a72e3c0e">libMesh::PeriodicBoundaryBase::myboundary</a></div><div class="ttdeci">boundary_id_type myboundary</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundary__base_8h_source.html#l00053">periodic_boundary_base.h:53</a></div></div>
-<div class="ttc" id="classlibMesh_1_1BoundaryInfo_html_aacb4213fb93d61289a724826e5a0f389"><div class="ttname"><a href="classlibMesh_1_1BoundaryInfo.html#aacb4213fb93d61289a724826e5a0f389">libMesh::BoundaryInfo::invalid_id</a></div><div class="ttdeci">static const boundary_id_type invalid_id</div><div class="ttdef"><b>Definition:</b> <a href="boundary__info_8h_source.html#l00601">boundary_info.h:601</a></div></div>
+<div class="ttc" id="classlibMesh_1_1BoundaryInfo_html_aacb4213fb93d61289a724826e5a0f389"><div class="ttname"><a href="classlibMesh_1_1BoundaryInfo.html#aacb4213fb93d61289a724826e5a0f389">libMesh::BoundaryInfo::invalid_id</a></div><div class="ttdeci">static const boundary_id_type invalid_id</div><div class="ttdef"><b>Definition:</b> <a href="boundary__info_8h_source.html#l00748">boundary_info.h:748</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -287,11 +287,11 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>If we want the <a class="el" href="classlibMesh_1_1DofMap.html">DofMap</a> to be able to make copies of references and store them in the underlying map, this class must be clone'able, i.e. have a kind of virtual construction mechanism. The user can also pass a flag to enable an 'inverse transformation' to be cloned from a forward transformation. Note that not every transformation needs to provide an automatic way to clone an inverse: you can simply add a pair of <a class="el" href="classlibMesh_1_1PeriodicBoundaryBase.html">PeriodicBoundaryBase</a> objects using the appropriate <a class="el" href="classlibMesh_1_1DofMap.html">DofMap</a> interface instead. The simplest way to implement a clone function like this is in terms of a copy constructor, see <a class="el" href="periodic__boundary_8h.html">periodic_boundary.h</a>. </p>
+<p>If we want the <a class="el" href="classlibMesh_1_1DofMap.html" title="Manages the degrees of freedom (DOFs) in a simulation. ">DofMap</a> to be able to make copies of references and store them in the underlying map, this class must be clone'able, i.e. have a kind of virtual construction mechanism. The user can also pass a flag to enable an 'inverse transformation' to be cloned from a forward transformation. Note that not every transformation needs to provide an automatic way to clone an inverse: you can simply add a pair of <a class="el" href="classlibMesh_1_1PeriodicBoundaryBase.html">PeriodicBoundaryBase</a> objects using the appropriate <a class="el" href="classlibMesh_1_1DofMap.html" title="Manages the degrees of freedom (DOFs) in a simulation. ">DofMap</a> interface instead. The simplest way to implement a clone function like this is in terms of a copy constructor, see <a class="el" href="periodic__boundary_8h.html">periodic_boundary.h</a>. </p>
 
 <p>Implemented in <a class="el" href="classlibMesh_1_1PeriodicBoundary.html#a45585e42c86497b75156c890047328f2">libMesh::PeriodicBoundary</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l03916">libMesh::DofMap::add_periodic_boundary()</a>.</p>
+<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l04198">libMesh::DofMap::add_periodic_boundary()</a>.</p>
 
 </div>
 </div>
@@ -320,7 +320,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classlibMesh_1_1PeriodicBoundary.html#a58e0a9e0011e26c7a64aad2a88fccf89">libMesh::PeriodicBoundary</a>.</p>
 
-<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00931">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, and <a class="el" href="periodic__boundaries_8C_source.html#l00063">libMesh::PeriodicBoundaries::neighbor()</a>.</p>
+<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01668">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00934">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, and <a class="el" href="periodic__boundaries_8C_source.html#l00063">libMesh::PeriodicBoundaries::neighbor()</a>.</p>
 
 </div>
 </div>
@@ -342,7 +342,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="periodic__boundary__base_8h_source.html#l00101">variables</a>.</p>
 
-<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>.</p>
+<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01668">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">bool</span> a = <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.empty() || (!<a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.empty() &amp;&amp; <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.find(var_num) != <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.end());</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">return</span> a;</div>
@@ -369,7 +369,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="periodic__boundary__base_8h_source.html#l00101">variables</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l03916">libMesh::DofMap::add_periodic_boundary()</a>.</p>
+<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l04198">libMesh::DofMap::add_periodic_boundary()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="classlibMesh_1_1PeriodicBoundaryBase.html#a092c77bffe64d6feaafd3328929f51e9">variables</a>.insert(pb.variables.begin(), pb.variables.end());</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
@@ -415,7 +415,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="periodic__boundary__base_8h_source.html#l00053">53</a> of file <a class="el" href="periodic__boundary__base_8h_source.html">periodic_boundary_base.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l03916">libMesh::DofMap::add_periodic_boundary()</a>, and <a class="el" href="periodic__boundary_8C_source.html#l00041">libMesh::PeriodicBoundary::PeriodicBoundary()</a>.</p>
+<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l04198">libMesh::DofMap::add_periodic_boundary()</a>, and <a class="el" href="periodic__boundary_8C_source.html#l00041">libMesh::PeriodicBoundary::PeriodicBoundary()</a>.</p>
 
 </div>
 </div>
@@ -431,7 +431,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="periodic__boundary__base_8h_source.html#l00053">53</a> of file <a class="el" href="periodic__boundary__base_8h_source.html">periodic_boundary_base.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l03916">libMesh::DofMap::add_periodic_boundary()</a>, <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00931">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, and <a class="el" href="periodic__boundary_8C_source.html#l00041">libMesh::PeriodicBoundary::PeriodicBoundary()</a>.</p>
+<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l04198">libMesh::DofMap::add_periodic_boundary()</a>, <a class="el" href="fe__base_8C_source.html#l01668">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00934">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, and <a class="el" href="periodic__boundary_8C_source.html#l00041">libMesh::PeriodicBoundary::PeriodicBoundary()</a>.</p>
 
 </div>
 </div>

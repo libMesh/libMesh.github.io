@@ -200,7 +200,7 @@ Public Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>, and <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>.</p>
 
-<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00931">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, <a class="el" href="periodic__boundaries_8C_source.html#l00063">neighbor()</a>, and <a class="el" href="elem_8C_source.html#l00986">libMesh::Elem::topological_neighbor()</a>.</p>
+<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01668">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00934">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, <a class="el" href="periodic__boundaries_8C_source.html#l00063">neighbor()</a>, and <a class="el" href="elem_8C_source.html#l01014">libMesh::Elem::topological_neighbor()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  iterator i = this-&gt;find(<span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span> (i == this-&gt;<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>())</div>
@@ -278,13 +278,13 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="periodic__boundaries_8C_source.html#l00063">63</a> of file <a class="el" href="periodic__boundaries_8C_source.html">periodic_boundaries.C</a>.</p>
 
-<p>References <a class="el" href="periodic__boundaries_8C_source.html#l00042">boundary()</a>, <a class="el" href="classlibMesh_1_1Elem.html#a58076266481b17af220f258d97602f4e">libMesh::Elem::build_side()</a>, <a class="el" href="classlibMesh_1_1PeriodicBoundaryBase.html#a72cfa6041b1830b76da4f03f371379b9">libMesh::PeriodicBoundaryBase::get_corresponding_pos()</a>, and <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>.</p>
+<p>References <a class="el" href="periodic__boundaries_8C_source.html#l00042">boundary()</a>, <a class="el" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">libMesh::Elem::build_side_ptr()</a>, <a class="el" href="classlibMesh_1_1PeriodicBoundaryBase.html#a72cfa6041b1830b76da4f03f371379b9">libMesh::PeriodicBoundaryBase::get_corresponding_pos()</a>, and <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>.</p>
 
-<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01653">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00931">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, and <a class="el" href="elem_8C_source.html#l00986">libMesh::Elem::topological_neighbor()</a>.</p>
+<p>Referenced by <a class="el" href="fe__base_8C_source.html#l01668">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="fe__abstract_8C_source.html#l00934">libMesh::FEAbstract::compute_periodic_node_constraints()</a>, and <a class="el" href="elem_8C_source.html#l01014">libMesh::Elem::topological_neighbor()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// Find a point on that side (and only that side)</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  Point p = e-&gt;build_side(<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>)-&gt;centroid();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  Point p = e-&gt;build_side_ptr(<a class="code" href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a>)-&gt;centroid();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">const</span> PeriodicBoundaryBase * b = this-&gt;<a class="code" href="classlibMesh_1_1PeriodicBoundaries.html#a9c596dd816ed7e363c5b340a4947b780">boundary</a>(boundary_id);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (b);</div>
@@ -293,7 +293,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">return</span> point_locator.operator()(p);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
-<div class="ttc" id="xdr__io_8C_html_a538c9c249908c84b07be8ce1400b82c9"><div class="ttname"><a href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a></div><div class="ttdeci">unsigned short int side</div><div class="ttdef"><b>Definition:</b> <a href="xdr__io_8C_source.html#l00050">xdr_io.C:50</a></div></div>
+<div class="ttc" id="xdr__io_8C_html_a538c9c249908c84b07be8ce1400b82c9"><div class="ttname"><a href="xdr__io_8C.html#a538c9c249908c84b07be8ce1400b82c9">side</a></div><div class="ttdeci">unsigned short int side</div><div class="ttdef"><b>Definition:</b> <a href="xdr__io_8C_source.html#l00049">xdr_io.C:49</a></div></div>
 <div class="ttc" id="classlibMesh_1_1PeriodicBoundaries_html_a9c596dd816ed7e363c5b340a4947b780"><div class="ttname"><a href="classlibMesh_1_1PeriodicBoundaries.html#a9c596dd816ed7e363c5b340a4947b780">libMesh::PeriodicBoundaries::boundary</a></div><div class="ttdeci">PeriodicBoundaryBase * boundary(boundary_id_type id)</div><div class="ttdef"><b>Definition:</b> <a href="periodic__boundaries_8C_source.html#l00042">periodic_boundaries.C:42</a></div></div>
 </div><!-- fragment -->
 </div>

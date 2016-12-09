@@ -128,7 +128,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae3dd9b80ecbf1b72e95d7bc5c717f5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6b4bc7b59baec613c3ab1f0ff5c4e03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1StoredRange.html#ac6b4bc7b59baec613c3ab1f0ff5c4e03">StoredRange</a> (const <a class="el" href="classlibMesh_1_1StoredRange.html">StoredRange</a>&lt; iterator_type, object_type &gt; &amp;er, const <a class="el" href="classlibMesh_1_1StoredRange.html#a07c6e88eede585628af3437d8cad903f">const_iterator</a> &amp;begin_range, const <a class="el" href="classlibMesh_1_1StoredRange.html#a07c6e88eede585628af3437d8cad903f">const_iterator</a> &amp;end_range)</td></tr>
 <tr class="separator:ac6b4bc7b59baec613c3ab1f0ff5c4e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b049f2fcac81ee252a456aa24a5c01f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1StoredRange.html#a6b049f2fcac81ee252a456aa24a5c01f">StoredRange</a> (<a class="el" href="classlibMesh_1_1StoredRange.html">StoredRange</a>&lt; iterator_type, object_type &gt; &amp;r, Threads::split)</td></tr>
+<tr class="memitem:a6b049f2fcac81ee252a456aa24a5c01f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1StoredRange.html#a6b049f2fcac81ee252a456aa24a5c01f">StoredRange</a> (<a class="el" href="classlibMesh_1_1StoredRange.html">StoredRange</a>&lt; iterator_type, object_type &gt; &amp;r, <a class="el" href="classlibMesh_1_1Threads_1_1split.html">Threads::split</a>)</td></tr>
 <tr class="separator:a6b049f2fcac81ee252a456aa24a5c01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0498db7dd0ff3972c66690615fb3ecfd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1StoredRange.html#a0498db7dd0ff3972c66690615fb3ecfd">~StoredRange</a> ()</td></tr>
 <tr class="separator:a0498db7dd0ff3972c66690615fb3ecfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -398,11 +398,11 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 
 <p>Definition at line <a class="el" href="stored__range_8h_source.html#l00131">131</a> of file <a class="el" href="stored__range_8h_source.html">stored_range.h</a>.</p>
 <div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                                                 :</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>(er.<a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>),</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>(er.<a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>),</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>(er.<a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>),</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>(er.<a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>),</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>(er.<a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>),</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>(er._end),</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>(er._begin),</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>(er._last),</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>(er._first),</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>(er._grainsize),</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ad8ec57fe8706116d5eb0d0c5b126ce42">_objs</a>(NULL),</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ac1e3b1359776ee6adb1b7d4d8e3ef95b">_should_release</a>(<span class="keyword">false</span>)</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  {</div>
@@ -468,13 +468,13 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>(begin_range),</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>(0), <span class="comment">// Initialize these in a moment</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>(0),</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>(er.<a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>),</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>(er._grainsize),</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ad8ec57fe8706116d5eb0d0c5b126ce42">_objs</a>(NULL),</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ac1e3b1359776ee6adb1b7d4d8e3ef95b">_should_release</a>(<span class="keyword">false</span>)</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  {</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// specifically, do *not* copy the vector</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a> = std::distance(er.<a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>, <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a> = std::distance(er._begin, <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a> = <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a> + std::distance(<a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>, <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>);</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_afa4a75f963bd242310f245cb04e1f208"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">libMesh::StoredRange::_begin</a></div><div class="ttdeci">const_iterator _begin</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00309">stored_range.h:309</a></div></div>
@@ -505,7 +505,7 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Threads::split&#160;</td>
+          <td class="paramtype"><a class="el" href="classlibMesh_1_1Threads_1_1split.html">Threads::split</a>&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -526,27 +526,27 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 
 <p>References <a class="el" href="stored__range_8h_source.html#l00309">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_begin</a>, <a class="el" href="stored__range_8h_source.html#l00308">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_end</a>, <a class="el" href="stored__range_8h_source.html#l00311">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_first</a>, and <a class="el" href="stored__range_8h_source.html#l00310">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_last</a>.</p>
 <div class="fragment"><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                                                                          :</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>(r.<a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>),</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>(r.<a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>),</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>(r.<a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>),</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>(r.<a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>),</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>(r.<a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>),</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>(r._end),</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>(r._begin),</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>(r._last),</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>(r._first),</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a70e2f7416505fd2229042b1cb9d85364">_grainsize</a>(r._grainsize),</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ad8ec57fe8706116d5eb0d0c5b126ce42">_objs</a>(NULL),</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ac1e3b1359776ee6adb1b7d4d8e3ef95b">_should_release</a>(<span class="keyword">false</span>)</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  {</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#a07c6e88eede585628af3437d8cad903f">const_iterator</a></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      beginning = r.<a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>,</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      ending    = r.<a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>,</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      beginning = r._begin,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      ending    = r._end,</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      middle    = beginning + std::distance(beginning, ending)/2u;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    r.<a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a> = <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a> = middle;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    r._end = <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a> = middle;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    std::size_t</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      first = r.<a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a>,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      last  = r.<a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a>,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      first = r._first,</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      last  = r._last,</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      half  = first + (last-first)/2u;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    r.<a class="code" href="classlibMesh_1_1StoredRange.html#a5894fa7d1d608db08f619c785753dda7">_last</a> = <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a> = half;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    r._last = <a class="code" href="classlibMesh_1_1StoredRange.html#af4311548e79934dbf6a5039faa9c15a1">_first</a> = half;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  }</div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_afa4a75f963bd242310f245cb04e1f208"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">libMesh::StoredRange::_begin</a></div><div class="ttdeci">const_iterator _begin</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00309">stored_range.h:309</a></div></div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_ad8ec57fe8706116d5eb0d0c5b126ce42"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#ad8ec57fe8706116d5eb0d0c5b126ce42">libMesh::StoredRange::_objs</a></div><div class="ttdeci">std::vector&lt; object_type &gt; * _objs</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00315">stored_range.h:315</a></div></div>
@@ -624,7 +624,7 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 
 <p>References <a class="el" href="stored__range_8h_source.html#l00309">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_begin</a>.</p>
 
-<p>Referenced by <a class="el" href="weighted__patch__recovery__estimator_8C_source.html#l00101">libMesh::WeightedPatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00202">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="patch__recovery__error__estimator_8C_source.html#l00188">libMesh::PatchRecoveryErrorEstimator::EstimateError::operator()()</a>, and <a class="el" href="system__projection_8C_source.html#l02130">libMesh::BoundaryProjectSolution::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="weighted__patch__recovery__estimator_8C_source.html#l00101">libMesh::WeightedPatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00202">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="patch__recovery__error__estimator_8C_source.html#l00188">libMesh::PatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="system__projection_8C_source.html#l02027">libMesh::BuildProjectionList::operator()()</a>, and <a class="el" href="system__projection_8C_source.html#l02130">libMesh::BoundaryProjectSolution::operator()()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_afa4a75f963bd242310f245cb04e1f208"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">libMesh::StoredRange::_begin</a></div><div class="ttdeci">const_iterator _begin</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00309">stored_range.h:309</a></div></div>
 </div><!-- fragment -->
@@ -657,6 +657,8 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 <p>Definition at line <a class="el" href="stored__range_8h_source.html#l00299">299</a> of file <a class="el" href="stored__range_8h_source.html">stored_range.h</a>.</p>
 
 <p>References <a class="el" href="stored__range_8h_source.html#l00309">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_begin</a>, and <a class="el" href="stored__range_8h_source.html#l00308">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_end</a>.</p>
+
+<p>Referenced by <a class="el" href="dof__map__constraints_8C_source.html#l01188">libMesh::DofMap::create_dof_constraints()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;{ <span class="keywordflow">return</span> (<a class="code" href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">_begin</a> == <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>); }</div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_afa4a75f963bd242310f245cb04e1f208"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#afa4a75f963bd242310f245cb04e1f208">libMesh::StoredRange::_begin</a></div><div class="ttdeci">const_iterator _begin</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00309">stored_range.h:309</a></div></div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_ab33f2561d66303e52a57dcc6dfea03b1"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">libMesh::StoredRange::_end</a></div><div class="ttdeci">const_iterator _end</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00308">stored_range.h:308</a></div></div>
@@ -691,7 +693,7 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 
 <p>References <a class="el" href="stored__range_8h_source.html#l00308">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_end</a>.</p>
 
-<p>Referenced by <a class="el" href="weighted__patch__recovery__estimator_8C_source.html#l00101">libMesh::WeightedPatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00202">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="patch__recovery__error__estimator_8C_source.html#l00188">libMesh::PatchRecoveryErrorEstimator::EstimateError::operator()()</a>, and <a class="el" href="system__projection_8C_source.html#l02130">libMesh::BoundaryProjectSolution::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="weighted__patch__recovery__estimator_8C_source.html#l00101">libMesh::WeightedPatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00202">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="patch__recovery__error__estimator_8C_source.html#l00188">libMesh::PatchRecoveryErrorEstimator::EstimateError::operator()()</a>, <a class="el" href="system__projection_8C_source.html#l02027">libMesh::BuildProjectionList::operator()()</a>, and <a class="el" href="system__projection_8C_source.html#l02130">libMesh::BoundaryProjectSolution::operator()()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">_end</a>; }</div>
 <div class="ttc" id="classlibMesh_1_1StoredRange_html_ab33f2561d66303e52a57dcc6dfea03b1"><div class="ttname"><a href="classlibMesh_1_1StoredRange.html#ab33f2561d66303e52a57dcc6dfea03b1">libMesh::StoredRange::_end</a></div><div class="ttdeci">const_iterator _end</div><div class="ttdef"><b>Definition:</b> <a href="stored__range_8h_source.html#l00308">stored_range.h:308</a></div></div>
 </div><!-- fragment -->
@@ -901,7 +903,7 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
 
 <p>References <a class="el" href="stored__range_8h_source.html#l00309">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_begin</a>, <a class="el" href="stored__range_8h_source.html#l00308">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_end</a>, <a class="el" href="stored__range_8h_source.html#l00311">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_first</a>, <a class="el" href="stored__range_8h_source.html#l00310">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_last</a>, and <a class="el" href="stored__range_8h_source.html#l00315">libMesh::StoredRange&lt; iterator_type, object_type &gt;::_objs</a>.</p>
 
-<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01125">libMesh::FEMSystem::assemble_qoi()</a>, <a class="el" href="fem__system_8C_source.html#l01155">libMesh::FEMSystem::assemble_qoi_derivative()</a>, <a class="el" href="fem__system_8C_source.html#l00851">libMesh::FEMSystem::assembly()</a>, and <a class="el" href="fem__system_8C_source.html#l01105">libMesh::FEMSystem::postprocess()</a>.</p>
+<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01125">libMesh::FEMSystem::assemble_qoi()</a>, <a class="el" href="fem__system_8C_source.html#l01155">libMesh::FEMSystem::assemble_qoi_derivative()</a>, <a class="el" href="fem__system_8C_source.html#l00851">libMesh::FEMSystem::assembly()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l01188">libMesh::DofMap::create_dof_constraints()</a>, and <a class="el" href="fem__system_8C_source.html#l01105">libMesh::FEMSystem::postprocess()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  {</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="classlibMesh_1_1StoredRange.html#ad8ec57fe8706116d5eb0d0c5b126ce42">_objs</a>-&gt;clear();</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
@@ -946,7 +948,7 @@ template&lt;typename iterator_type, typename object_type&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Resets the range to the last specified range. This method only exists for efficiency &ndash; it is more efficient to set the range to its previous value without rebuilding the underlying vector. Returns a reference to itself for convenience, so functions expecting a StoredRange&lt;&gt; can be passed e.g. foo.reset(). </p>
+<p>Resets the range to the last specified range. This method only exists for efficiency &ndash; it is more efficient to set the range to its previous value without rebuilding the underlying vector. Returns a reference to itself for convenience, so functions expecting a StoredRange&lt;&gt; can be passed e.g. <a class="el" href="namespacelibMesh.html#a07362f654132e9e2e05b89d691fdcdec">foo.reset()</a>. </p>
 
 <p>Definition at line <a class="el" href="stored__range_8h_source.html#l00245">245</a> of file <a class="el" href="stored__range_8h_source.html">stored_range.h</a>.</p>
 

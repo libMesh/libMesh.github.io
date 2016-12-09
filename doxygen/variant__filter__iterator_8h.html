@@ -96,56 +96,93 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">variant_filter_iterator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;cstddef&gt;</code><br />
-<code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
-<code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for variant_filter_iterator.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="variant__filter__iterator_8h__incl.png" border="0" usemap="#variant__filter__iterator_8h" alt=""/></div>
-<map name="variant__filter__iterator_8h" id="variant__filter__iterator_8h">
-<area shape="rect" id="node6" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="449,80,636,107"/><area shape="rect" id="node7" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="751,304,923,331"/><area shape="rect" id="node10" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="397,155,563,181"/><area shape="rect" id="node14" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="573,229,773,256"/><area shape="rect" id="node15" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="638,155,823,181"/><area shape="rect" id="node16" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="848,155,1019,181"/><area shape="rect" id="node18" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="897,229,1068,256"/><area shape="rect" id="node11" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="415,229,547,256"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="variant__filter__iterator_8h__dep__incl.png" border="0" usemap="#variant__filter__iterator_8hdep" alt=""/></div>
-<map name="variant__filter__iterator_8hdep" id="variant__filter__iterator_8hdep">
-<area shape="rect" id="node2" href="elem_8h.html" title="elem.h" alt="" coords="3605,80,3667,107"/><area shape="rect" id="node50" href="mesh__base_8h.html" title="mesh_base.h" alt="" coords="1067,80,1169,107"/><area shape="rect" id="node3" href="default__coupling_8C.html" title="default_coupling.C" alt="" coords="7254,163,7385,189"/><area shape="rect" id="node4" href="dof__map_8C.html" title="dof_map.C" alt="" coords="1382,163,1468,189"/><area shape="rect" id="node5" href="dof__map__constraints_8C.html" title="dof_map_constraints.C" alt="" coords="1493,163,1651,189"/><area shape="rect" id="node6" href="ghost__point__neighbors_8C.html" title="ghost_point_neighbors.C" alt="" coords="7411,163,7581,189"/><area shape="rect" id="node7" href="point__neighbor__coupling_8C.html" title="point_neighbor_coupling.C" alt="" coords="7606,163,7785,189"/><area shape="rect" id="node8" href="sibling__coupling_8C.html" title="sibling_coupling.C" alt="" coords="7811,163,7941,189"/><area shape="rect" id="node9" href="sparsity__pattern_8C.html" title="sparsity_pattern.C" alt="" coords="7965,163,8096,189"/><area shape="rect" id="node10" href="adjoint__refinement__estimator_8C.html" title="adjoint_refinement\l_estimator.C" alt="" coords="1675,155,1807,197"/><area shape="rect" id="node11" href="discontinuity__measure_8C.html" title="discontinuity_measure.C" alt="" coords="2021,163,2189,189"/><area shape="rect" id="node12" href="exact__error__estimator_8C.html" title="exact_error_estimator.C" alt="" coords="1832,163,1997,189"/><area shape="rect" id="node13" href="exact__solution_8C.html" title="exact_solution.C" alt="" coords="5,163,125,189"/><area shape="rect" id="node14" href="hp__coarsentest_8C.html" title="hp_coarsentest.C" alt="" coords="150,163,276,189"/><area shape="rect" id="node15" href="hp__singular_8C.html" title="hp_singular.C" alt="" coords="301,163,405,189"/><area shape="rect" id="node16" href="jump__error__estimator_8C.html" title="jump_error_estimator.C" alt="" coords="429,163,592,189"/><area shape="rect" id="node17" href="kelly__error__estimator_8C.html" title="kelly_error_estimator.C" alt="" coords="2213,163,2373,189"/><area shape="rect" id="node18" href="patch__recovery__error__estimator_8C.html" title="patch_recovery_error\l_estimator.C" alt="" coords="616,155,765,197"/><area shape="rect" id="node19" href="uniform__refinement__estimator_8C.html" title="uniform_refinement\l_estimator.C" alt="" coords="790,155,927,197"/><area shape="rect" id="node20" href="weighted__patch__recovery__estimator_8C.html" title="weighted_patch_recovery\l_estimator.C" alt="" coords="952,155,1125,197"/><area shape="rect" id="node21" href="fe_8C.html" title="fe.C" alt="" coords="2398,163,2444,189"/><area shape="rect" id="node22" href="fe__abstract_8C.html" title="fe_abstract.C" alt="" coords="1149,163,1251,189"/><area shape="rect" id="node23" href="fe__base_8C.html" title="fe_base.C" alt="" coords="1275,163,1357,189"/><area shape="rect" id="node24" href="fe__bernstein__shape__0D_8C.html" title="fe_bernstein_shape_0D.C" alt="" coords="2469,163,2645,189"/><area shape="rect" id="node25" href="fe__boundary_8C.html" title="fe_boundary.C" alt="" coords="2671,163,2780,189"/><area shape="rect" id="node26" href="fe__clough_8C.html" title="fe_clough.C" alt="" coords="2804,163,2897,189"/><area shape="rect" id="node27" href="fe__clough__shape__0D_8C.html" title="fe_clough_shape_0D.C" alt="" coords="2922,163,3083,189"/><area shape="rect" id="node28" href="fe__clough__shape__1D_8C.html" title="fe_clough_shape_1D.C" alt="" coords="3107,163,3268,189"/><area shape="rect" id="node29" href="fe__clough__shape__2D_8C.html" title="fe_clough_shape_2D.C" alt="" coords="3293,163,3453,189"/><area shape="rect" id="node30" href="fe__clough__shape__3D_8C.html" title="fe_clough_shape_3D.C" alt="" coords="3478,163,3639,189"/><area shape="rect" id="node31" href="fe__hermite_8C.html" title="fe_hermite.C" alt="" coords="3664,163,3763,189"/><area shape="rect" id="node32" href="fe__hermite__shape__0D_8C.html" title="fe_hermite_shape_0D.C" alt="" coords="3787,163,3953,189"/><area shape="rect" id="node33" href="fe__hermite__shape__1D_8C.html" title="fe_hermite_shape_1D.C" alt="" coords="3978,163,4144,189"/><area shape="rect" id="node34" href="fe__hermite__shape__2D_8C.html" title="fe_hermite_shape_2D.C" alt="" coords="4169,163,4335,189"/><area shape="rect" id="node35" href="fe__hermite__shape__3D_8C.html" title="fe_hermite_shape_3D.C" alt="" coords="4359,163,4525,189"/><area shape="rect" id="node36" href="fe__hierarchic_8C.html" title="fe_hierarchic.C" alt="" coords="4551,163,4663,189"/><area shape="rect" id="node37" href="fe__hierarchic__shape__0D_8C.html" title="fe_hierarchic_shape_0D.C" alt="" coords="4687,163,4867,189"/><area shape="rect" id="node38" href="fe__hierarchic__shape__1D_8C.html" title="fe_hierarchic_shape_1D.C" alt="" coords="4891,163,5071,189"/><area shape="rect" id="node39" href="fe__hierarchic__shape__2D_8C.html" title="fe_hierarchic_shape_2D.C" alt="" coords="5095,163,5275,189"/><area shape="rect" id="node40" href="fe__hierarchic__shape__3D_8C.html" title="fe_hierarchic_shape_3D.C" alt="" coords="5299,163,5479,189"/><area shape="rect" id="node41" href="fe__interface_8C.html" title="fe_interface.C" alt="" coords="5503,163,5608,189"/><area shape="rect" id="node42" href="fe__l2__hierarchic_8C.html" title="fe_l2_hierarchic.C" alt="" coords="5633,163,5761,189"/><area shape="rect" id="node43" href="fe__l2__hierarchic__shape__0D_8C.html" title="fe_l2_hierarchic_shape_0D.C" alt="" coords="5787,163,5984,189"/><area shape="rect" id="node44" href="fe__l2__hierarchic__shape__1D_8C.html" title="fe_l2_hierarchic_shape_1D.C" alt="" coords="6008,163,6205,189"/><area shape="rect" id="node45" href="fe__l2__hierarchic__shape__2D_8C.html" title="fe_l2_hierarchic_shape_2D.C" alt="" coords="6229,163,6427,189"/><area shape="rect" id="node46" href="fe__l2__hierarchic__shape__3D_8C.html" title="fe_l2_hierarchic_shape_3D.C" alt="" coords="6451,163,6648,189"/><area shape="rect" id="node47" href="fe__l2__lagrange_8C.html" title="fe_l2_lagrange.C" alt="" coords="6673,163,6796,189"/><area shape="rect" id="node48" href="fe__l2__lagrange__shape__0D_8C.html" title="fe_l2_lagrange_shape_0D.C" alt="" coords="6821,163,7013,189"/><area shape="rect" id="node49" href="fe__l2__lagrange__shape__1D_8C.html" title="fe_l2_lagrange_shape_1D.C" alt="" coords="7037,163,7229,189"/></map>
-</div>
-</div>
+
 <p><a href="variant__filter__iterator_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator&lt; Predicate, Type, ReferenceType, PointerType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvariant__filter__iterator_1_1IterBase.html">variant_filter_iterator&lt; Predicate, Type, ReferenceType, PointerType &gt;::IterBase</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvariant__filter__iterator_1_1PredBase.html">variant_filter_iterator&lt; Predicate, Type, ReferenceType, PointerType &gt;::PredBase</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvariant__filter__iterator_1_1Iter.html">variant_filter_iterator&lt; Predicate, Type, ReferenceType, PointerType &gt;::Iter&lt; IterType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvariant__filter__iterator_1_1Pred.html">variant_filter_iterator&lt; Predicate, Type, ReferenceType, PointerType &gt;::Pred&lt; IterType, PredType &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPred.html">Pred&lt; IterType, PredType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ab664e4dee52a51d1dfd1e07b446137ff"><td class="memTemplParams" colspan="2">template&lt;typename PredType , typename IterType &gt; </td></tr>
+<tr class="memitem:ab664e4dee52a51d1dfd1e07b446137ff"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#ab664e4dee52a51d1dfd1e07b446137ff">variant_filter_iterator</a> (const IterType &amp;d, const IterType &amp;e, const PredType &amp;p)</td></tr>
+<tr class="separator:ab664e4dee52a51d1dfd1e07b446137ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc2c1abb9e157624ed009a431d44f42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a4fc2c1abb9e157624ed009a431d44f42">variant_filter_iterator</a> ()</td></tr>
+<tr class="separator:a4fc2c1abb9e157624ed009a431d44f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a384202260f6a27e8328c1bf6165fea5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a384202260f6a27e8328c1bf6165fea5f">variant_filter_iterator</a> (const Iterator &amp;rhs)</td></tr>
+<tr class="separator:a384202260f6a27e8328c1bf6165fea5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ad41b34f22b622b7e354977ebb2f95"><td class="memTemplParams" colspan="2">template&lt;class OtherType , class OtherReferenceType , class OtherPointerType &gt; </td></tr>
+<tr class="memitem:ae8ad41b34f22b622b7e354977ebb2f95"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a> (const variant_filter_iterator&lt; Predicate, OtherType, OtherReferenceType, OtherPointerType &gt; &amp;rhs)</td></tr>
+<tr class="separator:ae8ad41b34f22b622b7e354977ebb2f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d4b80e8c48a16140943cd5baf536e5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a16d4b80e8c48a16140943cd5baf536e5">~variant_filter_iterator</a> ()</td></tr>
+<tr class="separator:a16d4b80e8c48a16140943cd5baf536e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6278e966effd66a6908f1b46923a9da0"><td class="memItemLeft" align="right" valign="top">ReferenceType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a6278e966effd66a6908f1b46923a9da0">operator*</a> () const </td></tr>
+<tr class="separator:a6278e966effd66a6908f1b46923a9da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd83634dc2dc72092d43f16bb5ffa61b"><td class="memItemLeft" align="right" valign="top">PointerType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#abd83634dc2dc72092d43f16bb5ffa61b">operator-&gt;</a> () const </td></tr>
+<tr class="separator:abd83634dc2dc72092d43f16bb5ffa61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef12ef33726bc591f569f822c7b5ac41"><td class="memItemLeft" align="right" valign="top">Iterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#aef12ef33726bc591f569f822c7b5ac41">operator++</a> ()</td></tr>
+<tr class="separator:aef12ef33726bc591f569f822c7b5ac41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae315bb7201545e6399f3f3e52d38396c"><td class="memItemLeft" align="right" valign="top">const Iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#ae315bb7201545e6399f3f3e52d38396c">operator++</a> (int)</td></tr>
+<tr class="separator:ae315bb7201545e6399f3f3e52d38396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf2030f5a339bae8d11ff27cef5f9d19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#acf2030f5a339bae8d11ff27cef5f9d19">equal</a> (const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a> &amp;other) const </td></tr>
+<tr class="separator:acf2030f5a339bae8d11ff27cef5f9d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e84acf9c8e70b7fa0b00795c4209f19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">swap</a> (Iterator &amp;lhs, Iterator &amp;rhs)</td></tr>
+<tr class="separator:a8e84acf9c8e70b7fa0b00795c4209f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9b0f124982f4b308a638a23bc3150a"><td class="memItemLeft" align="right" valign="top">Iterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a6b9b0f124982f4b308a638a23bc3150a">operator=</a> (const Iterator &amp;rhs)</td></tr>
+<tr class="separator:a6b9b0f124982f4b308a638a23bc3150a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af840100eeb0454a266a3e256b6618ef9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a> ()</td></tr>
+<tr class="separator:af840100eeb0454a266a3e256b6618ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbbe7e71a80e7f418aeaf87260846230"><td class="memTemplParams" colspan="2">template&lt;class Predicate , class Type , class ReferenceType , class PointerType &gt; </td></tr>
-<tr class="memitem:abbbe7e71a80e7f418aeaf87260846230"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#abbbe7e71a80e7f418aeaf87260846230">operator==</a> (const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;x, const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;y)</td></tr>
+<tr class="memitem:abbbe7e71a80e7f418aeaf87260846230"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#abbbe7e71a80e7f418aeaf87260846230">operator==</a> (const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;x, const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;y)</td></tr>
 <tr class="separator:abbbe7e71a80e7f418aeaf87260846230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f30027062755f9451c4775fa89def7"><td class="memTemplParams" colspan="2">template&lt;class Predicate , class Type , class ReferenceType , class PointerType &gt; </td></tr>
-<tr class="memitem:a50f30027062755f9451c4775fa89def7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a50f30027062755f9451c4775fa89def7">operator!=</a> (const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;x, const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;y)</td></tr>
+<tr class="memitem:a50f30027062755f9451c4775fa89def7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a50f30027062755f9451c4775fa89def7">operator!=</a> (const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;x, const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;y)</td></tr>
 <tr class="separator:a50f30027062755f9451c4775fa89def7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a34ab123b13f57169d1e00ee267bceb5a"><td class="memTemplParams" colspan="2">template&lt;class Predicate , class Type , class ReferenceType  = Type &amp;, class PointerType  = Type *&gt; </td></tr>
+<tr class="memitem:a34ab123b13f57169d1e00ee267bceb5a"><td class="memTemplItemLeft" align="right" valign="top">IterType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a34ab123b13f57169d1e00ee267bceb5a">iter_data</a></td></tr>
+<tr class="separator:a34ab123b13f57169d1e00ee267bceb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3464f722394258d66e04720e221f07ff"><td class="memItemLeft" align="right" valign="top">IterBase *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></td></tr>
+<tr class="separator:a3464f722394258d66e04720e221f07ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785f0bd261d7bd1918b031c5133da2b9"><td class="memItemLeft" align="right" valign="top">IterBase *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></td></tr>
+<tr class="separator:a785f0bd261d7bd1918b031c5133da2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace1ed864244787b76a860606f5017a95"><td class="memItemLeft" align="right" valign="top">PredBase *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a></td></tr>
+<tr class="separator:ace1ed864244787b76a860606f5017a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="acf2030f5a339bae8d11ff27cef5f9d19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool equal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>forwards on the the equal function defined for the IterBase pointer. Possibly also compare the end pointers, but this is usually not important and would require an additional dynamic cast. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00460">460</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  {</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>-&gt;equal(other.data);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a50f30027062755f9451c4775fa89def7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -158,13 +195,13 @@ template&lt;class Predicate , class Type , class ReferenceType , class PointerTy
         <tr>
           <td class="memname">bool operator!= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -175,15 +212,144 @@ template&lt;class Predicate , class Type , class ReferenceType , class PointerTy
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00525">525</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
 <div class="fragment"><div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;{</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;  <span class="keywordflow">return</span> !(x == y);</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;  <span class="keywordflow">return</span> !(<a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a> == y);</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6278e966effd66a6908f1b46923a9da0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ReferenceType operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>unary op*() forwards on to <code>Iter::op*</code>() </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00419">419</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00328">data</a>.</p>
+<div class="fragment"><div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordflow">return</span> **<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aef12ef33726bc591f569f822c7b5ac41"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Iterator&amp; operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>op++() forwards on to <code>Iter::op++</code>() </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00436">436</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00328">data</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00498">satisfy_predicate()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  {</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    ++*<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    this-&gt;<a class="code" href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a>();</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_af840100eeb0454a266a3e256b6618ef9"><div class="ttname"><a href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a></div><div class="ttdeci">void satisfy_predicate()</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00498">variant_filter_iterator.h:498</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae315bb7201545e6399f3f3e52d38396c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Iterator operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>postfix op++(), creates a temporary! </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00446">446</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00328">data</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00498">satisfy_predicate()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;  {</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    Iterator oldValue(*<span class="keyword">this</span>); <span class="comment">// standard is to return old value</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    ++*<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    this-&gt;<a class="code" href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a>();</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">return</span> oldValue;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_af840100eeb0454a266a3e256b6618ef9"><div class="ttname"><a href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a></div><div class="ttdeci">void satisfy_predicate()</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00498">variant_filter_iterator.h:498</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abd83634dc2dc72092d43f16bb5ffa61b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PointerType operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>op-&gt;() </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00428">428</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  {</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keywordflow">return</span> (&amp;**<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6b9b0f124982f4b308a638a23bc3150a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Iterator&amp; operator= </td>
+          <td>(</td>
+          <td class="paramtype">const Iterator &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Assignment operator. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00483">483</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00468">swap()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  {</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    Iterator temp(rhs);</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">swap</a>(temp, *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a8e84acf9c8e70b7fa0b00795c4209f19"><div class="ttname"><a href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">swap</a></div><div class="ttdeci">void swap(Iterator &amp;lhs, Iterator &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00468">variant_filter_iterator.h:468</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -199,13 +365,13 @@ template&lt;class Predicate , class Type , class ReferenceType , class PointerTy
         <tr>
           <td class="memname">bool operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classvariant__filter__iterator.html">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a>&lt; Predicate, Type, ReferenceType, PointerType &gt; &amp;&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -216,19 +382,339 @@ template&lt;class Predicate , class Type , class ReferenceType , class PointerTy
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00514">514</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
-
-<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00460">variant_filter_iterator&lt; Predicate, Type, ReferenceType, PointerType &gt;::equal()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;{</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;  <span class="keywordflow">return</span> x.<a class="code" href="classvariant__filter__iterator.html#a525841235875ad49bbe5ee29681edb8c">equal</a>(y);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>.equal(y);</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;}</div>
-<div class="ttc" id="classvariant__filter__iterator_html_a525841235875ad49bbe5ee29681edb8c"><div class="ttname"><a href="classvariant__filter__iterator.html#a525841235875ad49bbe5ee29681edb8c">variant_filter_iterator::equal</a></div><div class="ttdeci">bool equal(const variant_filter_iterator &amp;other) const </div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00460">variant_filter_iterator.h:460</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 </div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af840100eeb0454a266a3e256b6618ef9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void satisfy_predicate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Advances the data pointer until it reaches the end or the predicate is satisfied. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00498">498</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00328">data</a>.</p>
+
+<p>Referenced by <a class="el" href="variant__filter__iterator_8h_source.html#l00436">operator++()</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00352">variant_filter_iterator()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  {</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="keywordflow">while</span> ( !<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>-&gt;equal(<a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>) &amp;&amp; !(*pred)(<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>) )</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;      ++(*data);</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8e84acf9c8e70b7fa0b00795c4209f19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swap </td>
+          <td>(</td>
+          <td class="paramtype">Iterator &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>swap, used to implement op= </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00468">468</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dense__matrix__blas__lapack_8C_source.html#l00705">libMesh::DenseMatrix&lt; T &gt;::_evd_lapack()</a>, <a class="el" href="dense__matrix_8C_source.html#l00646">libMesh::DenseMatrix&lt; T &gt;::_lu_back_substitute()</a>, <a class="el" href="dense__matrix_8C_source.html#l00697">libMesh::DenseMatrix&lt; T &gt;::_lu_decompose()</a>, <a class="el" href="dense__matrix__blas__lapack_8C_source.html#l00035">libMesh::DenseMatrix&lt; T &gt;::_multiply_blas()</a>, <a class="el" href="elem_8h_source.html#l02335">libMesh::Elem::compute_key()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l01519">libMesh::Nemesis_IO_Helper::compute_num_global_nodesets()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l01410">libMesh::Nemesis_IO_Helper::compute_num_global_sidesets()</a>, <a class="el" href="fe__base_8C_source.html#l01668">libMesh::FEGenericBase&lt; OutputType &gt;::compute_periodic_constraints()</a>, <a class="el" href="mesh__refinement__smoothing_8C_source.html#l00138">libMesh::MeshRefinement::limit_level_mismatch_at_edge()</a>, <a class="el" href="utility_8h_source.html#l00327">libMesh::Utility::ReverseBytes::operator()()</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00483">operator=()</a>, <a class="el" href="periodic__boundary_8C_source.html#l00041">libMesh::PeriodicBoundary::PeriodicBoundary()</a>, <a class="el" href="replicated__mesh_8C_source.html#l00632">libMesh::ReplicatedMesh::renumber_nodes_and_elements()</a>, <a class="el" href="dense__matrix_8h_source.html#l00759">libMesh::DenseMatrix&lt; T &gt;::swap()</a>, <a class="el" href="trilinos__epetra__matrix_8C_source.html#l00489">libMesh::EpetraMatrix&lt; T &gt;::swap()</a>, <a class="el" href="petsc__matrix_8C_source.html#l01169">libMesh::PetscMatrix&lt; T &gt;::swap()</a>, <a class="el" href="eigen__sparse__vector_8h_source.html#l00717">libMesh::EigenSparseVector&lt; T &gt;::swap()</a>, <a class="el" href="laspack__vector_8h_source.html#l00725">libMesh::LaspackVector&lt; T &gt;::swap()</a>, <a class="el" href="distributed__vector_8h_source.html#l00835">libMesh::DistributedVector&lt; T &gt;::swap()</a>, <a class="el" href="trilinos__epetra__vector_8h_source.html#l01009">libMesh::EpetraVector&lt; T &gt;::swap()</a>, <a class="el" href="petsc__vector_8h_source.html#l01390">libMesh::PetscVector&lt; T &gt;::swap()</a>, and <a class="el" href="numeric__vector_8h_source.html#l00979">libMesh::NumericVector&lt; T &gt;::swap()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  {</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="comment">// Swap the data pointers</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">std::swap</a> (lhs.data, rhs.data);</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="comment">// Swap the end pointers</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">std::swap</a> (lhs.end, rhs.end);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="comment">// Also swap the predicate objects.</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">std::swap</a> (lhs.pred, rhs.pred);</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a8e84acf9c8e70b7fa0b00795c4209f19"><div class="ttname"><a href="variant__filter__iterator_8h.html#a8e84acf9c8e70b7fa0b00795c4209f19">swap</a></div><div class="ttdeci">void swap(Iterator &amp;lhs, Iterator &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00468">variant_filter_iterator.h:468</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab664e4dee52a51d1dfd1e07b446137ff"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PredType , typename IterType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">variant_filter_iterator </td>
+          <td>(</td>
+          <td class="paramtype">const IterType &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IterType &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PredType &amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Templated Constructor. Allows you to construct the iterator and predicate from any types. Also advances the data pointer to the first entry which satisfies the predicate. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00352">352</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00498">satisfy_predicate()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                                               :</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a> ( <span class="keyword">new</span> Iter&lt;IterType&gt;(d) ), <span class="comment">// note: uses default IterBase copy constructor</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>  ( <span class="keyword">new</span> Iter&lt;IterType&gt;(e) ),</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a> ( <span class="keyword">new</span> <a class="code" href="structPred.html">Pred&lt;IterType,PredType&gt;</a>(p) )</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    this-&gt;<a class="code" href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a>();</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  }</div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<div class="ttc" id="structPred_html"><div class="ttname"><a href="structPred.html">Pred</a></div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00238">variant_filter_iterator.h:238</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_af840100eeb0454a266a3e256b6618ef9"><div class="ttname"><a href="variant__filter__iterator_8h.html#af840100eeb0454a266a3e256b6618ef9">satisfy_predicate</a></div><div class="ttdeci">void satisfy_predicate()</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00498">variant_filter_iterator.h:498</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_ace1ed864244787b76a860606f5017a95"><div class="ttname"><a href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a></div><div class="ttdeci">PredBase * pred</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00341">variant_filter_iterator.h:341</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4fc2c1abb9e157624ed009a431d44f42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">variant_filter_iterator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Default Constructor. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00365">365</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                             :</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a>(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>) {}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_ace1ed864244787b76a860606f5017a95"><div class="ttname"><a href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a></div><div class="ttdeci">PredBase * pred</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00341">variant_filter_iterator.h:341</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a384202260f6a27e8328c1bf6165fea5f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">variant_filter_iterator </td>
+          <td>(</td>
+          <td class="paramtype">const Iterator &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Copy Constructor. Copy the internal data instead of sharing it. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00374">374</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                                 :</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a> (rhs.data != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> ? rhs.data-&gt;clone() : <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>  (rhs.end  != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> ? rhs.end-&gt;clone()  : <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <a class="code" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a> (rhs.pred != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> ? rhs.pred-&gt;clone() : <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>) {}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_ace1ed864244787b76a860606f5017a95"><div class="ttname"><a href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a></div><div class="ttdeci">PredBase * pred</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00341">variant_filter_iterator.h:341</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae8ad41b34f22b622b7e354977ebb2f95"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class OtherType , class OtherReferenceType , class OtherPointerType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">variant_filter_iterator </td>
+          <td>(</td>
+          <td class="paramtype">const variant_filter_iterator&lt; Predicate, OtherType, OtherReferenceType, OtherPointerType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Copy construct from another (similar) variant_filter_iterator. The Predicate is the same, but the Type, ReferenceType and PointerType are different. Example: You are iterating over a std::vector&lt;int *&gt; with std::vector&lt;int *&gt;::iterator Then, you have: Type=int * , ReferenceType=int *&amp; , PointerType=int ** On the other hand, when you iterate using std::vector&lt;int *&gt;::const_iterator you have: Type=int * const, ReferenceType=int * const &amp; , PointerType=int * const * </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00393">393</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    : <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a> (rhs.data != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> ? rhs.data-&gt;const_clone() : <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>  (rhs.end  != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> ? rhs.end-&gt;const_clone()  : <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      <a class="code" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a> (rhs.pred != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> ? rhs.pred-&gt;const_clone() : <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  {</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="comment">// libMesh::out &lt;&lt; &quot;Called templated copy constructor for variant_filter_iterator&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;  }</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_ace1ed864244787b76a860606f5017a95"><div class="ttname"><a href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a></div><div class="ttdeci">PredBase * pred</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00341">variant_filter_iterator.h:341</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a16d4b80e8c48a16140943cd5baf536e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ~<a class="el" href="variant__filter__iterator_8h.html#ae8ad41b34f22b622b7e354977ebb2f95">variant_filter_iterator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destructor </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00409">409</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>References <a class="el" href="variant__filter__iterator_8h_source.html#l00328">data</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00334">end</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00341">pred</a>.</p>
+<div class="fragment"><div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  {</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">delete</span> <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>; <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a> = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">delete</span> <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>;  <a class="code" href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a>  = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">delete</span> <a class="code" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a>; <a class="code" href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a> = <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  }</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a785f0bd261d7bd1918b031c5133da2b9"><div class="ttname"><a href="variant__filter__iterator_8h.html#a785f0bd261d7bd1918b031c5133da2b9">end</a></div><div class="ttdeci">IterBase * end</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00334">variant_filter_iterator.h:334</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_ace1ed864244787b76a860606f5017a95"><div class="ttname"><a href="variant__filter__iterator_8h.html#ace1ed864244787b76a860606f5017a95">pred</a></div><div class="ttdeci">PredBase * pred</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00341">variant_filter_iterator.h:341</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a3464f722394258d66e04720e221f07ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IterBase* data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ideally this private member data should have protected access. However, if we want a const_iterator to be constructable from an non-const one, templated versions of the same class (not related by inheritance) will need to know about these private members. Thus, they have public access.</p>
+<p>Polymorphic pointer to the object. Don't confuse with the data pointer located in the <code>Iter!</code> </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00328">328</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="nlopt__optimization__solver_8C_source.html#l00109">libMesh::__libmesh_nlopt_equality_constraints()</a>, <a class="el" href="nlopt__optimization__solver_8C_source.html#l00196">libMesh::__libmesh_nlopt_inequality_constraints()</a>, <a class="el" href="nlopt__optimization__solver_8C_source.html#l00036">libMesh::__libmesh_nlopt_objective()</a>, <a class="el" href="parallel__bin__sorter_8C_source.html#l00055">libMesh::Parallel::BinSorter&lt; KeyType, IdxType &gt;::binsort()</a>, <a class="el" href="parallel__implementation_8h_source.html#l03458">libMesh::Parallel::Communicator::broadcast()</a>, <a class="el" href="mesh__function_8C_source.html#l00335">libMesh::MeshFunction::discontinuous_value()</a>, <a class="el" href="quadrature__monomial__2D_8C_source.html#l00028">libMesh::QMonomial::init_2D()</a>, <a class="el" href="quadrature__monomial__3D_8C_source.html#l00028">libMesh::QMonomial::init_3D()</a>, <a class="el" href="parallel__histogram_8C_source.html#l00046">libMesh::Parallel::Histogram&lt; KeyType, IdxType &gt;::make_histogram()</a>, <a class="el" href="mesh__function_8C_source.html#l00249">libMesh::MeshFunction::operator()()</a>, <a class="el" href="utility_8h_source.html#l00327">libMesh::Utility::ReverseBytes::operator()()</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00419">operator*()</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00436">operator++()</a>, <a class="el" href="plt__loader__read_8C_source.html#l00833">libMesh::PltLoader::read_block_data()</a>, <a class="el" href="plt__loader__read_8C_source.html#l00950">libMesh::PltLoader::read_feblock_data()</a>, <a class="el" href="plt__loader__read_8C_source.html#l01030">libMesh::PltLoader::read_fepoint_data()</a>, <a class="el" href="plt__loader__read_8C_source.html#l00897">libMesh::PltLoader::read_point_data()</a>, <a class="el" href="variant__filter__iterator_8h_source.html#l00498">satisfy_predicate()</a>, <a class="el" href="parallel__ghost__sync_8h_source.html#l00272">libMesh::Parallel::sync_dofobject_data_by_id()</a>, <a class="el" href="parallel__ghost__sync_8h_source.html#l00149">libMesh::Parallel::sync_dofobject_data_by_xyz()</a>, <a class="el" href="parallel__ghost__sync_8h_source.html#l00352">libMesh::Parallel::sync_element_data_by_parent_id()</a>, <a class="el" href="parallel__ghost__sync_8h_source.html#l00483">libMesh::Parallel::sync_node_data_by_element_id()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01802">libMesh::ExodusII_IO_Helper::write_element_values()</a>, <a class="el" href="vtk__io_8C_source.html#l00255">libMesh::VTKIO::write_nodal_data()</a>, <a class="el" href="gnuplot__io_8C_source.html#l00059">libMesh::GnuPlotIO::write_solution()</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00409">~variant_filter_iterator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a785f0bd261d7bd1918b031c5133da2b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IterBase* end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Also have a polymorphic pointer to the end object, this prevents iterating past the end. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00334">334</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="mesh__refinement_8C_source.html#l01363">libMesh::MeshRefinement::_coarsen_elements()</a>, <a class="el" href="getpot_8h_source.html#l02926">GETPOT_NAMESPACE::GetPot::_DBE_expand()</a>, <a class="el" href="metis__partitioner_8C_source.html#l00062">libMesh::MetisPartitioner::_do_partition()</a>, <a class="el" href="mesh__refinement_8C_source.html#l01483">libMesh::MeshRefinement::_refine_elements()</a>, <a class="el" href="dof__map_8C_source.html#l01575">libMesh::DofMap::add_neighbors_to_send_list()</a>, <a class="el" href="mesh__modification_8C_source.html#l00737">libMesh::MeshTools::Modification::all_tri()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l02621">libMesh::DofMap::allgather_recursive_constraints()</a>, <a class="el" href="mesh__communication__global__indices_8C_source.html#l00171">libMesh::MeshCommunication::assign_global_indices()</a>, <a class="el" href="abaqus__io_8C_source.html#l00889">libMesh::AbaqusIO::assign_sideset_ids()</a>, <a class="el" href="periodic__boundaries_8C_source.html#l00042">libMesh::PeriodicBoundaries::boundary()</a>, <a class="el" href="patch_8C_source.html#l00197">libMesh::Patch::build_around_element()</a>, <a class="el" href="equation__systems_8C_source.html#l01047">libMesh::EquationSystems::build_discontinuous_solution_vector()</a>, <a class="el" href="checkpoint__io_8C_source.html#l00157">libMesh::CheckpointIO::build_elem_list()</a>, <a class="el" href="mesh__generation_8C_source.html#l01981">libMesh::MeshTools::Generation::build_extrusion()</a>, <a class="el" href="inf__elem__builder_8C_source.html#l00277">libMesh::InfElemBuilder::build_inf_elem()</a>, <a class="el" href="checkpoint__io_8C_source.html#l00196">libMesh::CheckpointIO::build_node_list()</a>, <a class="el" href="mesh__tools_8C_source.html#l00352">libMesh::MeshTools::build_nodes_to_elem_map()</a>, <a class="el" href="equation__systems_8C_source.html#l00671">libMesh::EquationSystems::build_parallel_solution_vector()</a>, <a class="el" href="equation__systems_8C_source.html#l00480">libMesh::EquationSystems::build_variable_names()</a>, <a class="el" href="mesh__base_8C_source.html#l00592">libMesh::MeshBase::cache_elem_dims()</a>, <a class="el" href="vtk__io_8C_source.html#l00416">libMesh::VTKIO::cells_to_vtk()</a>, <a class="el" href="mesh__tetgen__interface_8C_source.html#l00396">libMesh::TetGenMeshInterface::check_hull_integrity()</a>, <a class="el" href="replicated__mesh_8C_source.html#l00572">libMesh::ReplicatedMesh::clear()</a>, <a class="el" href="distributed__mesh_8C_source.html#l00773">libMesh::DistributedMesh::clear()</a>, <a class="el" href="equation__systems_8C_source.html#l01178">libMesh::EquationSystems::compare()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l01178">libMesh::Nemesis_IO_Helper::compute_communication_map_parameters()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l01005">libMesh::Nemesis_IO_Helper::compute_elem_communication_maps()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l00962">libMesh::Nemesis_IO_Helper::compute_element_maps()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l01107">libMesh::Nemesis_IO_Helper::compute_node_communication_maps()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l01060">libMesh::Nemesis_IO_Helper::compute_node_maps()</a>, <a class="el" href="dof__map_8C_source.html#l01840">libMesh::DofMap::compute_sparsity()</a>, <a class="el" href="unstructured__mesh_8C_source.html#l00770">libMesh::UnstructuredMesh::contract()</a>, <a class="el" href="exodusII__io_8C_source.html#l00485">libMesh::ExodusII_IO::copy_elemental_solution()</a>, <a class="el" href="gmv__io_8C_source.html#l02356">libMesh::GMVIO::copy_nodal_solution()</a>, <a class="el" href="unstructured__mesh_8C_source.html#l00074">libMesh::UnstructuredMesh::copy_nodes_and_elements()</a>, <a class="el" href="vectormap_8h_source.html#l00205">libMesh::vectormap&lt; dof_id_type, dof_id_type &gt;::count()</a>, <a class="el" href="elem__cutter_8C_source.html#l00219">libMesh::ElemCutter::cut_2D()</a>, <a class="el" href="elem__cutter_8C_source.html#l00308">libMesh::ElemCutter::cut_3D()</a>, <a class="el" href="mesh__tetgen__interface_8C_source.html#l00456">libMesh::TetGenMeshInterface::delete_2D_hull_elements()</a>, <a class="el" href="mesh__base_8C_source.html#l00658">libMesh::MeshBase::detect_interior_parents()</a>, <a class="el" href="mesh__modification_8C_source.html#l00065">libMesh::MeshTools::Modification::distort()</a>, <a class="el" href="petscdmlibmeshimpl_8C_source.html#l00355">DMCreateDomainDecomposition_libMesh()</a>, <a class="el" href="petscdmlibmeshimpl_8C_source.html#l00249">DMCreateFieldDecomposition_libMesh()</a>, <a class="el" href="petscdmlibmeshimpl_8C_source.html#l00071">DMlibMeshSetSystem_libMesh()</a>, <a class="el" href="petscdmlibmeshimpl_8C_source.html#l00199">DMlibMeshSetUpName_Private()</a>, <a class="el" href="petscdmlibmeshimpl_8C_source.html#l01024">DMView_libMesh()</a>, <a class="el" href="tecplot__io_8C_source.html#l00203">libMesh::TecplotIO::elem_dimension()</a>, <a class="el" href="mesh__tools_8C_source.html#l00530">libMesh::MeshTools::elem_types()</a>, <a class="el" href="unv__io_8C_source.html#l00978">libMesh::UNVIO::elements_out()</a>, <a class="el" href="mapvector_8h_source.html#l00133">libMesh::mapvector&lt; libMesh::Elem *, dof_id_type &gt;::end()</a>, <a class="el" href="topology__map_8C_source.html#l00141">libMesh::TopologyMap::fill()</a>, <a class="el" href="location__maps_8C_source.html#l00204">libMesh::LocationMap&lt; T &gt;::fill()</a>, <a class="el" href="mesh__tetgen__interface_8C_source.html#l00352">libMesh::TetGenMeshInterface::fill_pointlist()</a>, <a class="el" href="vectormap_8h_source.html#l00164">libMesh::vectormap&lt; dof_id_type, dof_id_type &gt;::find()</a>, <a class="el" href="mesh__tools_8C_source.html#l00391">libMesh::MeshTools::find_boundary_nodes()</a>, <a class="el" href="elem_8C_source.html#l00758">libMesh::Elem::find_edge_neighbors()</a>, <a class="el" href="mesh__function_8C_source.html#l00627">libMesh::MeshFunction::find_element()</a>, <a class="el" href="mesh__function_8C_source.html#l00676">libMesh::MeshFunction::find_elements()</a>, <a class="el" href="patch_8C_source.html#l00038">libMesh::Patch::find_face_neighbors()</a>, <a class="el" href="mesh__communication__global__indices_8C_source.html#l00672">libMesh::MeshCommunication::find_global_indices()</a>, <a class="el" href="mesh__tools_8C_source.html#l00882">libMesh::MeshTools::find_hanging_nodes_and_parents()</a>, <a class="el" href="elem_8C_source.html#l00860">libMesh::Elem::find_interior_neighbors()</a>, <a class="el" href="unstructured__mesh_8C_source.html#l00234">libMesh::UnstructuredMesh::find_neighbors()</a>, <a class="el" href="patch_8C_source.html#l00127">libMesh::Patch::find_point_neighbors()</a>, <a class="el" href="elem_8C_source.html#l00591">libMesh::Elem::find_point_neighbors()</a>, <a class="el" href="distributed__mesh_8C_source.html#l01295">libMesh::DistributedMesh::fix_broken_node_and_element_numbering()</a>, <a class="el" href="mesh__modification_8C_source.html#l01757">libMesh::MeshTools::Modification::flatten()</a>, <a class="el" href="equation__systems_8C_source.html#l01239">libMesh::EquationSystems::get_info()</a>, <a class="el" href="dof__map_8C_source.html#l02782">libMesh::DofMap::get_info()</a>, <a class="el" href="equation__systems_8C_source.html#l00895">libMesh::EquationSystems::get_solution()</a>, <a class="el" href="equation__systems_8h_source.html#l00614">libMesh::EquationSystems::get_system()</a>, <a class="el" href="getpot_8h_source.html#l00976">GETPOT_NAMESPACE::GetPot::GetPot()</a>, <a class="el" href="unv__io_8C_source.html#l00420">libMesh::UNVIO::groups_in()</a>, <a class="el" href="statistics_8C_source.html#l00178">libMesh::StatisticsVector&lt; T &gt;::histogram()</a>, <a class="el" href="location__maps_8C_source.html#l00050">libMesh::LocationMap&lt; T &gt;::init()</a>, <a class="el" href="mesh__smoother__laplace_8C_source.html#l00172">libMesh::LaplaceMeshSmoother::init()</a>, <a class="el" href="parmetis__partitioner_8C_source.html#l00195">libMesh::ParmetisPartitioner::initialize()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01100">libMesh::ExodusII_IO_Helper::initialize()</a>, <a class="el" href="elem_8C_source.html#l00538">libMesh::Elem::is_semilocal()</a>, <a class="el" href="petsc__vector_8h_source.html#l01214">libMesh::PetscVector&lt; T &gt;::map_global_to_local_index()</a>, <a class="el" href="statistics_8C_source.html#l00061">libMesh::StatisticsVector&lt; T &gt;::maximum()</a>, <a class="el" href="statistics_8C_source.html#l00095">libMesh::StatisticsVector&lt; T &gt;::median()</a>, <a class="el" href="statistics_8C_source.html#l00048">libMesh::StatisticsVector&lt; T &gt;::minimum()</a>, <a class="el" href="equation__systems_8C_source.html#l01325">libMesh::EquationSystems::n_active_dofs()</a>, <a class="el" href="checkpoint__io_8C_source.html#l00853">libMesh::CheckpointIO::n_active_levels_on_processor()</a>, <a class="el" href="mesh__base_8C_source.html#l00394">libMesh::MeshBase::n_active_sub_elem()</a>, <a class="el" href="equation__systems_8C_source.html#l01309">libMesh::EquationSystems::n_dofs()</a>, <a class="el" href="mesh__tools_8C_source.html#l00565">libMesh::MeshTools::n_non_subactive_elem_of_type_at_level()</a>, <a class="el" href="mesh__base_8C_source.html#l00379">libMesh::MeshBase::n_sub_elem()</a>, <a class="el" href="equation__systems_8C_source.html#l01294">libMesh::EquationSystems::n_vars()</a>, <a class="el" href="unv__io_8C_source.html#l00903">libMesh::UNVIO::nodes_out()</a>, <a class="el" href="sparsity__pattern_8C_source.html#l00202">libMesh::SparsityPattern::Build::operator()()</a>, <a class="el" href="boundary__info_8C_source.html#l00056">libMesh::BoundaryInfo::operator=()</a>, <a class="el" href="getpot_8h_source.html#l01030">GETPOT_NAMESPACE::GetPot::operator=()</a>, <a class="el" href="vectormap_8h_source.html#l00140">libMesh::vectormap&lt; dof_id_type, dof_id_type &gt;::operator[]()</a>, <a class="el" href="abaqus__io_8C_source.html#l00661">libMesh::AbaqusIO::parse_label()</a>, <a class="el" href="parsed__function_8h_source.html#l00455">libMesh::ParsedFunction&lt; Output, OutputGradient &gt;::partial_reparse()</a>, <a class="el" href="parsed__fem__function_8h_source.html#l00586">libMesh::ParsedFEMFunction&lt; Output &gt;::partial_reparse()</a>, <a class="el" href="partitioner_8C_source.html#l00181">libMesh::Partitioner::partition_unpartitioned_elements()</a>, <a class="el" href="mesh__tetgen__interface_8C_source.html#l00113">libMesh::TetGenMeshInterface::pointset_convexhull()</a>, <a class="el" href="mesh__smoother__laplace_8C_source.html#l00282">libMesh::LaplaceMeshSmoother::print_graph()</a>, <a class="el" href="boundary__info_8C_source.html#l01999">libMesh::BoundaryInfo::print_info()</a>, <a class="el" href="boundary__info_8C_source.html#l02074">libMesh::BoundaryInfo::print_summary()</a>, <a class="el" href="nemesis__io_8C_source.html#l00135">libMesh::Nemesis_IO::read()</a>, <a class="el" href="system__io_8C_source.html#l00310">libMesh::System::read_legacy_data()</a>, <a class="el" href="gmsh__io_8C_source.html#l00145">libMesh::GmshIO::read_mesh()</a>, <a class="el" href="xdr__io_8C_source.html#l01841">libMesh::XdrIO::read_serialized_bcs_helper()</a>, <a class="el" href="system__io_8C_source.html#l00784">libMesh::System::read_serialized_blocked_dof_objects()</a>, <a class="el" href="xdr__io_8C_source.html#l01689">libMesh::XdrIO::read_serialized_nodes()</a>, <a class="el" href="xdr__io_8C_source.html#l01963">libMesh::XdrIO::read_serialized_nodesets()</a>, <a class="el" href="mesh__smoother__vsmoother_8C_source.html#l00270">libMesh::VariationalMeshSmoother::readgr()</a>, <a class="el" href="mesh__base_8C_source.html#l00489">libMesh::MeshBase::recalculate_n_partitions()</a>, <a class="el" href="mesh__modification_8C_source.html#l00149">libMesh::MeshTools::Modification::redistribute()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l04133">libMesh::DofMap::remove_adjoint_dirichlet_boundary()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l04112">libMesh::DofMap::remove_dirichlet_boundary()</a>, <a class="el" href="distributed__mesh_8C_source.html#l00977">libMesh::DistributedMesh::renumber_dof_objects()</a>, <a class="el" href="replicated__mesh_8C_source.html#l00632">libMesh::ReplicatedMesh::renumber_nodes_and_elements()</a>, <a class="el" href="distributed__mesh_8C_source.html#l01200">libMesh::DistributedMesh::renumber_nodes_and_elements()</a>, <a class="el" href="parallel__implementation_8h_source.html#l03360">libMesh::Parallel::Communicator::scatter()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l03243">libMesh::DofMap::scatter_constraints()</a>, <a class="el" href="dof__object_8C_source.html#l00219">libMesh::DofObject::set_n_vars_per_group()</a>, <a class="el" href="partitioner_8C_source.html#l00255">libMesh::Partitioner::set_parent_processor_ids()</a>, <a class="el" href="mesh__smoother__laplace_8C_source.html#l00045">libMesh::LaplaceMeshSmoother::smooth()</a>, <a class="el" href="mesh__modification_8C_source.html#l01575">libMesh::MeshTools::Modification::smooth()</a>, <a class="el" href="vectormap_8h_source.html#l00125">libMesh::vectormap&lt; dof_id_type, dof_id_type &gt;::sort()</a>, <a class="el" href="replicated__mesh_8C_source.html#l00844">libMesh::ReplicatedMesh::stitching_helper()</a>, <a class="el" href="mesh__base_8C_source.html#l00310">libMesh::MeshBase::subdomain_ids()</a>, <a class="el" href="tree_8C_source.html#l00037">libMesh::Tree&lt; N &gt;::Tree()</a>, <a class="el" href="mesh__triangle__interface_8C_source.html#l00059">libMesh::TriangleInterface::triangulate()</a>, <a class="el" href="mesh__tetgen__interface_8C_source.html#l00176">libMesh::TetGenMeshInterface::triangulate_conformingDelaunayMesh_carvehole()</a>, <a class="el" href="fro__io_8C_source.html#l00041">libMesh::FroIO::write()</a>, <a class="el" href="tetgen__io_8C_source.html#l00260">libMesh::TetGenIO::write()</a>, <a class="el" href="medit__io_8C_source.html#l00059">libMesh::MEDITIO::write_ascii()</a>, <a class="el" href="tecplot__io_8C_source.html#l00233">libMesh::TecplotIO::write_ascii()</a>, <a class="el" href="gmv__io_8C_source.html#l00291">libMesh::GMVIO::write_ascii_new_impl()</a>, <a class="el" href="gmv__io_8C_source.html#l00587">libMesh::GMVIO::write_ascii_old_impl()</a>, <a class="el" href="tecplot__io_8C_source.html#l00355">libMesh::TecplotIO::write_binary()</a>, <a class="el" href="gmv__io_8C_source.html#l01275">libMesh::GMVIO::write_binary()</a>, <a class="el" href="checkpoint__io_8C_source.html#l00299">libMesh::CheckpointIO::write_connectivity()</a>, <a class="el" href="gmv__io_8C_source.html#l01656">libMesh::GMVIO::write_discontinuous_gmv()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01802">libMesh::ExodusII_IO_Helper::write_element_values()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01314">libMesh::ExodusII_IO_Helper::write_elements()</a>, <a class="el" href="ucd__io_8C_source.html#l00298">libMesh::UCDIO::write_interior_elems()</a>, <a class="el" href="gmsh__io_8C_source.html#l00664">libMesh::GmshIO::write_mesh()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01189">libMesh::ExodusII_IO_Helper::write_nodal_coordinates()</a>, <a class="el" href="exodusII__io_8C_source.html#l00825">libMesh::ExodusII_IO::write_nodal_data_discontinuous()</a>, <a class="el" href="ucd__io_8C_source.html#l00277">libMesh::UCDIO::write_nodes()</a>, <a class="el" href="checkpoint__io_8C_source.html#l00249">libMesh::CheckpointIO::write_nodes()</a>, <a class="el" href="gmsh__io_8C_source.html#l00840">libMesh::GmshIO::write_post()</a>, <a class="el" href="xdr__io_8C_source.html#l01035">libMesh::XdrIO::write_serialized_bcs_helper()</a>, <a class="el" href="system__io_8C_source.html#l01807">libMesh::System::write_serialized_blocked_dof_objects()</a>, <a class="el" href="xdr__io_8C_source.html#l00342">libMesh::XdrIO::write_serialized_connectivity()</a>, <a class="el" href="xdr__io_8C_source.html#l00705">libMesh::XdrIO::write_serialized_nodes()</a>, <a class="el" href="xdr__io_8C_source.html#l01189">libMesh::XdrIO::write_serialized_nodesets()</a>, <a class="el" href="mesh__smoother__vsmoother_8C_source.html#l00222">libMesh::VariationalMeshSmoother::writegr()</a>, <a class="el" href="dof__map__constraints_8C_source.html#l04160">libMesh::DirichletBoundaries::~DirichletBoundaries()</a>, <a class="el" href="getpot_8h_source.html#l01018">GETPOT_NAMESPACE::GetPot::~GetPot()</a>, <a class="el" href="periodic__boundaries_8C_source.html#l00034">libMesh::PeriodicBoundaries::~PeriodicBoundaries()</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00409">~variant_filter_iterator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a34ab123b13f57169d1e00ee267bceb5a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Predicate , class Type , class ReferenceType  = Type &amp;, class PointerType  = Type *&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">IterType iter_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Original Authors: Corwin Joy * Michael Gradman <a href="#" onclick="location.href='mai'+'lto:'+'cjo'+'y@'+'hou'+'st'+'on.'+'rr'+'.co'+'m'; return false;">cjoy@<span style="display: none;">.nosp@m.</span>hous<span style="display: none;">.nosp@m.</span>ton.r<span style="display: none;">.nosp@m.</span>r.co<span style="display: none;">.nosp@m.</span>m</a> * <a href="#" onclick="location.href='mai'+'lto:'+'Mic'+'ha'+'el.'+'Gr'+'adm'+'an'+'@ca'+'mi'+'nus'+'.c'+'om'; return false;">Micha<span style="display: none;">.nosp@m.</span>el.G<span style="display: none;">.nosp@m.</span>radma<span style="display: none;">.nosp@m.</span>n@ca<span style="display: none;">.nosp@m.</span>minus<span style="display: none;">.nosp@m.</span>.com</a> Caminus, Suite 1150, Two Allen Center, 1200 Smith Street, Houston, TX 77002 This class is an extension of variant_bidirectional_iterator to a filter_iterator similar to boost's. The filter iterator is modeled after a forward_iterator since to go backward and forward requires the storage of both a "begin" and "end" iterator to avoid stepping off the end or the beginning. To reduce complexity, we only allow traversal in one direction.</p>
+<dl class="section author"><dt>Author</dt><dd>John W. Peterson </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2004 This is the iterator passed by the user. </dd></dl>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00050">50</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace1ed864244787b76a860606f5017a95"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PredBase* pred</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The predicate object. Must have op() capable of operating on IterBase * pointers. Therefore it has to follow the same paradigm as <code>IterBase</code>. </p>
+
+<p>Definition at line <a class="el" href="variant__filter__iterator_8h_source.html#l00341">341</a> of file <a class="el" href="variant__filter__iterator_8h_source.html">variant_filter_iterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="multi__predicates_8h_source.html#l00079">libMesh::Predicates::abstract_multi_predicate&lt; T &gt;::operator()()</a>, and <a class="el" href="variant__filter__iterator_8h_source.html#l00409">~variant_filter_iterator()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

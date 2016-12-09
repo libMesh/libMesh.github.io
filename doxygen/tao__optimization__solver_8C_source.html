@@ -146,42 +146,42 @@
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">// This function is called by Tao to evaluate objective function at x</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  __libmesh_tao_objective (Tao <span class="comment">/*tao*/</span>, Vec x, PetscReal * objective, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a87964372707f662c4d41bfc961f2256b">   49</a></span>&#160;  <a class="code" href="namespacelibMesh.html#a87964372707f662c4d41bfc961f2256b">__libmesh_tao_objective</a> (Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, PetscReal * objective, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;objective()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;objective()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(objective);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(ctx);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(objective);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(ctx);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Swap back</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    X.swap(X_sys);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;objective_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      (*objective) = solver-&gt;objective_object-&gt;objective(*(sys.current_local_solution), sys);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#aa4f633b381784a5e32155a24147d2400">objective_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      (*objective) = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#aa4f633b381784a5e32155a24147d2400">objective_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a6e6177b4678be08de773a98a4d6e2aab">objective</a>(*(sys.current_local_solution), sys);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Objective function not defined in __libmesh_tao_objective&quot;</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Objective function not defined in __libmesh_tao_objective&quot;</span>);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
@@ -189,31 +189,31 @@
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// This function is called by Tao to evaluate the gradient at x</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  __libmesh_tao_gradient(Tao <span class="comment">/*tao*/</span>, Vec x, Vec g, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#aaf37b02b9178116a4729b16e731294ac">   92</a></span>&#160;  <a class="code" href="namespacelibMesh.html#aaf37b02b9178116a4729b16e731294ac">__libmesh_tao_gradient</a>(Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, Vec g, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;gradient()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;gradient()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(g);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(ctx);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(g);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(ctx);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// Swap back</span></div>
@@ -221,105 +221,105 @@
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">// We&#39;ll also pass the gradient in to the assembly routine</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// so let&#39;s make a PETSc vector for that too.</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    PetscVector&lt;Number&gt; gradient(g, sys.comm());</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> gradient(g, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// Clear the gradient prior to assembly</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    gradient.zero();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    gradient.<a class="code" href="classlibMesh_1_1PetscVector.html#a20c2f3e5b156d05c988d27914592d850">zero</a>();</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;gradient_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      solver-&gt;gradient_object-&gt;gradient(*(sys.current_local_solution), gradient, sys);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a1e015a255be3b92c06f30fdc2fc00c">gradient_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a1e015a255be3b92c06f30fdc2fc00c">gradient_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a8cc11734c58bffe2e85a2c9ceedc0cce">gradient</a>(*(sys.current_local_solution), gradient, sys);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Gradient function not defined in __libmesh_tao_gradient&quot;</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Gradient function not defined in __libmesh_tao_gradient&quot;</span>);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    gradient.close();</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  }</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="comment">// This function is called by Tao to evaluate the Hessian at x</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  __libmesh_tao_hessian(Tao <span class="comment">/*tao*/</span>, Vec x, Mat h, Mat pc, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a6ddac86bb955185789c3f326ac14986e">  142</a></span>&#160;  <a class="code" href="namespacelibMesh.html#a6ddac86bb955185789c3f326ac14986e">__libmesh_tao_hessian</a>(Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, Mat h, Mat <a class="code" href="namespacelibMesh.html#a54321cd7965683f42790b8e37972a998">pc</a>, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  {</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;hessian()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;hessian()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(h);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(pc);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(ctx);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(h);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(pc);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(ctx);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="comment">// Swap back</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    X.swap(X_sys);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="comment">// Let&#39;s also wrap pc and h in PetscMatrix objects for convenience</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    PetscMatrix&lt;Number&gt; PC(pc, sys.comm());</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    PetscMatrix&lt;Number&gt; hessian(h, sys.comm());</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    PC.attach_dof_map(sys.get_dof_map());</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;Number&gt;</a> PC(pc, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;Number&gt;</a> hessian(h, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    PC.<a class="code" href="classlibMesh_1_1SparseMatrix.html#a327789280fc9e054844455b212d143b4">attach_dof_map</a>(sys.get_dof_map());</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    hessian.attach_dof_map(sys.get_dof_map());</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;hessian_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a76b53313ca17450a416d04911163e1c4">hessian_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      {</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="comment">// Following PetscNonlinearSolver by passing in PC. It&#39;s not clear</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="comment">// why we pass in PC and not hessian though?</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        solver-&gt;hessian_object-&gt;hessian(*(sys.current_local_solution), PC, sys);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a76b53313ca17450a416d04911163e1c4">hessian_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeHessian.html#a44e2170b3fc45f41a16cb5b4147b5673">hessian</a>(*(sys.current_local_solution), PC, sys);</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Hessian function not defined in __libmesh_tao_hessian&quot;</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Hessian function not defined in __libmesh_tao_hessian&quot;</span>);</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    PC.close();</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    hessian.close();</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  }</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="comment">// This function is called by Tao to evaluate the equality constraints at x</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  __libmesh_tao_equality_constraints(Tao <span class="comment">/*tao*/</span>, Vec x, Vec ce, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a0551dbe7118f2b5d297c37acf9b297ff">  198</a></span>&#160;  <a class="code" href="namespacelibMesh.html#a0551dbe7118f2b5d297c37acf9b297ff">__libmesh_tao_equality_constraints</a>(Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, Vec ce, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;equality_constraints()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;equality_constraints()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(ce);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(ctx);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(ce);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(ctx);</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="comment">// Swap back</span></div>
@@ -327,98 +327,98 @@
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">// We&#39;ll also pass the constraints vector ce into the assembly routine</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">// so let&#39;s make a PETSc vector for that too.</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    PetscVector&lt;Number&gt; eq_constraints(ce, sys.comm());</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> eq_constraints(ce, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">// Clear the gradient prior to assembly</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    eq_constraints.zero();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    eq_constraints.<a class="code" href="classlibMesh_1_1PetscVector.html#a20c2f3e5b156d05c988d27914592d850">zero</a>();</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;equality_constraints_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      solver-&gt;equality_constraints_object-&gt;equality_constraints(*(sys.current_local_solution), eq_constraints, sys);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a9ff3bf16001a45aedd16bbc7a37806c6">equality_constraints_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a9ff3bf16001a45aedd16bbc7a37806c6">equality_constraints_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html#a7394e1621c92b6f650c935a33b13016a">equality_constraints</a>(*(sys.current_local_solution), eq_constraints, sys);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_equality_constraints&quot;</span>);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_equality_constraints&quot;</span>);</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    eq_constraints.close();</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  }</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="comment">// This function is called by Tao to evaluate the Jacobian of the</span></div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="comment">// equality constraints at x</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  __libmesh_tao_equality_constraints_jacobian(Tao <span class="comment">/*tao*/</span>, Vec x, Mat J, Mat Jpre, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#ae97d44d62697ae00da38590471bbb535">  249</a></span>&#160;  <a class="code" href="namespacelibMesh.html#ae97d44d62697ae00da38590471bbb535">__libmesh_tao_equality_constraints_jacobian</a>(Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, Mat J, Mat Jpre, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  {</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;equality_constraints_jacobian()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;equality_constraints_jacobian()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(J);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(Jpre);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(J);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(Jpre);</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">// Swap back</span></div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    X.swap(X_sys);</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">// Let&#39;s also wrap J and Jpre in PetscMatrix objects for convenience</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    PetscMatrix&lt;Number&gt; J_petsc(J, sys.comm());</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    PetscMatrix&lt;Number&gt; Jpre_petsc(Jpre, sys.comm());</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;Number&gt;</a> J_petsc(J, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;Number&gt;</a> Jpre_petsc(Jpre, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;equality_constraints_jacobian_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      solver-&gt;equality_constraints_jacobian_object-&gt;equality_constraints_jacobian(*(sys.current_local_solution), J_petsc, sys);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a7e435c231f4c3ce0877d68a5c35cb3">equality_constraints_jacobian_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a7e435c231f4c3ce0877d68a5c35cb3">equality_constraints_jacobian_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html#a44c7d8a128654fc8b56ef50fa067e86d">equality_constraints_jacobian</a>(*(sys.current_local_solution), J_petsc, sys);</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_equality_constraints_jacobian&quot;</span>);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_equality_constraints_jacobian&quot;</span>);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    J_petsc.close();</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    Jpre_petsc.close();</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  }</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="comment">// This function is called by Tao to evaluate the inequality constraints at x</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  __libmesh_tao_inequality_constraints(Tao <span class="comment">/*tao*/</span>, Vec x, Vec cineq, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a890a317cc8a8748c6ab20c6ffee9019a">  297</a></span>&#160;  <a class="code" href="namespacelibMesh.html#a890a317cc8a8748c6ab20c6ffee9019a">__libmesh_tao_inequality_constraints</a>(Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, Vec cineq, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;inequality_constraints()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;inequality_constraints()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(cineq);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(ctx);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(cineq);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(ctx);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="comment">// Swap back</span></div>
@@ -426,68 +426,68 @@
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="comment">// We&#39;ll also pass the constraints vector ce into the assembly routine</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="comment">// so let&#39;s make a PETSc vector for that too.</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    PetscVector&lt;Number&gt; ineq_constraints(cineq, sys.comm());</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> ineq_constraints(cineq, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">// Clear the gradient prior to assembly</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    ineq_constraints.zero();</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    ineq_constraints.<a class="code" href="classlibMesh_1_1PetscVector.html#a20c2f3e5b156d05c988d27914592d850">zero</a>();</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;inequality_constraints_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      solver-&gt;inequality_constraints_object-&gt;inequality_constraints(*(sys.current_local_solution), ineq_constraints, sys);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a1989d6289ea987ec47f762e2ef93945b">inequality_constraints_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a1989d6289ea987ec47f762e2ef93945b">inequality_constraints_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html#a6869bd3d5a8ca0b101e6471c7cc74656">inequality_constraints</a>(*(sys.current_local_solution), ineq_constraints, sys);</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_inequality_constraints&quot;</span>);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_inequality_constraints&quot;</span>);</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    ineq_constraints.close();</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  }</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="comment">//---------------------------------------------------------------</span></div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="comment">// This function is called by Tao to evaluate the Jacobian of the</span></div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="comment">// equality constraints at x</span></div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  PetscErrorCode</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  __libmesh_tao_inequality_constraints_jacobian(Tao <span class="comment">/*tao*/</span>, Vec x, Mat J, Mat Jpre, <span class="keywordtype">void</span> * ctx)</div>
+<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a018dde26d5156be052802bf79ae67e67">  348</a></span>&#160;  <a class="code" href="namespacelibMesh.html#a018dde26d5156be052802bf79ae67e67">__libmesh_tao_inequality_constraints_jacobian</a>(Tao <span class="comment">/*tao*/</span>, Vec <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, Mat J, Mat Jpre, <span class="keywordtype">void</span> * ctx)</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  {</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;inequality_constraints_jacobian()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    LOG_SCOPE(<span class="stringliteral">&quot;inequality_constraints_jacobian()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(x);</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(J);</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(Jpre);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(x);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(J);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(Jpre);</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    TaoOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <span class="keyword">static_cast&lt;</span>TaoOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (ctx);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (ctx);</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="comment">// with the vector x that was passed in.</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    PetscVector&lt;Number&gt; &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    PetscVector&lt;Number&gt; X(x, sys.comm());</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> &amp; X_sys = *cast_ptr&lt;PetscVector&lt;Number&gt; *&gt;(sys.solution.get());</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;Number&gt;</a> X(x, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="comment">// Perform a swap so that sys.solution points to X</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    X.swap(X_sys);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    X.<a class="code" href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">swap</a>(X_sys);</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="comment">// Impose constraints on X</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">get_dof_map</a>().<a class="code" href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">enforce_constraints_exactly</a>(sys);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    sys.get_dof_map().enforce_constraints_exactly(sys);</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    sys.update();</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="comment">// Swap back</span></div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    X.swap(X_sys);</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="comment">// Let&#39;s also wrap J and Jpre in PetscMatrix objects for convenience</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    PetscMatrix&lt;Number&gt; J_petsc(J, sys.comm());</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    PetscMatrix&lt;Number&gt; Jpre_petsc(Jpre, sys.comm());</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;Number&gt;</a> J_petsc(J, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;Number&gt;</a> Jpre_petsc(Jpre, sys.<a class="code" href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">comm</a>());</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;inequality_constraints_jacobian_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      solver-&gt;inequality_constraints_jacobian_object-&gt;inequality_constraints_jacobian(*(sys.current_local_solution), J_petsc, sys);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4fa2498b9698d0e565d9febe9e3df3ee">inequality_constraints_jacobian_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4fa2498b9698d0e565d9febe9e3df3ee">inequality_constraints_jacobian_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian.html#ab6ae13d74938afdc0b12d2898fae72c0">inequality_constraints_jacobian</a>(*(sys.current_local_solution), J_petsc, sys);</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_inequality_constraints_jacobian&quot;</span>);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_tao_inequality_constraints_jacobian&quot;</span>);</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    J_petsc.close();</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    Jpre_petsc.close();</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">return</span> ierr;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>;</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  }</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;} <span class="comment">// end extern &quot;C&quot;</span></div>
@@ -498,7 +498,7 @@
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">//---------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">// TaoOptimizationSolver&lt;&gt; methods</span></div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;TaoOptimizationSolver&lt;T&gt;::TaoOptimizationSolver (<a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; system_in) :</div>
+<div class="line"><a name="l00401"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#af7092d71ed56c6be9955348c8b0862f1">  401</a></span>&#160;<a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#af7092d71ed56c6be9955348c8b0862f1">TaoOptimizationSolver&lt;T&gt;::TaoOptimizationSolver</a> (<a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; system_in) :</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSolver.html">OptimizationSolver</a>&lt;T&gt;(system_in),</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  _reason(TAO_CONVERGED_USER) <span class="comment">// Arbitrary initial value...</span></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;{</div>
@@ -507,7 +507,7 @@
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;TaoOptimizationSolver&lt;T&gt;::~TaoOptimizationSolver ()</div>
+<div class="line"><a name="l00410"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#aee00e731a5e6dae56c9c3d1df28ebe57">  410</a></span>&#160;<a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#aee00e731a5e6dae56c9c3d1df28ebe57">TaoOptimizationSolver&lt;T&gt;::~TaoOptimizationSolver</a> ()</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;{</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  this-&gt;clear ();</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;}</div>
@@ -515,13 +515,13 @@
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keywordtype">void</span> TaoOptimizationSolver&lt;T&gt;::clear ()</div>
+<div class="line"><a name="l00418"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#a2011a33c0b45f457c8935fc91e16b66c">  418</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#a2011a33c0b45f457c8935fc91e16b66c">TaoOptimizationSolver&lt;T&gt;::clear</a> ()</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;{</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    {</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      this-&gt;<a class="code" href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">_is_initialized</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      PetscErrorCode ierr=0;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>=0;</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      ierr = TaoDestroy(&amp;_tao);</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      LIBMESH_CHKERR(ierr);</div>
@@ -531,43 +531,43 @@
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keywordtype">void</span> TaoOptimizationSolver&lt;T&gt;::init ()</div>
+<div class="line"><a name="l00434"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#a4db6b3fc6e65569953596b055a15a53f">  434</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#a4db6b3fc6e65569953596b055a15a53f">TaoOptimizationSolver&lt;T&gt;::init</a> ()</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;{</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  <span class="comment">// Initialize the data structures if not done so already.</span></div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    {</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      this-&gt;<a class="code" href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">_is_initialized</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      PetscErrorCode ierr=0;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>=0;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      ierr = TaoCreate(this-&gt;comm().<span class="keyword">get</span>(),&amp;_tao);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      ierr = TaoCreate(this-&gt;<a class="code" href="namespacelibMesh.html#ab3347ee25863a5deda233c8449a27cd4">comm</a>().<span class="keyword">get</span>(),&amp;_tao);</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    }</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;}</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keywordtype">void</span> TaoOptimizationSolver&lt;T&gt;::solve ()</div>
+<div class="line"><a name="l00449"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#a1f5d0abd498379e56bca300e910fb8a2">  449</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#a1f5d0abd498379e56bca300e910fb8a2">TaoOptimizationSolver&lt;T&gt;::solve</a> ()</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;{</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;solve()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;solve()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  this-&gt;init ();</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  this-&gt;<a class="code" href="namespacelibMesh_1_1TriangleWrapper.html#ae06da07f4c64d00ebefa55ce7f5c5e6b">init</a> ();</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  this-&gt;system().solution-&gt;zero();</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  PetscMatrix&lt;T&gt; * hessian  = cast_ptr&lt;PetscMatrix&lt;T&gt; *&gt;(this-&gt;system().matrix);</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;T&gt;</a> * hessian  = cast_ptr&lt;PetscMatrix&lt;T&gt; *&gt;(this-&gt;system().matrix);</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;  <span class="comment">// PetscVector&lt;T&gt; * gradient = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().rhs);</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;  PetscVector&lt;T&gt; * x         = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().solution.get());</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  PetscVector&lt;T&gt; * ceq       = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().C_eq.get());</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  PetscMatrix&lt;T&gt; * ceq_jac   = cast_ptr&lt;PetscMatrix&lt;T&gt; *&gt;(this-&gt;system().C_eq_jac.get());</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  PetscVector&lt;T&gt; * cineq     = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().C_ineq.get());</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  PetscMatrix&lt;T&gt; * cineq_jac = cast_ptr&lt;PetscMatrix&lt;T&gt; *&gt;(this-&gt;system().C_ineq_jac.get());</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  PetscVector&lt;T&gt; * lb        = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(&amp;this-&gt;system().get_vector(<span class="stringliteral">&quot;lower_bounds&quot;</span>));</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  PetscVector&lt;T&gt; * ub        = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(&amp;this-&gt;system().get_vector(<span class="stringliteral">&quot;upper_bounds&quot;</span>));</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>         = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().solution.get());</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * ceq       = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().C_eq.get());</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;T&gt;</a> * ceq_jac   = cast_ptr&lt;PetscMatrix&lt;T&gt; *&gt;(this-&gt;system().C_eq_jac.get());</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * cineq     = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().C_ineq.get());</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  <a class="code" href="classlibMesh_1_1PetscMatrix.html">PetscMatrix&lt;T&gt;</a> * cineq_jac = cast_ptr&lt;PetscMatrix&lt;T&gt; *&gt;(this-&gt;system().C_ineq_jac.get());</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * lb        = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(&amp;this-&gt;system().get_vector(<span class="stringliteral">&quot;lower_bounds&quot;</span>));</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * ub        = cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(&amp;this-&gt;system().get_vector(<span class="stringliteral">&quot;upper_bounds&quot;</span>));</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;  <span class="comment">// Set the starting guess to zero.</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  x-&gt;zero();</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  x-&gt;<a class="code" href="classlibMesh_1_1PetscVector.html#a20c2f3e5b156d05c988d27914592d850">zero</a>();</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  <span class="comment">// Workaround for bug where TaoSetFromOptions *reset*</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  <span class="comment">// programmatically set tolerance and max. function evaluation</span></div>
@@ -585,7 +585,7 @@
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  <span class="comment">// ||g(X)|| / ||g(X0)||                &lt;= gttol</span></div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="comment">// Command line equivalents: -tao_fatol, -tao_frtol, -tao_gatol, -tao_grtol, -tao_gttol</span></div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;  ierr = TaoSetTolerances(_tao,</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;#<span class="keywordflow">if</span> <a class="code" href="petsc__macro_8h.html#a980b26a3952dd1f74c49b6edf665c0b0">PETSC_RELEASE_LESS_THAN</a>(3,7,0)</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;#<span class="keywordflow">if</span> PETSC_RELEASE_LESS_THAN(3,7,0)</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                          <span class="comment">// Releases up to 3.X.Y had fatol and frtol, after that they were removed.</span></div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                          <span class="comment">// Hopefully we&#39;ll be able to know X and Y soon. Guessing at 3.7.0.</span></div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;                          <span class="comment">/*fatol=*/</span>PETSC_DEFAULT,</div>
@@ -612,21 +612,21 @@
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;  LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;  <span class="comment">// We have to have an objective function</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>( this-&gt;objective_object );</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>( this-&gt;objective_object );</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;  <span class="comment">// Set routines for objective, gradient, hessian evaluation</span></div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;  ierr = TaoSetObjectiveRoutine(_tao, __libmesh_tao_objective, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;  ierr = TaoSetObjectiveRoutine(_tao, <a class="code" href="namespacelibMesh.html#a87964372707f662c4d41bfc961f2256b">__libmesh_tao_objective</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;  LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;  <span class="keywordflow">if</span> ( this-&gt;gradient_object )</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    {</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;      ierr = TaoSetGradientRoutine(_tao, __libmesh_tao_gradient, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;      ierr = TaoSetGradientRoutine(_tao, <a class="code" href="namespacelibMesh.html#aaf37b02b9178116a4729b16e731294ac">__libmesh_tao_gradient</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    }</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;  <span class="keywordflow">if</span> ( this-&gt;hessian_object )</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    {</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      ierr = TaoSetHessianRoutine(_tao, hessian-&gt;mat(), hessian-&gt;mat(), __libmesh_tao_hessian, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      ierr = TaoSetHessianRoutine(_tao, hessian-&gt;<a class="code" href="classlibMesh_1_1PetscMatrix.html#aaca7a5afeb063716ee67fa11302c2aea">mat</a>(), hessian-&gt;<a class="code" href="classlibMesh_1_1PetscMatrix.html#aaca7a5afeb063716ee67fa11302c2aea">mat</a>(), <a class="code" href="namespacelibMesh.html#a6ddac86bb955185789c3f326ac14986e">__libmesh_tao_hessian</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
@@ -643,7 +643,7 @@
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;  <span class="keywordflow">if</span> ( this-&gt;equality_constraints_object )</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    {</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      ierr = TaoSetEqualityConstraintsRoutine(_tao, ceq-&gt;vec(), __libmesh_tao_equality_constraints, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      ierr = TaoSetEqualityConstraintsRoutine(_tao, ceq-&gt;vec(), <a class="code" href="namespacelibMesh.html#a0551dbe7118f2b5d297c37acf9b297ff">__libmesh_tao_equality_constraints</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    }</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;</div>
@@ -652,7 +652,7 @@
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      ierr = TaoSetJacobianEqualityRoutine(_tao,</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                                           ceq_jac-&gt;mat(),</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                                           ceq_jac-&gt;mat(),</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                                           __libmesh_tao_equality_constraints_jacobian,</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                                           <a class="code" href="namespacelibMesh.html#ae97d44d62697ae00da38590471bbb535">__libmesh_tao_equality_constraints_jacobian</a>,</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                                           <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    }</div>
@@ -660,7 +660,7 @@
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;  <span class="comment">// Optionally set inequality constraints</span></div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  <span class="keywordflow">if</span> ( this-&gt;inequality_constraints_object )</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    {</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;      ierr = TaoSetInequalityConstraintsRoutine(_tao, cineq-&gt;vec(), __libmesh_tao_inequality_constraints, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;      ierr = TaoSetInequalityConstraintsRoutine(_tao, cineq-&gt;vec(), <a class="code" href="namespacelibMesh.html#a890a317cc8a8748c6ab20c6ffee9019a">__libmesh_tao_inequality_constraints</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    }</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;</div>
@@ -670,7 +670,7 @@
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;      ierr = TaoSetJacobianInequalityRoutine(_tao,</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                                             cineq_jac-&gt;mat(),</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                                             cineq_jac-&gt;mat(),</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                                             __libmesh_tao_inequality_constraints_jacobian,</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                                             <a class="code" href="namespacelibMesh.html#a018dde26d5156be052802bf79ae67e67">__libmesh_tao_inequality_constraints_jacobian</a>,</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                                             <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;      LIBMESH_CHKERR(ierr);</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    }</div>
@@ -690,19 +690,19 @@
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="keywordtype">void</span> TaoOptimizationSolver&lt;T&gt;::get_dual_variables()</div>
+<div class="line"><a name="l00593"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#ac7c4fe84c4615ca552e0ddc7904e9e5f">  593</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#ac7c4fe84c4615ca552e0ddc7904e9e5f">TaoOptimizationSolver&lt;T&gt;::get_dual_variables</a>()</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;{</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;get_dual_variables()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;get_dual_variables()&quot;</span>, <span class="stringliteral">&quot;TaoOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  PetscVector&lt;T&gt; * lambda_eq_petsc =</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * lambda_eq_petsc =</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().lambda_eq.get());</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;  PetscVector&lt;T&gt; * lambda_ineq_petsc =</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;  <a class="code" href="classlibMesh_1_1PetscVector.html">PetscVector&lt;T&gt;</a> * lambda_ineq_petsc =</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    cast_ptr&lt;PetscVector&lt;T&gt; *&gt;(this-&gt;system().lambda_ineq.get());</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;  Vec lambda_eq_petsc_vec = lambda_eq_petsc-&gt;vec();</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;  Vec lambda_eq_petsc_vec = lambda_eq_petsc-&gt;<a class="code" href="classlibMesh_1_1PetscVector.html#ada434b1090f88c405ad6d0294646a400">vec</a>();</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;  Vec lambda_ineq_petsc_vec = lambda_ineq_petsc-&gt;vec();</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  PetscErrorCode ierr = 0;</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> = 0;</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;  ierr = TaoGetDualVariables(_tao,</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                             &amp;lambda_eq_petsc_vec,</div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                             &amp;lambda_ineq_petsc_vec);</div>
@@ -711,7 +711,7 @@
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="keywordtype">void</span> TaoOptimizationSolver&lt;T&gt;::print_converged_reason()</div>
+<div class="line"><a name="l00614"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#a6c9e278606cab722c3089fc8b8d73cae">  614</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#a6c9e278606cab722c3089fc8b8d73cae">TaoOptimizationSolver&lt;T&gt;::print_converged_reason</a>()</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;{</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;Tao optimization solver convergence/divergence reason: &quot;</span></div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;               &lt;&lt; TaoConvergedReasons[this-&gt;get_converged_reason()] &lt;&lt; std::endl;</div>
@@ -720,9 +720,9 @@
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="keywordtype">int</span> TaoOptimizationSolver&lt;T&gt;::get_converged_reason()</div>
+<div class="line"><a name="l00623"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TaoOptimizationSolver.html#a13d51abbf28cf57d919560a34a92a01f">  623</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html#a13d51abbf28cf57d919560a34a92a01f">TaoOptimizationSolver&lt;T&gt;::get_converged_reason</a>()</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;{</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  PetscErrorCode ierr=0;</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  PetscErrorCode <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a>=0;</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    {</div>
@@ -736,33 +736,73 @@
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">//------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">// Explicit instantiations</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span>TaoOptimizationSolver&lt;Number&gt;;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1TaoOptimizationSolver.html">TaoOptimizationSolver&lt;Number&gt;</a>;</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="preprocessor">#endif // #if defined(LIBMESH_HAVE_PETSC_TAO) &amp;&amp; !defined(LIBMESH_USE_COMPLEX_NUMBERS)</span></div>
+<div class="ttc" id="namespacelibMesh_html_a87964372707f662c4d41bfc961f2256b"><div class="ttname"><a href="namespacelibMesh.html#a87964372707f662c4d41bfc961f2256b">libMesh::__libmesh_tao_objective</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_objective(Tao, Vec x, PetscReal *objective, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00049">tao_optimization_solver.C:49</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_aa4f633b381784a5e32155a24147d2400"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#aa4f633b381784a5e32155a24147d2400">libMesh::OptimizationSolver::objective_object</a></div><div class="ttdeci">OptimizationSystem::ComputeObjective * objective_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00126">optimization_solver.h:126</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscVector_html_a20c2f3e5b156d05c988d27914592d850"><div class="ttname"><a href="classlibMesh_1_1PetscVector.html#a20c2f3e5b156d05c988d27914592d850">libMesh::PetscVector::zero</a></div><div class="ttdeci">virtual void zero() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__vector_8h_source.html#l01069">petsc_vector.h:1069</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ae97d44d62697ae00da38590471bbb535"><div class="ttname"><a href="namespacelibMesh.html#ae97d44d62697ae00da38590471bbb535">libMesh::__libmesh_tao_equality_constraints_jacobian</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_equality_constraints_jacobian(Tao, Vec x, Mat J, Mat Jpre, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00249">tao_optimization_solver.C:249</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscVector_html"><div class="ttname"><a href="classlibMesh_1_1PetscVector.html">libMesh::PetscVector</a></div><div class="ttdoc">NumericVector interface to PETSc Vec. </div><div class="ttdef"><b>Definition:</b> <a href="petsc__vector_8h_source.html#l00064">petsc_vector.h:64</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html">libMesh::TaoOptimizationSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8h_source.html#l00058">tao_optimization_solver.h:58</a></div></div>
 <div class="ttc" id="petsc__matrix_8h_html"><div class="ttname"><a href="petsc__matrix_8h.html">petsc_matrix.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient_html_a8cc11734c58bffe2e85a2c9ceedc0cce"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a8cc11734c58bffe2e85a2c9ceedc0cce">libMesh::OptimizationSystem::ComputeGradient::gradient</a></div><div class="ttdeci">virtual void gradient(const NumericVector&lt; Number &gt; &amp;X, NumericVector&lt; Number &gt; &amp;grad_f, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="namespacelibMesh_html_a1345433246a95afac02ca599bda7a45b"><div class="ttname"><a href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">libMesh::sys</a></div><div class="ttdeci">ImplicitSystem &amp; sys</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00155">petsc_diff_solver.C:155</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeHessian_html_a44e2170b3fc45f41a16cb5b4147b5673"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeHessian.html#a44e2170b3fc45f41a16cb5b4147b5673">libMesh::OptimizationSystem::ComputeHessian::hessian</a></div><div class="ttdeci">virtual void hessian(const NumericVector&lt; Number &gt; &amp;X, SparseMatrix&lt; Number &gt; &amp;H_f, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_a4db6b3fc6e65569953596b055a15a53f"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#a4db6b3fc6e65569953596b055a15a53f">libMesh::TaoOptimizationSolver::init</a></div><div class="ttdeci">virtual void init() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00434">tao_optimization_solver.C:434</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian_html_ab6ae13d74938afdc0b12d2898fae72c0"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian.html#ab6ae13d74938afdc0b12d2898fae72c0">libMesh::OptimizationSystem::ComputeInequalityConstraintsJacobian::inequality_constraints_jacobian</a></div><div class="ttdeci">virtual void inequality_constraints_jacobian(const NumericVector&lt; Number &gt; &amp;X, SparseMatrix&lt; Number &gt; &amp;C_ineq_jac, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="tao__optimization__solver_8h_html"><div class="ttname"><a href="tao__optimization__solver_8h.html">tao_optimization_solver.h</a></div></div>
-<div class="ttc" id="petsc__macro_8h_html_a980b26a3952dd1f74c49b6edf665c0b0"><div class="ttname"><a href="petsc__macro_8h.html#a980b26a3952dd1f74c49b6edf665c0b0">PETSC_RELEASE_LESS_THAN</a></div><div class="ttdeci">#define PETSC_RELEASE_LESS_THAN(major, minor, subminor)</div><div class="ttdef"><b>Definition:</b> <a href="petsc__macro_8h_source.html#l00102">petsc_macro.h:102</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a4a1e015a255be3b92c06f30fdc2fc00c"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a4a1e015a255be3b92c06f30fdc2fc00c">libMesh::OptimizationSolver::gradient_object</a></div><div class="ttdeci">OptimizationSystem::ComputeGradient * gradient_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00132">optimization_solver.h:132</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aaf37b02b9178116a4729b16e731294ac"><div class="ttname"><a href="namespacelibMesh.html#aaf37b02b9178116a4729b16e731294ac">libMesh::__libmesh_tao_gradient</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_gradient(Tao, Vec x, Vec g, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00092">tao_optimization_solver.C:92</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a54321cd7965683f42790b8e37972a998"><div class="ttname"><a href="namespacelibMesh.html#a54321cd7965683f42790b8e37972a998">libMesh::pc</a></div><div class="ttdeci">PetscErrorCode Vec Mat Mat pc</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00144">petsc_diff_solver.C:144</a></div></div>
 <div class="ttc" id="equation__systems_8h_html"><div class="ttname"><a href="equation__systems_8h.html">equation_systems.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_af2fa643233dd5a9b6f8110b96830fd50"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">libMesh::OptimizationSolver::system</a></div><div class="ttdeci">const sys_type &amp; system() const </div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00171">optimization_solver.h:171</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a03d02ae8c0dab01091f6b27bd0765c7d"><div class="ttname"><a href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">libMesh::ierr</a></div><div class="ttdeci">ierr</div><div class="ttdef"><b>Definition:</b> <a href="petsc__preconditioner_8C_source.html#l00274">petsc_preconditioner.C:274</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a76b53313ca17450a416d04911163e1c4"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a76b53313ca17450a416d04911163e1c4">libMesh::OptimizationSolver::hessian_object</a></div><div class="ttdeci">OptimizationSystem::ComputeHessian * hessian_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00138">optimization_solver.h:138</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscVector_html_ada434b1090f88c405ad6d0294646a400"><div class="ttname"><a href="classlibMesh_1_1PetscVector.html#ada434b1090f88c405ad6d0294646a400">libMesh::PetscVector::vec</a></div><div class="ttdeci">Vec vec()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__vector_8h_source.html#l00531">petsc_vector.h:531</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_a2011a33c0b45f457c8935fc91e16b66c"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#a2011a33c0b45f457c8935fc91e16b66c">libMesh::TaoOptimizationSolver::clear</a></div><div class="ttdeci">virtual void clear() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00418">tao_optimization_solver.C:418</a></div></div>
 <div class="ttc" id="petsc__vector_8h_html"><div class="ttname"><a href="petsc__vector_8h.html">petsc_vector.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1OptimizationSystem_html_ab10104f41f2a151698310c539f2c84c6"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">libMesh::OptimizationSystem::system</a></div><div class="ttdeci">sys_type &amp; system()</div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00219">optimization_system.h:219</a></div></div>
-<div class="ttc" id="libmesh__logging_8h_html_ae5cbe34ceb1c018027d8dea96ca3f996"><div class="ttname"><a href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a></div><div class="ttdeci">#define LOG_SCOPE(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__logging_8h_source.html#l00114">libmesh_logging.h:114</a></div></div>
-<div class="ttc" id="classlibMesh_1_1System_html_a3b392c8791f781092d6326e51856f553"><div class="ttname"><a href="classlibMesh_1_1System.html#a3b392c8791f781092d6326e51856f553">libMesh::System::get_dof_map</a></div><div class="ttdeci">const DofMap &amp; get_dof_map() const </div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l02012">system.h:2012</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a68528ffcba14fb9b3114923da06a2b00"><div class="ttname"><a href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">libMesh::solver</a></div><div class="ttdeci">PetscDiffSolver &amp; solver</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00153">petsc_diff_solver.C:153</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a1989d6289ea987ec47f762e2ef93945b"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a1989d6289ea987ec47f762e2ef93945b">libMesh::OptimizationSolver::inequality_constraints_object</a></div><div class="ttdeci">OptimizationSystem::ComputeInequalityConstraints * inequality_constraints_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00155">optimization_solver.h:155</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a4a7e435c231f4c3ce0877d68a5c35cb3"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a4a7e435c231f4c3ce0877d68a5c35cb3">libMesh::OptimizationSolver::equality_constraints_jacobian_object</a></div><div class="ttdeci">OptimizationSystem::ComputeEqualityConstraintsJacobian * equality_constraints_jacobian_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00149">optimization_solver.h:149</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1libMeshPrivateData_html_ab8b7115ea57ced35ec86d1fdfa0ab853"><div class="ttname"><a href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">libMesh::libMeshPrivateData::_is_initialized</a></div><div class="ttdeci">bool _is_initialized</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00253">libmesh.C:253</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_af7092d71ed56c6be9955348c8b0862f1"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#af7092d71ed56c6be9955348c8b0862f1">libMesh::TaoOptimizationSolver::TaoOptimizationSolver</a></div><div class="ttdeci">TaoOptimizationSolver(sys_type &amp;system)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00401">tao_optimization_solver.C:401</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem.html">libMesh::OptimizationSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00043">optimization_system.h:43</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DofMap_html_a68d687909be4adb5e0e447192bef1841"><div class="ttname"><a href="classlibMesh_1_1DofMap.html#a68d687909be4adb5e0e447192bef1841">libMesh::DofMap::enforce_constraints_exactly</a></div><div class="ttdeci">void enforce_constraints_exactly(const System &amp;system, NumericVector&lt; Number &gt; *v=libmesh_nullptr, bool homogeneous=false) const </div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l01786">dof_map.h:1786</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1TriangleWrapper_html_ae06da07f4c64d00ebefa55ce7f5c5e6b"><div class="ttname"><a href="namespacelibMesh_1_1TriangleWrapper.html#ae06da07f4c64d00ebefa55ce7f5c5e6b">libMesh::TriangleWrapper::init</a></div><div class="ttdeci">void init(triangulateio &amp;t)</div></div>
+<div class="ttc" id="namespacelibMesh_html_ab3347ee25863a5deda233c8449a27cd4"><div class="ttname"><a href="namespacelibMesh.html#ab3347ee25863a5deda233c8449a27cd4">libMesh::comm</a></div><div class="ttdeci">void PetscPreconditioner&lt; T &gt;::set_petsc_subpreconditioner_type(PCType type, PC &amp;pc) void PetscPreconditioner&lt; T &gt; Parallel::communicator comm</div><div class="ttdef"><b>Definition:</b> <a href="petsc__preconditioner_8C_source.html#l00254">petsc_preconditioner.C:254</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_a13d51abbf28cf57d919560a34a92a01f"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#a13d51abbf28cf57d919560a34a92a01f">libMesh::TaoOptimizationSolver::get_converged_reason</a></div><div class="ttdeci">virtual int get_converged_reason() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00623">tao_optimization_solver.C:623</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a018dde26d5156be052802bf79ae67e67"><div class="ttname"><a href="namespacelibMesh.html#a018dde26d5156be052802bf79ae67e67">libMesh::__libmesh_tao_inequality_constraints_jacobian</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_inequality_constraints_jacobian(Tao, Vec x, Mat J, Mat Jpre, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00348">tao_optimization_solver.C:348</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints_html_a7394e1621c92b6f650c935a33b13016a"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html#a7394e1621c92b6f650c935a33b13016a">libMesh::OptimizationSystem::ComputeEqualityConstraints::equality_constraints</a></div><div class="ttdeci">virtual void equality_constraints(const NumericVector&lt; Number &gt; &amp;X, NumericVector&lt; Number &gt; &amp;C_eq, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_ac7c4fe84c4615ca552e0ddc7904e9e5f"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#ac7c4fe84c4615ca552e0ddc7904e9e5f">libMesh::TaoOptimizationSolver::get_dual_variables</a></div><div class="ttdeci">virtual void get_dual_variables() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00593">tao_optimization_solver.C:593</a></div></div>
+<div class="ttc" id="classlibMesh_1_1SparseMatrix_html_a327789280fc9e054844455b212d143b4"><div class="ttname"><a href="classlibMesh_1_1SparseMatrix.html#a327789280fc9e054844455b212d143b4">libMesh::SparseMatrix::attach_dof_map</a></div><div class="ttdeci">void attach_dof_map(const DofMap &amp;dof_map)</div><div class="ttdef"><b>Definition:</b> <a href="sparse__matrix_8h_source.html#l00112">sparse_matrix.h:112</a></div></div>
 <div class="ttc" id="dof__map_8h_html"><div class="ttname"><a href="dof__map_8h.html">dof_map.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective_html_a6e6177b4678be08de773a98a4d6e2aab"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a6e6177b4678be08de773a98a4d6e2aab">libMesh::OptimizationSystem::ComputeObjective::objective</a></div><div class="ttdeci">virtual Number objective(const NumericVector&lt; Number &gt; &amp;X, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian_html_a44c7d8a128654fc8b56ef50fa067e86d"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html#a44c7d8a128654fc8b56ef50fa067e86d">libMesh::OptimizationSystem::ComputeEqualityConstraintsJacobian::equality_constraints_jacobian</a></div><div class="ttdeci">virtual void equality_constraints_jacobian(const NumericVector&lt; Number &gt; &amp;X, SparseMatrix&lt; Number &gt; &amp;C_eq_jac, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_aee00e731a5e6dae56c9c3d1df28ebe57"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#aee00e731a5e6dae56c9c3d1df28ebe57">libMesh::TaoOptimizationSolver::~TaoOptimizationSolver</a></div><div class="ttdeci">~TaoOptimizationSolver()</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00410">tao_optimization_solver.C:410</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSolver_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html">libMesh::OptimizationSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00051">optimization_solver.h:51</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ParallelObject_html_a20de1180df21bdc9e6ca6151ed4ffda9"><div class="ttname"><a href="classlibMesh_1_1ParallelObject.html#a20de1180df21bdc9e6ca6151ed4ffda9">libMesh::ParallelObject::comm</a></div><div class="ttdeci">const Parallel::Communicator &amp; comm() const </div><div class="ttdef"><b>Definition:</b> <a href="parallel__object_8h_source.html#l00087">parallel_object.h:87</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_a1f5d0abd498379e56bca300e910fb8a2"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#a1f5d0abd498379e56bca300e910fb8a2">libMesh::TaoOptimizationSolver::solve</a></div><div class="ttdeci">virtual void solve() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00449">tao_optimization_solver.C:449</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscMatrix_html"><div class="ttname"><a href="classlibMesh_1_1PetscMatrix.html">libMesh::PetscMatrix</a></div><div class="ttdoc">SparseMatrix interface to PETSc Mat. </div><div class="ttdef"><b>Definition:</b> <a href="petsc__linear__solver_8h_source.html#l00071">petsc_linear_solver.h:71</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_aad2e4639e47d92a7d34c80bf2e936cba"><div class="ttname"><a href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">libMesh::initialized</a></div><div class="ttdeci">bool initialized()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00272">libmesh.C:272</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TaoOptimizationSolver_html_a6c9e278606cab722c3089fc8b8d73cae"><div class="ttname"><a href="classlibMesh_1_1TaoOptimizationSolver.html#a6c9e278606cab722c3089fc8b8d73cae">libMesh::TaoOptimizationSolver::print_converged_reason</a></div><div class="ttdeci">virtual void print_converged_reason() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00614">tao_optimization_solver.C:614</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscVector_html_a26733bdd14c385b1541f904d3129ebd4"><div class="ttname"><a href="classlibMesh_1_1PetscVector.html#a26733bdd14c385b1541f904d3129ebd4">libMesh::PetscVector::swap</a></div><div class="ttdeci">virtual void swap(NumericVector&lt; T &gt; &amp;v) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="petsc__vector_8h_source.html#l01390">petsc_vector.h:1390</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a6ddac86bb955185789c3f326ac14986e"><div class="ttname"><a href="namespacelibMesh.html#a6ddac86bb955185789c3f326ac14986e">libMesh::__libmesh_tao_hessian</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_hessian(Tao, Vec x, Mat h, Mat pc, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00142">tao_optimization_solver.C:142</a></div></div>
+<div class="ttc" id="classlibMesh_1_1PetscMatrix_html_aaca7a5afeb063716ee67fa11302c2aea"><div class="ttname"><a href="classlibMesh_1_1PetscMatrix.html#aaca7a5afeb063716ee67fa11302c2aea">libMesh::PetscMatrix::mat</a></div><div class="ttdeci">Mat mat()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__matrix_8h_source.html#l00365">petsc_matrix.h:365</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a0551dbe7118f2b5d297c37acf9b297ff"><div class="ttname"><a href="namespacelibMesh.html#a0551dbe7118f2b5d297c37acf9b297ff">libMesh::__libmesh_tao_equality_constraints</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_equality_constraints(Tao, Vec x, Vec ce, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00198">tao_optimization_solver.C:198</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00234">libmesh_common.h:234</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a890a317cc8a8748c6ab20c6ffee9019a"><div class="ttname"><a href="namespacelibMesh.html#a890a317cc8a8748c6ab20c6ffee9019a">libMesh::__libmesh_tao_inequality_constraints</a></div><div class="ttdeci">PetscErrorCode __libmesh_tao_inequality_constraints(Tao, Vec x, Vec cineq, void *ctx)</div><div class="ttdef"><b>Definition:</b> <a href="tao__optimization__solver_8C_source.html#l00297">tao_optimization_solver.C:297</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints_html_a6869bd3d5a8ca0b101e6471c7cc74656"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html#a6869bd3d5a8ca0b101e6471c7cc74656">libMesh::OptimizationSystem::ComputeInequalityConstraints::inequality_constraints</a></div><div class="ttdeci">virtual void inequality_constraints(const NumericVector&lt; Number &gt; &amp;X, NumericVector&lt; Number &gt; &amp;C_ineq, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a4fa2498b9698d0e565d9febe9e3df3ee"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a4fa2498b9698d0e565d9febe9e3df3ee">libMesh::OptimizationSolver::inequality_constraints_jacobian_object</a></div><div class="ttdeci">OptimizationSystem::ComputeInequalityConstraintsJacobian * inequality_constraints_jacobian_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00160">optimization_solver.h:160</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a9ff3bf16001a45aedd16bbc7a37806c6"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a9ff3bf16001a45aedd16bbc7a37806c6">libMesh::OptimizationSolver::equality_constraints_object</a></div><div class="ttdeci">OptimizationSystem::ComputeEqualityConstraints * equality_constraints_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00144">optimization_solver.h:144</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

@@ -107,7 +107,7 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a71f8b82f259959732d072100efc79354"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a71f8b82f259959732d072100efc79354">FuzzyPointCompare</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> tol)</td></tr>
+<tr class="memitem:a71f8b82f259959732d072100efc79354"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a71f8b82f259959732d072100efc79354">FuzzyPointCompare</a> (Real tol)</td></tr>
 <tr class="separator:a71f8b82f259959732d072100efc79354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a860cb238bc88e1d51f0e575d0af1d71d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a860cb238bc88e1d51f0e575d0af1d71d">operator()</a> (const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;lhs, const <a class="el" href="classlibMesh_1_1Point.html">Point</a> &amp;rhs)</td></tr>
 <tr class="separator:a860cb238bc88e1d51f0e575d0af1d71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,7 +120,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a2efaace6a21a0dc5096c28e2b2467ba0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a2efaace6a21a0dc5096c28e2b2467ba0">_tol</a></td></tr>
+<tr class="memitem:a2efaace6a21a0dc5096c28e2b2467ba0"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a2efaace6a21a0dc5096c28e2b2467ba0">_tol</a></td></tr>
 <tr class="separator:a2efaace6a21a0dc5096c28e2b2467ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -137,7 +137,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">LIBMESH_DEFINE_HASH_POINTERS::FuzzyPointCompare::FuzzyPointCompare </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td>
+          <td class="paramtype">Real&#160;</td>
           <td class="paramname"><em>tol</em></td><td>)</td>
           <td></td>
         </tr>
@@ -190,15 +190,15 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="replicated__mesh_8C_source.html#l00051">51</a> of file <a class="el" href="replicated__mesh_8C_source.html">replicated_mesh.C</a>.</p>
 
-<p>References <a class="el" href="libmesh__config_8h_source.html#l00175">LIBMESH_DIM</a>, and <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>.</p>
+<p>References <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00059">std::abs()</a>, <a class="el" href="libmesh__augment__std__namespace_8h_source.html#l00027">std::max()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i=0; i&lt;<a class="code" href="libmesh__config_8h.html#a140edde2c26b1ce83802b9158b110088">LIBMESH_DIM</a>; ++i)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i=0; i&lt;LIBMESH_DIM; ++i)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// If the current components are within some tolerance</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// of one another, then don&#39;t attempt the less-than comparison.</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// Note that this may cause something strange to happen, as Roy</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// believes he can prove it is not a total ordering...</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> rel_size = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a>(std::abs(lhs(i)), std::abs(rhs(i)));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> rel_size = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a>(<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(lhs(i)), <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(rhs(i)));</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// Don&#39;t use relative tolerance if both numbers are already small.</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// How small?  Some possible options are:</span></div>
@@ -215,7 +215,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Don&#39;t attempt the comparison if lhs(i) and rhs(i) are too close</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// together.</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> ( std::abs(lhs(i) - rhs(i)) / rel_size &lt; <a class="code" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a2efaace6a21a0dc5096c28e2b2467ba0">_tol</a>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(lhs(i) - rhs(i)) / rel_size &lt; <a class="code" href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a2efaace6a21a0dc5096c28e2b2467ba0">_tol</a>)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> (lhs(i) &lt; rhs(i))</div>
@@ -229,10 +229,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// They might be equal, so return false.</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="ttc" id="namespacestd_html_a267975f6c8fdf9f989e14d438036706a"><div class="ttname"><a href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a></div><div class="ttdeci">double abs(double a)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00059">libmesh_augment_std_namespace.h:59</a></div></div>
 <div class="ttc" id="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare_html_a2efaace6a21a0dc5096c28e2b2467ba0"><div class="ttname"><a href="classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html#a2efaace6a21a0dc5096c28e2b2467ba0">LIBMESH_DEFINE_HASH_POINTERS::FuzzyPointCompare::_tol</a></div><div class="ttdeci">Real _tol</div><div class="ttdef"><b>Definition:</b> <a href="replicated__mesh_8C_source.html#l00044">replicated_mesh.C:44</a></div></div>
 <div class="ttc" id="namespacestd_html_a6987c84b7beab8b2ebdee7e2549d698f"><div class="ttname"><a href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a></div><div class="ttdeci">long double max(long double a, double b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00027">libmesh_augment_std_namespace.h:27</a></div></div>
-<div class="ttc" id="libmesh__config_8h_html_a140edde2c26b1ce83802b9158b110088"><div class="ttname"><a href="libmesh__config_8h.html#a140edde2c26b1ce83802b9158b110088">LIBMESH_DIM</a></div><div class="ttdeci">#define LIBMESH_DIM</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__config_8h_source.html#l00175">libmesh_config.h:175</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -362,7 +362,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> LIBMESH_DEFINE_HASH_POINTERS::FuzzyPointCompare::_tol</td>
+          <td class="memname">Real LIBMESH_DEFINE_HASH_POINTERS::FuzzyPointCompare::_tol</td>
         </tr>
       </table>
   </td>

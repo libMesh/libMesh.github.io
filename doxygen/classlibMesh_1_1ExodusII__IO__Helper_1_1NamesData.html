@@ -132,7 +132,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is useful for managing anything that requires a char ** input/output in ExodusII file. You must know the number of strings and the length of each one at the time you create it. </p>
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01090">1090</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01184">1184</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aee0134ec0262335ba9e5afd808b14c61"></a>
 <div class="memitem">
@@ -167,30 +167,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor. Allocates enough storage to hold n_strings of length string_length. (Actually allocates string_length+1 characters per string to account for the trailing NULL character.) </p>
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02332">2332</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02397">2397</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
 
-<p>References <a class="el" href="exodusII__io__helper_8h_source.html#l01118">data_table</a>, and <a class="el" href="exodusII__io__helper_8h_source.html#l01119">data_table_pointers</a>.</p>
-<div class="fragment"><div class="line"><a name="l02332"></a><span class="lineno"> 2332</span>&#160;                                                                             :</div>
-<div class="line"><a name="l02333"></a><span class="lineno"> 2333</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>(n_strings),</div>
-<div class="line"><a name="l02334"></a><span class="lineno"> 2334</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">data_table_pointers</a>(n_strings),</div>
-<div class="line"><a name="l02335"></a><span class="lineno"> 2335</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>(0),</div>
-<div class="line"><a name="l02336"></a><span class="lineno"> 2336</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a>(n_strings)</div>
-<div class="line"><a name="l02337"></a><span class="lineno"> 2337</span>&#160;{</div>
-<div class="line"><a name="l02338"></a><span class="lineno"> 2338</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;n_strings; ++i)</div>
-<div class="line"><a name="l02339"></a><span class="lineno"> 2339</span>&#160;    {</div>
-<div class="line"><a name="l02340"></a><span class="lineno"> 2340</span>&#160;      <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i].resize(string_length + 1);</div>
-<div class="line"><a name="l02341"></a><span class="lineno"> 2341</span>&#160;</div>
-<div class="line"><a name="l02342"></a><span class="lineno"> 2342</span>&#160;      <span class="comment">// NULL-terminate these strings, just to be safe.</span></div>
-<div class="line"><a name="l02343"></a><span class="lineno"> 2343</span>&#160;      <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i][0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l02344"></a><span class="lineno"> 2344</span>&#160;</div>
-<div class="line"><a name="l02345"></a><span class="lineno"> 2345</span>&#160;      <span class="comment">// Set pointer into the data_table</span></div>
-<div class="line"><a name="l02346"></a><span class="lineno"> 2346</span>&#160;      <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">data_table_pointers</a>[i] = &amp;(<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i][0]);</div>
-<div class="line"><a name="l02347"></a><span class="lineno"> 2347</span>&#160;    }</div>
-<div class="line"><a name="l02348"></a><span class="lineno"> 2348</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ac6af3fbc710684d94635e1ca803231ad"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">libMesh::ExodusII_IO_Helper::NamesData::data_table</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; data_table</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01118">exodusII_io_helper.h:1118</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a62d906480b18435b17e39d786f71d8c2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">libMesh::ExodusII_IO_Helper::NamesData::counter</a></div><div class="ttdeci">size_t counter</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01121">exodusII_io_helper.h:1121</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a6f6f98a904cc038e04be0444cadbac65"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">libMesh::ExodusII_IO_Helper::NamesData::table_size</a></div><div class="ttdeci">size_t table_size</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01122">exodusII_io_helper.h:1122</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ad6bd714da2b3d02eba2b31ecae8919d2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">libMesh::ExodusII_IO_Helper::NamesData::data_table_pointers</a></div><div class="ttdeci">std::vector&lt; char * &gt; data_table_pointers</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01119">exodusII_io_helper.h:1119</a></div></div>
+<p>References <a class="el" href="exodusII__io__helper_8h_source.html#l01212">data_table</a>, and <a class="el" href="exodusII__io__helper_8h_source.html#l01213">data_table_pointers</a>.</p>
+<div class="fragment"><div class="line"><a name="l02397"></a><span class="lineno"> 2397</span>&#160;                                                                             :</div>
+<div class="line"><a name="l02398"></a><span class="lineno"> 2398</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>(n_strings),</div>
+<div class="line"><a name="l02399"></a><span class="lineno"> 2399</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">data_table_pointers</a>(n_strings),</div>
+<div class="line"><a name="l02400"></a><span class="lineno"> 2400</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>(0),</div>
+<div class="line"><a name="l02401"></a><span class="lineno"> 2401</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a>(n_strings)</div>
+<div class="line"><a name="l02402"></a><span class="lineno"> 2402</span>&#160;{</div>
+<div class="line"><a name="l02403"></a><span class="lineno"> 2403</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;n_strings; ++i)</div>
+<div class="line"><a name="l02404"></a><span class="lineno"> 2404</span>&#160;    {</div>
+<div class="line"><a name="l02405"></a><span class="lineno"> 2405</span>&#160;      <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i].resize(string_length + 1);</div>
+<div class="line"><a name="l02406"></a><span class="lineno"> 2406</span>&#160;</div>
+<div class="line"><a name="l02407"></a><span class="lineno"> 2407</span>&#160;      <span class="comment">// NULL-terminate these strings, just to be safe.</span></div>
+<div class="line"><a name="l02408"></a><span class="lineno"> 2408</span>&#160;      <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i][0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l02409"></a><span class="lineno"> 2409</span>&#160;</div>
+<div class="line"><a name="l02410"></a><span class="lineno"> 2410</span>&#160;      <span class="comment">// Set pointer into the data_table</span></div>
+<div class="line"><a name="l02411"></a><span class="lineno"> 2411</span>&#160;      <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">data_table_pointers</a>[i] = &amp;(<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i][0]);</div>
+<div class="line"><a name="l02412"></a><span class="lineno"> 2412</span>&#160;    }</div>
+<div class="line"><a name="l02413"></a><span class="lineno"> 2413</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ac6af3fbc710684d94635e1ca803231ad"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">libMesh::ExodusII_IO_Helper::NamesData::data_table</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; data_table</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01212">exodusII_io_helper.h:1212</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a62d906480b18435b17e39d786f71d8c2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">libMesh::ExodusII_IO_Helper::NamesData::counter</a></div><div class="ttdeci">size_t counter</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01215">exodusII_io_helper.h:1215</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a6f6f98a904cc038e04be0444cadbac65"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">libMesh::ExodusII_IO_Helper::NamesData::table_size</a></div><div class="ttdeci">size_t table_size</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01216">exodusII_io_helper.h:1216</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ad6bd714da2b3d02eba2b31ecae8919d2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">libMesh::ExodusII_IO_Helper::NamesData::data_table_pointers</a></div><div class="ttdeci">std::vector&lt; char * &gt; data_table_pointers</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01213">exodusII_io_helper.h:1213</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -210,18 +210,18 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Provide access to the i'th underlying char * </p>
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02375">2375</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02440">2440</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
 
-<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l00907">libMesh::ExodusII_IO_Helper::read_var_names_impl()</a>.</p>
-<div class="fragment"><div class="line"><a name="l02376"></a><span class="lineno"> 2376</span>&#160;{</div>
-<div class="line"><a name="l02377"></a><span class="lineno"> 2377</span>&#160;  <span class="keywordflow">if</span> (static_cast&lt;unsigned&gt;(i) &gt;= <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a>)</div>
-<div class="line"><a name="l02378"></a><span class="lineno"> 2378</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Requested char * &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; but only have &quot;</span> &lt;&lt; <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a> &lt;&lt; <span class="stringliteral">&quot;!&quot;</span>);</div>
-<div class="line"><a name="l02379"></a><span class="lineno"> 2379</span>&#160;</div>
-<div class="line"><a name="l02380"></a><span class="lineno"> 2380</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02381"></a><span class="lineno"> 2381</span>&#160;    <span class="keywordflow">return</span> &amp;(<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i][0]);</div>
-<div class="line"><a name="l02382"></a><span class="lineno"> 2382</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ac6af3fbc710684d94635e1ca803231ad"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">libMesh::ExodusII_IO_Helper::NamesData::data_table</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; data_table</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01118">exodusII_io_helper.h:1118</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a6f6f98a904cc038e04be0444cadbac65"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">libMesh::ExodusII_IO_Helper::NamesData::table_size</a></div><div class="ttdeci">size_t table_size</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01122">exodusII_io_helper.h:1122</a></div></div>
+<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l00897">libMesh::ExodusII_IO_Helper::read_var_names_impl()</a>.</p>
+<div class="fragment"><div class="line"><a name="l02441"></a><span class="lineno"> 2441</span>&#160;{</div>
+<div class="line"><a name="l02442"></a><span class="lineno"> 2442</span>&#160;  <span class="keywordflow">if</span> (static_cast&lt;unsigned&gt;(i) &gt;= <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a>)</div>
+<div class="line"><a name="l02443"></a><span class="lineno"> 2443</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Requested char * &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; but only have &quot;</span> &lt;&lt; <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a> &lt;&lt; <span class="stringliteral">&quot;!&quot;</span>);</div>
+<div class="line"><a name="l02444"></a><span class="lineno"> 2444</span>&#160;</div>
+<div class="line"><a name="l02445"></a><span class="lineno"> 2445</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l02446"></a><span class="lineno"> 2446</span>&#160;    <span class="keywordflow">return</span> &amp;(<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[i][0]);</div>
+<div class="line"><a name="l02447"></a><span class="lineno"> 2447</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ac6af3fbc710684d94635e1ca803231ad"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">libMesh::ExodusII_IO_Helper::NamesData::data_table</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; data_table</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01212">exodusII_io_helper.h:1212</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a6f6f98a904cc038e04be0444cadbac65"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">libMesh::ExodusII_IO_Helper::NamesData::table_size</a></div><div class="ttdeci">size_t table_size</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01216">exodusII_io_helper.h:1216</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -239,13 +239,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Provide access to the underlying C data table </p>
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02368">2368</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02433">2433</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
 
-<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l00907">libMesh::ExodusII_IO_Helper::read_var_names_impl()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01314">libMesh::ExodusII_IO_Helper::write_elements()</a>, and <a class="el" href="exodusII__io__helper_8C_source.html#l01853">libMesh::ExodusII_IO_Helper::write_information_records()</a>.</p>
-<div class="fragment"><div class="line"><a name="l02369"></a><span class="lineno"> 2369</span>&#160;{</div>
-<div class="line"><a name="l02370"></a><span class="lineno"> 2370</span>&#160;  <span class="keywordflow">return</span> &amp;<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">data_table_pointers</a>[0];</div>
-<div class="line"><a name="l02371"></a><span class="lineno"> 2371</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ad6bd714da2b3d02eba2b31ecae8919d2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">libMesh::ExodusII_IO_Helper::NamesData::data_table_pointers</a></div><div class="ttdeci">std::vector&lt; char * &gt; data_table_pointers</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01119">exodusII_io_helper.h:1119</a></div></div>
+<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l00897">libMesh::ExodusII_IO_Helper::read_var_names_impl()</a>, <a class="el" href="nemesis__io__helper_8C_source.html#l02453">libMesh::Nemesis_IO_Helper::write_elements()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01314">libMesh::ExodusII_IO_Helper::write_elements()</a>, and <a class="el" href="exodusII__io__helper_8C_source.html#l01899">libMesh::ExodusII_IO_Helper::write_information_records()</a>.</p>
+<div class="fragment"><div class="line"><a name="l02434"></a><span class="lineno"> 2434</span>&#160;{</div>
+<div class="line"><a name="l02435"></a><span class="lineno"> 2435</span>&#160;  <span class="keywordflow">return</span> &amp;<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">data_table_pointers</a>[0];</div>
+<div class="line"><a name="l02436"></a><span class="lineno"> 2436</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ad6bd714da2b3d02eba2b31ecae8919d2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ad6bd714da2b3d02eba2b31ecae8919d2">libMesh::ExodusII_IO_Helper::NamesData::data_table_pointers</a></div><div class="ttdeci">std::vector&lt; char * &gt; data_table_pointers</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01213">exodusII_io_helper.h:1213</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,25 +264,25 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Adds another name to the current data table. </p>
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02352">2352</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8C_source.html#l02417">2417</a> of file <a class="el" href="exodusII__io__helper_8C_source.html">exodusII_io_helper.C</a>.</p>
 
-<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l01314">libMesh::ExodusII_IO_Helper::write_elements()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01853">libMesh::ExodusII_IO_Helper::write_information_records()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01564">libMesh::ExodusII_IO_Helper::write_nodesets()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01492">libMesh::ExodusII_IO_Helper::write_sidesets()</a>, and <a class="el" href="exodusII__io__helper_8C_source.html#l00967">libMesh::ExodusII_IO_Helper::write_var_names_impl()</a>.</p>
-<div class="fragment"><div class="line"><a name="l02353"></a><span class="lineno"> 2353</span>&#160;{</div>
-<div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160;  libmesh_assert_less (<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>, <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a>);</div>
-<div class="line"><a name="l02355"></a><span class="lineno"> 2355</span>&#160;</div>
-<div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;  <span class="comment">// 1.) Copy the C++ string into the vector&lt;char&gt;...</span></div>
-<div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160;  <span class="keywordtype">size_t</span> num_copied = <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>.copy(&amp;<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>][0], <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[counter].size()-1);</div>
-<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;</div>
-<div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160;  <span class="comment">// 2.) ...And null-terminate it.</span></div>
-<div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>][num_copied] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;</div>
-<div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;  <span class="comment">// Go to next row</span></div>
-<div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;  ++<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>;</div>
-<div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160;}</div>
+<p>Referenced by <a class="el" href="nemesis__io__helper_8C_source.html#l02453">libMesh::Nemesis_IO_Helper::write_elements()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01314">libMesh::ExodusII_IO_Helper::write_elements()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01899">libMesh::ExodusII_IO_Helper::write_information_records()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01610">libMesh::ExodusII_IO_Helper::write_nodesets()</a>, <a class="el" href="exodusII__io__helper_8C_source.html#l01493">libMesh::ExodusII_IO_Helper::write_sidesets()</a>, and <a class="el" href="exodusII__io__helper_8C_source.html#l00957">libMesh::ExodusII_IO_Helper::write_var_names_impl()</a>.</p>
+<div class="fragment"><div class="line"><a name="l02418"></a><span class="lineno"> 2418</span>&#160;{</div>
+<div class="line"><a name="l02419"></a><span class="lineno"> 2419</span>&#160;  libmesh_assert_less (<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>, <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">table_size</a>);</div>
+<div class="line"><a name="l02420"></a><span class="lineno"> 2420</span>&#160;</div>
+<div class="line"><a name="l02421"></a><span class="lineno"> 2421</span>&#160;  <span class="comment">// 1.) Copy the C++ string into the vector&lt;char&gt;...</span></div>
+<div class="line"><a name="l02422"></a><span class="lineno"> 2422</span>&#160;  <span class="keywordtype">size_t</span> num_copied = <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>.copy(&amp;<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>][0], <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[counter].size()-1);</div>
+<div class="line"><a name="l02423"></a><span class="lineno"> 2423</span>&#160;</div>
+<div class="line"><a name="l02424"></a><span class="lineno"> 2424</span>&#160;  <span class="comment">// 2.) ...And null-terminate it.</span></div>
+<div class="line"><a name="l02425"></a><span class="lineno"> 2425</span>&#160;  <a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">data_table</a>[<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>][num_copied] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l02426"></a><span class="lineno"> 2426</span>&#160;</div>
+<div class="line"><a name="l02427"></a><span class="lineno"> 2427</span>&#160;  <span class="comment">// Go to next row</span></div>
+<div class="line"><a name="l02428"></a><span class="lineno"> 2428</span>&#160;  ++<a class="code" href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">counter</a>;</div>
+<div class="line"><a name="l02429"></a><span class="lineno"> 2429</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ac6af3fbc710684d94635e1ca803231ad"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">libMesh::ExodusII_IO_Helper::NamesData::data_table</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; data_table</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01118">exodusII_io_helper.h:1118</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a62d906480b18435b17e39d786f71d8c2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">libMesh::ExodusII_IO_Helper::NamesData::counter</a></div><div class="ttdeci">size_t counter</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01121">exodusII_io_helper.h:1121</a></div></div>
-<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a6f6f98a904cc038e04be0444cadbac65"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">libMesh::ExodusII_IO_Helper::NamesData::table_size</a></div><div class="ttdeci">size_t table_size</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01122">exodusII_io_helper.h:1122</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_ac6af3fbc710684d94635e1ca803231ad"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#ac6af3fbc710684d94635e1ca803231ad">libMesh::ExodusII_IO_Helper::NamesData::data_table</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; data_table</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01212">exodusII_io_helper.h:1212</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a62d906480b18435b17e39d786f71d8c2"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a62d906480b18435b17e39d786f71d8c2">libMesh::ExodusII_IO_Helper::NamesData::counter</a></div><div class="ttdeci">size_t counter</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01215">exodusII_io_helper.h:1215</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData_html_a6f6f98a904cc038e04be0444cadbac65"><div class="ttname"><a href="classlibMesh_1_1ExodusII__IO__Helper_1_1NamesData.html#a6f6f98a904cc038e04be0444cadbac65">libMesh::ExodusII_IO_Helper::NamesData::table_size</a></div><div class="ttdeci">size_t table_size</div><div class="ttdef"><b>Definition:</b> <a href="exodusII__io__helper_8h_source.html#l01216">exodusII_io_helper.h:1216</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,7 +305,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01121">1121</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01215">1215</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
 
 </div>
 </div>
@@ -327,9 +327,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01118">1118</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01212">1212</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
 
-<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l02332">NamesData()</a>.</p>
+<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l02397">NamesData()</a>.</p>
 
 </div>
 </div>
@@ -351,9 +351,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01119">1119</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01213">1213</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
 
-<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l02332">NamesData()</a>.</p>
+<p>Referenced by <a class="el" href="exodusII__io__helper_8C_source.html#l02397">NamesData()</a>.</p>
 
 </div>
 </div>
@@ -375,7 +375,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01122">1122</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
+<p>Definition at line <a class="el" href="exodusII__io__helper_8h_source.html#l01216">1216</a> of file <a class="el" href="exodusII__io__helper_8h_source.html">exodusII_io_helper.h</a>.</p>
 
 </div>
 </div>

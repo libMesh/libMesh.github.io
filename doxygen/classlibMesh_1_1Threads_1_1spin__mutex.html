@@ -137,9 +137,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6dca5aeef632a55700b0612707deefae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b584b8833b9e34921f32365f6b7322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a95b584b8833b9e34921f32365f6b7322">unlock</a> ()</td></tr>
 <tr class="separator:a95b584b8833b9e34921f32365f6b7322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c427359394dcefdaf45c1bfd8e60517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a6c427359394dcefdaf45c1bfd8e60517">spin_mutex</a> ()</td></tr>
+<tr class="separator:a6c427359394dcefdaf45c1bfd8e60517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46066ff5df402e7c4909ab30aecf1954"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a46066ff5df402e7c4909ab30aecf1954">~spin_mutex</a> ()</td></tr>
+<tr class="separator:a46066ff5df402e7c4909ab30aecf1954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dca5aeef632a55700b0612707deefae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a6dca5aeef632a55700b0612707deefae">lock</a> ()</td></tr>
+<tr class="separator:a6dca5aeef632a55700b0612707deefae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b584b8833b9e34921f32365f6b7322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a95b584b8833b9e34921f32365f6b7322">unlock</a> ()</td></tr>
+<tr class="separator:a95b584b8833b9e34921f32365f6b7322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a09e5e9f169bd5c2f3ac756def411c7a4"><td class="memItemLeft" align="right" valign="top">os_unfair_lock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">ulock</a></td></tr>
+<tr class="separator:a09e5e9f169bd5c2f3ac756def411c7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a851b8a608d364d08c78f9fa7883221c0"><td class="memItemLeft" align="right" valign="top">OSSpinLock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a></td></tr>
 <tr class="separator:a851b8a608d364d08c78f9fa7883221c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c33ed819415d9d27694b40b2819c691"><td class="memItemLeft" align="right" valign="top">pthread_spinlock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a1c33ed819415d9d27694b40b2819c691">slock</a></td></tr>
@@ -148,7 +158,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Spin mutex. Implements mutual exclusion by busy-waiting in user space for the lock to be acquired. </p>
 
-<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00123">123</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00127">127</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6c427359394dcefdaf45c1bfd8e60517"></a>
 <div class="memitem">
@@ -171,8 +181,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00126">126</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{}</div>
+<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00130">130</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,9 +207,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00079">79</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;: <a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>(0) {} <span class="comment">// The convention is that the lock being zero is _unlocked_</span></div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00088">88</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00110">ulock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{ <a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">ulock</a> = OS_UNFAIR_LOCK_INIT; }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a09e5e9f169bd5c2f3ac756def411c7a4"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">libMesh::Threads::spin_mutex::ulock</a></div><div class="ttdeci">os_unfair_lock ulock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00110">threads_pthread.h:110</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -224,8 +236,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00080">80</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{}</div>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00089">89</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -250,11 +262,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00108">108</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
-
-<p>References <a class="el" href="threads__pthread_8h_source.html#l00101">slock</a>.</p>
-<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{ pthread_spin_init(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>, PTHREAD_PROCESS_PRIVATE); }</div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00116">116</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;: <a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>(0) {} <span class="comment">// The convention is that the lock being zero is _unlocked_</span></div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -279,11 +289,66 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00109">109</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00117">117</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6c427359394dcefdaf45c1bfd8e60517"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">libMesh::Threads::spin_mutex::spin_mutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="threads__pthread_8h_source.html#l00101">slock</a>.</p>
-<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{ pthread_spin_destroy(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00146">146</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00138">slock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{ pthread_spin_init(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>, PTHREAD_PROCESS_PRIVATE); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a46066ff5df402e7c4909ab30aecf1954"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">libMesh::Threads::spin_mutex::~spin_mutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00147">147</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00138">slock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{ pthread_spin_destroy(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -309,11 +374,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00082">82</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00091">91</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
 
-<p>References <a class="el" href="threads__pthread_8h_source.html#l00101">slock</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{ OSSpinLockLock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00110">ulock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{ os_unfair_lock_lock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">ulock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a09e5e9f169bd5c2f3ac756def411c7a4"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">libMesh::Threads::spin_mutex::ulock</a></div><div class="ttdeci">os_unfair_lock ulock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00110">threads_pthread.h:110</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -338,11 +403,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00111">111</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00119">119</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
 
-<p>References <a class="el" href="threads__pthread_8h_source.html#l00101">slock</a>.</p>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{ pthread_spin_lock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00138">slock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{ OSSpinLockLock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -367,10 +432,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00127">127</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00131">131</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
 
-<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00093">libMesh::Threads::spin_mutex::scoped_lock::acquire()</a>, and <a class="el" href="threads__pthread_8h_source.html#l00089">libMesh::Threads::spin_mutex::scoped_lock::scoped_lock()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{}</div>
+<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00102">libMesh::Threads::spin_mutex::scoped_lock::acquire()</a>, and <a class="el" href="threads__pthread_8h_source.html#l00098">libMesh::Threads::spin_mutex::scoped_lock::scoped_lock()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6dca5aeef632a55700b0612707deefae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::Threads::spin_mutex::lock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00149">149</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00138">slock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;{ pthread_spin_lock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -395,11 +489,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00083">83</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00092">92</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
 
-<p>References <a class="el" href="threads__pthread_8h_source.html#l00101">slock</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{ OSSpinLockUnlock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00110">ulock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{ os_unfair_lock_unlock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">ulock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a09e5e9f169bd5c2f3ac756def411c7a4"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a09e5e9f169bd5c2f3ac756def411c7a4">libMesh::Threads::spin_mutex::ulock</a></div><div class="ttdeci">os_unfair_lock ulock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00110">threads_pthread.h:110</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -424,11 +518,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00112">112</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00120">120</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
 
-<p>References <a class="el" href="threads__pthread_8h_source.html#l00101">slock</a>.</p>
-<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{ pthread_spin_unlock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
-<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00101">threads_pthread.h:101</a></div></div>
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00138">slock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{ OSSpinLockUnlock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -453,10 +547,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00128">128</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__none_8h_source.html#l00132">132</a> of file <a class="el" href="threads__none_8h_source.html">threads_none.h</a>.</p>
 
-<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00094">libMesh::Threads::spin_mutex::scoped_lock::release()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{}</div>
+<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00103">libMesh::Threads::spin_mutex::scoped_lock::release()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a95b584b8833b9e34921f32365f6b7322"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::Threads::spin_mutex::unlock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00150">150</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+<p>References <a class="el" href="threads__pthread_8h_source.html#l00138">slock</a>.</p>
+<div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;{ pthread_spin_unlock(&amp;<a class="code" href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">slock</a>); }</div>
+<div class="ttc" id="classlibMesh_1_1Threads_1_1spin__mutex_html_a851b8a608d364d08c78f9fa7883221c0"><div class="ttname"><a href="classlibMesh_1_1Threads_1_1spin__mutex.html#a851b8a608d364d08c78f9fa7883221c0">libMesh::Threads::spin_mutex::slock</a></div><div class="ttdeci">OSSpinLock slock</div><div class="ttdef"><b>Definition:</b> <a href="threads__pthread_8h_source.html#l00138">threads_pthread.h:138</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,9 +602,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00101">101</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00138">138</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
 
-<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00082">lock()</a>, <a class="el" href="threads__pthread_8h_source.html#l00108">spin_mutex()</a>, <a class="el" href="threads__pthread_8h_source.html#l00083">unlock()</a>, and <a class="el" href="threads__pthread_8h_source.html#l00109">~spin_mutex()</a>.</p>
+<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00119">lock()</a>, <a class="el" href="threads__pthread_8h_source.html#l00146">spin_mutex()</a>, <a class="el" href="threads__pthread_8h_source.html#l00120">unlock()</a>, and <a class="el" href="threads__pthread_8h_source.html#l00147">~spin_mutex()</a>.</p>
 
 </div>
 </div>
@@ -503,7 +626,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00130">130</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00168">168</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a09e5e9f169bd5c2f3ac756def411c7a4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">os_unfair_lock libMesh::Threads::spin_mutex::ulock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="threads__pthread_8h_source.html#l00110">110</a> of file <a class="el" href="threads__pthread_8h_source.html">threads_pthread.h</a>.</p>
+
+<p>Referenced by <a class="el" href="threads__pthread_8h_source.html#l00091">lock()</a>, <a class="el" href="threads__pthread_8h_source.html#l00088">spin_mutex()</a>, and <a class="el" href="threads__pthread_8h_source.html#l00092">unlock()</a>.</p>
 
 </div>
 </div>

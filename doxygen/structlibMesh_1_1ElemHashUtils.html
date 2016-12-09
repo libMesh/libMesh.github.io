@@ -118,7 +118,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A struct providing convenience functions for hashing elements. </p>
-<p>The <a class="el" href="structlibMesh_1_1ElemHashUtils.html" title="A struct providing convenience functions for hashing elements. ">ElemHashUtils</a> struct defines functions used for the "Hash" and "Pred" template arguments of the various "unordered" containers, e.g. template &lt;class Key, // unordered_multiset::key_type/value_type class Hash = hash&lt;Key&gt;, // unordered_multiset::hasher class Pred = equal_to&lt;Key&gt;, // unordered_multiset::key_equal class Alloc = allocator&lt;Key&gt; // unordered_multiset::allocator_type &gt; class unordered_multiset;</p>
+<p>The <a class="el" href="structlibMesh_1_1ElemHashUtils.html" title="A struct providing convenience functions for hashing elements. ">ElemHashUtils</a> struct defines functions used for the "Hash" and "Pred" template arguments of the various "unordered" containers, e.g. template &lt;class Key, // unordered_multiset::key_type/value_type class Hash = hash&lt;Key&gt;, // unordered_multiset::hasher class <a class="el" href="structPred.html">Pred</a> = equal_to&lt;Key&gt;, // unordered_multiset::key_equal class Alloc = allocator&lt;Key&gt; // unordered_multiset::allocator_type &gt; class unordered_multiset;</p>
 <dl class="section author"><dt>Author</dt><dd>John W. Peterson </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
 
@@ -150,9 +150,8 @@ Public Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">libMesh::Elem::key()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> cast_int&lt;std::size_t&gt;(elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">key</a>());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> cast_int&lt;std::size_t&gt;(elem-&gt;key());</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ab8a15c938cd671df55681c53a26ed780"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">libMesh::Elem::key</a></div><div class="ttdeci">virtual dof_id_type key(const unsigned int s) const =0</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -192,9 +191,8 @@ Public Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">libMesh::Elem::key()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> lhs-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">key</a>() == rhs-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">key</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> lhs-&gt;key() == rhs-&gt;key();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ab8a15c938cd671df55681c53a26ed780"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ab8a15c938cd671df55681c53a26ed780">libMesh::Elem::key</a></div><div class="ttdeci">virtual dof_id_type key(const unsigned int s) const =0</div></div>
 </div><!-- fragment -->
 </div>
 </div>

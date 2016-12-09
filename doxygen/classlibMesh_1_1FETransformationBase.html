@@ -130,6 +130,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a99e3bf722b4bc2933540349ab9c6aaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b22c71084e49d617d100e3eb538850f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FETransformationBase.html#a2b22c71084e49d617d100e3eb538850f">map_dphi</a> (const unsigned int dim, const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *const elem, const std::vector&lt; <a class="el" href="classlibMesh_1_1Point.html">Point</a> &gt; &amp;qp, const <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt; &amp;fe, std::vector&lt; std::vector&lt; typename <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt;::OutputGradient &gt; &gt; &amp;dphi, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;dphidx, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;dphidy, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;dphidz) const =0</td></tr>
 <tr class="separator:a2b22c71084e49d617d100e3eb538850f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277b072b1b97905e2ca2b41c30fb0304"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FETransformationBase.html#a277b072b1b97905e2ca2b41c30fb0304">map_d2phi</a> (const unsigned int dim, const std::vector&lt; <a class="el" href="classlibMesh_1_1Point.html">Point</a> &gt; &amp;qp, const <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt; &amp;fe, std::vector&lt; std::vector&lt; typename <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt;::OutputTensor &gt; &gt; &amp;d2phi, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;d2phidx2, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;d2phidxdy, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;d2phidxdz, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;d2phidy2, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;d2phidydz, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;d2phidz2) const =0</td></tr>
+<tr class="separator:a277b072b1b97905e2ca2b41c30fb0304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40e236ba338f59d4b96a03885e950e72"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FETransformationBase.html#a40e236ba338f59d4b96a03885e950e72">map_curl</a> (const unsigned int dim, const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *const elem, const std::vector&lt; <a class="el" href="classlibMesh_1_1Point.html">Point</a> &gt; &amp;qp, const <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt; &amp;fe, std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;curl_phi) const =0</td></tr>
 <tr class="separator:a40e236ba338f59d4b96a03885e950e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2bf032a78baf1e5615df98381eec0b3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FETransformationBase.html#ad2bf032a78baf1e5615df98381eec0b3">map_div</a> (const unsigned int dim, const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *const elem, const std::vector&lt; <a class="el" href="classlibMesh_1_1Point.html">Point</a> &gt; &amp;qp, const <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt; &amp;fe, std::vector&lt; std::vector&lt; typename <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt;::OutputDivergence &gt; &gt; &amp;div_phi) const =0</td></tr>
@@ -137,7 +139,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:adf9d83e4a117c1ba85b1227d266f057b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1FETransformationBase.html">FETransformationBase</a>&lt; OutputShape &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FETransformationBase.html#adf9d83e4a117c1ba85b1227d266f057b">build</a> (const FEType &amp;type)</td></tr>
+<tr class="memitem:adf9d83e4a117c1ba85b1227d266f057b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1FETransformationBase.html">FETransformationBase</a>&lt; OutputShape &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FETransformationBase.html#adf9d83e4a117c1ba85b1227d266f057b">build</a> (const <a class="el" href="classlibMesh_1_1FEType.html">FEType</a> &amp;type)</td></tr>
 <tr class="separator:adf9d83e4a117c1ba85b1227d266f057b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -217,9 +219,9 @@ template&lt;typename OutputShape &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1FETransformationBase.html">FETransformationBase</a>&lt; OutputShape &gt; &gt; <a class="el" href="classlibMesh_1_1FETransformationBase.html">libMesh::FETransformationBase</a>&lt; OutputShape &gt;::build </td>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1FETransformationBase.html">FETransformationBase</a>&lt; OutputShape &gt; &gt; <a class="el" href="classlibMesh_1_1FETransformationBase.html">libMesh::FETransformationBase</a>&lt; OutputShape &gt;::build </td>
           <td>(</td>
-          <td class="paramtype">const FEType &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1FEType.html">FEType</a> &amp;&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -234,7 +236,7 @@ template&lt;typename OutputShape &gt; </div>
 
 <p>Definition at line <a class="el" href="fe__transformation__base_8C_source.html#l00027">27</a> of file <a class="el" href="fe__transformation__base_8C_source.html">fe_transformation_base.C</a>.</p>
 
-<p>References <a class="el" href="enum__fe__family_8h_source.html#l00041">libMesh::BERNSTEIN</a>, <a class="el" href="enum__fe__family_8h_source.html#l00054">libMesh::CLOUGH</a>, <a class="el" href="enum__fe__family_8h_source.html#l00055">libMesh::HERMITE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00033">libMesh::HIERARCHIC</a>, <a class="el" href="enum__fe__family_8h_source.html#l00049">libMesh::JACOBI_20_00</a>, <a class="el" href="enum__fe__family_8h_source.html#l00050">libMesh::JACOBI_30_00</a>, <a class="el" href="enum__fe__family_8h_source.html#l00037">libMesh::L2_HIERARCHIC</a>, <a class="el" href="enum__fe__family_8h_source.html#l00038">libMesh::L2_LAGRANGE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00032">libMesh::LAGRANGE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00063">libMesh::LAGRANGE_VEC</a>, <a class="el" href="libmesh__common_8h_source.html#l00362">libmesh_error_msg</a>, <a class="el" href="enum__fe__family_8h_source.html#l00036">libMesh::MONOMIAL</a>, <a class="el" href="enum__fe__family_8h_source.html#l00064">libMesh::NEDELEC_ONE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00060">libMesh::SCALAR</a>, <a class="el" href="enum__fe__family_8h_source.html#l00056">libMesh::SUBDIVISION</a>, <a class="el" href="enum__fe__family_8h_source.html#l00042">libMesh::SZABAB</a>, and <a class="el" href="enum__fe__family_8h_source.html#l00045">libMesh::XYZ</a>.</p>
+<p>References <a class="el" href="enum__fe__family_8h_source.html#l00041">libMesh::BERNSTEIN</a>, <a class="el" href="enum__fe__family_8h_source.html#l00054">libMesh::CLOUGH</a>, <a class="el" href="fe__type_8h_source.html#l00206">libMesh::FEType::family</a>, <a class="el" href="enum__fe__family_8h_source.html#l00055">libMesh::HERMITE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00033">libMesh::HIERARCHIC</a>, <a class="el" href="enum__fe__family_8h_source.html#l00049">libMesh::JACOBI_20_00</a>, <a class="el" href="enum__fe__family_8h_source.html#l00050">libMesh::JACOBI_30_00</a>, <a class="el" href="enum__fe__family_8h_source.html#l00037">libMesh::L2_HIERARCHIC</a>, <a class="el" href="enum__fe__family_8h_source.html#l00038">libMesh::L2_LAGRANGE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00032">libMesh::LAGRANGE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00063">libMesh::LAGRANGE_VEC</a>, <a class="el" href="enum__fe__family_8h_source.html#l00036">libMesh::MONOMIAL</a>, <a class="el" href="enum__fe__family_8h_source.html#l00064">libMesh::NEDELEC_ONE</a>, <a class="el" href="enum__fe__family_8h_source.html#l00060">libMesh::SCALAR</a>, <a class="el" href="enum__fe__family_8h_source.html#l00056">libMesh::SUBDIVISION</a>, <a class="el" href="enum__fe__family_8h_source.html#l00042">libMesh::SZABAB</a>, and <a class="el" href="enum__fe__family_8h_source.html#l00045">libMesh::XYZ</a>.</p>
 <div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">switch</span> (fe_type.family)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
@@ -253,11 +255,11 @@ template&lt;typename OutputShape &gt; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3aa1051269c6cd88cda8181216c2fc0465">L2_LAGRANGE</a>: <span class="comment">// PB: Shouldn&#39;t this be L2 conforming?</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3af6e9d5a20a1ddebdc8ad2fad91700e59">JACOBI_20_00</a>: <span class="comment">// PB: For infinite elements...</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a91f8a5acd1431a51d0d1da6d2fa3f278">JACOBI_30_00</a>: <span class="comment">// PB: For infinite elements...</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1H1FETransformation.html">H1FETransformation&lt;OutputShape&gt;</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;(<span class="keyword">new</span> H1FETransformation&lt;OutputShape&gt;);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="comment">// HCurl Conforming Elements</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a63a8d9dfddf0c4e65ed1020158d06b69">NEDELEC_ONE</a>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1HCurlFETransformation.html">HCurlFETransformation&lt;OutputShape&gt;</a>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;(<span class="keyword">new</span> HCurlFETransformation&lt;OutputShape&gt;);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="comment">// HDiv Conforming Elements</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">// L2 Conforming Elements</span></div>
@@ -265,30 +267,27 @@ template&lt;typename OutputShape &gt; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">// Other...</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3aefdbf95da65edcfa0cdb6c10eac5482c">SCALAR</a>:</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="comment">// Should never need this for SCALARs</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;(<span class="keyword">new</span> <a class="code" href="classlibMesh_1_1H1FETransformation.html">H1FETransformation&lt;OutputShape&gt;</a>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;(<span class="keyword">new</span> H1FETransformation&lt;OutputShape&gt;);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unknown family = &quot;</span> &lt;&lt; fe_type.family);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unknown family = &quot;</span> &lt;&lt; fe_type.family);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">return</span> UniquePtr&lt;FETransformationBase&lt;OutputShape&gt; &gt;();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3afbc5c2754eba7197286cc0190d1c68af"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3afbc5c2754eba7197286cc0190d1c68af">libMesh::LAGRANGE_VEC</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00063">enum_fe_family.h:63</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a08fc8ef5c7d9a32ccd5a34b5622bdbb1"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a08fc8ef5c7d9a32ccd5a34b5622bdbb1">libMesh::BERNSTEIN</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00041">enum_fe_family.h:41</a></div></div>
-<div class="ttc" id="classlibMesh_1_1HCurlFETransformation_html"><div class="ttname"><a href="classlibMesh_1_1HCurlFETransformation.html">libMesh::HCurlFETransformation</a></div><div class="ttdef"><b>Definition:</b> <a href="fe__transformation__base_8h_source.html#l00029">fe_transformation_base.h:29</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a9259864071261e523efbfc476b4ceb3d"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a9259864071261e523efbfc476b4ceb3d">libMesh::SZABAB</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00042">enum_fe_family.h:42</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3abb9222ba16f8f169474ac303408287d6"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3abb9222ba16f8f169474ac303408287d6">libMesh::XYZ</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00045">enum_fe_family.h:45</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a91f8a5acd1431a51d0d1da6d2fa3f278"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a91f8a5acd1431a51d0d1da6d2fa3f278">libMesh::JACOBI_30_00</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00050">enum_fe_family.h:50</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3ae474c06cb9773db50e27d3b074af683e"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3ae474c06cb9773db50e27d3b074af683e">libMesh::MONOMIAL</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00036">enum_fe_family.h:36</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3aa1051269c6cd88cda8181216c2fc0465"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3aa1051269c6cd88cda8181216c2fc0465">libMesh::L2_LAGRANGE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00038">enum_fe_family.h:38</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a6b0927d6056bcecfd0c67af96dccbda8"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a6b0927d6056bcecfd0c67af96dccbda8">libMesh::L2_HIERARCHIC</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00037">enum_fe_family.h:37</a></div></div>
-<div class="ttc" id="classlibMesh_1_1H1FETransformation_html"><div class="ttname"><a href="classlibMesh_1_1H1FETransformation.html">libMesh::H1FETransformation</a></div><div class="ttdef"><b>Definition:</b> <a href="fe__transformation__base_8h_source.html#l00028">fe_transformation_base.h:28</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a8e9464f3529f6547766479254e411e4a"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a8e9464f3529f6547766479254e411e4a">libMesh::HIERARCHIC</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00033">enum_fe_family.h:33</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3aefdbf95da65edcfa0cdb6c10eac5482c"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3aefdbf95da65edcfa0cdb6c10eac5482c">libMesh::SCALAR</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00060">enum_fe_family.h:60</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a152bf3fd0b05483f7989875a781ab2c6"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a152bf3fd0b05483f7989875a781ab2c6">libMesh::SUBDIVISION</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00056">enum_fe_family.h:56</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a841e6ce4170bf6a6f419b1b51948fe9c"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a841e6ce4170bf6a6f419b1b51948fe9c">libMesh::CLOUGH</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00054">enum_fe_family.h:54</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3af6e9d5a20a1ddebdc8ad2fad91700e59"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3af6e9d5a20a1ddebdc8ad2fad91700e59">libMesh::JACOBI_20_00</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00049">enum_fe_family.h:49</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a0b0bdaef8cef619acc3e552276abfe8f"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a0b0bdaef8cef619acc3e552276abfe8f">libMesh::LAGRANGE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00032">enum_fe_family.h:32</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a18363b9a6caebcda4a8488ace42010d3a63a8d9dfddf0c4e65ed1020158d06b69"><div class="ttname"><a href="namespacelibMesh.html#a18363b9a6caebcda4a8488ace42010d3a63a8d9dfddf0c4e65ed1020158d06b69">libMesh::NEDELEC_ONE</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00064">enum_fe_family.h:64</a></div></div>
@@ -437,6 +436,93 @@ template&lt;typename OutputShape &gt; </div>
 <p>Evaluates the shape function curl in physical coordinates based on proper finite element transformation. </p>
 
 <p>Implemented in <a class="el" href="classlibMesh_1_1HCurlFETransformation.html#a97e05d124b4c6d601caa4984db9c2cfb">libMesh::HCurlFETransformation&lt; OutputShape &gt;</a>, and <a class="el" href="classlibMesh_1_1H1FETransformation.html#ae96dae1a802a0a572f9d4435b98a80c6">libMesh::H1FETransformation&lt; OutputShape &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a277b072b1b97905e2ca2b41c30fb0304"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename OutputShape &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classlibMesh_1_1FETransformationBase.html">libMesh::FETransformationBase</a>&lt; OutputShape &gt;::map_d2phi </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classlibMesh_1_1Point.html">Point</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>qp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; typename <a class="el" href="classlibMesh_1_1FEGenericBase.html">FEGenericBase</a>&lt; OutputShape &gt;::OutputTensor &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phidx2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phidxdy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phidxdz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phidy2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phidydz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; OutputShape &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>d2phidz2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Evaluates shape function Hessians in physical coordinates based on proper finite element transformation. </p>
+
+<p>Implemented in <a class="el" href="classlibMesh_1_1HCurlFETransformation.html#ac7dc3f5a075054ee1583715d57e4a654">libMesh::HCurlFETransformation&lt; OutputShape &gt;</a>, and <a class="el" href="classlibMesh_1_1H1FETransformation.html#a78b94e627a00c5feaa8508b29b90e18f">libMesh::H1FETransformation&lt; OutputShape &gt;</a>.</p>
 
 </div>
 </div>

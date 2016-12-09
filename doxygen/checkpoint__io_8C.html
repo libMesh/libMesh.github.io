@@ -100,35 +100,7 @@
 <div class="title">checkpoint_io.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="checkpoint__io_8h_source.html">libmesh/checkpoint_io.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;cstdio&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &quot;<a class="el" href="xdr__io_8h_source.html">libmesh/xdr_io.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="xdr__cxx_8h_source.html">libmesh/xdr_cxx.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="enum__xdr__mode_8h_source.html">libmesh/enum_xdr_mode.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__base_8h_source.html">libmesh/mesh_base.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="node_8h_source.html">libmesh/node.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="boundary__info_8h_source.html">libmesh/boundary_info.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="parallel_8h_source.html">libmesh/parallel.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__tools_8h_source.html">libmesh/mesh_tools.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="partitioner_8h_source.html">libmesh/partitioner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="libmesh__logging_8h_source.html">libmesh/libmesh_logging.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__communication_8h_source.html">libmesh/mesh_communication.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="distributed__mesh_8h_source.html">libmesh/distributed_mesh.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for checkpoint_io.C:</div>
-<div class="dyncontent">
-<div class="center"><img src="checkpoint__io_8C__incl.png" border="0" usemap="#checkpoint__io_8C" alt=""/></div>
-<map name="checkpoint__io_8C" id="checkpoint__io_8C">
-<area shape="rect" id="node2" href="checkpoint__io_8h.html" title="libmesh/checkpoint_io.h" alt="" coords="1211,80,1375,107"/><area shape="rect" id="node5" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="1467,493,1592,520"/><area shape="rect" id="node6" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1679,584,1857,611"/><area shape="rect" id="node18" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="1704,229,1856,256"/><area shape="rect" id="node19" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="753,312,919,339"/><area shape="rect" id="node26" href="partitioner_8h.html" title="libmesh/partitioner.h" alt="" coords="1654,312,1796,339"/><area shape="rect" id="node36" href="xdr__io_8h.html" title="libmesh/xdr_io.h" alt="" coords="1067,80,1185,107"/><area shape="rect" id="node37" href="xdr__cxx_8h.html" title="libmesh/xdr_cxx.h" alt="" coords="2611,312,2740,339"/><area shape="rect" id="node38" href="enum__xdr__mode_8h.html" title="libmesh/enum_xdr_mode.h" alt="" coords="3847,403,4029,429"/><area shape="rect" id="node40" href="node_8h.html" title="libmesh/node.h" alt="" coords="3773,229,3885,256"/><area shape="rect" id="node42" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2991,155,3103,181"/><area shape="rect" id="node48" href="mesh__tools_8h.html" title="libmesh/mesh_tools.h" alt="" coords="1869,155,2019,181"/><area shape="rect" id="node49" href="mesh__communication_8h.html" title="libmesh/mesh_communication.h" alt="" coords="831,80,1043,107"/><area shape="rect" id="node50" href="distributed__mesh_8h.html" title="libmesh/distributed\l_mesh.h" alt="" coords="701,486,835,527"/><area shape="rect" id="node3" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="1707,403,1836,429"/><area shape="rect" id="node17" href="mesh__input_8h.html" title="libmesh/mesh_input.h" alt="" coords="819,155,971,181"/><area shape="rect" id="node21" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="1006,403,1175,429"/><area shape="rect" id="node30" href="mesh__output_8h.html" title="libmesh/mesh_output.h" alt="" coords="1045,155,1205,181"/><area shape="rect" id="node4" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="2029,667,2216,693"/><area shape="rect" id="node7" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="2531,584,2663,611"/><area shape="rect" id="node22" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="3072,312,3216,339"/><area shape="rect" id="node24" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="1974,312,2159,339"/><area shape="rect" id="node25" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="2817,312,2996,339"/><area shape="rect" id="node27" href="point__locator__base_8h.html" title="libmesh/point_locator\l_base.h" alt="" coords="2235,305,2383,346"/><area shape="rect" id="node28" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="3291,305,3435,346"/><area shape="rect" id="node20" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="1861,403,1992,429"/><area shape="rect" id="node23" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="3183,395,3365,437"/><area shape="rect" id="node41" href="point_8h.html" title="libmesh/point.h" alt="" coords="3459,312,3571,339"/><area shape="rect" id="node43" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="3017,229,3215,256"/><area shape="rect" id="node44" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="3240,229,3395,256"/><area shape="rect" id="node45" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="3419,229,3611,256"/><area shape="rect" id="node46" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="3645,493,3784,520"/></map>
-</div>
-</div>
+
 <p><a href="checkpoint__io_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>

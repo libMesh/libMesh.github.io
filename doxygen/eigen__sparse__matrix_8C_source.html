@@ -137,19 +137,19 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//-----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// EigenSparseMatrix members</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::init (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> m_in,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#aa0b18916ab6b0f37a5d19570dfa7a1c0">EigenSparseMatrix&lt;T&gt;::init</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> m_in,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> n_in,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="libmesh__common_8h.html#a326d37ac239a28e84049328d1d13d961">libmesh_dbg_var</a>(m_l),</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="libmesh__common_8h.html#a326d37ac239a28e84049328d1d13d961">libmesh_dbg_var</a>(n_l),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(m_l),</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libmesh_dbg_var</a>(n_l),</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> nnz,</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>,</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">// noz ignored...  only used for multiple processors!</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (m_in, m_l);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_in, n_l);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (m_in, n_in);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a>  (nnz, 0);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  libmesh_assert_equal_to (m_in, m_l);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  libmesh_assert_equal_to (n_in, n_l);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  libmesh_assert_equal_to (m_in, n_in);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libmesh_assert_greater</a>  (nnz, 0);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  _mat.resize(m_in, n_in);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  _mat.reserve(Eigen::Matrix&lt;numeric_index_type, Eigen::Dynamic, 1&gt;::Constant(m_in,nnz));</div>
@@ -160,14 +160,14 @@
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::init ()</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#aa0b18916ab6b0f37a5d19570dfa7a1c0">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#aa0b18916ab6b0f37a5d19570dfa7a1c0">EigenSparseMatrix&lt;T&gt;::init</a> ()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Ignore calls on initialized objects</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// We need the DofMap for this!</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(this-&gt;_dof_map);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(this-&gt;_dof_map);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// Clear intialized matrices</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
@@ -184,9 +184,9 @@
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">// Laspack Matrices only work for uniprocessor cases</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_rows, n_cols);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (m_l, n_rows);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_l, n_cols);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  libmesh_assert_equal_to (n_rows, n_cols);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  libmesh_assert_equal_to (m_l, n_rows);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  libmesh_assert_equal_to (n_l, n_cols);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">const</span> std::vector&lt;numeric_index_type&gt; &amp; n_nz = this-&gt;_dof_map-&gt;get_n_nz();</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
@@ -197,8 +197,8 @@
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="comment">// Make sure the sparsity pattern isn&#39;t empty</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_nz.size(), n_l);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_oz.size(), n_l);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  libmesh_assert_equal_to (n_nz.size(), n_l);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  libmesh_assert_equal_to (n_oz.size(), n_l);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">if</span> (n_rows==0)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
@@ -211,23 +211,23 @@
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  this-&gt;<a class="code" href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">_is_initialized</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_rows, this-&gt;m());</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (n_cols, this-&gt;n());</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  libmesh_assert_equal_to (n_rows, this-&gt;m());</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  libmesh_assert_equal_to (n_cols, this-&gt;n());</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::add_matrix(<span class="keyword">const</span> DenseMatrix&lt;T&gt; &amp; dm,</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#ade4c4ffc0a18b3cbf44c092de745eea8">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#ade4c4ffc0a18b3cbf44c092de745eea8">EigenSparseMatrix&lt;T&gt;::add_matrix</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrix.html">DenseMatrix&lt;T&gt;</a> &amp; dm,</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;numeric_index_type&gt; &amp; rows,</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;numeric_index_type&gt; &amp; cols)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_rows = cast_int&lt;unsigned int&gt;(rows.size());</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_cols = cast_int&lt;unsigned int&gt;(cols.size());</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (dm.m(), n_rows);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (dm.n(), n_cols);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  libmesh_assert_equal_to (dm.<a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a68bd665fb9252382cc9a28df4099d76a">m</a>(), n_rows);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  libmesh_assert_equal_to (dm.<a class="code" href="classlibMesh_1_1DenseMatrixBase.html#a4fb8c524109fd5dff8c98855437544ee">n</a>(), n_cols);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;n_rows; i++)</div>
@@ -238,28 +238,28 @@
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::get_diagonal (NumericVector&lt;T&gt; &amp; dest_in)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#abc4bf8597db44a1f3e3ce803c2e3e257">  141</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#abc4bf8597db44a1f3e3ce803c2e3e257">EigenSparseMatrix&lt;T&gt;::get_diagonal</a> (<a class="code" href="classlibMesh_1_1NumericVector.html">NumericVector&lt;T&gt;</a> &amp; dest_in)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  EigenSparseVector&lt;T&gt; &amp; dest = cast_ref&lt;EigenSparseVector&lt;T&gt; &amp;&gt;(dest_in);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <a class="code" href="classlibMesh_1_1EigenSparseVector.html">EigenSparseVector&lt;T&gt;</a> &amp; dest = cast_ref&lt;EigenSparseVector&lt;T&gt; &amp;&gt;(dest_in);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  dest._vec = _mat.diagonal();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  dest.<a class="code" href="classlibMesh_1_1EigenSparseVector.html#a322f5f4972302c4ad0241e16b7d42888">_vec</a> = _mat.diagonal();</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::get_transpose (SparseMatrix&lt;T&gt; &amp; dest_in)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#acd628953c5e4034f9035670bde00dc8a">  151</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#acd628953c5e4034f9035670bde00dc8a">EigenSparseMatrix&lt;T&gt;::get_transpose</a> (<a class="code" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix&lt;T&gt;</a> &amp; dest_in)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  EigenSparseMatrix&lt;T&gt; &amp; dest = cast_ref&lt;EigenSparseMatrix&lt;T&gt; &amp;&gt;(dest_in);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html">EigenSparseMatrix&lt;T&gt;</a> &amp; dest = cast_ref&lt;EigenSparseMatrix&lt;T&gt; &amp;&gt;(dest_in);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  dest._mat = _mat.transpose();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  dest.<a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a3120aa7028b7103ee2cbbc17bbc1a8f7">_mat</a> = _mat.transpose();</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;EigenSparseMatrix&lt;T&gt;::EigenSparseMatrix (<span class="keyword">const</span> Parallel::Communicator &amp; comm_in) :</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  SparseMatrix&lt;T&gt;(comm_in),</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a38e7ae718d44573e6776690571224d5a">  161</a></span>&#160;<a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a38e7ae718d44573e6776690571224d5a">EigenSparseMatrix&lt;T&gt;::EigenSparseMatrix</a> (<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp; comm_in) :</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <a class="code" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix</a>&lt;T&gt;(comm_in),</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  _closed (false)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
@@ -267,7 +267,7 @@
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;EigenSparseMatrix&lt;T&gt;::~EigenSparseMatrix ()</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a6c92e6b86e59fe367bdcfeaf27285a95">  170</a></span>&#160;<a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a6c92e6b86e59fe367bdcfeaf27285a95">EigenSparseMatrix&lt;T&gt;::~EigenSparseMatrix</a> ()</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  this-&gt;clear ();</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
@@ -275,7 +275,7 @@
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::clear ()</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a5bde803b67d7c7c1cc489ac7e643c41a">  178</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a5bde803b67d7c7c1cc489ac7e643c41a">EigenSparseMatrix&lt;T&gt;::clear</a> ()</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;{</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  _mat.resize(0,0);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
@@ -286,7 +286,7 @@
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh.html#a7384a2e49f01ab6e656cae298da85146">EigenSparseMatrix&lt;T&gt;::zero</a> ()</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#abf52adbea41de8cbf7f51640af5a6ebc">  189</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#abf52adbea41de8cbf7f51640af5a6ebc">EigenSparseMatrix&lt;T&gt;::zero</a> ()</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;{</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  _mat.setZero();</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
@@ -294,9 +294,9 @@
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> EigenSparseMatrix&lt;T&gt;::m ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a8e2f78e277fba104458ac52f3dcaaaab">  197</a></span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a8e2f78e277fba104458ac52f3dcaaaab">EigenSparseMatrix&lt;T&gt;::m</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordflow">return</span> _mat.rows();</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
@@ -304,9 +304,9 @@
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> EigenSparseMatrix&lt;T&gt;::n ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#ae1e8d16b244074b3d37d906e9ace6571">  207</a></span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#ae1e8d16b244074b3d37d906e9ace6571">EigenSparseMatrix&lt;T&gt;::n</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="keywordflow">return</span> _mat.cols();</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
@@ -314,7 +314,7 @@
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> EigenSparseMatrix&lt;T&gt;::row_start ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#ae87b68714ead7b4b5c1db9c629ef0647">  217</a></span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#ae87b68714ead7b4b5c1db9c629ef0647">EigenSparseMatrix&lt;T&gt;::row_start</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
@@ -322,7 +322,7 @@
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> EigenSparseMatrix&lt;T&gt;::row_stop ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a966b404f79d94ab8ec57dc0856f39c4a">  225</a></span>&#160;<a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a966b404f79d94ab8ec57dc0856f39c4a">EigenSparseMatrix&lt;T&gt;::row_stop</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordflow">return</span> this-&gt;m();</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
@@ -330,13 +330,13 @@
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::set (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> i,</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a98be69ca1a42bb1a187f73eee9451d5b">  233</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a98be69ca1a42bb1a187f73eee9451d5b">EigenSparseMatrix&lt;T&gt;::set</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> i,</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                                <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> j,</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                                <span class="keyword">const</span> T value)</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, this-&gt;m());</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (j, this-&gt;n());</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  libmesh_assert_less (i, this-&gt;m());</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  libmesh_assert_less (j, this-&gt;n());</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  _mat.coeffRef(i,j) = value;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
@@ -344,13 +344,13 @@
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::add (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> i,</div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a7a26f599d924d567f817e2d5ee8c78bd">  247</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a7a26f599d924d567f817e2d5ee8c78bd">EigenSparseMatrix&lt;T&gt;::add</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> i,</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> j,</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                                <span class="keyword">const</span> T value)</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;{</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, this-&gt;m());</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (j, this-&gt;n());</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  libmesh_assert_less (i, this-&gt;m());</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  libmesh_assert_less (j, this-&gt;n());</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  _mat.coeffRef(i,j) += value;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}</div>
@@ -358,7 +358,7 @@
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::add_matrix(<span class="keyword">const</span> DenseMatrix&lt;T&gt; &amp; dm,</div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a4d9fc3adb3c387c030e3c1161ba3e21a">  261</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#ade4c4ffc0a18b3cbf44c092de745eea8">EigenSparseMatrix&lt;T&gt;::add_matrix</a>(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1DenseMatrix.html">DenseMatrix&lt;T&gt;</a> &amp; dm,</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;numeric_index_type&gt; &amp; dof_indices)</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  this-&gt;add_matrix (dm, dof_indices, dof_indices);</div>
@@ -367,27 +367,27 @@
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="keywordtype">void</span> EigenSparseMatrix&lt;T&gt;::add (<span class="keyword">const</span> T a_in, SparseMatrix&lt;T&gt; &amp; X_in)</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a5d2bdb0f718d4b440941f8471672aba7">  270</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a7a26f599d924d567f817e2d5ee8c78bd">EigenSparseMatrix&lt;T&gt;::add</a> (<span class="keyword">const</span> T a_in, <a class="code" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix&lt;T&gt;</a> &amp; X_in)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (this-&gt;m(), X_in.m());</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (this-&gt;n(), X_in.n());</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  libmesh_assert_equal_to (this-&gt;m(), X_in.<a class="code" href="classlibMesh_1_1SparseMatrix.html#a95dedaf3b58050d303a5e971e1124882">m</a>());</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  libmesh_assert_equal_to (this-&gt;n(), X_in.<a class="code" href="classlibMesh_1_1SparseMatrix.html#a759bad4b67e66f75c5a2fdc0772b755b">n</a>());</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  EigenSparseMatrix&lt;T&gt; &amp; X = cast_ref&lt;EigenSparseMatrix&lt;T&gt; &amp;&gt; (X_in);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html">EigenSparseMatrix&lt;T&gt;</a> &amp; X = cast_ref&lt;EigenSparseMatrix&lt;T&gt; &amp;&gt; (X_in);</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  _mat += X._mat*a_in;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  _mat += X.<a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a3120aa7028b7103ee2cbbc17bbc1a8f7">_mat</a>*a_in;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;}</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;T EigenSparseMatrix&lt;T&gt;::operator () (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> i,</div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a8527a96225043f12712213d24fdad2da">  285</a></span>&#160;T <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a8527a96225043f12712213d24fdad2da">EigenSparseMatrix&lt;T&gt;::operator () </a>(<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> i,</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a> j)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (i, this-&gt;m());</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (j, this-&gt;n());</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>());</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  libmesh_assert_less (i, this-&gt;m());</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  libmesh_assert_less (j, this-&gt;n());</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordflow">return</span> _mat.coeff(i,j);</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
@@ -395,7 +395,7 @@
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> EigenSparseMatrix&lt;T&gt;::l1_norm ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a54a8ba69dc27d8d8847d30d202dbd2e5">  298</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a54a8ba69dc27d8d8847d30d202dbd2e5">EigenSparseMatrix&lt;T&gt;::l1_norm</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="comment">// There does not seem to be a straightforward way to iterate over</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="comment">// the columns of an EigenSparseMatrix.  So we use some extra</span></div>
@@ -409,7 +409,7 @@
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    {</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      EigenSM::InnerIterator it(_mat, row);</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="keywordflow">for</span> (; it; ++it)</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        abs_col_sums[it.col()] += std::abs(it.value());</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        abs_col_sums[it.col()] += <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(it.value());</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keywordflow">return</span> *(std::max_element(abs_col_sums.begin(), abs_col_sums.end()));</div>
@@ -418,18 +418,18 @@
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> EigenSparseMatrix&lt;T&gt;::linfty_norm ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="classlibMesh_1_1EigenSparseMatrix.html#a7e5853b7a3001c6e4897a12410d297f0">  321</a></span>&#160;<a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> <a class="code" href="classlibMesh_1_1EigenSparseMatrix.html#a7e5853b7a3001c6e4897a12410d297f0">EigenSparseMatrix&lt;T&gt;::linfty_norm</a> ()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> max_abs_row_sum = 0.;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> max_abs_row_sum = 0.;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="comment">// For a row-major Eigen SparseMatrix like we&#39;re using, the</span></div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="comment">// InnerIterator iterates over the non-zero entries of rows.</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> row=0; row&lt;this-&gt;m(); ++row)</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    {</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> current_abs_row_sum = 0.;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> current_abs_row_sum = 0.;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      EigenSM::InnerIterator it(_mat, row);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      <span class="keywordflow">for</span> (; it; ++it)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        current_abs_row_sum += std::abs(it.value());</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        current_abs_row_sum += <a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(it.value());</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      max_abs_row_sum = <a class="code" href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a>(max_abs_row_sum, current_abs_row_sum);</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
@@ -440,30 +440,57 @@
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">//------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment">// Explicit instantiations</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span>EigenSparseMatrix&lt;Number&gt;;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1EigenSparseMatrix.html">EigenSparseMatrix&lt;Number&gt;</a>;</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="preprocessor">#endif // #ifdef LIBMESH_HAVE_EIGEN</span></div>
 <div class="ttc" id="eigen__sparse__matrix_8h_html"><div class="ttname"><a href="eigen__sparse__matrix_8h.html">eigen_sparse_matrix.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c"><div class="ttname"><a href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a></div><div class="ttdeci">#define libmesh_assert_equal_to(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00344">libmesh_common.h:344</a></div></div>
+<div class="ttc" id="namespacestd_html_a267975f6c8fdf9f989e14d438036706a"><div class="ttname"><a href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a></div><div class="ttdeci">double abs(double a)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00059">libmesh_augment_std_namespace.h:59</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html">libMesh::EigenSparseMatrix</a></div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8h_source.html#l00053">eigen_sparse_matrix.h:53</a></div></div>
+<div class="ttc" id="classlibMesh_1_1Parallel_1_1Communicator_html"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1Communicator.html">libMesh::Parallel::Communicator</a></div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00611">parallel.h:611</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DenseMatrixBase_html_a4fb8c524109fd5dff8c98855437544ee"><div class="ttname"><a href="classlibMesh_1_1DenseMatrixBase.html#a4fb8c524109fd5dff8c98855437544ee">libMesh::DenseMatrixBase::n</a></div><div class="ttdeci">unsigned int n() const </div><div class="ttdef"><b>Definition:</b> <a href="dense__matrix__base_8h_source.html#l00102">dense_matrix_base.h:102</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a38e7ae718d44573e6776690571224d5a"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a38e7ae718d44573e6776690571224d5a">libMesh::EigenSparseMatrix::EigenSparseMatrix</a></div><div class="ttdeci">EigenSparseMatrix(const Parallel::Communicator &amp;comm LIBMESH_CAN_DEFAULT_TO_COMMWORLD)</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00161">eigen_sparse_matrix.C:161</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseVector_html_a322f5f4972302c4ad0241e16b7d42888"><div class="ttname"><a href="classlibMesh_1_1EigenSparseVector.html#a322f5f4972302c4ad0241e16b7d42888">libMesh::EigenSparseVector::_vec</a></div><div class="ttdeci">DataType _vec</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__vector_8h_source.html#l00424">eigen_sparse_vector.h:424</a></div></div>
 <div class="ttc" id="eigen__sparse__vector_8h_html"><div class="ttname"><a href="eigen__sparse__vector_8h.html">eigen_sparse_vector.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a98be69ca1a42bb1a187f73eee9451d5b"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a98be69ca1a42bb1a187f73eee9451d5b">libMesh::EigenSparseMatrix::set</a></div><div class="ttdeci">virtual void set(const numeric_index_type i, const numeric_index_type j, const T value) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00233">eigen_sparse_matrix.C:233</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a8527a96225043f12712213d24fdad2da"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a8527a96225043f12712213d24fdad2da">libMesh::EigenSparseMatrix::operator()</a></div><div class="ttdeci">virtual T operator()(const numeric_index_type i, const numeric_index_type j) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00285">eigen_sparse_matrix.C:285</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NumericVector_html"><div class="ttname"><a href="classlibMesh_1_1NumericVector.html">libMesh::NumericVector</a></div><div class="ttdef"><b>Definition:</b> <a href="diff__context_8h_source.html#l00039">diff_context.h:39</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a7384a2e49f01ab6e656cae298da85146"><div class="ttname"><a href="namespacelibMesh.html#a7384a2e49f01ab6e656cae298da85146">libMesh::zero</a></div><div class="ttdeci">const Number zero</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8h_source.html#l00179">libmesh.h:179</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_aa0b18916ab6b0f37a5d19570dfa7a1c0"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#aa0b18916ab6b0f37a5d19570dfa7a1c0">libMesh::EigenSparseMatrix::init</a></div><div class="ttdeci">virtual void init() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00063">eigen_sparse_matrix.C:63</a></div></div>
 <div class="ttc" id="namespacestd_html_a6987c84b7beab8b2ebdee7e2549d698f"><div class="ttname"><a href="namespacestd.html#a6987c84b7beab8b2ebdee7e2549d698f">std::max</a></div><div class="ttdeci">long double max(long double a, double b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00027">libmesh_augment_std_namespace.h:27</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_ae87b68714ead7b4b5c1db9c629ef0647"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#ae87b68714ead7b4b5c1db9c629ef0647">libMesh::EigenSparseMatrix::row_start</a></div><div class="ttdeci">virtual numeric_index_type row_start() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00217">eigen_sparse_matrix.C:217</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a3120aa7028b7103ee2cbbc17bbc1a8f7"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a3120aa7028b7103ee2cbbc17bbc1a8f7">libMesh::EigenSparseMatrix::_mat</a></div><div class="ttdeci">DataType _mat</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8h_source.html#l00266">eigen_sparse_matrix.h:266</a></div></div>
 <div class="ttc" id="dense__matrix_8h_html"><div class="ttname"><a href="dense__matrix_8h.html">dense_matrix.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_af799123aec103b0960ec3dd56dcab3f0"><div class="ttname"><a href="libmesh__common_8h.html#af799123aec103b0960ec3dd56dcab3f0">libmesh_assert_greater</a></div><div class="ttdeci">#define libmesh_assert_greater(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00347">libmesh_common.h:347</a></div></div>
+<div class="ttc" id="classlibMesh_1_1SparseMatrix_html"><div class="ttname"><a href="classlibMesh_1_1SparseMatrix.html">libMesh::SparseMatrix</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l00065">dof_map.h:65</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a5bde803b67d7c7c1cc489ac7e643c41a"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a5bde803b67d7c7c1cc489ac7e643c41a">libMesh::EigenSparseMatrix::clear</a></div><div class="ttdeci">virtual void clear() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00178">eigen_sparse_matrix.C:178</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a54a8ba69dc27d8d8847d30d202dbd2e5"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a54a8ba69dc27d8d8847d30d202dbd2e5">libMesh::EigenSparseMatrix::l1_norm</a></div><div class="ttdeci">virtual Real l1_norm() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00298">eigen_sparse_matrix.C:298</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a7b7f67063580fe2c771a3dc5095d6ecb"><div class="ttname"><a href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">libMesh::numeric_index_type</a></div><div class="ttdeci">dof_id_type numeric_index_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00092">id_types.h:92</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1libMeshPrivateData_html_ab8b7115ea57ced35ec86d1fdfa0ab853"><div class="ttname"><a href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">libMesh::libMeshPrivateData::_is_initialized</a></div><div class="ttdeci">bool _is_initialized</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00253">libmesh.C:253</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DenseMatrixBase_html_a68bd665fb9252382cc9a28df4099d76a"><div class="ttname"><a href="classlibMesh_1_1DenseMatrixBase.html#a68bd665fb9252382cc9a28df4099d76a">libMesh::DenseMatrixBase::m</a></div><div class="ttdeci">unsigned int m() const </div><div class="ttdef"><b>Definition:</b> <a href="dense__matrix__base_8h_source.html#l00097">dense_matrix_base.h:97</a></div></div>
+<div class="ttc" id="classlibMesh_1_1SparseMatrix_html_a95dedaf3b58050d303a5e971e1124882"><div class="ttname"><a href="classlibMesh_1_1SparseMatrix.html#a95dedaf3b58050d303a5e971e1124882">libMesh::SparseMatrix::m</a></div><div class="ttdeci">virtual numeric_index_type m() const =0</div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_abf52adbea41de8cbf7f51640af5a6ebc"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#abf52adbea41de8cbf7f51640af5a6ebc">libMesh::EigenSparseMatrix::zero</a></div><div class="ttdeci">virtual void zero() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00189">eigen_sparse_matrix.C:189</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_ae1e8d16b244074b3d37d906e9ace6571"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#ae1e8d16b244074b3d37d906e9ace6571">libMesh::EigenSparseMatrix::n</a></div><div class="ttdeci">virtual numeric_index_type n() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00207">eigen_sparse_matrix.C:207</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_abc4bf8597db44a1f3e3ce803c2e3e257"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#abc4bf8597db44a1f3e3ce803c2e3e257">libMesh::EigenSparseMatrix::get_diagonal</a></div><div class="ttdeci">virtual void get_diagonal(NumericVector&lt; T &gt; &amp;dest) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00141">eigen_sparse_matrix.C:141</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ad3b630fc9d82a03a756cd376df033fea"><div class="ttname"><a href="namespacelibMesh.html#ad3b630fc9d82a03a756cd376df033fea">libMesh::libmesh_assert_greater</a></div><div class="ttdeci">libmesh_assert_greater(libMeshPrivateData::_n_processors, 0)</div></div>
+<div class="ttc" id="namespacelibMesh_html_af591f704edd63f707d8e884f95db4477"><div class="ttname"><a href="namespacelibMesh.html#af591f704edd63f707d8e884f95db4477">libMesh::libmesh_dbg_var</a></div><div class="ttdeci">PetscErrorCode Vec Mat libmesh_dbg_var(j)</div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_ade4c4ffc0a18b3cbf44c092de745eea8"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#ade4c4ffc0a18b3cbf44c092de745eea8">libMesh::EigenSparseMatrix::add_matrix</a></div><div class="ttdeci">virtual void add_matrix(const DenseMatrix&lt; T &gt; &amp;dm, const std::vector&lt; numeric_index_type &gt; &amp;rows, const std::vector&lt; numeric_index_type &gt; &amp;cols) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00121">eigen_sparse_matrix.C:121</a></div></div>
 <div class="ttc" id="dof__map_8h_html"><div class="ttname"><a href="dof__map_8h.html">dof_map.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_a326d37ac239a28e84049328d1d13d961"><div class="ttname"><a href="libmesh__common_8h.html#a326d37ac239a28e84049328d1d13d961">libmesh_dbg_var</a></div><div class="ttdeci">#define libmesh_dbg_var(var)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00264">libmesh_common.h:264</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a7a26f599d924d567f817e2d5ee8c78bd"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a7a26f599d924d567f817e2d5ee8c78bd">libMesh::EigenSparseMatrix::add</a></div><div class="ttdeci">virtual void add(const numeric_index_type i, const numeric_index_type j, const T value) libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00247">eigen_sparse_matrix.C:247</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_aad2e4639e47d92a7d34c80bf2e936cba"><div class="ttname"><a href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">libMesh::initialized</a></div><div class="ttdeci">bool initialized()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00272">libmesh.C:272</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a6c92e6b86e59fe367bdcfeaf27285a95"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a6c92e6b86e59fe367bdcfeaf27285a95">libMesh::EigenSparseMatrix::~EigenSparseMatrix</a></div><div class="ttdeci">~EigenSparseMatrix()</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00170">eigen_sparse_matrix.C:170</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a7e5853b7a3001c6e4897a12410d297f0"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a7e5853b7a3001c6e4897a12410d297f0">libMesh::EigenSparseMatrix::linfty_norm</a></div><div class="ttdeci">virtual Real linfty_norm() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00321">eigen_sparse_matrix.C:321</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_acd628953c5e4034f9035670bde00dc8a"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#acd628953c5e4034f9035670bde00dc8a">libMesh::EigenSparseMatrix::get_transpose</a></div><div class="ttdeci">virtual void get_transpose(SparseMatrix&lt; T &gt; &amp;dest) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00151">eigen_sparse_matrix.C:151</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a8e2f78e277fba104458ac52f3dcaaaab"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a8e2f78e277fba104458ac52f3dcaaaab">libMesh::EigenSparseMatrix::m</a></div><div class="ttdeci">virtual numeric_index_type m() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00197">eigen_sparse_matrix.C:197</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseMatrix_html_a966b404f79d94ab8ec57dc0856f39c4a"><div class="ttname"><a href="classlibMesh_1_1EigenSparseMatrix.html#a966b404f79d94ab8ec57dc0856f39c4a">libMesh::EigenSparseMatrix::row_stop</a></div><div class="ttdeci">virtual numeric_index_type row_stop() const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8C_source.html#l00225">eigen_sparse_matrix.C:225</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DenseMatrix_html"><div class="ttname"><a href="classlibMesh_1_1DenseMatrix.html">libMesh::DenseMatrix</a></div><div class="ttdoc">A matrix object used for finite element assembly and numerics. </div><div class="ttdef"><b>Definition:</b> <a href="dense__matrix_8h_source.html#l00047">dense_matrix.h:47</a></div></div>
 <div class="ttc" id="sparsity__pattern_8h_html"><div class="ttname"><a href="sparsity__pattern_8h.html">sparsity_pattern.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EigenSparseVector_html"><div class="ttname"><a href="classlibMesh_1_1EigenSparseVector.html">libMesh::EigenSparseVector</a></div><div class="ttdef"><b>Definition:</b> <a href="eigen__sparse__matrix_8h_source.html#l00042">eigen_sparse_matrix.h:42</a></div></div>
+<div class="ttc" id="classlibMesh_1_1SparseMatrix_html_a759bad4b67e66f75c5a2fdc0772b755b"><div class="ttname"><a href="classlibMesh_1_1SparseMatrix.html#a759bad4b67e66f75c5a2fdc0772b755b">libMesh::SparseMatrix::n</a></div><div class="ttdeci">virtual numeric_index_type n() const =0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

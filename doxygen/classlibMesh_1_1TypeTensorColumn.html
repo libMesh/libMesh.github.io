@@ -198,7 +198,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return a writeable reference to the <img class="formulaInl" alt="$ i,this $" src="form_102.png"/> element of the tensor. </p>
+<p>Return a writeable reference to the <img class="formulaInl" alt="$ i,this $" src="form_122.png"/> element of the tensor. </p>
 
 <p>Definition at line <a class="el" href="type__tensor_8h_source.html#l00401">401</a> of file <a class="el" href="type__tensor_8h_source.html">type_tensor.h</a>.</p>
 
@@ -235,14 +235,11 @@ template&lt;typename T&gt; </div>
 <p>Assign values to this column of the tensor. </p>
 
 <p>Definition at line <a class="el" href="type__tensor_8h_source.html#l00410">410</a> of file <a class="el" href="type__tensor_8h_source.html">type_tensor.h</a>.</p>
-
-<p>References <a class="el" href="libmesh__config_8h_source.html#l00175">LIBMESH_DIM</a>.</p>
 <div class="fragment"><div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  {</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != <a class="code" href="libmesh__config_8h.html#a140edde2c26b1ce83802b9158b110088">LIBMESH_DIM</a>; ++i)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i != LIBMESH_DIM; ++i)</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      (*<span class="keyword">this</span>)(i) = rhs(i);</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;  }</div>
-<div class="ttc" id="libmesh__config_8h_html_a140edde2c26b1ce83802b9158b110088"><div class="ttname"><a href="libmesh__config_8h.html#a140edde2c26b1ce83802b9158b110088">LIBMESH_DIM</a></div><div class="ttdeci">#define LIBMESH_DIM</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__config_8h_source.html#l00175">libmesh_config.h:175</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

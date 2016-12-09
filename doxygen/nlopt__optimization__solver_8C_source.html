@@ -133,24 +133,24 @@
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">double</span> __libmesh_nlopt_objective(<span class="keywordtype">unsigned</span> n,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                 <span class="keyword">const</span> <span class="keywordtype">double</span> * x,</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a994e26f9ca2da88e3fed494530b6e4e8">   36</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="namespacelibMesh.html#a994e26f9ca2da88e3fed494530b6e4e8">__libmesh_nlopt_objective</a>(<span class="keywordtype">unsigned</span> n,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                 <span class="keyword">const</span> <span class="keywordtype">double</span> * <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>,</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                 <span class="keywordtype">double</span> * gradient,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                 <span class="keywordtype">void</span> * data)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                 <span class="keywordtype">void</span> * <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;objective()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;objective()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// ctx should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  NloptOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static_cast&lt;</span>NloptOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (data);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="comment">// with the vector x that was passed in.</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=sys.solution-&gt;first_local_index();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       i&lt;sys.solution-&gt;last_local_index(); i++)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sys.<a class="code" href="classlibMesh_1_1System.html#a4663e0ce1f4461111348c1a97e5ec97b">solution</a>-&gt;set(i, x[i]);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sys.solution-&gt;set(i, x[i]);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// Make sure the solution vector is parallel-consistent</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  sys.solution-&gt;close();</div>
@@ -161,29 +161,29 @@
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// Update sys.current_local_solution based on X</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  sys.update();</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> objective;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">if</span> (solver-&gt;objective_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> objective;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#aa4f633b381784a5e32155a24147d2400">objective_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      objective =</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        solver-&gt;objective_object-&gt;objective(</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#aa4f633b381784a5e32155a24147d2400">objective_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a6e6177b4678be08de773a98a4d6e2aab">objective</a>(</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                            *(sys.current_local_solution), sys);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Objective function not defined in __libmesh_nlopt_objective&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Objective function not defined in __libmesh_nlopt_objective&quot;</span>);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">// If the gradient has been requested, fill it in</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">if</span> (gradient)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">if</span> (solver-&gt;gradient_object != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a1e015a255be3b92c06f30fdc2fc00c">gradient_object</a> != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          solver-&gt;gradient_object-&gt;gradient(</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a1e015a255be3b92c06f30fdc2fc00c">gradient_object</a>-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a8cc11734c58bffe2e85a2c9ceedc0cce">gradient</a>(</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                            *(sys.current_local_solution), *(sys.rhs), sys);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          <span class="comment">// we&#39;ve filled up sys.rhs with the gradient data, now copy it</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          <span class="comment">// to the nlopt data structure</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(sys.rhs-&gt;size() == n);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(sys.rhs-&gt;size() == n);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          std::vector&lt;double&gt; grad;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;          sys.rhs-&gt;localize_to_one(grad);</div>
@@ -191,14 +191,14 @@
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            gradient[i] = grad[i];</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Gradient function not defined in __libmesh_nlopt_objective&quot;</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Gradient function not defined in __libmesh_nlopt_objective&quot;</span>);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">// Increment the iteration count.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  solver-&gt;get_iteration_count()++;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  solver-&gt;<a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#ae55cb88c9ddf6c3db0a9a07997b38e8d">get_iteration_count</a>()++;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">// Possibly print the current value of the objective function</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">if</span> (solver-&gt;verbose)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">if</span> (solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#ac0c1e58755bb9e1e91a86fe47123d7dd">verbose</a>)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; objective &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordflow">return</span> objective;</div>
@@ -206,27 +206,27 @@
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">void</span> __libmesh_nlopt_equality_constraints(<span class="keywordtype">unsigned</span> m,</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a2dcb629cfed61e7a48af9bf355f57517">  109</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh.html#a2dcb629cfed61e7a48af9bf355f57517">__libmesh_nlopt_equality_constraints</a>(<span class="keywordtype">unsigned</span> m,</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                          <span class="keywordtype">double</span> * result,</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                          <span class="keywordtype">unsigned</span> n,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">double</span> * x,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">double</span> * <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>,</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                          <span class="keywordtype">double</span> * gradient,</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                          <span class="keywordtype">void</span> * data)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                          <span class="keywordtype">void</span> * <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>)</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;equality_constraints()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;equality_constraints()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(data);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(data);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">// data should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  NloptOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">static_cast&lt;</span>NloptOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (data);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">// with the vector x that was passed in.</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordflow">if</span> (sys.solution-&gt;size() != n)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Error: Input vector x has different length than sys.solution!&quot;</span>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Error: Input vector x has different length than sys.solution!&quot;</span>);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=sys.solution-&gt;first_local_index(); i&lt;sys.solution-&gt;last_local_index(); i++)</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    sys.solution-&gt;set(i, x[i]);</div>
@@ -239,7 +239,7 @@
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  sys.update();</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="comment">// Call the user&#39;s equality constraints function if there is one.</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html">OptimizationSystem::ComputeEqualityConstraints</a> * eco = solver-&gt;equality_constraints_object;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html">OptimizationSystem::ComputeEqualityConstraints</a> * eco = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a9ff3bf16001a45aedd16bbc7a37806c6">equality_constraints_object</a>;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordflow">if</span> (eco)</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    {</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      eco-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html#a7394e1621c92b6f650c935a33b13016a">equality_constraints</a>(*sys.current_local_solution,</div>
@@ -261,7 +261,7 @@
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      <span class="keywordflow">if</span> (gradient)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        {</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;          <a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html">OptimizationSystem::ComputeEqualityConstraintsJacobian</a> * eco_jac =</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            solver-&gt;equality_constraints_jacobian_object;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4a7e435c231f4c3ce0877d68a5c35cb3">equality_constraints_jacobian_object</a>;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;          <span class="keywordflow">if</span> (eco_jac)</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            {</div>
@@ -284,36 +284,36 @@
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Jacobian function not defined in __libmesh_nlopt_equality_constraints&quot;</span>);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;Jacobian function not defined in __libmesh_nlopt_equality_constraints&quot;</span>);</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_nlopt_equality_constraints&quot;</span>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_nlopt_equality_constraints&quot;</span>);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keywordtype">void</span> __libmesh_nlopt_inequality_constraints(<span class="keywordtype">unsigned</span> m,</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="namespacelibMesh.html#a6a6a3809c0e255b14628f47c7d38e3b5">  196</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibMesh.html#a6a6a3809c0e255b14628f47c7d38e3b5">__libmesh_nlopt_inequality_constraints</a>(<span class="keywordtype">unsigned</span> m,</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                            <span class="keywordtype">double</span> * result,</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                            <span class="keywordtype">unsigned</span> n,</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                                            <span class="keyword">const</span> <span class="keywordtype">double</span> * x,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                                            <span class="keyword">const</span> <span class="keywordtype">double</span> * <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>,</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                                            <span class="keywordtype">double</span> * gradient,</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                                            <span class="keywordtype">void</span> * data)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                                            <span class="keywordtype">void</span> * <a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>)</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;{</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;inequality_constraints()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;inequality_constraints()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(data);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(data);</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="comment">// data should be a pointer to the solver (it was passed in as void *)</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  NloptOptimizationSolver&lt;Number&gt; * solver =</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">static_cast&lt;</span>NloptOptimizationSolver&lt;Number&gt; *<span class="keyword">&gt;</span> (data);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a> * <a class="code" href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">solver</a> =</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">static_cast&lt;</span><a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a> *<span class="keyword">&gt;</span> (<a class="code" href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a>);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; sys = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">system</a>();</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a> = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">system</a>();</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="comment">// We&#39;ll use current_local_solution below, so let&#39;s ensure that it&#39;s consistent</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="comment">// with the vector x that was passed in.</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keywordflow">if</span> (sys.solution-&gt;size() != n)</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Error: Input vector x has different length than sys.solution!&quot;</span>);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Error: Input vector x has different length than sys.solution!&quot;</span>);</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=sys.solution-&gt;first_local_index(); i&lt;sys.solution-&gt;last_local_index(); i++)</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    sys.solution-&gt;set(i, x[i]);</div>
@@ -326,7 +326,7 @@
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  sys.update();</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="comment">// Call the user&#39;s inequality constraints function if there is one.</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html">OptimizationSystem::ComputeInequalityConstraints</a> * ineco = solver-&gt;inequality_constraints_object;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html">OptimizationSystem::ComputeInequalityConstraints</a> * ineco = solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a1989d6289ea987ec47f762e2ef93945b">inequality_constraints_object</a>;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">if</span> (ineco)</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    {</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      ineco-&gt;<a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html#a6869bd3d5a8ca0b101e6471c7cc74656">inequality_constraints</a>(*sys.current_local_solution,</div>
@@ -348,7 +348,7 @@
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keywordflow">if</span> (gradient)</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        {</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          <a class="code" href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian.html">OptimizationSystem::ComputeInequalityConstraintsJacobian</a> * ineco_jac =</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            solver-&gt;inequality_constraints_jacobian_object;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            solver-&gt;<a class="code" href="classlibMesh_1_1OptimizationSolver.html#a4fa2498b9698d0e565d9febe9e3df3ee">inequality_constraints_jacobian_object</a>;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          <span class="keywordflow">if</span> (ineco_jac)</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            {</div>
@@ -371,12 +371,12 @@
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                }</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            }</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Jacobian function not defined in __libmesh_nlopt_inequality_constraints&quot;</span>);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;Jacobian function not defined in __libmesh_nlopt_inequality_constraints&quot;</span>);</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        }</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    }</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_nlopt_inequality_constraints&quot;</span>);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Constraints function not defined in __libmesh_nlopt_inequality_constraints&quot;</span>);</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;}</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">//---------------------------------------------------------------------</span></div>
@@ -386,10 +386,10 @@
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">//---------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">// NloptOptimizationSolver&lt;&gt; methods</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;NloptOptimizationSolver&lt;T&gt;::NloptOptimizationSolver (<a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; system_in)</div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#ade65d7c414b1802becdbee1a4ceda9e3">  289</a></span>&#160;<a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#ade65d7c414b1802becdbee1a4ceda9e3">NloptOptimizationSolver&lt;T&gt;::NloptOptimizationSolver</a> (<a class="code" href="classlibMesh_1_1OptimizationSystem.html">OptimizationSystem</a> &amp; system_in)</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  :</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <a class="code" href="classlibMesh_1_1OptimizationSolver.html">OptimizationSolver</a>&lt;T&gt;(system_in),</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  _opt(<a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  _opt(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  _result(NLOPT_SUCCESS),</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  _iteration_count(0),</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  _constraints_tolerance(1.e-8)</div>
@@ -399,7 +399,7 @@
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;NloptOptimizationSolver&lt;T&gt;::~NloptOptimizationSolver ()</div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#aae033263621494dbcc992c37e01fb144">  302</a></span>&#160;<a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#aae033263621494dbcc992c37e01fb144">NloptOptimizationSolver&lt;T&gt;::~NloptOptimizationSolver</a> ()</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  this-&gt;clear ();</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
@@ -407,7 +407,7 @@
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keywordtype">void</span> NloptOptimizationSolver&lt;T&gt;::clear ()</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#a5ce171a27cf85463129bde13c3b3af23">  310</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#a5ce171a27cf85463129bde13c3b3af23">NloptOptimizationSolver&lt;T&gt;::clear</a> ()</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;{</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    {</div>
@@ -420,7 +420,7 @@
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="keywordtype">void</span> NloptOptimizationSolver&lt;T&gt;::init ()</div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#a8efe8652b5f02b5d8199e15517cec7c9">  323</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#a8efe8652b5f02b5d8199e15517cec7c9">NloptOptimizationSolver&lt;T&gt;::init</a> ()</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;{</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="comment">// Initialize the data structures if not done so already.</span></div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">initialized</a>())</div>
@@ -439,7 +439,7 @@
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        _nlopt_algorithms.find(nlopt_algorithm_name);</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      <span class="keywordflow">if</span> (it == _nlopt_algorithms.end())</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Invalid nlopt algorithm requested on command line: &quot;</span> \</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Invalid nlopt algorithm requested on command line: &quot;</span> \</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                          &lt;&lt; nlopt_algorithm_name);</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      _opt = nlopt_create(it-&gt;second, this-&gt;system().solution-&gt;size());</div>
@@ -449,25 +449,25 @@
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keywordtype">void</span> NloptOptimizationSolver&lt;T&gt;::solve ()</div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#a200f19e24b97c9109d1bf8be712bb3e0">  352</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#a200f19e24b97c9109d1bf8be712bb3e0">NloptOptimizationSolver&lt;T&gt;::solve</a> ()</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;{</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;solve()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;solve()&quot;</span>, <span class="stringliteral">&quot;NloptOptimizationSolver&quot;</span>);</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  this-&gt;init ();</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  this-&gt;<a class="code" href="namespacelibMesh_1_1TriangleWrapper.html#ae06da07f4c64d00ebefa55ce7f5c5e6b">init</a> ();</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nlopt_size = this-&gt;system().solution-&gt;size();</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  <span class="comment">// We have to have an objective function</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>( this-&gt;objective_object );</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>( this-&gt;objective_object );</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  <span class="comment">// Set routine for objective and (optionally) gradient evaluation</span></div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  {</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    nlopt_result ierr =</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    nlopt_result <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> =</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      nlopt_set_min_objective(_opt,</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                              __libmesh_nlopt_objective,</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                              <a class="code" href="namespacelibMesh.html#a994e26f9ca2da88e3fed494530b6e4e8">__libmesh_nlopt_objective</a>,</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                              <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keywordflow">if</span> (ierr &lt; 0)</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;NLopt failed to set min objective: &quot;</span> &lt;&lt; ierr);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;NLopt failed to set min objective: &quot;</span> &lt;&lt; ierr);</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  }</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keywordflow">if</span> (this-&gt;lower_and_upper_bounds_object)</div>
@@ -499,15 +499,15 @@
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      <span class="comment">// It would be nice to call the C interface directly, at least it should return an error</span></div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      <span class="comment">// code we could parse... unfortunately, there does not seem to be a way to extract</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      <span class="comment">// the underlying nlopt_opt object from the nlopt::opt class!</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      nlopt_result ierr =</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      nlopt_result <a class="code" href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">ierr</a> =</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        nlopt_add_equality_mconstraint(_opt,</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                                       equality_constraints_tolerances.size(),</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                                       __libmesh_nlopt_equality_constraints,</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                                       <a class="code" href="namespacelibMesh.html#a2dcb629cfed61e7a48af9bf355f57517">__libmesh_nlopt_equality_constraints</a>,</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                                       <span class="keyword">this</span>,</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                                       &amp;equality_constraints_tolerances[0]);</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="keywordflow">if</span> (ierr &lt; 0)</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;NLopt failed to add equality constraint: &quot;</span> &lt;&lt; ierr);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;NLopt failed to add equality constraint: &quot;</span> &lt;&lt; ierr);</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    }</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <span class="comment">// If we have an inequality constraints object, tell NLopt about it.</span></div>
@@ -519,7 +519,7 @@
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      nlopt_add_inequality_mconstraint(_opt,</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                                       inequality_constraints_tolerances.size(),</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                                       __libmesh_nlopt_inequality_constraints,</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                                       <a class="code" href="namespacelibMesh.html#a6a6a3809c0e255b14628f47c7d38e3b5">__libmesh_nlopt_inequality_constraints</a>,</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                                       <span class="keyword">this</span>,</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                                       &amp;inequality_constraints_tolerances[0]);</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    }</div>
@@ -534,8 +534,8 @@
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  this-&gt;_iteration_count = 0;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  <span class="comment">// Perform the optimization</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  std::vector&lt;Real&gt; x(nlopt_size);</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> min_val = 0.;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  std::vector&lt;Real&gt; <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>(nlopt_size);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> min_val = 0.;</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  _result = nlopt_optimize(_opt, &amp;x[0], &amp;min_val);</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  <span class="keywordflow">if</span> (_result &lt; 0)</div>
@@ -551,7 +551,7 @@
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keywordtype">void</span> NloptOptimizationSolver&lt;T&gt;::print_converged_reason()</div>
+<div class="line"><a name="l00454"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#a524b1d452c3a54fe669f2f41daed0ee1">  454</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#a524b1d452c3a54fe669f2f41daed0ee1">NloptOptimizationSolver&lt;T&gt;::print_converged_reason</a>()</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;{</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;NLopt optimization solver convergence/divergence reason: &quot;</span></div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;               &lt;&lt; this-&gt;get_converged_reason() &lt;&lt; std::endl;</div>
@@ -560,7 +560,7 @@
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="keywordtype">int</span> NloptOptimizationSolver&lt;T&gt;::get_converged_reason()</div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="classlibMesh_1_1NloptOptimizationSolver.html#a0cec86c4edcc1fea1550b46b73f131ba">  463</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html#a0cec86c4edcc1fea1550b46b73f131ba">NloptOptimizationSolver&lt;T&gt;::get_converged_reason</a>()</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;{</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(_result);</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;}</div>
@@ -568,42 +568,66 @@
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment">//------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">// Explicit instantiations</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span>NloptOptimizationSolver&lt;Number&gt;;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classlibMesh_1_1NloptOptimizationSolver.html">NloptOptimizationSolver&lt;Number&gt;</a>;</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="preprocessor">#endif // #if defined(LIBMESH_HAVE_NLOPT) &amp;&amp; !defined(LIBMESH_USE_COMPLEX_NUMBERS)</span></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_aae033263621494dbcc992c37e01fb144"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#aae033263621494dbcc992c37e01fb144">libMesh::NloptOptimizationSolver::~NloptOptimizationSolver</a></div><div class="ttdeci">~NloptOptimizationSolver()</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00302">nlopt_optimization_solver.C:302</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html">libMesh::OptimizationSystem::ComputeInequalityConstraints</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00168">optimization_system.h:168</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_aa4f633b381784a5e32155a24147d2400"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#aa4f633b381784a5e32155a24147d2400">libMesh::OptimizationSolver::objective_object</a></div><div class="ttdeci">OptimizationSystem::ComputeObjective * objective_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00126">optimization_solver.h:126</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient_html_a8cc11734c58bffe2e85a2c9ceedc0cce"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a8cc11734c58bffe2e85a2c9ceedc0cce">libMesh::OptimizationSystem::ComputeGradient::gradient</a></div><div class="ttdeci">virtual void gradient(const NumericVector&lt; Number &gt; &amp;X, NumericVector&lt; Number &gt; &amp;grad_f, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html">libMesh::NloptOptimizationSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8h_source.html#l00070">nlopt_optimization_solver.h:70</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="sparse__matrix_8h_html"><div class="ttname"><a href="sparse__matrix_8h.html">sparse_matrix.h</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a1345433246a95afac02ca599bda7a45b"><div class="ttname"><a href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">libMesh::sys</a></div><div class="ttdeci">ImplicitSystem &amp; sys</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00155">petsc_diff_solver.C:155</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian_html_ab6ae13d74938afdc0b12d2898fae72c0"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian.html#ab6ae13d74938afdc0b12d2898fae72c0">libMesh::OptimizationSystem::ComputeInequalityConstraintsJacobian::inequality_constraints_jacobian</a></div><div class="ttdeci">virtual void inequality_constraints_jacobian(const NumericVector&lt; Number &gt; &amp;X, SparseMatrix&lt; Number &gt; &amp;C_ineq_jac, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a4a1e015a255be3b92c06f30fdc2fc00c"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a4a1e015a255be3b92c06f30fdc2fc00c">libMesh::OptimizationSolver::gradient_object</a></div><div class="ttdeci">OptimizationSystem::ComputeGradient * gradient_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00132">optimization_solver.h:132</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
-<div class="ttc" id="classlibMesh_1_1OptimizationSystem_html_ab10104f41f2a151698310c539f2c84c6"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem.html#ab10104f41f2a151698310c539f2c84c6">libMesh::OptimizationSystem::system</a></div><div class="ttdeci">sys_type &amp; system()</div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00219">optimization_system.h:219</a></div></div>
-<div class="ttc" id="libmesh__logging_8h_html_ae5cbe34ceb1c018027d8dea96ca3f996"><div class="ttname"><a href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a></div><div class="ttdeci">#define LOG_SCOPE(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__logging_8h_source.html#l00114">libmesh_logging.h:114</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_a524b1d452c3a54fe669f2f41daed0ee1"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#a524b1d452c3a54fe669f2f41daed0ee1">libMesh::NloptOptimizationSolver::print_converged_reason</a></div><div class="ttdeci">virtual void print_converged_reason() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00454">nlopt_optimization_solver.C:454</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_af2fa643233dd5a9b6f8110b96830fd50"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#af2fa643233dd5a9b6f8110b96830fd50">libMesh::OptimizationSolver::system</a></div><div class="ttdeci">const sys_type &amp; system() const </div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00171">optimization_solver.h:171</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a03d02ae8c0dab01091f6b27bd0765c7d"><div class="ttname"><a href="namespacelibMesh.html#a03d02ae8c0dab01091f6b27bd0765c7d">libMesh::ierr</a></div><div class="ttdeci">ierr</div><div class="ttdef"><b>Definition:</b> <a href="petsc__preconditioner_8C_source.html#l00274">petsc_preconditioner.C:274</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a68528ffcba14fb9b3114923da06a2b00"><div class="ttname"><a href="namespacelibMesh.html#a68528ffcba14fb9b3114923da06a2b00">libMesh::solver</a></div><div class="ttdeci">PetscDiffSolver &amp; solver</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00153">petsc_diff_solver.C:153</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a1989d6289ea987ec47f762e2ef93945b"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a1989d6289ea987ec47f762e2ef93945b">libMesh::OptimizationSolver::inequality_constraints_object</a></div><div class="ttdeci">OptimizationSystem::ComputeInequalityConstraints * inequality_constraints_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00155">optimization_solver.h:155</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a4a7e435c231f4c3ce0877d68a5c35cb3"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a4a7e435c231f4c3ce0877d68a5c35cb3">libMesh::OptimizationSolver::equality_constraints_jacobian_object</a></div><div class="ttdeci">OptimizationSystem::ComputeEqualityConstraintsJacobian * equality_constraints_jacobian_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00149">optimization_solver.h:149</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html">libMesh::OptimizationSystem::ComputeEqualityConstraints</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00134">optimization_system.h:134</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a7b7f67063580fe2c771a3dc5095d6ecb"><div class="ttname"><a href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">libMesh::numeric_index_type</a></div><div class="ttdeci">dof_id_type numeric_index_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00092">id_types.h:92</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1libMeshPrivateData_html_ab8b7115ea57ced35ec86d1fdfa0ab853"><div class="ttname"><a href="namespacelibMesh_1_1libMeshPrivateData.html#ab8b7115ea57ced35ec86d1fdfa0ab853">libMesh::libMeshPrivateData::_is_initialized</a></div><div class="ttdeci">bool _is_initialized</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00253">libmesh.C:253</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem.html">libMesh::OptimizationSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00043">optimization_system.h:43</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_ade65d7c414b1802becdbee1a4ceda9e3"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#ade65d7c414b1802becdbee1a4ceda9e3">libMesh::NloptOptimizationSolver::NloptOptimizationSolver</a></div><div class="ttdeci">NloptOptimizationSolver(sys_type &amp;system)</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00289">nlopt_optimization_solver.C:289</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_a8efe8652b5f02b5d8199e15517cec7c9"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#a8efe8652b5f02b5d8199e15517cec7c9">libMesh::NloptOptimizationSolver::init</a></div><div class="ttdeci">virtual void init() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00323">nlopt_optimization_solver.C:323</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1TriangleWrapper_html_ae06da07f4c64d00ebefa55ce7f5c5e6b"><div class="ttname"><a href="namespacelibMesh_1_1TriangleWrapper.html#ae06da07f4c64d00ebefa55ce7f5c5e6b">libMesh::TriangleWrapper::init</a></div><div class="ttdeci">void init(triangulateio &amp;t)</div></div>
 <div class="ttc" id="nlopt__optimization__solver_8h_html"><div class="ttname"><a href="nlopt__optimization__solver_8h.html">nlopt_optimization_solver.h</a></div></div>
-<div class="ttc" id="classlibMesh_1_1System_html_a4663e0ce1f4461111348c1a97e5ec97b"><div class="ttname"><a href="classlibMesh_1_1System.html#a4663e0ce1f4461111348c1a97e5ec97b">libMesh::System::solution</a></div><div class="ttdeci">UniquePtr&lt; NumericVector&lt; Number &gt; &gt; solution</div><div class="ttdef"><b>Definition:</b> <a href="system_8h_source.html#l01512">system.h:1512</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints_html_a7394e1621c92b6f650c935a33b13016a"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraints.html#a7394e1621c92b6f650c935a33b13016a">libMesh::OptimizationSystem::ComputeEqualityConstraints::equality_constraints</a></div><div class="ttdeci">virtual void equality_constraints(const NumericVector&lt; Number &gt; &amp;X, NumericVector&lt; Number &gt; &amp;C_eq, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_a200f19e24b97c9109d1bf8be712bb3e0"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#a200f19e24b97c9109d1bf8be712bb3e0">libMesh::NloptOptimizationSolver::solve</a></div><div class="ttdeci">virtual void solve() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00352">nlopt_optimization_solver.C:352</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a6a6a3809c0e255b14628f47c7d38e3b5"><div class="ttname"><a href="namespacelibMesh.html#a6a6a3809c0e255b14628f47c7d38e3b5">libMesh::__libmesh_nlopt_inequality_constraints</a></div><div class="ttdeci">void __libmesh_nlopt_inequality_constraints(unsigned m, double *result, unsigned n, const double *x, double *gradient, void *data)</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00196">nlopt_optimization_solver.C:196</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_a0cec86c4edcc1fea1550b46b73f131ba"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#a0cec86c4edcc1fea1550b46b73f131ba">libMesh::NloptOptimizationSolver::get_converged_reason</a></div><div class="ttdeci">virtual int get_converged_reason() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00463">nlopt_optimization_solver.C:463</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html">libMesh::OptimizationSystem::ComputeEqualityConstraintsJacobian</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00152">optimization_system.h:152</a></div></div>
 <div class="ttc" id="dof__map_8h_html"><div class="ttname"><a href="dof__map_8h.html">dof_map.h</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective_html_a6e6177b4678be08de773a98a4d6e2aab"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a6e6177b4678be08de773a98a4d6e2aab">libMesh::OptimizationSystem::ComputeObjective::objective</a></div><div class="ttdeci">virtual Number objective(const NumericVector&lt; Number &gt; &amp;X, sys_type &amp;S)=0</div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian_html_a44c7d8a128654fc8b56ef50fa067e86d"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html#a44c7d8a128654fc8b56ef50fa067e86d">libMesh::OptimizationSystem::ComputeEqualityConstraintsJacobian::equality_constraints_jacobian</a></div><div class="ttdeci">virtual void equality_constraints_jacobian(const NumericVector&lt; Number &gt; &amp;X, SparseMatrix&lt; Number &gt; &amp;C_eq_jac, sys_type &amp;S)=0</div></div>
 <div class="ttc" id="namespacelibMesh_html_a4dd1ad2f27d6a4482778825332168a98"><div class="ttname"><a href="namespacelibMesh.html#a4dd1ad2f27d6a4482778825332168a98">libMesh::command_line_next</a></div><div class="ttdeci">T command_line_next(const std::string &amp;name, T value)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00925">libmesh.C:925</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_ae55cb88c9ddf6c3db0a9a07997b38e8d"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#ae55cb88c9ddf6c3db0a9a07997b38e8d">libMesh::NloptOptimizationSolver::get_iteration_count</a></div><div class="ttdeci">unsigned &amp; get_iteration_count()</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8h_source.html#l00127">nlopt_optimization_solver.h:127</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_ac0c1e58755bb9e1e91a86fe47123d7dd"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#ac0c1e58755bb9e1e91a86fe47123d7dd">libMesh::OptimizationSolver::verbose</a></div><div class="ttdeci">bool verbose</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00192">optimization_solver.h:192</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSolver_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html">libMesh::OptimizationSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00051">optimization_solver.h:51</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ad19739ed0fdd45f048901a13954369b6"><div class="ttname"><a href="namespacelibMesh.html#ad19739ed0fdd45f048901a13954369b6">libMesh::on_command_line</a></div><div class="ttdeci">bool on_command_line(const std::string &amp;arg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00882">libmesh.C:882</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a994e26f9ca2da88e3fed494530b6e4e8"><div class="ttname"><a href="namespacelibMesh.html#a994e26f9ca2da88e3fed494530b6e4e8">libMesh::__libmesh_nlopt_objective</a></div><div class="ttdeci">double __libmesh_nlopt_objective(unsigned n, const double *x, double *gradient, void *data)</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00036">nlopt_optimization_solver.C:36</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_aad2e4639e47d92a7d34c80bf2e936cba"><div class="ttname"><a href="namespacelibMesh.html#aad2e4639e47d92a7d34c80bf2e936cba">libMesh::initialized</a></div><div class="ttdeci">bool initialized()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8C_source.html#l00272">libmesh.C:272</a></div></div>
+<div class="ttc" id="variant__filter__iterator_8h_html_a3464f722394258d66e04720e221f07ff"><div class="ttname"><a href="variant__filter__iterator_8h.html#a3464f722394258d66e04720e221f07ff">data</a></div><div class="ttdeci">IterBase * data</div><div class="ttdef"><b>Definition:</b> <a href="variant__filter__iterator_8h_source.html#l00328">variant_filter_iterator.h:328</a></div></div>
+<div class="ttc" id="classlibMesh_1_1NloptOptimizationSolver_html_a5ce171a27cf85463129bde13c3b3af23"><div class="ttname"><a href="classlibMesh_1_1NloptOptimizationSolver.html#a5ce171a27cf85463129bde13c3b3af23">libMesh::NloptOptimizationSolver::clear</a></div><div class="ttdeci">virtual void clear() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00310">nlopt_optimization_solver.C:310</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00234">libmesh_common.h:234</a></div></div>
 <div class="ttc" id="numeric__vector_8h_html"><div class="ttname"><a href="numeric__vector_8h.html">numeric_vector.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints_html_a6869bd3d5a8ca0b101e6471c7cc74656"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html#a6869bd3d5a8ca0b101e6471c7cc74656">libMesh::OptimizationSystem::ComputeInequalityConstraints::inequality_constraints</a></div><div class="ttdeci">virtual void inequality_constraints(const NumericVector&lt; Number &gt; &amp;X, NumericVector&lt; Number &gt; &amp;C_ineq, sys_type &amp;S)=0</div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a4fa2498b9698d0e565d9febe9e3df3ee"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a4fa2498b9698d0e565d9febe9e3df3ee">libMesh::OptimizationSolver::inequality_constraints_jacobian_object</a></div><div class="ttdeci">OptimizationSystem::ComputeInequalityConstraintsJacobian * inequality_constraints_jacobian_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00160">optimization_solver.h:160</a></div></div>
+<div class="ttc" id="classlibMesh_1_1OptimizationSolver_html_a9ff3bf16001a45aedd16bbc7a37806c6"><div class="ttname"><a href="classlibMesh_1_1OptimizationSolver.html#a9ff3bf16001a45aedd16bbc7a37806c6">libMesh::OptimizationSolver::equality_constraints_object</a></div><div class="ttdeci">OptimizationSystem::ComputeEqualityConstraints * equality_constraints_object</div><div class="ttdef"><b>Definition:</b> <a href="optimization__solver_8h_source.html#l00144">optimization_solver.h:144</a></div></div>
 <div class="ttc" id="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian_html"><div class="ttname"><a href="classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian.html">libMesh::OptimizationSystem::ComputeInequalityConstraintsJacobian</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization__system_8h_source.html#l00186">optimization_system.h:186</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a2dcb629cfed61e7a48af9bf355f57517"><div class="ttname"><a href="namespacelibMesh.html#a2dcb629cfed61e7a48af9bf355f57517">libMesh::__libmesh_nlopt_equality_constraints</a></div><div class="ttdeci">void __libmesh_nlopt_equality_constraints(unsigned m, double *result, unsigned n, const double *x, double *gradient, void *data)</div><div class="ttdef"><b>Definition:</b> <a href="nlopt__optimization__solver_8C_source.html#l00109">nlopt_optimization_solver.C:109</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

@@ -110,7 +110,7 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a6cbc10bb2c784e366e30662855ad6e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a4a6cbc10bb2c784e366e30662855ad6e">~ComputeObjective</a> ()</td></tr>
 <tr class="separator:a4a6cbc10bb2c784e366e30662855ad6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e6177b4678be08de773a98a4d6e2aab"><td class="memItemLeft" align="right" valign="top">virtual Number&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a6e6177b4678be08de773a98a4d6e2aab">objective</a> (const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;X, <a class="el" href="classlibMesh_1_1ExplicitSystem.html#a2d14ddc51b94a3fdd78ee3ac9f602118">sys_type</a> &amp;S)=0</td></tr>
+<tr class="memitem:a6e6177b4678be08de773a98a4d6e2aab"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html#a6e6177b4678be08de773a98a4d6e2aab">objective</a> (const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;X, <a class="el" href="classlibMesh_1_1ExplicitSystem.html#a2d14ddc51b94a3fdd78ee3ac9f602118">sys_type</a> &amp;S)=0</td></tr>
 <tr class="separator:a6e6177b4678be08de773a98a4d6e2aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -153,9 +153,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual Number libMesh::OptimizationSystem::ComputeObjective::objective </td>
+          <td class="memname">virtual <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> libMesh::OptimizationSystem::ComputeObjective::objective </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>X</em>, </td>
         </tr>
         <tr>
@@ -177,6 +177,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>This function will be called to compute the objective function to be minimized, and must be implemented by the user in a derived class. </p><dl class="section return"><dt>Returns</dt><dd>the value of the objective function at the iterate <code>X</code>. </dd></dl>
+
+<p>Referenced by <a class="el" href="nlopt__optimization__solver_8C_source.html#l00036">libMesh::__libmesh_nlopt_objective()</a>, and <a class="el" href="tao__optimization__solver_8C_source.html#l00049">libMesh::__libmesh_tao_objective()</a>.</p>
 
 </div>
 </div>

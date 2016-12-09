@@ -135,15 +135,15 @@
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// Anonymous namespace for local helper functions</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> lagrange_nodal_soln(<span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> lagrange_nodal_soln(<span class="keyword">const</span> Elem * elem,</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                         <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> order,</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                         <span class="keyword">const</span> std::vector&lt;Number&gt; &amp; elem_soln,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                         std::vector&lt;Number&gt; &amp;       nodal_soln)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibMesh_1_1MeshTools.html#a2c80534e24b606b4a4e825ab9e9887d8">n_nodes</a> = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">n_nodes</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type        = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">type</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="tecplot__io_8C.html#ae4aba5fa8c8579c6576b4f087aefb091">n_nodes</a> = elem-&gt;n_nodes();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">ElemType</a> type        = elem-&gt;type();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> totalorder = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a><span class="keyword">&gt;</span>(order+elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">p_level</a>());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a> totalorder = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a><span class="keyword">&gt;</span>(order+elem-&gt;p_level());</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  nodal_soln.resize(n_nodes);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
@@ -158,8 +158,8 @@
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59">EDGE3</a>:</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 2);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 3);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 2);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 3);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;              nodal_soln[0] = elem_soln[0];</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;              nodal_soln[1] = elem_soln[1];</div>
@@ -170,8 +170,8 @@
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a981ce1f0fa792d7701b14e102b00d569">EDGE4</a>:</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 2);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 4);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 2);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 4);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;              nodal_soln[0] = elem_soln[0];</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;              nodal_soln[1] = elem_soln[1];</div>
@@ -184,8 +184,8 @@
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">TRI6</a>:</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 3);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 6);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 3);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 6);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;              nodal_soln[0] = elem_soln[0];</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;              nodal_soln[1] = elem_soln[1];</div>
@@ -201,12 +201,12 @@
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">QUAD8</a>:</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">QUAD9</a>:</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 4);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 4);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;              <span class="keywordflow">if</span> (type == <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">QUAD8</a>)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 8);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                libmesh_assert_equal_to (nodal_soln.size(), 8);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;              <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 9);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                libmesh_assert_equal_to (nodal_soln.size(), 9);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;              nodal_soln[0] = elem_soln[0];</div>
@@ -227,8 +227,8 @@
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ad2d41a1a3e6858d350ab42e16fccf43b">TET10</a>:</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 4);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 10);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 4);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 10);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;              nodal_soln[0] = elem_soln[0];</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;              nodal_soln[1] = elem_soln[1];</div>
@@ -248,12 +248,12 @@
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">HEX20</a>:</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60">HEX27</a>:</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 8);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 8);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;              <span class="keywordflow">if</span> (type == <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">HEX20</a>)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 20);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                libmesh_assert_equal_to (nodal_soln.size(), 20);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;              <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 27);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                libmesh_assert_equal_to (nodal_soln.size(), 27);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;              nodal_soln[0]  = elem_soln[0];</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;              nodal_soln[1]  = elem_soln[1];</div>
@@ -296,12 +296,12 @@
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a0817a630117f32b64cff8bef9b9c8a8e">PRISM15</a>:</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a7994064d3565a0a07f0c02fc99ea6068">PRISM18</a>:</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 6);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 6);</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;              <span class="keywordflow">if</span> (type == <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a0817a630117f32b64cff8bef9b9c8a8e">PRISM15</a>)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 15);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                libmesh_assert_equal_to (nodal_soln.size(), 15);</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;              <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 18);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                libmesh_assert_equal_to (nodal_soln.size(), 18);</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;              nodal_soln[0]  = elem_soln[0];</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;              nodal_soln[1]  = elem_soln[1];</div>
@@ -331,8 +331,8 @@
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ac69b4c52333a3572f71adeb4520caed7">PYRAMID13</a>:</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 5);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 13);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 5);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 13);</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;              nodal_soln[0]  = elem_soln[0];</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;              nodal_soln[1]  = elem_soln[1];</div>
@@ -353,8 +353,8 @@
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a22175d75dfb05cdc4773504349252068">PYRAMID14</a>:</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            {</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 5);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 14);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 5);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 14);</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;              nodal_soln[0]  = elem_soln[0];</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;              nodal_soln[1]  = elem_soln[1];</div>
@@ -391,8 +391,8 @@
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;          {</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a981ce1f0fa792d7701b14e102b00d569">EDGE4</a>:</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            {</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (elem_soln.size(), 3);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;              <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (nodal_soln.size(), 4);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;              libmesh_assert_equal_to (elem_soln.size(), 3);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;              libmesh_assert_equal_to (nodal_soln.size(), 4);</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;              <span class="comment">// Project quadratic solution onto cubic element nodes</span></div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;              nodal_soln[0] = elem_soln[0];</div>
@@ -484,7 +484,7 @@
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;          }</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      }</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
@@ -534,7 +534,7 @@
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;          }</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      }</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
@@ -552,15 +552,15 @@
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;          }</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;      }</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Invalid Order &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; selected for LAGRANGE FE family!&quot;</span>);</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Invalid Order &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; selected for LAGRANGE FE family!&quot;</span>);</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;}</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;</div>
@@ -711,7 +711,7 @@
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;          }</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;      }</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;</div>
@@ -739,7 +739,7 @@
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;          }</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;      }</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
@@ -755,15 +755,15 @@
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;</div>
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;            <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;            libmesh_error_msg(<span class="stringliteral">&quot;ERROR: Bad ElemType = &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(t) &lt;&lt; <span class="stringliteral">&quot; for &quot;</span> &lt;&lt; <a class="code" href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">Utility::enum_to_string</a>(o) &lt;&lt; <span class="stringliteral">&quot; order approximation!&quot;</span>);</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;          }</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      }</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Unsupported order: &quot;</span> &lt;&lt; o );</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Unsupported order: &quot;</span> &lt;&lt; o );</div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    }</div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  libmesh_error_msg(<span class="stringliteral">&quot;We&#39;ll never get here!&quot;</span>);</div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;</div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;}</div>
@@ -772,44 +772,44 @@
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_AMR</span></div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="keywordtype">void</span> lagrange_compute_constraints (DofConstraints &amp; constraints,</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;                                   <a class="code" href="classlibMesh_1_1DofMap.html">DofMap</a> &amp; dof_map,</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;                                   DofMap &amp; dof_map,</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;                                   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> variable_number,</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem,</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                                   <span class="keyword">const</span> Elem * elem,</div>
 <div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;                                   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> Dim)</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;{</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;  <span class="comment">// Only constrain elements in 2,3D.</span></div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;  <span class="keywordflow">if</span> (Dim == 1)</div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(elem);</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(elem);</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;  <span class="comment">// Only constrain active and ancestor elements</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;  <span class="keywordflow">if</span> (elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ad1486ba6e3005fe331e4911907fadfbb">subactive</a>())</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;  <span class="keywordflow">if</span> (elem-&gt;subactive())</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  FEType fe_type = dof_map.<a class="code" href="classlibMesh_1_1DofMap.html#a0c010bb250d4cd8d65794452f46d141a">variable_type</a>(variable_number);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  fe_type.order = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a><span class="keyword">&gt;</span>(fe_type.order + elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">p_level</a>());</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  FEType fe_type = dof_map.variable_type(variable_number);</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  fe_type.order = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">Order</a><span class="keyword">&gt;</span>(fe_type.order + elem-&gt;p_level());</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;</div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  std::vector&lt;dof_id_type&gt; my_dof_indices, parent_dof_indices;</div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;  <span class="comment">// Look at the element faces.  Check to see if we need to</span></div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;  <span class="comment">// build constraints.</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">n_sides</a>(); s++)</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">if</span> (elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">neighbor_ptr</a>(s) != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a> &amp;&amp;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">neighbor_ptr</a>(s) != <a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>)</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="keywordflow">if</span> (elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">neighbor_ptr</a>(s)-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>() &lt; elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">level</a>()) <span class="comment">// constrain dofs shared between</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;n_sides(); s++)</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">if</span> (elem-&gt;neighbor_ptr(s) != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a> &amp;&amp;</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        elem-&gt;neighbor_ptr(s) != <a class="code" href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">remote_elem</a>)</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="keywordflow">if</span> (elem-&gt;neighbor_ptr(s)-&gt;level() &lt; elem-&gt;level()) <span class="comment">// constrain dofs shared between</span></div>
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        {                                                 <span class="comment">// this element and ones coarser</span></div>
 <div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;          <span class="comment">// than this element.</span></div>
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;          <span class="comment">// Get pointers to the elements of interest and its parent.</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * parent = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a7cdd994bb4245128f8617b62d7968e35">parent</a>();</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;          <span class="keyword">const</span> Elem * parent = elem-&gt;parent();</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;</div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;          <span class="comment">// This can&#39;t happen...  Only level-0 elements have NULL</span></div>
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;          <span class="comment">// parents, and no level-0 elements can be at a higher</span></div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;          <span class="comment">// level than their neighbors!</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;          <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(parent);</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;          <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(parent);</div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;          <span class="keyword">const</span> UniquePtr&lt;const Elem&gt; my_side     (elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">build_side_ptr</a>(s));</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;          <span class="keyword">const</span> UniquePtr&lt;const Elem&gt; parent_side (parent-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">build_side_ptr</a>(s));</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;          <span class="keyword">const</span> UniquePtr&lt;const Elem&gt; my_side     (elem-&gt;build_side_ptr(s));</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;          <span class="keyword">const</span> UniquePtr&lt;const Elem&gt; parent_side (parent-&gt;build_side_ptr(s));</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          <span class="comment">// This function gets called element-by-element, so there</span></div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;          <span class="comment">// will be a lot of memory allocation going on.  We can</span></div>
@@ -818,16 +818,16 @@
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;          my_dof_indices.reserve (my_side-&gt;n_nodes());</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;          parent_dof_indices.reserve (parent_side-&gt;n_nodes());</div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;          dof_map.<a class="code" href="classlibMesh_1_1DofMap.html#a0d323b6fcb736454a9f6074ebda9ec28">dof_indices</a> (my_side.get(), my_dof_indices,</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;          dof_map.dof_indices (my_side.get(), my_dof_indices,</div>
 <div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                               variable_number);</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;          dof_map.<a class="code" href="classlibMesh_1_1DofMap.html#a0d323b6fcb736454a9f6074ebda9ec28">dof_indices</a> (parent_side.get(), parent_dof_indices,</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;          dof_map.dof_indices (parent_side.get(), parent_dof_indices,</div>
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                               variable_number);</div>
 <div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;</div>
 <div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> my_dof=0;</div>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;               my_dof&lt;<a class="code" href="classlibMesh_1_1FEInterface.html#a8d6e670715080e79706ded0009742acc">FEInterface::n_dofs</a>(Dim-1, fe_type, my_side-&gt;type());</div>
 <div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;               my_dof++)</div>
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            {</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;              <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (my_dof, my_side-&gt;n_nodes());</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;              libmesh_assert_less (my_dof, my_side-&gt;n_nodes());</div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;</div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;              <span class="comment">// My global dof index.</span></div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;              <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> my_dof_g = my_dof_indices[my_dof];</div>
@@ -839,7 +839,7 @@
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                   their_dof&lt;<a class="code" href="classlibMesh_1_1FEInterface.html#a8d6e670715080e79706ded0009742acc">FEInterface::n_dofs</a>(Dim-1, fe_type, parent_side-&gt;type());</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                   their_dof++)</div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                {</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (their_dof, parent_side-&gt;n_nodes());</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                  libmesh_assert_less (their_dof, parent_side-&gt;n_nodes());</div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;</div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                  <span class="comment">// Their global dof index.</span></div>
 <div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> their_dof_g =</div>
@@ -855,7 +855,7 @@
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;              <span class="keywordflow">if</span> (self_constraint)</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;              DofConstraintRow * constraint_row;</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;              <a class="code" href="namespacelibMesh.html#aa01f327876e40c4c56621d025ada561d">DofConstraintRow</a> * constraint_row;</div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;              <span class="comment">// we may be running constraint methods concurrently</span></div>
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;              <span class="comment">// on multiple threads, so we need a lock to</span></div>
@@ -867,14 +867,14 @@
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                  <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                constraint_row = &amp;(constraints[my_dof_g]);</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(constraint_row-&gt;empty());</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(constraint_row-&gt;empty());</div>
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;              }</div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;              <span class="comment">// The support point of the DOF</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;              <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> &amp; support_point = my_side-&gt;point(my_dof);</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;              <span class="keyword">const</span> Point &amp; support_point = my_side-&gt;point(my_dof);</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;</div>
 <div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;              <span class="comment">// Figure out where my node lies on their reference element.</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;              <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Point.html">Point</a> mapped_point = <a class="code" href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">FEInterface::inverse_map</a>(Dim-1, fe_type,</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;              <span class="keyword">const</span> Point mapped_point = <a class="code" href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">FEInterface::inverse_map</a>(Dim-1, fe_type,</div>
 <div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                                                                  parent_side.get(),</div>
 <div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                                                                  support_point);</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;</div>
@@ -883,13 +883,13 @@
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                   their_dof&lt;<a class="code" href="classlibMesh_1_1FEInterface.html#a8d6e670715080e79706ded0009742acc">FEInterface::n_dofs</a>(Dim-1, fe_type, parent_side-&gt;type());</div>
 <div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                   their_dof++)</div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;                {</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (their_dof, parent_side-&gt;n_nodes());</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                  libmesh_assert_less (their_dof, parent_side-&gt;n_nodes());</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;</div>
 <div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                  <span class="comment">// Their global dof index.</span></div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> their_dof_g =</div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                    parent_dof_indices[their_dof];</div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> their_dof_value = <a class="code" href="classlibMesh_1_1FEInterface.html#a17412c020fcf8e4cba13e2da4ec39ef8">FEInterface::shape</a>(Dim-1,</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> their_dof_value = <a class="code" href="classlibMesh_1_1FEInterface.html#a17412c020fcf8e4cba13e2da4ec39ef8">FEInterface::shape</a>(Dim-1,</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;                                                                  fe_type,</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;                                                                  parent_side-&gt;type(),</div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;                                                                  their_dof,</div>
@@ -897,8 +897,8 @@
 <div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;</div>
 <div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;                  <span class="comment">// Only add non-zero and non-identity values</span></div>
 <div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;                  <span class="comment">// for Lagrange basis functions.</span></div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;                  <span class="keywordflow">if</span> ((std::abs(their_dof_value) &gt; 1.e-5) &amp;&amp;</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                      (std::abs(their_dof_value) &lt; .999))</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;                  <span class="keywordflow">if</span> ((<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(their_dof_value) &gt; 1.e-5) &amp;&amp;</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                      (<a class="code" href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a>(their_dof_value) &lt; .999))</div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                    {</div>
 <div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                      constraint_row-&gt;insert(std::make_pair (their_dof_g,</div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                                                             their_dof_value));</div>
@@ -907,7 +907,7 @@
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                  <span class="comment">// Protect for the case u_i = 0.999 u_j,</span></div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;                  <span class="comment">// in which case i better equal j.</span></div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;                  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (their_dof_value &gt;= .999)</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                    <a class="code" href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a> (my_dof_g, their_dof_g);</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                    libmesh_assert_equal_to (my_dof_g, their_dof_g);</div>
 <div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;                }</div>
 <div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;            }</div>
@@ -998,14 +998,14 @@
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="comment">// Dim==2 and 3.</span></div>
 <div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_AMR</span></div>
 <div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html">FE&lt;2,LAGRANGE&gt;::compute_constraints</a> (DofConstraints &amp; constraints,</div>
+<div class="line"><a name="l00901"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a36a394c876f107a55ded934f97877a52">  901</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a74d8c7f8c1f590279b5270d887d5e946">FE&lt;2,LAGRANGE&gt;::compute_constraints</a> (<a class="code" href="classlibMesh_1_1DofConstraints.html">DofConstraints</a> &amp; constraints,</div>
 <div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                                          <a class="code" href="classlibMesh_1_1DofMap.html">DofMap</a> &amp; dof_map,</div>
 <div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> variable_number,</div>
 <div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                                          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem)</div>
 <div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;{ lagrange_compute_constraints(constraints, dof_map, variable_number, elem, <span class="comment">/*Dim=*/</span>2); }</div>
 <div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;</div>
 <div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html">FE&lt;3,LAGRANGE&gt;::compute_constraints</a> (DofConstraints &amp; constraints,</div>
+<div class="line"><a name="l00908"></a><span class="lineno"><a class="line" href="classlibMesh_1_1FE.html#a73f89d53bc3dd1fd7d46c957fd8ab486">  908</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1FE.html#a74d8c7f8c1f590279b5270d887d5e946">FE&lt;3,LAGRANGE&gt;::compute_constraints</a> (<a class="code" href="classlibMesh_1_1DofConstraints.html">DofConstraints</a> &amp; constraints,</div>
 <div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                                          <a class="code" href="classlibMesh_1_1DofMap.html">DofMap</a> &amp; dof_map,</div>
 <div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> variable_number,</div>
 <div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;                                          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * elem)</div>
@@ -1014,24 +1014,18 @@
 <div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;</div>
 <div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_a8859f16f7984a933ec23f7e30da179fe"><div class="ttname"><a href="classlibMesh_1_1FE.html#a8859f16f7984a933ec23f7e30da179fe">libMesh::FE::n_dofs</a></div><div class="ttdeci">static unsigned int n_dofs(const ElemType t, const Order o)</div></div>
-<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
-<div class="ttc" id="namespacelibMesh_1_1MeshTools_html_a2c80534e24b606b4a4e825ab9e9887d8"><div class="ttname"><a href="namespacelibMesh_1_1MeshTools.html#a2c80534e24b606b4a4e825ab9e9887d8">libMesh::MeshTools::n_nodes</a></div><div class="ttdeci">dof_id_type n_nodes(const MeshBase::const_node_iterator &amp;begin, const MeshBase::const_node_iterator &amp;end)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tools_8C_source.html#l00677">mesh_tools.C:677</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ab0a351f621dd01e540718ffc25bb2618"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ab0a351f621dd01e540718ffc25bb2618">libMesh::Elem::build_side_ptr</a></div><div class="ttdeci">virtual UniquePtr&lt; Elem &gt; build_side_ptr(const unsigned int i, bool proxy=true)=0</div></div>
+<div class="ttc" id="namespacestd_html_a267975f6c8fdf9f989e14d438036706a"><div class="ttname"><a href="namespacestd.html#a267975f6c8fdf9f989e14d438036706a">std::abs</a></div><div class="ttdeci">double abs(double a)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__augment__std__namespace_8h_source.html#l00059">libmesh_augment_std_namespace.h:59</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aad2d0656d7cf0f061899c655560c1e55">libMesh::TRI6</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00035">enum_elem_type.h:35</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEInterface_html_a8d6e670715080e79706ded0009742acc"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#a8d6e670715080e79706ded0009742acc">libMesh::FEInterface::n_dofs</a></div><div class="ttdeci">static unsigned int n_dofs(const unsigned int dim, const FEType &amp;fe_t, const ElemType t)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00414">fe_interface.C:414</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aa483bcc949d5b563a091996fb8b9ec3e"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa483bcc949d5b563a091996fb8b9ec3e">libMesh::PRISM6</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00048">enum_elem_type.h:48</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a7994064d3565a0a07f0c02fc99ea6068"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a7994064d3565a0a07f0c02fc99ea6068">libMesh::PRISM18</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00050">enum_elem_type.h:50</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ad1486ba6e3005fe331e4911907fadfbb"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ad1486ba6e3005fe331e4911907fadfbb">libMesh::Elem::subactive</a></div><div class="ttdeci">bool subactive() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01994">elem.h:1994</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_ac1f21847be6d9fe6c5087b88f53458fe"><div class="ttname"><a href="classlibMesh_1_1FE.html#ac1f21847be6d9fe6c5087b88f53458fe">libMesh::FE::shapes_need_reinit</a></div><div class="ttdeci">virtual bool shapes_need_reinit() const libmesh_override</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a94835331d880ed9e6b9c5e8ba400bc60">libMesh::HEX27</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00046">enum_elem_type.h:46</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2ad6fd6a8079a102c965aa072c5b5cce5f"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ad6fd6a8079a102c965aa072c5b5cce5f">libMesh::PYRAMID5</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00052">enum_elem_type.h:52</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a362aba1afba25a8417aa6d242e2f8d52"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a362aba1afba25a8417aa6d242e2f8d52">libMesh::Elem::p_level</a></div><div class="ttdeci">unsigned int p_level() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l02141">elem.h:2141</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DofMap_html_a0c010bb250d4cd8d65794452f46d141a"><div class="ttname"><a href="classlibMesh_1_1DofMap.html#a0c010bb250d4cd8d65794452f46d141a">libMesh::DofMap::variable_type</a></div><div class="ttdeci">const FEType &amp; variable_type(const unsigned int c) const </div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l01667">dof_map.h:1667</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c"><div class="ttname"><a href="libmesh__common_8h.html#ae3fff6d8cfcd6b9e549ac2c1b8a1dc9c">libmesh_assert_equal_to</a></div><div class="ttdeci">#define libmesh_assert_equal_to(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00344">libmesh_common.h:344</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2">libMesh::ElemType</a></div><div class="ttdeci">ElemType</div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00030">enum_elem_type.h:30</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a7cdd994bb4245128f8617b62d7968e35"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a7cdd994bb4245128f8617b62d7968e35">libMesh::Elem::parent</a></div><div class="ttdeci">const Elem * parent() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l02065">elem.h:2065</a></div></div>
 <div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a3251dc5224670944ad87d1b9ab397c59">libMesh::EDGE3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00031">enum_elem_type.h:31</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_aaaed81590cc91849de18a9ead04dd1d9"><div class="ttname"><a href="classlibMesh_1_1FE.html#aaaed81590cc91849de18a9ead04dd1d9">libMesh::FE::n_dofs_at_node</a></div><div class="ttdeci">static unsigned int n_dofs_at_node(const ElemType t, const Order o, const unsigned int n)</div></div>
 <div class="ttc" id="remote__elem_8h_html"><div class="ttname"><a href="remote__elem_8h.html">remote_elem.h</a></div></div>
@@ -1044,18 +1038,15 @@
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2ac69b4c52333a3572f71adeb4520caed7"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ac69b4c52333a3572f71adeb4520caed7">libMesh::PYRAMID13</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00053">enum_elem_type.h:53</a></div></div>
 <div class="ttc" id="threads_8h_html"><div class="ttname"><a href="threads_8h.html">threads.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2acccb9e40eddc1b28768f2128fe1a8f08">libMesh::TRI3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00034">enum_elem_type.h:34</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a3b58ea2b1f0983f12b64ef5d011331a6"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">libMesh::Elem::neighbor_ptr</a></div><div class="ttdeci">const Elem * neighbor_ptr(unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01745">elem.h:1745</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2aa05775ffcc750504160cfe0113308cb9"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2aa05775ffcc750504160cfe0113308cb9">libMesh::TET4</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00041">enum_elem_type.h:41</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DofMap_html"><div class="ttname"><a href="classlibMesh_1_1DofMap.html">libMesh::DofMap</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l00166">dof_map.h:166</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DofMap_html"><div class="ttname"><a href="classlibMesh_1_1DofMap.html">libMesh::DofMap</a></div><div class="ttdoc">Manages the degrees of freedom (DOFs) in a simulation. </div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l00167">dof_map.h:167</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2ab78e3815e3128908caf511b48dd451eb"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ab78e3815e3128908caf511b48dd451eb">libMesh::HEX8</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00044">enum_elem_type.h:44</a></div></div>
-<div class="ttc" id="classlibMesh_1_1FE_html"><div class="ttname"><a href="classlibMesh_1_1FE.html">libMesh::FE</a></div><div class="ttdef"><b>Definition:</b> <a href="fe_8h_source.html#l00088">fe.h:88</a></div></div>
+<div class="ttc" id="tecplot__io_8C_html_ae4aba5fa8c8579c6576b4f087aefb091"><div class="ttname"><a href="tecplot__io_8C.html#ae4aba5fa8c8579c6576b4f087aefb091">n_nodes</a></div><div class="ttdeci">const dof_id_type n_nodes</div><div class="ttdef"><b>Definition:</b> <a href="tecplot__io_8C_source.html#l00067">tecplot_io.C:67</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a619ffad3c7dfb9e46c078e27093c8966">libMesh::THIRD</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00035">enum_order.h:35</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_abc93ed19a229b75f9668e6bbe137b465"><div class="ttname"><a href="classlibMesh_1_1FE.html#abc93ed19a229b75f9668e6bbe137b465">libMesh::FE::get_continuity</a></div><div class="ttdeci">virtual FEContinuity get_continuity() const libmesh_override</div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a3a1e00b1906b0f6cf0cc1760c9a7da1f"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3a1e00b1906b0f6cf0cc1760c9a7da1f">libMesh::Elem::n_nodes</a></div><div class="ttdeci">virtual unsigned int n_nodes() const =0</div></div>
 <div class="ttc" id="classlibMesh_1_1FEInterface_html_a17412c020fcf8e4cba13e2da4ec39ef8"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#a17412c020fcf8e4cba13e2da4ec39ef8">libMesh::FEInterface::shape</a></div><div class="ttdeci">static Real shape(const unsigned int dim, const FEType &amp;fe_t, const ElemType t, const unsigned int i, const Point &amp;p)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00628">fe_interface.C:628</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a8029a5bc505019e485300fcb19d6d7a6"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a8029a5bc505019e485300fcb19d6d7a6">libMesh::INVALID_ELEM</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00076">enum_elem_type.h:76</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FEInterface_html_aa4cd7cde33c7f4b7f873d2fdad6fb635"><div class="ttname"><a href="classlibMesh_1_1FEInterface.html#aa4cd7cde33c7f4b7f873d2fdad6fb635">libMesh::FEInterface::inverse_map</a></div><div class="ttdeci">static Point inverse_map(const unsigned int dim, const FEType &amp;fe_t, const Elem *elem, const Point &amp;p, const Real tolerance=TOLERANCE, const bool secure=true)</div><div class="ttdef"><b>Definition:</b> <a href="fe__interface_8C_source.html#l00556">fe_interface.C:556</a></div></div>
 <div class="ttc" id="fe_8h_html"><div class="ttname"><a href="fe_8h.html">fe.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_a1810a6d807e00b455f6020216d7ce0dd"><div class="ttname"><a href="classlibMesh_1_1FE.html#a1810a6d807e00b455f6020216d7ce0dd">libMesh::FE::is_hierarchic</a></div><div class="ttdeci">virtual bool is_hierarchic() const libmesh_override</div></div>
@@ -1065,28 +1056,25 @@
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a8b7855ee8976b7ba878a3a84068a5f13"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a8b7855ee8976b7ba878a3a84068a5f13">libMesh::TRISHELL3</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00073">enum_elem_type.h:73</a></div></div>
 <div class="ttc" id="namespacelibMesh_1_1Utility_html_aa99a42a5efab878469e7f58e5c033335"><div class="ttname"><a href="namespacelibMesh_1_1Utility.html#aa99a42a5efab878469e7f58e5c033335">libMesh::Utility::enum_to_string</a></div><div class="ttdeci">std::string enum_to_string(const T e)</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a2282f4f6c2d162a4196a2537a7946049"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2282f4f6c2d162a4196a2537a7946049">libMesh::TRI3SUBDIVISION</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00072">enum_elem_type.h:72</a></div></div>
+<div class="ttc" id="classlibMesh_1_1FE_html_a74d8c7f8c1f590279b5270d887d5e946"><div class="ttname"><a href="classlibMesh_1_1FE.html#a74d8c7f8c1f590279b5270d887d5e946">libMesh::FE::compute_constraints</a></div><div class="ttdeci">static void compute_constraints(DofConstraints &amp;constraints, DofMap &amp;dof_map, const unsigned int variable_number, const Elem *elem)</div></div>
 <div class="ttc" id="dof__map_8h_html"><div class="ttname"><a href="dof__map_8h.html">dof_map.h</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a">libMesh::QUAD8</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00038">enum_elem_type.h:38</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ae376bfa6ac14723330e07a97992b56c9"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides</a></div><div class="ttdeci">virtual unsigned int n_sides() const =0</div></div>
-<div class="ttc" id="namespacelibMesh_html_ab10d93f38aee01ba0bbf0304fdf8ae79"><div class="ttname"><a href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">libMesh::Real</a></div><div class="ttdeci">LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="string__to__enum_8h_html"><div class="ttname"><a href="string__to__enum_8h.html">string_to_enum.h</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_aef28359fb4851abec08fc99cfbac118d"><div class="ttname"><a href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">libMesh::Real</a></div><div class="ttdeci">DIE A HORRIBLE DEATH HERE typedef LIBMESH_DEFAULT_SCALAR_TYPE Real</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00131">libmesh_common.h:131</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3">libMesh::FIRST</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00033">enum_order.h:33</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64">libMesh::QUADSHELL4</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00074">enum_elem_type.h:74</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a22175d75dfb05cdc4773504349252068"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a22175d75dfb05cdc4773504349252068">libMesh::PYRAMID14</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00054">enum_elem_type.h:54</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
 <div class="ttc" id="classlibMesh_1_1FE_html_a1651914e1c81bf50a875ff67aafb7e42"><div class="ttname"><a href="classlibMesh_1_1FE.html#a1651914e1c81bf50a875ff67aafb7e42">libMesh::FE::nodal_soln</a></div><div class="ttdeci">static void nodal_soln(const Elem *elem, const Order o, const std::vector&lt; Number &gt; &amp;elem_soln, std::vector&lt; Number &gt; &amp;nodal_soln)</div></div>
+<div class="ttc" id="namespacelibMesh_html_aa01f327876e40c4c56621d025ada561d"><div class="ttname"><a href="namespacelibMesh.html#aa01f327876e40c4c56621d025ada561d">libMesh::DofConstraintRow</a></div><div class="ttdeci">std::map&lt; dof_id_type, Real, std::less&lt; dof_id_type &gt;, Threads::scalable_allocator&lt; std::pair&lt; const dof_id_type, Real &gt; &gt; &gt; DofConstraintRow</div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l00088">dof_map.h:88</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634">libMesh::Order</a></div><div class="ttdeci">Order</div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00032">enum_order.h:32</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a1fa3e8bb1baa330a5037487dbe9304ab"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a1fa3e8bb1baa330a5037487dbe9304ab">libMesh::Elem::level</a></div><div class="ttdeci">unsigned int level() const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l02107">elem.h:2107</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a0817a630117f32b64cff8bef9b9c8a8e"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a0817a630117f32b64cff8bef9b9c8a8e">libMesh::PRISM15</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00049">enum_elem_type.h:49</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd">libMesh::QUAD9</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00039">enum_elem_type.h:39</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a981ce1f0fa792d7701b14e102b00d569"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a981ce1f0fa792d7701b14e102b00d569">libMesh::EDGE4</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00032">enum_elem_type.h:32</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_ac31f9f474110e6de0a6ca5fbb9d8cb06a3d7eb87bf395933a81478e732969e1f4"><div class="ttname"><a href="namespacelibMesh.html#ac31f9f474110e6de0a6ca5fbb9d8cb06a3d7eb87bf395933a81478e732969e1f4">libMesh::C_ZERO</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__fe__family_8h_source.html#l00073">enum_fe_family.h:73</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ad06f8ac22978144723179eed42d10bae"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ad06f8ac22978144723179eed42d10bae">libMesh::Elem::type</a></div><div class="ttdeci">virtual ElemType type() const =0</div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a1f8d81ecfa314b68c0a3f4872a525659"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1f8d81ecfa314b68c0a3f4872a525659">libMesh::NODEELEM</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00068">enum_elem_type.h:68</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Point_html"><div class="ttname"><a href="classlibMesh_1_1Point.html">libMesh::Point</a></div><div class="ttdoc">A geometric point in (x,y,z) space. </div><div class="ttdef"><b>Definition:</b> <a href="point_8h_source.html#l00040">point.h:40</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DofConstraints_html"><div class="ttname"><a href="classlibMesh_1_1DofConstraints.html">libMesh::DofConstraints</a></div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8h_source.html#l00096">dof_map.h:96</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2"><div class="ttname"><a href="namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1eaa50778d153eb68721e6f8f6ae33d2">libMesh::HEX20</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__elem__type_8h_source.html#l00045">enum_elem_type.h:45</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint32_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00070">id_types.h:70</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DofMap_html_a0d323b6fcb736454a9f6074ebda9ec28"><div class="ttname"><a href="classlibMesh_1_1DofMap.html#a0d323b6fcb736454a9f6074ebda9ec28">libMesh::DofMap::dof_indices</a></div><div class="ttdeci">void dof_indices(const Elem *const elem, std::vector&lt; dof_id_type &gt; &amp;di) const </div><div class="ttdef"><b>Definition:</b> <a href="dof__map_8C_source.html#l02023">dof_map.C:2023</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint8_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00064">id_types.h:64</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a903992f631b52b5ba05ad96a51e7b383"><div class="ttname"><a href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">libMesh::remote_elem</a></div><div class="ttdeci">const RemoteElem * remote_elem</div><div class="ttdef"><b>Definition:</b> <a href="remote__elem_8C_source.html#l00057">remote_elem.C:57</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

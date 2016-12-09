@@ -101,6 +101,7 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
@@ -118,7 +119,7 @@ Inheritance diagram for libMesh::RBConstructionBase&lt; Base &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlibMesh_1_1RBConstructionBase__inherit__graph.png" border="0" usemap="#libMesh_1_1RBConstructionBase_3_01Base_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="libMesh_1_1RBConstructionBase_3_01Base_01_4_inherit__map" id="libMesh_1_1RBConstructionBase_3_01Base_01_4_inherit__map">
-<area shape="rect" id="node3" href="classlibMesh_1_1RBParametrized.html" title="libMesh::RBParametrized" alt="" coords="87,171,260,197"/><area shape="rect" id="node4" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; RBParametrized \&gt;" alt="" coords="80,81,267,122"/><area shape="rect" id="node5" href="classlibMesh_1_1ReferenceCounter.html" title="libMesh::ReferenceCounter" alt="" coords="81,5,265,32"/></map>
+<area shape="rect" id="node3" href="classlibMesh_1_1RBParametrized.html" title="libMesh::RBParametrized" alt="" coords="87,171,260,197"/><area shape="rect" id="node4" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; RBParametrized \&gt;" alt="" coords="80,81,267,122"/><area shape="rect" id="node5" href="classlibMesh_1_1ReferenceCounter.html" title="Common base for all objects whose creations/destructions are counted. " alt="" coords="81,5,265,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -146,7 +147,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e110625d2034d761b4c65d328415a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af59f22c6b3704ce184687e8cc5d5ea05"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#af59f22c6b3704ce184687e8cc5d5ea05">initialize_training_parameters</a> (const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;mu_min, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;mu_max, unsigned int n_training_parameters, std::map&lt; std::string, bool &gt; log_param_scale, bool deterministic=true)</td></tr>
 <tr class="separator:af59f22c6b3704ce184687e8cc5d5ea05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d984a3350496aba2a08cfbf4b473497"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a1d984a3350496aba2a08cfbf4b473497">load_training_set</a> (std::map&lt; std::string, std::vector&lt; Number &gt; &gt; &amp;new_training_set)</td></tr>
+<tr class="memitem:a1d984a3350496aba2a08cfbf4b473497"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a1d984a3350496aba2a08cfbf4b473497">load_training_set</a> (std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &gt; &amp;new_training_set)</td></tr>
 <tr class="separator:a1d984a3350496aba2a08cfbf4b473497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4f6214604a0d091449208d3d7521ce6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#ac4f6214604a0d091449208d3d7521ce6">broadcast_parameters</a> (unsigned int proc_id)</td></tr>
 <tr class="separator:ac4f6214604a0d091449208d3d7521ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,7 +161,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a49a0d9c310b3379e572c751d6e615001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6741d5d0e85c64e6e038f90264d27084"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a6741d5d0e85c64e6e038f90264d27084">get_deterministic_training_parameter_repeats</a> () const </td></tr>
 <tr class="separator:a6741d5d0e85c64e6e038f90264d27084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7867bac84aef05cb0d07e0f5bbaa8c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a7867bac84aef05cb0d07e0f5bbaa8c2d">initialize_parameters</a> (const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;mu_min_in, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;mu_max_in, const std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &gt; &amp;discrete_parameter_values)</td></tr>
+<tr class="memitem:a7867bac84aef05cb0d07e0f5bbaa8c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a7867bac84aef05cb0d07e0f5bbaa8c2d">initialize_parameters</a> (const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;mu_min_in, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;mu_max_in, const std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &gt; &amp;discrete_parameter_values)</td></tr>
 <tr class="separator:a7867bac84aef05cb0d07e0f5bbaa8c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a768a75d1b823eddd58c1fe0988945609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a768a75d1b823eddd58c1fe0988945609">initialize_parameters</a> (const <a class="el" href="classlibMesh_1_1RBParametrized.html">RBParametrized</a> &amp;rb_parametrized)</td></tr>
 <tr class="separator:a768a75d1b823eddd58c1fe0988945609"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,9 +181,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3e69d08df9f1f29b0714532d0c3ad6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cfb36cc0599bcdfa0be3c1760b2ceaf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a5cfb36cc0599bcdfa0be3c1760b2ceaf">get_parameters_max</a> () const </td></tr>
 <tr class="separator:a5cfb36cc0599bcdfa0be3c1760b2ceaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefac126fb3647a58fc59c335f3338e5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#aefac126fb3647a58fc59c335f3338e5a">get_parameter_min</a> (const std::string &amp;param_name) const </td></tr>
+<tr class="memitem:aefac126fb3647a58fc59c335f3338e5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#aefac126fb3647a58fc59c335f3338e5a">get_parameter_min</a> (const std::string &amp;param_name) const </td></tr>
 <tr class="separator:aefac126fb3647a58fc59c335f3338e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b25269122dd3ec80d658b156cdee47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a41b25269122dd3ec80d658b156cdee47">get_parameter_max</a> (const std::string &amp;param_name) const </td></tr>
+<tr class="memitem:a41b25269122dd3ec80d658b156cdee47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a41b25269122dd3ec80d658b156cdee47">get_parameter_max</a> (const std::string &amp;param_name) const </td></tr>
 <tr class="separator:a41b25269122dd3ec80d658b156cdee47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa257fb9074ceb27b1707d98e196f456f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#aa257fb9074ceb27b1707d98e196f456f">print_parameters</a> () const </td></tr>
 <tr class="separator:aa257fb9074ceb27b1707d98e196f456f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,14 +193,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6673416b9a99ac07890980fa604ea4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab43a0e51679ef732d97a65c09977ad6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#aab43a0e51679ef732d97a65c09977ad6">is_discrete_parameter</a> (const std::string &amp;mu_name) const </td></tr>
 <tr class="separator:aab43a0e51679ef732d97a65c09977ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e3da29d323d6dac1f0d1cc1cc34f5d"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#ad9e3da29d323d6dac1f0d1cc1cc34f5d">get_discrete_parameter_values</a> () const </td></tr>
+<tr class="memitem:ad9e3da29d323d6dac1f0d1cc1cc34f5d"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#ad9e3da29d323d6dac1f0d1cc1cc34f5d">get_discrete_parameter_values</a> () const </td></tr>
 <tr class="separator:ad9e3da29d323d6dac1f0d1cc1cc34f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78fe46c5252216f28e08f2da2b66643d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a78fe46c5252216f28e08f2da2b66643d">print_discrete_parameter_values</a> () const </td></tr>
 <tr class="separator:a78fe46c5252216f28e08f2da2b66643d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a64b67ff5f7db7d486cb4d13eed6e77d0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a64b67ff5f7db7d486cb4d13eed6e77d0">get_closest_value</a> (<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> value, const std::vector&lt; <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &amp;list_of_values)</td></tr>
+<tr class="memitem:a64b67ff5f7db7d486cb4d13eed6e77d0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#a64b67ff5f7db7d486cb4d13eed6e77d0">get_closest_value</a> (<a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> value, const std::vector&lt; <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &amp;list_of_values)</td></tr>
 <tr class="separator:a64b67ff5f7db7d486cb4d13eed6e77d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a103b37125ae9eaaadf6f7854df17faa2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">get_info</a> ()</td></tr>
 <tr class="separator:a103b37125ae9eaaadf6f7854df17faa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,6 +218,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:acdbc18eea5f9b80a3787aa6633d3464b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBParametrized.html#acdbc18eea5f9b80a3787aa6633d3464b">verbose_mode</a></td></tr>
 <tr class="separator:acdbc18eea5f9b80a3787aa6633d3464b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, std::pair&lt; unsigned int, unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a></td></tr>
+<tr class="separator:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:adb8f76c5d34d3a2c8d36df1e89297bde"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#adb8f76c5d34d3a2c8d36df1e89297bde">init_data</a> ()</td></tr>
@@ -227,28 +233,34 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ad96ae020dd8c048156a83881dbb4baaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae763c5b0b0dacc60f62793c915d11050"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#ae763c5b0b0dacc60f62793c915d11050">set_params_from_training_set_and_broadcast</a> (unsigned int index)</td></tr>
 <tr class="separator:ae763c5b0b0dacc60f62793c915d11050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d69475c6ae8e441306e90e57d755ced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a4d69475c6ae8e441306e90e57d755ced">increment_constructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a4d69475c6ae8e441306e90e57d755ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a9f8ca3935940b9b1a60f7645e856f2e4">increment_destructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac229becfbad2e136c5aee7b1d0e4e3c4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#ac229becfbad2e136c5aee7b1d0e4e3c4">get_global_max_error_pair</a> (const <a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;communicator, std::pair&lt; <a class="el" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &amp;error_pair)</td></tr>
+<tr class="memitem:ac229becfbad2e136c5aee7b1d0e4e3c4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#ac229becfbad2e136c5aee7b1d0e4e3c4">get_global_max_error_pair</a> (const <a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;<a class="el" href="namespacelibMesh.html#aa22684eb6ec167d72352d47ffedd9afb">communicator</a>, std::pair&lt; <a class="el" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>, <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &amp;error_pair)</td></tr>
 <tr class="separator:ac229becfbad2e136c5aee7b1d0e4e3c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a759dc4f050869ed32b16247241d09a3c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a759dc4f050869ed32b16247241d09a3c">generate_training_parameters_random</a> (const <a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;communicator, std::map&lt; std::string, bool &gt; log_param_scale, std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; * &gt; &amp;training_parameters_in, unsigned int n_training_samples_in, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;min_parameters, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;max_parameters, int <a class="el" href="classlibMesh_1_1RBConstructionBase.html#adf2099631a34e7c15f08d723591ac618">training_parameters_random_seed</a>=-1, bool <a class="el" href="classlibMesh_1_1RBConstructionBase.html#aeefdc0653a25a0ee8988fb9fc0583231">serial_training_set</a>=false)</td></tr>
+<tr class="memitem:a759dc4f050869ed32b16247241d09a3c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a759dc4f050869ed32b16247241d09a3c">generate_training_parameters_random</a> (const <a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;<a class="el" href="namespacelibMesh.html#aa22684eb6ec167d72352d47ffedd9afb">communicator</a>, std::map&lt; std::string, bool &gt; log_param_scale, std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; * &gt; &amp;training_parameters_in, unsigned int n_training_samples_in, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;min_parameters, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;max_parameters, int <a class="el" href="classlibMesh_1_1RBConstructionBase.html#adf2099631a34e7c15f08d723591ac618">training_parameters_random_seed</a>=-1, bool <a class="el" href="classlibMesh_1_1RBConstructionBase.html#aeefdc0653a25a0ee8988fb9fc0583231">serial_training_set</a>=false)</td></tr>
 <tr class="separator:a759dc4f050869ed32b16247241d09a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b6ab3c2d3adaebe49ccacacb3ed9c8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a40b6ab3c2d3adaebe49ccacacb3ed9c8">generate_training_parameters_deterministic</a> (const <a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;communicator, std::map&lt; std::string, bool &gt; log_param_scale, std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; * &gt; &amp;training_parameters_in, unsigned int n_training_samples_in, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;min_parameters, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;max_parameters, bool <a class="el" href="classlibMesh_1_1RBConstructionBase.html#aeefdc0653a25a0ee8988fb9fc0583231">serial_training_set</a>=false)</td></tr>
+<tr class="memitem:a40b6ab3c2d3adaebe49ccacacb3ed9c8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a40b6ab3c2d3adaebe49ccacacb3ed9c8">generate_training_parameters_deterministic</a> (const <a class="el" href="classlibMesh_1_1Parallel_1_1Communicator.html">Parallel::Communicator</a> &amp;<a class="el" href="namespacelibMesh.html#aa22684eb6ec167d72352d47ffedd9afb">communicator</a>, std::map&lt; std::string, bool &gt; log_param_scale, std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; * &gt; &amp;training_parameters_in, unsigned int n_training_samples_in, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;min_parameters, const <a class="el" href="classlibMesh_1_1RBParameters.html">RBParameters</a> &amp;max_parameters, bool <a class="el" href="classlibMesh_1_1RBConstructionBase.html#aeefdc0653a25a0ee8988fb9fc0583231">serial_training_set</a>=false)</td></tr>
 <tr class="separator:a40b6ab3c2d3adaebe49ccacacb3ed9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aeefdc0653a25a0ee8988fb9fc0583231"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#aeefdc0653a25a0ee8988fb9fc0583231">serial_training_set</a></td></tr>
 <tr class="separator:aeefdc0653a25a0ee8988fb9fc0583231"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9afd64d8d1213ec6fd897eaf3cd1e915"><td class="memItemLeft" align="right" valign="top"><a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a9afd64d8d1213ec6fd897eaf3cd1e915">inner_product_storage_vector</a></td></tr>
+<tr class="memitem:a9afd64d8d1213ec6fd897eaf3cd1e915"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a9afd64d8d1213ec6fd897eaf3cd1e915">inner_product_storage_vector</a></td></tr>
 <tr class="separator:a9afd64d8d1213ec6fd897eaf3cd1e915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static Threads::atomic&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
+<tr class="memitem:a7c913252d05560f8bc7c75a63547c4c3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a></td></tr>
+<tr class="separator:a7c913252d05560f8bc7c75a63547c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
 <tr class="separator:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static Threads::spin_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
+<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
 <tr class="separator:abedbd3a4ce19686187449a8a0557b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = true</td></tr>
 <tr class="separator:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,7 +269,7 @@ Static Protected Attributes</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:aec1c7e95c922a1ecec4dfdbb96c7b05a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#aec1c7e95c922a1ecec4dfdbb96c7b05a">training_parameters_initialized</a></td></tr>
 <tr class="separator:aec1c7e95c922a1ecec4dfdbb96c7b05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d9663b4659bd8eb7016b9043ba92085"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a6d9663b4659bd8eb7016b9043ba92085">training_parameters</a></td></tr>
+<tr class="memitem:a6d9663b4659bd8eb7016b9043ba92085"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#a6d9663b4659bd8eb7016b9043ba92085">training_parameters</a></td></tr>
 <tr class="separator:a6d9663b4659bd8eb7016b9043ba92085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf2099631a34e7c15f08d723591ac618"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBConstructionBase.html#adf2099631a34e7c15f08d723591ac618">training_parameters_random_seed</a></td></tr>
 <tr class="separator:adf2099631a34e7c15f08d723591ac618"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,12 +279,35 @@ Private Attributes</h2></td></tr>
 class libMesh::RBConstructionBase&lt; Base &gt;</h3>
 
 <p>This class is part of the rbOOmit framework.</p>
-<p>This is the base class for the Construction stage of the certified reduced basis (RB) method. We template the Base class so that we can derive from the appropriate <a class="el" href="namespacelibMesh.html">libMesh</a> <a class="el" href="classlibMesh_1_1System.html">System</a> type (e.g. <a class="el" href="classlibMesh_1_1LinearImplicitSystem.html">LinearImplicitSystem</a> for standard reduced basis, EigenSystem for SCM) at compile time.</p>
+<p>This is the base class for the Construction stage of the certified reduced basis (RB) method. We template the Base class so that we can derive from the appropriate <a class="el" href="namespacelibMesh.html">libMesh</a> <a class="el" href="classlibMesh_1_1System.html">System</a> type (e.g. <a class="el" href="classlibMesh_1_1LinearImplicitSystem.html">LinearImplicitSystem</a> for standard reduced basis, <a class="el" href="classlibMesh_1_1EigenSystem.html">EigenSystem</a> for SCM) at compile time.</p>
 <dl class="section author"><dt>Author</dt><dd>David J. Knezevic </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2009 </dd></dl>
 
 <p>Definition at line <a class="el" href="rb__construction__base_8h_source.html#l00054">54</a> of file <a class="el" href="rb__construction__base_8h_source.html">rb_construction_base.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="adb5daadc989c1fe71ec8d173adf0ed1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, std::pair&lt;unsigned int, unsigned int&gt; &gt; <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">libMesh::ReferenceCounter::Counts</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Data structure to log the information. The log is identified by the class name. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00110">110</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad6e21882d0447c31cfad462227ef8ede"></a>
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +433,7 @@ template&lt;class Base&gt; </div>
 
 <p>Reimplemented from <a class="el" href="classlibMesh_1_1RBParametrized.html#adabf1c3008aa05d5b859fb23469ae7c4">libMesh::RBParametrized</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classlibMesh_1_1RBConstruction.html#a6b1f8c99f98b9ed0ae6dc3c51ce07411">libMesh::RBConstruction</a>, <a class="el" href="classlibMesh_1_1RBEIMConstruction.html#abbf2960f7de8c7c2b6ace54069bedd10">libMesh::RBEIMConstruction</a>, <a class="el" href="classlibMesh_1_1TransientSystem.html#ac4d71ddbe8aa8f445191c744e8fb1abf">libMesh::TransientSystem&lt; RBConstruction &gt;</a>, and <a class="el" href="classlibMesh_1_1TransientRBConstruction.html#a12e20ca5e94e730f81fa852949eb6f1a">libMesh::TransientRBConstruction</a>.</p>
+<p>Reimplemented in <a class="el" href="classlibMesh_1_1RBConstruction.html#a6b1f8c99f98b9ed0ae6dc3c51ce07411">libMesh::RBConstruction</a>, <a class="el" href="classlibMesh_1_1RBSCMConstruction.html#a7c0bfdfbf46eb4e1972018c7fae5852d">libMesh::RBSCMConstruction</a>, <a class="el" href="classlibMesh_1_1RBEIMConstruction.html#abbf2960f7de8c7c2b6ace54069bedd10">libMesh::RBEIMConstruction</a>, <a class="el" href="classlibMesh_1_1TransientSystem.html#ac4d71ddbe8aa8f445191c744e8fb1abf">libMesh::TransientSystem&lt; RBConstruction &gt;</a>, and <a class="el" href="classlibMesh_1_1TransientRBConstruction.html#a12e20ca5e94e730f81fa852949eb6f1a">libMesh::TransientRBConstruction</a>.</p>
 
 </div>
 </div>
@@ -425,14 +460,12 @@ template&lt;class Base&gt; </div>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00106">106</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00343">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -460,12 +493,12 @@ template&lt;class Base&gt; </div>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00100">100</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -493,7 +526,7 @@ template&lt;class Base&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; * &gt; &amp;&#160;</td>
           <td class="paramname"><em>training_parameters_in</em>, </td>
         </tr>
         <tr>
@@ -560,7 +593,7 @@ template&lt;class Base&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; * &gt; &amp;&#160;</td>
           <td class="paramname"><em>training_parameters_in</em>, </td>
         </tr>
         <tr>
@@ -617,15 +650,15 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> libMesh::RBParametrized::get_closest_value </td>
+          <td class="memname">static <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> libMesh::RBParametrized::get_closest_value </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>list_of_values</em>&#160;</td>
         </tr>
         <tr>
@@ -688,7 +721,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::map&lt; std::string, std::vector&lt;<a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a>&gt; &gt;&amp; libMesh::RBParametrized::get_discrete_parameter_values </td>
+          <td class="memname">const std::map&lt; std::string, std::vector&lt;<a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a>&gt; &gt;&amp; libMesh::RBParametrized::get_discrete_parameter_values </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -740,7 +773,7 @@ template&lt;class Base&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::pair&lt; <a class="el" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>, <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::pair&lt; <a class="el" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>, <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>error_pair</em>&#160;</td>
         </tr>
         <tr>
@@ -783,7 +816,9 @@ template&lt;class Base&gt; </div>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00047">47</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if defined(LIBMESH_ENABLE_REFERENCE_COUNTING) &amp;&amp; defined(DEBUG)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -794,8 +829,8 @@ template&lt;class Base&gt; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;| Reference count information                                                |\n&quot;</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      &lt;&lt; <span class="stringliteral">&quot; ---------------------------------------------------------------------------- \n&quot;</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = _counts.begin();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != _counts.end(); ++it)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.begin();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.end(); ++it)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">const</span> std::string <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>(it-&gt;first);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> creations    = it-&gt;second.first;</div>
@@ -817,6 +852,7 @@ template&lt;class Base&gt; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -954,7 +990,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> libMesh::RBParametrized::get_parameter_max </td>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> libMesh::RBParametrized::get_parameter_max </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>param_name</em></td><td>)</td>
@@ -979,7 +1015,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> libMesh::RBParametrized::get_parameter_min </td>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> libMesh::RBParametrized::get_parameter_min </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>param_name</em></td><td>)</td>
@@ -1119,6 +1155,86 @@ template&lt;class Base&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a4d69475c6ae8e441306e90e57d755ced"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_constructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the construction counter. Should be called in the constructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00160">160</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00074">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  p.first++;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9f8ca3935940b9b1a60f7645e856f2e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_destructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the destruction counter. Should be called in the destructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00173">173</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00101">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::~ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  p.second++;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="adb8f76c5d34d3a2c8d36df1e89297bde"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1169,7 +1285,7 @@ template&lt;class Base&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#ab10d93f38aee01ba0bbf0304fdf8ae79">Real</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#aef28359fb4851abec08fc99cfbac118d">Real</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>discrete_parameter_values</em>&#160;</td>
         </tr>
         <tr>
@@ -1305,7 +1421,7 @@ template&lt;class Base&gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classlibMesh_1_1RBConstructionBase.html">libMesh::RBConstructionBase</a>&lt; Base &gt;::load_training_set </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; Number &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">std::map&lt; std::string, std::vector&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>new_training_set</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1342,13 +1458,11 @@ template&lt;class Base&gt; </div>
 </div><div class="memdoc">
 <p>Prints the number of outstanding (created, but not yet destroyed) objects. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00075">75</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00076">76</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00122">libMesh::ReferenceCounter::_n_objects</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00122">reference_counter.h:122</a></div></div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00123">libMesh::ReferenceCounter::_n_objects</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00123">reference_counter.h:123</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1399,10 +1513,14 @@ template&lt;class Base&gt; </div>
 </div><div class="memdoc">
 <p>Prints the reference information, by default to <code><a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></code>. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00095">95</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00088">88</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{}</div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>, and <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> ) out_stream &lt;&lt; <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">ReferenceCounter::get_info</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1678,6 +1796,31 @@ template&lt;class Base&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7c913252d05560f8bc7c75a63547c4c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">ReferenceCounter::Counts</a> libMesh::ReferenceCounter::_counts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Actually holds the data. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00115">115</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00160">libMesh::ReferenceCounter::increment_constructor_count()</a>, and <a class="el" href="reference__counter_8h_source.html#l00173">libMesh::ReferenceCounter::increment_destructor_count()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a8f75e8a4a280f2c41636f2ae1307a311"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1697,9 +1840,9 @@ template&lt;class Base&gt; </div>
 </div><div class="memdoc">
 <p>Flag to control whether reference count information is printed when print_info is called. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00133">133</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00134">134</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 
 </div>
 </div>
@@ -1711,7 +1854,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::spin_mutex libMesh::ReferenceCounter::_mutex</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a> libMesh::ReferenceCounter::_mutex</td>
         </tr>
       </table>
   </td>
@@ -1722,7 +1865,7 @@ template&lt;class Base&gt; </div>
 </div><div class="memdoc">
 <p>Mutual exclusion object to enable thread-safe reference counting. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00127">127</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00128">128</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
 </div>
 </div>
@@ -1734,7 +1877,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::atomic&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
         </tr>
       </table>
   </td>
@@ -1745,9 +1888,9 @@ template&lt;class Base&gt; </div>
 </div><div class="memdoc">
 <p>The number of objects. Print the reference count information when the number returns to 0. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00122">122</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00123">123</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00075">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00140">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00147">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00076">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00141">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00148">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
 
 </div>
 </div>
@@ -1761,7 +1904,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="auto__ptr_8h.html#a32d48646e4eedc26d6477ccc99225419">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt;Number&gt; &gt; <a class="el" href="classlibMesh_1_1RBConstructionBase.html">libMesh::RBConstructionBase</a>&lt; Base &gt;::inner_product_storage_vector</td>
+          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt;<a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a>&gt; &gt; <a class="el" href="classlibMesh_1_1RBConstructionBase.html">libMesh::RBConstructionBase</a>&lt; Base &gt;::inner_product_storage_vector</td>
         </tr>
       </table>
   </td>
@@ -1811,7 +1954,7 @@ template&lt;class Base&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt;Number&gt; * &gt; <a class="el" href="classlibMesh_1_1RBConstructionBase.html">libMesh::RBConstructionBase</a>&lt; Base &gt;::training_parameters</td>
+          <td class="memname">std::map&lt; std::string, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt;<a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a>&gt; * &gt; <a class="el" href="classlibMesh_1_1RBConstructionBase.html">libMesh::RBConstructionBase</a>&lt; Base &gt;::training_parameters</td>
         </tr>
       </table>
   </td>

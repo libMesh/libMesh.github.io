@@ -118,8 +118,8 @@ Inheritance diagram for libMesh::PetscSolverException:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4503eb0d18f7f08a1c42b169c0efb7dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1PetscSolverException.html#a4503eb0d18f7f08a1c42b169c0efb7dd">PetscSolverException</a> (int error_code_in)</td></tr>
 <tr class="separator:a4503eb0d18f7f08a1c42b169c0efb7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20953ce209caf86280c38e722a4cda7"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolverException.html#ac20953ce209caf86280c38e722a4cda7">what</a> () const   throw ()</td></tr>
-<tr class="separator:ac20953ce209caf86280c38e722a4cda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cced3f9971c4cb77ae23f91ff93789"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolverException.html#ad2cced3f9971c4cb77ae23f91ff93789">what</a> () const libmesh_noexcept</td></tr>
+<tr class="separator:ad2cced3f9971c4cb77ae23f91ff93789"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -131,7 +131,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A specialization of the <a class="el" href="classlibMesh_1_1SolverException.html">SolverException</a> class for PETSc. </p>
 
-<p>Definition at line <a class="el" href="petsc__solver__exception_8h_source.html#l00034">34</a> of file <a class="el" href="petsc__solver__exception_8h_source.html">petsc_solver_exception.h</a>.</p>
+<p>Definition at line <a class="el" href="petsc__solver__exception_8h_source.html#l00037">37</a> of file <a class="el" href="petsc__solver__exception_8h_source.html">petsc_solver_exception.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4503eb0d18f7f08a1c42b169c0efb7dd"></a>
 <div class="memitem">
@@ -155,27 +155,27 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="petsc__solver__exception_8h_source.html#l00037">37</a> of file <a class="el" href="petsc__solver__exception_8h_source.html">petsc_solver_exception.h</a>.</p>
+<p>Definition at line <a class="el" href="petsc__solver__exception_8h_source.html#l00040">40</a> of file <a class="el" href="petsc__solver__exception_8h_source.html">petsc_solver_exception.h</a>.</p>
 
-<p>References <a class="el" href="libmesh__exceptions_8h_source.html#l00134">libMesh::SolverException::error_code</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, and <a class="el" href="libmesh__exceptions_8h_source.html#l00139">libMesh::SolverException::what_message</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                          :</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classlibMesh_1_1SolverException.html#a9e3bce676607b2bae98c4db405e4ef53">SolverException</a>(error_code_in)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * text;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// This is one scenario where we don&#39;t catch the error code</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// returned by a PETSc function :)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    PetscErrorMessage(<a class="code" href="classlibMesh_1_1SolverException.html#aa7c03f8284850a24b4422a220282b703">error_code</a>, &amp;text, <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">what_message</a> = text;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1SolverException_html_a9e3bce676607b2bae98c4db405e4ef53"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#a9e3bce676607b2bae98c4db405e4ef53">libMesh::SolverException::SolverException</a></div><div class="ttdeci">SolverException(int error_code_in)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00107">libmesh_exceptions.h:107</a></div></div>
+<p>References <a class="el" href="libmesh__exceptions_8h_source.html#l00140">libMesh::SolverException::error_code</a>, <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, and <a class="el" href="libmesh__exceptions_8h_source.html#l00145">libMesh::SolverException::what_message</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                          :</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classlibMesh_1_1SolverException.html#a9e3bce676607b2bae98c4db405e4ef53">SolverException</a>(error_code_in)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * text;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// This is one scenario where we don&#39;t catch the error code</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// returned by a PETSc function :)</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    PetscErrorMessage(<a class="code" href="classlibMesh_1_1SolverException.html#aa7c03f8284850a24b4422a220282b703">error_code</a>, &amp;text, <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">what_message</a> = text;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1SolverException_html_a9e3bce676607b2bae98c4db405e4ef53"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#a9e3bce676607b2bae98c4db405e4ef53">libMesh::SolverException::SolverException</a></div><div class="ttdeci">SolverException(int error_code_in)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00113">libmesh_exceptions.h:113</a></div></div>
 <div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
-<div class="ttc" id="classlibMesh_1_1SolverException_html_aa7c03f8284850a24b4422a220282b703"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#aa7c03f8284850a24b4422a220282b703">libMesh::SolverException::error_code</a></div><div class="ttdeci">int error_code</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00134">libmesh_exceptions.h:134</a></div></div>
-<div class="ttc" id="classlibMesh_1_1SolverException_html_acffd0cb3806b894dcaccd1e3bfdbbf65"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">libMesh::SolverException::what_message</a></div><div class="ttdeci">std::string what_message</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00139">libmesh_exceptions.h:139</a></div></div>
+<div class="ttc" id="classlibMesh_1_1SolverException_html_aa7c03f8284850a24b4422a220282b703"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#aa7c03f8284850a24b4422a220282b703">libMesh::SolverException::error_code</a></div><div class="ttdeci">int error_code</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00140">libmesh_exceptions.h:140</a></div></div>
+<div class="ttc" id="classlibMesh_1_1SolverException_html_acffd0cb3806b894dcaccd1e3bfdbbf65"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">libMesh::SolverException::what_message</a></div><div class="ttdeci">std::string what_message</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00145">libmesh_exceptions.h:145</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac20953ce209caf86280c38e722a4cda7"></a>
+<a class="anchor" id="ad2cced3f9971c4cb77ae23f91ff93789"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -188,12 +188,6 @@ Public Attributes</h2></td></tr>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
-        <tr>
-          <td align="right">throw </td><td>(</td><td colspan="2"></td>
-        </tr>
-        <tr>
-          <td align="right"></td><td>)</td><td></td><td></td>
-        </tr>
       </table>
   </td>
   <td class="mlabels-right">
@@ -201,17 +195,17 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Override the <a class="el" href="classlibMesh_1_1SolverException.html#ac20953ce209caf86280c38e722a4cda7">what()</a> function to provide a generic error message. </p>
+<p>Override the <a class="el" href="classlibMesh_1_1SolverException.html#ad2cced3f9971c4cb77ae23f91ff93789">what()</a> function to provide a generic error message. </p>
 
-<p>Definition at line <a class="el" href="libmesh__exceptions_8h_source.html#l00124">124</a> of file <a class="el" href="libmesh__exceptions_8h_source.html">libmesh_exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="libmesh__exceptions_8h_source.html#l00130">130</a> of file <a class="el" href="libmesh__exceptions_8h_source.html">libmesh_exceptions.h</a>.</p>
 
-<p>References <a class="el" href="libmesh__exceptions_8h_source.html#l00139">libMesh::SolverException::what_message</a>.</p>
-<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// std::string::c_str() is noexcept in C++11, so it&#39;s safe to call</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// in what() because it can&#39;t throw.</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">what_message</a>.c_str();</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  }</div>
-<div class="ttc" id="classlibMesh_1_1SolverException_html_acffd0cb3806b894dcaccd1e3bfdbbf65"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">libMesh::SolverException::what_message</a></div><div class="ttdeci">std::string what_message</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00139">libmesh_exceptions.h:139</a></div></div>
+<p>References <a class="el" href="libmesh__exceptions_8h_source.html#l00145">libMesh::SolverException::what_message</a>.</p>
+<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="comment">// std::string::c_str() is noexcept in C++11, so it&#39;s safe to call</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment">// in what() because it can&#39;t throw.</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">what_message</a>.c_str();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  }</div>
+<div class="ttc" id="classlibMesh_1_1SolverException_html_acffd0cb3806b894dcaccd1e3bfdbbf65"><div class="ttname"><a href="classlibMesh_1_1SolverException.html#acffd0cb3806b894dcaccd1e3bfdbbf65">libMesh::SolverException::what_message</a></div><div class="ttdeci">std::string what_message</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__exceptions_8h_source.html#l00145">libmesh_exceptions.h:145</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -235,9 +229,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The error code generated by the solver. </p>
 
-<p>Definition at line <a class="el" href="libmesh__exceptions_8h_source.html#l00134">134</a> of file <a class="el" href="libmesh__exceptions_8h_source.html">libmesh_exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="libmesh__exceptions_8h_source.html#l00140">140</a> of file <a class="el" href="libmesh__exceptions_8h_source.html">libmesh_exceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="petsc__solver__exception_8h_source.html#l00037">PetscSolverException()</a>, and <a class="el" href="libmesh__exceptions_8h_source.html#l00107">libMesh::SolverException::SolverException()</a>.</p>
+<p>Referenced by <a class="el" href="petsc__solver__exception_8h_source.html#l00040">PetscSolverException()</a>, and <a class="el" href="libmesh__exceptions_8h_source.html#l00113">libMesh::SolverException::SolverException()</a>.</p>
 
 </div>
 </div>
@@ -260,9 +254,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string which holds the message built in the constructor. </p>
 
-<p>Definition at line <a class="el" href="libmesh__exceptions_8h_source.html#l00139">139</a> of file <a class="el" href="libmesh__exceptions_8h_source.html">libmesh_exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="libmesh__exceptions_8h_source.html#l00145">145</a> of file <a class="el" href="libmesh__exceptions_8h_source.html">libmesh_exceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="petsc__solver__exception_8h_source.html#l00037">PetscSolverException()</a>, <a class="el" href="libmesh__exceptions_8h_source.html#l00107">libMesh::SolverException::SolverException()</a>, and <a class="el" href="libmesh__exceptions_8h_source.html#l00124">libMesh::SolverException::what()</a>.</p>
+<p>Referenced by <a class="el" href="petsc__solver__exception_8h_source.html#l00040">PetscSolverException()</a>, <a class="el" href="libmesh__exceptions_8h_source.html#l00113">libMesh::SolverException::SolverException()</a>, and <a class="el" href="libmesh__exceptions_8h_source.html#l00130">libMesh::SolverException::what()</a>.</p>
 
 </div>
 </div>

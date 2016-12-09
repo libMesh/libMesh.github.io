@@ -97,39 +97,13 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">elem.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="libmesh__common_8h_source.html">libmesh/libmesh_common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="dof__object_8h_source.html">libmesh/dof_object.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="id__types_8h_source.html">libmesh/id_types.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="reference__counted__object_8h_source.html">libmesh/reference_counted_object.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="node_8h_source.html">libmesh/node.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="enum__elem__type_8h_source.html">libmesh/enum_elem_type.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="enum__elem__quality_8h_source.html">libmesh/enum_elem_quality.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="enum__order_8h_source.html">libmesh/enum_order.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="enum__io__package_8h_source.html">libmesh/enum_io_package.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="auto__ptr_8h_source.html">libmesh/auto_ptr.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="multi__predicates_8h_source.html">libmesh/multi_predicates.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="variant__filter__iterator_8h_source.html">libmesh/variant_filter_iterator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="hashword_8h_source.html">libmesh/hashword.h</a>&quot;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;cstddef&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;limits.h&gt;</code><br />
-<code>#include &lt;set&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for elem.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="elem_8h__incl.png" border="0" usemap="#elem_8h" alt=""/></div>
-<map name="elem_8h" id="elem_8h">
-<area shape="rect" id="node2" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1613,725,1800,752"/><area shape="rect" id="node8" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="909,875,1040,901"/><area shape="rect" id="node16" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="1235,155,1379,181"/><area shape="rect" id="node21" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="1529,568,1660,595"/><area shape="rect" id="node32" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="145,230,327,271"/><area shape="rect" id="node36" href="node_8h.html" title="libmesh/node.h" alt="" coords="1555,80,1667,107"/><area shape="rect" id="node40" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="2062,568,2247,595"/><area shape="rect" id="node41" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="2062,80,2260,107"/><area shape="rect" id="node42" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="2285,80,2440,107"/><area shape="rect" id="node43" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="2464,80,2656,107"/><area shape="rect" id="node44" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="1859,395,2039,421"/><area shape="rect" id="node46" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="2257,470,2401,511"/><area shape="rect" id="node48" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="2642,477,2781,504"/><area shape="rect" id="node3" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="1039,949,1211,976"/><area shape="rect" id="node7" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="892,800,1057,827"/><area shape="rect" id="node11" href="libmesh__exceptions_8h.html" title="libmesh/libmesh_exceptions.h" alt="" coords="1696,875,1896,901"/><area shape="rect" id="node12" href="libmesh__C__isnan_8h.html" title="libmesh/libmesh_C_isnan.h" alt="" coords="1614,800,1799,827"/><area shape="rect" id="node13" href="ostream__proxy_8h.html" title="libmesh/ostream_proxy.h" alt="" coords="1875,800,2045,827"/><area shape="rect" id="node15" href="libmesh__nullptr_8h.html" title="libmesh/libmesh_nullptr.h" alt="" coords="1366,875,1537,901"/><area shape="rect" id="node17" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="715,395,844,421"/><area shape="rect" id="node18" href="enum__solver__package_8h.html" title="libmesh/enum_solver\l_package.h" alt="" coords="737,470,884,511"/><area shape="rect" id="node19" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="939,477,1064,504"/><area shape="rect" id="node20" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1224,651,1403,677"/><area shape="rect" id="node31" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="1179,568,1403,595"/><area shape="rect" id="node22" href="safe__bool_8h.html" title="libmesh/safe_bool.h" alt="" coords="1529,651,1668,677"/><area shape="rect" id="node33" href="reference__counter_8h.html" title="libmesh/reference_counter.h" alt="" coords="297,320,487,347"/><area shape="rect" id="node34" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="331,651,457,677"/><area shape="rect" id="node35" href="threads__none_8h.html" title="libmesh/threads_none.h" alt="" coords="347,725,511,752"/><area shape="rect" id="node37" href="point_8h.html" title="libmesh/point.h" alt="" coords="1555,155,1667,181"/><area shape="rect" id="node38" href="type__vector_8h.html" title="libmesh/type_vector.h" alt="" coords="2096,651,2248,677"/><area shape="rect" id="node39" href="compare__types_8h.html" title="libmesh/compare_types.h" alt="" coords="2021,725,2195,752"/><area shape="rect" id="node45" href="single__predicates_8h.html" title="libmesh/single_predicates.h" alt="" coords="1960,477,2147,504"/></map>
-</div>
-</div>
+
 <p><a href="elem_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -147,47 +121,22 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibMesh"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html">libMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a78c0f8ef783aa00dce2229eaaf1da4a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elem_8h.html#a78c0f8ef783aa00dce2229eaaf1da4a4">LIBMESH_ENABLE_TOPOLOGY_CACHES</a></td></tr>
-<tr class="separator:a78c0f8ef783aa00dce2229eaaf1da4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a72fd1eb35e08d8e3eb9da0e82d362834"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a72fd1eb35e08d8e3eb9da0e82d362834">libMesh::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> &amp;e)</td></tr>
+<tr class="memitem:a72fd1eb35e08d8e3eb9da0e82d362834"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a72fd1eb35e08d8e3eb9da0e82d362834">libMesh::operator&lt;&lt;</a> (std::ostream &amp;os, const Elem &amp;e)</td></tr>
 <tr class="separator:a72fd1eb35e08d8e3eb9da0e82d362834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b464461f7071977ec804e648ef9a943"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a5b464461f7071977ec804e648ef9a943">libMesh::if</a> (_elemlinks)</td></tr>
+<tr class="separator:a5b464461f7071977ec804e648ef9a943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8cd73100daa97f72c0afee4fe2c3be1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#ac8cd73100daa97f72c0afee4fe2c3be1">libMesh::if</a> (this-&gt;parent()!=<a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</td></tr>
+<tr class="separator:ac8cd73100daa97f72c0afee4fe2c3be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b9b32cee1d405213bb8c413c902c37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a88b9b32cee1d405213bb8c413c902c37">libMesh::if</a> (this-&gt;parent()) this-&gt; set_p_level(this-&gt;parent() -&gt;p_level())</td></tr>
+<tr class="separator:a88b9b32cee1d405213bb8c413c902c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a745c1786c6fa33ea275c723cb0094f1f"><td class="memItemLeft" align="right" valign="top">Elem::Elem(const unsigned int nn, const unsigned int ns, Elem *p, Elem **elemlinkdata, Node **nodelinkdata&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#a745c1786c6fa33ea275c723cb0094f1f">libMesh::if</a> )(_nodes)</td></tr>
+<tr class="separator:a745c1786c6fa33ea275c723cb0094f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a78c0f8ef783aa00dce2229eaaf1da4a4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIBMESH_ENABLE_TOPOLOGY_CACHES</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">virtual                                                               \</div>
-<div class="line">  std::vector&lt;std::vector&lt;std::vector&lt;std::vector&lt;std::pair&lt;unsigned char, unsigned char&gt; &gt; &gt; &gt; &gt; &amp; \</div>
-<div class="line">  _get_bracketing_node_cache() const <a class="code" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a>                   \</div>
-<div class="line">  {                                                                     \</div>
-<div class="line">    static std::vector&lt;std::vector&lt;std::vector&lt;std::vector&lt;std::pair&lt;unsigned char, unsigned char&gt; &gt; &gt; &gt; &gt; c; \</div>
-<div class="line">    return c;                                                           \</div>
-<div class="line">  }                                                                     \</div>
-<div class="line">                                                                        \</div>
-<div class="line">  virtual                                                               \</div>
-<div class="line">  std::vector&lt;std::vector&lt;std::vector&lt;signed char&gt; &gt; &gt; &amp;                \</div>
-<div class="line">  _get_parent_indices_cache() const <a class="code" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a>                    \</div>
-<div class="line">  {                                                                     \</div>
-<div class="line">    static std::vector&lt;std::vector&lt;std::vector&lt;signed char&gt; &gt; &gt; c;      \</div>
-<div class="line">    return c;                                                           \</div>
-<div class="line">  }</div>
-<div class="ttc" id="libmesh__common_8h_html_adb2446b067005358d01bd1f5c08f17a3"><div class="ttname"><a href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a></div><div class="ttdeci">#define libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00568">libmesh_common.h:568</a></div></div>
-</div><!-- fragment -->
-<p>Definition at line <a class="el" href="elem_8h_source.html#l02565">2565</a> of file <a class="el" href="elem_8h_source.html">elem.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

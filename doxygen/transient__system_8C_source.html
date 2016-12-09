@@ -144,17 +144,17 @@
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_GHOSTED</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="classlibMesh_1_1TransientSystem.html#ab52a5a4474a17ef1d98ac19aabe5fdf4">old_local_solution</a> =</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;Number&gt;</a> &gt;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    (&amp;(this-&gt;add_vector(<span class="stringliteral">&quot;_transient_old_local_solution&quot;</span>, <span class="keyword">true</span>, <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a7ad89a14059d5c662d16a35675f8370d">GHOSTED</a>)));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="classlibMesh_1_1TransientSystem.html#a6565184de17d16e92cfc53134191eef0">older_local_solution</a> =</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;Number&gt;</a> &gt;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    (&amp;(this-&gt;add_vector(<span class="stringliteral">&quot;_transient_older_local_solution&quot;</span>, <span class="keyword">true</span>, <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a7ad89a14059d5c662d16a35675f8370d">GHOSTED</a>)));</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="classlibMesh_1_1TransientSystem.html#ab52a5a4474a17ef1d98ac19aabe5fdf4">old_local_solution</a> =</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;Number&gt;</a> &gt;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    (&amp;(this-&gt;add_vector(<span class="stringliteral">&quot;_transient_old_local_solution&quot;</span>, <span class="keyword">true</span>, <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a538bc63becff09f368e6f930e423391f">SERIAL</a>)));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="classlibMesh_1_1TransientSystem.html#a6565184de17d16e92cfc53134191eef0">older_local_solution</a> =</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;Number&gt;</a> &gt;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    (&amp;(this-&gt;add_vector(<span class="stringliteral">&quot;_transient_older_local_solution&quot;</span>, <span class="keyword">true</span>, <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a538bc63becff09f368e6f930e423391f">SERIAL</a>)));</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
@@ -192,10 +192,10 @@
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  older_local_solution.release();</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  old_local_solution =</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;Number&gt;</a> &gt;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    (&amp;(this-&gt;add_vector(<span class="stringliteral">&quot;_transient_old_local_solution&quot;</span>)));</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  older_local_solution =</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    UniquePtr&lt;NumericVector&lt;Number&gt; &gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr&lt;NumericVector&lt;Number&gt;</a> &gt;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    (&amp;(this-&gt;add_vector(<span class="stringliteral">&quot;_transient_older_local_solution&quot;</span>)));</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
@@ -212,10 +212,10 @@
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">// Using new ghosted vectors if enabled</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_GHOSTED</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  old_local_solution-&gt;init   (this-&gt;n_dofs(), this-&gt;n_local_dofs(),</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                              this-&gt;get_dof_map().get_send_list(), <span class="keyword">false</span>,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                              this-&gt;<a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">get_dof_map</a>().get_send_list(), <span class="keyword">false</span>,</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                              <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a7ad89a14059d5c662d16a35675f8370d">GHOSTED</a>);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  older_local_solution-&gt;init (this-&gt;n_dofs(), this-&gt;n_local_dofs(),</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                              this-&gt;get_dof_map().get_send_list(), <span class="keyword">false</span>,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                              this-&gt;<a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">get_dof_map</a>().get_send_list(), <span class="keyword">false</span>,</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                              <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a7ad89a14059d5c662d16a35675f8370d">GHOSTED</a>);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  old_local_solution-&gt;init   (this-&gt;n_dofs(), <span class="keyword">false</span>, <a class="code" href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a538bc63becff09f368e6f930e423391f">SERIAL</a>);</div>
@@ -245,15 +245,15 @@
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="comment">// re_update the parent system</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  Base::re_update ();</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keyword">const</span> std::vector&lt;dof_id_type&gt; &amp; send_list = this-&gt;get_dof_map().get_send_list ();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keyword">const</span> std::vector&lt;dof_id_type&gt; &amp; send_list = this-&gt;<a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">get_dof_map</a>().get_send_list ();</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> first_local_dof = Base::get_dof_map().first_dof();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> end_local_dof  = Base::get_dof_map().end_dof();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> first_local_dof = <a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">Base::get_dof_map</a>().first_dof();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> end_local_dof  = <a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">Base::get_dof_map</a>().end_dof();</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="comment">// Check sizes</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <a class="code" href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a> (end_local_dof, first_local_dof);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <a class="code" href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a> (older_local_solution-&gt;size(), send_list.size());</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <a class="code" href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a> (old_local_solution-&gt;size(), send_list.size());</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  libmesh_assert_greater_equal (end_local_dof, first_local_dof);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  libmesh_assert_greater_equal (older_local_solution-&gt;size(), send_list.size());</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  libmesh_assert_greater_equal (old_local_solution-&gt;size(), send_list.size());</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="comment">// Even if we don&#39;t have to do anything ourselves, localize() may</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="comment">// use parallel_only tools</span></div>
@@ -275,11 +275,11 @@
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Base&gt;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TransientSystem.html#a2777085c7021b35eee071f9b0f535e4f">  178</a></span>&#160;Number <a class="code" href="classlibMesh_1_1TransientSystem.html#a2777085c7021b35eee071f9b0f535e4f">TransientSystem&lt;Base&gt;::old_solution</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> global_dof_number)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TransientSystem.html#a2777085c7021b35eee071f9b0f535e4f">  178</a></span>&#160;<a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> <a class="code" href="classlibMesh_1_1TransientSystem.html#a2777085c7021b35eee071f9b0f535e4f">TransientSystem&lt;Base&gt;::old_solution</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> global_dof_number)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="comment">// Check the sizes</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (global_dof_number, this-&gt;get_dof_map().n_dofs());</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (global_dof_number, old_local_solution-&gt;size());</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  libmesh_assert_less (global_dof_number, this-&gt;<a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">get_dof_map</a>().n_dofs());</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  libmesh_assert_less (global_dof_number, old_local_solution-&gt;size());</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordflow">return</span> (*old_local_solution)(global_dof_number);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
@@ -287,11 +287,11 @@
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Base&gt;</div>
-<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TransientSystem.html#a2c9c09797ac8917c287c6568289de1f5">  190</a></span>&#160;Number <a class="code" href="classlibMesh_1_1TransientSystem.html#a2c9c09797ac8917c287c6568289de1f5">TransientSystem&lt;Base&gt;::older_solution</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> global_dof_number)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TransientSystem.html#a2c9c09797ac8917c287c6568289de1f5">  190</a></span>&#160;<a class="code" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> <a class="code" href="classlibMesh_1_1TransientSystem.html#a2c9c09797ac8917c287c6568289de1f5">TransientSystem&lt;Base&gt;::older_solution</a> (<span class="keyword">const</span> <a class="code" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> global_dof_number)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="comment">// Check the sizes</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (global_dof_number, this-&gt;get_dof_map().n_dofs());</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <a class="code" href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a> (global_dof_number, older_local_solution-&gt;size());</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  libmesh_assert_less (global_dof_number, this-&gt;<a class="code" href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">get_dof_map</a>().n_dofs());</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  libmesh_assert_less (global_dof_number, older_local_solution-&gt;size());</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordflow">return</span> (*older_local_solution)(global_dof_number);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
@@ -311,8 +311,7 @@
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;} <span class="comment">// namespace libMesh</span></div>
-<div class="ttc" id="libmesh__common_8h_html_a234668f46b229e50dc3307b3678a0905"><div class="ttname"><a href="libmesh__common_8h.html#a234668f46b229e50dc3307b3678a0905">libmesh_assert_less</a></div><div class="ttdeci">#define libmesh_assert_less(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00346">libmesh_common.h:346</a></div></div>
-<div class="ttc" id="classlibMesh_1_1EquationSystems_html"><div class="ttname"><a href="classlibMesh_1_1EquationSystems.html">libMesh::EquationSystems</a></div><div class="ttdef"><b>Definition:</b> <a href="equation__systems_8h_source.html#l00066">equation_systems.h:66</a></div></div>
+<div class="ttc" id="classlibMesh_1_1EquationSystems_html"><div class="ttname"><a href="classlibMesh_1_1EquationSystems.html">libMesh::EquationSystems</a></div><div class="ttdoc">Manages multiples systems of equations. </div><div class="ttdef"><b>Definition:</b> <a href="equation__systems_8h_source.html#l00067">equation_systems.h:67</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TransientSystem_html_a2c9c09797ac8917c287c6568289de1f5"><div class="ttname"><a href="classlibMesh_1_1TransientSystem.html#a2c9c09797ac8917c287c6568289de1f5">libMesh::TransientSystem::older_solution</a></div><div class="ttdeci">Number older_solution(const dof_id_type global_dof_number) const </div><div class="ttdef"><b>Definition:</b> <a href="transient__system_8C_source.html#l00190">transient_system.C:190</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TransientSystem_html_ab52a5a4474a17ef1d98ac19aabe5fdf4"><div class="ttname"><a href="classlibMesh_1_1TransientSystem.html#ab52a5a4474a17ef1d98ac19aabe5fdf4">libMesh::TransientSystem::old_local_solution</a></div><div class="ttdeci">UniquePtr&lt; NumericVector&lt; Number &gt; &gt; old_local_solution</div><div class="ttdef"><b>Definition:</b> <a href="transient__system_8h_source.html#l00117">transient_system.h:117</a></div></div>
 <div class="ttc" id="transient__system_8h_html"><div class="ttname"><a href="transient__system_8h.html">transient_system.h</a></div></div>
@@ -326,6 +325,7 @@
 <div class="ttc" id="nonlinear__implicit__system_8h_html"><div class="ttname"><a href="nonlinear__implicit__system_8h.html">nonlinear_implicit_system.h</a></div></div>
 <div class="ttc" id="explicit__system_8h_html"><div class="ttname"><a href="explicit__system_8h.html">explicit_system.h</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TransientSystem_html_a300ef08ad9b1c1e8a31b45c3d9afd336"><div class="ttname"><a href="classlibMesh_1_1TransientSystem.html#a300ef08ad9b1c1e8a31b45c3d9afd336">libMesh::TransientSystem::TransientSystem</a></div><div class="ttdeci">TransientSystem(EquationSystems &amp;es, const std::string &amp;name, const unsigned int number)</div><div class="ttdef"><b>Definition:</b> <a href="transient__system_8C_source.html#l00039">transient_system.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_af0a78fa0f592d2b8f515c69cabfaf529"><div class="ttname"><a href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">libMesh::UniquePtr</a></div><div class="ttdeci">std::unique_ptr&lt; T &gt; UniquePtr</div><div class="ttdef"><b>Definition:</b> <a href="auto__ptr_8h_source.html#l00046">auto_ptr.h:46</a></div></div>
 <div class="ttc" id="linear__implicit__system_8h_html"><div class="ttname"><a href="linear__implicit__system_8h.html">linear_implicit_system.h</a></div></div>
 <div class="ttc" id="eigen__system_8h_html"><div class="ttname"><a href="eigen__system_8h.html">eigen_system.h</a></div></div>
 <div class="ttc" id="rb__construction_8h_html"><div class="ttname"><a href="rb__construction_8h.html">rb_construction.h</a></div></div>
@@ -334,9 +334,10 @@
 <div class="ttc" id="namespacelibMesh_html_a29f261e38c002cf7661170b0fa4e8c74a538bc63becff09f368e6f930e423391f"><div class="ttname"><a href="namespacelibMesh.html#a29f261e38c002cf7661170b0fa4e8c74a538bc63becff09f368e6f930e423391f">libMesh::SERIAL</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__parallel__type_8h_source.html#l00031">enum_parallel_type.h:31</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TransientSystem_html_ac4d71ddbe8aa8f445191c744e8fb1abf"><div class="ttname"><a href="classlibMesh_1_1TransientSystem.html#ac4d71ddbe8aa8f445191c744e8fb1abf">libMesh::TransientSystem::clear</a></div><div class="ttdeci">virtual void clear() libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="transient__system_8C_source.html#l00079">transient_system.C:79</a></div></div>
 <div class="ttc" id="classlibMesh_1_1TransientSystem_html_a2777085c7021b35eee071f9b0f535e4f"><div class="ttname"><a href="classlibMesh_1_1TransientSystem.html#a2777085c7021b35eee071f9b0f535e4f">libMesh::TransientSystem::old_solution</a></div><div class="ttdeci">Number old_solution(const dof_id_type global_dof_number) const </div><div class="ttdef"><b>Definition:</b> <a href="transient__system_8C_source.html#l00178">transient_system.C:178</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a8b17bf24a15bc292850c3a3894e2e8f9"><div class="ttname"><a href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">libMesh::Number</a></div><div class="ttdeci">Real Number</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00184">libmesh_common.h:184</a></div></div>
 <div class="ttc" id="numeric__vector_8h_html"><div class="ttname"><a href="numeric__vector_8h.html">numeric_vector.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_acdead500615f318f379c66f7268b5f6c"><div class="ttname"><a href="libmesh__common_8h.html#acdead500615f318f379c66f7268b5f6c">libmesh_assert_greater_equal</a></div><div class="ttdeci">#define libmesh_assert_greater_equal(expr1, expr2)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00349">libmesh_common.h:349</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint32_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00070">id_types.h:70</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_abcdcc242e9ddbe9df36f064af5d9625d"><div class="ttname"><a href="namespacelibMesh.html#abcdcc242e9ddbe9df36f064af5d9625d">libMesh::get_dof_map</a></div><div class="ttdeci">sys get_dof_map()</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00180">petsc_diff_solver.C:180</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ab4541d74809228310a715b11c40587fc"><div class="ttname"><a href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">libMesh::dof_id_type</a></div><div class="ttdeci">uint8_t dof_id_type</div><div class="ttdef"><b>Definition:</b> <a href="id__types_8h_source.html#l00064">id_types.h:64</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->
 <!-- start footer part -->

@@ -110,7 +110,7 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a58e93350b4989b8e0fcb135a15486395"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a58e93350b4989b8e0fcb135a15486395">~ComputeGradient</a> ()</td></tr>
 <tr class="separator:a58e93350b4989b8e0fcb135a15486395"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cc11734c58bffe2e85a2c9ceedc0cce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a8cc11734c58bffe2e85a2c9ceedc0cce">gradient</a> (const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;X, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;grad_f, <a class="el" href="classlibMesh_1_1ExplicitSystem.html#a2d14ddc51b94a3fdd78ee3ac9f602118">sys_type</a> &amp;S)=0</td></tr>
+<tr class="memitem:a8cc11734c58bffe2e85a2c9ceedc0cce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeGradient.html#a8cc11734c58bffe2e85a2c9ceedc0cce">gradient</a> (const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;X, <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;grad_f, <a class="el" href="classlibMesh_1_1ExplicitSystem.html#a2d14ddc51b94a3fdd78ee3ac9f602118">sys_type</a> &amp;S)=0</td></tr>
 <tr class="separator:a8cc11734c58bffe2e85a2c9ceedc0cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -155,13 +155,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void libMesh::OptimizationSystem::ComputeGradient::gradient </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>X</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>grad_f</em>, </td>
         </tr>
         <tr>
@@ -183,6 +183,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>This function will be called to compute the gradient of the objective function, and must be implemented by the user in a derived class. Set <code>grad_f</code> to be the gradient at the iterate <code>X</code>. </p>
+
+<p>Referenced by <a class="el" href="nlopt__optimization__solver_8C_source.html#l00036">libMesh::__libmesh_nlopt_objective()</a>, and <a class="el" href="tao__optimization__solver_8C_source.html#l00092">libMesh::__libmesh_tao_gradient()</a>.</p>
 
 </div>
 </div>

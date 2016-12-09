@@ -100,6 +100,8 @@
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classlibMesh_1_1GhostingFunctor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -113,12 +115,12 @@ Inheritance diagram for libMesh::GhostingFunctor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlibMesh_1_1GhostingFunctor__inherit__graph.png" border="0" usemap="#libMesh_1_1GhostingFunctor_inherit__map" alt="Inheritance graph"/></div>
 <map name="libMesh_1_1GhostingFunctor_inherit__map" id="libMesh_1_1GhostingFunctor_inherit__map">
-<area shape="rect" id="node4" href="classlibMesh_1_1DefaultCoupling.html" title="libMesh::DefaultCoupling" alt="" coords="715,5,885,32"/><area shape="rect" id="node5" href="classlibMesh_1_1GhostPointNeighbors.html" title="libMesh::GhostPointNeighbors" alt="" coords="699,56,901,83"/><area shape="rect" id="node6" href="classlibMesh_1_1PointNeighborCoupling.html" title="libMesh::PointNeighborCoupling" alt="" coords="694,107,906,133"/><area shape="rect" id="node7" href="classlibMesh_1_1SiblingCoupling.html" title="libMesh::SiblingCoupling" alt="" coords="716,157,884,184"/><area shape="rect" id="node2" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; GhostingFunctor \&gt;" alt="" coords="237,74,424,115"/><area shape="rect" id="node3" href="classlibMesh_1_1ReferenceCounter.html" title="libMesh::ReferenceCounter" alt="" coords="5,81,189,108"/></map>
+<area shape="rect" id="node4" href="classlibMesh_1_1DefaultCoupling.html" title="libMesh::DefaultCoupling" alt="" coords="715,5,885,32"/><area shape="rect" id="node5" href="classlibMesh_1_1GhostPointNeighbors.html" title="libMesh::GhostPointNeighbors" alt="" coords="699,56,901,83"/><area shape="rect" id="node6" href="classlibMesh_1_1PointNeighborCoupling.html" title="libMesh::PointNeighborCoupling" alt="" coords="694,107,906,133"/><area shape="rect" id="node7" href="classlibMesh_1_1SiblingCoupling.html" title="libMesh::SiblingCoupling" alt="" coords="716,157,884,184"/><area shape="rect" id="node2" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; GhostingFunctor \&gt;" alt="" coords="237,74,424,115"/><area shape="rect" id="node3" href="classlibMesh_1_1ReferenceCounter.html" title="Common base for all objects whose creations/destructions are counted. " alt="" coords="5,81,189,108"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="libmesh__config_8h.html#a5f4734604f0282d419e3606ece03dfee">LIBMESH_BEST_UNORDERED_MAP</a>&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a></td></tr>
+<tr class="memitem:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memItemLeft" align="right" valign="top">typedef LIBMESH_BEST_UNORDERED_MAP&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a></td></tr>
 <tr class="separator:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -151,11 +153,25 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c0a2d3d3c531f9f069b0d623d4ace0f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a5c0a2d3d3c531f9f069b0d623d4ace0f">disable_print_counter_info</a> ()</td></tr>
 <tr class="separator:a5c0a2d3d3c531f9f069b0d623d4ace0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, std::pair&lt; unsigned int, unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a></td></tr>
+<tr class="separator:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a4d69475c6ae8e441306e90e57d755ced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a4d69475c6ae8e441306e90e57d755ced">increment_constructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a4d69475c6ae8e441306e90e57d755ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a9f8ca3935940b9b1a60f7645e856f2e4">increment_destructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static Threads::atomic&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
+<tr class="memitem:a7c913252d05560f8bc7c75a63547c4c3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a></td></tr>
+<tr class="separator:a7c913252d05560f8bc7c75a63547c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
 <tr class="separator:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static Threads::spin_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
+<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
 <tr class="separator:abedbd3a4ce19686187449a8a0557b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = true</td></tr>
 <tr class="separator:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +181,7 @@ Static Protected Attributes</h2></td></tr>
 <p>We can think of three levels of "element dependencies". An element K1 has a coupling dependency on K2 if the dofs on K1 might (modulo the coupling matrix) need sparsity pattern entries for dofs on K2. An element K1 has an algebraic dependency on K2 if a processor which owns K1 might need to examine the solution dof values on K2. An element K1 has a geometric dependency on K2 if a processor which owns K1 might need to examine the geometry of K2. For any element K, we could call the set of coupling-ghosted ("coupled") elements C(K), call the set of algebraic-ghosted ("evaluable") elements E(K), and call the set of geometry-ghosted ("ghosted") elements G(K).</p>
 <p>It should be safe to assume that, for any element K, C(K) implies E(K) implies G(K). These will be one-way implications in some problems and equality relations in others.</p>
 <p>We can think of these as operators on sets of elements in the obvious way, e.g.: G({K}) = {G(Ki) for all Ki in {K}}.</p>
-<p>The user should omit from their implementations relations which we already have enough information to understand implicitly. For instance, K is obviously in C(K), so a <a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> should never bother telling us so. We may have a PeriodicBoundary, a hanging node constraint equation, or a user-defined constraint equation which creates a dependency between two elements; if so then we don't need the user to also tell us about that relation (although a PeriodicBoundary use will cause the library to create its own PeriodicGhostingFunctor for internal use).</p>
+<p>The user should omit from their implementations relations which we already have enough information to understand implicitly. For instance, K is obviously in C(K), so a <a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> should never bother telling us so. We may have a <a class="el" href="classlibMesh_1_1PeriodicBoundary.html">PeriodicBoundary</a>, a hanging node constraint equation, or a user-defined constraint equation which creates a dependency between two elements; if so then we don't need the user to also tell us about that relation (although a <a class="el" href="classlibMesh_1_1PeriodicBoundary.html">PeriodicBoundary</a> use will cause the library to create its own PeriodicGhostingFunctor for internal use).</p>
 <p>Users may only care about a subset of variables in distant evaluable elements, so we could imagine defining E_v(K) for each variable number v, in which case E(K) under our previous definition is the union of E_v(K) forall v, and this is what would be included in G(K) when deciding what to ghost, but our send_list would only include the subset of variables we need, so communication and memory use would be much reduced. However, for efficiency and API simplicity, we instead define the isomorphic operator E'(K) which gives a set of ordered pairs of elements and variable-number-sets, from which a consistent E(K) would be derived by ignoring the variable-number-sets.</p>
 <p>For C(K), there are similar issues: e.g. we may want some discontinuous variables to couple only within their own element but other discontinuous variables to couple in a DG/FVM way. This could extend to more than one variable index: i.e. a dof for variable v1 in element K1 would depend on a dof for variable v2 in element K2 iff K2 is in C_v1_v2(K1). This would induce a consistent E_v(K) = union of C_w_v(K) forall variable indices w. Again, the equivalent API alternative we use here is for C'(K) to return a set of ordered pairs of elements and variable-number-pair-sets.</p>
 <p>We return variable-stuff-sets as pointers to <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>. That way, in the common case where the user cares about all variables and couple to all variables, all the functor needs to return for variable-number-sets and variable-number-pair-sets is a NULL (which as in other <a class="el" href="namespacelibMesh.html">libMesh</a> APIs will be interpreted and documented to mean the full set). In the common case where the user wants coupling between elements to match coupling within elements, the functor can return the same pointer as DofMap::_coupling_matrix. Even in the less common cases, the user can store common variable-number-sets and variable-number-pair sets as <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> members of a functor object of their subclass, and setting up a few of those matrices then setting lots of those pointers is cheap.</p>
@@ -175,12 +191,35 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ghosting__functor_8h_source.html#l00122">122</a> of file <a class="el" href="ghosting__functor_8h_source.html">ghosting_functor.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="adb5daadc989c1fe71ec8d173adf0ed1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, std::pair&lt;unsigned int, unsigned int&gt; &gt; <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">libMesh::ReferenceCounter::Counts</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Data structure to log the information. The log is identified by the class name. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00110">110</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aff4adda0105d525ac36bd0eac10ab6d5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="libmesh__config_8h.html#a5f4734604f0282d419e3606ece03dfee">LIBMESH_BEST_UNORDERED_MAP</a>&lt;const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a>*, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>*&gt; <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">libMesh::GhostingFunctor::map_type</a></td>
+          <td class="memname">typedef LIBMESH_BEST_UNORDERED_MAP&lt;const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a>*, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>*&gt; <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">libMesh::GhostingFunctor::map_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -300,14 +339,12 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00106">106</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00343">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -364,12 +401,12 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00100">100</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -397,7 +434,9 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00047">47</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if defined(LIBMESH_ENABLE_REFERENCE_COUNTING) &amp;&amp; defined(DEBUG)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -408,8 +447,8 @@ Static Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;| Reference count information                                                |\n&quot;</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      &lt;&lt; <span class="stringliteral">&quot; ---------------------------------------------------------------------------- \n&quot;</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = _counts.begin();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != _counts.end(); ++it)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.begin();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.end(); ++it)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">const</span> std::string <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>(it-&gt;first);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> creations    = it-&gt;second.first;</div>
@@ -431,6 +470,87 @@ Static Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4d69475c6ae8e441306e90e57d755ced"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_constructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the construction counter. Should be called in the constructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00160">160</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00074">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  p.first++;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9f8ca3935940b9b1a60f7645e856f2e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_destructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the destruction counter. Should be called in the destructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00173">173</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00101">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::~ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  p.second++;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -454,13 +574,13 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> subclasses which cache data will need to initialize that cache. We call <a class="el" href="classlibMesh_1_1GhostingFunctor.html#acbc49f77df76394153ae617a000bf128">mesh_reinit()</a> whenever the relevant <a class="el" href="classlibMesh_1_1Mesh.html">Mesh</a> has changed, but before remote elements on a distributed mesh are deleted. </p>
+<p><a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> subclasses which cache data will need to initialize that cache. We call <a class="el" href="classlibMesh_1_1GhostingFunctor.html#acbc49f77df76394153ae617a000bf128">mesh_reinit()</a> whenever the relevant <a class="el" href="classlibMesh_1_1Mesh.html" title="Manages a collection of Nodes and Elems. ">Mesh</a> has changed, but before remote elements on a distributed mesh are deleted. </p>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1PointNeighborCoupling.html#aba473bde5728dfa54f82321ffb988bd8">libMesh::PointNeighborCoupling</a>, and <a class="el" href="classlibMesh_1_1DefaultCoupling.html#acc09f20549dadef3c25a58875e26b352">libMesh::DefaultCoupling</a>.</p>
 
 <p>Definition at line <a class="el" href="ghosting__functor_8h_source.html#l00163">163</a> of file <a class="el" href="ghosting__functor_8h_source.html">ghosting_functor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__base_8C_source.html#l00172">libMesh::MeshBase::prepare_for_use()</a>.</p>
+<p>Referenced by <a class="el" href="unstructured__mesh_8C_source.html#l00770">libMesh::UnstructuredMesh::contract()</a>, and <a class="el" href="mesh__base_8C_source.html#l00172">libMesh::MeshBase::prepare_for_use()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;{};</div>
 </div><!-- fragment -->
 </div>
@@ -487,13 +607,11 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Prints the number of outstanding (created, but not yet destroyed) objects. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00075">75</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00076">76</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00122">libMesh::ReferenceCounter::_n_objects</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00122">reference_counter.h:122</a></div></div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00123">libMesh::ReferenceCounter::_n_objects</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00123">reference_counter.h:123</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -572,10 +690,14 @@ functor" eventually. </p>
 </div><div class="memdoc">
 <p>Prints the reference information, by default to <code><a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></code>. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00095">95</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00088">88</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{}</div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>, and <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> ) out_stream &lt;&lt; <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">ReferenceCounter::get_info</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -599,7 +721,7 @@ functor" eventually. </p>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> subclasses with relatively long-lasting caches may want to redistribute those caches whenever the relevant <a class="el" href="classlibMesh_1_1Mesh.html">Mesh</a> is redistributed; we will give them an opportunity when that happens. At the point in the code where this is called, element processor ids have been set to their new destinations, and those elements have been copied to their new destinations, but the elements have not yet been deleted by the processors which previously held them.. </p>
+<p><a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> subclasses with relatively long-lasting caches may want to redistribute those caches whenever the relevant <a class="el" href="classlibMesh_1_1Mesh.html" title="Manages a collection of Nodes and Elems. ">Mesh</a> is redistributed; we will give them an opportunity when that happens. At the point in the code where this is called, element processor ids have been set to their new destinations, and those elements have been copied to their new destinations, but the elements have not yet been deleted by the processors which previously held them.. </p>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1PointNeighborCoupling.html#a775ce120ce75f66f7a56c9cf9395fe91">libMesh::PointNeighborCoupling</a>, and <a class="el" href="classlibMesh_1_1DefaultCoupling.html#abf567eae664967f71ba96d7e25a49ae2">libMesh::DefaultCoupling</a>.</p>
 
@@ -609,6 +731,31 @@ functor" eventually. </p>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7c913252d05560f8bc7c75a63547c4c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">ReferenceCounter::Counts</a> libMesh::ReferenceCounter::_counts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Actually holds the data. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00115">115</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00160">libMesh::ReferenceCounter::increment_constructor_count()</a>, and <a class="el" href="reference__counter_8h_source.html#l00173">libMesh::ReferenceCounter::increment_destructor_count()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a8f75e8a4a280f2c41636f2ae1307a311"></a>
 <div class="memitem">
 <div class="memproto">
@@ -628,9 +775,9 @@ functor" eventually. </p>
 </div><div class="memdoc">
 <p>Flag to control whether reference count information is printed when print_info is called. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00133">133</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00134">134</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 
 </div>
 </div>
@@ -642,7 +789,7 @@ functor" eventually. </p>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::spin_mutex libMesh::ReferenceCounter::_mutex</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a> libMesh::ReferenceCounter::_mutex</td>
         </tr>
       </table>
   </td>
@@ -653,7 +800,7 @@ functor" eventually. </p>
 </div><div class="memdoc">
 <p>Mutual exclusion object to enable thread-safe reference counting. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00127">127</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00128">128</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
 </div>
 </div>
@@ -665,7 +812,7 @@ functor" eventually. </p>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::atomic&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
         </tr>
       </table>
   </td>
@@ -676,9 +823,9 @@ functor" eventually. </p>
 </div><div class="memdoc">
 <p>The number of objects. Print the reference count information when the number returns to 0. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00122">122</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00123">123</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00075">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00140">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00147">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00076">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00141">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00148">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
 
 </div>
 </div>

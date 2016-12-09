@@ -110,7 +110,7 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b871a32135bc066d9f553bf2e836da5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html#a6b871a32135bc066d9f553bf2e836da5">~ComputeEqualityConstraintsJacobian</a> ()</td></tr>
 <tr class="separator:a6b871a32135bc066d9f553bf2e836da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44c7d8a128654fc8b56ef50fa067e86d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html#a44c7d8a128654fc8b56ef50fa067e86d">equality_constraints_jacobian</a> (const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;X, <a class="el" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix</a>&lt; Number &gt; &amp;<a class="el" href="classlibMesh_1_1OptimizationSystem.html#a0abd35e9d5c5c04769d8bfad61c6888a">C_eq_jac</a>, <a class="el" href="classlibMesh_1_1ExplicitSystem.html#a2d14ddc51b94a3fdd78ee3ac9f602118">sys_type</a> &amp;S)=0</td></tr>
+<tr class="memitem:a44c7d8a128654fc8b56ef50fa067e86d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1OptimizationSystem_1_1ComputeEqualityConstraintsJacobian.html#a44c7d8a128654fc8b56ef50fa067e86d">equality_constraints_jacobian</a> (const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;X, <a class="el" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;<a class="el" href="classlibMesh_1_1OptimizationSystem.html#a0abd35e9d5c5c04769d8bfad61c6888a">C_eq_jac</a>, <a class="el" href="classlibMesh_1_1ExplicitSystem.html#a2d14ddc51b94a3fdd78ee3ac9f602118">sys_type</a> &amp;S)=0</td></tr>
 <tr class="separator:a44c7d8a128654fc8b56ef50fa067e86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -155,13 +155,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void libMesh::OptimizationSystem::ComputeEqualityConstraintsJacobian::equality_constraints_jacobian </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; Number &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>X</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix</a>&lt; Number &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classlibMesh_1_1SparseMatrix.html">SparseMatrix</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>C_eq_jac</em>, </td>
         </tr>
         <tr>
@@ -183,6 +183,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>This function will be called to evaluate the Jacobian of C_eq(X). </p>
+
+<p>Referenced by <a class="el" href="nlopt__optimization__solver_8C_source.html#l00109">libMesh::__libmesh_nlopt_equality_constraints()</a>, and <a class="el" href="tao__optimization__solver_8C_source.html#l00249">libMesh::__libmesh_tao_equality_constraints_jacobian()</a>.</p>
 
 </div>
 </div>

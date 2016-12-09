@@ -128,130 +128,130 @@
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibMesh.html">libMesh</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;TetGenWrapper::TetGenWrapper() :</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a115204d61274e1dcedbf9d77da86a066">   31</a></span>&#160;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a115204d61274e1dcedbf9d77da86a066">TetGenWrapper::TetGenWrapper</a>() :</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  tetgen_output(new tetgenio)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  this-&gt;tetgen_data.mesh_dim                = 3;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  this-&gt;tetgen_data.numberofpointattributes = 0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  this-&gt;tetgen_data.firstnumber             = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.mesh_dim                = 3;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofpointattributes = 0;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.firstnumber             = 0;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;TetGenWrapper::~TetGenWrapper()</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a31da8a4d9c868179147fa939e3b72be4">   41</a></span>&#160;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a31da8a4d9c868179147fa939e3b72be4">TetGenWrapper::~TetGenWrapper</a>()</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_node(<span class="keywordtype">unsigned</span> i, REAL x, REAL y, REAL z)</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a74fe3e0dded1262dfec4e073801076be">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a74fe3e0dded1262dfec4e073801076be">TetGenWrapper::set_node</a>(<span class="keywordtype">unsigned</span> i, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> y, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> z)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">unsigned</span> index = i*3;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  tetgen_data.pointlist[index++] = x;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  tetgen_data.pointlist[index++] = y;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  tetgen_data.pointlist[index++] = z;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist[index++] = <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist[index++] = y;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist[index++] = z;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_hole(<span class="keywordtype">unsigned</span> i, REAL x, REAL y, REAL z)</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a56aac9d042e6bfaa97847464c0c424cf">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a56aac9d042e6bfaa97847464c0c424cf">TetGenWrapper::set_hole</a>(<span class="keywordtype">unsigned</span> i, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> y, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> z)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">unsigned</span> index = i*3;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  tetgen_data.holelist[index++] = x;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  tetgen_data.holelist[index++] = y;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  tetgen_data.holelist[index++] = z;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist[index++] = <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist[index++] = y;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist[index++] = z;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_numberofpoints(<span class="keywordtype">int</span> i)</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#aaaf98e413df6c813c2828ecc3a63cfae">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#aaaf98e413df6c813c2828ecc3a63cfae">TetGenWrapper::set_numberofpoints</a>(<span class="keywordtype">int</span> i)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// This is an int in tetgen, so use an int here even though it should be unsigned</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  tetgen_data.numberofpoints = i;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofpoints = i;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::get_output_node(<span class="keywordtype">unsigned</span> i, REAL &amp; x, REAL &amp; y, REAL &amp; z)</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a4a62476692f5316429f6565687287645">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a4a62476692f5316429f6565687287645">TetGenWrapper::get_output_node</a>(<span class="keywordtype">unsigned</span> i, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> &amp; <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> &amp; y, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> &amp; z)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">// Bounds checking...</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">if</span> (i &gt;= static_cast&lt;unsigned&gt;(tetgen_output-&gt;numberofpoints))</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Error, requested point &quot;</span>        \</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">if</span> (i &gt;= static_cast&lt;unsigned&gt;(<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberofpoints))</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Error, requested point &quot;</span>        \</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                      &lt;&lt; i                             \</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot;, but there are only &quot;</span>       \</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                      &lt;&lt; tetgen_output-&gt;numberofpoints \</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                      &lt;&lt; <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberofpoints \</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot; points available.&quot;</span>);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  x = tetgen_output-&gt;pointlist[3*i];</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  y = tetgen_output-&gt;pointlist[3*i+1];</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  z = tetgen_output-&gt;pointlist[3*i+2];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  x = <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;pointlist[3*i];</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  y = <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;pointlist[3*i+1];</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  z = <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;pointlist[3*i+2];</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">int</span> TetGenWrapper::get_numberoftetrahedra()</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a38312ab0aebc02be7563a8d667d202ab">   92</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a38312ab0aebc02be7563a8d667d202ab">TetGenWrapper::get_numberoftetrahedra</a>()</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">return</span> tetgen_output-&gt;numberoftetrahedra;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberoftetrahedra;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">int</span> TetGenWrapper::get_numberoftrifaces()</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a888d5310f2dd981172b5117cbec28be2">   99</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a888d5310f2dd981172b5117cbec28be2">TetGenWrapper::get_numberoftrifaces</a>()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">return</span> tetgen_output-&gt;numberoftrifaces;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberoftrifaces;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">int</span> TetGenWrapper::get_numberofpoints()</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#ac8d61f645946216032b8b106375c180a">  106</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#ac8d61f645946216032b8b106375c180a">TetGenWrapper::get_numberofpoints</a>()</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">return</span> tetgen_output-&gt;numberofpoints;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberofpoints;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">int</span> TetGenWrapper::get_element_node(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j)</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a09443278f10829854b5f6004d39088e0">  113</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a09443278f10829854b5f6004d39088e0">TetGenWrapper::get_element_node</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordflow">return</span> tetgen_output-&gt;tetrahedronlist[i*4+j];</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;tetrahedronlist[i*4+j];</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keywordtype">int</span> TetGenWrapper::get_triface_node(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j)</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a7864e72f8af555e170b1787937675945">  120</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7864e72f8af555e170b1787937675945">TetGenWrapper::get_triface_node</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j)</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordflow">return</span> tetgen_output-&gt;trifacelist[i*3+j];</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;trifacelist[i*3+j];</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;REAL TetGenWrapper::get_element_attribute(<span class="keywordtype">unsigned</span> i)</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a3b4a91c3fdb760b16b403365aae02a7d">  127</a></span>&#160;<a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a3b4a91c3fdb760b16b403365aae02a7d">TetGenWrapper::get_element_attribute</a>(<span class="keywordtype">unsigned</span> i)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(tetgen_output-&gt;numberoftetrahedronattributes&gt;0);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">return</span> tetgen_output-&gt;tetrahedronattributelist[tetgen_output-&gt;numberoftetrahedronattributes*i];</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberoftetrahedronattributes&gt;0);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;tetrahedronattributelist[<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>-&gt;numberoftetrahedronattributes*i];</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::allocate_pointlist(<span class="keywordtype">int</span> numofpoints)</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#adf1856480f78d7bb0b53ef4a5beb16c6">  135</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#adf1856480f78d7bb0b53ef4a5beb16c6">TetGenWrapper::allocate_pointlist</a>(<span class="keywordtype">int</span> numofpoints)</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="comment">// This is stored as an int in tetgen, so we store it that way as well.</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  this-&gt;set_numberofpoints(numofpoints);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#aaaf98e413df6c813c2828ecc3a63cfae">set_numberofpoints</a>(numofpoints);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="comment">// Don&#39;t try to allocate an array of size zero, this is not portable...</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordflow">if</span> (this-&gt;tetgen_data.numberofpoints &gt; 0)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofpoints &gt; 0)</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    {</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="keywordflow">if</span> (this-&gt;tetgen_data.pointlist != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor will delete it.</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      this-&gt;tetgen_data.pointlist = <span class="keyword">new</span> REAL[this-&gt;tetgen_data.numberofpoints * 3];</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.pointlist = <span class="keyword">new</span> <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a>[this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofpoints * 3];</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_switches(<span class="keyword">const</span> std::string &amp; s)</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#aa8419c6f2d036e19a6f40dd61d790158">  154</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#aa8419c6f2d036e19a6f40dd61d790158">TetGenWrapper::set_switches</a>(<span class="keyword">const</span> std::string &amp; s)</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="comment">// A temporary buffer for passing to the C API, it requires</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="comment">// a char *, not a const char *...</span></div>
@@ -259,199 +259,230 @@
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="comment">// Make sure char buffer has enough room</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keywordflow">if</span> (s.size() &gt;= <span class="keyword">sizeof</span>(buffer)-1)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Fixed size buffer of length &quot;</span>                  \</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    libmesh_error_msg(<span class="stringliteral">&quot;Fixed size buffer of length &quot;</span>                  \</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                      &lt;&lt; <span class="keyword">sizeof</span>(buffer)                               \</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot; not large enough to hold TetGen switches.&quot;</span>);</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="comment">// Copy the string, don&#39;t forget to NULL-terminate!</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  buffer[ s.copy( buffer , <span class="keyword">sizeof</span>( buffer ) - 1 ) ] = <span class="charliteral">&#39;\0&#39;</span> ;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keywordflow">if</span> (!tetgen_be.parse_commandline(buffer))</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a945509dbfddbed16d2ab9b0d55416c53">tetgen_be</a>.parse_commandline(buffer))</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a> &lt;&lt; <span class="stringliteral">&quot;TetGen replies: Wrong switches!&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::run_tetgen()</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a248559d273c5cee6c07eb4d183565e7e">  175</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a248559d273c5cee6c07eb4d183565e7e">TetGenWrapper::run_tetgen</a>()</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="comment">// Call tetrahedralize from the TetGen library.</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  tetrahedralize(&amp;tetgen_be, &amp;tetgen_data, tetgen_output.get());</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  tetrahedralize(&amp;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a945509dbfddbed16d2ab9b0d55416c53">tetgen_be</a>, &amp;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>, <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">tetgen_output</a>.get());</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_numberoffacets(<span class="keywordtype">int</span> i)</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a758781798d73fb30a00f22887f2fa966">  183</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a758781798d73fb30a00f22887f2fa966">TetGenWrapper::set_numberoffacets</a>(<span class="keywordtype">int</span> i)</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;{</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="comment">// This is stored as an int in TetGen</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  this-&gt;tetgen_data.numberoffacets = i;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberoffacets = i;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_numberofholes(<span class="keywordtype">int</span> i)</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#aa132a38fe1aac1aa07e541dd68bd3ffa">  191</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#aa132a38fe1aac1aa07e541dd68bd3ffa">TetGenWrapper::set_numberofholes</a>(<span class="keywordtype">int</span> i)</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;{</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="comment">// This is stored as an int in TetGen</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  this-&gt;tetgen_data.numberofholes = i;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofholes = i;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_numberofregions(<span class="keywordtype">int</span> i)</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a363fd5acaef01783488d5ea5294f81d2">  199</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a363fd5acaef01783488d5ea5294f81d2">TetGenWrapper::set_numberofregions</a>(<span class="keywordtype">int</span> i)</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;{</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="comment">// This is stored as an int in TetGen</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  this-&gt;tetgen_data.numberofregions = i;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofregions = i;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::allocate_facetlist(<span class="keywordtype">int</span> numoffacets, <span class="keywordtype">int</span> numofholes)</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a306d0a237f3d0014fbf3e7cdde2bc179">  207</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a306d0a237f3d0014fbf3e7cdde2bc179">TetGenWrapper::allocate_facetlist</a>(<span class="keywordtype">int</span> numoffacets, <span class="keywordtype">int</span> numofholes)</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;{</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="comment">// These are both stored as ints in TetGen</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  this-&gt;set_numberoffacets(numoffacets);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  this-&gt;set_numberofholes(numofholes);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a758781798d73fb30a00f22887f2fa966">set_numberoffacets</a>(numoffacets);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#aa132a38fe1aac1aa07e541dd68bd3ffa">set_numberofholes</a>(numofholes);</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="comment">// Don&#39;t try to allocate an array of size zero, this is not portable...</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keywordflow">if</span> (this-&gt;tetgen_data.numberoffacets &gt; 0)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberoffacets &gt; 0)</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    {</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">if</span> (this-&gt;tetgen_data.facetlist != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      this-&gt;tetgen_data.facetlist = <span class="keyword">new</span> tetgenio::facet[this-&gt;tetgen_data.numberoffacets];</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist = <span class="keyword">new</span> tetgenio::facet[this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberoffacets];</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;numoffacets; i++)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        this-&gt;tetgen_data.init(&amp;(this-&gt;tetgen_data.facetlist[i]));</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.init(&amp;(this-&gt;tetgen_data.facetlist[i]));</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="comment">// Don&#39;t try to allocate an array of size zero, this is not portable...</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordflow">if</span> (this-&gt;tetgen_data.numberofholes &gt; 0)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofholes &gt; 0)</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keywordflow">if</span> (this-&gt;tetgen_data.holelist != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      this-&gt;tetgen_data.holelist = <span class="keyword">new</span> REAL[this-&gt;tetgen_data.numberofholes * 3];</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.holelist = <span class="keyword">new</span> <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a>[this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofholes * 3];</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::allocate_regionlist(<span class="keywordtype">int</span> numofregions)</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a7b8f1ace3b117a29ef74ac192e505ba3">  241</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a7b8f1ace3b117a29ef74ac192e505ba3">TetGenWrapper::allocate_regionlist</a>(<span class="keywordtype">int</span> numofregions)</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;{</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  this-&gt;set_numberofregions(numofregions);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a363fd5acaef01783488d5ea5294f81d2">set_numberofregions</a>(numofregions);</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="comment">// Don&#39;t try to allocate an array of size zero, this is not portable...</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordflow">if</span> (this-&gt;tetgen_data.numberofregions &gt; 0)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofregions &gt; 0)</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">if</span> (this-&gt;tetgen_data.regionlist != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      this-&gt;tetgen_data.regionlist = <span class="keyword">new</span> REAL[this-&gt;tetgen_data.numberofregions * 5];</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist = <span class="keyword">new</span> <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a>[this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.numberofregions * 5];</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_facet_numberofpolygons(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">int</span> num)</div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#af05b782a10095ca2b634d5df9934ebd5">  259</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#af05b782a10095ca2b634d5df9934ebd5">TetGenWrapper::set_facet_numberofpolygons</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">int</span> num)</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;{</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="comment">// numberofpolygons is stored as an int in TetGen</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  this-&gt;tetgen_data.facetlist[i].numberofpolygons = num;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].numberofpolygons = num;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_facet_numberofholes(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">int</span> num)</div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#afce889bc686bafecca5768cba5d449b4">  267</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#afce889bc686bafecca5768cba5d449b4">TetGenWrapper::set_facet_numberofholes</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">int</span> num)</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="comment">// numberofholes is stored as an int in TetGen</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  this-&gt;tetgen_data.facetlist[i].numberofholes = num;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].numberofholes = num;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::allocate_facet_polygonlist(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">int</span> numofpolygons)</div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a5a7aaea0c97c58fece00912ad82ec0b1">  276</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a5a7aaea0c97c58fece00912ad82ec0b1">TetGenWrapper::allocate_facet_polygonlist</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">int</span> numofpolygons)</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;{</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  this-&gt;set_facet_numberofpolygons(i, numofpolygons);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  this-&gt;set_facet_numberofholes(i, 0);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#af05b782a10095ca2b634d5df9934ebd5">set_facet_numberofpolygons</a>(i, numofpolygons);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#afce889bc686bafecca5768cba5d449b4">set_facet_numberofholes</a>(i, 0);</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="comment">// Don&#39;t try to create an array of size zero, this isn&#39;t portable</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keywordflow">if</span> (numofpolygons &gt; 0)</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    {</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keywordflow">if</span> (this-&gt;tetgen_data.facetlist[i].polygonlist != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      this-&gt;tetgen_data.facetlist[i].polygonlist = <span class="keyword">new</span> tetgenio::polygon[numofpolygons];</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist = <span class="keyword">new</span> tetgenio::polygon[numofpolygons];</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;this-&gt;tetgen_data.facetlist[i].numberofpolygons; j++)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        this-&gt;tetgen_data.init(&amp;(this-&gt;tetgen_data.facetlist[i].polygonlist[j]));</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].numberofpolygons; j++)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.init(&amp;(this-&gt;tetgen_data.facetlist[i].polygonlist[j]));</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;}</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_polygon_numberofvertices(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j, <span class="keywordtype">int</span> num)</div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a4d0c765c72d52d84a0991e3385671c97">  298</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a4d0c765c72d52d84a0991e3385671c97">TetGenWrapper::set_polygon_numberofvertices</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j, <span class="keywordtype">int</span> num)</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;{</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="comment">// numberofvertices is stored as an int in TetGen</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  this-&gt;tetgen_data.facetlist[i].polygonlist[j].numberofvertices = num;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist[j].numberofvertices = num;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;}</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::allocate_polygon_vertexlist(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j, <span class="keywordtype">int</span> numofvertices)</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#ae148e7ab9a39e42323e3a87e4c5ed5c2">  306</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#ae148e7ab9a39e42323e3a87e4c5ed5c2">TetGenWrapper::allocate_polygon_vertexlist</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j, <span class="keywordtype">int</span> numofvertices)</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;{</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  this-&gt;set_polygon_numberofvertices(i, j, numofvertices);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a4d0c765c72d52d84a0991e3385671c97">set_polygon_numberofvertices</a>(i, j, numofvertices);</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// Don&#39;t try to create an array of size zero, this isn&#39;t portable</span></div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="keywordflow">if</span> (numofvertices &gt; 0)</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    {</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="comment">// Is there previously-allocated memory here?</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordflow">if</span> (this-&gt;tetgen_data.facetlist[i].polygonlist[j].vertexlist != <a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>)</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <a class="code" href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a>(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist[j].vertexlist != <a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        libmesh_error_msg(<span class="stringliteral">&quot;Cannot allocate on top of previously allocated memory!&quot;</span>);</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="comment">// We allocate memory here, the tetgenio destructor cleans it up.</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      this-&gt;tetgen_data.facetlist[i].polygonlist[j].vertexlist = <span class="keyword">new</span> <span class="keywordtype">int</span>[numofvertices];</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist[j].vertexlist = <span class="keyword">new</span> <span class="keywordtype">int</span>[numofvertices];</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    }</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_vertex(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j, <span class="keywordtype">unsigned</span> k, <span class="keywordtype">int</span> nodeindex)</div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#ab3aa56276d2ec00020582152a44829c6">  325</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#ab3aa56276d2ec00020582152a44829c6">TetGenWrapper::set_vertex</a>(<span class="keywordtype">unsigned</span> i, <span class="keywordtype">unsigned</span> j, <span class="keywordtype">unsigned</span> k, <span class="keywordtype">int</span> nodeindex)</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;{</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="comment">// vertexlist entries are stored as ints in TetGen</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  this-&gt;tetgen_data.facetlist[i].polygonlist[j].vertexlist[k] = nodeindex;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.facetlist[i].polygonlist[j].vertexlist[k] = nodeindex;</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;}</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keywordtype">void</span> TetGenWrapper::set_region(<span class="keywordtype">unsigned</span> i, REAL x, REAL y, REAL z,</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                               REAL attribute, REAL vol_constraint)</div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="classlibMesh_1_1TetGenWrapper.html#a2b8d812ce5e500729bcad4b144e0d043">  333</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a2b8d812ce5e500729bcad4b144e0d043">TetGenWrapper::set_region</a>(<span class="keywordtype">unsigned</span> i, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> y, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> z,</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                               <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> attribute, <a class="code" href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">REAL</a> vol_constraint)</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;{</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keywordtype">unsigned</span> index = i*5;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  tetgen_data.regionlist[index++] = x;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  tetgen_data.regionlist[index++] = y;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  tetgen_data.regionlist[index++] = z;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  tetgen_data.regionlist[index++] = attribute;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  tetgen_data.regionlist[index++] = vol_constraint;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = <a class="code" href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">x</a>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = y;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = z;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = attribute;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <a class="code" href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">tetgen_data</a>.regionlist[index++] = vol_constraint;</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;}</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;} <span class="comment">// namespace libMesh</span></div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="preprocessor">#endif // LIBMESH_HAVE_TETGEN</span></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a4d0c765c72d52d84a0991e3385671c97"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a4d0c765c72d52d84a0991e3385671c97">libMesh::TetGenWrapper::set_polygon_numberofvertices</a></div><div class="ttdeci">void set_polygon_numberofvertices(unsigned i, unsigned j, int num)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00298">mesh_tetgen_wrapper.C:298</a></div></div>
 <div class="ttc" id="mesh__tetgen__wrapper_8h_html"><div class="ttname"><a href="mesh__tetgen__wrapper_8h.html">mesh_tetgen_wrapper.h</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a363fd5acaef01783488d5ea5294f81d2"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a363fd5acaef01783488d5ea5294f81d2">libMesh::TetGenWrapper::set_numberofregions</a></div><div class="ttdeci">void set_numberofregions(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00199">mesh_tetgen_wrapper.C:199</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_aaaf98e413df6c813c2828ecc3a63cfae"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#aaaf98e413df6c813c2828ecc3a63cfae">libMesh::TetGenWrapper::set_numberofpoints</a></div><div class="ttdeci">void set_numberofpoints(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00067">mesh_tetgen_wrapper.C:67</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a3b4a91c3fdb760b16b403365aae02a7d"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a3b4a91c3fdb760b16b403365aae02a7d">libMesh::TetGenWrapper::get_element_attribute</a></div><div class="ttdeci">REAL get_element_attribute(unsigned i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00127">mesh_tetgen_wrapper.C:127</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_af05b782a10095ca2b634d5df9934ebd5"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#af05b782a10095ca2b634d5df9934ebd5">libMesh::TetGenWrapper::set_facet_numberofpolygons</a></div><div class="ttdeci">void set_facet_numberofpolygons(unsigned i, int num)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00259">mesh_tetgen_wrapper.C:259</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a09443278f10829854b5f6004d39088e0"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a09443278f10829854b5f6004d39088e0">libMesh::TetGenWrapper::get_element_node</a></div><div class="ttdeci">int get_element_node(unsigned i, unsigned j)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00113">mesh_tetgen_wrapper.C:113</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a4a62476692f5316429f6565687287645"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a4a62476692f5316429f6565687287645">libMesh::TetGenWrapper::get_output_node</a></div><div class="ttdeci">void get_output_node(unsigned i, REAL &amp;x, REAL &amp;y, REAL &amp;z)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00075">mesh_tetgen_wrapper.C:75</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a7864e72f8af555e170b1787937675945"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a7864e72f8af555e170b1787937675945">libMesh::TetGenWrapper::get_triface_node</a></div><div class="ttdeci">int get_triface_node(unsigned i, unsigned j)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00120">mesh_tetgen_wrapper.C:120</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a7d45240f5ac6b4a53e22ad8daff83384"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a7d45240f5ac6b4a53e22ad8daff83384">libMesh::TetGenWrapper::tetgen_output</a></div><div class="ttdeci">UniquePtr&lt; tetgenio &gt; tetgen_output</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00227">mesh_tetgen_wrapper.h:227</a></div></div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_afce889bc686bafecca5768cba5d449b4"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#afce889bc686bafecca5768cba5d449b4">libMesh::TetGenWrapper::set_facet_numberofholes</a></div><div class="ttdeci">void set_facet_numberofholes(unsigned i, int num)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00267">mesh_tetgen_wrapper.C:267</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a758781798d73fb30a00f22887f2fa966"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a758781798d73fb30a00f22887f2fa966">libMesh::TetGenWrapper::set_numberoffacets</a></div><div class="ttdeci">void set_numberoffacets(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00183">mesh_tetgen_wrapper.C:183</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_ab3aa56276d2ec00020582152a44829c6"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#ab3aa56276d2ec00020582152a44829c6">libMesh::TetGenWrapper::set_vertex</a></div><div class="ttdeci">void set_vertex(unsigned i, unsigned j, unsigned k, int nodeindex)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00325">mesh_tetgen_wrapper.C:325</a></div></div>
 <div class="ttc" id="namespacelibMesh_html"><div class="ttname"><a href="namespacelibMesh.html">libMesh</a></div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8C_source.html#l00031">default_coupling.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_ae148e7ab9a39e42323e3a87e4c5ed5c2"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#ae148e7ab9a39e42323e3a87e4c5ed5c2">libMesh::TetGenWrapper::allocate_polygon_vertexlist</a></div><div class="ttdeci">void allocate_polygon_vertexlist(unsigned i, unsigned j, int numofvertices)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00306">mesh_tetgen_wrapper.C:306</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_adf1856480f78d7bb0b53ef4a5beb16c6"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#adf1856480f78d7bb0b53ef4a5beb16c6">libMesh::TetGenWrapper::allocate_pointlist</a></div><div class="ttdeci">void allocate_pointlist(int numofpoints)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00135">mesh_tetgen_wrapper.C:135</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a38312ab0aebc02be7563a8d667d202ab"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a38312ab0aebc02be7563a8d667d202ab">libMesh::TetGenWrapper::get_numberoftetrahedra</a></div><div class="ttdeci">int get_numberoftetrahedra()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00092">mesh_tetgen_wrapper.C:92</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a4949ba3ddabcabc86af3033b3e03fd03"><div class="ttname"><a href="namespacelibMesh.html#a4949ba3ddabcabc86af3033b3e03fd03">libMesh::x</a></div><div class="ttdeci">PetscErrorCode Vec x</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00142">petsc_diff_solver.C:142</a></div></div>
 <div class="ttc" id="libmesh__common_8h_html"><div class="ttname"><a href="libmesh__common_8h.html">libmesh_common.h</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_aacaadd6c39873085d6cf10207f73fd7f"><div class="ttname"><a href="libmesh__common_8h.html#aacaadd6c39873085d6cf10207f73fd7f">libmesh_error_msg</a></div><div class="ttdeci">#define libmesh_error_msg(msg)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00362">libmesh_common.h:362</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a74fe3e0dded1262dfec4e073801076be"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a74fe3e0dded1262dfec4e073801076be">libMesh::TetGenWrapper::set_node</a></div><div class="ttdeci">void set_node(unsigned i, REAL x, REAL y, REAL z)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00047">mesh_tetgen_wrapper.C:47</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a43b66745bdfedaa2800e31b92d370398"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a43b66745bdfedaa2800e31b92d370398">libMesh::TetGenWrapper::tetgen_data</a></div><div class="ttdeci">tetgenio tetgen_data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00222">mesh_tetgen_wrapper.h:222</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a248559d273c5cee6c07eb4d183565e7e"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a248559d273c5cee6c07eb4d183565e7e">libMesh::TetGenWrapper::run_tetgen</a></div><div class="ttdeci">void run_tetgen()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00175">mesh_tetgen_wrapper.C:175</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_aa8419c6f2d036e19a6f40dd61d790158"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#aa8419c6f2d036e19a6f40dd61d790158">libMesh::TetGenWrapper::set_switches</a></div><div class="ttdeci">void set_switches(const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00154">mesh_tetgen_wrapper.C:154</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_ac8d61f645946216032b8b106375c180a"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#ac8d61f645946216032b8b106375c180a">libMesh::TetGenWrapper::get_numberofpoints</a></div><div class="ttdeci">int get_numberofpoints()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00106">mesh_tetgen_wrapper.C:106</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a1e82fa346933f46b0f2e09213e9ef039"><div class="ttname"><a href="namespacelibMesh.html#a1e82fa346933f46b0f2e09213e9ef039">libMesh::REAL</a></div><div class="ttdeci">Real REAL</div><div class="ttdef"><b>Definition:</b> <a href="mesh__triangle__wrapper_8h_source.html#l00036">mesh_triangle_wrapper.h:36</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a31da8a4d9c868179147fa939e3b72be4"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a31da8a4d9c868179147fa939e3b72be4">libMesh::TetGenWrapper::~TetGenWrapper</a></div><div class="ttdeci">~TetGenWrapper()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00041">mesh_tetgen_wrapper.C:41</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a5a7aaea0c97c58fece00912ad82ec0b1"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a5a7aaea0c97c58fece00912ad82ec0b1">libMesh::TetGenWrapper::allocate_facet_polygonlist</a></div><div class="ttdeci">void allocate_facet_polygonlist(unsigned i, int numofpolygons)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00276">mesh_tetgen_wrapper.C:276</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a56aac9d042e6bfaa97847464c0c424cf"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a56aac9d042e6bfaa97847464c0c424cf">libMesh::TetGenWrapper::set_hole</a></div><div class="ttdeci">void set_hole(unsigned i, REAL x, REAL y, REAL z)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00057">mesh_tetgen_wrapper.C:57</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_aa132a38fe1aac1aa07e541dd68bd3ffa"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#aa132a38fe1aac1aa07e541dd68bd3ffa">libMesh::TetGenWrapper::set_numberofholes</a></div><div class="ttdeci">void set_numberofholes(int i)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00191">mesh_tetgen_wrapper.C:191</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a7b8f1ace3b117a29ef74ac192e505ba3"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a7b8f1ace3b117a29ef74ac192e505ba3">libMesh::TetGenWrapper::allocate_regionlist</a></div><div class="ttdeci">void allocate_regionlist(int numofregions)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00241">mesh_tetgen_wrapper.C:241</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a115204d61274e1dcedbf9d77da86a066"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a115204d61274e1dcedbf9d77da86a066">libMesh::TetGenWrapper::TetGenWrapper</a></div><div class="ttdeci">TetGenWrapper()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00031">mesh_tetgen_wrapper.C:31</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a888d5310f2dd981172b5117cbec28be2"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a888d5310f2dd981172b5117cbec28be2">libMesh::TetGenWrapper::get_numberoftrifaces</a></div><div class="ttdeci">int get_numberoftrifaces()</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00099">mesh_tetgen_wrapper.C:99</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a945509dbfddbed16d2ab9b0d55416c53"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a945509dbfddbed16d2ab9b0d55416c53">libMesh::TetGenWrapper::tetgen_be</a></div><div class="ttdeci">tetgenbehavior tetgen_be</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8h_source.html#l00237">mesh_tetgen_wrapper.h:237</a></div></div>
 <div class="ttc" id="libmesh__config_8h_html"><div class="ttname"><a href="libmesh__config_8h.html">libmesh_config.h</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a2b8d812ce5e500729bcad4b144e0d043"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a2b8d812ce5e500729bcad4b144e0d043">libMesh::TetGenWrapper::set_region</a></div><div class="ttdeci">void set_region(unsigned i, REAL x, REAL y, REAL z, REAL attribute, REAL vol_constraint)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00333">mesh_tetgen_wrapper.C:333</a></div></div>
+<div class="ttc" id="classlibMesh_1_1TetGenWrapper_html_a306d0a237f3d0014fbf3e7cdde2bc179"><div class="ttname"><a href="classlibMesh_1_1TetGenWrapper.html#a306d0a237f3d0014fbf3e7cdde2bc179">libMesh::TetGenWrapper::allocate_facetlist</a></div><div class="ttdeci">void allocate_facetlist(int numoffacets, int numofholes)</div><div class="ttdef"><b>Definition:</b> <a href="mesh__tetgen__wrapper_8C_source.html#l00207">mesh_tetgen_wrapper.C:207</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a63e3c3158308e2184c12b55ab9ea9a35"><div class="ttname"><a href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></div><div class="ttdeci">OStreamProxy out(std::cout)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00234">libmesh_common.h:234</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

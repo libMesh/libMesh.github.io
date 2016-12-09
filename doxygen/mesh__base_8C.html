@@ -101,28 +101,7 @@
 <div class="title">mesh_base.C File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="libmesh__config_8h_source.html">libmesh/libmesh_config.h</a>&quot;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &quot;<a class="el" href="boundary__info_8h_source.html">libmesh/boundary_info.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="elem_8h_source.html">libmesh/elem.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ghost__point__neighbors_8h_source.html">libmesh/ghost_point_neighbors.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__base_8h_source.html">libmesh/mesh_base.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__communication_8h_source.html">libmesh/mesh_communication.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mesh__tools_8h_source.html">libmesh/mesh_tools.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="parallel_8h_source.html">libmesh/parallel.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="partitioner_8h_source.html">libmesh/partitioner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="point__locator__base_8h_source.html">libmesh/point_locator_base.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="threads_8h_source.html">libmesh/threads.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for mesh_base.C:</div>
-<div class="dyncontent">
-<div class="center"><img src="mesh__base_8C__incl.png" border="0" usemap="#mesh__base_8C" alt=""/></div>
-<map name="mesh__base_8C" id="mesh__base_8C">
-<area shape="rect" id="node2" href="libmesh__config_8h.html" title="libmesh/libmesh_config.h" alt="" coords="2803,965,2975,992"/><area shape="rect" id="node6" href="boundary__info_8h.html" title="libmesh/boundary_info.h" alt="" coords="378,328,544,355"/><area shape="rect" id="node15" href="parallel_8h.html" title="libmesh/parallel.h" alt="" coords="797,501,923,528"/><area shape="rect" id="node26" href="elem_8h.html" title="libmesh/elem.h" alt="" coords="2380,171,2492,197"/><area shape="rect" id="node41" href="ghost__point__neighbors_8h.html" title="libmesh/ghost_point\l_neighbors.h" alt="" coords="1334,81,1473,122"/><area shape="rect" id="node43" href="mesh__base_8h.html" title="libmesh/mesh_base.h" alt="" coords="1209,245,1361,272"/><area shape="rect" id="node44" href="partitioner_8h.html" title="libmesh/partitioner.h" alt="" coords="774,328,916,355"/><area shape="rect" id="node45" href="point__locator__base_8h.html" title="libmesh/point_locator\l_base.h" alt="" coords="1494,321,1641,362"/><area shape="rect" id="node47" href="mesh__communication_8h.html" title="libmesh/mesh_communication.h" alt="" coords="849,88,1060,115"/><area shape="rect" id="node48" href="mesh__tools_8h.html" title="libmesh/mesh_tools.h" alt="" coords="879,171,1029,197"/><area shape="rect" id="node49" href="threads_8h.html" title="libmesh/threads.h" alt="" coords="3038,667,3164,693"/><area shape="rect" id="node7" href="libmesh__common_8h.html" title="libmesh/libmesh_common.h" alt="" coords="1921,741,2108,768"/><area shape="rect" id="node12" href="id__types_8h.html" title="libmesh/id_types.h" alt="" coords="329,891,460,917"/><area shape="rect" id="node14" href="parallel__object_8h.html" title="libmesh/parallel_object.h" alt="" coords="499,419,668,445"/><area shape="rect" id="node11" href="libmesh__base_8h.html" title="libmesh/libmesh_base.h" alt="" coords="464,816,629,843"/><area shape="rect" id="node16" href="libmesh__logging_8h.html" title="libmesh/libmesh_logging.h" alt="" coords="1093,667,1272,693"/><area shape="rect" id="node17" href="auto__ptr_8h.html" title="libmesh/auto_ptr.h" alt="" coords="2315,584,2447,611"/><area shape="rect" id="node25" href="parallel__implementation_8h.html" title="libmesh/parallel_implementation.h" alt="" coords="997,584,1221,611"/><area shape="rect" id="node27" href="dof__object_8h.html" title="libmesh/dof_object.h" alt="" coords="2393,328,2537,355"/><area shape="rect" id="node29" href="reference__counted__object_8h.html" title="libmesh/reference_counted\l_object.h" alt="" coords="2842,411,3024,453"/><area shape="rect" id="node30" href="node_8h.html" title="libmesh/node.h" alt="" coords="2655,245,2767,272"/><area shape="rect" id="node33" href="enum__elem__type_8h.html" title="libmesh/enum_elem_type.h" alt="" coords="993,328,1177,355"/><area shape="rect" id="node34" href="enum__elem__quality_8h.html" title="libmesh/enum_elem_quality.h" alt="" coords="3151,245,3349,272"/><area shape="rect" id="node35" href="enum__order_8h.html" title="libmesh/enum_order.h" alt="" coords="3375,245,3529,272"/><area shape="rect" id="node36" href="enum__io__package_8h.html" title="libmesh/enum_io_package.h" alt="" coords="3553,245,3745,272"/><area shape="rect" id="node37" href="multi__predicates_8h.html" title="libmesh/multi_predicates.h" alt="" coords="1666,328,1845,355"/><area shape="rect" id="node38" href="variant__filter__iterator_8h.html" title="libmesh/variant_filter\l_iterator.h" alt="" coords="2023,321,2167,362"/><area shape="rect" id="node39" href="hashword_8h.html" title="libmesh/hashword.h" alt="" coords="2129,501,2268,528"/><area shape="rect" id="node28" href="libmesh_8h.html" title="libmesh/libmesh.h" alt="" coords="947,419,1076,445"/><area shape="rect" id="node31" href="point_8h.html" title="libmesh/point.h" alt="" coords="2561,328,2673,355"/><area shape="rect" id="node42" href="ghosting__functor_8h.html" title="libmesh/ghosting_functor.h" alt="" coords="1323,171,1504,197"/><area shape="rect" id="node46" href="enum__point__locator__type_8h.html" title="libmesh/enum_point\l_locator_type.h" alt="" coords="1557,411,1699,453"/><area shape="rect" id="node50" href="threads__none_8h.html" title="libmesh/threads_none.h" alt="" coords="3054,741,3217,768"/></map>
-</div>
-</div>
+
 <p><a href="mesh__base_8C_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -132,7 +111,7 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af7144270bc8c5e6dfd0bd1f455ae5c6a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#af7144270bc8c5e6dfd0bd1f455ae5c6a">libMesh::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> &amp;m)</td></tr>
+<tr class="memitem:af7144270bc8c5e6dfd0bd1f455ae5c6a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibMesh.html#af7144270bc8c5e6dfd0bd1f455ae5c6a">libMesh::operator&lt;&lt;</a> (std::ostream &amp;os, const MeshBase &amp;m)</td></tr>
 <tr class="separator:af7144270bc8c5e6dfd0bd1f455ae5c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

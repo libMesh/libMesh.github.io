@@ -100,6 +100,8 @@
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classlibMesh_1_1DefaultCoupling-members.html">List of all members</a>  </div>
@@ -114,12 +116,12 @@ Inheritance diagram for libMesh::DefaultCoupling:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlibMesh_1_1DefaultCoupling__inherit__graph.png" border="0" usemap="#libMesh_1_1DefaultCoupling_inherit__map" alt="Inheritance graph"/></div>
 <map name="libMesh_1_1DefaultCoupling_inherit__map" id="libMesh_1_1DefaultCoupling_inherit__map">
-<area shape="rect" id="node2" href="classlibMesh_1_1GhostingFunctor.html" title="libMesh::GhostingFunctor" alt="" coords="12,171,185,197"/><area shape="rect" id="node3" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; GhostingFunctor \&gt;" alt="" coords="5,81,192,122"/><area shape="rect" id="node4" href="classlibMesh_1_1ReferenceCounter.html" title="libMesh::ReferenceCounter" alt="" coords="7,5,191,32"/></map>
+<area shape="rect" id="node2" href="classlibMesh_1_1GhostingFunctor.html" title="libMesh::GhostingFunctor" alt="" coords="12,171,185,197"/><area shape="rect" id="node3" href="classlibMesh_1_1ReferenceCountedObject.html" title="libMesh::ReferenceCounted\lObject\&lt; GhostingFunctor \&gt;" alt="" coords="5,81,192,122"/><area shape="rect" id="node4" href="classlibMesh_1_1ReferenceCounter.html" title="Common base for all objects whose creations/destructions are counted. " alt="" coords="7,5,191,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="libmesh__config_8h.html#a5f4734604f0282d419e3606ece03dfee">LIBMESH_BEST_UNORDERED_MAP</a>&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a></td></tr>
+<tr class="memitem:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memItemLeft" align="right" valign="top">typedef LIBMESH_BEST_UNORDERED_MAP&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a></td></tr>
 <tr class="separator:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -132,15 +134,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af7e2fba34e8c2a105414a0fc28633470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af813e3aaeb3288111215ea0bcb55225a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#af813e3aaeb3288111215ea0bcb55225a">set_n_levels</a> (unsigned int <a class="el" href="classlibMesh_1_1DefaultCoupling.html#af7e2fba34e8c2a105414a0fc28633470">n_levels</a>)</td></tr>
 <tr class="separator:af813e3aaeb3288111215ea0bcb55225a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc53d42105ddfd2cacabdb69aded3ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#afcc53d42105ddfd2cacabdb69aded3ee">set_periodic_boundaries</a> (const <a class="el" href="classlibMesh_1_1PeriodicBoundaries.html">PeriodicBoundaries</a> *periodic_bcs)</td></tr>
+<tr class="separator:afcc53d42105ddfd2cacabdb69aded3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c5dcb088c4dc8a3e0c2e84abc8c8f90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a7c5dcb088c4dc8a3e0c2e84abc8c8f90">set_mesh</a> (const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> *<a class="el" href="mesh__tools_8C.html#afaa03b874c297f4693d9cdef7f50f3c6">mesh</a>)</td></tr>
 <tr class="separator:a7c5dcb088c4dc8a3e0c2e84abc8c8f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc09f20549dadef3c25a58875e26b352"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#acc09f20549dadef3c25a58875e26b352">mesh_reinit</a> () <a class="el" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a></td></tr>
+<tr class="memitem:acc09f20549dadef3c25a58875e26b352"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#acc09f20549dadef3c25a58875e26b352">mesh_reinit</a> () libmesh_override</td></tr>
 <tr class="separator:acc09f20549dadef3c25a58875e26b352"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf567eae664967f71ba96d7e25a49ae2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#abf567eae664967f71ba96d7e25a49ae2">redistribute</a> () <a class="el" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a></td></tr>
+<tr class="memitem:abf567eae664967f71ba96d7e25a49ae2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#abf567eae664967f71ba96d7e25a49ae2">redistribute</a> () libmesh_override</td></tr>
 <tr class="separator:abf567eae664967f71ba96d7e25a49ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a652da958bebc2922cf56ba94238bf973"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a652da958bebc2922cf56ba94238bf973">delete_remote_elements</a> () <a class="el" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a></td></tr>
+<tr class="memitem:a652da958bebc2922cf56ba94238bf973"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a652da958bebc2922cf56ba94238bf973">delete_remote_elements</a> () libmesh_override</td></tr>
 <tr class="separator:a652da958bebc2922cf56ba94238bf973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c5dbef8e979a70d7e7a22608b21f29d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a4c5dbef8e979a70d7e7a22608b21f29d">operator()</a> (const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_begin, const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_end, <a class="el" href="namespacelibMesh.html#afebcb3616f8c81cda531dec404f2420d">processor_id_type</a> p, <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a> &amp;coupled_elements) <a class="el" href="libmesh__common_8h.html#adb2446b067005358d01bd1f5c08f17a3">libmesh_override</a></td></tr>
+<tr class="memitem:a4c5dbef8e979a70d7e7a22608b21f29d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a4c5dbef8e979a70d7e7a22608b21f29d">operator()</a> (const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_begin, const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_end, <a class="el" href="namespacelibMesh.html#afebcb3616f8c81cda531dec404f2420d">processor_id_type</a> p, <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a> &amp;coupled_elements) libmesh_override</td></tr>
 <tr class="separator:a4c5dbef8e979a70d7e7a22608b21f29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9571e0c0ae41d4b133083071e7ce787"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#af9571e0c0ae41d4b133083071e7ce787">dofmap_reinit</a> ()</td></tr>
 <tr class="separator:af9571e0c0ae41d4b133083071e7ce787"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,11 +162,25 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c0a2d3d3c531f9f069b0d623d4ace0f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a5c0a2d3d3c531f9f069b0d623d4ace0f">disable_print_counter_info</a> ()</td></tr>
 <tr class="separator:a5c0a2d3d3c531f9f069b0d623d4ace0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, std::pair&lt; unsigned int, unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a></td></tr>
+<tr class="separator:adb5daadc989c1fe71ec8d173adf0ed1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a4d69475c6ae8e441306e90e57d755ced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a4d69475c6ae8e441306e90e57d755ced">increment_constructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a4d69475c6ae8e441306e90e57d755ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a9f8ca3935940b9b1a60f7645e856f2e4">increment_destructor_count</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a9f8ca3935940b9b1a60f7645e856f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static Threads::atomic&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
+<tr class="memitem:a7c913252d05560f8bc7c75a63547c4c3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">Counts</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a></td></tr>
+<tr class="separator:a7c913252d05560f8bc7c75a63547c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a></td></tr>
 <tr class="separator:ad2c30f0f71dcd00f00faa8e46aa3e043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static Threads::spin_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
+<tr class="memitem:abedbd3a4ce19686187449a8a0557b74b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#abedbd3a4ce19686187449a8a0557b74b">_mutex</a></td></tr>
 <tr class="separator:abedbd3a4ce19686187449a8a0557b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = true</td></tr>
 <tr class="separator:a8f75e8a4a280f2c41636f2ae1307a311"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +189,8 @@ Static Protected Attributes</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a978eab72c33da257ddf6c72f0be04d4e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a></td></tr>
 <tr class="separator:a978eab72c33da257ddf6c72f0be04d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61812bd0765877cf2812a922bd2404c1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlibMesh_1_1PeriodicBoundaries.html">PeriodicBoundaries</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a></td></tr>
+<tr class="separator:a61812bd0765877cf2812a922bd2404c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd486328832305cc298300cbc2d0a38e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlibMesh_1_1MeshBase.html">MeshBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a></td></tr>
 <tr class="separator:abd486328832305cc298300cbc2d0a38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff081e8242e7b1fd30a4b579b3d64afb"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1DefaultCoupling.html#aff081e8242e7b1fd30a4b579b3d64afb">_n_levels</a></td></tr>
@@ -183,6 +203,29 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="default__coupling_8h_source.html#l00041">41</a> of file <a class="el" href="default__coupling_8h_source.html">default_coupling.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="adb5daadc989c1fe71ec8d173adf0ed1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, std::pair&lt;unsigned int, unsigned int&gt; &gt; <a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">libMesh::ReferenceCounter::Counts</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Data structure to log the information. The log is identified by the class name. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00110">110</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aff4adda0105d525ac36bd0eac10ab6d5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +234,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="libmesh__config_8h.html#a5f4734604f0282d419e3606ece03dfee">LIBMESH_BEST_UNORDERED_MAP</a>&lt;const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a>*, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>*&gt; <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">libMesh::GhostingFunctor::map_type</a></td>
+          <td class="memname">typedef LIBMESH_BEST_UNORDERED_MAP&lt;const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a>*, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>*&gt; <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">libMesh::GhostingFunctor::map_type</a></td>
         </tr>
       </table>
   </td>
@@ -231,16 +274,17 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="default__coupling_8h_source.html#l00048">48</a> of file <a class="el" href="default__coupling_8h_source.html">default_coupling.h</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    :</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a>(<a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a>(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_PERIODIC</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    _periodic_bcs(<a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a>(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>(<a class="code" href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a>),</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>(<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#aff081e8242e7b1fd30a4b579b3d64afb">_n_levels</a>(0)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; {}</div>
+<div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_aff081e8242e7b1fd30a4b579b3d64afb"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#aff081e8242e7b1fd30a4b579b3d64afb">libMesh::DefaultCoupling::_n_levels</a></div><div class="ttdeci">unsigned int _n_levels</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00112">default_coupling.h:112</a></div></div>
-<div class="ttc" id="libmesh__nullptr_8h_html_a3b1a932893e694cb2db37ea9082f248c"><div class="ttname"><a href="libmesh__nullptr_8h.html#a3b1a932893e694cb2db37ea9082f248c">libmesh_nullptr</a></div><div class="ttdeci">#define libmesh_nullptr</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__nullptr_8h_source.html#l00075">libmesh_nullptr.h:75</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a978eab72c33da257ddf6c72f0be04d4e"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">libMesh::DefaultCoupling::_dof_coupling</a></div><div class="ttdeci">const CouplingMatrix * _dof_coupling</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00107">default_coupling.h:107</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a61812bd0765877cf2812a922bd2404c1"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">libMesh::DefaultCoupling::_periodic_bcs</a></div><div class="ttdeci">const PeriodicBoundaries * _periodic_bcs</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00109">default_coupling.h:109</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_abd486328832305cc298300cbc2d0a38e"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">libMesh::DefaultCoupling::_mesh</a></div><div class="ttdeci">const MeshBase * _mesh</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00111">default_coupling.h:111</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -301,14 +345,12 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00106">106</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00343">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -365,12 +407,12 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00100">100</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00133">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 <div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00133">reference_counter.h:133</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -398,7 +440,9 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00047">47</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>References <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if defined(LIBMESH_ENABLE_REFERENCE_COUNTING) &amp;&amp; defined(DEBUG)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -409,8 +453,8 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;| Reference count information                                                |\n&quot;</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      &lt;&lt; <span class="stringliteral">&quot; ---------------------------------------------------------------------------- \n&quot;</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = _counts.begin();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != _counts.end(); ++it)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (Counts::iterator it = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.begin();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       it != <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>.end(); ++it)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">const</span> std::string <a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>(it-&gt;first);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> creations    = it-&gt;second.first;</div>
@@ -432,6 +476,87 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4d69475c6ae8e441306e90e57d755ced"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_constructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the construction counter. Should be called in the constructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00160">160</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00074">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  p.first++;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9f8ca3935940b9b1a60f7645e856f2e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::ReferenceCounter::increment_destructor_count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increments the destruction counter. Should be called in the destructor of any derived class that will be reference counted. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00173">173</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>References <a class="el" href="reference__counter_8h_source.html#l00115">libMesh::ReferenceCounter::_counts</a>, <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>, and <a class="el" href="threads_8C_source.html#l00029">libMesh::Threads::spin_mtx</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counted__object_8h_source.html#l00101">libMesh::ReferenceCountedObject&lt; RBParametrized &gt;::~ReferenceCountedObject()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  Threads::spin_mutex::scoped_lock lock(<a class="code" href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">Threads::spin_mtx</a>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; &amp; p = <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">_counts</a>[<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>];</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  p.second++;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
+<div class="ttc" id="namespacelibMesh_1_1Threads_html_aba1ae5c24686d2cd2fc7ccdc9537c4f5"><div class="ttname"><a href="namespacelibMesh_1_1Threads.html#aba1ae5c24686d2cd2fc7ccdc9537c4f5">libMesh::Threads::spin_mtx</a></div><div class="ttdeci">spin_mutex spin_mtx</div><div class="ttdef"><b>Definition:</b> <a href="threads_8C_source.html#l00029">threads.C:29</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a7c913252d05560f8bc7c75a63547c4c3"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a7c913252d05560f8bc7c75a63547c4c3">libMesh::ReferenceCounter::_counts</a></div><div class="ttdeci">static Counts _counts</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00115">reference_counter.h:115</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -461,26 +586,27 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="default__coupling_8C_source.html#l00052">52</a> of file <a class="el" href="default__coupling_8C_source.html">default_coupling.C</a>.</p>
 
-<p>References <a class="el" href="default__coupling_8h_source.html#l00111">_mesh</a>, <a class="el" href="libmesh__common_8h_source.html#l00342">libmesh_assert</a>, and <a class="el" href="mesh__base_8C_source.html#l00528">libMesh::MeshBase::sub_point_locator()</a>.</p>
+<p>References <a class="el" href="default__coupling_8h_source.html#l00111">_mesh</a>, <a class="el" href="default__coupling_8h_source.html#l00109">_periodic_bcs</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, and <a class="el" href="mesh__base_8C_source.html#l00528">libMesh::MeshBase::sub_point_locator()</a>.</p>
 
 <p>Referenced by <a class="el" href="default__coupling_8h_source.html#l00087">delete_remote_elements()</a>, and <a class="el" href="default__coupling_8h_source.html#l00084">redistribute()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">// Unless we have periodic boundary conditions, we don&#39;t need</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// anything precomputed.</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_PERIODIC</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">if</span> (!_periodic_bcs || _periodic_bcs-&gt;empty())</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a> || <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a>-&gt;empty())</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// If we do have periodic boundary conditions, we&#39;ll need a master</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// point locator, so we&#39;d better have a mesh to build it on.</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Make sure an up-to-date master point locator has been</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// constructed; we&#39;ll need to grab sub-locators soon.</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>-&gt;<a class="code" href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">sub_point_locator</a>();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
+<div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a61812bd0765877cf2812a922bd2404c1"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">libMesh::DefaultCoupling::_periodic_bcs</a></div><div class="ttdeci">const PeriodicBoundaries * _periodic_bcs</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00109">default_coupling.h:109</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a2e16bc2d2812c76285e69ea163bda2b3"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">libMesh::MeshBase::sub_point_locator</a></div><div class="ttdeci">UniquePtr&lt; PointLocatorBase &gt; sub_point_locator() const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00528">mesh_base.C:528</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_abd486328832305cc298300cbc2d0a38e"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">libMesh::DefaultCoupling::_mesh</a></div><div class="ttdeci">const MeshBase * _mesh</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00111">default_coupling.h:111</a></div></div>
 </div><!-- fragment -->
@@ -539,13 +665,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Prints the number of outstanding (created, but not yet destroyed) objects. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00075">75</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00076">76</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>References <a class="el" href="reference__counter_8h_source.html#l00122">libMesh::ReferenceCounter::_n_objects</a>.</p>
-
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
-<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00122">reference_counter.h:122</a></div></div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00123">libMesh::ReferenceCounter::_n_objects</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00123">reference_counter.h:123</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -599,30 +723,30 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="default__coupling_8C_source.html#l00073">73</a> of file <a class="el" href="default__coupling_8C_source.html">default_coupling.C</a>.</p>
 
-<p>References <a class="el" href="libmesh__common_8h_source.html#l00342">libmesh_assert</a>, <a class="el" href="libmesh__logging_8h_source.html#l00114">LOG_SCOPE</a>, <a class="el" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides()</a>, <a class="el" href="elem_8h_source.html#l01745">libMesh::Elem::neighbor_ptr()</a>, <a class="el" href="dof__object_8h_source.html#l00686">libMesh::DofObject::processor_id()</a>, and <a class="el" href="remote__elem_8C_source.html#l00057">libMesh::remote_elem</a>.</p>
+<p>References <a class="el" href="elem_8C_source.html#l01821">libMesh::Elem::active_family_tree_by_neighbor()</a>, <a class="el" href="elem_8C_source.html#l01778">libMesh::Elem::active_family_tree_by_topological_neighbor()</a>, <a class="el" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert()</a>, <a class="el" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides()</a>, <a class="el" href="elem_8h_source.html#l01745">libMesh::Elem::neighbor_ptr()</a>, <a class="el" href="dof__object_8h_source.html#l00686">libMesh::DofObject::processor_id()</a>, <a class="el" href="remote__elem_8C_source.html#l00057">libMesh::remote_elem</a>, and <a class="el" href="elem_8C_source.html#l01056">libMesh::Elem::topological_neighbor()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a>(<span class="stringliteral">&quot;operator()&quot;</span>, <span class="stringliteral">&quot;DefaultCoupling&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  LOG_SCOPE(<span class="stringliteral">&quot;operator()&quot;</span>, <span class="stringliteral">&quot;DefaultCoupling&quot;</span>);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_PERIODIC</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">bool</span> check_periodic_bcs =</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    (_periodic_bcs &amp;&amp; !_periodic_bcs-&gt;empty());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    (<a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a> &amp;&amp; !<a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a>-&gt;empty());</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  UniquePtr&lt;PointLocatorBase&gt; point_locator;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">if</span> (check_periodic_bcs)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      point_locator = <a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>-&gt;<a class="code" href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">sub_point_locator</a>();</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classlibMesh_1_1DefaultCoupling.html#aff081e8242e7b1fd30a4b579b3d64afb">_n_levels</a>)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">for</span> (<a class="code" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> elem_it = range_begin;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">for</span> (MeshBase::const_element_iterator elem_it = range_begin;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;           elem_it != range_end; ++elem_it)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * <span class="keyword">const</span> elem = *elem_it;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          <span class="keyword">const</span> Elem * <span class="keyword">const</span> elem = *elem_it;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;          <span class="keywordflow">if</span> (elem-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">processor_id</a>() != p)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;          <span class="keywordflow">if</span> (elem-&gt;processor_id() != p)</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            coupled_elements.insert (std::make_pair(elem,<a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a>));</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">return</span>;</div>
@@ -645,14 +769,14 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;          std::vector&lt;const Elem *&gt; active_neighbors;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;          <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * <span class="keyword">const</span> elem = *elem_it;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;          <span class="keyword">const</span> Elem * <span class="keyword">const</span> elem = *elem_it;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;          <span class="keywordflow">if</span> (elem-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">processor_id</a>() != p)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;          <span class="keywordflow">if</span> (elem-&gt;processor_id() != p)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            coupled_elements.insert (std::make_pair(elem,<a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a>));</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">n_sides</a>(); s++)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> s=0; s&lt;elem-&gt;n_sides(); s++)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;              <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> *neigh = elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">neighbor_ptr</a>(s);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;              <span class="keyword">const</span> Elem *neigh = elem-&gt;neighbor_ptr(s);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;              <span class="comment">// If we have a neighbor here</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;              <span class="keywordflow">if</span> (neigh)</div>
@@ -668,10 +792,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;              <span class="comment">// We might still have a periodic neighbor here</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;              <span class="keywordflow">else</span> <span class="keywordflow">if</span> (check_periodic_bcs)</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                  <a class="code" href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                  <a class="code" href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libmesh_assert</a>(<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                  neigh = elem-&gt;topological_neighbor</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                    (s, *<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>, *point_locator, _periodic_bcs);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                    (s, *<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>, *point_locator, <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a>);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
@@ -683,12 +807,12 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;              <span class="comment">// With any kind of neighbor, we need to couple to all the</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;              <span class="comment">// active descendants on our side.</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#ifdef LIBMESH_ENABLE_AMR</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;              <span class="keywordflow">if</span> (neigh == elem-&gt;<a class="code" href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">neighbor_ptr</a>(s))</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;              <span class="keywordflow">if</span> (neigh == elem-&gt;neighbor_ptr(s))</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                neigh-&gt;active_family_tree_by_neighbor(active_neighbors,elem);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#  ifdef LIBMESH_ENABLE_PERIODIC</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;              <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                neigh-&gt;active_family_tree_by_topological_neighbor</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                  (active_neighbors,elem,*<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>,*point_locator,_periodic_bcs);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                  (active_neighbors,elem,*<a class="code" href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">_mesh</a>,*point_locator,<a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a>);</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#  endif</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;              active_neighbors.clear();</div>
@@ -697,12 +821,12 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;              <span class="keywordflow">for</span> (std::size_t a=0; a != active_neighbors.size(); ++a)</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                  <span class="keyword">const</span> <a class="code" href="classlibMesh_1_1Elem.html">Elem</a> * neighbor = active_neighbors[a];</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                  <span class="keyword">const</span> Elem * neighbor = active_neighbors[a];</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                  <span class="keywordflow">if</span> (!elements_checked.count(neighbor))</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    next_elements_to_check.insert(neighbor);</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                  <span class="keywordflow">if</span> (neighbor-&gt;<a class="code" href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">processor_id</a>() != p)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                  <span class="keywordflow">if</span> (neighbor-&gt;processor_id() != p)</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    coupled_elements.insert</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                      (std::make_pair(neighbor, <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a>));</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                }</div>
@@ -710,17 +834,12 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
-<div class="ttc" id="libmesh__common_8h_html_aada6a71479cc5a4fc3fc5aaed4f4c18b"><div class="ttname"><a href="libmesh__common_8h.html#aada6a71479cc5a4fc3fc5aaed4f4c18b">libmesh_assert</a></div><div class="ttdeci">#define libmesh_assert(asserted)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00342">libmesh_common.h:342</a></div></div>
-<div class="ttc" id="structlibMesh_1_1MeshBase_1_1const__element__iterator_html"><div class="ttname"><a href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">libMesh::MeshBase::const_element_iterator</a></div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8h_source.html#l01381">mesh_base.h:1381</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html"><div class="ttname"><a href="classlibMesh_1_1Elem.html">libMesh::Elem</a></div><div class="ttdoc">The base class for all geometric element types. </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l00092">elem.h:92</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_a3b58ea2b1f0983f12b64ef5d011331a6"><div class="ttname"><a href="classlibMesh_1_1Elem.html#a3b58ea2b1f0983f12b64ef5d011331a6">libMesh::Elem::neighbor_ptr</a></div><div class="ttdeci">const Elem * neighbor_ptr(unsigned int i) const </div><div class="ttdef"><b>Definition:</b> <a href="elem_8h_source.html#l01745">elem.h:1745</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_ac03a5d846eeb24a13168f6b5358f86e3"><div class="ttname"><a href="namespacelibMesh.html#ac03a5d846eeb24a13168f6b5358f86e3">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(remote_elem)</div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_aff081e8242e7b1fd30a4b579b3d64afb"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#aff081e8242e7b1fd30a4b579b3d64afb">libMesh::DefaultCoupling::_n_levels</a></div><div class="ttdeci">unsigned int _n_levels</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00112">default_coupling.h:112</a></div></div>
-<div class="ttc" id="libmesh__logging_8h_html_ae5cbe34ceb1c018027d8dea96ca3f996"><div class="ttname"><a href="libmesh__logging_8h.html#ae5cbe34ceb1c018027d8dea96ca3f996">LOG_SCOPE</a></div><div class="ttdeci">#define LOG_SCOPE(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__logging_8h_source.html#l00114">libmesh_logging.h:114</a></div></div>
-<div class="ttc" id="classlibMesh_1_1Elem_html_ae376bfa6ac14723330e07a97992b56c9"><div class="ttname"><a href="classlibMesh_1_1Elem.html#ae376bfa6ac14723330e07a97992b56c9">libMesh::Elem::n_sides</a></div><div class="ttdeci">virtual unsigned int n_sides() const =0</div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a978eab72c33da257ddf6c72f0be04d4e"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">libMesh::DefaultCoupling::_dof_coupling</a></div><div class="ttdeci">const CouplingMatrix * _dof_coupling</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00107">default_coupling.h:107</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a61812bd0765877cf2812a922bd2404c1"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">libMesh::DefaultCoupling::_periodic_bcs</a></div><div class="ttdeci">const PeriodicBoundaries * _periodic_bcs</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00109">default_coupling.h:109</a></div></div>
 <div class="ttc" id="classlibMesh_1_1MeshBase_html_a2e16bc2d2812c76285e69ea163bda2b3"><div class="ttname"><a href="classlibMesh_1_1MeshBase.html#a2e16bc2d2812c76285e69ea163bda2b3">libMesh::MeshBase::sub_point_locator</a></div><div class="ttdeci">UniquePtr&lt; PointLocatorBase &gt; sub_point_locator() const </div><div class="ttdef"><b>Definition:</b> <a href="mesh__base_8C_source.html#l00528">mesh_base.C:528</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_abd486328832305cc298300cbc2d0a38e"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#abd486328832305cc298300cbc2d0a38e">libMesh::DefaultCoupling::_mesh</a></div><div class="ttdeci">const MeshBase * _mesh</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00111">default_coupling.h:111</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DofObject_html_a0e8748b2c01f78902c9c432ad79cf546"><div class="ttname"><a href="classlibMesh_1_1DofObject.html#a0e8748b2c01f78902c9c432ad79cf546">libMesh::DofObject::processor_id</a></div><div class="ttdeci">processor_id_type processor_id() const </div><div class="ttdef"><b>Definition:</b> <a href="dof__object_8h_source.html#l00686">dof_object.h:686</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a903992f631b52b5ba05ad96a51e7b383"><div class="ttname"><a href="namespacelibMesh.html#a903992f631b52b5ba05ad96a51e7b383">libMesh::remote_elem</a></div><div class="ttdeci">const RemoteElem * remote_elem</div><div class="ttdef"><b>Definition:</b> <a href="remote__elem_8C_source.html#l00057">remote_elem.C:57</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -748,10 +867,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Prints the reference information, by default to <code><a class="el" href="namespacelibMesh.html#a63e3c3158308e2184c12b55ab9ea9a35">libMesh::out</a></code>. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00095">95</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8C_source.html#l00088">88</a> of file <a class="el" href="reference__counter_8C_source.html">reference_counter.C</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00688">libMesh::LibMeshInit::~LibMeshInit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{}</div>
+<p>References <a class="el" href="reference__counter_8h_source.html#l00134">libMesh::ReferenceCounter::_enable_print_counter</a>, and <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> ) out_stream &lt;&lt; <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">ReferenceCounter::get_info</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
+<div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00134">reference_counter.h:134</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -775,7 +898,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> subclasses with relatively long-lasting caches may want to redistribute those caches whenever the relevant <a class="el" href="classlibMesh_1_1Mesh.html">Mesh</a> is redistributed; we will give them an opportunity when that happens. At the point in the code where this is called, element processor ids have been set to their new destinations, and those elements have been copied to their new destinations, but the elements have not yet been deleted by the processors which previously held them.. </p>
+<p><a class="el" href="classlibMesh_1_1GhostingFunctor.html">GhostingFunctor</a> subclasses with relatively long-lasting caches may want to redistribute those caches whenever the relevant <a class="el" href="classlibMesh_1_1Mesh.html" title="Manages a collection of Nodes and Elems. ">Mesh</a> is redistributed; we will give them an opportunity when that happens. At the point in the code where this is called, element processor ids have been set to their new destinations, and those elements have been copied to their new destinations, but the elements have not yet been deleted by the processors which previously held them.. </p>
 
 <p>Reimplemented from <a class="el" href="classlibMesh_1_1GhostingFunctor.html#a2f4502085eaa26f29a36cc008d4c5015">libMesh::GhostingFunctor</a>.</p>
 
@@ -803,23 +926,21 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="default__coupling_8C_source.html#l00034">34</a> of file <a class="el" href="default__coupling_8C_source.html">default_coupling.C</a>.</p>
 
-<p>References <a class="el" href="default__coupling_8h_source.html#l00107">_dof_coupling</a>, <a class="el" href="coupling__matrix_8h_source.html#l00612">libMesh::CouplingMatrix::empty()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00453">libmesh_deprecated</a>.</p>
+<p>References <a class="el" href="default__coupling_8h_source.html#l00107">_dof_coupling</a>, and <a class="el" href="coupling__matrix_8h_source.html#l00612">libMesh::CouplingMatrix::empty()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// We used to treat an empty 0x0 _dof_coupling matrix as if it</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// were an NxN all-ones matrix.  We&#39;d like to stop supporting this</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">// behavior, but for now we&#39;ll just warn about it, while supporting</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">// it via the preferred mechanism: a NULL _dof_coupling</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// matrix pointer is interpreted as a full coupling matrix.</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">if</span> (dof_coupling &amp;&amp; dof_coupling-&gt;<a class="code" href="classlibMesh_1_1CouplingMatrix.html#aa4e4b91867c63a57cf985147205d82cd">empty</a>())</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">if</span> (dof_coupling &amp;&amp; dof_coupling-&gt;empty())</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <a class="code" href="libmesh__common_8h.html#a0b19e1644665ff7a302639a653960e7b">libmesh_deprecated</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      libmesh_deprecated();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a> = NULL;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">_dof_coupling</a> = dof_coupling;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="ttc" id="classlibMesh_1_1CouplingMatrix_html_aa4e4b91867c63a57cf985147205d82cd"><div class="ttname"><a href="classlibMesh_1_1CouplingMatrix.html#aa4e4b91867c63a57cf985147205d82cd">libMesh::CouplingMatrix::empty</a></div><div class="ttdeci">bool empty() const </div><div class="ttdef"><b>Definition:</b> <a href="coupling__matrix_8h_source.html#l00612">coupling_matrix.h:612</a></div></div>
-<div class="ttc" id="libmesh__common_8h_html_a0b19e1644665ff7a302639a653960e7b"><div class="ttname"><a href="libmesh__common_8h.html#a0b19e1644665ff7a302639a653960e7b">libmesh_deprecated</a></div><div class="ttdeci">#define libmesh_deprecated()</div><div class="ttdef"><b>Definition:</b> <a href="libmesh__common_8h_source.html#l00453">libmesh_common.h:453</a></div></div>
 <div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a978eab72c33da257ddf6c72f0be04d4e"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a978eab72c33da257ddf6c72f0be04d4e">libMesh::DefaultCoupling::_dof_coupling</a></div><div class="ttdeci">const CouplingMatrix * _dof_coupling</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00107">default_coupling.h:107</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -886,7 +1007,62 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="afcc53d42105ddfd2cacabdb69aded3ee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libMesh::DefaultCoupling::set_periodic_boundaries </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1PeriodicBoundaries.html">PeriodicBoundaries</a> *&#160;</td>
+          <td class="paramname"><em>periodic_bcs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="default__coupling_8h_source.html#l00070">70</a> of file <a class="el" href="default__coupling_8h_source.html">default_coupling.h</a>.</p>
+
+<p>References <a class="el" href="default__coupling_8h_source.html#l00109">_periodic_bcs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  { <a class="code" href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">_periodic_bcs</a> = periodic_bcs; }</div>
+<div class="ttc" id="classlibMesh_1_1DefaultCoupling_html_a61812bd0765877cf2812a922bd2404c1"><div class="ttname"><a href="classlibMesh_1_1DefaultCoupling.html#a61812bd0765877cf2812a922bd2404c1">libMesh::DefaultCoupling::_periodic_bcs</a></div><div class="ttdeci">const PeriodicBoundaries * _periodic_bcs</div><div class="ttdef"><b>Definition:</b> <a href="default__coupling_8h_source.html#l00109">default_coupling.h:109</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7c913252d05560f8bc7c75a63547c4c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#adb5daadc989c1fe71ec8d173adf0ed1e">ReferenceCounter::Counts</a> libMesh::ReferenceCounter::_counts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Actually holds the data. </p>
+
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00115">115</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00160">libMesh::ReferenceCounter::increment_constructor_count()</a>, and <a class="el" href="reference__counter_8h_source.html#l00173">libMesh::ReferenceCounter::increment_destructor_count()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a978eab72c33da257ddf6c72f0be04d4e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -930,9 +1106,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Flag to control whether reference count information is printed when print_info is called. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00133">133</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00134">134</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8C_source.html#l00106">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00100">libMesh::ReferenceCounter::enable_print_counter_info()</a>, and <a class="el" href="reference__counter_8C_source.html#l00088">libMesh::ReferenceCounter::print_info()</a>.</p>
 
 </div>
 </div>
@@ -968,7 +1144,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::spin_mutex libMesh::ReferenceCounter::_mutex</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1spin__mutex.html">Threads::spin_mutex</a> libMesh::ReferenceCounter::_mutex</td>
         </tr>
       </table>
   </td>
@@ -979,7 +1155,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Mutual exclusion object to enable thread-safe reference counting. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00127">127</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00128">128</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
 </div>
 </div>
@@ -1015,7 +1191,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Threads::atomic&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
+          <td class="memname"><a class="el" href="classlibMesh_1_1Threads_1_1atomic.html">Threads::atomic</a>&lt; unsigned int &gt; libMesh::ReferenceCounter::_n_objects</td>
         </tr>
       </table>
   </td>
@@ -1026,9 +1202,33 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of objects. Print the reference count information when the number returns to 0. </p>
 
-<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00122">122</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
+<p>Definition at line <a class="el" href="reference__counter_8h_source.html#l00123">123</a> of file <a class="el" href="reference__counter_8h_source.html">reference_counter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00075">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00140">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00147">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
+<p>Referenced by <a class="el" href="reference__counter_8h_source.html#l00076">libMesh::ReferenceCounter::n_objects()</a>, <a class="el" href="reference__counter_8h_source.html#l00141">libMesh::ReferenceCounter::ReferenceCounter()</a>, and <a class="el" href="reference__counter_8h_source.html#l00148">libMesh::ReferenceCounter::~ReferenceCounter()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61812bd0765877cf2812a922bd2404c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classlibMesh_1_1PeriodicBoundaries.html">PeriodicBoundaries</a>* libMesh::DefaultCoupling::_periodic_bcs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="default__coupling_8h_source.html#l00109">109</a> of file <a class="el" href="default__coupling_8h_source.html">default_coupling.h</a>.</p>
+
+<p>Referenced by <a class="el" href="default__coupling_8C_source.html#l00052">mesh_reinit()</a>, and <a class="el" href="default__coupling_8h_source.html#l00070">set_periodic_boundaries()</a>.</p>
 
 </div>
 </div>
