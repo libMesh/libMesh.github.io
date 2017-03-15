@@ -7,15 +7,19 @@ digraph "libMesh::Partitioner"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="libMesh::CentroidPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1CentroidPartitioner.html"];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="libMesh::LinearPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1LinearPartitioner.html"];
+  Node3 [label="libMesh::LinearPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1LinearPartitioner.html",tooltip="Partitions the elements based solely on their ids. "];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="libMesh::MetisPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1MetisPartitioner.html"];
+  Node4 [label="libMesh::MappedSubdomain\lPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1MappedSubdomainPartitioner.html",tooltip="Partitions elements based on user-defined mapping from subdomain ids -> processor ids..."];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="libMesh::ParmetisPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1ParmetisPartitioner.html"];
+  Node5 [label="libMesh::MetisPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1MetisPartitioner.html",tooltip="Partitioner which interfaces with the METIS library. "];
   Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="libMesh::SFCPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1SFCPartitioner.html"];
-  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="libMesh::HilbertSFCPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1HilbertSFCPartitioner.html"];
-  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="libMesh::MortonSFCPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1MortonSFCPartitioner.html"];
+  Node6 [label="libMesh::ParmetisPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1ParmetisPartitioner.html",tooltip="Partitioner which provides an interface to ParMETIS. "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="libMesh::SFCPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1SFCPartitioner.html",tooltip="Partitioner based on different types of space filling curves. "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="libMesh::HilbertSFCPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1HilbertSFCPartitioner.html",tooltip="Partitioner based on Hilbert&#39;s space filling curve algorithm. "];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="libMesh::MortonSFCPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1MortonSFCPartitioner.html",tooltip="Partitioner based on Morton&#39;s space filling curve algorithm. "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="libMesh::SubdomainPartitioner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlibMesh_1_1SubdomainPartitioner.html",tooltip="Independently partitions chunks of subdomains and combines the results. "];
 }
