@@ -199,7 +199,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00120">120</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
-<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00385">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_shape_functions()</a>.</p>
+<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00386">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_shape_functions()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{ <span class="keywordflow">return</span> (1.-v)*(1.-v)/4.; }</div></div><!-- fragment -->
 </div>
 </div>
@@ -230,7 +230,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00125">125</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
-<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00385">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_shape_functions()</a>.</p>
+<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00386">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_shape_functions()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{ <span class="keywordflow">return</span> (v-1.)/2.; }</div></div><!-- fragment -->
 </div>
 </div>
@@ -261,7 +261,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00819">819</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
-<p>Referenced by <a class="el" href="inf__fe__static_8C_source.html#l00239">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::compute_data()</a>, <a class="el" href="inf__fe_8C_source.html#l00301">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>, <a class="el" href="inf__fe_8h_source.html#l00100">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Radial::Radial()</a>, and <a class="el" href="inf__fe__static_8C_source.html#l00154">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::shape()</a>.</p>
+<p>Referenced by <a class="el" href="inf__fe__static_8C_source.html#l00239">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::compute_data()</a>, <a class="el" href="inf__fe_8C_source.html#l00302">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>, <a class="el" href="inf__fe_8h_source.html#l00100">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Radial::Radial()</a>, and <a class="el" href="inf__fe__static_8C_source.html#l00154">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::shape()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;{</div><div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;  <span class="keywordflow">switch</span> (Dim)</div><div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="comment">//TODO:[DD] What decay do i have in 2D and 1D?</span></div><div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    {</div><div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keywordflow">case</span> 3:</div><div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;      <span class="keywordflow">return</span> (1.-v)/2.;</div><div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;</div><div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;    <span class="keywordflow">case</span> 2:</div><div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;      <span class="keywordflow">return</span> 0.;</div><div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;</div><div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    <span class="keywordflow">case</span> 1:</div><div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;      <span class="keywordflow">return</span> 0.;</div><div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;</div><div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="keywordflow">default</span>:</div><div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;      libmesh_error_msg(<span class="stringliteral">&quot;Invalid Dim = &quot;</span> &lt;&lt; Dim);</div><div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    }</div><div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
@@ -292,7 +292,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00114">114</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
-<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00301">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>.</p>
+<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00302">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{ <span class="keywordflow">return</span> -.5; }</div></div><!-- fragment -->
 </div>
 </div>
@@ -318,13 +318,13 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the Order of the mapping functions in the radial direction. Currently, this is <em>always</em> <code>FIRST</code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the Order of the mapping functions in the radial direction. Currently, this is always <code>FIRST</code>. </dd></dl>
 
 <p>Definition at line <a class="el" href="inf__fe_8h_source.html#l00131">131</a> of file <a class="el" href="inf__fe_8h_source.html">inf_fe.h</a>.</p>
 
 <p>References <a class="el" href="enum__order_8h_source.html#l00033">libMesh::FIRST</a>.</p>
 
-<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00301">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>.</p>
+<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00302">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3">FIRST</a>; }</div><div class="ttc" id="namespacelibMesh_html_a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3"><div class="ttname"><a href="namespacelibMesh.html#a147df8c2f5821ede7626f9ed907e0634a693d1c909a51afe7292cb273c313d4c3">libMesh::FIRST</a></div><div class="ttdef"><b>Definition:</b> <a href="enum__order_8h_source.html#l00033">enum_order.h:33</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -359,7 +359,7 @@ template&lt;unsigned int Dim, FEFamily T_radial, InfMapType T_map&gt; </div>
 
 <p>References <a class="el" href="inf__fe__base__radial_8C_source.html#l00127">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::Radial::n_dofs_at_node()</a>.</p>
 
-<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00714">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::combine_base_radial()</a>, <a class="el" href="inf__fe_8C_source.html#l00301">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>, and <a class="el" href="inf__fe_8h_source.html#l00295">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::n_shape_functions()</a>.</p>
+<p>Referenced by <a class="el" href="inf__fe_8C_source.html#l00715">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::combine_base_radial()</a>, <a class="el" href="inf__fe_8C_source.html#l00302">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::init_radial_shape_functions()</a>, and <a class="el" href="inf__fe_8h_source.html#l00295">libMesh::InfFE&lt; Dim, T_radial, T_map &gt;::n_shape_functions()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(o_radial)+1; }</div></div><!-- fragment -->
 </div>
 </div>
