@@ -105,7 +105,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p>FEMFunction that returns a single.  
+<p>FEMFunction that returns a single value.  
  <a href="classlibMesh_1_1ConstFEMFunction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>&gt;</code></p>
@@ -146,12 +146,12 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Output = Number&gt;<br />
 class libMesh::ConstFEMFunction&lt; Output &gt;</h3>
 
-<p>FEMFunction that returns a single. </p>
-<p>FEMFunction that returns a single.</p>
+<p>FEMFunction that returns a single value. </p>
+<p>FEMFunction that returns a single value, regardless of the time and location inputs.</p>
 <dl class="section author"><dt>Author</dt><dd>Roy Stogner </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2012 </dd></dl>
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00040">40</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00041">41</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0eaded86eadbdac0556f2b9d5683db4f"></a>
 <div class="memitem">
@@ -177,10 +177,10 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00043">43</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00044">44</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="const__fem__function_8h_source.html#l00047">libMesh::ConstFEMFunction&lt; Output &gt;::clone()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;: <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">_c</a>(c) {}</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_ad6d25518f4b7fe3e21e095a5ec7387b8"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">libMesh::ConstFEMFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00065">const_fem_function.h:65</a></div></div>
+<p>Referenced by <a class="el" href="const__fem__function_8h_source.html#l00048">libMesh::ConstFEMFunction&lt; Output &gt;::clone()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;: <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">_c</a>(c) {}</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_ad6d25518f4b7fe3e21e095a5ec7387b8"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">libMesh::ConstFEMFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00066">const_fem_function.h:66</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -207,8 +207,8 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00045">45</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00046">46</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -234,14 +234,15 @@ template&lt;typename Output  = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a new copy of the function. The new copy should be as "deep" as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
+<dl class="section return"><dt>Returns</dt><dd>A new copy of the function.</dd></dl>
+<p>The new copy should be as "deep" as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00047">47</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00048">48</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="const__fem__function_8h_source.html#l00043">libMesh::ConstFEMFunction&lt; Output &gt;::ConstFEMFunction()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {<span class="keywordflow">return</span> UniquePtr&lt;FEMFunctionBase&lt;Output&gt; &gt;( <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#a0eaded86eadbdac0556f2b9d5683db4f">ConstFEMFunction</a>(*<span class="keyword">this</span>) ); }</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_a0eaded86eadbdac0556f2b9d5683db4f"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#a0eaded86eadbdac0556f2b9d5683db4f">libMesh::ConstFEMFunction::ConstFEMFunction</a></div><div class="ttdeci">ConstFEMFunction(const Output c)</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00043">const_fem_function.h:43</a></div></div>
+<p>References <a class="el" href="const__fem__function_8h_source.html#l00044">libMesh::ConstFEMFunction&lt; Output &gt;::ConstFEMFunction()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  {<span class="keywordflow">return</span> UniquePtr&lt;FEMFunctionBase&lt;Output&gt; &gt;( <span class="keyword">new</span> <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#a0eaded86eadbdac0556f2b9d5683db4f">ConstFEMFunction</a>(*<span class="keyword">this</span>) ); }</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_a0eaded86eadbdac0556f2b9d5683db4f"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#a0eaded86eadbdac0556f2b9d5683db4f">libMesh::ConstFEMFunction::ConstFEMFunction</a></div><div class="ttdeci">ConstFEMFunction(const Output c)</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00044">const_fem_function.h:44</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -290,14 +291,17 @@ template&lt;typename Output &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>. Subclasses aren't required to overload this, since the default implementation is based on the full vector evaluation, which is often correct. Subclasses are recommended to overload this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Subclasses aren't required to override this, since the default implementation is based on the full vector evaluation, which is often correct.</dd>
+<dd>
+Subclasses are recommended to override this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a163322c48510854af864889f65e78501">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a2a14b10fd4e73dfda11dcbd327478ef8">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a2a14b10fd4e73dfda11dcbd327478ef8">libMesh::ParsedFEMFunction&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1WrappedFunctor.html#a291767dd317cc4667740f544b211c1cd">libMesh::WrappedFunctor&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00132">132</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00131">131</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
 <p>Referenced by <a class="el" href="fem__function__base_8h_source.html#l00071">libMesh::FEMFunctionBase&lt; Output &gt;::init_context()</a>, and <a class="el" href="system__projection_8C_source.html#l00884">libMesh::System::project_vector()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  (*this)(context, p, time, outvec);</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  (*this)(context, p, time, outvec);</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a755ede0c73871ab3082697220f06a9ad"></a>
@@ -330,7 +334,7 @@ template&lt;typename Output = Number&gt; </div>
 
 <p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00071">71</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="fem__function__base_8h_source.html#l00132">libMesh::FEMFunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
+<p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="fem__function__base_8h_source.html#l00131">libMesh::FEMFunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
@@ -373,14 +377,15 @@ template&lt;typename Output  = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the scalar value at coordinate <code>p</code> and time <code>time</code>, which defaults to zero. Purely virtual, so you have to overload it. Note that this cannot be a const method, check <code><a class="el" href="classlibMesh_1_1MeshFunction.html">MeshFunction</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The scalar function value at coordinate <code>p</code> and time <code>time</code>, which defaults to zero.</dd></dl>
+<p>Pure virtual, so you have to override it. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00050">50</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00051">51</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="const__fem__function_8h_source.html#l00065">libMesh::ConstFEMFunction&lt; Output &gt;::_c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">_c</a>; }</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_ad6d25518f4b7fe3e21e095a5ec7387b8"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">libMesh::ConstFEMFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00065">const_fem_function.h:65</a></div></div>
+<p>References <a class="el" href="const__fem__function_8h_source.html#l00066">libMesh::ConstFEMFunction&lt; Output &gt;::_c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">_c</a>; }</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_ad6d25518f4b7fe3e21e095a5ec7387b8"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">libMesh::ConstFEMFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00066">const_fem_function.h:66</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -429,14 +434,15 @@ template&lt;typename Output  = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code> and for time <code>time</code>. Purely virtual, so you have to overload it. Note that this cannot be a const method, check <code><a class="el" href="classlibMesh_1_1MeshFunction.html">MeshFunction</a></code>. </p>
+<p>Evaluation function for time-dependent vector-valued functions. Sets output values in the passed-in <code>output</code> <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>.</p>
+<p>Pure virtual, so you have to override it. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#ab7f447139d476bca461b64feebc3b695">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00055">55</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00056">56</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
 
-<p>References <a class="el" href="const__fem__function_8h_source.html#l00065">libMesh::ConstFEMFunction&lt; Output &gt;::_c</a>, and <a class="el" href="dense__vector_8h_source.html#l00081">libMesh::DenseVector&lt; T &gt;::size()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; output.size(); i++)</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      output(i) = <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">_c</a>;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_ad6d25518f4b7fe3e21e095a5ec7387b8"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">libMesh::ConstFEMFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00065">const_fem_function.h:65</a></div></div>
+<p>References <a class="el" href="const__fem__function_8h_source.html#l00066">libMesh::ConstFEMFunction&lt; Output &gt;::_c</a>, and <a class="el" href="dense__vector_8h_source.html#l00087">libMesh::DenseVector&lt; T &gt;::size()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; output.size(); i++)</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      output(i) = <a class="code" href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">_c</a>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1ConstFEMFunction_html_ad6d25518f4b7fe3e21e095a5ec7387b8"><div class="ttname"><a href="classlibMesh_1_1ConstFEMFunction.html#ad6d25518f4b7fe3e21e095a5ec7387b8">libMesh::ConstFEMFunction::_c</a></div><div class="ttdeci">Output _c</div><div class="ttdef"><b>Definition:</b> <a href="const__fem__function_8h_source.html#l00066">const_fem_function.h:66</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,12 +485,12 @@ template&lt;typename Output &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code>. </p>
+<p>Evaluation function for time-independent vector-valued functions. Sets output values in the passed-in <code>output</code> <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>. </p>
 
-<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00144">144</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00143">143</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">operator()</a>(context, p, 0., output);</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionBase_html_aa8af02df444c85ebc35f14b0e48a9881"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const FEMContext &amp;, const Point &amp;p, const Real time=0.)=0</div></div>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">operator()</a>(context, p, 0., output);</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionBase_html_aa8af02df444c85ebc35f14b0e48a9881"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const FEMContext &amp;, const Point &amp;p, const Real time=0.)=0</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -509,9 +515,9 @@ template&lt;typename Output  = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00065">65</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
+<p>Definition at line <a class="el" href="const__fem__function_8h_source.html#l00066">66</a> of file <a class="el" href="const__fem__function_8h_source.html">const_fem_function.h</a>.</p>
 
-<p>Referenced by <a class="el" href="const__fem__function_8h_source.html#l00050">libMesh::ConstFEMFunction&lt; Output &gt;::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="const__fem__function_8h_source.html#l00051">libMesh::ConstFEMFunction&lt; Output &gt;::operator()()</a>.</p>
 
 </div>
 </div>

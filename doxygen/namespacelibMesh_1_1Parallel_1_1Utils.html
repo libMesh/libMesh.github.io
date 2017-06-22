@@ -150,12 +150,13 @@ template&lt;typename KeyType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="namespacelibMesh_1_1Utility.html">Utility</a> function that returns true if the vector v is sorted, false otherwise. O(N), the length of the vector. This is implemented solely because the std::is_sorted appears to be an STL extension. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the vector <code>v</code> is sorted, <code>false</code> otherwise.</dd></dl>
+<p>Requires O(N) comparisons, where N is the length of the vector. This was implemented because <a class="el" href="namespacelibMesh_1_1Parallel_1_1Utils.html#a1a148823d82abcf5e179095dc58bc15e">std::is_sorted()</a> was an STL extension at the time. </p>
 
-<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00050">50</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00051">51</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
 
 <p>Referenced by <a class="el" href="parallel__bin__sorter_8C_source.html#l00038">libMesh::Parallel::BinSorter&lt; KeyType, IdxType &gt;::BinSorter()</a>, and <a class="el" href="parallel__histogram_8C_source.html#l00035">libMesh::Parallel::Histogram&lt; KeyType, IdxType &gt;::Histogram()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">if</span> (v.empty())</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">for</span> (std::size_t i=1; i&lt;v.size(); i++)</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (v[i] &lt; v[i-1])</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">if</span> (v.empty())</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">for</span> (std::size_t i=1; i&lt;v.size(); i++)</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (v[i] &lt; v[i-1])</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="afc715d5725049557cb14b6ffd28ce161"></a>
@@ -183,10 +184,10 @@ template&lt;typename KeyType &gt; </div>
 </div><div class="memdoc">
 <p>A utility function which converts whatever <code>KeyType</code> is to a <code>double</code> for the histogram bounds </p>
 
-<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00068">68</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00069">69</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel__bin__sorter_8C_source.html#l00055">libMesh::Parallel::BinSorter&lt; KeyType, IdxType &gt;::binsort()</a>, <a class="el" href="parallel__histogram_8C_source.html#l00046">libMesh::Parallel::Histogram&lt; KeyType, IdxType &gt;::make_histogram()</a>, and <a class="el" href="parallel__conversion__utils_8h_source.html#l00110">to_double()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(k);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="parallel__bin__sorter_8C_source.html#l00055">libMesh::Parallel::BinSorter&lt; KeyType, IdxType &gt;::binsort()</a>, <a class="el" href="parallel__histogram_8C_source.html#l00046">libMesh::Parallel::Histogram&lt; KeyType, IdxType &gt;::make_histogram()</a>, and <a class="el" href="parallel__conversion__utils_8h_source.html#l00111">to_double()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(k);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a5dd384b5dec63150b6b35aa79c18b414"></a>
@@ -214,10 +215,10 @@ template&lt;typename FirstKeyType , typename SecondKeyType &gt; </div>
 </div><div class="memdoc">
 <p>A utility function for pairs of key types. When finding bounds, the second entry of the pair is effectively "rounded away". </p>
 
-<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00110">110</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00111">111</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
 
-<p>References <a class="el" href="parallel__conversion__utils_8h_source.html#l00068">to_double()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">to_double</a>(k.first);</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div><div class="ttc" id="namespacelibMesh_1_1Parallel_1_1Utils_html_aa2f7edd2a77944e21590973a0458f313"><div class="ttname"><a href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">libMesh::Parallel::Utils::to_double</a></div><div class="ttdeci">double to_double(const Hilbert::HilbertIndices &amp;bvt)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00120">parallel_conversion_utils.h:120</a></div></div>
+<p>References <a class="el" href="parallel__conversion__utils_8h_source.html#l00069">to_double()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">to_double</a>(k.first);</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div><div class="ttc" id="namespacelibMesh_1_1Parallel_1_1Utils_html_aa2f7edd2a77944e21590973a0458f313"><div class="ttname"><a href="namespacelibMesh_1_1Parallel_1_1Utils.html#aa2f7edd2a77944e21590973a0458f313">libMesh::Parallel::Utils::to_double</a></div><div class="ttdeci">double to_double(const Hilbert::HilbertIndices &amp;bvt)</div><div class="ttdef"><b>Definition:</b> <a href="parallel__conversion__utils_8h_source.html#l00121">parallel_conversion_utils.h:121</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -245,8 +246,8 @@ template&lt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00120">120</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(bvt.rack2);</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="parallel__conversion__utils_8h_source.html#l00121">121</a> of file <a class="el" href="parallel__conversion__utils_8h_source.html">parallel_conversion_utils.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(bvt.rack2);</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

@@ -138,8 +138,9 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 struct libMesh::Predicates::not_level&lt; T &gt;</h3>
 
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the pointers level <em>does not</em> match the given level. </dd></dl>
 
-<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00350">350</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
+<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00372">372</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a260a59d36414cbac5e0f4e5120790190"></a>
 <div class="memitem">
@@ -165,8 +166,8 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00353">353</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;: level&lt;T&gt;(l) {}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00374">374</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;: level&lt;T&gt;(l) {}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -195,8 +196,8 @@ template&lt;typename T&gt; </div>
 
 <p>Reimplemented from <a class="el" href="structlibMesh_1_1Predicates_1_1level.html#ac650aa50a4772a1ecaeced70b4d1990f">libMesh::Predicates::level&lt; T &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00358">358</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;{ <span class="keywordflow">return</span> <span class="keyword">new</span> not_level&lt;T&gt;(*this); }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00379">379</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;{ <span class="keywordflow">return</span> <span class="keyword">new</span> not_level&lt;T&gt;(*this); }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7b4edd4072df112e9c6199dd89f0c8c2"></a>
@@ -225,10 +226,10 @@ template&lt;typename T&gt; </div>
 
 <p>Reimplemented from <a class="el" href="structlibMesh_1_1Predicates_1_1level.html#ae3deb58b96948738fc61f72c4e0b0a97">libMesh::Predicates::level&lt; T &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00355">355</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
+<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00376">376</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
 
-<p>References <a class="el" href="single__predicates_8h_source.html#l00338">libMesh::Predicates::level&lt; T &gt;::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;{ <span class="keywordflow">return</span> !<a class="code" href="structlibMesh_1_1Predicates_1_1level.html#ae3deb58b96948738fc61f72c4e0b0a97">level&lt;T&gt;::operator()</a>(it); }</div><div class="ttc" id="structlibMesh_1_1Predicates_1_1level_html_ae3deb58b96948738fc61f72c4e0b0a97"><div class="ttname"><a href="structlibMesh_1_1Predicates_1_1level.html#ae3deb58b96948738fc61f72c4e0b0a97">libMesh::Predicates::level::operator()</a></div><div class="ttdeci">virtual bool operator()(const T &amp;it) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="single__predicates_8h_source.html#l00338">single_predicates.h:338</a></div></div>
+<p>References <a class="el" href="single__predicates_8h_source.html#l00358">libMesh::Predicates::level&lt; T &gt;::operator()()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;{ <span class="keywordflow">return</span> !<a class="code" href="structlibMesh_1_1Predicates_1_1level.html#ae3deb58b96948738fc61f72c4e0b0a97">level&lt;T&gt;::operator()</a>(it); }</div><div class="ttc" id="structlibMesh_1_1Predicates_1_1level_html_ae3deb58b96948738fc61f72c4e0b0a97"><div class="ttname"><a href="structlibMesh_1_1Predicates_1_1level.html#ae3deb58b96948738fc61f72c4e0b0a97">libMesh::Predicates::level::operator()</a></div><div class="ttdeci">virtual bool operator()(const T &amp;it) const libmesh_override</div><div class="ttdef"><b>Definition:</b> <a href="single__predicates_8h_source.html#l00358">single_predicates.h:358</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -253,7 +254,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00342">342</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
+<p>Definition at line <a class="el" href="single__predicates_8h_source.html#l00362">362</a> of file <a class="el" href="single__predicates_8h_source.html">single_predicates.h</a>.</p>
 
 </div>
 </div>

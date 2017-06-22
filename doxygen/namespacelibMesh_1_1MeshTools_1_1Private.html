@@ -121,7 +121,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>There is no reason for a user to ever call this function.</p>
-<p>This function determines partition-agnostic global indices for all nodes and elements in the mesh. Note that after this function is called the mesh will likely be in an inconsistent state, i.e. <code>mesh.nodes(i)-&gt;id()</code> != i in the nodes container. Direct node/element access via the <code>mesh.node(n)</code> or <code>mesh.elem(e)</code> functions will likely fail. The original numbering can (and should) be restored with a subsequent call to <code>fix_node_and_element_numbering()</code>. </p>
+<p>This function determines partition-agnostic global indices for all nodes and elements in the mesh.</p>
+<dl class="section note"><dt>Note</dt><dd>After this function is called, the mesh will likely be in an inconsistent state, i.e. <code>mesh.nodes(i)-&gt;id()</code> != i in the nodes container. Direct node/element access via the <code>mesh.node(n)</code> or <code>mesh.elem(e)</code> functions will likely fail. The original numbering can (and should) be restored with a subsequent call to <code>fix_node_and_element_numbering()</code>. </dd></dl>
 
 <p>Definition at line <a class="el" href="mesh__tools_8C_source.html#l02002">2002</a> of file <a class="el" href="mesh__tools_8C_source.html">mesh_tools.C</a>.</p>
 

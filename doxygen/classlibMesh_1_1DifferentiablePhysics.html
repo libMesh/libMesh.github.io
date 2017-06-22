@@ -224,18 +224,18 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides a specific system class. It aims to generalize any system, linear or nonlinear, which provides both a residual and a Jacobian. For first order (in time) systems, the (nonlinear) residual computed at each time step is </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ F(u) + G(u) - M(u,\dot{u})\dot{u} = 0 \]" src="form_26.png"/>
+<img class="formulaDsp" alt="\[ F(u) + G(u) - M(u,\dot{u})\dot{u} = 0 \]" src="form_35.png"/>
 </p>
-<p> for unsteady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a> and <img class="formulaInl" alt="$ F(u) = 0$" src="form_27.png"/> for steady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a>. <img class="formulaInl" alt="$F(u)$" src="form_28.png"/> is computed by element/side_time_derivative, <img class="formulaInl" alt="$ G(u) $" src="form_29.png"/> is computed using element/side_constraint, and <img class="formulaInl" alt="$ M(u,\dot{u})\dot{u} $" src="form_30.png"/> is computed using the mass_residual methods.</p>
+<p> for unsteady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a> and <img class="formulaInl" alt="$ F(u) = 0$" src="form_36.png"/> for steady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a>. <img class="formulaInl" alt="$F(u)$" src="form_37.png"/> is computed by element/side_time_derivative, <img class="formulaInl" alt="$ G(u) $" src="form_38.png"/> is computed using element/side_constraint, and <img class="formulaInl" alt="$ M(u,\dot{u})\dot{u} $" src="form_39.png"/> is computed using the mass_residual methods.</p>
 <p>For second order (in time) systems, the (nonlinear) residual computed at each time step is </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ M(u,\ddot{u})\ddot{u} + C(u,\dot{u})\dot{u} + F(u) + G(u) = 0 \]" src="form_31.png"/>
+<img class="formulaDsp" alt="\[ M(u,\ddot{u})\ddot{u} + C(u,\dot{u})\dot{u} + F(u) + G(u) = 0 \]" src="form_40.png"/>
 </p>
-<p> for unsteady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a> and <img class="formulaInl" alt="$ F(u) = 0$" src="form_27.png"/> for steady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a>. <img class="formulaInl" alt="$F(u)$" src="form_28.png"/> is computed by element/side_time_derivative, <img class="formulaInl" alt="$G(u)$" src="form_32.png"/> is computed using element/side_constraint, <img class="formulaInl" alt="$C(u,\dot{u})\dot{u}$" src="form_33.png"/> is computed using the dampling_residual methods and <img class="formulaInl" alt="$ -M(u,\ddot{u})\ddot{u}$" src="form_34.png"/> is computed using the mass_residual methods. This is the sign convention used by the default implementation; if the method is overridden, the user can choose any self-consistent sign convention they wish.</p>
-<p><a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> provides methods for querying values of the solution <img class="formulaInl" alt="${u}$" src="form_35.png"/>, its "rate" <img class="formulaInl" alt="$\dot{u}$" src="form_36.png"/> and its "acceleration" <img class="formulaInl" alt="$\ddot{u}$" src="form_37.png"/>. Furthermore, derivatives of each of these w.r.t the nonlinear iteration unknown (e.g. in <a class="el" href="classlibMesh_1_1EulerSolver.html">EulerSolver</a>, the solution at the next time step <img class="formulaInl" alt="$ u_{n+1} $" src="form_38.png"/>) are provided through <a class="el" href="classlibMesh_1_1DiffContext.html#a29b2bb05fc4be2c5593e4630466aa75a">DiffContext::get_elem_solution_derivative()</a>, <a class="el" href="classlibMesh_1_1DiffContext.html#aa6747913dc71cad586e6d4123c4b925f">DiffContext::get_elem_solution_rate_derivative()</a>, and <a class="el" href="classlibMesh_1_1DiffContext.html#a9db1af0d3647d9205bdeac2661e2622b">DiffContext::get_elem_solution_accel_derivative()</a>. The should be incorporated into the Jacobian evaluations, if the Jacobian is being provided.</p>
+<p> for unsteady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a> and <img class="formulaInl" alt="$ F(u) = 0$" src="form_36.png"/> for steady <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a>. <img class="formulaInl" alt="$F(u)$" src="form_37.png"/> is computed by element/side_time_derivative, <img class="formulaInl" alt="$G(u)$" src="form_41.png"/> is computed using element/side_constraint, <img class="formulaInl" alt="$C(u,\dot{u})\dot{u}$" src="form_42.png"/> is computed using the dampling_residual methods and <img class="formulaInl" alt="$ -M(u,\ddot{u})\ddot{u}$" src="form_43.png"/> is computed using the mass_residual methods. This is the sign convention used by the default implementation; if the method is overridden, the user can choose any self-consistent sign convention they wish.</p>
+<p><a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> provides methods for querying values of the solution <img class="formulaInl" alt="${u}$" src="form_44.png"/>, its "rate" <img class="formulaInl" alt="$\dot{u}$" src="form_45.png"/> and its "acceleration" <img class="formulaInl" alt="$\ddot{u}$" src="form_46.png"/>. Furthermore, derivatives of each of these w.r.t the nonlinear iteration unknown (e.g. in <a class="el" href="classlibMesh_1_1EulerSolver.html">EulerSolver</a>, the solution at the next time step <img class="formulaInl" alt="$ u_{n+1} $" src="form_47.png"/>) are provided through <a class="el" href="classlibMesh_1_1DiffContext.html#a29b2bb05fc4be2c5593e4630466aa75a">DiffContext::get_elem_solution_derivative()</a>, <a class="el" href="classlibMesh_1_1DiffContext.html#aa6747913dc71cad586e6d4123c4b925f">DiffContext::get_elem_solution_rate_derivative()</a>, and <a class="el" href="classlibMesh_1_1DiffContext.html#a9db1af0d3647d9205bdeac2661e2622b">DiffContext::get_elem_solution_accel_derivative()</a>. The should be incorporated into the Jacobian evaluations, if the Jacobian is being provided.</p>
 <dl class="section author"><dt>Author</dt><dd>Roy H. Stogner </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2006 </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00075">75</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00074">74</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae142d19991d19083c47b6081e0a48bcc"></a>
 <div class="memitem">
@@ -259,16 +259,16 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor. Optionally initializes required data structures. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00083">83</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00082">82</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#a81b8b35b7cd10743f61cb911f7e2c60d">clear_physics()</a>, <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#a049bb423d4763988cf6338cb75fb66c3">clone_physics()</a>, <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#aaf2e3f22e33e5030bb6a32f0804e649d">init_physics()</a>, <a class="el" href="petsc__diff__solver_8C_source.html#l00155">libMesh::sys</a>, and <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#ab6f9ecd05c4ca58b8bb78acf53a6d9bb">~DifferentiablePhysics()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                           :</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4e217fd5c9b6dff26ef83742a7e7dea9">compute_internal_sides</a> (<span class="keyword">false</span>),</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a>              (<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">_mesh_x_var</a>            (<a class="code" href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a>),</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">_mesh_y_var</a>            (<a class="code" href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a>),</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">_mesh_z_var</a>            (<a class="code" href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a>)</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  {}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4125b3fcf1dd38b4f1a70e56bac0e2fc"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">libMesh::DifferentiablePhysics::_mesh_x_var</a></div><div class="ttdeci">unsigned int _mesh_x_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                           :</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4e217fd5c9b6dff26ef83742a7e7dea9">compute_internal_sides</a> (<span class="keyword">false</span>),</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a>              (<a class="code" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>),</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">_mesh_x_var</a>            (<a class="code" href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a>),</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">_mesh_y_var</a>            (<a class="code" href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a>),</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">_mesh_z_var</a>            (<a class="code" href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a>)</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4125b3fcf1dd38b4f1a70e56bac0e2fc"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">libMesh::DifferentiablePhysics::_mesh_x_var</a></div><div class="ttdeci">unsigned int _mesh_x_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 <div class="ttc" id="namespacelibMesh_html_a5588f6411946120c9d917450ab73e2e2"><div class="ttname"><a href="namespacelibMesh.html#a5588f6411946120c9d917450ab73e2e2">libMesh::invalid_uint</a></div><div class="ttdeci">const unsigned int invalid_uint</div><div class="ttdef"><b>Definition:</b> <a href="libmesh_8h_source.html#l00184">libmesh.h:184</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a3102589faec7aa5752b4f605d5e2283e"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">libMesh::DifferentiablePhysics::_mesh_y_var</a></div><div class="ttdeci">unsigned int _mesh_y_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a3102589faec7aa5752b4f605d5e2283e"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">libMesh::DifferentiablePhysics::_mesh_y_var</a></div><div class="ttdeci">unsigned int _mesh_y_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 <div class="ttc" id="libmesh__nullptr_8h_html_ad10985637963b309cf2bf815e508438d"><div class="ttname"><a href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a></div><div class="ttdeci">const class libmesh_nullptr_t libmesh_nullptr</div></div>
-<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00540">diff_physics.h:540</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a081fe25766a214bc0d22f86d114258c4"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">libMesh::DifferentiablePhysics::_mesh_z_var</a></div><div class="ttdeci">unsigned int _mesh_z_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4e217fd5c9b6dff26ef83742a7e7dea9"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4e217fd5c9b6dff26ef83742a7e7dea9">libMesh::DifferentiablePhysics::compute_internal_sides</a></div><div class="ttdeci">bool compute_internal_sides</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00153">diff_physics.h:153</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00539">diff_physics.h:539</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a081fe25766a214bc0d22f86d114258c4"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">libMesh::DifferentiablePhysics::_mesh_z_var</a></div><div class="ttdeci">unsigned int _mesh_z_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4e217fd5c9b6dff26ef83742a7e7dea9"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4e217fd5c9b6dff26ef83742a7e7dea9">libMesh::DifferentiablePhysics::compute_internal_sides</a></div><div class="ttdeci">bool compute_internal_sides</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00152">diff_physics.h:152</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -294,7 +294,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Destructor. </p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00083">DifferentiablePhysics()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00082">DifferentiablePhysics()</a>.</p>
 
 </div>
 </div>
@@ -324,7 +324,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This method simply combines <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#a1c80f2e313fbb8b6ff7d088ff4169be2">element_time_derivative()</a> and <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#a63c47f742ea50b5aa65cbf415384de5e">eulerian_residual()</a>, which makes its address useful as a pointer-to-member-function when refactoring. </p>
 
-<p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, <a class="el" href="newmark__solver_8C_source.html#l00163">libMesh::NewmarkSolver::element_residual()</a>, and <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
+<p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, <a class="el" href="newmark__solver_8C_source.html#l00163">libMesh::NewmarkSolver::element_residual()</a>, and <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
 
 </div>
 </div>
@@ -350,7 +350,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Clear any data structures associated with the physics. </p>
 
-<p>Referenced by <a class="el" href="diff__system_8C_source.html#l00069">libMesh::DifferentiableSystem::clear()</a>, and <a class="el" href="diff__physics_8h_source.html#l00083">DifferentiablePhysics()</a>.</p>
+<p>Referenced by <a class="el" href="diff__system_8C_source.html#l00069">libMesh::DifferentiableSystem::clear()</a>, and <a class="el" href="diff__physics_8h_source.html#l00082">DifferentiablePhysics()</a>.</p>
 
 </div>
 </div>
@@ -378,7 +378,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classlibMesh_1_1DifferentiableSystem.html#a19f80567c5a72136c5fa3406b486b376">libMesh::DifferentiableSystem</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__system_8h_source.html#l00181">libMesh::DifferentiableSystem::attach_physics()</a>, and <a class="el" href="diff__physics_8h_source.html#l00083">DifferentiablePhysics()</a>.</p>
+<p>Referenced by <a class="el" href="diff__system_8h_source.html#l00184">libMesh::DifferentiableSystem::attach_physics()</a>, and <a class="el" href="diff__physics_8h_source.html#l00082">DifferentiablePhysics()</a>.</p>
 
 </div>
 </div>
@@ -413,14 +413,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Subtracts a damping vector contribution on <code>elem</code> from elem_residual. This method is not used in first-order-in-time problems. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ C(u,\ddot{u})\ddot{u} $" src="form_40.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
+<p>Subtracts a damping vector contribution on <code>elem</code> from elem_residual. This method is not used in first-order-in-time problems. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ C(u,\ddot{u})\ddot{u} $" src="form_49.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
 <p>If this method receives request_jacobian = true, then it should compute elem_jacobian and return true if possible. If elem_jacobian has not been computed then the method should return false.</p>
 <p>If the problem has no damping, the default "do-nothing" is correct. Otherwise, this must be reimplemented. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00372">372</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00371">371</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00163">libMesh::NewmarkSolver::element_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                                                {</div><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                                                {</div><div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1bdc46ab11bb6ab33dc5b17bfbd1ccf3"></a>
@@ -458,10 +458,10 @@ Protected Attributes</h2></td></tr>
 <p>Users may need to reimplement this for their particular PDE.</p>
 <p>To implement the constraint 0 = G(u), the user should examine u = elem_solution and add (G(u), phi_i) to elem_residual in elem_constraint(). </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00142">142</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00141">141</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, <a class="el" href="steady__solver_8C_source.html#l00034">libMesh::SteadySolver::element_residual()</a>, <a class="el" href="newmark__solver_8C_source.html#l00163">libMesh::NewmarkSolver::element_residual()</a>, and <a class="el" href="eigen__time__solver_8C_source.html#l00127">libMesh::EigenTimeSolver::element_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                                  {</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  }</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, <a class="el" href="steady__solver_8C_source.html#l00034">libMesh::SteadySolver::element_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00127">libMesh::EigenTimeSolver::element_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00163">libMesh::NewmarkSolver::element_residual()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                                                  {</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1c80f2e313fbb8b6ff7d088ff4169be2"></a>
@@ -499,10 +499,10 @@ Protected Attributes</h2></td></tr>
 <p>Users need to reimplement this for their particular PDE.</p>
 <p>To implement the physics model du/dt = F(u), the user should examine u = elem_solution and add (F(u), phi_i) to elem_residual in elem_time_derivative(). </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00124">124</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00123">123</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="steady__solver_8C_source.html#l00034">libMesh::SteadySolver::element_residual()</a>, and <a class="el" href="eigen__time__solver_8C_source.html#l00127">libMesh::EigenTimeSolver::element_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                                       {</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                                                       {</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a63c47f742ea50b5aa65cbf415384de5e"></a>
@@ -541,8 +541,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1FEMPhysics.html#a6a7ff96555603ea8da677fb6711c5725">libMesh::FEMPhysics</a>.</p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00292">292</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                                                 {</div><div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00291">291</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                                                 {</div><div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="add26aa3e6bc8cda29582f16a9ad23677"></a>
@@ -565,14 +565,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the set of first order in time variable indices. May be empty. </p>
+<dl class="section return"><dt>Returns</dt><dd>The set of first order in time variable indices. May be empty. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00515">515</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00514">514</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00557">_first_order_vars</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00556">_first_order_vars</a>.</p>
 
 <p>Referenced by <a class="el" href="diff__system_8C_source.html#l00330">libMesh::DifferentiableSystem::have_first_order_scalar_vars()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>; }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a73bc59adf0ae024a9216bdc0db2d5b2a"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">libMesh::DifferentiablePhysics::_first_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _first_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00557">diff_physics.h:557</a></div></div>
+<div class="fragment"><div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>; }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a73bc59adf0ae024a9216bdc0db2d5b2a"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">libMesh::DifferentiablePhysics::_first_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _first_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00556">diff_physics.h:556</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -596,14 +596,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a const reference to the system with variables corresponding to mesh nodal coordinates, or NULL if the mesh is fixed. Useful for ALE calculations. </p>
+<dl class="section return"><dt>Returns</dt><dd>A const reference to the system with variables corresponding to mesh nodal coordinates, or NULL if the mesh is fixed. Useful for ALE calculations. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00622">622</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00621">621</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00540">_mesh_sys</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00539">_mesh_sys</a>.</p>
 
-<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;{</div><div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a>;</div><div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00540">diff_physics.h:540</a></div></div>
+<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;{</div><div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a>;</div><div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00539">diff_physics.h:539</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -627,12 +627,12 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a reference to the system with variables corresponding to mesh nodal coordinates, or NULL if the mesh is fixed. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the system with variables corresponding to mesh nodal coordinates, or NULL if the mesh is fixed. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00628">628</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00627">627</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00540">_mesh_sys</a>.</p>
-<div class="fragment"><div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;{</div><div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a>;</div><div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00540">diff_physics.h:540</a></div></div>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00539">_mesh_sys</a>.</p>
+<div class="fragment"><div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;{</div><div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a>;</div><div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00539">diff_physics.h:539</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -656,14 +656,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the variable number corresponding to the mesh x coordinate. Useful for ALE calculations. </p>
+<dl class="section return"><dt>Returns</dt><dd>The variable number corresponding to the mesh x coordinate. Useful for ALE calculations. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00634">634</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00633">633</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00545">_mesh_x_var</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00544">_mesh_x_var</a>.</p>
 
-<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;{</div><div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">_mesh_x_var</a>;</div><div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4125b3fcf1dd38b4f1a70e56bac0e2fc"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">libMesh::DifferentiablePhysics::_mesh_x_var</a></div><div class="ttdeci">unsigned int _mesh_x_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;{</div><div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">_mesh_x_var</a>;</div><div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4125b3fcf1dd38b4f1a70e56bac0e2fc"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">libMesh::DifferentiablePhysics::_mesh_x_var</a></div><div class="ttdeci">unsigned int _mesh_x_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -687,14 +687,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the variable number corresponding to the mesh y coordinate. Useful for ALE calculations. </p>
+<dl class="section return"><dt>Returns</dt><dd>The variable number corresponding to the mesh y coordinate. Useful for ALE calculations. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00640">640</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00639">639</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00545">_mesh_y_var</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00544">_mesh_y_var</a>.</p>
 
-<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;{</div><div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">_mesh_y_var</a>;</div><div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a3102589faec7aa5752b4f605d5e2283e"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">libMesh::DifferentiablePhysics::_mesh_y_var</a></div><div class="ttdeci">unsigned int _mesh_y_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;{</div><div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">_mesh_y_var</a>;</div><div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a3102589faec7aa5752b4f605d5e2283e"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">libMesh::DifferentiablePhysics::_mesh_y_var</a></div><div class="ttdeci">unsigned int _mesh_y_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -718,14 +718,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the variable number corresponding to the mesh z coordinate. Useful for ALE calculations. </p>
+<dl class="section return"><dt>Returns</dt><dd>The variable number corresponding to the mesh z coordinate. Useful for ALE calculations. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00646">646</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00645">645</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00545">_mesh_z_var</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00544">_mesh_z_var</a>.</p>
 
-<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;{</div><div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">_mesh_z_var</a>;</div><div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a081fe25766a214bc0d22f86d114258c4"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">libMesh::DifferentiablePhysics::_mesh_z_var</a></div><div class="ttdeci">unsigned int _mesh_z_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<p>Referenced by <a class="el" href="fem__system_8C_source.html#l01318">libMesh::FEMSystem::build_context()</a>, and <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;{</div><div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">_mesh_z_var</a>;</div><div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a081fe25766a214bc0d22f86d114258c4"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">libMesh::DifferentiablePhysics::_mesh_z_var</a></div><div class="ttdeci">unsigned int _mesh_z_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -749,14 +749,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the set of second order in time variable indices. May be empty. </p>
+<dl class="section return"><dt>Returns</dt><dd>The set of second order in time variable indices. May be empty. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00528">528</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00527">527</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00562">_second_order_vars</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00561">_second_order_vars</a>.</p>
 
 <p>Referenced by <a class="el" href="diff__system_8C_source.html#l00198">libMesh::DifferentiableSystem::add_second_order_dot_vars()</a>, <a class="el" href="diff__context_8C_source.html#l00029">libMesh::DiffContext::DiffContext()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, <a class="el" href="diff__system_8C_source.html#l00348">libMesh::DifferentiableSystem::have_second_order_scalar_vars()</a>, and <a class="el" href="fem__context_8C_source.html#l01553">libMesh::FEMContext::pre_fe_reinit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>; }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab3139300c2d5ae16077aa17ff4079384"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">libMesh::DifferentiablePhysics::_second_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _second_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00562">diff_physics.h:562</a></div></div>
+<div class="fragment"><div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>; }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab3139300c2d5ae16077aa17ff4079384"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">libMesh::DifferentiablePhysics::_second_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _second_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00561">diff_physics.h:561</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -781,12 +781,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00509">509</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00508">508</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00557">_first_order_vars</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00556">_first_order_vars</a>.</p>
 
 <p>Referenced by <a class="el" href="diff__system_8C_source.html#l00330">libMesh::DifferentiableSystem::have_first_order_scalar_vars()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;  { <span class="keywordflow">return</span> !<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>.empty(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a73bc59adf0ae024a9216bdc0db2d5b2a"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">libMesh::DifferentiablePhysics::_first_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _first_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00557">diff_physics.h:557</a></div></div>
+<div class="fragment"><div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  { <span class="keywordflow">return</span> !<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>.empty(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a73bc59adf0ae024a9216bdc0db2d5b2a"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">libMesh::DifferentiablePhysics::_first_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _first_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00556">diff_physics.h:556</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -811,12 +811,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00522">522</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00521">521</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00562">_second_order_vars</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00561">_second_order_vars</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, and <a class="el" href="diff__system_8C_source.html#l00348">libMesh::DifferentiableSystem::have_second_order_scalar_vars()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;  { <span class="keywordflow">return</span> !<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>.empty(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab3139300c2d5ae16077aa17ff4079384"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">libMesh::DifferentiablePhysics::_second_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _second_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00562">diff_physics.h:562</a></div></div>
+<div class="fragment"><div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;  { <span class="keywordflow">return</span> !<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>.empty(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab3139300c2d5ae16077aa17ff4079384"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">libMesh::DifferentiablePhysics::_second_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _second_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00561">diff_physics.h:561</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -844,10 +844,10 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1FEMSystem.html#a909eb396f92ca3a65d5e166c242b9260">libMesh::FEMSystem</a>.</p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00415">415</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00414">414</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#ada28f60bb629cdd5421916287a404404">_eulerian_time_deriv()</a>, <a class="el" href="diff__physics_8h_source.html#l00622">get_mesh_system()</a>, <a class="el" href="diff__physics_8h_source.html#l00634">get_mesh_x_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00640">get_mesh_y_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00646">get_mesh_z_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00578">set_mesh_system()</a>, <a class="el" href="diff__physics_8h_source.html#l00598">set_mesh_x_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00606">set_mesh_y_var()</a>, and <a class="el" href="diff__physics_8h_source.html#l00614">set_mesh_z_var()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;{}</div></div><!-- fragment -->
+<p>References <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#ada28f60bb629cdd5421916287a404404">_eulerian_time_deriv()</a>, <a class="el" href="diff__physics_8h_source.html#l00621">get_mesh_system()</a>, <a class="el" href="diff__physics_8h_source.html#l00633">get_mesh_x_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00639">get_mesh_y_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00645">get_mesh_z_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00577">set_mesh_system()</a>, <a class="el" href="diff__physics_8h_source.html#l00597">set_mesh_x_var()</a>, <a class="el" href="diff__physics_8h_source.html#l00605">set_mesh_y_var()</a>, and <a class="el" href="diff__physics_8h_source.html#l00613">set_mesh_z_var()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aaf2e3f22e33e5030bb6a32f0804e649d"></a>
@@ -873,7 +873,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Initialize any data structures associated with the physics. </p>
 
-<p>Referenced by <a class="el" href="diff__system_8h_source.html#l00181">libMesh::DifferentiableSystem::attach_physics()</a>, <a class="el" href="diff__physics_8h_source.html#l00083">DifferentiablePhysics()</a>, and <a class="el" href="diff__system_8C_source.html#l00108">libMesh::DifferentiableSystem::init_data()</a>.</p>
+<p>Referenced by <a class="el" href="diff__system_8h_source.html#l00184">libMesh::DifferentiableSystem::attach_physics()</a>, <a class="el" href="diff__physics_8h_source.html#l00082">DifferentiablePhysics()</a>, and <a class="el" href="diff__system_8C_source.html#l00108">libMesh::DifferentiableSystem::init_data()</a>.</p>
 
 </div>
 </div>
@@ -899,10 +899,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00518">518</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00517">517</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00557">_first_order_vars</a>.</p>
-<div class="fragment"><div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>.find(var) != <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>.end(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a73bc59adf0ae024a9216bdc0db2d5b2a"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">libMesh::DifferentiablePhysics::_first_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _first_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00557">diff_physics.h:557</a></div></div>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00556">_first_order_vars</a>.</p>
+<div class="fragment"><div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>.find(var) != <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">_first_order_vars</a>.end(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a73bc59adf0ae024a9216bdc0db2d5b2a"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a73bc59adf0ae024a9216bdc0db2d5b2a">libMesh::DifferentiablePhysics::_first_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _first_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00556">diff_physics.h:556</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -928,12 +928,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00531">531</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00530">530</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00562">_second_order_vars</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00561">_second_order_vars</a>.</p>
 
 <p>Referenced by <a class="el" href="first__order__unsteady__solver_8C_source.html#l00032">libMesh::FirstOrderUnsteadySolver::compute_second_order_eqns()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>.find(var) != <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>.end(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab3139300c2d5ae16077aa17ff4079384"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">libMesh::DifferentiablePhysics::_second_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _second_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00562">diff_physics.h:562</a></div></div>
+<div class="fragment"><div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>.find(var) != <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">_second_order_vars</a>.end(); }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab3139300c2d5ae16077aa17ff4079384"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab3139300c2d5ae16077aa17ff4079384">libMesh::DifferentiablePhysics::_second_order_vars</a></div><div class="ttdeci">std::set&lt; unsigned int &gt; _second_order_vars</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00561">diff_physics.h:561</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -958,15 +958,15 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns true iff variable <code>var</code> is evolving with respect to time. In general, the user's <a class="el" href="namespacelibMesh_1_1TriangleWrapper.html#ae06da07f4c64d00ebefa55ce7f5c5e6b">init()</a> function should have set <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving()</a> for any variables which behave like du/dt = F(u), and should not call <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving()</a> for any variables which behave like 0 = G(u). </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> iff variable <code>var</code> is evolving with respect to time. In general, the user's <a class="el" href="namespacelibMesh_1_1TriangleWrapper.html#ae06da07f4c64d00ebefa55ce7f5c5e6b">init()</a> function should have set <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving()</a> for any variables which behave like du/dt = F(u), and should not call <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving()</a> for any variables which behave like 0 = G(u). </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00275">275</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00274">274</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00552">_time_evolving</a>, and <a class="el" href="namespacelibMesh.html#aa7fb62b0f022f9dd054a960fccf4ec7f">libMesh::libmesh_assert()</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00551">_time_evolving</a>, and <a class="el" href="namespacelibMesh.html#aa7fb62b0f022f9dd054a960fccf4ec7f">libMesh::libmesh_assert()</a>.</p>
 
 <p>Referenced by <a class="el" href="fem__system_8C_source.html#l01342">libMesh::FEMSystem::init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  {</div><div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    libmesh_assert_less(var,<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>.size());</div><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <a class="code" href="namespacelibMesh.html#aa7fb62b0f022f9dd054a960fccf4ec7f">libmesh_assert</a>( <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var] == 0 ||</div><div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var] == 1 ||</div><div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var] == 2 );</div><div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var];</div><div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  }</div><div class="ttc" id="namespacelibMesh_html_aa7fb62b0f022f9dd054a960fccf4ec7f"><div class="ttname"><a href="namespacelibMesh.html#aa7fb62b0f022f9dd054a960fccf4ec7f">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(j)</div></div>
-<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab885946dc9eac4b63d57921f991bea33"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">libMesh::DifferentiablePhysics::_time_evolving</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; _time_evolving</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00552">diff_physics.h:552</a></div></div>
+<div class="fragment"><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  {</div><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    libmesh_assert_less(var,<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>.size());</div><div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <a class="code" href="namespacelibMesh.html#aa7fb62b0f022f9dd054a960fccf4ec7f">libmesh_assert</a>( <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var] == 0 ||</div><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var] == 1 ||</div><div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                    <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var] == 2 );</div><div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">_time_evolving</a>[var];</div><div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  }</div><div class="ttc" id="namespacelibMesh_html_aa7fb62b0f022f9dd054a960fccf4ec7f"><div class="ttname"><a href="namespacelibMesh.html#aa7fb62b0f022f9dd054a960fccf4ec7f">libMesh::libmesh_assert</a></div><div class="ttdeci">libmesh_assert(j)</div></div>
+<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ab885946dc9eac4b63d57921f991bea33"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ab885946dc9eac4b63d57921f991bea33">libMesh::DifferentiablePhysics::_time_evolving</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; _time_evolving</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00551">diff_physics.h:551</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1001,16 +1001,16 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Subtracts a mass vector contribution on <code>elem</code> from elem_residual. For first-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\dot{u})\dot{u} $" src="form_30.png"/> term. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\ddot{u})\ddot{u} $" src="form_39.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
+<p>Subtracts a mass vector contribution on <code>elem</code> from elem_residual. For first-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\dot{u})\dot{u} $" src="form_39.png"/> term. For second-order-in-time problems, this is the <img class="formulaInl" alt="$ M(u,\ddot{u})\ddot{u} $" src="form_48.png"/> term. This method is only called for UnsteadySolver-based TimeSolvers.</p>
 <p>If this method receives request_jacobian = true, then it should compute elem_jacobian and return true if possible. If elem_jacobian has not been computed then the method should return false.</p>
 <p>Many first-order-in-time problems can use the reimplementation in <a class="el" href="classlibMesh_1_1FEMPhysics.html#a66aaafb25dc42433f3bdc180e6bf5b32">FEMPhysics::mass_residual</a> which subtracts (du/dt,v) for each transient variable u; users with more complicated transient problems or second-order-in-time problems will need to reimplement this themselves. </p>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1FEMPhysics.html#a66aaafb25dc42433f3bdc180e6bf5b32">libMesh::FEMPhysics</a>.</p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00316">316</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00315">315</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00050">libMesh::EulerSolver::element_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00050">libMesh::Euler2Solver::element_residual()</a>, <a class="el" href="newmark__solver_8C_source.html#l00163">libMesh::NewmarkSolver::element_residual()</a>, and <a class="el" href="eigen__time__solver_8C_source.html#l00127">libMesh::EigenTimeSolver::element_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                             {</div><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                                             {</div><div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8ffc6b599db2eda744da5af375548ee6"></a>
@@ -1048,10 +1048,10 @@ Protected Attributes</h2></td></tr>
 <p>If this method receives request_jacobian = true, then it should also modify elem_jacobian and return true if possible. If the Jacobian changes have not been computed then the method should return false.</p>
 <p>Users may need to reimplement this for PDEs on systems to which SCALAR variables with non-tranient equations have been added. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00227">227</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00226">226</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00082">libMesh::EulerSolver::nonlocal_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00082">libMesh::Euler2Solver::nonlocal_residual()</a>, <a class="el" href="steady__solver_8C_source.html#l00056">libMesh::SteadySolver::nonlocal_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00221">libMesh::EigenTimeSolver::nonlocal_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00191">libMesh::NewmarkSolver::nonlocal_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                                                   {</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                                                   {</div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="acfbc9391cdd815aa99a97e96a8228bcf"></a>
@@ -1088,10 +1088,10 @@ Protected Attributes</h2></td></tr>
 <p>Subtracts any nonlocal damping vector contributions (e.g. any first time derivative coefficients in scalar variable equations) from elem_residual</p>
 <p>If this method receives request_jacobian = true, then it should also modify elem_jacobian and return true if possible. If the Jacobian changes have not been computed then the method should return false. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00404">404</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00403">403</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00082">libMesh::EulerSolver::nonlocal_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00082">libMesh::Euler2Solver::nonlocal_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00191">libMesh::NewmarkSolver::nonlocal_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                                                         {</div><div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                                                         {</div><div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad4a653ad59e812a9dc76ddff3beef7aa"></a>
@@ -1129,7 +1129,7 @@ Protected Attributes</h2></td></tr>
 <p>If this method receives request_jacobian = true, then it should also modify elem_jacobian and return true if possible. If the Jacobian changes have not been computed then the method should return false.</p>
 <p>Many problems can use the reimplementation in <a class="el" href="classlibMesh_1_1FEMPhysics.html#a66aaafb25dc42433f3bdc180e6bf5b32">FEMPhysics::mass_residual</a> which subtracts (du/dt,v) for each transient scalar variable u; users with more complicated transient scalar variable equations will need to reimplement this themselves. </p>
 
-<p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00082">libMesh::EulerSolver::nonlocal_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00082">libMesh::Euler2Solver::nonlocal_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00221">libMesh::EigenTimeSolver::nonlocal_residual()</a>, <a class="el" href="newmark__solver_8C_source.html#l00191">libMesh::NewmarkSolver::nonlocal_residual()</a>, and <a class="el" href="diff__physics_8h_source.html#l00333">side_mass_residual()</a>.</p>
+<p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00082">libMesh::EulerSolver::nonlocal_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00082">libMesh::Euler2Solver::nonlocal_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00221">libMesh::EigenTimeSolver::nonlocal_residual()</a>, <a class="el" href="newmark__solver_8C_source.html#l00191">libMesh::NewmarkSolver::nonlocal_residual()</a>, and <a class="el" href="diff__physics_8h_source.html#l00332">side_mass_residual()</a>.</p>
 
 </div>
 </div>
@@ -1168,10 +1168,10 @@ Protected Attributes</h2></td></tr>
 <p>If this method receives request_jacobian = true, then it should also modify elem_jacobian and return true if possible. If the Jacobian changes have not been computed then the method should return false.</p>
 <p>Users may need to reimplement this for PDEs on systems to which SCALAR variables have been added. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00209">209</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00208">208</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00082">libMesh::EulerSolver::nonlocal_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00082">libMesh::Euler2Solver::nonlocal_residual()</a>, <a class="el" href="steady__solver_8C_source.html#l00056">libMesh::SteadySolver::nonlocal_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00221">libMesh::EigenTimeSolver::nonlocal_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00191">libMesh::NewmarkSolver::nonlocal_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                                                        {</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                                        {</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3aadb813e058ee99f1dbe75159469c53"></a>
@@ -1202,13 +1202,13 @@ Protected Attributes</h2></td></tr>
 <p>This code is experimental. "Trust but verify, and not in that
 order" </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00578">578</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00577">577</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00540">_mesh_sys</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00155">libMesh::sys</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00539">_mesh_sys</a>, and <a class="el" href="petsc__diff__solver_8C_source.html#l00155">libMesh::sys</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;{</div><div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  <span class="comment">// For now we assume that we&#39;re doing fully coupled mesh motion</span></div><div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;  <span class="comment">//  if (sys &amp;&amp; sys != this)</span></div><div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;  <span class="comment">//    libmesh_not_implemented();</span></div><div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;</div><div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  <span class="comment">// For the foreseeable future we&#39;ll assume that we keep these</span></div><div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;  <span class="comment">// Systems in the same EquationSystems</span></div><div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;  <span class="comment">// libmesh_assert_equal_to (&amp;this-&gt;get_equation_systems(),</span></div><div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;  <span class="comment">//                          &amp;sys-&gt;get_equation_systems());</span></div><div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;</div><div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;  <span class="comment">// And for the immediate future this code may not even work</span></div><div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;  libmesh_experimental();</div><div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;</div><div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a> = <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a>;</div><div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;}</div><div class="ttc" id="namespacelibMesh_html_a1345433246a95afac02ca599bda7a45b"><div class="ttname"><a href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">libMesh::sys</a></div><div class="ttdeci">ImplicitSystem &amp; sys</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00155">petsc_diff_solver.C:155</a></div></div>
-<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00540">diff_physics.h:540</a></div></div>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;{</div><div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;  <span class="comment">// For now we assume that we&#39;re doing fully coupled mesh motion</span></div><div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  <span class="comment">//  if (sys &amp;&amp; sys != this)</span></div><div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;  <span class="comment">//    libmesh_not_implemented();</span></div><div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;</div><div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;  <span class="comment">// For the foreseeable future we&#39;ll assume that we keep these</span></div><div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  <span class="comment">// Systems in the same EquationSystems</span></div><div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;  <span class="comment">// libmesh_assert_equal_to (&amp;this-&gt;get_equation_systems(),</span></div><div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;  <span class="comment">//                          &amp;sys-&gt;get_equation_systems());</span></div><div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;</div><div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;  <span class="comment">// And for the immediate future this code may not even work</span></div><div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;  libmesh_experimental();</div><div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;</div><div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">_mesh_sys</a> = <a class="code" href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">sys</a>;</div><div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;}</div><div class="ttc" id="namespacelibMesh_html_a1345433246a95afac02ca599bda7a45b"><div class="ttname"><a href="namespacelibMesh.html#a1345433246a95afac02ca599bda7a45b">libMesh::sys</a></div><div class="ttdeci">ImplicitSystem &amp; sys</div><div class="ttdef"><b>Definition:</b> <a href="petsc__diff__solver_8C_source.html#l00155">petsc_diff_solver.C:155</a></div></div>
+<div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_ae762bdeb8c1e819ebf8b09d6a867fff3"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#ae762bdeb8c1e819ebf8b09d6a867fff3">libMesh::DifferentiablePhysics::_mesh_sys</a></div><div class="ttdeci">System * _mesh_sys</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00539">diff_physics.h:539</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1237,12 +1237,12 @@ order" </p>
 <p>The system with mesh coordinate data (which may be this system itself, for fully coupled moving mesh problems) is currently assumed to have new (end of time step) mesh coordinates stored in solution, old (beginning of time step) mesh coordinates stored in _old_nonlinear_solution, and constant velocity motion during each time step.</p>
 <p>Activating this function ensures that local (but not neighbor!) element geometry is correctly repositioned when evaluating element residuals. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00598">598</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00597">597</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00545">_mesh_x_var</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00544">_mesh_x_var</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;{</div><div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">_mesh_x_var</a> = var;</div><div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4125b3fcf1dd38b4f1a70e56bac0e2fc"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">libMesh::DifferentiablePhysics::_mesh_x_var</a></div><div class="ttdeci">unsigned int _mesh_x_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;{</div><div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">_mesh_x_var</a> = var;</div><div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a4125b3fcf1dd38b4f1a70e56bac0e2fc"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a4125b3fcf1dd38b4f1a70e56bac0e2fc">libMesh::DifferentiablePhysics::_mesh_x_var</a></div><div class="ttdeci">unsigned int _mesh_x_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1269,12 +1269,12 @@ order" </p>
 </div><div class="memdoc">
 <p>Tells the <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html">DifferentiablePhysics</a> that variable <code>var</code> from the mesh system should be used to update the y coordinate of mesh nodes. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00606">606</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00605">605</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00545">_mesh_y_var</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00544">_mesh_y_var</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;{</div><div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">_mesh_y_var</a> = var;</div><div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a3102589faec7aa5752b4f605d5e2283e"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">libMesh::DifferentiablePhysics::_mesh_y_var</a></div><div class="ttdeci">unsigned int _mesh_y_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;{</div><div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">_mesh_y_var</a> = var;</div><div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a3102589faec7aa5752b4f605d5e2283e"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a3102589faec7aa5752b4f605d5e2283e">libMesh::DifferentiablePhysics::_mesh_y_var</a></div><div class="ttdeci">unsigned int _mesh_y_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1301,12 +1301,12 @@ order" </p>
 </div><div class="memdoc">
 <p>Tells the <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html">DifferentiablePhysics</a> that variable <code>var</code> from the mesh system should be used to update the z coordinate of mesh nodes. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00614">614</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00613">613</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>References <a class="el" href="diff__physics_8h_source.html#l00545">_mesh_z_var</a>.</p>
+<p>References <a class="el" href="diff__physics_8h_source.html#l00544">_mesh_z_var</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00415">init_context()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;{</div><div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">_mesh_z_var</a> = var;</div><div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a081fe25766a214bc0d22f86d114258c4"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">libMesh::DifferentiablePhysics::_mesh_z_var</a></div><div class="ttdeci">unsigned int _mesh_z_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00545">diff_physics.h:545</a></div></div>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00414">init_context()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;{</div><div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  <a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">_mesh_z_var</a> = var;</div><div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_a081fe25766a214bc0d22f86d114258c4"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#a081fe25766a214bc0d22f86d114258c4">libMesh::DifferentiablePhysics::_mesh_z_var</a></div><div class="ttdeci">unsigned int _mesh_z_var</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00544">diff_physics.h:544</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1345,10 +1345,10 @@ order" </p>
 <p>Users may need to reimplement this for their particular PDE depending on the boundary conditions.</p>
 <p>To implement a weak form of the constraint 0 = G(u), the user should examine u = elem_solution and add (G(u), phi_i) boundary integral contributions to elem_residual in <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#a74bae39adf00d96c559fe81b1158c272">side_constraint()</a>. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00191">191</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00190">190</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00067">libMesh::EulerSolver::side_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00067">libMesh::Euler2Solver::side_residual()</a>, <a class="el" href="steady__solver_8C_source.html#l00045">libMesh::SteadySolver::side_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00174">libMesh::EigenTimeSolver::side_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00177">libMesh::NewmarkSolver::side_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                                               {</div><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                               {</div><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="adb9e129aacad3e6746c868fd9a259f5c"></a>
@@ -1385,10 +1385,10 @@ order" </p>
 <p>Subtracts a damping vector contribution on <code>side</code> of <code>elem</code> from elem_residual. If this method receives request_jacobian = true, then it should compute elem_jacobian and return true if possible. If elem_jacobian has not been computed then the method should return false.</p>
 <p>For most problems, the default implementation of "do nothing" is correct; users with boundary conditions including first time derivatives may need to reimplement this themselves. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00389">389</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00388">388</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00067">libMesh::EulerSolver::side_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00067">libMesh::Euler2Solver::side_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00177">libMesh::NewmarkSolver::side_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                                                     {</div><div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                                                     {</div><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a39e41862f9197f1ae47a3fe2bf936a29"></a>
@@ -1425,12 +1425,12 @@ order" </p>
 <p>Subtracts a mass vector contribution on <code>side</code> of <code>elem</code> from elem_residual. If this method receives request_jacobian = true, then it should compute elem_jacobian and return true if possible. If elem_jacobian has not been computed then the method should return false.</p>
 <p>For most problems, the default implementation of "do nothing" is correct; users with boundary conditions including time derivatives may need to reimplement this themselves. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00333">333</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00332">332</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#ad4a653ad59e812a9dc76ddff3beef7aa">nonlocal_mass_residual()</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00067">libMesh::EulerSolver::side_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00067">libMesh::Euler2Solver::side_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00174">libMesh::EigenTimeSolver::side_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00177">libMesh::NewmarkSolver::side_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                                                  {</div><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                                                  {</div><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a46a5c2399209d750f3ea4ee10bdf13c1"></a>
@@ -1468,10 +1468,10 @@ order" </p>
 <p>Users may need to reimplement this for their particular PDE depending on the boundary conditions.</p>
 <p>To implement a weak form of the source term du/dt = F(u) on sides, such as might arise in a flux boundary condition, the user should examine u = elem_solution and add (F(u), phi_i) boundary integral contributions to elem_residual in <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#a74bae39adf00d96c559fe81b1158c272">side_constraint()</a>. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00171">171</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00170">170</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="euler__solver_8C_source.html#l00067">libMesh::EulerSolver::side_residual()</a>, <a class="el" href="euler2__solver_8C_source.html#l00067">libMesh::Euler2Solver::side_residual()</a>, <a class="el" href="steady__solver_8C_source.html#l00045">libMesh::SteadySolver::side_residual()</a>, <a class="el" href="eigen__time__solver_8C_source.html#l00174">libMesh::EigenTimeSolver::side_residual()</a>, and <a class="el" href="newmark__solver_8C_source.html#l00177">libMesh::NewmarkSolver::side_residual()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                                                    {</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                                    {</div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span> request_jacobian;</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aa385fa6b392573e20d9654f118a16c69"></a>
@@ -1499,10 +1499,10 @@ order" </p>
 <p>Most derived systems will not have to reimplment this function; however any system which reimplements <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#af3dd0a71e42b409c95a6c73fc47adc01">mass_residual()</a> may have to reimplement <a class="el" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving()</a> to prepare data structures.</p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>Instead, use the time_evolving override and specify the order-in-time of the variable, either 1 or 2. This method assumes the variable is first order for backward compatibility. </dd></dl>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00248">248</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00247">247</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="diff__system_8C_source.html#l00198">libMesh::DifferentiableSystem::add_second_order_dot_vars()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  {</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    libmesh_deprecated();</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    this-&gt;<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving</a>(var,1);</div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_aa385fa6b392573e20d9654f118a16c69"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">libMesh::DifferentiablePhysics::time_evolving</a></div><div class="ttdeci">virtual void time_evolving(unsigned int var)</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00248">diff_physics.h:248</a></div></div>
+<div class="fragment"><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  {</div><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    libmesh_deprecated();</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    this-&gt;<a class="code" href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">time_evolving</a>(var,1);</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1DifferentiablePhysics_html_aa385fa6b392573e20d9654f118a16c69"><div class="ttname"><a href="classlibMesh_1_1DifferentiablePhysics.html#aa385fa6b392573e20d9654f118a16c69">libMesh::DifferentiablePhysics::time_evolving</a></div><div class="ttdeci">virtual void time_evolving(unsigned int var)</div><div class="ttdef"><b>Definition:</b> <a href="diff__physics_8h_source.html#l00247">diff_physics.h:247</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1562,9 +1562,9 @@ order" </p>
 </div><div class="memdoc">
 <p><a class="el" href="classlibMesh_1_1Variable.html" title="A variable which is solved for in a System of equations. ">Variable</a> indices for those variables that are first order in time. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00557">557</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00556">556</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00515">get_first_order_vars()</a>, <a class="el" href="diff__physics_8h_source.html#l00509">have_first_order_vars()</a>, and <a class="el" href="diff__physics_8h_source.html#l00518">is_first_order_var()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00514">get_first_order_vars()</a>, <a class="el" href="diff__physics_8h_source.html#l00508">have_first_order_vars()</a>, and <a class="el" href="diff__physics_8h_source.html#l00517">is_first_order_var()</a>.</p>
 
 </div>
 </div>
@@ -1587,9 +1587,9 @@ order" </p>
 </div><div class="memdoc">
 <p><a class="el" href="classlibMesh_1_1System.html">System</a> from which to acquire moving mesh information </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00540">540</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00539">539</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00622">get_mesh_system()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01063">libMesh::FEMSystem::mesh_position_set()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00578">set_mesh_system()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00621">get_mesh_system()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01063">libMesh::FEMSystem::mesh_position_set()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00577">set_mesh_system()</a>.</p>
 
 </div>
 </div>
@@ -1612,9 +1612,9 @@ order" </p>
 </div><div class="memdoc">
 <p>Variables from which to acquire moving mesh information </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00545">545</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00544">544</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00634">get_mesh_x_var()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00598">set_mesh_x_var()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00633">get_mesh_x_var()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00597">set_mesh_x_var()</a>.</p>
 
 </div>
 </div>
@@ -1636,9 +1636,9 @@ order" </p>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00545">545</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00544">544</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00640">get_mesh_y_var()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00606">set_mesh_y_var()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00639">get_mesh_y_var()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00605">set_mesh_y_var()</a>.</p>
 
 </div>
 </div>
@@ -1660,9 +1660,9 @@ order" </p>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00545">545</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00544">544</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00646">get_mesh_z_var()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00614">set_mesh_z_var()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00645">get_mesh_z_var()</a>, <a class="el" href="fem__system_8C_source.html#l01389">libMesh::FEMSystem::mesh_position_get()</a>, <a class="el" href="fem__system_8C_source.html#l01185">libMesh::FEMSystem::numerical_jacobian()</a>, and <a class="el" href="diff__physics_8h_source.html#l00613">set_mesh_z_var()</a>.</p>
 
 </div>
 </div>
@@ -1685,7 +1685,7 @@ order" </p>
 </div><div class="memdoc">
 <p>If the user adds any second order variables, then we need to also cache the map to their corresponding dot variable that will be added by this <a class="el" href="classlibMesh_1_1TimeSolver.html">TimeSolver</a> class. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00569">569</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00568">568</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 <p>Referenced by <a class="el" href="diff__system_8C_source.html#l00198">libMesh::DifferentiableSystem::add_second_order_dot_vars()</a>, and <a class="el" href="diff__system_8C_source.html#l00313">libMesh::DifferentiableSystem::get_second_order_dot_var()</a>.</p>
 
@@ -1710,9 +1710,9 @@ order" </p>
 </div><div class="memdoc">
 <p><a class="el" href="classlibMesh_1_1Variable.html" title="A variable which is solved for in a System of equations. ">Variable</a> indices for those variables that are second order in time. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00562">562</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00561">561</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00528">get_second_order_vars()</a>, <a class="el" href="diff__physics_8h_source.html#l00522">have_second_order_vars()</a>, and <a class="el" href="diff__physics_8h_source.html#l00531">is_second_order_var()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00527">get_second_order_vars()</a>, <a class="el" href="diff__physics_8h_source.html#l00521">have_second_order_vars()</a>, and <a class="el" href="diff__physics_8h_source.html#l00530">is_second_order_var()</a>.</p>
 
 </div>
 </div>
@@ -1735,9 +1735,9 @@ order" </p>
 </div><div class="memdoc">
 <p>Stores unsigned int to tell us which variables are evolving as first order in time (1), second order in time (2), or are not time evolving (0). </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00552">552</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00551">551</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
-<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00275">is_time_evolving()</a>.</p>
+<p>Referenced by <a class="el" href="diff__physics_8h_source.html#l00274">is_time_evolving()</a>.</p>
 
 </div>
 </div>
@@ -1752,7 +1752,7 @@ order" </p>
 </div><div class="memdoc">
 <p><code>compute_internal_sides</code> is false by default, indicating that side_* computations will only be done on boundary sides. If compute_internal_sides is true, computations will be done on sides between elements as well. </p>
 
-<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00153">153</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
+<p>Definition at line <a class="el" href="diff__physics_8h_source.html#l00152">152</a> of file <a class="el" href="diff__physics_8h_source.html">diff_physics.h</a>.</p>
 
 </div>
 </div>

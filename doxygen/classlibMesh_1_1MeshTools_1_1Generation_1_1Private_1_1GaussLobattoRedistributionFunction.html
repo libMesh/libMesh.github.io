@@ -272,10 +272,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Clears the function. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00085">85</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00086">86</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1FunctionBase.html#ac45750abe5452c4ed49e51178e11feb7">libMesh::FunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="function__base_8h_source.html#l00234">libMesh::FunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="function__base_8h_source.html#l00212">libMesh::FunctionBase&lt; Output &gt;::initialized()</a>, <a class="el" href="function__base_8h_source.html#l00226">libMesh::FunctionBase&lt; Output &gt;::is_time_dependent()</a>, <a class="el" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">libMesh::FunctionBase&lt; Output &gt;::operator()()</a>, <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>, and <a class="el" href="function__base_8h_source.html#l00219">libMesh::FunctionBase&lt; Output &gt;::set_is_time_dependent()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{}</div></div><!-- fragment -->
+<p>References <a class="el" href="classlibMesh_1_1FunctionBase.html#ac45750abe5452c4ed49e51178e11feb7">libMesh::FunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="function__base_8h_source.html#l00230">libMesh::FunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="function__base_8h_source.html#l00208">libMesh::FunctionBase&lt; Output &gt;::initialized()</a>, <a class="el" href="function__base_8h_source.html#l00222">libMesh::FunctionBase&lt; Output &gt;::is_time_dependent()</a>, <a class="el" href="classlibMesh_1_1FunctionBase.html#af15cc1cd251c8c60f4ed0acb91bc3b50">libMesh::FunctionBase&lt; Output &gt;::operator()()</a>, <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>, and <a class="el" href="function__base_8h_source.html#l00215">libMesh::FunctionBase&lt; Output &gt;::set_is_time_dependent()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a0ba639a9e4c57d77c9696e460d5d880d"></a>
@@ -346,7 +346,10 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>. Subclasses aren't required to overload this, since the default implementation is based on the full vector evaluation, which is often correct. Subclasses are recommended to overload this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Subclasses aren't required to override this, since the default implementation is based on the full vector evaluation, which is often correct.</dd>
+<dd>
+Subclasses are recommended to override this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
 
 </div>
 </div>
@@ -372,8 +375,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The actual initialization process. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00080">80</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00081">81</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a5b78b2741fc53ce08497153e3458ec78"></a>
@@ -455,7 +458,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code>. </p>
+<p>Evaluation function for time-independent vector-valued functions. Sets output values in the passed-in <code>output</code> DenseVector. </p>
 
 </div>
 </div>
@@ -621,7 +624,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>When <code><a class="el" href="classlibMesh_1_1FunctionBase.html#a04d2170f70d86db71bb4c76e312fcfe6">init()</a></code> was called so that everything is ready for calls to <code>operator()</code> (...), then this <code>bool</code> is true. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00178">178</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00174">174</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 </div>
 </div>
@@ -644,7 +647,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Cache whether or not this function is actually time-dependent. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00183">183</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00179">179</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 </div>
 </div>
@@ -667,7 +670,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Const pointer to our master, initialized to <code>NULL</code>. There may be cases where multiple functions are required, but to save memory, one master handles some centralized data. </p>
 
-<p>Definition at line <a class="el" href="function__base_8h_source.html#l00172">172</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="function__base_8h_source.html#l00168">168</a> of file <a class="el" href="function__base_8h_source.html">function_base.h</a>.</p>
 
 </div>
 </div>

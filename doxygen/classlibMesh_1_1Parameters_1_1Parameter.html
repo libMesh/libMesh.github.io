@@ -324,7 +324,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>a read-only reference to the parameter value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A read-only reference to the parameter value. </dd></dl>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00212">212</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 <div class="fragment"><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parameters_1_1Parameter.html#a726b5527efc3fd02f9fbda60142597b3">_value</a>; }</div><div class="ttc" id="classlibMesh_1_1Parameters_1_1Parameter_html_a726b5527efc3fd02f9fbda60142597b3"><div class="ttname"><a href="classlibMesh_1_1Parameters_1_1Parameter.html#a726b5527efc3fd02f9fbda60142597b3">libMesh::Parameters::Parameter::_value</a></div><div class="ttdeci">T _value</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l00240">parameters.h:240</a></div></div>
@@ -457,7 +457,7 @@ template&lt;typename T&gt; </div>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00132">libMesh::ReferenceCounter::_n_objects</a>, <a class="el" href="reference__counter_8C_source.html#l00107">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00101">libMesh::ReferenceCounter::enable_print_counter_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00185">libMesh::ReferenceCounter::increment_constructor_count()</a>, <a class="el" href="reference__counter_8h_source.html#l00198">libMesh::ReferenceCounter::increment_destructor_count()</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
 
-<p>Referenced by <a class="el" href="system_8h_source.html#l01651">libMesh::System::hide_output()</a>, and <a class="el" href="libmesh_8C_source.html#l00343">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>Referenced by <a class="el" href="system_8h_source.html#l01655">libMesh::System::hide_output()</a>, and <a class="el" href="libmesh_8C_source.html#l00343">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00132">reference_counter.h:132</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -552,7 +552,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>a writeable reference to the parameter value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A writable reference to the parameter value. </dd></dl>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00217">217</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
@@ -589,9 +589,9 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="parameters_8h_source.html#l00290">290</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
-<p>References <a class="el" href="print__trace_8C_source.html#l00233">libMesh::demangle()</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
+<p>References <a class="el" href="print__trace_8C_source.html#l00250">libMesh::demangle()</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;{</div><div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespacelibMesh.html#a43425a7b4b79fd615553ed3131e74ab8">demangle</a>(<span class="keyword">typeid</span>(T).<a class="code" href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">name</a>());</div><div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div><div class="ttc" id="namespacelibMesh_1_1Quality_html_a1d3617b89c15ade245910fc9a4ddfa34"><div class="ttname"><a href="namespacelibMesh_1_1Quality.html#a1d3617b89c15ade245910fc9a4ddfa34">libMesh::Quality::name</a></div><div class="ttdeci">std::string name(const ElemQuality q)</div><div class="ttdef"><b>Definition:</b> <a href="elem__quality_8C_source.html#l00039">elem_quality.C:39</a></div></div>
-<div class="ttc" id="namespacelibMesh_html_a43425a7b4b79fd615553ed3131e74ab8"><div class="ttname"><a href="namespacelibMesh.html#a43425a7b4b79fd615553ed3131e74ab8">libMesh::demangle</a></div><div class="ttdeci">std::string demangle(const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="print__trace_8C_source.html#l00233">print_trace.C:233</a></div></div>
+<div class="ttc" id="namespacelibMesh_html_a43425a7b4b79fd615553ed3131e74ab8"><div class="ttname"><a href="namespacelibMesh.html#a43425a7b4b79fd615553ed3131e74ab8">libMesh::demangle</a></div><div class="ttdeci">std::string demangle(const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="print__trace_8C_source.html#l00250">print_trace.C:250</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

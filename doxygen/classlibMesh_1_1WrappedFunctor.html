@@ -141,11 +141,11 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Output = Number&gt;<br />
 class libMesh::WrappedFunctor&lt; Output &gt;</h3>
 
-<p>This class provides a wrapper with which to evaluate a (libMesh-style) function pointer in a FunctionBase-compatible interface.</p>
+<p>This class provides a wrapper with which to evaluate a (libMesh-style) function pointer in a FunctionBase-compatible interface. All overridden virtual functions are documented in <a class="el" href="fem__function__base_8h.html">fem_function_base.h</a>.</p>
 <dl class="section author"><dt>Author</dt><dd>Roy Stogner </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00043">43</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00044">44</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0498d5008d358d32c2f2bbb940d3f481"></a>
 <div class="memitem">
@@ -170,10 +170,10 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructor to wrap <a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a> functors in a <a class="el" href="classlibMesh_1_1FEMFunctionBase.html">FEMFunctionBase</a> compatible shim </p>
+<p>Constructor to wrap <a class="el" href="classlibMesh_1_1FunctionBase.html">FunctionBase</a> functors in a <a class="el" href="classlibMesh_1_1FEMFunctionBase.html">FEMFunctionBase</a> compatible shim. </p>
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00051">51</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    : <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>(func.clone())</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  { }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00093">wrapped_functor.h:93</a></div></div>
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00052">52</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    : <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>(func.clone())</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  { }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00081">wrapped_functor.h:81</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -200,12 +200,13 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a new copy of the function. The new copy should be as "deep" as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
+<dl class="section return"><dt>Returns</dt><dd>A new copy of the function.</dd></dl>
+<p>The new copy should be as "deep" as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00055">55</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;FEMFunctionBase&lt;Output&gt; &gt;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      (<span class="keyword">new</span> WrappedFunctor&lt;Output&gt; (*_func));</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00056">56</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;FEMFunctionBase&lt;Output&gt; &gt;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      (<span class="keyword">new</span> WrappedFunctor&lt;Output&gt; (*_func));</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a291767dd317cc4667740f544b211c1cd"></a>
@@ -221,7 +222,7 @@ template&lt;typename Output = Number&gt; </div>
           <td class="memname">virtual Output <a class="el" href="classlibMesh_1_1WrappedFunctor.html">libMesh::WrappedFunctor</a>&lt; Output &gt;::component </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -253,14 +254,17 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Subclasses aren't required to override this, since the default implementation is based on the full vector evaluation, which is often correct.</dd>
+<dd>
+Subclasses are recommended to override this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#ade48b862ec4bc7a787824598205f0ef3">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00085">85</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00073">73</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
 
-<p>References <a class="el" href="wrapped__functor_8h_source.html#l00093">libMesh::WrappedFunctor&lt; Output &gt;::_func</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>-&gt;component(i, p, time); }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00093">wrapped_functor.h:93</a></div></div>
+<p>References <a class="el" href="wrapped__functor_8h_source.html#l00081">libMesh::WrappedFunctor&lt; Output &gt;::_func</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>-&gt;component(i, p, time); }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00081">wrapped_functor.h:81</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -294,7 +298,7 @@ template&lt;typename Output = Number&gt; </div>
 
 <p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00071">71</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="fem__function__base_8h_source.html#l00132">libMesh::FEMFunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
+<p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="fem__function__base_8h_source.html#l00131">libMesh::FEMFunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
@@ -337,14 +341,15 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the scalar value of variable varnum at coordinate <code>p</code> and time <code>time</code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The scalar function value at coordinate <code>p</code> and time <code>time</code>, which defaults to zero.</dd></dl>
+<p>Pure virtual, so you have to override it. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00065">65</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00062">62</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
 
-<p>References <a class="el" href="wrapped__functor_8h_source.html#l00093">libMesh::WrappedFunctor&lt; Output &gt;::_func</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>-&gt;operator()(p, time); }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00093">wrapped_functor.h:93</a></div></div>
+<p>References <a class="el" href="wrapped__functor_8h_source.html#l00081">libMesh::WrappedFunctor&lt; Output &gt;::_func</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>-&gt;operator()(p, time); }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00081">wrapped_functor.h:81</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -393,14 +398,15 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of all system variables at the coordinate <code>p</code> and for time <code>time</code>. </p>
+<p>Evaluation function for time-dependent vector-valued functions. Sets output values in the passed-in <code>output</code> <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>.</p>
+<p>Pure virtual, so you have to override it. </p>
 
 <p>Implements <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#ab7f447139d476bca461b64feebc3b695">libMesh::FEMFunctionBase&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00075">75</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00067">67</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
 
-<p>References <a class="el" href="wrapped__functor_8h_source.html#l00093">libMesh::WrappedFunctor&lt; Output &gt;::_func</a>.</p>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  { <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>-&gt;operator() (p, time, output); }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00093">wrapped_functor.h:93</a></div></div>
+<p>References <a class="el" href="wrapped__functor_8h_source.html#l00081">libMesh::WrappedFunctor&lt; Output &gt;::_func</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  { <a class="code" href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">_func</a>-&gt;operator() (p, time, output); }</div><div class="ttc" id="classlibMesh_1_1WrappedFunctor_html_a0271f7e6ec9190d48accc295204e13f3"><div class="ttname"><a href="classlibMesh_1_1WrappedFunctor.html#a0271f7e6ec9190d48accc295204e13f3">libMesh::WrappedFunctor::_func</a></div><div class="ttdeci">UniquePtr&lt; FunctionBase&lt; Output &gt; &gt; _func</div><div class="ttdef"><b>Definition:</b> <a href="wrapped__functor_8h_source.html#l00081">wrapped_functor.h:81</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -443,12 +449,12 @@ template&lt;typename Output &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code>. </p>
+<p>Evaluation function for time-independent vector-valued functions. Sets output values in the passed-in <code>output</code> <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>. </p>
 
-<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00144">144</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00143">143</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">operator()</a>(context, p, 0., output);</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionBase_html_aa8af02df444c85ebc35f14b0e48a9881"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const FEMContext &amp;, const Point &amp;p, const Real time=0.)=0</div></div>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">operator()</a>(context, p, 0., output);</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionBase_html_aa8af02df444c85ebc35f14b0e48a9881"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const FEMContext &amp;, const Point &amp;p, const Real time=0.)=0</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -473,9 +479,9 @@ template&lt;typename Output = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00093">93</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
+<p>Definition at line <a class="el" href="wrapped__functor_8h_source.html#l00081">81</a> of file <a class="el" href="wrapped__functor_8h_source.html">wrapped_functor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="wrapped__functor_8h_source.html#l00085">libMesh::WrappedFunctor&lt; Output &gt;::component()</a>, and <a class="el" href="wrapped__functor_8h_source.html#l00065">libMesh::WrappedFunctor&lt; Output &gt;::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="wrapped__functor_8h_source.html#l00073">libMesh::WrappedFunctor&lt; Output &gt;::component()</a>, and <a class="el" href="wrapped__functor_8h_source.html#l00062">libMesh::WrappedFunctor&lt; Output &gt;::operator()()</a>.</p>
 
 </div>
 </div>

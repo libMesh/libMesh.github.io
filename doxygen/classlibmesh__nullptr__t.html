@@ -120,10 +120,10 @@ Private Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A C++03-compatible nullptr type implemented as a library solution rather than a language keyword. Originally due to Scott Meyers, Effective C++, 2nd Edition, Item 25. The main benefits of using this type over NULL are 1.) Expressiveness: 2.) Disambiguating overloads, e.g. void f(int); void f(double *); f(NULL); // ambiguous f(nullptr); // unambiguous - calls the version of f taking a pointer</p>
 <p>We are specifically <em>not</em> attempting to redefine the 'nullptr' keyword itself &ndash; that can lead to issues when C++11 is disabled, yet the compiler still has 'nullptr' defined. Therefore, client code that wishes to be more expressive/correct should use 'libmesh_nullptr' for maximum backwards compatibility.</p>
-<p>Note: the leading const applies to the following nullptr instance.</p>
+<dl class="section note"><dt>Note</dt><dd>The leading const applies to the following nullptr instance.</dd></dl>
 <p>Code originally coped from: <a href="https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/nullptr#Solution_and_Sample_Code">https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/nullptr#Solution_and_Sample_Code</a> </p>
 
-<p>Definition at line <a class="el" href="libmesh__nullptr_8h_source.html#l00054">54</a> of file <a class="el" href="libmesh__nullptr_8h_source.html">libmesh_nullptr.h</a>.</p>
+<p>Definition at line <a class="el" href="libmesh__nullptr_8h_source.html#l00053">53</a> of file <a class="el" href="libmesh__nullptr_8h_source.html">libmesh_nullptr.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a93720dd0b20618f4958e0a817a43b6d2"></a>
 <div class="memitem">
@@ -148,8 +148,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="libmesh__nullptr_8h_source.html#l00059">59</a> of file <a class="el" href="libmesh__nullptr_8h_source.html">libmesh_nullptr.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{ <span class="keywordflow">return</span> 0; }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="libmesh__nullptr_8h_source.html#l00058">58</a> of file <a class="el" href="libmesh__nullptr_8h_source.html">libmesh_nullptr.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{ <span class="keywordflow">return</span> 0; }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6acb9782aa916e8e8cbc31e6c0215ce3"></a>
@@ -175,10 +175,10 @@ template&lt;class C , class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="libmesh__nullptr_8h_source.html#l00063">63</a> of file <a class="el" href="libmesh__nullptr_8h_source.html">libmesh_nullptr.h</a>.</p>
+<p>Definition at line <a class="el" href="libmesh__nullptr_8h_source.html#l00062">62</a> of file <a class="el" href="libmesh__nullptr_8h_source.html">libmesh_nullptr.h</a>.</p>
 
 <p>References <a class="el" href="libmesh__nullptr_8h.html#ad10985637963b309cf2bf815e508438d">libmesh_nullptr</a>, and <a class="el" href="classlibmesh__nullptr__t.html#ad63b15abef9e9902fb0631cf577a08fe">operator&amp;()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{ <span class="keywordflow">return</span> 0; }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{ <span class="keywordflow">return</span> 0; }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad63b15abef9e9902fb0631cf577a08fe"></a>
@@ -202,7 +202,7 @@ template&lt;class C , class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="libmesh__nullptr_8h_source.html#l00063">operator T C::*()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh__nullptr_8h_source.html#l00062">operator T C::*()</a>.</p>
 
 </div>
 </div>

@@ -112,7 +112,7 @@ Inheritance diagram for libMesh::FEMFunctionBase&lt; Output &gt;:</div>
 <div class="center"><img src="classlibMesh_1_1FEMFunctionBase__inherit__graph.png" border="0" usemap="#libMesh_1_1FEMFunctionBase_3_01Output_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="libMesh_1_1FEMFunctionBase_3_01Output_01_4_inherit__map" id="libMesh_1_1FEMFunctionBase_3_01Output_01_4_inherit__map">
 <area shape="rect" id="node2" href="classlibMesh_1_1CompositeFEMFunction.html" title="FEMFunction which is a function of another function. " alt="" coords="239,5,457,47"/>
-<area shape="rect" id="node3" href="classlibMesh_1_1ConstFEMFunction.html" title="FEMFunction that returns a single. " alt="" coords="253,71,443,112"/>
+<area shape="rect" id="node3" href="classlibMesh_1_1ConstFEMFunction.html" title="FEMFunction that returns a single value. " alt="" coords="253,71,443,112"/>
 <area shape="rect" id="node4" href="classlibMesh_1_1ParsedFEMFunction.html" title="Support for using parsed functions in FEMSystem. " alt="" coords="249,136,447,177"/>
 <area shape="rect" id="node5" href="classlibMesh_1_1WrappedFunctor.html" title="libMesh::WrappedFunctor\l\&lt; Output \&gt;" alt="" coords="261,201,435,243"/>
 <area shape="rect" id="node6" href="classlibMesh_1_1ParsedFEMFunction.html" title="ParsedFEMFunction\&lt; T \&gt;" alt="" coords="261,267,435,294"/>
@@ -230,11 +230,12 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a new copy of the function. The new copy should be as "deep" as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
+<dl class="section return"><dt>Returns</dt><dd>A new copy of the function.</dd></dl>
+<p>The new copy should be as "deep" as necessary to allow independent destruction and simultaneous evaluations of the copies in different threads. </p>
 
 <p>Implemented in <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a6c141312eecfc341e048c8f4c54e251b">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a8c1214a2ca5baf34a87c47aa613bb0f4">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a8c1214a2ca5baf34a87c47aa613bb0f4">libMesh::ParsedFEMFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunctor.html#ae9e62d3ba6df27407855c433c1d66447">libMesh::WrappedFunctor&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFEMFunction.html#a97df6392469fef44f02b771c63b83337">libMesh::ConstFEMFunction&lt; Output &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="composite__fem__function_8h_source.html#l00058">libMesh::CompositeFEMFunction&lt; Output &gt;::attach_subfunction()</a>, <a class="el" href="dirichlet__boundary_8C_source.html#l00136">libMesh::DirichletBoundary::DirichletBoundary()</a>, and <a class="el" href="fem__function__base_8h_source.html#l00071">libMesh::FEMFunctionBase&lt; Output &gt;::init_context()</a>.</p>
+<p>Referenced by <a class="el" href="composite__fem__function_8h_source.html#l00060">libMesh::CompositeFEMFunction&lt; Output &gt;::attach_subfunction()</a>, <a class="el" href="dirichlet__boundary_8C_source.html#l00136">libMesh::DirichletBoundary::DirichletBoundary()</a>, and <a class="el" href="fem__function__base_8h_source.html#l00071">libMesh::FEMFunctionBase&lt; Output &gt;::init_context()</a>.</p>
 
 </div>
 </div>
@@ -283,14 +284,17 @@ template&lt;typename Output &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>. Subclasses aren't required to overload this, since the default implementation is based on the full vector evaluation, which is often correct. Subclasses are recommended to overload this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector component <code>i</code> at coordinate <code>p</code> and time <code>time</code>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Subclasses aren't required to override this, since the default implementation is based on the full vector evaluation, which is often correct.</dd>
+<dd>
+Subclasses are recommended to override this, since the default implementation is based on a vector evaluation, which is usually unnecessarily inefficient. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a163322c48510854af864889f65e78501">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a2a14b10fd4e73dfda11dcbd327478ef8">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a2a14b10fd4e73dfda11dcbd327478ef8">libMesh::ParsedFEMFunction&lt; T &gt;</a>, and <a class="el" href="classlibMesh_1_1WrappedFunctor.html#a291767dd317cc4667740f544b211c1cd">libMesh::WrappedFunctor&lt; Output &gt;</a>.</p>
 
-<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00132">132</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00131">131</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
 <p>Referenced by <a class="el" href="fem__function__base_8h_source.html#l00071">libMesh::FEMFunctionBase&lt; Output &gt;::init_context()</a>, and <a class="el" href="system__projection_8C_source.html#l00884">libMesh::System::project_vector()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  (*this)(context, p, time, outvec);</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  DenseVector&lt;Output&gt; outvec(i+1);</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  (*this)(context, p, time, outvec);</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keywordflow">return</span> outvec(i);</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a755ede0c73871ab3082697220f06a9ad"></a>
@@ -323,7 +327,7 @@ template&lt;typename Output = Number&gt; </div>
 
 <p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00071">71</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="fem__function__base_8h_source.html#l00132">libMesh::FEMFunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
+<p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#a894ccfda7f0fad23bb1a1c5a7ed5d53d">libMesh::FEMFunctionBase&lt; Output &gt;::clone()</a>, <a class="el" href="fem__function__base_8h_source.html#l00131">libMesh::FEMFunctionBase&lt; Output &gt;::component()</a>, <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>, and <a class="el" href="libmesh__common_8h_source.html#l00131">libMesh::Real</a>.</p>
 <div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
@@ -366,11 +370,12 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the scalar value at coordinate <code>p</code> and time <code>time</code>, which defaults to zero. Purely virtual, so you have to overload it. Note that this cannot be a const method, check <code><a class="el" href="classlibMesh_1_1MeshFunction.html">MeshFunction</a></code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The scalar function value at coordinate <code>p</code> and time <code>time</code>, which defaults to zero.</dd></dl>
+<p>Pure virtual, so you have to override it. </p>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#ae0dab60222523faee53505d2f9e5baff">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#ae0dab60222523faee53505d2f9e5baff">libMesh::ParsedFEMFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a1360627bdbf5c3e5849e039cb103f519">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunctor.html#ad986351268337e4dc837ca9fb56a976d">libMesh::WrappedFunctor&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFEMFunction.html#a9322e1ef1c9c327975f14833b6065af5">libMesh::ConstFEMFunction&lt; Output &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a1360627bdbf5c3e5849e039cb103f519">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#ae0dab60222523faee53505d2f9e5baff">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#ae0dab60222523faee53505d2f9e5baff">libMesh::ParsedFEMFunction&lt; T &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunctor.html#ad986351268337e4dc837ca9fb56a976d">libMesh::WrappedFunctor&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFEMFunction.html#a9322e1ef1c9c327975f14833b6065af5">libMesh::ConstFEMFunction&lt; Output &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="fem__function__base_8h_source.html#l00071">libMesh::FEMFunctionBase&lt; Output &gt;::init_context()</a>, and <a class="el" href="fem__function__base_8h_source.html#l00144">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="fem__function__base_8h_source.html#l00071">libMesh::FEMFunctionBase&lt; Output &gt;::init_context()</a>, and <a class="el" href="fem__function__base_8h_source.html#l00143">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>.</p>
 
 </div>
 </div>
@@ -413,12 +418,12 @@ template&lt;typename Output &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code>. </p>
+<p>Evaluation function for time-independent vector-valued functions. Sets output values in the passed-in <code>output</code> <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>. </p>
 
-<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00144">144</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
+<p>Definition at line <a class="el" href="fem__function__base_8h_source.html#l00143">143</a> of file <a class="el" href="fem__function__base_8h_source.html">fem_function_base.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase&lt; Output &gt;::operator()()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">operator()</a>(context, p, 0., output);</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionBase_html_aa8af02df444c85ebc35f14b0e48a9881"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const FEMContext &amp;, const Point &amp;p, const Real time=0.)=0</div></div>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="comment">// Call the time-dependent function with t=0.</span></div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  this-&gt;<a class="code" href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">operator()</a>(context, p, 0., output);</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionBase_html_aa8af02df444c85ebc35f14b0e48a9881"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionBase.html#aa8af02df444c85ebc35f14b0e48a9881">libMesh::FEMFunctionBase::operator()</a></div><div class="ttdeci">virtual Output operator()(const FEMContext &amp;, const Point &amp;p, const Real time=0.)=0</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -467,9 +472,10 @@ template&lt;typename Output = Number&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return function for vectors. Returns in <code>output</code> the values of the data at the coordinate <code>p</code> and for time <code>time</code>. Purely virtual, so you have to overload it. Note that this cannot be a const method, check <code><a class="el" href="classlibMesh_1_1MeshFunction.html">MeshFunction</a></code>. </p>
+<p>Evaluation function for time-dependent vector-valued functions. Sets output values in the passed-in <code>output</code> <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>.</p>
+<p>Pure virtual, so you have to override it. </p>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a21bd59284d981b78a02590841939e83e">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a4e02e50bdaa0ad76fefc249ffff0ee8e">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunctor.html#a7d12ac40a0ccf8b95d7e1f594dcf8504">libMesh::WrappedFunctor&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFEMFunction.html#afc1a7286acbbab1886538772a4b05cf1">libMesh::ConstFEMFunction&lt; Output &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1CompositeFEMFunction.html#a4e02e50bdaa0ad76fefc249ffff0ee8e">libMesh::CompositeFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1ParsedFEMFunction.html#a21bd59284d981b78a02590841939e83e">libMesh::ParsedFEMFunction&lt; Output &gt;</a>, <a class="el" href="classlibMesh_1_1WrappedFunctor.html#a7d12ac40a0ccf8b95d7e1f594dcf8504">libMesh::WrappedFunctor&lt; Output &gt;</a>, and <a class="el" href="classlibMesh_1_1ConstFEMFunction.html#afc1a7286acbbab1886538772a4b05cf1">libMesh::ConstFEMFunction&lt; Output &gt;</a>.</p>
 
 </div>
 </div>
