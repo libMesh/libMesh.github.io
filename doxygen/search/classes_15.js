@@ -1,8 +1,8 @@
 var searchData=
 [
   ['value',['Value',['../classlibMesh_1_1Parameters_1_1Value.html',1,'libMesh::Parameters']]],
-  ['variable',['Variable',['../classlibMesh_1_1Variable.html',1,'libMesh']]],
   ['variable',['variable',['../structGETPOT__NAMESPACE_1_1GetPot_1_1variable.html',1,'GETPOT_NAMESPACE::GetPot']]],
+  ['variable',['Variable',['../classlibMesh_1_1Variable.html',1,'libMesh']]],
   ['variablegroup',['VariableGroup',['../classlibMesh_1_1VariableGroup.html',1,'libMesh']]],
   ['variationalmeshsmoother',['VariationalMeshSmoother',['../classlibMesh_1_1VariationalMeshSmoother.html',1,'libMesh']]],
   ['veclike_5fiterator',['veclike_iterator',['../classlibMesh_1_1mapvector_1_1veclike__iterator.html',1,'libMesh::mapvector']]],

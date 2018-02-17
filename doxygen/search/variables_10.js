@@ -15,7 +15,6 @@ var searchData=
   ['part',['part',['../classlibMesh_1_1ParmetisHelper.html#a02fab28f541bfb05db76b9a96ca8fdf6',1,'libMesh::ParmetisHelper']]],
   ['patch_5fgrowth_5fstrategy',['patch_growth_strategy',['../classlibMesh_1_1PatchRecoveryErrorEstimator.html#a3f28c0ae0ded6264c53bcaa2c5483c89',1,'libMesh::PatchRecoveryErrorEstimator']]],
   ['patch_5freuse',['patch_reuse',['../classlibMesh_1_1PatchRecoveryErrorEstimator.html#ab76160e6bb2a24fb8b629bd98e09c30b',1,'libMesh::PatchRecoveryErrorEstimator']]],
-  ['pc',['pc',['../namespacelibMesh.html#a54321cd7965683f42790b8e37972a998',1,'libMesh']]],
   ['perflog',['perflog',['../namespacelibMesh.html#a898fabb4e2a583bf30bf4bd46f4c032d',1,'libMesh']]],
   ['petsc_5ferr_5farg_5fwrongstate',['PETSC_ERR_ARG_WRONGSTATE',['../petscdmlibmeshimpl_8C.html#aa8a33d030584a330e3e3fa5145627957',1,'petscdmlibmeshimpl.C']]],
   ['phase',['phase',['../classlibMesh_1_1FEComputeData.html#ad1bbba20949444c9a995733d2f599770',1,'libMesh::FEComputeData']]],

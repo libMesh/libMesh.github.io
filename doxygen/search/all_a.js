@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['j_5finput',['J_input',['../namespacelibMesh.html#a439c438efa7dc231f1ce71f87f5d69f1',1,'libMesh']]],
   ['j_5foff',['j_off',['../classlibMesh_1_1DenseSubMatrix.html#ade7c56b7c5cad689b1f0123e1fb45ffe',1,'libMesh::DenseSubMatrix']]],
-  ['j_5fsystem',['J_system',['../namespacelibMesh.html#aef105765072bc34b83beab3cbff32f87',1,'libMesh']]],
   ['jac',['jac',['../classlibMesh_1_1FEMap.html#a6e6cb28b8bd149091cee4630e668cca5',1,'libMesh::FEMap']]],
   ['jac2',['jac2',['../classlibMesh_1_1VariationalMeshSmoother.html#ad601d6265a971048d8b635a1e00b43e7',1,'libMesh::VariationalMeshSmoother']]],
   ['jac3',['jac3',['../classlibMesh_1_1VariationalMeshSmoother.html#abf9bc5a3a9a35ec48c45bf347d552eac',1,'libMesh::VariationalMeshSmoother']]],
@@ -17,8 +15,8 @@ var searchData=
   ['joinable',['joinable',['../classlibMesh_1_1Threads_1_1NonConcurrentThread.html#a229e71ffb72d50d58fe97846ec1b2e64',1,'libMesh::Threads::NonConcurrentThread']]],
   ['jump_5ferror_5festimator_2ec',['jump_error_estimator.C',['../jump__error__estimator_8C.html',1,'']]],
   ['jump_5ferror_5festimator_2eh',['jump_error_estimator.h',['../jump__error__estimator_8h.html',1,'']]],
-  ['jumperrorestimator',['JumpErrorEstimator',['../classlibMesh_1_1JumpErrorEstimator.html#a056856c8945a3fd4f050e72865b8cab6',1,'libMesh::JumpErrorEstimator']]],
   ['jumperrorestimator',['JumpErrorEstimator',['../classlibMesh_1_1JumpErrorEstimator.html',1,'libMesh']]],
+  ['jumperrorestimator',['JumpErrorEstimator',['../classlibMesh_1_1JumpErrorEstimator.html#a056856c8945a3fd4f050e72865b8cab6',1,'libMesh::JumpErrorEstimator']]],
   ['just_5fcoarsened',['JUST_COARSENED',['../classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54adec28448bd3f7297806b7d58e9625240',1,'libMesh::Elem']]],
   ['just_5frefined',['JUST_REFINED',['../classlibMesh_1_1Elem.html#a674d499e6c104bc63a68ca7e9c7ccb54a6fb8f2a3f8b6cc1a569263dbc1f1c5cf',1,'libMesh::Elem']]],
   ['jxw',['JxW',['../classlibMesh_1_1FEMap.html#ac20c7d476ee529b007d315736bfb5aa0',1,'libMesh::FEMap::JxW()'],['../classlibMesh_1_1HPCoarsenTest.html#a2d7d6cddaeab26ad28bf055c46e359b9',1,'libMesh::HPCoarsenTest::JxW()']]]

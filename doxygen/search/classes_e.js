@@ -1,6 +1,8 @@
 var searchData=
 [
   ['offio',['OFFIO',['../classlibMesh_1_1OFFIO.html',1,'libMesh']]],
+  ['oldsolutionbase',['OldSolutionBase',['../classlibMesh_1_1OldSolutionBase.html',1,'libMesh']]],
+  ['oldsolutioncoefs',['OldSolutionCoefs',['../classlibMesh_1_1OldSolutionCoefs.html',1,'libMesh']]],
   ['oldsolutionvalue',['OldSolutionValue',['../classlibMesh_1_1OldSolutionValue.html',1,'libMesh']]],
   ['opfunction',['OpFunction',['../classlibMesh_1_1Parallel_1_1OpFunction.html',1,'libMesh::Parallel']]],
   ['opfunction_3c_20point_20_3e',['OpFunction&lt; Point &gt;',['../classlibMesh_1_1Parallel_1_1OpFunction_3_01Point_01_4.html',1,'libMesh::Parallel']]],

@@ -197,7 +197,7 @@ class libMesh::Parallel::StandardType&lt; T &gt;</h3>
 <p>Templated class to provide the appropriate MPI datatype for use with built-in C types or simple C++ constructions.</p>
 <p>More complicated data types may need to provide a pointer-to-T so that we can use MPI_Address without constructing a new T. </p>
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00376">376</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00381">381</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adb6732cb8e067375f53568ba42d8a98a"></a>
 <div class="memitem">
@@ -247,8 +247,8 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00330">330</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  {</div><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    MPI_Type_commit (&amp;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>);</div><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00346">parallel.h:346</a></div></div>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00335">335</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  {</div><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    MPI_Type_commit (&amp;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>);</div><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00351">parallel.h:351</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,10 +273,10 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00337">337</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00342">342</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
 
 <p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l00299">libMesh::Parallel::StandardType&lt; std::complex&lt; T &gt; &gt;::~StandardType()</a>, <a class="el" href="parallel__algebra_8h_source.html#l00431">libMesh::Parallel::StandardType&lt; TypeTensor&lt; T &gt; &gt;::~StandardType()</a>, and <a class="el" href="parallel__algebra_8h_source.html#l00442">libMesh::Parallel::StandardType&lt; TensorValue&lt; T &gt; &gt;::~StandardType()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  {</div><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    MPI_Type_free (&amp;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>);</div><div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00346">parallel.h:346</a></div></div>
+<div class="fragment"><div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  {</div><div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="preprocessor">#ifdef LIBMESH_HAVE_MPI</span></div><div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    MPI_Type_free (&amp;<a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>);</div><div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00351">parallel.h:351</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -301,8 +301,8 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00318">318</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>; }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00346">parallel.h:346</a></div></div>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00323">323</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>; }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00351">parallel.h:351</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -327,8 +327,8 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00321">321</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>; }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00346">parallel.h:346</a></div></div>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00326">326</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">_datatype</a>; }</div><div class="ttc" id="classlibMesh_1_1Parallel_1_1DataType_html_a1a45a289504e6b235e693a41fb7245d2"><div class="ttname"><a href="classlibMesh_1_1Parallel_1_1DataType.html#a1a45a289504e6b235e693a41fb7245d2">libMesh::Parallel::DataType::_datatype</a></div><div class="ttdeci">data_type _datatype</div><div class="ttdef"><b>Definition:</b> <a href="parallel_8h_source.html#l00351">parallel.h:351</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,9 +351,9 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00346">346</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00351">351</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
 
-<p>Referenced by <a class="el" href="parallel_8h_source.html#l00299">libMesh::Parallel::DataType::DataType()</a>, <a class="el" href="parallel_8h_source.html#l00312">libMesh::Parallel::DataType::operator=()</a>, <a class="el" href="parallel__hilbert_8h_source.html#l00053">libMesh::Parallel::StandardType&lt; Hilbert::HilbertIndices &gt;::StandardType()</a>, <a class="el" href="parallel__algebra_8h_source.html#l00058">libMesh::Parallel::StandardType&lt; TypeVector&lt; T &gt; &gt;::StandardType()</a>, <a class="el" href="parallel__algebra_8h_source.html#l00142">libMesh::Parallel::StandardType&lt; VectorValue&lt; T &gt; &gt;::StandardType()</a>, <a class="el" href="parallel__implementation_8h_source.html#l00196">libMesh::Parallel::StandardType&lt; std::pair&lt; T1, T2 &gt; &gt;::StandardType()</a>, and <a class="el" href="parallel__algebra_8h_source.html#l00227">libMesh::Parallel::StandardType&lt; Point &gt;::StandardType()</a>.</p>
+<p>Referenced by <a class="el" href="parallel_8h_source.html#l00304">libMesh::Parallel::DataType::DataType()</a>, <a class="el" href="parallel_8h_source.html#l00317">libMesh::Parallel::DataType::operator=()</a>, <a class="el" href="parallel__hilbert_8h_source.html#l00053">libMesh::Parallel::StandardType&lt; Hilbert::HilbertIndices &gt;::StandardType()</a>, <a class="el" href="parallel__algebra_8h_source.html#l00058">libMesh::Parallel::StandardType&lt; TypeVector&lt; T &gt; &gt;::StandardType()</a>, <a class="el" href="parallel__algebra_8h_source.html#l00142">libMesh::Parallel::StandardType&lt; VectorValue&lt; T &gt; &gt;::StandardType()</a>, <a class="el" href="parallel__implementation_8h_source.html#l00196">libMesh::Parallel::StandardType&lt; std::pair&lt; T1, T2 &gt; &gt;::StandardType()</a>, and <a class="el" href="parallel__algebra_8h_source.html#l00227">libMesh::Parallel::StandardType&lt; Point &gt;::StandardType()</a>.</p>
 
 </div>
 </div>

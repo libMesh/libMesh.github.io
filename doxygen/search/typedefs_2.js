@@ -9,5 +9,7 @@ var searchData=
   ['dof_5fid_5ftype',['dof_id_type',['../namespacelibMesh.html#ab4541d74809228310a715b11c40587fc',1,'libMesh']]],
   ['dofconstraintrow',['DofConstraintRow',['../namespacelibMesh.html#aa01f327876e40c4c56621d025ada561d',1,'libMesh']]],
   ['dofobject_5faccessor',['dofobject_accessor',['../classlibMesh_1_1DofMap.html#a2223ac58289480992332b70d26a0f2ef',1,'libMesh::DofMap']]],
-  ['dofobjectkey',['DofObjectKey',['../namespacelibMesh_1_1Parallel.html#aefbe7c94fa1895557e56fdc001710b16',1,'libMesh::Parallel']]]
+  ['dofobjectkey',['DofObjectKey',['../namespacelibMesh_1_1Parallel.html#aefbe7c94fa1895557e56fdc001710b16',1,'libMesh::Parallel']]],
+  ['dsna',['DSNA',['../classlibMesh_1_1OldSolutionCoefs.html#a21a395050e00dee9e8ea483ba11b503b',1,'libMesh::OldSolutionCoefs']]],
+  ['dsnan',['DSNAN',['../namespacelibMesh.html#af37ee51d461375e7add9011a0c90dc19',1,'libMesh']]]
 ];

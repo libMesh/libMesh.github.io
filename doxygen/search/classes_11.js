@@ -80,7 +80,8 @@ var searchData=
   ['refinementselector',['RefinementSelector',['../classlibMesh_1_1RefinementSelector.html',1,'libMesh']]],
   ['remoteelem',['RemoteElem',['../classlibMesh_1_1RemoteElem.html',1,'libMesh']]],
   ['replicatedmesh',['ReplicatedMesh',['../classlibMesh_1_1ReplicatedMesh.html',1,'libMesh']]],
-  ['request',['Request',['../classlibMesh_1_1Parallel_1_1Request.html',1,'libMesh::Parallel::Request'],['../structlibMesh_1_1Parallel_1_1request.html',1,'libMesh::Parallel::request']]],
+  ['request',['request',['../structlibMesh_1_1Parallel_1_1request.html',1,'libMesh::Parallel::request'],['../classlibMesh_1_1Parallel_1_1Request.html',1,'libMesh::Parallel::Request']]],
+  ['residualcontext',['ResidualContext',['../classlibMesh_1_1ResidualContext.html',1,'libMesh']]],
   ['reversebytes',['ReverseBytes',['../classlibMesh_1_1Utility_1_1ReverseBytes.html',1,'libMesh::Utility']]],
   ['row',['Row',['../classlibMesh_1_1SensitivityData_1_1Row.html',1,'libMesh::SensitivityData']]]
 ];

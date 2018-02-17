@@ -157,6 +157,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">libMesh::FEMFunctionWrapper&lt; Output &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -177,15 +179,18 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af363a213e9ed63968bd637e986d65770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1FEMFunctionBase.html">FEMFunctionBase</a>&lt; Output &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a></td></tr>
-<tr class="separator:af363a213e9ed63968bd637e986d65770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bb6d54557bbb74178f92ec547eb21e0"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlibMesh_1_1FEMFunctionBase.html">FEMFunctionBase</a>&lt; Output &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">_f</a></td></tr>
+<tr class="separator:a7bb6d54557bbb74178f92ec547eb21e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Output&gt;<br />
 class libMesh::FEMFunctionWrapper&lt; Output &gt;</h3>
 
+<p>The <a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html">FEMFunctionWrapper</a> input functor class can be used with a <a class="el" href="classlibMesh_1_1GenericProjector.html">GenericProjector</a> to read values from an FEMFunction.</p>
+<dl class="section author"><dt>Author</dt><dd>Roy H. Stogner </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00144">144</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00155">155</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6bdadedc44756eac480ad5f1a811b0f7"></a>
 <div class="memitem">
@@ -211,8 +216,8 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00147">147</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;: <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>(f.clone()) {}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00175">system_projection.C:175</a></div></div>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00158">158</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;: <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">_f</a>(f.clone()) {}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_a7bb6d54557bbb74178f92ec547eb21e0"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">std::unique_ptr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="generic__projector_8h_source.html#l00186">generic_projector.h:186</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,8 +245,8 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00149">149</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                                            :</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>(fw._f-&gt;clone()) {}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00175">system_projection.C:175</a></div></div>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00160">160</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                                                            :</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">_f</a>(fw._f-&gt;clone()) {}</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_a7bb6d54557bbb74178f92ec547eb21e0"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">std::unique_ptr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="generic__projector_8h_source.html#l00186">generic_projector.h:186</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -298,8 +303,8 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00154">154</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>-&gt;component(c, i, n, time); }</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00175">system_projection.C:175</a></div></div>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00165">165</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">_f</a>-&gt;component(c, i, n, time); }</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_a7bb6d54557bbb74178f92ec547eb21e0"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">std::unique_ptr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="generic__projector_8h_source.html#l00186">generic_projector.h:186</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -349,8 +354,8 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00161">161</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>-&gt;component(c, i, n, time); }</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00175">system_projection.C:175</a></div></div>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00172">172</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">_f</a>-&gt;component(c, i, n, time); }</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_a7bb6d54557bbb74178f92ec547eb21e0"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">std::unique_ptr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="generic__projector_8h_source.html#l00186">generic_projector.h:186</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -394,8 +399,8 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00169">169</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  { libmesh_error(); }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00180">180</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  { libmesh_error(); }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a818c2f08385a01e0138341b784db6379"></a>
@@ -422,8 +427,8 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00152">152</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{ <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">_f</a>-&gt;init_context(c); }</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_af363a213e9ed63968bd637e986d65770"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#af363a213e9ed63968bd637e986d65770">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">UniquePtr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="system__projection_8C_source.html#l00175">system_projection.C:175</a></div></div>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00163">163</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;{ <a class="code" href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">_f</a>-&gt;init_context(c); }</div><div class="ttc" id="classlibMesh_1_1FEMFunctionWrapper_html_a7bb6d54557bbb74178f92ec547eb21e0"><div class="ttname"><a href="classlibMesh_1_1FEMFunctionWrapper.html#a7bb6d54557bbb74178f92ec547eb21e0">libMesh::FEMFunctionWrapper::_f</a></div><div class="ttdeci">std::unique_ptr&lt; FEMFunctionBase&lt; Output &gt; &gt; _f</div><div class="ttdef"><b>Definition:</b> <a href="generic__projector_8h_source.html#l00186">generic_projector.h:186</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -450,12 +455,12 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00167">167</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
-<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00178">178</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af363a213e9ed63968bd637e986d65770"></a>
+<a class="anchor" id="a7bb6d54557bbb74178f92ec547eb21e0"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -465,7 +470,7 @@ template&lt;typename Output&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1FEMFunctionBase.html">FEMFunctionBase</a>&lt;Output&gt; &gt; <a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html">libMesh::FEMFunctionWrapper</a>&lt; Output &gt;::_f</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classlibMesh_1_1FEMFunctionBase.html">FEMFunctionBase</a>&lt;Output&gt; &gt; <a class="el" href="classlibMesh_1_1FEMFunctionWrapper.html">libMesh::FEMFunctionWrapper</a>&lt; Output &gt;::_f</td>
         </tr>
       </table>
   </td>
@@ -475,12 +480,12 @@ template&lt;typename Output&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="system__projection_8C_source.html#l00175">175</a> of file <a class="el" href="system__projection_8C_source.html">system_projection.C</a>.</p>
+<p>Definition at line <a class="el" href="generic__projector_8h_source.html#l00186">186</a> of file <a class="el" href="generic__projector_8h_source.html">generic_projector.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="system__projection_8C_source.html">system_projection.C</a></li>
+<li><a class="el" href="generic__projector_8h_source.html">generic_projector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.7-->

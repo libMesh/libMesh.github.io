@@ -182,8 +182,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a37bef11ab994b0f15cd0804b4c04597c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eec5522a359d9fe350d27213a98258d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolutionHistory.html#a0eec5522a359d9fe350d27213a98258d">retrieve</a> ()=0</td></tr>
 <tr class="separator:a0eec5522a359d9fe350d27213a98258d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a753dcc7278f339a77facb0b574f5ca33"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1SolutionHistory.html">SolutionHistory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolutionHistory.html#a753dcc7278f339a77facb0b574f5ca33">clone</a> () const  =0</td></tr>
-<tr class="separator:a753dcc7278f339a77facb0b574f5ca33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c935e72bf913b1eba8f1c733bf97f34"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classlibMesh_1_1SolutionHistory.html">SolutionHistory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolutionHistory.html#a9c935e72bf913b1eba8f1c733bf97f34">clone</a> () const  =0</td></tr>
+<tr class="separator:a9c935e72bf913b1eba8f1c733bf97f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f02de6d5002d58f035a02e2d80e4724"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1SolutionHistory.html#a3f02de6d5002d58f035a02e2d80e4724">set_overwrite_previously_stored</a> (bool val)</td></tr>
 <tr class="separator:a3f02de6d5002d58f035a02e2d80e4724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -251,12 +251,12 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="solution__history_8h_source.html#l00048">48</a> of file <a class="el" href="solution__history_8h_source.html">solution_history.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1SolutionHistory.html#a753dcc7278f339a77facb0b574f5ca33">clone()</a>, <a class="el" href="classlibMesh_1_1SolutionHistory.html#a0eec5522a359d9fe350d27213a98258d">retrieve()</a>, and <a class="el" href="classlibMesh_1_1SolutionHistory.html#a37bef11ab994b0f15cd0804b4c04597c">store()</a>.</p>
+<p>References <a class="el" href="classlibMesh_1_1SolutionHistory.html#a9c935e72bf913b1eba8f1c733bf97f34">clone()</a>, <a class="el" href="classlibMesh_1_1SolutionHistory.html#a0eec5522a359d9fe350d27213a98258d">retrieve()</a>, and <a class="el" href="classlibMesh_1_1SolutionHistory.html#a37bef11ab994b0f15cd0804b4c04597c">store()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a753dcc7278f339a77facb0b574f5ca33"></a>
+<a class="anchor" id="a9c935e72bf913b1eba8f1c733bf97f34"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -264,7 +264,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1SolutionHistory.html">SolutionHistory</a> &gt; libMesh::SolutionHistory::clone </td>
+          <td class="memname">virtual std::unique_ptr&lt;<a class="el" href="classlibMesh_1_1SolutionHistory.html">SolutionHistory</a> &gt; libMesh::SolutionHistory::clone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -276,9 +276,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Cloning function for a UniquePtr, pure virtual, used in the setter function in <a class="el" href="time__solver_8C.html">time_solver.C</a> </p>
+<p>Cloning function for a std::unique_ptr, pure virtual, used in the setter function in <a class="el" href="time__solver_8C.html">time_solver.C</a> </p>
 
-<p>Implemented in <a class="el" href="classlibMesh_1_1MemorySolutionHistory.html#ae1ab88137f83afe9c80968d1afbb43d3">libMesh::MemorySolutionHistory</a>, and <a class="el" href="classlibMesh_1_1NoSolutionHistory.html#ad2d204955ac30a65b36e1ba8d48ebd25">libMesh::NoSolutionHistory</a>.</p>
+<p>Implemented in <a class="el" href="classlibMesh_1_1MemorySolutionHistory.html#a9c560e4064d8d78c57b4b11437a6176e">libMesh::MemorySolutionHistory</a>, and <a class="el" href="classlibMesh_1_1NoSolutionHistory.html#a970cc9037b6a7e1d0d6c42f2964e1223">libMesh::NoSolutionHistory</a>.</p>
 
 <p>Referenced by <a class="el" href="time__solver_8C_source.html#l00097">libMesh::TimeSolver::set_solution_history()</a>, and <a class="el" href="solution__history_8h_source.html#l00048">~SolutionHistory()</a>.</p>
 
@@ -391,7 +391,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="solution__history_8h_source.html#l00077">77</a> of file <a class="el" href="solution__history_8h_source.html">solution_history.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solution__history_8h_source.html#l00070">set_overwrite_previously_stored()</a>, and <a class="el" href="memory__solution__history_8C_source.html#l00085">libMesh::MemorySolutionHistory::store()</a>.</p>
+<p>Referenced by <a class="el" href="solution__history_8h_source.html#l00070">set_overwrite_previously_stored()</a>, and <a class="el" href="memory__solution__history_8C_source.html#l00067">libMesh::MemorySolutionHistory::store()</a>.</p>
 
 </div>
 </div>

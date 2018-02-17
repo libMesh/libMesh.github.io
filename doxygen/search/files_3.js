@@ -7,6 +7,7 @@ var searchData=
   ['dense_5fmatrix_5fbase_2ec',['dense_matrix_base.C',['../dense__matrix__base_8C.html',1,'']]],
   ['dense_5fmatrix_5fbase_2eh',['dense_matrix_base.h',['../dense__matrix__base_8h.html',1,'']]],
   ['dense_5fmatrix_5fblas_5flapack_2ec',['dense_matrix_blas_lapack.C',['../dense__matrix__blas__lapack_8C.html',1,'']]],
+  ['dense_5fmatrix_5fimpl_2eh',['dense_matrix_impl.h',['../dense__matrix__impl_8h.html',1,'']]],
   ['dense_5fsubmatrix_2ec',['dense_submatrix.C',['../dense__submatrix_8C.html',1,'']]],
   ['dense_5fsubmatrix_2eh',['dense_submatrix.h',['../dense__submatrix_8h.html',1,'']]],
   ['dense_5fsubvector_2ec',['dense_subvector.C',['../dense__subvector_8C.html',1,'']]],

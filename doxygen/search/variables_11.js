@@ -1,7 +1,7 @@
 var searchData=
 [
   ['qoi',['qoi',['../classlibMesh_1_1System.html#a33fc90917ecd01516d3b284ad67968c6',1,'libMesh::System']]],
-  ['qrule',['qrule',['../classlibMesh_1_1FEAbstract.html#abb4b9b3dc96da504c2cd87c2759d3776',1,'libMesh::FEAbstract::qrule()'],['../classlibMesh_1_1HPCoarsenTest.html#ad95d9796cb94da74e252f678c391e4f0',1,'libMesh::HPCoarsenTest::qrule()']]],
+  ['qrule',['qrule',['../classlibMesh_1_1FEAbstract.html#abb4b9b3dc96da504c2cd87c2759d3776',1,'libMesh::FEAbstract::qrule()'],['../classlibMesh_1_1HPCoarsenTest.html#ac21e8058bd2d2498ba585402948b59e6',1,'libMesh::HPCoarsenTest::qrule()']]],
   ['quad4_5fnode_5fmap',['quad4_node_map',['../classlibMesh_1_1ExodusII__IO__Helper_1_1ElementMaps.html#a2870f647fb9cf8067b123a656fb298b7',1,'libMesh::ExodusII_IO_Helper::ElementMaps']]],
   ['quad8_5fnode_5fmap',['quad8_node_map',['../classlibMesh_1_1ExodusII__IO__Helper_1_1ElementMaps.html#a664cbf81ae7ae5d7ea5c7b25b60577da',1,'libMesh::ExodusII_IO_Helper::ElementMaps']]],
   ['quad9_5fnode_5fmap',['quad9_node_map',['../classlibMesh_1_1ExodusII__IO__Helper_1_1ElementMaps.html#a6a0bf36799281222a5359235f3f92317',1,'libMesh::ExodusII_IO_Helper::ElementMaps']]],

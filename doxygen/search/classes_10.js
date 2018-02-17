@@ -20,5 +20,6 @@ var searchData=
   ['quad8',['Quad8',['../classlibMesh_1_1Quad8.html',1,'libMesh']]],
   ['quad9',['Quad9',['../classlibMesh_1_1Quad9.html',1,'libMesh']]],
   ['quadshell4',['QuadShell4',['../classlibMesh_1_1QuadShell4.html',1,'libMesh']]],
+  ['quadshell8',['QuadShell8',['../classlibMesh_1_1QuadShell8.html',1,'libMesh']]],
   ['queryelemsubdomainidbase',['QueryElemSubdomainIDBase',['../classlibMesh_1_1MeshTools_1_1Generation_1_1QueryElemSubdomainIDBase.html',1,'libMesh::MeshTools::Generation']]]
 ];

@@ -179,8 +179,8 @@ Inheritance diagram for libMesh::GhostingFunctor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memItemLeft" align="right" valign="top">typedef LIBMESH_BEST_UNORDERED_MAP&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a></td></tr>
-<tr class="separator:aff4adda0105d525ac36bd0eac10ab6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c27b499ef3153d8aaaa2088beba4480"><td class="memItemLeft" align="right" valign="top">typedef std::unordered_map&lt; const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a> *, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#a3c27b499ef3153d8aaaa2088beba4480">map_type</a></td></tr>
+<tr class="separator:a3c27b499ef3153d8aaaa2088beba4480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -188,7 +188,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aef0e63dd4ee5b529fd48b14e187cb5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d52d3990307e17aacea4edac35b6280"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#a7d52d3990307e17aacea4edac35b6280">~GhostingFunctor</a> ()</td></tr>
 <tr class="separator:a7d52d3990307e17aacea4edac35b6280"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39911ad4559e25383fd094be15cdfc1b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#a39911ad4559e25383fd094be15cdfc1b">operator()</a> (const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_begin, const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_end, <a class="el" href="namespacelibMesh.html#afebcb3616f8c81cda531dec404f2420d">processor_id_type</a> p, <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a> &amp;coupled_elements)=0</td></tr>
+<tr class="memitem:a39911ad4559e25383fd094be15cdfc1b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#a39911ad4559e25383fd094be15cdfc1b">operator()</a> (const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_begin, const <a class="el" href="structlibMesh_1_1MeshBase_1_1const__element__iterator.html">MeshBase::const_element_iterator</a> &amp;range_end, <a class="el" href="namespacelibMesh.html#afebcb3616f8c81cda531dec404f2420d">processor_id_type</a> p, <a class="el" href="classlibMesh_1_1GhostingFunctor.html#a3c27b499ef3153d8aaaa2088beba4480">map_type</a> &amp;coupled_elements)=0</td></tr>
 <tr class="separator:a39911ad4559e25383fd094be15cdfc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbc49f77df76394153ae617a000bf128"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#acbc49f77df76394153ae617a000bf128">mesh_reinit</a> ()</td></tr>
 <tr class="separator:acbc49f77df76394153ae617a000bf128"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,12 +273,12 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aff4adda0105d525ac36bd0eac10ab6d5"></a>
+<a class="anchor" id="a3c27b499ef3153d8aaaa2088beba4480"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef LIBMESH_BEST_UNORDERED_MAP&lt;const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a>*, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>*&gt; <a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">libMesh::GhostingFunctor::map_type</a></td>
+          <td class="memname">typedef std::unordered_map&lt;const <a class="el" href="classlibMesh_1_1Elem.html">Elem</a>*, const <a class="el" href="classlibMesh_1_1CouplingMatrix.html">CouplingMatrix</a>*&gt; <a class="el" href="classlibMesh_1_1GhostingFunctor.html#a3c27b499ef3153d8aaaa2088beba4480">libMesh::GhostingFunctor::map_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -368,7 +368,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ghosting__functor_8h_source.html#l00190">190</a> of file <a class="el" href="ghosting__functor_8h_source.html">ghosting_functor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__communication_8C_source.html#l01794">libMesh::MeshCommunication::delete_remote_elements()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__communication_8C_source.html#l01783">libMesh::MeshCommunication::delete_remote_elements()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;{};</div></div><!-- fragment -->
 </div>
 </div>
@@ -397,7 +397,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00143">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00345">libMesh::LibMeshInit::LibMeshInit()</a>, and <a class="el" href="reference__counter_8h_source.html#l00085">libMesh::ReferenceCounter::n_objects()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00344">libMesh::LibMeshInit::LibMeshInit()</a>, and <a class="el" href="reference__counter_8h_source.html#l00085">libMesh::ReferenceCounter::n_objects()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">return</span>;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00143">reference_counter.h:143</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -426,7 +426,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ghosting__functor_8h_source.html#l00171">171</a> of file <a class="el" href="ghosting__functor_8h_source.html">ghosting_functor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dof__map_8C_source.html#l00918">libMesh::DofMap::distribute_dofs()</a>.</p>
+<p>Referenced by <a class="el" href="dof__map_8C_source.html#l00889">libMesh::DofMap::distribute_dofs()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{};</div></div><!-- fragment -->
 </div>
 </div>
@@ -587,7 +587,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ghosting__functor_8h_source.html#l00163">163</a> of file <a class="el" href="ghosting__functor_8h_source.html">ghosting_functor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="unstructured__mesh_8C_source.html#l00800">libMesh::UnstructuredMesh::contract()</a>, and <a class="el" href="mesh__base_8C_source.html#l00173">libMesh::MeshBase::prepare_for_use()</a>.</p>
+<p>Referenced by <a class="el" href="unstructured__mesh_8C_source.html#l00778">libMesh::UnstructuredMesh::contract()</a>, and <a class="el" href="mesh__base_8C_source.html#l00176">libMesh::MeshBase::prepare_for_use()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;{};</div></div><!-- fragment -->
 </div>
 </div>
@@ -617,7 +617,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00132">libMesh::ReferenceCounter::_n_objects</a>, <a class="el" href="reference__counter_8C_source.html#l00107">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00101">libMesh::ReferenceCounter::enable_print_counter_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00185">libMesh::ReferenceCounter::increment_constructor_count()</a>, <a class="el" href="reference__counter_8h_source.html#l00198">libMesh::ReferenceCounter::increment_destructor_count()</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
 
-<p>Referenced by <a class="el" href="system_8h_source.html#l01655">libMesh::System::hide_output()</a>, and <a class="el" href="libmesh_8C_source.html#l00345">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>Referenced by <a class="el" href="system_8h_source.html#l01643">libMesh::System::hide_output()</a>, and <a class="el" href="libmesh_8C_source.html#l00344">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00132">reference_counter.h:132</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -650,7 +650,7 @@ Static Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#aff4adda0105d525ac36bd0eac10ab6d5">map_type</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classlibMesh_1_1GhostingFunctor.html#a3c27b499ef3153d8aaaa2088beba4480">map_type</a> &amp;&#160;</td>
           <td class="paramname"><em>coupled_elements</em>&#160;</td>
         </tr>
         <tr>
@@ -701,7 +701,7 @@ functor" eventually. </p>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00143">libMesh::ReferenceCounter::_enable_print_counter</a>, and <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00345">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00344">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a>)</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    out_stream &lt;&lt; <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">ReferenceCounter::get_info</a>();</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00143">reference_counter.h:143</a></div></div>
 </div><!-- fragment -->
@@ -733,7 +733,7 @@ functor" eventually. </p>
 
 <p>Definition at line <a class="el" href="ghosting__functor_8h_source.html#l00183">183</a> of file <a class="el" href="ghosting__functor_8h_source.html">ghosting_functor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="mesh__communication_8C_source.html#l00325">libMesh::MeshCommunication::redistribute()</a>.</p>
+<p>Referenced by <a class="el" href="mesh__communication_8C_source.html#l00323">libMesh::MeshCommunication::redistribute()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{};</div></div><!-- fragment -->
 </div>
 </div>

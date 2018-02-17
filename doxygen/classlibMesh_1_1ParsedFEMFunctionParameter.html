@@ -181,8 +181,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab117a6dcdb746dd5a77cf8adc47ede60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cf44c25f1ca637da8e0e2d6fd662363"><td class="memItemLeft" align="right" valign="top">virtual const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a6cf44c25f1ca637da8e0e2d6fd662363">get</a> () const </td></tr>
 <tr class="separator:a6cf44c25f1ca637da8e0e2d6fd662363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bab90d4a1eb2b69502a5c817ab6c80e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a4bab90d4a1eb2b69502a5c817ab6c80e">clone</a> () const </td></tr>
-<tr class="separator:a4bab90d4a1eb2b69502a5c817ab6c80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c870b99dc5dc05ed4e8dbcf72c91e5"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a10c870b99dc5dc05ed4e8dbcf72c91e5">clone</a> () const </td></tr>
+<tr class="separator:a10c870b99dc5dc05ed4e8dbcf72c91e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e57515a50ebe2bb94a13dc9ef9931f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1ParameterProxy.html">ParameterProxy</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParameterAccessor.html#a6e57515a50ebe2bb94a13dc9ef9931f1">operator*</a> ()</td></tr>
 <tr class="separator:a6e57515a50ebe2bb94a13dc9ef9931f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11671dbe7f9b4e9cddf760a1805501ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibMesh_1_1ConstParameterProxy.html">ConstParameterProxy</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ParameterAccessor.html#a11671dbe7f9b4e9cddf760a1805501ec">operator*</a> () const </td></tr>
@@ -253,7 +253,7 @@ template&lt;typename T  = Number&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4bab90d4a1eb2b69502a5c817ab6c80e"></a>
+<a class="anchor" id="a10c870b99dc5dc05ed4e8dbcf72c91e5"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -263,7 +263,7 @@ template&lt;typename T  = Number&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt;T&gt; &gt; <a class="el" href="classlibMesh_1_1ParsedFEMFunctionParameter.html">libMesh::ParsedFEMFunctionParameter</a>&lt; T &gt;::clone </td>
+          <td class="memname">virtual std::unique_ptr&lt;<a class="el" href="classlibMesh_1_1ParameterAccessor.html">ParameterAccessor</a>&lt;T&gt; &gt; <a class="el" href="classlibMesh_1_1ParsedFEMFunctionParameter.html">libMesh::ParsedFEMFunctionParameter</a>&lt; T &gt;::clone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -277,12 +277,12 @@ template&lt;typename T  = Number&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>A new copy of the accessor. </dd></dl>
 
-<p>Implements <a class="el" href="classlibMesh_1_1ParameterAccessor.html#a64792c20cf4b5a562d995da33453288f">libMesh::ParameterAccessor&lt; T &gt;</a>.</p>
+<p>Implements <a class="el" href="classlibMesh_1_1ParameterAccessor.html#ac9a59938875076dc8346586eb16cd771">libMesh::ParameterAccessor&lt; T &gt;</a>.</p>
 
 <p>Definition at line <a class="el" href="parsed__fem__function__parameter_8h_source.html#l00089">89</a> of file <a class="el" href="parsed__fem__function__parameter_8h_source.html">parsed_fem_function_parameter.h</a>.</p>
 
 <p>References <a class="el" href="parsed__fem__function__parameter_8h_source.html#l00095">libMesh::ParsedFEMFunctionParameter&lt; T &gt;::_func</a>, and <a class="el" href="parsed__fem__function__parameter_8h_source.html#l00096">libMesh::ParsedFEMFunctionParameter&lt; T &gt;::_name</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                                         {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> UniquePtr&lt;ParameterAccessor&lt;T&gt; &gt;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      (<span class="keyword">new</span> ParsedFEMFunctionParameter&lt;T&gt;(<a class="code" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a775f81b05df7641d556a9675062d468a">_func</a>, <a class="code" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a69d04f4c8593fa18f348b1c8595bc483">_name</a>));</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1ParsedFEMFunctionParameter_html_a69d04f4c8593fa18f348b1c8595bc483"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a69d04f4c8593fa18f348b1c8595bc483">libMesh::ParsedFEMFunctionParameter::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function__parameter_8h_source.html#l00096">parsed_fem_function_parameter.h:96</a></div></div>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                                            {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> std::unique_ptr&lt;ParameterAccessor&lt;T&gt;&gt;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      (<span class="keyword">new</span> ParsedFEMFunctionParameter&lt;T&gt;(<a class="code" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a775f81b05df7641d556a9675062d468a">_func</a>, <a class="code" href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a69d04f4c8593fa18f348b1c8595bc483">_name</a>));</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1ParsedFEMFunctionParameter_html_a69d04f4c8593fa18f348b1c8595bc483"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a69d04f4c8593fa18f348b1c8595bc483">libMesh::ParsedFEMFunctionParameter::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function__parameter_8h_source.html#l00096">parsed_fem_function_parameter.h:96</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ParsedFEMFunctionParameter_html_a775f81b05df7641d556a9675062d468a"><div class="ttname"><a href="classlibMesh_1_1ParsedFEMFunctionParameter.html#a775f81b05df7641d556a9675062d468a">libMesh::ParsedFEMFunctionParameter::_func</a></div><div class="ttdeci">ParsedFEMFunction&lt; T &gt; &amp; _func</div><div class="ttdef"><b>Definition:</b> <a href="parsed__fem__function__parameter_8h_source.html#l00095">parsed_fem_function_parameter.h:95</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -347,8 +347,8 @@ template&lt;typename T = Number&gt; </div>
 </div><div class="memdoc">
 <p>Proxy: for backward compatibility, we allow codes to treat a <a class="el" href="classlibMesh_1_1ParameterAccessor.html" title="Base class for reading/writing sensitivity parameters. ">ParameterAccessor</a> as if it were a simple pointer-to-value. We can't safely allow "Number * n = parameter_vector[p]" to compile, but we can allow "*parameter_vector[p] += deltap" to work. </p>
 
-<p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00086">86</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{ <span class="keywordflow">return</span> ParameterProxy&lt;T&gt;(*this); }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00091">91</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{ <span class="keywordflow">return</span> ParameterProxy&lt;T&gt;(*this); }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a11671dbe7f9b4e9cddf760a1805501ec"></a>
@@ -374,10 +374,10 @@ template&lt;typename T = Number&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00088">88</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
+<p>Definition at line <a class="el" href="parameter__accessor_8h_source.html#l00093">93</a> of file <a class="el" href="parameter__accessor_8h_source.html">parameter_accessor.h</a>.</p>
 
-<p>References <a class="el" href="classlibMesh_1_1ParameterAccessor.html#a64792c20cf4b5a562d995da33453288f">libMesh::ParameterAccessor&lt; T &gt;::clone()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{ <span class="keywordflow">return</span> ConstParameterProxy&lt;T&gt;(*this); }</div></div><!-- fragment -->
+<p>References <a class="el" href="classlibMesh_1_1ParameterAccessor.html#ac9a59938875076dc8346586eb16cd771">libMesh::ParameterAccessor&lt; T &gt;::clone()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{ <span class="keywordflow">return</span> ConstParameterProxy&lt;T&gt;(*this); }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae8252055d263b8a91ddaf15e4dc34b99"></a>

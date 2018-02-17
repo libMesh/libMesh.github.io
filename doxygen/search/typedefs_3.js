@@ -4,7 +4,6 @@ var searchData=
   ['eigensm',['EigenSM',['../namespacelibMesh.html#a60b1337ad05ab2561dca6fe2cff9cf74',1,'libMesh']]],
   ['eigensv',['EigenSV',['../namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb',1,'libMesh']]],
   ['elem_5fiterator_5fimp',['elem_iterator_imp',['../classlibMesh_1_1DistributedMesh.html#af9df4e402db358af8c83e8735c2f852f',1,'libMesh::DistributedMesh::elem_iterator_imp()'],['../classlibMesh_1_1ReplicatedMesh.html#afe653dc12aa5754787f64c144e04d836',1,'libMesh::ReplicatedMesh::elem_iterator_imp()']]],
-  ['element_5ftype',['element_type',['../classlibMesh_1_1AutoPtr.html#af7d6809e6bdb84d790ad2ef11afe3fa6',1,'libMesh::AutoPtr']]],
   ['elemrange',['ElemRange',['../namespacelibMesh.html#a735bae72691d27d9695914f5c87aaabc',1,'libMesh']]],
   ['erase_5fiter',['erase_iter',['../classlibMesh_1_1BoundaryInfo.html#a6f54a38b580565aa560e3eb4dc9624a6',1,'libMesh::BoundaryInfo']]],
   ['errormap',['ErrorMap',['../classlibMesh_1_1ErrorEstimator.html#a662486f8192c2f70733efa723a9fb336',1,'libMesh::ErrorEstimator']]],

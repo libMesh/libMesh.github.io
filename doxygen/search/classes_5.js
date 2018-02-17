@@ -63,6 +63,5 @@ var searchData=
   ['functionbase',['FunctionBase',['../classlibMesh_1_1FunctionBase.html',1,'libMesh']]],
   ['functionbase_3c_20number_20_3e',['FunctionBase&lt; Number &gt;',['../classlibMesh_1_1FunctionBase.html',1,'libMesh']]],
   ['functionbase_3c_20real_20_3e',['FunctionBase&lt; Real &gt;',['../classlibMesh_1_1FunctionBase.html',1,'libMesh']]],
-  ['functionbase_3c_20t_20_3e',['FunctionBase&lt; T &gt;',['../classlibMesh_1_1FunctionBase.html',1,'libMesh']]],
-  ['fuzzypointcompare',['FuzzyPointCompare',['../classLIBMESH__DEFINE__HASH__POINTERS_1_1FuzzyPointCompare.html',1,'LIBMESH_DEFINE_HASH_POINTERS']]]
+  ['functionbase_3c_20t_20_3e',['FunctionBase&lt; T &gt;',['../classlibMesh_1_1FunctionBase.html',1,'libMesh']]]
 ];

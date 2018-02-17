@@ -152,6 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
@@ -193,6 +194,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a341cc23c5c3e11d7981df3a7da439367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6b80a6ad2ca5df6b1902c961f52d4bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ElemAssembly.html#aa6b80a6ad2ca5df6b1902c961f52d4bd">boundary_assembly</a> (<a class="el" href="classlibMesh_1_1FEMContext.html">FEMContext</a> &amp;)</td></tr>
 <tr class="separator:aa6b80a6ad2ca5df6b1902c961f52d4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bda13aab9b8b8ec421f4ec7bc9e142"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ElemAssembly.html#a31bda13aab9b8b8ec421f4ec7bc9e142">get_nodal_values</a> (std::vector&lt; <a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> &gt; &amp;, <a class="el" href="classlibMesh_1_1DenseMatrix.html">DenseMatrix</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;, <a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;, const <a class="el" href="classlibMesh_1_1System.html">System</a> &amp;, const <a class="el" href="classlibMesh_1_1Node.html">Node</a> &amp;)</td></tr>
+<tr class="separator:a31bda13aab9b8b8ec421f4ec7bc9e142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af32ef7bacfd6b9c54359264b6e7c5b34"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ElemAssembly.html#af32ef7bacfd6b9c54359264b6e7c5b34">get_nodal_rhs_values</a> (std::map&lt; <a class="el" href="namespacelibMesh.html#a7b7f67063580fe2c771a3dc5095d6ecb">numeric_index_type</a>, <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;values, const <a class="el" href="classlibMesh_1_1System.html">System</a> &amp;, const <a class="el" href="classlibMesh_1_1Node.html">Node</a> &amp;)</td></tr>
 <tr class="separator:af32ef7bacfd6b9c54359264b6e7c5b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -208,6 +211,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a86837c50216b2ddb800b3836d2a08c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c0a2d3d3c531f9f069b0d623d4ace0f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ReferenceCounter.html#a5c0a2d3d3c531f9f069b0d623d4ace0f">disable_print_counter_info</a> ()</td></tr>
 <tr class="separator:a5c0a2d3d3c531f9f069b0d623d4ace0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ab0bf376643c2989f33c18938bb53d532"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1ElemAssembly.html#ab0bf376643c2989f33c18938bb53d532">is_nodal_rhs_values_overriden</a></td></tr>
+<tr class="separator:ab0bf376643c2989f33c18938bb53d532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
@@ -243,19 +251,19 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a57dfa2eb757360795da9cf4910e604be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a720bf8c5c9bbd4f917ff985db79e70"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#a2a720bf8c5c9bbd4f917ff985db79e70">_basis_function_index</a></td></tr>
 <tr class="separator:a2a720bf8c5c9bbd4f917ff985db79e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d889b4f15a44b7c8cdba566e77424cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#a5d889b4f15a44b7c8cdba566e77424cf">_ghosted_basis_function</a></td></tr>
-<tr class="separator:a5d889b4f15a44b7c8cdba566e77424cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92c805ba85d796f4029b08432e81928c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">FEBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#a92c805ba85d796f4029b08432e81928c">_fe</a></td></tr>
-<tr class="separator:a92c805ba85d796f4029b08432e81928c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ddcc1cfafc6b37d8e44350d281ef8b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt; <a class="el" href="classlibMesh_1_1QBase.html">QBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#a1ddcc1cfafc6b37d8e44350d281ef8b2">_qrule</a></td></tr>
-<tr class="separator:a1ddcc1cfafc6b37d8e44350d281ef8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2771d049f7d7431e3121837586d500c2"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#a2771d049f7d7431e3121837586d500c2">_ghosted_basis_function</a></td></tr>
+<tr class="separator:a2771d049f7d7431e3121837586d500c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd33006588f1b4fa212fd9a8a83e8207"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">FEBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#acd33006588f1b4fa212fd9a8a83e8207">_fe</a></td></tr>
+<tr class="separator:acd33006588f1b4fa212fd9a8a83e8207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c8253ffc59a7a8d13072b0b25b65f7f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlibMesh_1_1QBase.html">QBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1RBEIMAssembly.html#a9c8253ffc59a7a8d13072b0b25b65f7f">_qrule</a></td></tr>
+<tr class="separator:a9c8253ffc59a7a8d13072b0b25b65f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides functionality required to define an assembly object that arises from an "Empirical Interpolation Method" (EIM) approximation.</p>
 <dl class="section author"><dt>Author</dt><dd>David J. Knezevic </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2012 </dd></dl>
 
-<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00047">47</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00050">50</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="adb5daadc989c1fe71ec8d173adf0ed1e"></a>
 <div class="memitem">
@@ -356,8 +364,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform the element boundary assembly. </p>
 
-<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00060">60</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{ }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00063">63</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{ }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a5c0a2d3d3c531f9f069b0d623d4ace0f"></a>
@@ -385,7 +393,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00143">libMesh::ReferenceCounter::_enable_print_counter</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00345">libMesh::LibMeshInit::LibMeshInit()</a>, and <a class="el" href="reference__counter_8h_source.html#l00085">libMesh::ReferenceCounter::n_objects()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00344">libMesh::LibMeshInit::LibMeshInit()</a>, and <a class="el" href="reference__counter_8h_source.html#l00085">libMesh::ReferenceCounter::n_objects()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">return</span>;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00143">reference_counter.h:143</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -569,10 +577,68 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get values to add to the RHS vector based on <code>node</code>. This allows one to impose point loads, for example. </p>
+<p>Get values to add to the RHS vector based on <code>node</code>. This allows one to impose point loads, for example. Get values to add to the matrix or rhs vector based on <code>node</code>. This allows one to impose point loads or springs, for example. </p>
 
-<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00067">67</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// By default, just clear the values map</span></div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    values.clear();</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00087">87</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
+
+<p>References <a class="el" href="elem__assembly_8h_source.html#l00106">libMesh::ElemAssembly::is_nodal_rhs_values_overriden</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  {</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// use get_nodal_values instead, since that enables matrix and vector assembly</span></div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    libmesh_deprecated();</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// By default, just clear the values map</span></div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    values.clear();</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Set flag so that we know this is the default implementation</span></div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classlibMesh_1_1ElemAssembly.html#ab0bf376643c2989f33c18938bb53d532">is_nodal_rhs_values_overriden</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div><div class="ttc" id="classlibMesh_1_1ElemAssembly_html_ab0bf376643c2989f33c18938bb53d532"><div class="ttname"><a href="classlibMesh_1_1ElemAssembly.html#ab0bf376643c2989f33c18938bb53d532">libMesh::ElemAssembly::is_nodal_rhs_values_overriden</a></div><div class="ttdeci">bool is_nodal_rhs_values_overriden</div><div class="ttdef"><b>Definition:</b> <a href="elem__assembly_8h_source.html#l00106">elem_assembly.h:106</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a31bda13aab9b8b8ec421f4ec7bc9e142"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void libMesh::ElemAssembly::get_nodal_values </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespacelibMesh.html#ab4541d74809228310a715b11c40587fc">dof_id_type</a> &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classlibMesh_1_1DenseMatrix.html">DenseMatrix</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classlibMesh_1_1DenseVector.html">DenseVector</a>&lt; <a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a> &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1System.html">System</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classlibMesh_1_1Node.html">Node</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get values to add to the matrix or rhs vector based on <code>node</code>. This allows one to impose point loads or springs, for example. </p>
+
+<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00070">70</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Do nothing by default</span></div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2f33bac4427f16dae5b64eb61f07d95b"></a>
@@ -706,8 +772,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Perform the element interior assembly. </p>
 
-<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00055">55</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{ }</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00058">58</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{ }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a50e74641afc6e2870c9e1ce412f8c44f"></a>
@@ -736,7 +802,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00132">libMesh::ReferenceCounter::_n_objects</a>, <a class="el" href="reference__counter_8C_source.html#l00107">libMesh::ReferenceCounter::disable_print_counter_info()</a>, <a class="el" href="reference__counter_8C_source.html#l00101">libMesh::ReferenceCounter::enable_print_counter_info()</a>, <a class="el" href="reference__counter_8h_source.html#l00185">libMesh::ReferenceCounter::increment_constructor_count()</a>, <a class="el" href="reference__counter_8h_source.html#l00198">libMesh::ReferenceCounter::increment_destructor_count()</a>, and <a class="el" href="elem__quality_8C_source.html#l00039">libMesh::Quality::name()</a>.</p>
 
-<p>Referenced by <a class="el" href="system_8h_source.html#l01655">libMesh::System::hide_output()</a>, and <a class="el" href="libmesh_8C_source.html#l00345">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>Referenced by <a class="el" href="system_8h_source.html#l01643">libMesh::System::hide_output()</a>, and <a class="el" href="libmesh_8C_source.html#l00344">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  { <span class="keywordflow">return</span> <a class="code" href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">_n_objects</a>; }</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_ad2c30f0f71dcd00f00faa8e46aa3e043"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#ad2c30f0f71dcd00f00faa8e46aa3e043">libMesh::ReferenceCounter::_n_objects</a></div><div class="ttdeci">static Threads::atomic&lt; unsigned int &gt; _n_objects</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00132">reference_counter.h:132</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -768,7 +834,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="reference__counter_8h_source.html#l00143">libMesh::ReferenceCounter::_enable_print_counter</a>, and <a class="el" href="reference__counter_8C_source.html#l00047">libMesh::ReferenceCounter::get_info()</a>.</p>
 
-<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00345">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
+<p>Referenced by <a class="el" href="libmesh_8C_source.html#l00344">libMesh::LibMeshInit::LibMeshInit()</a>.</p>
 <div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">_enable_print_counter</a>)</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    out_stream &lt;&lt; <a class="code" href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">ReferenceCounter::get_info</a>();</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div><div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a103b37125ae9eaaadf6f7854df17faa2"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a103b37125ae9eaaadf6f7854df17faa2">libMesh::ReferenceCounter::get_info</a></div><div class="ttdeci">static std::string get_info()</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8C_source.html#l00047">reference_counter.C:47</a></div></div>
 <div class="ttc" id="classlibMesh_1_1ReferenceCounter_html_a8f75e8a4a280f2c41636f2ae1307a311"><div class="ttname"><a href="classlibMesh_1_1ReferenceCounter.html#a8f75e8a4a280f2c41636f2ae1307a311">libMesh::ReferenceCounter::_enable_print_counter</a></div><div class="ttdeci">static bool _enable_print_counter</div><div class="ttdef"><b>Definition:</b> <a href="reference__counter_8h_source.html#l00143">reference_counter.h:143</a></div></div>
 </div><!-- fragment -->
@@ -794,7 +860,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The EIM basis function index (from rb_eim_eval) for this assembly object. </p>
 
-<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00101">101</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00104">104</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
 
 </div>
 </div>
@@ -848,7 +914,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a92c805ba85d796f4029b08432e81928c"></a>
+<a class="anchor" id="acd33006588f1b4fa212fd9a8a83e8207"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -856,7 +922,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">FEBase</a>&gt; libMesh::RBEIMAssembly::_fe</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="namespacelibMesh.html#adf7aee34b8c6fe4be28c90fe132a73a0">FEBase</a>&gt; libMesh::RBEIMAssembly::_fe</td>
         </tr>
       </table>
   </td>
@@ -867,11 +933,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>We store an <a class="el" href="classlibMesh_1_1FE.html" title="Template class which generates the different FE families and orders. ">FE</a> object and an associated quadrature rule. </p>
 
-<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00113">113</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00116">116</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5d889b4f15a44b7c8cdba566e77424cf"></a>
+<a class="anchor" id="a2771d049f7d7431e3121837586d500c2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -879,7 +945,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt;<a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a>&gt; &gt; libMesh::RBEIMAssembly::_ghosted_basis_function</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classlibMesh_1_1NumericVector.html">NumericVector</a>&lt;<a class="el" href="namespacelibMesh.html#a8b17bf24a15bc292850c3a3894e2e8f9">Number</a>&gt; &gt; libMesh::RBEIMAssembly::_ghosted_basis_function</td>
         </tr>
       </table>
   </td>
@@ -890,7 +956,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The basis function that we sample to evaluate the empirical interpolation approximation. This will be a GHOSTED vector to facilitate interpolation in the case of multiple processors. </p>
 
-<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00108">108</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00111">111</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
 
 </div>
 </div>
@@ -942,7 +1008,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1ddcc1cfafc6b37d8e44350d281ef8b2"></a>
+<a class="anchor" id="a9c8253ffc59a7a8d13072b0b25b65f7f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -950,7 +1016,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelibMesh.html#af0a78fa0f592d2b8f515c69cabfaf529">UniquePtr</a>&lt;<a class="el" href="classlibMesh_1_1QBase.html">QBase</a>&gt; libMesh::RBEIMAssembly::_qrule</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classlibMesh_1_1QBase.html">QBase</a>&gt; libMesh::RBEIMAssembly::_qrule</td>
         </tr>
       </table>
   </td>
@@ -960,7 +1026,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00114">114</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00117">117</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
 
 </div>
 </div>
@@ -983,7 +1049,32 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The <a class="el" href="classlibMesh_1_1RBEIMConstruction.html">RBEIMConstruction</a> object that this <a class="el" href="classlibMesh_1_1RBEIMAssembly.html">RBEIMAssembly</a> is based on. </p>
 
-<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00096">96</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+<p>Definition at line <a class="el" href="rb__eim__assembly_8h_source.html#l00099">99</a> of file <a class="el" href="rb__eim__assembly_8h_source.html">rb_eim_assembly.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab0bf376643c2989f33c18938bb53d532"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool libMesh::ElemAssembly::is_nodal_rhs_values_overriden</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Temporary flag to help us figure out if we should call the deprecated get_nodal_rhs_values method or not. </p>
+
+<p>Definition at line <a class="el" href="elem__assembly_8h_source.html#l00106">106</a> of file <a class="el" href="elem__assembly_8h_source.html">elem_assembly.h</a>.</p>
+
+<p>Referenced by <a class="el" href="elem__assembly_8h_source.html#l00087">libMesh::ElemAssembly::get_nodal_rhs_values()</a>.</p>
 
 </div>
 </div>

@@ -17,5 +17,6 @@ var searchData=
   ['quad4',['QUAD4',['../namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2af4b68709f9e0a488822d3399de3508b1',1,'libMesh']]],
   ['quad8',['QUAD8',['../namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a850fa5218d8f69ab09f5bccaf40b615a',1,'libMesh']]],
   ['quad9',['QUAD9',['../namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a2d7bef790b667ca2769e52ce6de8b9fd',1,'libMesh']]],
-  ['quadshell4',['QUADSHELL4',['../namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64',1,'libMesh']]]
+  ['quadshell4',['QUADSHELL4',['../namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2a1a6cc0afbea0523f6a9315b18e983e64',1,'libMesh']]],
+  ['quadshell8',['QUADSHELL8',['../namespacelibMesh.html#a16d066cfcd1a19aa971a530807e0deb2ac0db4ea89964a6797070177aa8a3ec12',1,'libMesh']]]
 ];

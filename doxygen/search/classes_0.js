@@ -28,7 +28,5 @@ var searchData=
   ['attributes_3c_20unsigned_20long_20long_20_3e',['Attributes&lt; unsigned long long &gt;',['../structlibMesh_1_1Parallel_1_1Attributes_3_01unsigned_01long_01long_01_4.html',1,'libMesh::Parallel']]],
   ['augmentsendlist',['AugmentSendList',['../classlibMesh_1_1DofMap_1_1AugmentSendList.html',1,'libMesh::DofMap']]],
   ['augmentsparsitypattern',['AugmentSparsityPattern',['../classlibMesh_1_1DofMap_1_1AugmentSparsityPattern.html',1,'libMesh::DofMap']]],
-  ['autoptr',['AutoPtr',['../classlibMesh_1_1AutoPtr.html',1,'libMesh']]],
-  ['autoptrref',['AutoPtrRef',['../structlibMesh_1_1AutoPtrRef.html',1,'libMesh']]],
   ['azteclinearsolver',['AztecLinearSolver',['../classlibMesh_1_1AztecLinearSolver.html',1,'libMesh']]]
 ];

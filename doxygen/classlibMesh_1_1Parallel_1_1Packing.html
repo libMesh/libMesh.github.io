@@ -171,7 +171,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a56f82b789dd6b6dda1c7e03f40bad578"><td class="memTemplItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parallel_1_1Packing.html#a56f82b789dd6b6dda1c7e03f40bad578">packed_size</a> (BufferIter iter)</td></tr>
 <tr class="separator:a56f82b789dd6b6dda1c7e03f40bad578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43bbdaa33ac1326710d69248c51e7fb0"><td class="memTemplParams" colspan="2">template&lt;typename BufferIter , typename Context &gt; </td></tr>
-<tr class="memitem:a43bbdaa33ac1326710d69248c51e7fb0"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parallel_1_1Packing.html#a43bbdaa33ac1326710d69248c51e7fb0">unpack</a> (BufferIter in, Context *<a class="el" href="namespacelibMesh.html#abe5c2ec38ebcb86d0ea03fcfe264724e">ctx</a>)</td></tr>
+<tr class="memitem:a43bbdaa33ac1326710d69248c51e7fb0"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlibMesh_1_1Parallel_1_1Packing.html#a43bbdaa33ac1326710d69248c51e7fb0">unpack</a> (BufferIter in, Context *ctx)</td></tr>
 <tr class="separator:a43bbdaa33ac1326710d69248c51e7fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -181,7 +181,7 @@ class libMesh::Parallel::Packing&lt; T &gt;</h3>
 <p>Define data types and (un)serialization functions for use when encoding a potentially-variable-size object of type T.</p>
 <p>Users will need to specialize this class for their particular data types. </p>
 
-<p>Definition at line <a class="el" href="parallel_8h_source.html#l00578">578</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
+<p>Definition at line <a class="el" href="parallel_8h_source.html#l00581">581</a> of file <a class="el" href="parallel_8h_source.html">parallel.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a15e3480d864bfb38e4f62fa7f7e8a8d3"></a>
 <div class="memitem">
@@ -225,7 +225,7 @@ template&lt;typename OutputIter , typename Context &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="parallel__elem_8h_source.html#l00063">libMesh::Parallel::Packing&lt; Elem * &gt;::pack()</a>, <a class="el" href="parallel__node_8h_source.html#l00063">libMesh::Parallel::Packing&lt; Node * &gt;::pack()</a>, <a class="el" href="parallel__node_8C_source.html#l00190">libMesh::Parallel::Packing&lt; const Node * &gt;::pack()</a>, <a class="el" href="parallel__elem_8C_source.html#l00331">libMesh::Parallel::Packing&lt; const Elem * &gt;::pack()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00540">libMesh::Parallel::pack_range()</a>.</p>
+<p>Referenced by <a class="el" href="parallel__elem_8h_source.html#l00063">libMesh::Parallel::Packing&lt; Elem * &gt;::pack()</a>, <a class="el" href="parallel__node_8h_source.html#l00063">libMesh::Parallel::Packing&lt; Node * &gt;::pack()</a>, <a class="el" href="parallel__node_8C_source.html#l00190">libMesh::Parallel::Packing&lt; const Node * &gt;::pack()</a>, <a class="el" href="parallel__elem_8C_source.html#l00332">libMesh::Parallel::Packing&lt; const Elem * &gt;::pack()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00540">libMesh::Parallel::pack_range()</a>.</p>
 
 </div>
 </div>
@@ -265,7 +265,7 @@ template&lt;typename Context &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l00540">libMesh::Parallel::pack_range()</a>, <a class="el" href="parallel__elem_8h_source.html#l00069">libMesh::Parallel::Packing&lt; Elem * &gt;::packable_size()</a>, <a class="el" href="parallel__node_8h_source.html#l00069">libMesh::Parallel::Packing&lt; Node * &gt;::packable_size()</a>, <a class="el" href="parallel__node_8C_source.html#l00112">libMesh::Parallel::Packing&lt; const Node * &gt;::packable_size()</a>, <a class="el" href="parallel__elem_8C_source.html#l00181">libMesh::Parallel::Packing&lt; const Elem * &gt;::packable_size()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00519">libMesh::Parallel::packed_range_size()</a>.</p>
+<p>Referenced by <a class="el" href="parallel__implementation_8h_source.html#l00540">libMesh::Parallel::pack_range()</a>, <a class="el" href="parallel__elem_8h_source.html#l00069">libMesh::Parallel::Packing&lt; Elem * &gt;::packable_size()</a>, <a class="el" href="parallel__node_8h_source.html#l00069">libMesh::Parallel::Packing&lt; Node * &gt;::packable_size()</a>, <a class="el" href="parallel__node_8C_source.html#l00112">libMesh::Parallel::Packing&lt; const Node * &gt;::packable_size()</a>, <a class="el" href="parallel__elem_8C_source.html#l00183">libMesh::Parallel::Packing&lt; const Elem * &gt;::packable_size()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00519">libMesh::Parallel::packed_range_size()</a>.</p>
 
 </div>
 </div>
@@ -335,7 +335,7 @@ template&lt;typename BufferIter , typename Context &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="parallel__elem_8h_source.html#l00084">libMesh::Parallel::Packing&lt; const Elem * &gt;::unpack()</a>, <a class="el" href="parallel__node_8h_source.html#l00084">libMesh::Parallel::Packing&lt; const Node * &gt;::unpack()</a>, <a class="el" href="parallel__node_8C_source.html#l00321">libMesh::Parallel::Packing&lt; Node * &gt;::unpack()</a>, <a class="el" href="parallel__elem_8C_source.html#l00807">libMesh::Parallel::Packing&lt; Elem * &gt;::unpack()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00595">libMesh::Parallel::unpack_range()</a>.</p>
+<p>Referenced by <a class="el" href="parallel__elem_8h_source.html#l00084">libMesh::Parallel::Packing&lt; const Elem * &gt;::unpack()</a>, <a class="el" href="parallel__node_8h_source.html#l00084">libMesh::Parallel::Packing&lt; const Node * &gt;::unpack()</a>, <a class="el" href="parallel__node_8C_source.html#l00321">libMesh::Parallel::Packing&lt; Node * &gt;::unpack()</a>, <a class="el" href="parallel__elem_8C_source.html#l00811">libMesh::Parallel::Packing&lt; Elem * &gt;::unpack()</a>, and <a class="el" href="parallel__implementation_8h_source.html#l00595">libMesh::Parallel::unpack_range()</a>.</p>
 
 </div>
 </div>

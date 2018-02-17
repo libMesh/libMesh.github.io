@@ -1,7 +1,6 @@
 var searchData=
 [
   ['binarytree',['BinaryTree',['../namespacelibMesh_1_1Trees.html#a5759bb5af68ff2e618be45d756f86b81',1,'libMesh::Trees']]],
-  ['bool_5ftype',['bool_type',['../classlibMesh_1_1safe__bool__base.html#a3306f2fd8584165024f5d662dd93dc4f',1,'libMesh::safe_bool_base']]],
   ['boundary_5fedge_5fiter',['boundary_edge_iter',['../classlibMesh_1_1BoundaryInfo.html#aba808a1358150d86c1b2e7ff61cca583',1,'libMesh::BoundaryInfo']]],
   ['boundary_5fid_5ftype',['boundary_id_type',['../namespacelibMesh.html#a3f4d8a52b5ef6ff6156ca209e12b5564',1,'libMesh']]],
   ['boundary_5fnode_5ferase_5fiter',['boundary_node_erase_iter',['../classlibMesh_1_1BoundaryInfo.html#a3b5339d32a4d4a0545ae7f970ffd9d9f',1,'libMesh::BoundaryInfo']]],

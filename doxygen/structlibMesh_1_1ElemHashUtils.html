@@ -175,7 +175,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>John W. Peterson </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
 
-<p>Definition at line <a class="el" href="elem__hash_8h_source.html#l00045">45</a> of file <a class="el" href="elem__hash_8h_source.html">elem_hash.h</a>.</p>
+<p>Definition at line <a class="el" href="elem__hash_8h_source.html#l00046">46</a> of file <a class="el" href="elem__hash_8h_source.html">elem_hash.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ad9133788ebcdba764bf2dd44e0be1579"></a>
 <div class="memitem">
@@ -201,10 +201,10 @@ Public Member Functions</h2></td></tr>
 <p>The "Hash" template argument. A custom hash functor that can be used with the "unordered" container types.</p>
 <dl class="section return"><dt>Returns</dt><dd>A hash for the element computed by calling elem-&gt;key(). </dd></dl>
 
-<p>Definition at line <a class="el" href="elem__hash_8h_source.html#l00055">55</a> of file <a class="el" href="elem__hash_8h_source.html">elem_hash.h</a>.</p>
+<p>Definition at line <a class="el" href="elem__hash_8h_source.html#l00056">56</a> of file <a class="el" href="elem__hash_8h_source.html">elem_hash.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1Elem.html#a013a23cb6f0cd34a1112cedf22529a16">libMesh::Elem::key()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> cast_int&lt;std::size_t&gt;(elem-&gt;key());</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> cast_int&lt;std::size_t&gt;(elem-&gt;key());</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a12b39537c58fb0520f693b11ce7b3b14"></a>
@@ -241,10 +241,10 @@ Public Member Functions</h2></td></tr>
 <p>Satisfies the requirements of the "Pred" template parameter of the standard hash containers. We need to specify this in order to use the unordered_multiset, otherwise it just uses std::equal_to to compare two pointers...</p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the two <a class="el" href="classlibMesh_1_1Elem.html" title="The base class for all geometric element types. ">Elem</a> keys are equal, <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="elem__hash_8h_source.html#l00069">69</a> of file <a class="el" href="elem__hash_8h_source.html">elem_hash.h</a>.</p>
+<p>Definition at line <a class="el" href="elem__hash_8h_source.html#l00070">70</a> of file <a class="el" href="elem__hash_8h_source.html">elem_hash.h</a>.</p>
 
 <p>References <a class="el" href="classlibMesh_1_1Elem.html#a013a23cb6f0cd34a1112cedf22529a16">libMesh::Elem::key()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> lhs-&gt;key() == rhs-&gt;key();</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> lhs-&gt;key() == rhs-&gt;key();</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
