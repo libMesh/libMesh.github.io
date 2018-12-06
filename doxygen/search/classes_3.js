@@ -19,7 +19,6 @@ var searchData=
   ['densevector_3c_20number_20_3e',['DenseVector&lt; Number &gt;',['../classlibMesh_1_1DenseVector.html',1,'libMesh']]],
   ['densevector_3c_20output_20_3e',['DenseVector&lt; Output &gt;',['../classlibMesh_1_1DenseVector.html',1,'libMesh']]],
   ['densevectorbase',['DenseVectorBase',['../classlibMesh_1_1DenseVectorBase.html',1,'libMesh']]],
-  ['dependent_5ffalse',['dependent_false',['../structlibMesh_1_1Parallel_1_1dependent__false.html',1,'libMesh::Parallel']]],
   ['dgfemcontext',['DGFEMContext',['../classlibMesh_1_1DGFEMContext.html',1,'libMesh']]],
   ['diffcontext',['DiffContext',['../classlibMesh_1_1DiffContext.html',1,'libMesh']]],
   ['differentiablephysics',['DifferentiablePhysics',['../classlibMesh_1_1DifferentiablePhysics.html',1,'libMesh']]],

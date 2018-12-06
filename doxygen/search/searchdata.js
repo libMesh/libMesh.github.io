@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "bcdefghiklmnopqrstuvx",
   7: "_abcdefilmnopqrstvwx",
   8: "abcdefghijklmnopqrstuvwxyz",
-  9: "_abcefilmnopst",
+  9: "_abcefilmnopstw",
   10: "emsv",
   11: "dlt"
 };

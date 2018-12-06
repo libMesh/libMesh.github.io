@@ -52,6 +52,8 @@ var searchData=
   ['centroid_5fpartitioner_2eh',['centroid_partitioner.h',['../centroid__partitioner_8h.html',1,'']]],
   ['checkpoint_5fio_2ec',['checkpoint_io.C',['../checkpoint__io_8C.html',1,'']]],
   ['checkpoint_5fio_2eh',['checkpoint_io.h',['../checkpoint__io_8h.html',1,'']]],
+  ['communicator_2ec',['communicator.C',['../communicator_8C.html',1,'']]],
+  ['communicator_2eh',['communicator.h',['../communicator_8h.html',1,'']]],
   ['compare_5felems_5fby_5flevel_2eh',['compare_elems_by_level.h',['../compare__elems__by__level_8h.html',1,'']]],
   ['compare_5ftypes_2eh',['compare_types.h',['../compare__types_8h.html',1,'']]],
   ['composite_5ffem_5ffunction_2eh',['composite_fem_function.h',['../composite__fem__function_8h.html',1,'']]],

@@ -2,7 +2,7 @@ var searchData=
 [
   ['sendmode',['SendMode',['../classlibMesh_1_1Parallel_1_1Communicator.html#aff33a7b6bcac3286e546e58431a2b6dd',1,'libMesh::Parallel::Communicator']]],
   ['solveresult',['SolveResult',['../classlibMesh_1_1DiffSolver.html#aa4773581b155951a6e3d7397dd174450',1,'libMesh::DiffSolver']]],
-  ['solverpackage',['SolverPackage',['../namespacelibMesh.html#a17745da36305535897ef6f57df9f6e01',1,'libMesh']]],
-  ['solvertype',['SolverType',['../namespacelibMesh.html#a67ae2194c38234da18c4833b879e3a54',1,'libMesh']]],
-  ['subsetsolvemode',['SubsetSolveMode',['../namespacelibMesh.html#a26778987aa56efc2654101b7deabd4a1',1,'libMesh']]]
+  ['solverpackage',['SolverPackage',['../namespacelibMesh.html#a8092cf1b717214f45bc1244aec8549dd',1,'libMesh']]],
+  ['solvertype',['SolverType',['../namespacelibMesh.html#ae5f2e9868fa858b43ba250bf8f5c5bf5',1,'libMesh']]],
+  ['subsetsolvemode',['SubsetSolveMode',['../namespacelibMesh.html#a41629eb8a6af5262ee8b038aeed73c7c',1,'libMesh']]]
 ];

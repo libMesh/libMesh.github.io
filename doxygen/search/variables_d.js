@@ -15,6 +15,7 @@ var searchData=
   ['max_5ffunction_5fevaluations',['max_function_evaluations',['../classlibMesh_1_1NonlinearSolver.html#a8b135f6dc15fd3bb57fdcd55ff17e290',1,'libMesh::NonlinearSolver']]],
   ['max_5fgrowth',['max_growth',['../classlibMesh_1_1AdaptiveTimeSolver.html#ada68f2f70960a70215aa8978105d9df2',1,'libMesh::AdaptiveTimeSolver']]],
   ['max_5flinear_5fiterations',['max_linear_iterations',['../classlibMesh_1_1DiffSolver.html#a2e1f21d4bbb429bbc643930238166327',1,'libMesh::DiffSolver::max_linear_iterations()'],['../classlibMesh_1_1NonlinearSolver.html#a6f53f05d586e75354c8d6eae61d14136',1,'libMesh::NonlinearSolver::max_linear_iterations()']]],
+  ['max_5fn_5fnodes',['max_n_nodes',['../classlibMesh_1_1Elem.html#aa13d4d39e0293b90b5cae3cf0d6d31b8',1,'libMesh::Elem']]],
   ['max_5fnonlinear_5fiterations',['max_nonlinear_iterations',['../classlibMesh_1_1DiffSolver.html#ae2d85fde243f9037ca23cc5f58483d21',1,'libMesh::DiffSolver::max_nonlinear_iterations()'],['../classlibMesh_1_1NonlinearSolver.html#a4431922dde52240c67d0e2b43459c601',1,'libMesh::NonlinearSolver::max_nonlinear_iterations()']]],
   ['max_5fobjective_5ffunction_5fevaluations',['max_objective_function_evaluations',['../classlibMesh_1_1OptimizationSolver.html#aec37d82ffb810aa78cab58abd034aae9',1,'libMesh::OptimizationSolver']]],
   ['max_5fresidual_5fnorm',['max_residual_norm',['../classlibMesh_1_1DiffSolver.html#a53af11ee109f81e72956803fea901183',1,'libMesh::DiffSolver']]],

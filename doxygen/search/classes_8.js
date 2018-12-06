@@ -26,6 +26,5 @@ var searchData=
   ['inversedistanceinterpolation',['InverseDistanceInterpolation',['../classlibMesh_1_1InverseDistanceInterpolation.html',1,'libMesh']]],
   ['is_5fnull',['is_null',['../structlibMesh_1_1Predicates_1_1is__null.html',1,'libMesh::Predicates']]],
   ['isnull',['IsNull',['../structlibMesh_1_1Predicates_1_1IsNull.html',1,'libMesh::Predicates']]],
-  ['iterator',['iterator',['../classlibMesh_1_1QoISet_1_1iterator.html',1,'libMesh::QoISet']]],
-  ['iterator',['iterator',['../classlibMesh_1_1IntRange_1_1iterator.html',1,'libMesh::IntRange']]]
+  ['iterator',['iterator',['../classlibMesh_1_1IntRange_1_1iterator.html',1,'libMesh::IntRange&lt; T &gt;::iterator'],['../classlibMesh_1_1QoISet_1_1iterator.html',1,'libMesh::QoISet::iterator']]]
 ];

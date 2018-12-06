@@ -21,6 +21,7 @@ var searchData=
   ['computeinequalityconstraints',['ComputeInequalityConstraints',['../classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraints.html',1,'libMesh::OptimizationSystem']]],
   ['computeinequalityconstraintsjacobian',['ComputeInequalityConstraintsJacobian',['../classlibMesh_1_1OptimizationSystem_1_1ComputeInequalityConstraintsJacobian.html',1,'libMesh::OptimizationSystem']]],
   ['computejacobian',['ComputeJacobian',['../classlibMesh_1_1NonlinearImplicitSystem_1_1ComputeJacobian.html',1,'libMesh::NonlinearImplicitSystem']]],
+  ['computelinesearchobject',['ComputeLineSearchObject',['../classlibMesh_1_1PetscNonlinearSolver_1_1ComputeLineSearchObject.html',1,'libMesh::PetscNonlinearSolver']]],
   ['computelowerandupperbounds',['ComputeLowerAndUpperBounds',['../classlibMesh_1_1OptimizationSystem_1_1ComputeLowerAndUpperBounds.html',1,'libMesh::OptimizationSystem']]],
   ['computeobjective',['ComputeObjective',['../classlibMesh_1_1OptimizationSystem_1_1ComputeObjective.html',1,'libMesh::OptimizationSystem']]],
   ['computepostcheck',['ComputePostCheck',['../classlibMesh_1_1NonlinearImplicitSystem_1_1ComputePostCheck.html',1,'libMesh::NonlinearImplicitSystem']]],

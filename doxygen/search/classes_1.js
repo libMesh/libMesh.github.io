@@ -13,8 +13,9 @@ var searchData=
   ['boundaryprojectsolution',['BoundaryProjectSolution',['../classlibMesh_1_1BoundaryProjectSolution.html',1,'libMesh']]],
   ['boundaryside',['BoundarySide',['../structlibMesh_1_1Predicates_1_1BoundarySide.html',1,'libMesh::Predicates']]],
   ['boundaryvolumesolutiontransfer',['BoundaryVolumeSolutionTransfer',['../classlibMesh_1_1BoundaryVolumeSolutionTransfer.html',1,'libMesh']]],
-  ['boundingbox',['BoundingBox',['../classlibMesh_1_1BoundingBox.html',1,'libMesh']]],
-  ['boundingbox',['BoundingBox',['../classlibMesh_1_1MeshTools_1_1BoundingBox.html',1,'libMesh::MeshTools']]],
+  ['boundingbox',['BoundingBox',['../classlibMesh_1_1MeshTools_1_1BoundingBox.html',1,'libMesh::MeshTools::BoundingBox'],['../classlibMesh_1_1BoundingBox.html',1,'libMesh::BoundingBox']]],
   ['build',['Build',['../classlibMesh_1_1SparsityPattern_1_1Build.html',1,'libMesh::SparsityPattern']]],
-  ['buildprojectionlist',['BuildProjectionList',['../classlibMesh_1_1BuildProjectionList.html',1,'libMesh']]]
+  ['buildprojectionlist',['BuildProjectionList',['../classlibMesh_1_1BuildProjectionList.html',1,'libMesh']]],
+  ['buildstandardtypevector',['BuildStandardTypeVector',['../structlibMesh_1_1Parallel_1_1BuildStandardTypeVector.html',1,'libMesh::Parallel']]],
+  ['buildstandardtypevector_3c_200_20_3e',['BuildStandardTypeVector&lt; 0 &gt;',['../structlibMesh_1_1Parallel_1_1BuildStandardTypeVector_3_010_01_4.html',1,'libMesh::Parallel']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['data_5ftype_2eh',['data_type.h',['../data__type_8h.html',1,'']]],
   ['default_5fcoupling_2ec',['default_coupling.C',['../default__coupling_8C.html',1,'']]],
   ['default_5fcoupling_2eh',['default_coupling.h',['../default__coupling_8h.html',1,'']]],
   ['dense_5fmatrix_2ec',['dense_matrix.C',['../dense__matrix_8C.html',1,'']]],

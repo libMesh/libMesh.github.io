@@ -5,7 +5,6 @@ var searchData=
   ['eigensv',['EigenSV',['../namespacelibMesh.html#a9353c1eb2158a7435d1bbe53824d7beb',1,'libMesh']]],
   ['elem_5fiterator_5fimp',['elem_iterator_imp',['../classlibMesh_1_1DistributedMesh.html#af9df4e402db358af8c83e8735c2f852f',1,'libMesh::DistributedMesh::elem_iterator_imp()'],['../classlibMesh_1_1ReplicatedMesh.html#afe653dc12aa5754787f64c144e04d836',1,'libMesh::ReplicatedMesh::elem_iterator_imp()']]],
   ['elemrange',['ElemRange',['../namespacelibMesh.html#a735bae72691d27d9695914f5c87aaabc',1,'libMesh']]],
-  ['erase_5fiter',['erase_iter',['../classlibMesh_1_1BoundaryInfo.html#a6f54a38b580565aa560e3eb4dc9624a6',1,'libMesh::BoundaryInfo']]],
   ['errormap',['ErrorMap',['../classlibMesh_1_1ErrorEstimator.html#a662486f8192c2f70733efa723a9fb336',1,'libMesh::ErrorEstimator']]],
   ['evaluatortype',['EvaluatorType',['../classlibMesh_1_1DTKAdapter.html#a19ff2f9cef77034564674b3566d5185f',1,'libMesh::DTKAdapter']]],
   ['ex_5fblock',['ex_block',['../group__APIStructs.html#gaba1420f7a98c7bb441829dbbc1fa6ed4',1,'exodusII.h']]],

@@ -6,7 +6,6 @@ var searchData=
   ['laspackmatrix',['LaspackMatrix',['../classlibMesh_1_1LaspackMatrix.html',1,'libMesh']]],
   ['laspackvector',['LaspackVector',['../classlibMesh_1_1LaspackVector.html',1,'libMesh']]],
   ['level',['level',['../structlibMesh_1_1Predicates_1_1level.html',1,'libMesh::Predicates::level&lt; T &gt;'],['../structlibMesh_1_1Predicates_1_1Level.html',1,'libMesh::Predicates::Level&lt; T &gt;']]],
-  ['libmesh_5fnullptr_5ft',['libmesh_nullptr_t',['../classlibmesh__nullptr__t.html',1,'']]],
   ['libmeshinit',['LibMeshInit',['../classlibMesh_1_1LibMeshInit.html',1,'libMesh']]],
   ['linearimplicitsystem',['LinearImplicitSystem',['../classlibMesh_1_1LinearImplicitSystem.html',1,'libMesh']]],
   ['linearpartitioner',['LinearPartitioner',['../classlibMesh_1_1LinearPartitioner.html',1,'libMesh']]],

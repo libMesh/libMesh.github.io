@@ -1,6 +1,7 @@
 var searchData=
 [
   ['warned_5fabout_5fauto_5fptr',['warned_about_auto_ptr',['../namespacelibMesh.html#a27a859c2c661c6945f90683fe578b7f6',1,'libMesh']]],
+  ['was_5fnew',['was_new',['../mesh__communication_8C.html#a212dc75f59d14dc13274f6448fe77056',1,'mesh_communication.C']]],
   ['weight',['weight',['../classlibMesh_1_1FEGenericBase.html#a66e4ad616b155371d104134c1aad6f93',1,'libMesh::FEGenericBase']]],
   ['weight_5ffunctions',['weight_functions',['../classlibMesh_1_1WeightedPatchRecoveryErrorEstimator.html#ade1f2b3833cc6780ee9eaaff512a1f37',1,'libMesh::WeightedPatchRecoveryErrorEstimator']]],
   ['wgtflag',['wgtflag',['../classlibMesh_1_1ParmetisHelper.html#a1f0c0d85aca68b0211546f42e7557f91',1,'libMesh::ParmetisHelper']]],
