@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>libMesh - A C++ Finite Element Library</title>
+  <meta name="author" content="libMesh development team">
+  <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
+</head>
+
+<body>
+  <nav id="fixedbar">
+    <ul id="fixednav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../support.html">About Us</a></li>
+      <li><a href="../publications.html">Publications</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
+      <li><a href="../installation.html">Installation</a></li>
+      <li><a href="../examples.html">Examples</a></li>
+     <li><a href="https://mooseframework.inl.gov/docs/doxygen/libmesh/index.html">Documentation</a></li>
+    </ul>
+  </nav>
+
+  <div id="w">
+    <header id="logo"><a href="../index.html"><span id="logobg">SomeWebsiteLogo</span></a></header>
+
+    <nav id="navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../support.html">About Us</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
+        <li><a href="../installation.html">Installation</a></li>
+        <li><a href="../examples.html">Examples</a></li>
+        <li><a href="https://mooseframework.inl.gov/docs/doxygen/libmesh/index.html">Documentation</a></li>
+      </ul>
+    </nav>
+
+<div id="content">
+
+<br> <h1> Link to the source code for this example: </h1>
+<a href="https://github.com/libMesh/libmesh/tree/master/examples/vector_fe/vector_fe_ex9" target="_blank">Open vector_fe_ex9 in new tab.</a>
+<a name="output"></a> 
+<br><br><br> <h1> The console output of the program: </h1> 
+<pre>
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=true mms=true element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=25
+    n_local_nodes()=25
+  n_elem()=8
+    n_local_elem()=8
+    n_active_elem()=8
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" "global_lm" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SCALAR", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=233
+    n_local_dofs()=233
+    max(n_local_dofs())=233
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=233
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 7.93562
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 89
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 3.098088e+00
+  NL step  1, |residual|_2 = 4.646883e-01
+  NL step  2, |residual|_2 = 1.414200e-03
+  NL step  3, |residual|_2 = 2.625149e-07
+  NL step  4, |residual|_2 = 8.024653e-12
+L2 error for u is: 1.543638e-01
+L2 error for v is: 1.543638e-01
+L2 error for pressure is: 2.879229e-01
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:43:58 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.462304, Active time=0.025665                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       8          0.0000      0.000001    0.0000      0.000001    0.04     0.04     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   SCALAR_dof_indices()             145        0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0001      0.000148    0.0002      0.000188    0.58     0.73     |
+|   create_dof_constraints()         1          0.0001      0.000089    0.0001      0.000089    0.35     0.35     |
+|   distribute_dofs()                1          0.0000      0.000050    0.0001      0.000148    0.19     0.58     |
+|   dof_indices()                    1008       0.0002      0.000000    0.0002      0.000000    0.90     0.94     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000098    0.0001      0.000098    0.38     0.38     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0001      0.000104    0.0001      0.000116    0.41     0.45     |
+|   build_solution_vector()          1          0.0000      0.000007    0.0001      0.000123    0.03     0.48     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0069      0.006878    0.0099      0.009940    26.80    38.73    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000690    0.0007      0.000690    2.69     2.69     |
+|   write_elemsets()                 1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   write_nodesets()                 1          0.0008      0.000827    0.0008      0.000827    3.22     3.22     |
+|   write_sidesets()                 1          0.0015      0.001544    0.0015      0.001544    6.02     6.02     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        912        0.0004      0.000000    0.0004      0.000000    1.49     1.49     |
+|   init_shape_functions()           686        0.0001      0.000000    0.0001      0.000000    0.41     0.41     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             912        0.0003      0.000000    0.0003      0.000000    1.24     1.24     |
+|   compute_face_map()               648        0.0006      0.000001    0.0021      0.000003    2.49     8.17     |
+|   init_face_shape_functions()      218        0.0001      0.000000    0.0001      0.000000    0.36     0.36     |
+|   init_reference_to_physical_map() 686        0.0010      0.000001    0.0010      0.000001    3.78     3.78     |
+|   inverse_map()                    1944       0.0014      0.000001    0.0014      0.000001    5.42     5.42     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000101    0.0001      0.000101    0.39     0.39     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000005    0.0000      0.000005    0.04     0.04     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000054    0.0002      0.000174    0.21     0.68     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000016    0.0101      0.010079    0.06     39.27    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000136    0.0003      0.000310    0.53     1.21     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000010    0.0000      0.000010    0.04     0.04     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          4          0.0007      0.000174    0.0007      0.000174    2.71     2.71     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0028      0.000708    0.0045      0.001130    11.04    17.61    |
+|   residual()                       5          0.0002      0.000041    0.0002      0.000041    0.79     0.79     |
+|   solve()                          1          0.0068      0.006796    0.0145      0.014522    26.48    56.58    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0002      0.000224    0.0147      0.014746    0.87     57.46    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            7203       0.0257                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=true mms=true element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=false mms=true element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=25
+    n_local_nodes()=25
+  n_elem()=8
+    n_local_elem()=8
+    n_active_elem()=8
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=232
+    n_local_dofs()=232
+    max(n_local_dofs())=232
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=232
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 7.2069
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 26
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 3.909782e+00
+  NL step  1, |residual|_2 = 1.058792e+00
+  NL step  2, |residual|_2 = 2.515930e-02
+  NL step  3, |residual|_2 = 9.010844e-05
+  NL step  4, |residual|_2 = 3.816182e-08
+L2 error for u is: 2.318716e-01
+L2 error for v is: 3.545995e-01
+L2 error for pressure is: 6.271178e-01
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:43:59 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.653937, Active time=0.024919                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       8          0.0000      0.000002    0.0000      0.000002    0.05     0.05     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0001      0.000106    0.0001      0.000139    0.43     0.56     |
+|   create_dof_constraints()         1          0.0001      0.000083    0.0001      0.000083    0.33     0.33     |
+|   distribute_dofs()                1          0.0000      0.000049    0.0002      0.000153    0.20     0.61     |
+|   dof_indices()                    888        0.0002      0.000000    0.0002      0.000000    0.85     0.85     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000104    0.0001      0.000104    0.42     0.42     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0001      0.000091    0.0001      0.000097    0.37     0.39     |
+|   build_solution_vector()          1          0.0000      0.000007    0.0001      0.000104    0.03     0.42     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0066      0.006643    0.0095      0.009499    26.66    38.12    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000690    0.0007      0.000690    2.77     2.77     |
+|   write_elemsets()                 1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   write_nodesets()                 1          0.0009      0.000855    0.0009      0.000855    3.43     3.43     |
+|   write_sidesets()                 1          0.0013      0.001310    0.0013      0.001310    5.26     5.26     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        888        0.0003      0.000000    0.0003      0.000000    1.38     1.38     |
+|   init_shape_functions()           683        0.0001      0.000000    0.0001      0.000000    0.42     0.42     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             888        0.0003      0.000000    0.0003      0.000000    1.30     1.30     |
+|   compute_face_map()               648        0.0007      0.000001    0.0021      0.000003    2.86     8.52     |
+|   init_face_shape_functions()      218        0.0001      0.000000    0.0001      0.000000    0.41     0.41     |
+|   init_reference_to_physical_map() 683        0.0010      0.000001    0.0010      0.000001    3.83     3.83     |
+|   inverse_map()                    1944       0.0014      0.000001    0.0014      0.000001    5.43     5.43     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000123    0.0001      0.000123    0.49     0.49     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000005    0.0000      0.000005    0.04     0.04     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0000      0.000050    0.0002      0.000192    0.20     0.77     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000015    0.0096      0.009618    0.06     38.60    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000123    0.0003      0.000315    0.49     1.26     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000009    0.0000      0.000009    0.04     0.04     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          4          0.0007      0.000167    0.0007      0.000167    2.67     2.67     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0028      0.000689    0.0044      0.001112    11.06    17.85    |
+|   residual()                       5          0.0002      0.000047    0.0002      0.000047    0.95     0.95     |
+|   solve()                          1          0.0067      0.006655    0.0143      0.014270    26.71    57.27    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0002      0.000218    0.0145      0.014488    0.87     58.14    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            6884       0.0249                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=false mms=true element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=true mms=false element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=25
+    n_local_nodes()=25
+  n_elem()=8
+    n_local_elem()=8
+    n_active_elem()=8
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" "global_lm" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SCALAR", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=233
+    n_local_dofs()=233
+    max(n_local_dofs())=233
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=233
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 7.93562
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 89
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 1.414214e+00
+  NL step  1, |residual|_2 = 9.949624e-02
+  NL step  2, |residual|_2 = 4.123685e-04
+  NL step  3, |residual|_2 = 2.970405e-08
+  NL step  4, |residual|_2 = 9.096458e-13
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:44:00 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.659342, Active time=0.024974                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       8          0.0000      0.000002    0.0000      0.000002    0.05     0.05     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   SCALAR_dof_indices()             97         0.0000      0.000000    0.0000      0.000000    0.03     0.03     |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0001      0.000123    0.0002      0.000160    0.49     0.64     |
+|   create_dof_constraints()         1          0.0001      0.000085    0.0001      0.000085    0.34     0.34     |
+|   distribute_dofs()                1          0.0001      0.000053    0.0001      0.000148    0.21     0.59     |
+|   dof_indices()                    768        0.0002      0.000000    0.0002      0.000000    0.78     0.82     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000095    0.0001      0.000095    0.38     0.38     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0001      0.000092    0.0001      0.000101    0.37     0.40     |
+|   build_solution_vector()          1          0.0000      0.000006    0.0001      0.000108    0.02     0.43     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0068      0.006826    0.0097      0.009731    27.33    38.96    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000700    0.0007      0.000700    2.80     2.80     |
+|   write_elemsets()                 1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   write_nodesets()                 1          0.0009      0.000851    0.0009      0.000851    3.41     3.41     |
+|   write_sidesets()                 1          0.0014      0.001352    0.0014      0.001352    5.41     5.41     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        792        0.0004      0.000000    0.0004      0.000000    1.45     1.45     |
+|   init_shape_functions()           650        0.0001      0.000000    0.0001      0.000000    0.36     0.36     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             792        0.0002      0.000000    0.0002      0.000000    0.72     0.72     |
+|   compute_face_map()               648        0.0006      0.000001    0.0021      0.000003    2.57     8.54     |
+|   init_face_shape_functions()      218        0.0001      0.000000    0.0001      0.000000    0.39     0.39     |
+|   init_reference_to_physical_map() 650        0.0009      0.000001    0.0009      0.000001    3.73     3.73     |
+|   inverse_map()                    1944       0.0014      0.000001    0.0014      0.000001    5.72     5.72     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000090    0.0001      0.000090    0.36     0.36     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000005    0.0000      0.000005    0.04     0.04     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000061    0.0002      0.000169    0.24     0.68     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000021    0.0099      0.009860    0.08     39.48    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000120    0.0003      0.000290    0.48     1.16     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000009    0.0000      0.000009    0.04     0.04     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          4          0.0007      0.000169    0.0007      0.000169    2.71     2.71     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0028      0.000703    0.0045      0.001137    11.26    18.21    |
+|   residual()                       5          0.0002      0.000043    0.0002      0.000043    0.87     0.87     |
+|   solve()                          1          0.0066      0.006605    0.0144      0.014364    26.45    57.52    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0002      0.000225    0.0146      0.014589    0.90     58.42    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            6603       0.0250                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=true mms=false element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=false mms=false element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=105
+    n_local_nodes()=105
+  n_elem()=40
+    n_local_elem()=40
+    n_active_elem()=40
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=1128
+    n_local_dofs()=1128
+    max(n_local_dofs())=1128
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=1128
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 7.29787
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 26
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 2.449490e+00
+  NL step  1, |residual|_2 = 1.148274e+00
+  NL step  2, |residual|_2 = 4.624940e-02
+  NL step  3, |residual|_2 = 3.055072e-04
+  NL step  4, |residual|_2 = 2.131376e-08
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:44:00 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.689753, Active time=0.053081                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       40         0.0000      0.000001    0.0000      0.000001    0.07     0.07     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0004      0.000363    0.0005      0.000466    0.68     0.88     |
+|   create_dof_constraints()         1          0.0001      0.000149    0.0001      0.000149    0.28     0.28     |
+|   distribute_dofs()                1          0.0001      0.000070    0.0002      0.000221    0.13     0.42     |
+|   dof_indices()                    3360       0.0006      0.000000    0.0006      0.000000    1.19     1.19     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0002      0.000151    0.0002      0.000151    0.28     0.28     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0002      0.000198    0.0002      0.000243    0.37     0.46     |
+|   build_solution_vector()          1          0.0000      0.000007    0.0003      0.000250    0.01     0.47     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0065      0.006521    0.0094      0.009390    12.28    17.69    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000678    0.0007      0.000678    1.28     1.28     |
+|   write_elemsets()                 1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   write_nodesets()                 1          0.0008      0.000842    0.0008      0.000842    1.59     1.59     |
+|   write_sidesets()                 1          0.0013      0.001349    0.0013      0.001349    2.54     2.54     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        3960       0.0016      0.000000    0.0016      0.000000    2.93     2.93     |
+|   init_shape_functions()           3242       0.0002      0.000000    0.0002      0.000000    0.40     0.40     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             3960       0.0008      0.000000    0.0008      0.000000    1.50     1.50     |
+|   compute_face_map()               3240       0.0032      0.000001    0.0103      0.000003    6.01     19.47    |
+|   init_face_shape_functions()      1082       0.0004      0.000000    0.0004      0.000000    0.81     0.81     |
+|   init_reference_to_physical_map() 3242       0.0044      0.000001    0.0044      0.000001    8.23     8.23     |
+|   inverse_map()                    9720       0.0068      0.000001    0.0068      0.000001    12.86    12.86    |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000099    0.0001      0.000099    0.19     0.19     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000006    0.0000      0.000006    0.02     0.02     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000055    0.0002      0.000175    0.10     0.33     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000021    0.0097      0.009662    0.04     18.20    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000131    0.0003      0.000306    0.25     0.58     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000009    0.0000      0.000009    0.02     0.02     |
+|                                                                                                                 |
+| PetscLinearSolver                                                                                               |
+|   solve()                          4          0.0017      0.000413    0.0017      0.000413    3.11     3.11     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0128      0.003204    0.0211      0.005269    24.14    39.71    |
+|   residual()                       5          0.0004      0.000083    0.0004      0.000083    0.78     0.78     |
+|   solve()                          1          0.0092      0.009232    0.0429      0.042860    17.39    80.74    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0003      0.000251    0.0431      0.043111    0.47     81.22    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            31882      0.0531                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt --HDG-static-condensation cavity=false mms=false element_type=TRI6 -ksp_type preonly -HDG_condensed_pc_type lu -HDG_condensed_pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt cavity=true mms=true element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=25
+    n_local_nodes()=25
+  n_elem()=8
+    n_local_elem()=8
+    n_active_elem()=8
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" "global_lm" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SCALAR", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=233
+    n_local_dofs()=233
+    max(n_local_dofs())=233
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=233
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 38.8369
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 233
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 3.098088e+00
+  NL step  1, |residual|_2 = 4.645093e-01
+  NL step  2, |residual|_2 = 1.413147e-03
+  NL step  3, |residual|_2 = 3.478683e-07
+  NL step  4, |residual|_2 = 2.517529e-11
+L2 error for u is: 1.543638e-01
+L2 error for v is: 1.543638e-01
+L2 error for pressure is: 2.879229e-01
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:44:01 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.654583, Active time=0.025546                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       8          0.0000      0.000002    0.0000      0.000002    0.05     0.05     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   SCALAR_dof_indices()             136        0.0000      0.000000    0.0000      0.000000    0.04     0.04     |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0003      0.000331    0.0004      0.000370    1.30     1.45     |
+|   create_dof_constraints()         1          0.0001      0.000085    0.0001      0.000085    0.33     0.33     |
+|   distribute_dofs()                1          0.0001      0.000051    0.0002      0.000169    0.20     0.66     |
+|   dof_indices()                    944        0.0002      0.000000    0.0002      0.000000    0.65     0.71     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000118    0.0001      0.000118    0.46     0.46     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0001      0.000110    0.0001      0.000120    0.43     0.47     |
+|   build_solution_vector()          1          0.0000      0.000006    0.0001      0.000126    0.02     0.49     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0067      0.006683    0.0096      0.009613    26.16    37.63    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000702    0.0007      0.000702    2.75     2.75     |
+|   write_elemsets()                 1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   write_nodesets()                 1          0.0009      0.000877    0.0009      0.000877    3.43     3.43     |
+|   write_sidesets()                 1          0.0014      0.001351    0.0014      0.001351    5.29     5.29     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        912        0.0004      0.000000    0.0004      0.000000    1.48     1.48     |
+|   init_shape_functions()           686        0.0001      0.000000    0.0001      0.000000    0.40     0.40     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             912        0.0003      0.000000    0.0003      0.000000    1.25     1.25     |
+|   compute_face_map()               648        0.0007      0.000001    0.0021      0.000003    2.59     8.32     |
+|   init_face_shape_functions()      218        0.0001      0.000001    0.0001      0.000001    0.44     0.44     |
+|   init_reference_to_physical_map() 686        0.0010      0.000001    0.0010      0.000001    3.76     3.76     |
+|   inverse_map()                    1944       0.0014      0.000001    0.0014      0.000001    5.47     5.47     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000090    0.0001      0.000090    0.35     0.35     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000005    0.0000      0.000005    0.04     0.04     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000052    0.0002      0.000160    0.20     0.63     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000018    0.0098      0.009757    0.07     38.19    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000118    0.0003      0.000278    0.46     1.09     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000009    0.0000      0.000009    0.04     0.04     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0021      0.000530    0.0038      0.000958    8.30     15.00    |
+|   residual()                       5          0.0003      0.000061    0.0003      0.000061    1.19     1.19     |
+|   solve()                          1          0.0074      0.007407    0.0139      0.013855    28.99    54.24    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0010      0.000987    0.0148      0.014842    3.86     58.10    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            7126       0.0255                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt cavity=true mms=true element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt cavity=false mms=true element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=25
+    n_local_nodes()=25
+  n_elem()=8
+    n_local_elem()=8
+    n_active_elem()=8
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=232
+    n_local_dofs()=232
+    max(n_local_dofs())=232
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=232
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 37
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 62
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 3.909782e+00
+  NL step  1, |residual|_2 = 1.058987e+00
+  NL step  2, |residual|_2 = 2.516098e-02
+  NL step  3, |residual|_2 = 9.010146e-05
+  NL step  4, |residual|_2 = 1.877754e-09
+L2 error for u is: 2.318716e-01
+L2 error for v is: 3.545995e-01
+L2 error for pressure is: 6.271178e-01
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:44:02 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.660078, Active time=0.026869                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       8          0.0000      0.000001    0.0000      0.000001    0.04     0.04     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0003      0.000286    0.0003      0.000312    1.06     1.16     |
+|   create_dof_constraints()         1          0.0001      0.000085    0.0001      0.000085    0.32     0.32     |
+|   distribute_dofs()                1          0.0001      0.000052    0.0001      0.000144    0.19     0.54     |
+|   dof_indices()                    832        0.0002      0.000000    0.0002      0.000000    0.64     0.64     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000092    0.0001      0.000092    0.34     0.34     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0001      0.000098    0.0001      0.000107    0.36     0.40     |
+|   build_solution_vector()          1          0.0000      0.000006    0.0001      0.000113    0.02     0.42     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0064      0.006442    0.0093      0.009322    23.98    34.69    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000701    0.0007      0.000701    2.61     2.61     |
+|   write_elemsets()                 1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   write_nodesets()                 1          0.0008      0.000850    0.0008      0.000850    3.16     3.16     |
+|   write_sidesets()                 1          0.0013      0.001328    0.0013      0.001328    4.94     4.94     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        888        0.0004      0.000000    0.0004      0.000000    1.38     1.38     |
+|   init_shape_functions()           683        0.0001      0.000000    0.0001      0.000000    0.44     0.44     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             888        0.0003      0.000000    0.0003      0.000000    1.14     1.14     |
+|   compute_face_map()               648        0.0007      0.000001    0.0024      0.000004    2.46     8.82     |
+|   init_face_shape_functions()      218        0.0001      0.000000    0.0001      0.000000    0.28     0.28     |
+|   init_reference_to_physical_map() 683        0.0009      0.000001    0.0009      0.000001    3.47     3.47     |
+|   inverse_map()                    1944       0.0016      0.000001    0.0016      0.000001    6.13     6.13     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000090    0.0001      0.000090    0.33     0.33     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000005    0.0000      0.000005    0.03     0.03     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000062    0.0002      0.000170    0.23     0.63     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000017    0.0095      0.009452    0.06     35.18    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000115    0.0003      0.000285    0.43     1.06     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000009    0.0000      0.000009    0.03     0.03     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0022      0.000545    0.0041      0.001031    8.11     15.34    |
+|   residual()                       5          0.0003      0.000063    0.0003      0.000063    1.18     1.18     |
+|   solve()                          1          0.0089      0.008871    0.0156      0.015564    33.02    57.93    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0010      0.000962    0.0165      0.016526    3.58     61.51    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            6824       0.0269                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt cavity=false mms=true element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt cavity=true mms=false element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=25
+    n_local_nodes()=25
+  n_elem()=8
+    n_local_elem()=8
+    n_active_elem()=8
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" "global_lm" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SCALAR", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=233
+    n_local_dofs()=233
+    max(n_local_dofs())=233
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=233
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 38.8369
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 233
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 1.414214e+00
+  NL step  1, |residual|_2 = 9.962448e-02
+  NL step  2, |residual|_2 = 4.126690e-04
+  NL step  3, |residual|_2 = 6.844187e-08
+  NL step  4, |residual|_2 = 2.715107e-12
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:44:02 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.657841, Active time=0.024615                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       8          0.0000      0.000002    0.0000      0.000002    0.05     0.05     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   SCALAR_dof_indices()             88         0.0000      0.000000    0.0000      0.000000    0.03     0.03     |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0003      0.000323    0.0004      0.000356    1.31     1.45     |
+|   create_dof_constraints()         1          0.0001      0.000085    0.0001      0.000085    0.35     0.35     |
+|   distribute_dofs()                1          0.0000      0.000050    0.0001      0.000147    0.20     0.60     |
+|   dof_indices()                    704        0.0001      0.000000    0.0001      0.000000    0.50     0.54     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000097    0.0001      0.000097    0.39     0.39     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0001      0.000088    0.0001      0.000101    0.36     0.41     |
+|   build_solution_vector()          1          0.0000      0.000007    0.0001      0.000108    0.03     0.44     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0066      0.006628    0.0096      0.009555    26.93    38.82    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000710    0.0007      0.000710    2.88     2.88     |
+|   write_elemsets()                 1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   write_nodesets()                 1          0.0009      0.000864    0.0009      0.000864    3.51     3.51     |
+|   write_sidesets()                 1          0.0014      0.001352    0.0014      0.001352    5.49     5.49     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        792        0.0004      0.000000    0.0004      0.000000    1.50     1.50     |
+|   init_shape_functions()           650        0.0001      0.000000    0.0001      0.000000    0.33     0.33     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             792        0.0002      0.000000    0.0002      0.000000    0.65     0.65     |
+|   compute_face_map()               648        0.0006      0.000001    0.0021      0.000003    2.63     8.49     |
+|   init_face_shape_functions()      218        0.0001      0.000000    0.0001      0.000000    0.37     0.37     |
+|   init_reference_to_physical_map() 650        0.0009      0.000001    0.0009      0.000001    3.78     3.78     |
+|   inverse_map()                    1944       0.0014      0.000001    0.0014      0.000001    5.61     5.61     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000087    0.0001      0.000087    0.35     0.35     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000005    0.0000      0.000005    0.04     0.04     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000052    0.0002      0.000156    0.21     0.63     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000022    0.0097      0.009685    0.09     39.35    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000127    0.0003      0.000283    0.52     1.15     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000008    0.0000      0.000008    0.03     0.03     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       4          0.0021      0.000521    0.0038      0.000945    8.47     15.36    |
+|   residual()                       5          0.0003      0.000052    0.0003      0.000052    1.05     1.05     |
+|   solve()                          1          0.0070      0.007000    0.0133      0.013303    28.44    54.04    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0010      0.000958    0.0143      0.014261    3.89     57.94    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            6526       0.0246                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt cavity=true mms=false element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+***************************************************************
+* Running Example vector_fe_ex9:
+*   ./example-opt cavity=false mms=false element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+ 
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={2}
+  supported_nodal_order()=2
+  spatial_dimension()=2
+  n_nodes()=105
+    n_local_nodes()=105
+  n_elem()=40
+    n_local_elem()=40
+    n_active_elem()=40
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "HDG"
+    Type "NonlinearImplicit"
+    Variables={ "qu" "qv" } { "vel_x" "vel_y" } { "lm_u" "lm_v" } "pressure" 
+    Finite Element Types="L2_LAGRANGE_VEC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" "SIDE_HIERARCHIC", "JACOBI_20_00" "L2_LAGRANGE", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" "CARTESIAN" "CARTESIAN" "CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" "FIRST", "THIRD" 
+    n_dofs()=1128
+    n_local_dofs()=1128
+    max(n_local_dofs())=1128
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=1128
+    n_vectors()=1
+    n_matrices()=1
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 37.9362
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 62
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  NL step  0, |residual|_2 = 2.449490e+00
+  NL step  1, |residual|_2 = 1.148409e+00
+  NL step  2, |residual|_2 = 4.625007e-02
+  NL step  3, |residual|_2 = 3.054755e-04
+  NL step  4, |residual|_2 = 4.028384e-08
+  NL step  5, |residual|_2 = 2.270148e-12
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 15:44:03 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.691503, Active time=0.061549                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       40         0.0000      0.000001    0.0000      0.000001    0.07     0.07     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0012      0.001231    0.0013      0.001334    2.00     2.17     |
+|   create_dof_constraints()         1          0.0002      0.000151    0.0002      0.000151    0.25     0.25     |
+|   distribute_dofs()                1          0.0001      0.000070    0.0002      0.000211    0.11     0.34     |
+|   dof_indices()                    3640       0.0005      0.000000    0.0005      0.000000    0.81     0.81     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   reinit()                         1          0.0001      0.000141    0.0001      0.000141    0.23     0.23     |
+|                                                                                                                 |
+| EquationSystems                                                                                                 |
+|   build_parallel_solution_vector() 1          0.0002      0.000215    0.0003      0.000255    0.35     0.41     |
+|   build_solution_vector()          1          0.0000      0.000008    0.0003      0.000263    0.01     0.43     |
+|                                                                                                                 |
+| ExodusII_IO                                                                                                     |
+|   write_nodal_data()               1          0.0065      0.006486    0.0097      0.009724    10.54    15.80    |
+|                                                                                                                 |
+| ExodusII_IO_Helper                                                                                              |
+|   write_elements()                 1          0.0007      0.000720    0.0007      0.000720    1.17     1.17     |
+|   write_elemsets()                 1          0.0000      0.000001    0.0000      0.000001    0.00     0.00     |
+|   write_nodesets()                 1          0.0012      0.001158    0.0012      0.001158    1.88     1.88     |
+|   write_sidesets()                 1          0.0014      0.001359    0.0014      0.001359    2.21     2.21     |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        4840       0.0019      0.000000    0.0019      0.000000    3.09     3.09     |
+|   init_shape_functions()           3962       0.0002      0.000000    0.0002      0.000000    0.38     0.38     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             4840       0.0010      0.000000    0.0010      0.000000    1.60     1.60     |
+|   compute_face_map()               3960       0.0041      0.000001    0.0127      0.000003    6.66     20.61    |
+|   init_face_shape_functions()      1322       0.0005      0.000000    0.0005      0.000000    0.84     0.84     |
+|   init_reference_to_physical_map() 3962       0.0054      0.000001    0.0054      0.000001    8.73     8.73     |
+|   inverse_map()                    11880      0.0082      0.000001    0.0082      0.000001    13.32    13.32    |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000115    0.0001      0.000115    0.19     0.19     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000010    0.0000      0.000010    0.03     0.03     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000057    0.0002      0.000203    0.09     0.33     |
+|                                                                                                                 |
+| MeshOutput                                                                                                      |
+|   write_equation_systems()         1          0.0000      0.000021    0.0100      0.010008    0.03     16.26    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000140    0.0003      0.000343    0.23     0.56     |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000009    0.0000      0.000009    0.01     0.01     |
+|                                                                                                                 |
+| PetscNonlinearSolver                                                                                            |
+|   jacobian()                       5          0.0123      0.002463    0.0227      0.004537    20.01    36.86    |
+|   residual()                       6          0.0005      0.000090    0.0005      0.000090    0.87     0.87     |
+|   solve()                          1          0.0138      0.013833    0.0496      0.049616    22.47    80.61    |
+|                                                                                                                 |
+| System                                                                                                          |
+|   solve()                          1          0.0011      0.001110    0.0507      0.050726    1.80     82.42    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            38480      0.0615                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example vector_fe_ex9:
+*   ./example-opt cavity=false mms=false element_type=TRI6 -pc_type lu -pc_factor_shift_type NONZERO -snes_linesearch_type basic 
+***************************************************************
+</pre>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(window).on('scroll',function() {
+    var scrolltop = $(this).scrollTop();
+
+    if(scrolltop >= 215) {
+      $('#fixedbar').fadeIn(250);
+    }
+
+    else if(scrolltop <= 210) {
+      $('#fixedbar').fadeOut(250);
+    }
+  });
+});
+</script>
+
+<!-- Google Analytics stuff -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24978333-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
