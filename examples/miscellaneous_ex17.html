@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>libMesh - A C++ Finite Element Library</title>
+  <meta name="author" content="libMesh development team">
+  <link rel="stylesheet" type="text/css" media="all" href="../styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="../doxygen_stylesheet.css">
+</head>
+
+<body>
+  <nav id="fixedbar">
+    <ul id="fixednav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../support.html">About Us</a></li>
+      <li><a href="../publications.html">Publications</a></li>
+      <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
+      <li><a href="../installation.html">Installation</a></li>
+      <li><a href="../examples.html">Examples</a></li>
+     <li><a href="https://mooseframework.inl.gov/docs/doxygen/libmesh/index.html">Documentation</a></li>
+    </ul>
+  </nav>
+
+  <div id="w">
+    <header id="logo"><a href="../index.html"><span id="logobg">SomeWebsiteLogo</span></a></header>
+
+    <nav id="navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../support.html">About Us</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="https://github.com/libMesh/libmesh/graphs/contributors">Developers</a></li>
+        <li><a href="../installation.html">Installation</a></li>
+        <li><a href="../examples.html">Examples</a></li>
+        <li><a href="https://mooseframework.inl.gov/docs/doxygen/libmesh/index.html">Documentation</a></li>
+      </ul>
+    </nav>
+
+<div id="content">
+
+<br> <h1> Link to the source code for this example: </h1>
+<a href="https://github.com/libMesh/libmesh/tree/master/examples/miscellaneous/miscellaneous_ex17" target="_blank">Open miscellaneous_ex17 in new tab.</a>
+<a name="output"></a> 
+<br><br><br> <h1> The console output of the program: </h1> 
+<pre>
+***************************************************************
+* Running Example miscellaneous_ex17:
+*   ./example-opt  
+***************************************************************
+ 
+Running /home/jwpeterson/software/libmesh_build/opt_real/examples/miscellaneous/miscellaneous_ex17/.libs/example-opt
+
+ Mesh Information:
+  elem_dimensions()={2}
+  elem_default_orders()={1}
+  supported_nodal_order()=1
+  spatial_dimension()=2
+  n_nodes()=9
+    n_local_nodes()=9
+  n_elem()=4
+    n_local_elem()=4
+    n_active_elem()=4
+  n_subdomains()=1
+  n_elemsets()=0
+  n_partitions()=1
+  n_processors()=1
+  n_threads()=1
+  processor_id()=0
+  is_prepared()=true
+  is_replicated()=true
+
+ EquationSystems
+  n_systems()=1
+   System #0, "Poisson"
+    Type "LinearImplicit"
+    Variables="u" 
+    Finite Element Types="LAGRANGE", "JACOBI_20_00" 
+    Infinite Element Mapping="CARTESIAN" 
+    Approximation Orders="FIRST", "THIRD" 
+    n_dofs()=9
+    n_local_dofs()=9
+    max(n_local_dofs())=9
+    n_constrained_dofs()=0
+    n_local_constrained_dofs()=0
+    max(local unconstrained dofs)=9
+    n_vectors()=1
+    n_matrices()=2
+    DofMap Sparsity
+      Average  On-Processor Bandwidth <= 5.44444
+      Average Off-Processor Bandwidth <= 0
+      Maximum  On-Processor Bandwidth <= 9
+      Maximum Off-Processor Bandwidth <= 0
+    DofMap Constraints
+      Number of DoF Constraints = 0
+      Number of Node Constraints = 0
+
+  0 KSP Residual norm 1.688435532300e+00 
+  1 KSP Residual norm 4.775853068521e-03 
+  2 KSP Residual norm 8.773680887473e-05 
+  3 KSP Residual norm 2.605740036645e-06 
+
+ -----------------------------------------------------------------------------------
+| Time:           Tue Jan 21 16:01:28 2025                                          |
+| OS:             Linux                                                             |
+| HostName:       dell                                                              |
+| OS Release:     6.8.0-51-generic                                                  |
+| OS Version:     #52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2  |
+| Machine:        x86_64                                                            |
+| Username:       jwpeterson                                                        |
+| Configuration:  /home/jwpeterson/software/libmesh-src/configure  'INSTALL=/usr/bin/install -C'|
+|  '--enable-everything'                                                            |
+|  '--enable-slepc'                                                                 |
+|  '--with-metis=PETSc'                                                             |
+|  '--with-subdomain-id-bytes=4'                                                    |
+|  '--with-boundary-id-bytes=4'                                                     |
+|  '--disable-glpk'                                                                 |
+|  '--enable-unique-id'                                                             |
+|  '--with-unique-id-bytes=4'                                                       |
+|  '--enable-hdf5'                                                                  |
+|  '--enable-hdf5-required'                                                         |
+|  '--with-hdf5=/home/jwpeterson/software/hdf5_dummy'                               |
+|  '--with-nlopt-include=/home/jwpeterson/software/libmesh_install/nlopt/include'   |
+|  '--with-nlopt-lib=/home/jwpeterson/software/libmesh_install/nlopt/lib'           |
+|  '--with-capnproto=/home/jwpeterson/software/libmesh_install/capnp'               |
+|  '--enable-capnp-required'                                                        |
+|  '--disable-parmetis'                                                             |
+|  '--enable-ifem'                                                                  |
+|  '--disable-gmv'                                                                  |
+|  '--enable-petsc-required'                                                        |
+|  '--enable-nanoflann-pointlocator'                                                |
+|  '--prefix=/home/jwpeterson/software/libmesh_install/opt_real/libmesh'            |
+|  '--with-methods=opt'                                                             |
+|  '--enable-shared'                                                                |
+|  '--disable-warnings'                                                             |
+|  'PETSC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/petsc'             |
+|  'SLEPC_DIR=/home/jwpeterson/software/libmesh_install/opt_real/slepc'             |
+ -----------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------
+| libMesh Performance: Alive time=0.439271, Active time=0.000856                                                  |
+ -----------------------------------------------------------------------------------------------------------------
+| Event                              nCalls     Total Time  Avg Time    Total Time  Avg Time    % of Active Time  |
+|                                               w/o Sub     w/o Sub     With Sub    With Sub    w/o S    With S   |
+|-----------------------------------------------------------------------------------------------------------------|
+|                                                                                                                 |
+|                                                                                                                 |
+| DefaultCoupling                                                                                                 |
+|   operator()                       4          0.0000      0.000002    0.0000      0.000002    1.05     1.05     |
+|                                                                                                                 |
+| DofMap                                                                                                          |
+|   add_neighbors_to_send_list()     1          0.0000      0.000000    0.0000      0.000000    0.00     0.00     |
+|   build_sparsity()                 1          0.0001      0.000054    0.0001      0.000066    6.31     7.71     |
+|   create_dof_constraints()         1          0.0000      0.000050    0.0000      0.000050    5.84     5.84     |
+|   distribute_dofs()                1          0.0000      0.000028    0.0001      0.000132    3.27     15.42    |
+|   dof_indices()                    8          0.0000      0.000001    0.0000      0.000001    0.58     0.58     |
+|   prepare_send_list()              2          0.0000      0.000000    0.0000      0.000000    0.12     0.12     |
+|   reinit()                         1          0.0001      0.000104    0.0001      0.000104    12.15    12.15    |
+|                                                                                                                 |
+| FE                                                                                                              |
+|   compute_shape_functions()        12         0.0000      0.000001    0.0000      0.000001    1.17     1.17     |
+|   init_shape_functions()           9          0.0000      0.000002    0.0000      0.000002    2.57     2.57     |
+|                                                                                                                 |
+| FEMap                                                                                                           |
+|   compute_affine_map()             12         0.0000      0.000001    0.0000      0.000001    0.93     0.93     |
+|   compute_face_map()               8          0.0000      0.000002    0.0000      0.000005    1.64     4.91     |
+|   init_face_shape_functions()      1          0.0000      0.000007    0.0000      0.000007    0.82     0.82     |
+|   init_reference_to_physical_map() 9          0.0001      0.000007    0.0001      0.000007    7.48     7.48     |
+|   inverse_map()                    24         0.0000      0.000001    0.0000      0.000001    3.27     3.27     |
+|                                                                                                                 |
+| Mesh                                                                                                            |
+|   find_neighbors()                 1          0.0001      0.000083    0.0001      0.000083    9.70     9.70     |
+|   renumber_nodes_and_elem()        2          0.0000      0.000002    0.0000      0.000002    0.35     0.35     |
+|                                                                                                                 |
+| MeshBase                                                                                                        |
+|   prepare_for_use()                1          0.0001      0.000061    0.0002      0.000155    7.13     18.11    |
+|                                                                                                                 |
+| MeshTools::Generation                                                                                           |
+|   build_cube()                     1          0.0001      0.000116    0.0003      0.000271    13.55    31.66    |
+|                                                                                                                 |
+| Partitioner                                                                                                     |
+|   single_partition_range()         1          0.0000      0.000008    0.0000      0.000008    0.93     0.93     |
+|                                                                                                                 |
+| System                                                                                                          |
+|   assemble()                       1          0.0002      0.000181    0.0003      0.000345    21.14    40.30    |
+ -----------------------------------------------------------------------------------------------------------------
+| Totals:                            101        0.0009                                          100.00            |
+ -----------------------------------------------------------------------------------------------------------------
+
+ 
+***************************************************************
+* Done Running Example miscellaneous_ex17:
+*   ./example-opt  
+***************************************************************
+</pre>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(window).on('scroll',function() {
+    var scrolltop = $(this).scrollTop();
+
+    if(scrolltop >= 215) {
+      $('#fixedbar').fadeIn(250);
+    }
+
+    else if(scrolltop <= 210) {
+      $('#fixedbar').fadeOut(250);
+    }
+  });
+});
+</script>
+
+<!-- Google Analytics stuff -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24978333-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
